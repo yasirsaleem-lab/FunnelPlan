@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "funnelplan"
+version = "0.3.0"
+description = "FunnelPlan: budget aware retrieval planning and TSR benchmarking for retrieval augmented agents"
+readme = "README.md"
+authors = [{ name = "FunnelPlan authors", email = "noreply@example.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    # Core. Install the CUDA build of torch first (see README, section 3).
+    "torch>=2.1",
+    "transformers>=4.51,<5.0",        # Qwen3 readers and rerankers need >= 4.51
+    "accelerate>=0.26",
+    "bitsandbytes>=0.43",             # int8 Qwen3 14B reader; native Windows wheels from 0.43
+    "huggingface-hub>=0.23",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pandas>=2.0",
+    "openpyxl>=3.1",                  # reads the audit rater sheets (.xlsx) in 08
+    "tqdm>=4.65",
+    "psutil>=5.9",                    # RAM numbers in latency profiling
+
+    # Retrievers
+    "sentence-transformers>=2.7",     # prompt_name support (Stella s2p_query)
+    "bm25s>=0.2",                     # index save and load
+    "datasets>=2.14",
+
+    # Prediction and evaluation
+    "scikit-learn>=1.2",
+    "xgboost>=1.7",
+    "joblib>=1.2",
+    "matplotlib>=3.7",
+
+    # Configuration
+    "pydantic>=2.0",
+    "pydantic-settings>=2.0",
+]
+
+[project.optional-dependencies]
+download = ["modelscope>=1.15"]       # gated models (Llama 3.1) from ModelScope
+dev = ["pytest>=7.0", "ruff", "black"]
+
+[tool.setuptools]
+py-modules = ["config", "logutil"]
+packages = [
+    "data",
+    "retrievers",
+    "retrievers.sparse",
+    "retrievers.dense",
+    "retrievers.hybrid",
+    "retrievers.rerankers",
+    "cost_model",
+    "tsr",
+    "planner",
+    "evaluation",
+]
+include-package-data = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+exclude = ["_archive_v2", "_backup_20261002", "data", "results", "results_full"]

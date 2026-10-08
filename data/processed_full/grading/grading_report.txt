@@ -1,0 +1,63 @@
+Judge scores: 5485 answers; low yes/no mass (<0.5) on 0
+rater 1: human. rater 2: HUMAN (audit_rater2.xlsx)
+rater 1: 200 of 200 labelled
+rater 2: 200 of 200 labelled
+Cohen's kappa rater 1 vs rater 2: 0.837 (raw agreement 0.920)
+Items both raters agree on: 184; disagreements listed in grading/audit_disagreements.csv
+
+Agreement with the human label (items both raters agree on):
+  label_strict     n=184 accuracy 0.674 [0.592, 0.739] kappa 0.297
+  label_f1_07      n=184 accuracy 0.745 [0.674, 0.810] kappa 0.483
+  label_lenient    n=184 accuracy 0.668 [0.603, 0.734] kappa 0.373
+  label_proposed   n=184 accuracy 0.712 [0.641, 0.777] kappa 0.405
+  judge            n=145 accuracy 0.883 [0.828, 0.931] kappa 0.751
+  final            n=184 accuracy 0.886 [0.837, 0.929] kappa 0.764
+
+By stratum (final label vs human):
+  contains_long  n= 28 accuracy 0.786
+  f1_02_04       n= 38 accuracy 0.921
+  f1_04_07       n= 42 accuracy 0.952
+  f1_07_up       n= 37 accuracy 0.838
+  f1_below_02    n= 19 accuracy 0.895
+  strict_short   n= 20 accuracy 0.900
+
+By reader (final label vs human; checks judge self preference on qwen3-14b):
+  llama3.1-8b    n= 86 accuracy 0.872
+  qwen2.5-7b     n= 62 accuracy 0.887
+  qwen3-14b      n= 36 accuracy 0.917
+
+Human only reference (rater 1, all items): final n=200 accuracy 0.875 [0.825, 0.920] kappa 0.736
+  false positives (final 1, human 0): 9; false negatives (final 0, human 1): 16; success rate final 0.365 vs human 0.400
+  By reader (FP = judge too lenient; self preference shows as extra FP on qwen3-14b):
+    llama3.1-8b    n= 94 acc 0.840 FP 7 FN 8
+    qwen2.5-7b     n= 68 acc 0.897 FP 1 FN 6
+    qwen3-14b      n= 38 acc 0.921 FP 1 FN 2
+  Judge threshold sweep on ambiguous items (n=160), human only:
+    t=0.3 acc 0.881 FP 7 FN 12
+    t=0.4 acc 0.875 FP 7 FN 13
+    t=0.5 acc 0.875 FP 7 FN 13
+    t=0.6 acc 0.869 FP 7 FN 14
+    t=0.7 acc 0.869 FP 6 FN 15
+    t=0.8 acc 0.869 FP 6 FN 15
+
+== llama3.1-8b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.324        0.330          0.368        0.302
+hotpotqa                0.413        0.451          0.511        0.485
+musique                 0.137        0.145          0.222        0.162
+nq                      0.562        0.590          0.651        0.606
+== qwen2.5-7b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.332        0.340          0.391        0.345
+hotpotqa                0.377        0.414          0.493        0.453
+musique                 0.157        0.168          0.282        0.199
+nq                      0.553        0.581          0.658        0.616
+== qwen3-14b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.359        0.366          0.411        0.367
+hotpotqa                0.426        0.463          0.536        0.500
+musique                 0.178        0.190          0.288        0.210
+nq                      0.578        0.604          0.679        0.643

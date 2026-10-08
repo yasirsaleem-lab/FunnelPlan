@@ -1,0 +1,29 @@
+\begin{table}[t]
+\centering
+\caption{Headroom. Success (final label) and mean latency (s). Oracle: per query, the cheapest plan that answers correctly. Gate oracle: a perfect choice between closed book and the best fixed plan. Best gain: the largest held out gain of any adaptive method (Table~\ref{tab:main}).}
+\label{tab:headroom}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{llrrrrrrr}
+\toprule
+Reader & Data & CB & \multicolumn{2}{c}{Best fixed} & \multicolumn{2}{c}{Oracle} & Gate or. & Best gain \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & & succ. & succ. & s & succ. & s & succ. & \\
+\midrule
+Qwen2.5 7B & NQ & 0.284 & 0.730 & 0.51 & 0.922 & 0.30 & 0.788 & $-$0.003 \\
+ & HotpotQA & 0.226 & 0.530 & 1.41 & 0.758 & 0.32 & 0.568 & +0.012 \\
+ & 2Wiki & 0.258 & 0.406 & 1.37 & 0.640 & 0.27 & 0.476 & +0.018 \\
+ & MuSiQue & 0.056 & 0.262 & 0.66 & 0.548 & 0.30 & 0.280 & +0.041 \\
+\midrule
+Llama 3.1 8B & NQ & 0.418 & 0.698 & 0.57 & 0.910 & 0.38 & 0.756 & +0.003 \\
+ & HotpotQA & 0.280 & 0.588 & 1.71 & 0.778 & 0.41 & 0.622 & +0.004 \\
+ & 2Wiki & 0.154 & 0.406 & 2.20 & 0.638 & 0.41 & 0.468 & +0.030 \\
+ & MuSiQue & 0.062 & 0.228 & 1.87 & 0.498 & 0.53 & 0.256 & +0.017 \\
+\midrule
+Qwen3 14B & NQ & 0.334 & 0.776 & 2.36 & 0.914 & 1.74 & 0.810 & $-$0.000 \\
+ & HotpotQA & 0.266 & 0.596 & 2.62 & 0.772 & 1.47 & 0.630 & +0.009 \\
+ & 2Wiki & 0.306 & 0.434 & 3.70 & 0.654 & 1.31 & 0.516 & +0.030 \\
+ & MuSiQue & 0.076 & 0.286 & 3.71 & 0.538 & 1.64 & 0.320 & +0.005 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,13 @@
+Prompt ablation on nq: strict prompt (main labels) vs soft prompt, same queries and passages
+
+== qwen2.5-7b: closed book strict = 0.218
+  bm25@1: strict prompt 0.316 | soft prompt 0.328 | soft minus strict +0.012 [-0.008, +0.032] | known answers lost: strict 54, soft 46 | vs closed book: strict +0.098, soft +0.110
+  bm25@3: strict prompt 0.368 | soft prompt 0.370 | soft minus strict +0.002 [-0.006, +0.012] | known answers lost: strict 52, soft 51 | vs closed book: strict +0.150, soft +0.152
+  bge_m3@1: strict prompt 0.542 | soft prompt 0.554 | soft minus strict +0.012 [+0.002, +0.024] | known answers lost: strict 29, soft 27 | vs closed book: strict +0.324, soft +0.336
+  bge_m3@3: strict prompt 0.638 | soft prompt 0.646 | soft minus strict +0.008 [-0.006, +0.022] | known answers lost: strict 22, soft 24 | vs closed book: strict +0.420, soft +0.428
+
+== llama3.1-8b: closed book strict = 0.350
+  bm25@1: strict prompt 0.306 | soft prompt 0.386 | soft minus strict +0.080 [+0.052, +0.110] | known answers lost: strict 86, soft 54 | vs closed book: strict -0.044, soft +0.036
+  bm25@3: strict prompt 0.374 | soft prompt 0.422 | soft minus strict +0.048 [+0.026, +0.072] | known answers lost: strict 78, soft 60 | vs closed book: strict +0.024, soft +0.072
+  bge_m3@1: strict prompt 0.536 | soft prompt 0.540 | soft minus strict +0.004 [-0.016, +0.024] | known answers lost: strict 44, soft 37 | vs closed book: strict +0.186, soft +0.190
+  bge_m3@3: strict prompt 0.610 | soft prompt 0.590 | soft minus strict -0.020 [-0.042, +0.002] | known answers lost: strict 35, soft 34 | vs closed book: strict +0.260, soft +0.240

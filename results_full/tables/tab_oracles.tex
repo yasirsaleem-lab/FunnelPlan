@@ -1,0 +1,27 @@
+\begin{table}[t]
+\centering
+\caption{Held out headroom (success). Choices are made on the training folds and scored on the held out fold (5 folds, 5 seeds). Gate: perfect choice between closed book and the best plan. Oracle $K$: per query, the cheapest correct plan among the $K$ plans that jointly answer most training queries.}
+\label{tab:oracles}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{llrrrrrr}
+\toprule
+Reader & Data & Best & Gate & Or.~2 & Or.~3 & Or.~5 & Or.~all \\
+\midrule
+Qwen2.5 7B & NQ & 0.730 & 0.788 & 0.794 & 0.829 & 0.878 & 0.922 \\
+ & HotpotQA & 0.514 & 0.556 & 0.612 & 0.664 & 0.703 & 0.758 \\
+ & 2Wiki & 0.392 & 0.468 & 0.466 & 0.512 & 0.573 & 0.640 \\
+ & MuSiQue & 0.242 & 0.262 & 0.329 & 0.387 & 0.436 & 0.548 \\
+\midrule
+Llama 3.1 8B & NQ & 0.682 & 0.746 & 0.761 & 0.794 & 0.832 & 0.910 \\
+ & HotpotQA & 0.588 & 0.622 & 0.652 & 0.688 & 0.716 & 0.778 \\
+ & 2Wiki & 0.406 & 0.468 & 0.466 & 0.500 & 0.552 & 0.638 \\
+ & MuSiQue & 0.216 & 0.244 & 0.275 & 0.316 & 0.373 & 0.498 \\
+\midrule
+Qwen3 14B & NQ & 0.768 & 0.802 & 0.816 & 0.842 & 0.864 & 0.914 \\
+ & HotpotQA & 0.586 & 0.622 & 0.644 & 0.678 & 0.724 & 0.772 \\
+ & 2Wiki & 0.414 & 0.507 & 0.494 & 0.552 & 0.589 & 0.654 \\
+ & MuSiQue & 0.263 & 0.298 & 0.357 & 0.404 & 0.449 & 0.538 \\
+\bottomrule
+\end{tabular}
+\end{table}

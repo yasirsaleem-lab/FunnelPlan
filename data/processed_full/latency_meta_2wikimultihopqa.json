@@ -1,0 +1,86 @@
+{
+  "bm25": {
+    "n_passages": 413024,
+    "index_load_s": 0.8,
+    "peak_vram_gb": 0.0,
+    "rss_gb_after": 1.52,
+    "dense_on_gpu": null,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:14:34"
+  },
+  "splade_v3": {
+    "n_passages": 413024,
+    "index_load_s": 2.8,
+    "peak_vram_gb": 0.45,
+    "rss_gb_after": 2.02,
+    "dense_on_gpu": null,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:17:30"
+  },
+  "bge_m3": {
+    "n_passages": 413024,
+    "index_load_s": 4.4,
+    "peak_vram_gb": 2.59,
+    "rss_gb_after": 2.66,
+    "dense_on_gpu": true,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:18:21"
+  },
+  "stella_1_5b": {
+    "n_passages": 413024,
+    "index_load_s": 7.5,
+    "peak_vram_gb": 9.69,
+    "rss_gb_after": 2.5,
+    "dense_on_gpu": true,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:19:39"
+  },
+  "bge_bm25_rrf": {
+    "n_passages": 413024,
+    "index_load_s": 4.8,
+    "peak_vram_gb": 2.59,
+    "rss_gb_after": 2.87,
+    "dense_on_gpu": true,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:20:37"
+  },
+  "qwen3_reranker_0_6b": {
+    "n_passages": 413024,
+    "index_load_s": 5.9,
+    "peak_vram_gb": 8.06,
+    "rss_gb_after": 11.24,
+    "dense_on_gpu": true,
+    "cache_gb": {
+      "embeddings": 32.16,
+      "bm25": 2.15,
+      "splade": 5.87
+    },
+    "gpu": "NVIDIA GeForce RTX 3080",
+    "time": "2026-10-06 06:47:41"
+  }
+}

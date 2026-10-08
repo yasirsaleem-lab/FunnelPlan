@@ -1,0 +1,57 @@
+{
+  "stella_1_5b_cpu_search": {
+    "profile": [
+      {
+        "depth": 1,
+        "mean_time": 12.519011611335833,
+        "std_time": 0.057878232351126754,
+        "query_count": 150
+      },
+      {
+        "depth": 3,
+        "mean_time": 12.55419719199844,
+        "std_time": 0.08925041220016434,
+        "query_count": 150
+      },
+      {
+        "depth": 5,
+        "mean_time": 12.707328419332626,
+        "std_time": 0.5809539013396156,
+        "query_count": 150
+      },
+      {
+        "depth": 10,
+        "mean_time": 12.531056893332861,
+        "std_time": 0.030624658571681417,
+        "query_count": 150
+      },
+      {
+        "depth": 20,
+        "mean_time": 12.544874607998645,
+        "std_time": 0.041663639092052646,
+        "query_count": 150
+      },
+      {
+        "depth": 100,
+        "mean_time": 12.548067853997539,
+        "std_time": 0.040172879206403674,
+        "query_count": 150
+      }
+    ],
+    "meta": {
+      "n_passages": 5233329,
+      "index_load_s": 12.6,
+      "peak_vram_gb": 9.69,
+      "rss_gb_after": 10.29,
+      "dense_on_gpu": false,
+      "cache_gb": {
+        "embeddings": 32.16,
+        "bm25": 2.15,
+        "splade": 5.87
+      },
+      "gpu": "NVIDIA GeForce RTX 3080",
+      "time": "2026-10-06 05:18:41"
+    },
+    "note": "dense index fell back to chunked CPU search (9.0 GB GPU free); kept as a GPU vs CPU data point"
+  }
+}

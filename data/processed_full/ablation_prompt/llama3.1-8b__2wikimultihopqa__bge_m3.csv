@@ -1,0 +1,1001 @@
+dataset,query_id,retriever,depth,prompt,answer,prompt_tokens,gen_tokens,agent_time_s,mean_logprob
+2wikimultihopqa,7316,bge_m3,1,soft,Not specified.,461,4,0.29702900000847876,-0.5697914958000183
+2wikimultihopqa,7316,bge_m3,3,soft,Not specified.,704,4,0.36314029997447506,-0.5868334174156189
+2wikimultihopqa,2119,bge_m3,1,soft,The More The Merrier.,238,7,0.38981910003349185,-0.11406359076499939
+2wikimultihopqa,2119,bge_m3,3,soft,The More the Merrier.,418,7,0.48204679996706545,-0.04125552624464035
+2wikimultihopqa,4629,bge_m3,1,soft,Not specified.,189,4,0.25475429999642074,-0.6001188158988953
+2wikimultihopqa,4629,bge_m3,3,soft,No information.,531,4,0.35337909997906536,-0.9897074699401855
+2wikimultihopqa,357,bge_m3,1,soft,Gold For The Caesars.,265,8,0.9722849000245333,-0.10405080020427704
+2wikimultihopqa,357,bge_m3,3,soft,Heinz In The Moon.,502,7,0.4357740999548696,-0.07070574164390564
+2wikimultihopqa,5894,bge_m3,1,soft,Goryeo.,184,5,0.29455809999490157,-0.0550067201256752
+2wikimultihopqa,5894,bge_m3,3,soft,Goryeo.,511,5,0.3492635000147857,-0.1002618670463562
+2wikimultihopqa,2865,bge_m3,1,soft,Not available.,179,4,0.22630019998177886,-0.9612195491790771
+2wikimultihopqa,2865,bge_m3,3,soft,Unknown.,396,3,0.23051759996451437,-0.6318013668060303
+2wikimultihopqa,6829,bge_m3,1,soft,"I Cannot Say ""Farewell""",225,9,0.473878099990543,-0.1264542043209076
+2wikimultihopqa,6829,bge_m3,3,soft,"I Cannot Say ""Farewell""",490,9,0.5311502999975346,-0.20872241258621216
+2wikimultihopqa,2310,bge_m3,1,soft,Lykkens Musikanter.,185,8,0.4201386999920942,-0.19451063871383667
+2wikimultihopqa,2310,bge_m3,3,soft,There is no information about Lykkens Musikanter.,371,13,0.7337590000242926,-0.3956581950187683
+2wikimultihopqa,8819,bge_m3,1,soft,Malibu Express.,231,5,0.28990660002455115,-0.04169658198952675
+2wikimultihopqa,8819,bge_m3,3,soft,Malibu Express.,359,5,0.33943670004373416,-0.24598509073257446
+2wikimultihopqa,12531,bge_m3,1,soft,Unknown.,239,3,0.18496619997313246,-0.6943310499191284
+2wikimultihopqa,12531,bge_m3,3,soft,Not specified.,500,4,0.2959007999743335,-0.5960644483566284
+2wikimultihopqa,6757,bge_m3,1,soft,Unknown.,133,3,0.1700249999994412,-0.35911884903907776
+2wikimultihopqa,6757,bge_m3,3,soft,Unknown.,721,3,0.31766220001736656,-0.6439650058746338
+2wikimultihopqa,1989,bge_m3,1,soft,"Dallas, Texas.",394,5,0.33855009998660535,-0.06410154700279236
+2wikimultihopqa,1989,bge_m3,3,soft,"Dallas, Texas.",1211,5,0.5725200999877416,-0.018393144011497498
+2wikimultihopqa,6357,bge_m3,1,soft,"Edward Howard, 1st Baron Howard of Escrick.",360,13,0.7011110000312328,-0.0061411503702402115
+2wikimultihopqa,6357,bge_m3,3,soft,"Edward Howard, 1st Baron Howard of Escrick.",1606,13,1.0642714999848977,-0.01834585703909397
+2wikimultihopqa,1964,bge_m3,1,soft,No information provided.,179,5,0.2698509999900125,-0.759060263633728
+2wikimultihopqa,1964,bge_m3,3,soft,Not specified.,706,4,0.39448640000773594,-0.8291990160942078
+2wikimultihopqa,624,bge_m3,1,soft,Cast Up By The Sea.,124,7,0.3436793999862857,-0.0686386376619339
+2wikimultihopqa,624,bge_m3,3,soft,No information.,313,4,0.26244359998963773,-0.7814499735832214
+2wikimultihopqa,5610,bge_m3,1,soft,No information provided.,299,5,0.3158904999727383,-0.5151495933532715
+2wikimultihopqa,5610,bge_m3,3,soft,"St. Petersburg, Russia.",635,7,0.4796309999655932,-0.05489417538046837
+2wikimultihopqa,1355,bge_m3,1,soft,No information about Brudebuketten.,149,10,0.5331675999914296,-0.4343322515487671
+2wikimultihopqa,1355,bge_m3,3,soft,Clownery.,253,5,0.2922975000110455,-0.0070216297172009945
+2wikimultihopqa,5931,bge_m3,1,soft,Italian.,153,3,0.1797179999994114,-0.007165470160543919
+2wikimultihopqa,5931,bge_m3,3,soft,Italian.,911,3,0.40048740000929683,-0.03085898980498314
+2wikimultihopqa,8394,bge_m3,1,soft,Austrian.,178,5,0.2823381000198424,-0.0441180095076561
+2wikimultihopqa,8394,bge_m3,3,soft,Austrian.,513,5,0.4157137000001967,-0.18638455867767334
+2wikimultihopqa,8027,bge_m3,1,soft,Not mentioned.,452,4,0.29530030000023544,-0.6182243824005127
+2wikimultihopqa,8027,bge_m3,3,soft,Ebba Brahe.,815,6,0.5175688000163063,-0.04615394026041031
+2wikimultihopqa,5489,bge_m3,1,soft,No information.,222,4,0.23179170000366867,-0.8610950708389282
+2wikimultihopqa,5489,bge_m3,3,soft,David Butler.,400,4,0.347972099960316,-0.4340791702270508
+2wikimultihopqa,6000,bge_m3,1,soft,"Now, Voyager.",298,5,0.36606219998793676,-0.2176743745803833
+2wikimultihopqa,6000,bge_m3,3,soft,There is no information about a director born later for either film.,691,14,0.9278433999861591,-0.48720604181289673
+2wikimultihopqa,6431,bge_m3,1,soft,There is not enough information to answer the question.,138,11,0.5707568999496289,-0.46514540910720825
+2wikimultihopqa,6431,bge_m3,3,soft,Huma Gun Anmogaldi.,396,9,0.5105635999934748,-0.04869310185313225
+2wikimultihopqa,10062,bge_m3,1,soft,The Fitzgerald Family Christmas.,168,6,0.3515333999530412,-0.020317906513810158
+2wikimultihopqa,10062,bge_m3,3,soft,The Fitzgerald Family Christmas.,308,6,0.3489349000155926,-0.06231392174959183
+2wikimultihopqa,7464,bge_m3,1,soft,Krakow.,184,5,0.26664980000350624,-0.34625381231307983
+2wikimultihopqa,7464,bge_m3,3,soft,There is no information about the director of the film Write and Fight in the passages.,402,18,0.9289595999871381,-0.3485294580459595
+2wikimultihopqa,4099,bge_m3,1,soft,No information available.,159,5,0.25863199995364994,-0.4676130414009094
+2wikimultihopqa,4099,bge_m3,3,soft,No information available.,333,5,0.3035999000421725,-0.6274129152297974
+2wikimultihopqa,12399,bge_m3,1,soft,Molokai: The Story Of Father Damien.,155,12,0.6440379999694414,-0.04659007862210274
+2wikimultihopqa,12399,bge_m3,3,soft,Molokai: The Story Of Father Damien.,350,12,0.6540747000253759,-0.05403550714254379
+2wikimultihopqa,9006,bge_m3,1,soft,No information provided.,163,5,0.2970711999805644,-0.5513110756874084
+2wikimultihopqa,9006,bge_m3,3,soft,No information.,652,4,0.3808407000033185,-1.1153595447540283
+2wikimultihopqa,11463,bge_m3,1,soft,Not specified.,283,4,0.2606476999935694,-0.6548609733581543
+2wikimultihopqa,11463,bge_m3,3,soft,Not specified.,616,4,0.3356740999734029,-0.7038754224777222
+2wikimultihopqa,8305,bge_m3,1,soft,"Thomas Cochrane, 8th Earl of Dundonald's father.",389,16,0.9159087999723852,-0.20742525160312653
+2wikimultihopqa,8305,bge_m3,3,soft,"Thomas Cochrane, 8th Earl of Dundonald.",693,14,0.9493245999910869,-0.02422408014535904
+2wikimultihopqa,12364,bge_m3,1,soft,No information.,193,4,0.2541767999646254,-0.7759804129600525
+2wikimultihopqa,12364,bge_m3,3,soft,There is no information about the director dying in Varakatnam.,504,14,0.8032774000312202,-0.446734219789505
+2wikimultihopqa,5404,bge_m3,1,soft,We're Going To Eat You.,218,8,0.40982070000609383,-0.18521550297737122
+2wikimultihopqa,5404,bge_m3,3,soft,We're Going To Eat You.,605,8,0.4962481999536976,-0.2579197287559509
+2wikimultihopqa,5643,bge_m3,1,soft,Nicaragua.,152,5,0.24996499996632338,-0.18416595458984375
+2wikimultihopqa,5643,bge_m3,3,soft,France.,429,3,0.22231540002394468,-0.15030492842197418
+2wikimultihopqa,12222,bge_m3,1,soft,Unknown.,199,3,0.1650482999975793,-0.9709813594818115
+2wikimultihopqa,12222,bge_m3,3,soft,"George Spencer, 4th Duke of Marlborough.",464,12,0.6207000000285916,-0.03673524037003517
+2wikimultihopqa,3585,bge_m3,1,soft,No information.,217,4,0.2239631999982521,-0.41602930426597595
+2wikimultihopqa,3585,bge_m3,3,soft,No.,627,3,0.27487669995753095,-0.14350436627864838
+2wikimultihopqa,12331,bge_m3,1,soft,Scipio Africanus.,184,7,0.3456706000142731,-0.058866649866104126
+2wikimultihopqa,12331,bge_m3,3,soft,Scipio Africanus.,470,7,0.4003837999771349,-0.013020124286413193
+2wikimultihopqa,1085,bge_m3,1,soft,Not specified.,230,4,0.21671210002386943,-0.6578370332717896
+2wikimultihopqa,1085,bge_m3,3,soft,Not specified.,370,4,0.24870180001016706,-0.7572606801986694
+2wikimultihopqa,6282,bge_m3,1,soft,There is not enough information to answer the question.,122,11,0.4790787000092678,-0.4524480402469635
+2wikimultihopqa,6282,bge_m3,3,soft,Thai Mozhi.,599,5,0.36959810002008453,-0.007684450130909681
+2wikimultihopqa,218,bge_m3,1,soft,No information provided.,635,5,0.3680562000372447,-0.7187668085098267
+2wikimultihopqa,218,bge_m3,3,soft,There is no information about the director of film Ręce Do Góry studying in the passages.,1077,22,1.2445064000203274,-0.2872205972671509
+2wikimultihopqa,744,bge_m3,1,soft,Not provided.,376,4,0.25071930000558496,-0.9619371891021729
+2wikimultihopqa,744,bge_m3,3,soft,1665 (marriage year),788,8,0.5908783000195399,-0.7739125490188599
+2wikimultihopqa,8489,bge_m3,1,soft,Das Mädchen Und Der Staatsanwalt.,164,11,0.6106920000165701,-0.08439787477254868
+2wikimultihopqa,8489,bge_m3,3,soft,Das Mädchen und der Staatsanwalt.,292,11,0.5909157000132836,-0.1383752077817917
+2wikimultihopqa,724,bge_m3,1,soft,Chiang Chung-Ling.,300,7,0.4080585000338033,-0.09683793783187866
+2wikimultihopqa,724,bge_m3,3,soft,Chiang Chung-Ling.,577,7,0.5195994999958202,-0.1368824988603592
+2wikimultihopqa,3813,bge_m3,1,soft,The Sterile Cuckoo.,261,8,0.4948918999871239,-0.016657132655382156
+2wikimultihopqa,3813,bge_m3,3,soft,The Sterile Cuckoo.,660,8,0.5862986000138335,-0.08547893166542053
+2wikimultihopqa,12403,bge_m3,1,soft,Olof Skötkonung.,202,10,0.4811533999745734,-0.14767399430274963
+2wikimultihopqa,12403,bge_m3,3,soft,Vladimir I of Kiev.,770,8,0.6259634000016376,-0.0462757870554924
+2wikimultihopqa,7882,bge_m3,1,soft,Pontian.,146,4,0.24650529999053106,-0.31642669439315796
+2wikimultihopqa,7882,bge_m3,3,soft,Pontian.,384,4,0.2801426000078209,-0.6585781574249268
+2wikimultihopqa,8971,bge_m3,1,soft,Mexico.,156,3,0.18755289999535307,-0.8222631216049194
+2wikimultihopqa,8971,bge_m3,3,soft,Unknown.,417,3,0.24222930002724752,-0.498160183429718
+2wikimultihopqa,2714,bge_m3,1,soft,No information.,165,4,0.2223867999855429,-1.1555533409118652
+2wikimultihopqa,2714,bge_m3,3,soft,There is no director comparison.,493,7,0.43667080003069714,-0.7184640765190125
+2wikimultihopqa,4029,bge_m3,1,soft,Un Taxi Pour Tobrouk.,165,8,0.4168249999638647,-0.047971710562705994
+2wikimultihopqa,4029,bge_m3,3,soft,An Uncertain Season.,421,6,0.3766958999913186,-0.08846064656972885
+2wikimultihopqa,1498,bge_m3,1,soft,No information.,170,4,0.2286842000321485,-0.573167085647583
+2wikimultihopqa,1498,bge_m3,3,soft,The Killer Likes Candy.,278,6,0.3614227000507526,-0.1686665266752243
+2wikimultihopqa,9027,bge_m3,1,soft,The Company's In Love.,179,7,0.4121045999927446,-0.29162776470184326
+2wikimultihopqa,9027,bge_m3,3,soft,Max Ophüls.,360,7,0.4087599999620579,-0.19694304466247559
+2wikimultihopqa,11364,bge_m3,1,soft,No information provided about Tears Of April.,172,9,0.4877911999938078,-0.6845428347587585
+2wikimultihopqa,11364,bge_m3,3,soft,Tears of April.,345,6,0.4389007999561727,-0.03693550452589989
+2wikimultihopqa,7202,bge_m3,1,soft,Romania.,145,4,0.22935229999711737,-0.12649615108966827
+2wikimultihopqa,7202,bge_m3,3,soft,Not mentioned.,998,4,0.4502810000558384,-0.9404489398002625
+2wikimultihopqa,2955,bge_m3,1,soft,Czechoslovakia.,183,7,0.41215400001965463,-0.20034906268119812
+2wikimultihopqa,2955,bge_m3,3,soft,Not specified.,311,4,0.2552993000135757,-0.5504714250564575
+2wikimultihopqa,6866,bge_m3,1,soft,American.,135,3,0.17448759998660535,-0.17994076013565063
+2wikimultihopqa,6866,bge_m3,3,soft,American.,376,3,0.21532169997226447,-0.22157864272594452
+2wikimultihopqa,2340,bge_m3,1,soft,Brandenburg.,530,4,0.3272904999903403,-0.019505642354488373
+2wikimultihopqa,2340,bge_m3,3,soft,Brandenburg.,1064,4,0.4843803000403568,-0.030680224299430847
+2wikimultihopqa,9938,bge_m3,1,soft,Carolyn Of The Corners.,172,8,0.411155299982056,-0.05620529502630234
+2wikimultihopqa,9938,bge_m3,3,soft,Carolyn Of The Corners.,495,8,0.5218359000282362,-0.10720331966876984
+2wikimultihopqa,2884,bge_m3,1,soft,Germany.,138,3,0.17286569997668266,-0.2306334376335144
+2wikimultihopqa,2884,bge_m3,3,soft,Unknown.,235,3,0.18542200000956655,-0.3257729709148407
+2wikimultihopqa,9744,bge_m3,1,soft,United States.,263,4,0.25959299999522045,-0.04155418276786804
+2wikimultihopqa,9744,bge_m3,3,soft,United States.,431,4,0.27904900000430644,-0.08701075613498688
+2wikimultihopqa,6958,bge_m3,1,soft,The Last Night Of The Barbary Coast.,216,10,0.5181224000407383,-0.016319185495376587
+2wikimultihopqa,6958,bge_m3,3,soft,The Last Night Of The Barbary Coast.,433,10,0.5838507000007667,-0.04469125717878342
+2wikimultihopqa,8201,bge_m3,1,soft,Sweden.,151,3,0.17486269999062642,-0.18193058669567108
+2wikimultihopqa,8201,bge_m3,3,soft,Unknown.,413,3,0.24878150003496557,-0.3689149022102356
+2wikimultihopqa,7912,bge_m3,1,soft,No information provided.,260,5,0.30717729998286813,-0.6257140636444092
+2wikimultihopqa,7912,bge_m3,3,soft,Unknown.,730,3,0.3133442999678664,-0.7242714166641235
+2wikimultihopqa,9119,bge_m3,1,soft,Here Comes The Groom.,158,7,0.37016059999587014,-0.0731205940246582
+2wikimultihopqa,9119,bge_m3,3,soft,Edward Sedgwick.,387,6,0.4080489999614656,-0.37706416845321655
+2wikimultihopqa,11317,bge_m3,1,soft,An Even Break.,149,5,0.2680133000249043,-0.4203413724899292
+2wikimultihopqa,11317,bge_m3,3,soft,An Even Break.,255,5,0.278852800023742,-0.1081341803073883
+2wikimultihopqa,9258,bge_m3,1,soft,Somewhere I'll Find You.,193,8,0.4402743999962695,-0.10818304866552353
+2wikimultihopqa,9258,bge_m3,3,soft,A Dream Of Happiness.,318,6,0.3747561000054702,-0.20842237770557404
+2wikimultihopqa,8251,bge_m3,1,soft,No information available.,147,5,0.2784347999840975,-0.3528202772140503
+2wikimultihopqa,8251,bge_m3,3,soft,No information.,635,4,0.3404342000139877,-0.6187156438827515
+2wikimultihopqa,11890,bge_m3,1,soft,Gare du Nord.,187,6,0.3398877000436187,-0.2206656038761139
+2wikimultihopqa,11890,bge_m3,3,soft,France.,364,3,0.220414100040216,-0.5907102823257446
+2wikimultihopqa,11448,bge_m3,1,soft,Balian of Ibelin.,419,8,0.5108604999841191,-0.21695809066295624
+2wikimultihopqa,11448,bge_m3,3,soft,John of Ibelin.,1066,7,0.6284993999870494,-0.17585133016109467
+2wikimultihopqa,3873,bge_m3,1,soft,No information.,199,4,0.2294493000372313,-0.8937177062034607
+2wikimultihopqa,3873,bge_m3,3,soft,O Segredo Do Corcunda.,338,9,0.5155052000191063,-0.07612252235412598
+2wikimultihopqa,993,bge_m3,1,soft,Not mentioned.,328,4,0.2637634000275284,-0.636570155620575
+2wikimultihopqa,993,bge_m3,3,soft,No spouse mentioned.,789,5,0.46359339996706694,-0.44096142053604126
+2wikimultihopqa,8802,bge_m3,1,soft,"No, they do.",375,6,0.3593725999817252,-0.4238731563091278
+2wikimultihopqa,8802,bge_m3,3,soft,No.,849,3,0.3583305000211112,-0.17602533102035522
+2wikimultihopqa,9520,bge_m3,1,soft,Germany.,150,3,0.18409349996363744,-0.5920727252960205
+2wikimultihopqa,9520,bge_m3,3,soft,Germany.,337,3,0.23518400004832074,-0.2786625325679779
+2wikimultihopqa,5912,bge_m3,1,soft,No information is given about the director of Del Rosa Al Amarillo.,177,15,0.8040386000066064,-0.46561434864997864
+2wikimultihopqa,5912,bge_m3,3,soft,"There is no information about the director of ""Del Rosa Al Amarillo"".",357,16,0.8550862999982201,-0.3700774908065796
+2wikimultihopqa,10619,bge_m3,1,soft,No information provided.,428,5,0.32324609998613596,-0.7343387603759766
+2wikimultihopqa,10619,bge_m3,3,soft,There is no information about the director of film Girl Rising (Film) in the passages.,782,19,1.185878100048285,-0.3694916367530823
+2wikimultihopqa,1022,bge_m3,1,soft,Aquitaine.,207,5,0.2824326000409201,-0.09846227616071701
+2wikimultihopqa,1022,bge_m3,3,soft,Aquitaine.,412,5,0.33315129997208714,-0.1449582576751709
+2wikimultihopqa,10289,bge_m3,1,soft,Barry Gibb.,194,6,0.34935009997570887,-0.17467129230499268
+2wikimultihopqa,10289,bge_m3,3,soft,Barry Gibb.,794,6,0.5020510000176728,-0.1301758587360382
+2wikimultihopqa,5958,bge_m3,1,soft,No.,206,3,0.19368870003381744,-0.377945214509964
+2wikimultihopqa,5958,bge_m3,3,soft,No.,356,3,0.22078189998865128,-0.21511979401111603
+2wikimultihopqa,8128,bge_m3,1,soft,Escape From L.A.,163,6,0.32261360000120476,-0.03334394097328186
+2wikimultihopqa,8128,bge_m3,3,soft,The Third Side Of The River.,419,8,0.4745215000002645,-0.11007971316576004
+2wikimultihopqa,1740,bge_m3,1,soft,Jacquetta of Luxembourg.,444,7,0.44280180003261194,-0.024203475564718246
+2wikimultihopqa,1740,bge_m3,3,soft,Jacquetta of Luxembourg.,716,7,0.5105507999542169,-0.017489798367023468
+2wikimultihopqa,9558,bge_m3,1,soft,No information provided.,136,5,0.2627487000427209,-0.646731972694397
+2wikimultihopqa,9558,bge_m3,3,soft,Not mentioned.,270,4,0.2596513999742456,-0.7558853626251221
+2wikimultihopqa,811,bge_m3,1,soft,Rip Off Press.,161,6,0.3128040000447072,-0.32308411598205566
+2wikimultihopqa,811,bge_m3,3,soft,1969.,422,4,0.2840823999722488,-0.038623739033937454
+2wikimultihopqa,5099,bge_m3,1,soft,No information about Hitler'S Folly.,259,9,0.497195300005842,-0.5603740215301514
+2wikimultihopqa,5099,bge_m3,3,soft,Hitler's Folly.,442,7,0.4163346000132151,-0.061217159032821655
+2wikimultihopqa,11303,bge_m3,1,soft,There is no information about Wolfgang Fischer in the passage.,332,12,0.6677603000425734,-0.2905293107032776
+2wikimultihopqa,11303,bge_m3,3,soft,Sammy Drechsel.,486,6,0.4050627000397071,-0.057518381625413895
+2wikimultihopqa,2483,bge_m3,1,soft,Duke Xian of Qin.,248,8,0.4597199999843724,-0.2362944781780243
+2wikimultihopqa,2483,bge_m3,3,soft,Duke Xuan's paternal grandfather is not mentioned in the passages.,569,15,0.8524520000210032,-0.3058301508426666
+2wikimultihopqa,7741,bge_m3,1,soft,"Sir Robert Rankin, 1st Baronet.",168,12,0.6122862999909557,-0.06675094366073608
+2wikimultihopqa,7741,bge_m3,3,soft,"Sir Robert Rankin, 1st Baronet.",413,12,0.6914824999985285,-0.1158437430858612
+2wikimultihopqa,4162,bge_m3,1,soft,No information available.,180,5,0.27528900001198053,-0.6607286930084229
+2wikimultihopqa,4162,bge_m3,3,soft,Not mentioned.,446,4,0.2803249999997206,-0.753862738609314
+2wikimultihopqa,12165,bge_m3,1,soft,"No, they do not.",174,7,0.38271330000134185,-0.357941597700119
+2wikimultihopqa,12165,bge_m3,3,soft,"No, they do not.",458,7,0.43722750002052635,-0.34501367807388306
+2wikimultihopqa,7966,bge_m3,1,soft,St. Louis.,611,5,0.3817864000448026,-0.20211565494537354
+2wikimultihopqa,7966,bge_m3,3,soft,New Orleans.,1226,4,0.540248800010886,-0.01627659983932972
+2wikimultihopqa,6053,bge_m3,1,soft,1592.,300,4,0.25943249999545515,-0.30974650382995605
+2wikimultihopqa,6053,bge_m3,3,soft,1592,591,3,0.2893624000134878,-0.4663125276565552
+2wikimultihopqa,6044,bge_m3,1,soft,Gangway For Tomorrow.,170,7,0.37639150000177324,-0.07343652844429016
+2wikimultihopqa,6044,bge_m3,3,soft,Le Frisson Des Vampires.,299,9,0.504733799956739,-0.047696057707071304
+2wikimultihopqa,8672,bge_m3,1,soft,Murder By Numbers.,178,6,0.3413018999854103,-0.22313947975635529
+2wikimultihopqa,8672,bge_m3,3,soft,Murder By Numbers.,442,6,0.37934310000855476,-0.1210784912109375
+2wikimultihopqa,8416,bge_m3,1,soft,Hearts In Bondage.,137,7,0.36336680001113564,-0.00870882160961628
+2wikimultihopqa,8416,bge_m3,3,soft,Hearts In Bondage.,277,7,0.40721619996475056,-0.05170153081417084
+2wikimultihopqa,6487,bge_m3,1,soft,Friedrich Wilhelm Von Reden.,163,9,0.46941570000490174,-0.026482149958610535
+2wikimultihopqa,6487,bge_m3,3,soft,Friedrich Wilhelm Von Reden.,593,9,0.5751303999568336,-0.05367697775363922
+2wikimultihopqa,5174,bge_m3,1,soft,Jan Svěrák's father is Zdeněk Svěrák.,124,17,0.8213740999926813,-0.20704856514930725
+2wikimultihopqa,5174,bge_m3,3,soft,No information provided.,344,5,0.3321591999847442,-0.5734161138534546
+2wikimultihopqa,1142,bge_m3,1,soft,New York City.,149,5,0.2824796999921091,-0.39019376039505005
+2wikimultihopqa,1142,bge_m3,3,soft,Not mentioned.,848,4,0.40480690001277253,-0.7347040176391602
+2wikimultihopqa,12136,bge_m3,1,soft,Swayamkrushi.,297,7,0.3944396000006236,-0.13294047117233276
+2wikimultihopqa,12136,bge_m3,3,soft,Swayamkrushi.,741,7,0.5132378000416793,-0.06744195520877838
+2wikimultihopqa,9113,bge_m3,1,soft,Not mentioned.,523,4,0.32619759999215603,-0.6684480905532837
+2wikimultihopqa,9113,bge_m3,3,soft,No information.,678,4,0.3767467000288889,-0.8873211145401001
+2wikimultihopqa,6700,bge_m3,1,soft,Not mentioned.,149,4,0.2242415000218898,-0.6162698268890381
+2wikimultihopqa,6700,bge_m3,3,soft,Not mentioned.,406,4,0.2789593000197783,-0.735306441783905
+2wikimultihopqa,1351,bge_m3,1,soft,He Knows You'Re Alone.,381,8,0.4528390999766998,-0.04786726459860802
+2wikimultihopqa,1351,bge_m3,3,soft,He Knows You'Re Alone.,777,8,0.5859021000214852,-0.09012110531330109
+2wikimultihopqa,8299,bge_m3,1,soft,Gofraid.,188,5,0.27418950002174824,-0.10099401324987411
+2wikimultihopqa,8299,bge_m3,3,soft,Gofraid.,801,5,0.44846980000147596,-0.04064195975661278
+2wikimultihopqa,4168,bge_m3,1,soft,Bawarchi.,442,6,0.4174047000124119,-0.19662602245807648
+2wikimultihopqa,4168,bge_m3,3,soft,Bawarchi.,844,6,0.5156610999838449,-0.177302286028862
+2wikimultihopqa,2495,bge_m3,1,soft,No information.,192,4,0.23482850001892075,-0.7810519933700562
+2wikimultihopqa,2495,bge_m3,3,soft,Ashad Ali.,500,5,0.3549594000214711,-0.09946669638156891
+2wikimultihopqa,1213,bge_m3,1,soft,William IV.,270,4,0.2555212999577634,-0.13453222811222076
+2wikimultihopqa,1213,bge_m3,3,soft,William IV.,506,4,0.3065548000158742,-0.11401747912168503
+2wikimultihopqa,3592,bge_m3,1,soft,No information provided.,243,5,0.2884001000202261,-0.4617786407470703
+2wikimultihopqa,3592,bge_m3,3,soft,There is no information about the director of the film This World Made Itself; Myth And Infrastructure; Dreaming Of Lucid Living in the passages.,700,31,1.6758463000296615,-0.20535528659820557
+2wikimultihopqa,2952,bge_m3,1,soft,No information is given about John Gordy.,209,10,0.5337443000171334,-0.535346508026123
+2wikimultihopqa,2952,bge_m3,3,soft,George Hare Philipson.,556,7,0.4990353000466712,-0.010317934677004814
+2wikimultihopqa,2963,bge_m3,1,soft,There is not enough information to answer the question.,134,11,0.5727509999996983,-0.4766504466533661
+2wikimultihopqa,2963,bge_m3,3,soft,Joe + Belle.,286,5,0.32764879998285323,-0.2510163187980652
+2wikimultihopqa,1786,bge_m3,1,soft,No information provided.,135,5,0.26648150000255555,-0.4440124034881592
+2wikimultihopqa,1786,bge_m3,3,soft,No information.,403,4,0.28058449999662116,-0.6301931738853455
+2wikimultihopqa,11851,bge_m3,1,soft,Night And Dawn.,173,5,0.28263670002343133,-0.26235005259513855
+2wikimultihopqa,11851,bge_m3,3,soft,Arena Of Fear.,301,5,0.2988978999783285,-0.1342877745628357
+2wikimultihopqa,7771,bge_m3,1,soft,Not specified.,308,4,0.2513287999900058,-0.8610806465148926
+2wikimultihopqa,7771,bge_m3,3,soft,Not specified.,668,4,0.38163000001804903,-0.8358355760574341
+2wikimultihopqa,11765,bge_m3,1,soft,Unknown.,137,3,0.17542189999949187,-0.799479067325592
+2wikimultihopqa,11765,bge_m3,3,soft,Not mentioned.,441,4,0.2820343999774195,-0.7001287341117859
+2wikimultihopqa,10839,bge_m3,1,soft,Unknown.,138,3,0.16425939998589456,-0.4347108006477356
+2wikimultihopqa,10839,bge_m3,3,soft,Not specified.,597,4,0.33981540001695976,-0.7952499389648438
+2wikimultihopqa,1373,bge_m3,1,soft,Staritsa.,583,5,0.398450699984096,-0.4178245961666107
+2wikimultihopqa,1373,bge_m3,3,soft,"August 5, 1490.",1508,9,0.8393936000065878,-0.10846391320228577
+2wikimultihopqa,7159,bge_m3,1,soft,Thomas Hayward.,222,4,0.25439339998411015,-0.3080952763557434
+2wikimultihopqa,7159,bge_m3,3,soft,William Berkeley.,608,4,0.3405495000188239,-0.26691463589668274
+2wikimultihopqa,3834,bge_m3,1,soft,Lakhajirajji,162,7,0.37171520001720637,-0.48877406120300293
+2wikimultihopqa,3834,bge_m3,3,soft,Not mentioned.,1051,4,0.5000924000050873,-0.7092655897140503
+2wikimultihopqa,2174,bge_m3,1,soft,No.,163,3,0.17287869995925575,-0.6521720886230469
+2wikimultihopqa,2174,bge_m3,3,soft,No.,289,3,0.21336469997186214,-0.060712702572345734
+2wikimultihopqa,586,bge_m3,1,soft,No information about Kummatty is given.,180,10,0.5228730000089854,-0.6534798741340637
+2wikimultihopqa,586,bge_m3,3,soft,Kummatty.,368,5,0.317480500030797,-0.41758275032043457
+2wikimultihopqa,850,bge_m3,1,soft,Not mentioned.,197,4,0.2354852000134997,-0.6372780203819275
+2wikimultihopqa,850,bge_m3,3,soft,Not mentioned.,315,4,0.2548827999853529,-0.70387864112854
+2wikimultihopqa,3328,bge_m3,1,soft,The White Truck.,160,5,0.26683879998745397,-0.19500546157360077
+2wikimultihopqa,3328,bge_m3,3,soft,Léo Joannon.,654,6,0.4666156999883242,-0.420635461807251
+2wikimultihopqa,1655,bge_m3,1,soft,No.,364,3,0.2172654999885708,-0.25376519560813904
+2wikimultihopqa,1655,bge_m3,3,soft,No.,632,3,0.29018160002306104,-0.1921955943107605
+2wikimultihopqa,9380,bge_m3,1,soft,Scottish.,241,4,0.23640290001640096,-0.2773289084434509
+2wikimultihopqa,9380,bge_m3,3,soft,American.,485,3,0.24761310004396364,-0.035281047224998474
+2wikimultihopqa,1562,bge_m3,1,soft,Sons Of Ingmar.,189,7,0.40182369999820367,-0.04515271633863449
+2wikimultihopqa,1562,bge_m3,3,soft,Sons Of Ingmar.,314,7,0.42228549998253584,-0.041276715695858
+2wikimultihopqa,10323,bge_m3,1,soft,Tiberius (son of Justinian II) does not have an uncle mentioned in the passage.,239,21,1.1002614999888465,-0.3122486174106598
+2wikimultihopqa,10323,bge_m3,3,soft,Justinian I.,835,5,0.44868019997375086,-0.49597933888435364
+2wikimultihopqa,2435,bge_m3,1,soft,Princess Elizabeth of Hohenlohe-Langenburg,288,12,0.6757328000385314,-0.24452030658721924
+2wikimultihopqa,2435,bge_m3,3,soft,Princess Marie Melita of Hohenlohe-Langenburg's mother is not mentioned in the passages.,686,23,1.285583899996709,-0.3794501721858978
+2wikimultihopqa,2154,bge_m3,1,soft,Unknown.,222,3,0.18481120001524687,-0.5669928193092346
+2wikimultihopqa,2154,bge_m3,3,soft,Odessa.,753,4,0.3758446999709122,-0.3070741891860962
+2wikimultihopqa,3254,bge_m3,1,soft,Progetto Babele.,251,6,0.37259559996891767,-0.11547335237264633
+2wikimultihopqa,3254,bge_m3,3,soft,Murray's Magazine.,430,6,0.39366460003657266,-0.014620828442275524
+2wikimultihopqa,5770,bge_m3,1,soft,Not mentioned.,487,4,0.2976706000044942,-0.4734525680541992
+2wikimultihopqa,5770,bge_m3,3,soft,Gabriel-Elzéar Taschereau.,1051,13,0.9245395999751054,-0.004730090498924255
+2wikimultihopqa,9462,bge_m3,1,soft,"Angélique, Marquise Des Anges.",154,12,0.6032142000040039,-0.03265267238020897
+2wikimultihopqa,9462,bge_m3,3,soft,That Man George.,502,5,0.35606179997557774,-0.13200697302818298
+2wikimultihopqa,5654,bge_m3,1,soft,Unknown.,190,3,0.17744800000218675,-0.42086470127105713
+2wikimultihopqa,5654,bge_m3,3,soft,Unknown.,379,3,0.21739199996227399,-0.5783951878547668
+2wikimultihopqa,1434,bge_m3,1,soft,American.,215,3,0.18755259999306872,-0.36067160964012146
+2wikimultihopqa,1434,bge_m3,3,soft,American.,409,3,0.23580079997191206,-0.0030740934889763594
+2wikimultihopqa,11091,bge_m3,1,soft,There is not enough information to answer the question.,215,11,0.5717626999830827,-0.40329620242118835
+2wikimultihopqa,11091,bge_m3,3,soft,There is no information about the director of La Signorina Ciclone.,828,17,1.1076660999679007,-0.31676071882247925
+2wikimultihopqa,11593,bge_m3,1,soft,There is not enough information to answer the question.,139,11,0.5905427999678068,-0.47508737444877625
+2wikimultihopqa,11593,bge_m3,3,soft,Matija Škerbec.,701,7,0.4987544000032358,-0.013516802340745926
+2wikimultihopqa,7171,bge_m3,1,soft,Monaco.,256,4,0.23253480001585558,-0.13226103782653809
+2wikimultihopqa,7171,bge_m3,3,soft,Not mentioned.,535,4,0.33180650003487244,-0.6308623552322388
+2wikimultihopqa,6005,bge_m3,1,soft,The Abdication.,186,5,0.2782426999765448,-0.014722052961587906
+2wikimultihopqa,6005,bge_m3,3,soft,The Abdication.,353,5,0.3309257999644615,-0.16125977039337158
+2wikimultihopqa,7985,bge_m3,1,soft,Shah Jahan.,231,6,0.3513379999785684,-0.06673859059810638
+2wikimultihopqa,7985,bge_m3,3,soft,Shah Jahan.,462,6,0.3853036999935284,-0.08371791243553162
+2wikimultihopqa,8145,bge_m3,1,soft,None.,153,3,0.16867919999640435,-0.5915079712867737
+2wikimultihopqa,8145,bge_m3,3,soft,Bangladesh National Film Awards.,687,7,0.5061381999985315,-0.1544441282749176
+2wikimultihopqa,7242,bge_m3,1,soft,Helsinki.,272,4,0.24776179995387793,-0.20038209855556488
+2wikimultihopqa,7242,bge_m3,3,soft,Helsinki.,554,4,0.33240670000668615,-0.5849325060844421
+2wikimultihopqa,6625,bge_m3,1,soft,Hong Kong.,175,4,0.22976489999564365,-0.39136505126953125
+2wikimultihopqa,6625,bge_m3,3,soft,Battle of Boju.,577,6,0.4495654000202194,-0.18826983869075775
+2wikimultihopqa,1650,bge_m3,1,soft,Not specified.,692,4,0.3668805999914184,-0.6964126825332642
+2wikimultihopqa,1650,bge_m3,3,soft,Not mentioned.,840,4,0.4104914999916218,-0.9900197982788086
+2wikimultihopqa,2452,bge_m3,1,soft,Glasgow University.,150,6,0.3178569999872707,-0.5649341940879822
+2wikimultihopqa,2452,bge_m3,3,soft,No information available.,526,5,0.3861589999869466,-0.6698963642120361
+2wikimultihopqa,12103,bge_m3,1,soft,Unknown.,265,3,0.2034105000202544,-0.5128639340400696
+2wikimultihopqa,12103,bge_m3,3,soft,Not mentioned.,718,4,0.3803938999772072,-0.8252300024032593
+2wikimultihopqa,5364,bge_m3,1,soft,Not mentioned.,482,4,0.2994480000343174,-0.5687074065208435
+2wikimultihopqa,5364,bge_m3,3,soft,Not mentioned.,609,4,0.34167940000770614,-0.6327083706855774
+2wikimultihopqa,4706,bge_m3,1,soft,No information is given about the director of Condannato A Nozze.,151,17,0.856306699977722,-0.3827984631061554
+2wikimultihopqa,4706,bge_m3,3,soft,All My Lenins.,271,6,0.3619281999999657,-0.23488612473011017
+2wikimultihopqa,1697,bge_m3,1,soft,"Ida Lupino died on August 3, 1995.",141,15,0.756552400009241,-0.18033744394779205
+2wikimultihopqa,1697,bge_m3,3,soft,Not available.,495,4,0.3141703000292182,-0.9395825862884521
+2wikimultihopqa,10710,bge_m3,1,soft,No information provided.,221,5,0.27978379995329306,-0.8368021249771118
+2wikimultihopqa,10710,bge_m3,3,soft,Not mentioned.,584,4,0.3359336999710649,-0.7691946029663086
+2wikimultihopqa,12046,bge_m3,1,soft,French.,167,3,0.18686949997209013,-0.05263298749923706
+2wikimultihopqa,12046,bge_m3,3,soft,French.,322,3,0.21155670000007376,-0.027941444888710976
+2wikimultihopqa,4604,bge_m3,1,soft,British.,279,3,0.20458680001320317,-0.06450217962265015
+2wikimultihopqa,4604,bge_m3,3,soft,British.,425,3,0.2398717000032775,-0.1064453125
+2wikimultihopqa,1844,bge_m3,1,soft,No information.,129,4,0.2237380999722518,-0.8005456924438477
+2wikimultihopqa,1844,bge_m3,3,soft,No.,477,3,0.24362020002445206,-0.17723649740219116
+2wikimultihopqa,5239,bge_m3,1,soft,No information.,256,4,0.2326065999804996,-0.504488468170166
+2wikimultihopqa,5239,bge_m3,3,soft,David Fennario.,769,6,0.5220761999953538,-0.07798965275287628
+2wikimultihopqa,247,bge_m3,1,soft,This passage does not mention Selim II.,216,10,0.5141927999793552,-0.6224011182785034
+2wikimultihopqa,247,bge_m3,3,soft,Ottoman.,431,5,0.33010900003137067,-0.04191995784640312
+2wikimultihopqa,5065,bge_m3,1,soft,"No, they are not.",236,7,0.43128359998809174,-0.278531551361084
+2wikimultihopqa,5065,bge_m3,3,soft,No.,429,3,0.23156320000998676,-0.2026900351047516
+2wikimultihopqa,10912,bge_m3,1,soft,"There is no information about ""To Make A Killing"" in the passage.",131,16,0.8607202999992296,-0.34907400608062744
+2wikimultihopqa,10912,bge_m3,3,soft,The Bloodsucker Leads The Dance.,310,9,0.550674700003583,-0.03300625458359718
+2wikimultihopqa,6552,bge_m3,1,soft,No.,181,3,0.1791644999757409,-0.30454546213150024
+2wikimultihopqa,6552,bge_m3,3,soft,No.,446,3,0.23695209994912148,-0.18461506068706512
+2wikimultihopqa,10038,bge_m3,1,soft,The Color Of Money.,330,6,0.3940156999742612,-0.40080809593200684
+2wikimultihopqa,10038,bge_m3,3,soft,"There is no information about the film ""Do Be Quick"" in the passages.",612,17,0.9632848000037484,-0.3920592665672302
+2wikimultihopqa,8116,bge_m3,1,soft,Henry VI the Good.,203,6,0.344074799970258,-0.17883522808551788
+2wikimultihopqa,8116,bge_m3,3,soft,Bolesław the Elder.,506,7,0.4365157999563962,-0.03549898788332939
+2wikimultihopqa,7983,bge_m3,1,soft,Prince Carlos of Bourbon-Two Sicilies,341,9,0.5030536000267603,-0.043993476778268814
+2wikimultihopqa,7983,bge_m3,3,soft,Prince Ranieri of Bourbon-Two Sicilies.,754,11,0.7035538000054657,-0.21670344471931458
+2wikimultihopqa,12186,bge_m3,1,soft,No information available.,130,5,0.2890101000084542,-0.7620400190353394
+2wikimultihopqa,12186,bge_m3,3,soft,Jéssica Sodré.,248,9,0.5124342000344768,-0.03424490988254547
+2wikimultihopqa,8059,bge_m3,1,soft,Amarashilpi Jakanachari (Film).,274,13,0.803764600015711,-0.19284701347351074
+2wikimultihopqa,8059,bge_m3,3,soft,The Rug Maker's Daughter.,493,7,0.440459200006444,-0.07748650759458542
+2wikimultihopqa,429,bge_m3,1,soft,Not mentioned.,365,4,0.26584780000848696,-0.4416898190975189
+2wikimultihopqa,429,bge_m3,3,soft,Unknown.,803,3,0.3502034000121057,-0.4783988893032074
+2wikimultihopqa,9261,bge_m3,1,soft,I couldn't find information on the birthplace of Nathan Juran.,294,15,0.8285494000301696,-0.4607182443141937
+2wikimultihopqa,9261,bge_m3,3,soft,There is no information about the director of Hellcats of the Navy in the passages.,639,18,1.0245528999948874,-0.28622567653656006
+2wikimultihopqa,3703,bge_m3,1,soft,Not mentioned.,268,4,0.25099800003226846,-0.860033392906189
+2wikimultihopqa,3703,bge_m3,3,soft,There is no information about Carl Von Fersen's wife's death in the passages.,646,18,1.106775899999775,-0.2612009644508362
+2wikimultihopqa,8396,bge_m3,1,soft,No information available.,183,5,0.2774430999998003,-0.6610543727874756
+2wikimultihopqa,8396,bge_m3,3,soft,No information.,342,4,0.26328200002899393,-0.8848637342453003
+2wikimultihopqa,11118,bge_m3,1,soft,Gene Saks was married to actress Marian Seldes.,432,13,0.7646164000034332,-0.40323370695114136
+2wikimultihopqa,11118,bge_m3,3,soft,Gene Saks.,868,5,0.4923582000192255,-0.5036468505859375
+2wikimultihopqa,2680,bge_m3,1,soft,Hidden Power.,170,4,0.23121009999886155,-0.22931265830993652
+2wikimultihopqa,2680,bge_m3,3,soft,Hiawanda's Cross.,327,7,0.4126370999729261,-0.2647283673286438
+2wikimultihopqa,6759,bge_m3,1,soft,Fredrik Klaveness.,143,7,0.3657456000219099,-0.43910348415374756
+2wikimultihopqa,6759,bge_m3,3,soft,No information available.,342,5,0.3174593999865465,-0.6643693447113037
+2wikimultihopqa,5711,bge_m3,1,soft,No information provided.,185,5,0.2814414000022225,-0.6561554074287415
+2wikimultihopqa,5711,bge_m3,3,soft,Not mentioned.,392,4,0.28042379999533296,-0.7279404401779175
+2wikimultihopqa,1722,bge_m3,1,soft,Margaret of Ravensberg.,385,7,0.4331969000049867,-0.05925026535987854
+2wikimultihopqa,1722,bge_m3,3,soft,"Margaret, daughter and heiress of Otto IV, Count of Ravensberg, and Margaret of Berg.",1262,22,1.4481281000189483,-0.06967855989933014
+2wikimultihopqa,1323,bge_m3,1,soft,Unknown.,258,3,0.20548499998403713,-0.6282668709754944
+2wikimultihopqa,1323,bge_m3,3,soft,United States.,433,4,0.2859074000152759,-0.4635206162929535
+2wikimultihopqa,4048,bge_m3,1,soft,Not mentioned.,238,4,0.23564680002164096,-0.3710859715938568
+2wikimultihopqa,4048,bge_m3,3,soft,Not available.,616,4,0.3307329999515787,-0.43330103158950806
+2wikimultihopqa,11834,bge_m3,1,soft,Yes.,185,3,0.17595710000023246,-0.10856372117996216
+2wikimultihopqa,11834,bge_m3,3,soft,No.,485,3,0.26487519999500364,-0.46846505999565125
+2wikimultihopqa,12090,bge_m3,1,soft,No information about Jean Dominique Compans.,144,10,0.5032449000282213,-0.4511641561985016
+2wikimultihopqa,12090,bge_m3,3,soft,Kari Lindroos.,683,7,0.5129835000261664,-0.044666603207588196
+2wikimultihopqa,360,bge_m3,1,soft,No information.,192,4,0.22609829995781183,-0.9951204061508179
+2wikimultihopqa,360,bge_m3,3,soft,Children Of Fortune.,398,5,0.32515259995125234,-0.21593040227890015
+2wikimultihopqa,2102,bge_m3,1,soft,Mysterious Skin.,239,5,0.28123870003037155,-0.1700768917798996
+2wikimultihopqa,2102,bge_m3,3,soft,Mysterious Skin.,485,5,0.33614099997794256,-0.019435733556747437
+2wikimultihopqa,2128,bge_m3,1,soft,No information.,308,4,0.2621408000122756,-1.0159215927124023
+2wikimultihopqa,2128,bge_m3,3,soft,Eleanor Gore.,863,5,0.4678521999740042,-0.08317244797945023
+2wikimultihopqa,5652,bge_m3,1,soft,Theobald V.,205,6,0.3278281000093557,-0.11694766581058502
+2wikimultihopqa,5652,bge_m3,3,soft,"Louis II, Count of Blois.",434,9,0.521141599980183,-0.010103568434715271
+2wikimultihopqa,5579,bge_m3,1,soft,Die Pratermizzi.,197,8,0.41763710003579035,-0.04624779894948006
+2wikimultihopqa,5579,bge_m3,3,soft,The King of Masks.,506,6,0.38640489999670535,-0.18008854985237122
+2wikimultihopqa,4122,bge_m3,1,soft,No information available.,436,5,0.3343981999787502,-0.7358894348144531
+2wikimultihopqa,4122,bge_m3,3,soft,"Harrow and the Royal Military College, Sandhurst.",1124,12,0.865748300042469,-0.15780304372310638
+2wikimultihopqa,3973,bge_m3,1,soft,Gersende de Sabran-Pontevès.,238,12,0.6315430999966338,-0.033176109194755554
+2wikimultihopqa,3973,bge_m3,3,soft,Gersende de Sabran-Pontevès.,515,12,0.7178164999932051,-0.024851685389876366
+2wikimultihopqa,1114,bge_m3,1,soft,King Christian VIII.,156,5,0.2837264999980107,-0.06353703886270523
+2wikimultihopqa,1114,bge_m3,3,soft,King Christian VIII.,534,5,0.4132258000317961,-0.21077018976211548
+2wikimultihopqa,4974,bge_m3,1,soft,L'Affaire Maurizius.,174,9,0.48630069999489933,-0.06099436804652214
+2wikimultihopqa,4974,bge_m3,3,soft,L'Affaire Maurizius.,409,9,0.5660124999703839,-0.03935536369681358
+2wikimultihopqa,11108,bge_m3,1,soft,Romania.,358,4,0.2869696000125259,-0.04380808770656586
+2wikimultihopqa,11108,bge_m3,3,soft,Mangalia.,1247,5,0.5696575000183657,-0.008437488228082657
+2wikimultihopqa,5972,bge_m3,1,soft,No information about A. E. Barit is provided.,285,13,0.7217474000062793,-0.3536747097969055
+2wikimultihopqa,5972,bge_m3,3,soft,Yes.,732,3,0.3189827000023797,-0.053511448204517365
+2wikimultihopqa,8913,bge_m3,1,soft,Heaven Without Love.,160,6,0.31816679995972663,-0.06548741459846497
+2wikimultihopqa,8913,bge_m3,3,soft,Heaven Without Love.,495,6,0.4249223999795504,-0.2945188879966736
+2wikimultihopqa,2801,bge_m3,1,soft,Bolesław I Chrobry.,163,9,0.46515379997435957,-0.11107060313224792
+2wikimultihopqa,2801,bge_m3,3,soft,Lestek.,811,5,0.4631715000141412,-0.03328408673405647
+2wikimultihopqa,7447,bge_m3,1,soft,No information about Guy Lagorce.,159,8,0.46843980002449825,-0.4357890486717224
+2wikimultihopqa,7447,bge_m3,3,soft,Raju Rahikwar.,412,7,0.4418282000115141,-0.07872150838375092
+2wikimultihopqa,10557,bge_m3,1,soft,Antigonus I Monophthalmus.,145,10,0.5046266000135802,-0.25300365686416626
+2wikimultihopqa,10557,bge_m3,3,soft,Antigonus I Monophthalmus.,364,10,0.5544663000036962,-0.07158021628856659
+2wikimultihopqa,50,bge_m3,1,soft,Nicos Poulantzas.,256,8,0.4378098000306636,-0.009412147104740143
+2wikimultihopqa,50,bge_m3,3,soft,Nicos Poulantzas.,459,8,0.5540447999956086,-0.08671582490205765
+2wikimultihopqa,3708,bge_m3,1,soft,Constantinople.,159,5,0.264143799955491,-0.4629078209400177
+2wikimultihopqa,3708,bge_m3,3,soft,There is no information about the father of Şehzade Yusuf Izzeddin in the passages.,906,23,1.3520220000064,-0.1969980150461197
+2wikimultihopqa,12097,bge_m3,1,soft,Paulette Bernège.,260,7,0.406274700013455,-0.047541406005620956
+2wikimultihopqa,12097,bge_m3,3,soft,Paulette Bernège.,654,7,0.5411635999917053,-0.1418335735797882
+2wikimultihopqa,5740,bge_m3,1,soft,Travelling North.,251,6,0.3308841999969445,-0.09115049242973328
+2wikimultihopqa,5740,bge_m3,3,soft,The Optimists Of Nine Elms.,647,9,0.6200887999730185,-0.18083876371383667
+2wikimultihopqa,10655,bge_m3,1,soft,Uthiripookkal.,312,8,0.4527170999790542,-0.03800598904490471
+2wikimultihopqa,10655,bge_m3,3,soft,Alarm At Midnight.,550,5,0.3994861000101082,-0.15765956044197083
+2wikimultihopqa,5157,bge_m3,1,soft,The Summer Of Massacre.,152,7,0.39171559998067096,-0.17331533133983612
+2wikimultihopqa,5157,bge_m3,3,soft,Jan Rybkowski.,282,6,0.37342920002993196,-0.2534387409687042
+2wikimultihopqa,10381,bge_m3,1,soft,No information.,282,4,0.25989889999618754,-0.5179762244224548
+2wikimultihopqa,10381,bge_m3,3,soft,No information.,524,4,0.3236328000202775,-0.7109202146530151
+2wikimultihopqa,6877,bge_m3,1,soft,Prince Franz Joseph of Thurn and Taxis.,231,11,0.5638572000316344,-0.24518011510372162
+2wikimultihopqa,6877,bge_m3,3,soft,Prince Georg Maria of Saxony.,442,8,0.46561490005115047,-0.37928909063339233
+2wikimultihopqa,9573,bge_m3,1,soft,Not mentioned.,303,4,0.2762214999529533,-0.6513757705688477
+2wikimultihopqa,9573,bge_m3,3,soft,Margaret Hamilton.,688,5,0.41859929997008294,-0.18150830268859863
+2wikimultihopqa,7054,bge_m3,1,soft,How To Save A Marriage And Ruin Your Life.,170,12,0.6194091999786906,-0.10308575630187988
+2wikimultihopqa,7054,bge_m3,3,soft,How To Save A Marriage And Ruin Your Life.,293,12,0.6343259999994189,-0.03672513738274574
+2wikimultihopqa,7810,bge_m3,1,soft,The Mayfair Set.,232,6,0.3276995000196621,-0.43934378027915955
+2wikimultihopqa,7810,bge_m3,3,soft,The Kaiser's Shadow.,459,6,0.3964527999632992,-0.100669264793396
+2wikimultihopqa,3852,bge_m3,1,soft,Unknown.,232,3,0.18505289999302477,-0.3909180760383606
+2wikimultihopqa,3852,bge_m3,3,soft,Jeanne de Bar.,490,6,0.3975432000006549,-0.08580779284238815
+2wikimultihopqa,6526,bge_m3,1,soft,Not available.,252,4,0.23725519998697564,-0.6926765441894531
+2wikimultihopqa,6526,bge_m3,3,soft,19 July 1489,452,6,0.3842949000536464,-0.15387064218521118
+2wikimultihopqa,4929,bge_m3,1,soft,Ferghana.,322,6,0.3560200000065379,-0.16943345963954926
+2wikimultihopqa,4929,bge_m3,3,soft,Ferghana.,878,6,0.5081229999777861,-0.1535671353340149
+2wikimultihopqa,8922,bge_m3,1,soft,No information provided.,290,5,0.3110117999603972,-0.8150299787521362
+2wikimultihopqa,8922,bge_m3,3,soft,No information available.,532,5,0.4051865999936126,-0.5492451190948486
+2wikimultihopqa,9919,bge_m3,1,soft,There is not enough information to answer the question.,142,11,0.5862936000339687,-0.4368159770965576
+2wikimultihopqa,9919,bge_m3,3,soft,Apasionadamente.,411,5,0.33030289999442175,-0.23579439520835876
+2wikimultihopqa,6427,bge_m3,1,soft,The Secret Life Of Pets 2.,259,9,0.5075152000063099,-0.08231805264949799
+2wikimultihopqa,6427,bge_m3,3,soft,Love Me Deadly.,522,5,0.3788615000084974,-0.10641712695360184
+2wikimultihopqa,10194,bge_m3,1,soft,"Miklós Rózsa died on July 20, 1995.",249,18,0.9452176000340842,-0.18862752616405487
+2wikimultihopqa,10194,bge_m3,3,soft,Not available.,542,4,0.3303945000516251,-0.4031984210014343
+2wikimultihopqa,4420,bge_m3,1,soft,No information.,168,4,0.2216480000060983,-0.6708797216415405
+2wikimultihopqa,4420,bge_m3,3,soft,No.,487,3,0.24238310003420338,-0.19821134209632874
+2wikimultihopqa,3751,bge_m3,1,soft,"Henry Beresford, 2nd Marquess of Waterford.",306,16,0.8254116000025533,-0.06981594115495682
+2wikimultihopqa,3751,bge_m3,3,soft,"Henry Beresford, 2nd Marquess of Waterford.",784,16,1.0541063999990001,-0.10024406760931015
+2wikimultihopqa,7923,bge_m3,1,soft,No information provided about Adultery: A User'S Guide.,258,14,0.736105400021188,-0.3870429992675781
+2wikimultihopqa,7923,bge_m3,3,soft,Adultery: A User's Guide.,479,10,0.5827159999753349,-0.10962960124015808
+2wikimultihopqa,4844,bge_m3,1,soft,Elizabeth Jane Gardner.,413,5,0.3380106000113301,-0.05319010466337204
+2wikimultihopqa,4844,bge_m3,3,soft,Steve Tesich.,573,5,0.37788619997445494,-0.15190768241882324
+2wikimultihopqa,1197,bge_m3,1,soft,Queen Munjeong.,157,6,0.3110871000098996,-0.2911016643047333
+2wikimultihopqa,1197,bge_m3,3,soft,Queen Insun.,323,5,0.324289400014095,-0.10642109811306
+2wikimultihopqa,4617,bge_m3,1,soft,Paigham.,276,4,0.2566353000001982,-0.2035072296857834
+2wikimultihopqa,4617,bge_m3,3,soft,Paigham.,555,4,0.3336284999968484,-0.3186722695827484
+2wikimultihopqa,8166,bge_m3,1,soft,"Austin, Texas.",196,5,0.2809359000530094,-0.26482394337654114
+2wikimultihopqa,8166,bge_m3,3,soft,"Austin, Texas.",938,5,0.49053100001765415,-0.0051569705829024315
+2wikimultihopqa,3193,bge_m3,1,soft,My First Two Hundred Years.,151,7,0.38471000001300126,-0.23637962341308594
+2wikimultihopqa,3193,bge_m3,3,soft,Marshal Of Cedar Rock.,486,6,0.4357066000229679,-0.19792811572551727
+2wikimultihopqa,11355,bge_m3,1,soft,No information.,205,4,0.2287552000489086,-0.672454297542572
+2wikimultihopqa,11355,bge_m3,3,soft,There is no information about Ed Bye's wife's education in the passages.,730,16,0.9444494000053965,-0.25150227546691895
+2wikimultihopqa,6072,bge_m3,1,soft,Bangladeshi.,192,6,0.3169464999809861,-0.018283039331436157
+2wikimultihopqa,6072,bge_m3,3,soft,Folk singer-composer.,323,7,0.45474299998022616,-0.15205593407154083
+2wikimultihopqa,4301,bge_m3,1,soft,Higinio Uriarte.,201,7,0.3928075999720022,-0.016005419194698334
+2wikimultihopqa,4301,bge_m3,3,soft,"Boyd Merriman, 1st Baron Merriman.",332,13,0.7161463999655098,-0.06644183397293091
+2wikimultihopqa,5532,bge_m3,1,soft,13/19 February 1389.,473,9,0.5604098999756388,-0.0695391595363617
+2wikimultihopqa,5532,bge_m3,3,soft,There is no information about Gerhard VII's wife in the passages.,957,15,0.982711200020276,-0.32313287258148193
+2wikimultihopqa,8626,bge_m3,1,soft,All I Desire.,165,5,0.2805621000006795,-0.031054921448230743
+2wikimultihopqa,8626,bge_m3,3,soft,All I Desire.,383,5,0.3295477999490686,-0.09853719174861908
+2wikimultihopqa,1608,bge_m3,1,soft,The Testament Of Dr. Mabuse.,556,10,0.626036399975419,-0.02493099309504032
+2wikimultihopqa,1608,bge_m3,3,soft,The Testament Of Dr. Mabuse.,1516,10,0.8850057999952696,-0.05701036751270294
+2wikimultihopqa,6107,bge_m3,1,soft,You'll Never Get Rich.,368,7,0.42214069998590276,-0.045913081616163254
+2wikimultihopqa,6107,bge_m3,3,soft,You'll Never Get Rich.,789,7,0.5524198999628425,-0.07132671028375626
+2wikimultihopqa,3881,bge_m3,1,soft,No information provided.,193,5,0.2712088999687694,-0.5796856880187988
+2wikimultihopqa,3881,bge_m3,3,soft,There is no information about the birthplace of the founder of Brand New Immortals in the passages.,629,22,1.2026648000464775,-0.2047080099582672
+2wikimultihopqa,3853,bge_m3,1,soft,East Germany.,148,4,0.22281779994955286,-0.35920441150665283
+2wikimultihopqa,3853,bge_m3,3,soft,Germany.,780,3,0.3737140000448562,-0.16859251260757446
+2wikimultihopqa,4687,bge_m3,1,soft,Germany.,163,3,0.1781936000334099,-0.6286522746086121
+2wikimultihopqa,4687,bge_m3,3,soft,Unknown.,271,3,0.20393359998706728,-0.6099146604537964
+2wikimultihopqa,5816,bge_m3,1,soft,Unknown.,238,3,0.18563710001762956,-0.3341204822063446
+2wikimultihopqa,5816,bge_m3,3,soft,Landgravine Anna Amalia of Baden-Durlach.,786,14,0.8992235000478104,-0.060975249856710434
+2wikimultihopqa,12176,bge_m3,1,soft,No answer available.,201,5,0.27146140002878383,-0.718611478805542
+2wikimultihopqa,12176,bge_m3,3,soft,"No, they are not.",506,7,0.4516835000249557,-0.16621410846710205
+2wikimultihopqa,828,bge_m3,1,soft,No information.,196,4,0.22613610001280904,-0.6177251935005188
+2wikimultihopqa,828,bge_m3,3,soft,There is no information about the director of The Cloister of Martins dying.,357,16,0.8472712999791838,-0.34385573863983154
+2wikimultihopqa,2238,bge_m3,1,soft,Speak Easily.,342,4,0.2543988000252284,-0.02730320394039154
+2wikimultihopqa,2238,bge_m3,3,soft,Speak Easily.,612,4,0.36909200000809506,-0.009745939634740353
+2wikimultihopqa,2344,bge_m3,1,soft,Yes.,132,3,0.17549559997860342,-0.10820449143648148
+2wikimultihopqa,2344,bge_m3,3,soft,No.,376,3,0.21762589999707416,-0.12055778503417969
+2wikimultihopqa,6887,bge_m3,1,soft,Not mentioned.,321,4,0.2621706999489106,-0.4128550887107849
+2wikimultihopqa,6887,bge_m3,3,soft,Not mentioned.,836,4,0.4198212000192143,-0.6838406324386597
+2wikimultihopqa,1175,bge_m3,1,soft,Compagnie Française Des Métaux.,132,11,0.557874999998603,-0.17954884469509125
+2wikimultihopqa,1175,bge_m3,3,soft,Compagnie Française Des Métaux.,293,11,0.6405002999817953,-0.04024341329932213
+2wikimultihopqa,3542,bge_m3,1,soft,No information about Lauren Embree is provided.,164,10,0.5056251999922097,-0.4905146658420563
+2wikimultihopqa,3542,bge_m3,3,soft,Benny Södergren.,573,8,0.5375108000007458,-0.022854097187519073
+2wikimultihopqa,8641,bge_m3,1,soft,The Return Of The Tall Blond Man With One Black Shoe.,208,13,0.666139499982819,-0.024844206869602203
+2wikimultihopqa,8641,bge_m3,3,soft,The Return Of The Tall Blond Man With One Black Shoe.,410,13,0.7238050999585539,-0.07679443061351776
+2wikimultihopqa,6706,bge_m3,1,soft,Hit Parade Of 1941.,205,8,0.45078640000429004,-0.07938076555728912
+2wikimultihopqa,6706,bge_m3,3,soft,John H. Auer.,553,7,0.4873690999811515,-0.21250244975090027
+2wikimultihopqa,11711,bge_m3,1,soft,Not specified.,200,4,0.24945130001287907,-0.9534251093864441
+2wikimultihopqa,11711,bge_m3,3,soft,Not mentioned.,425,4,0.302882399992086,-0.7977232933044434
+2wikimultihopqa,10825,bge_m3,1,soft,France.,159,3,0.177632300008554,-0.1189272552728653
+2wikimultihopqa,10825,bge_m3,3,soft,France.,301,3,0.21481620002305135,-0.05587217956781387
+2wikimultihopqa,5903,bge_m3,1,soft,Carl Von Linde.,169,6,0.32906409999122843,-0.22942009568214417
+2wikimultihopqa,5903,bge_m3,3,soft,Carl Von Linde.,568,6,0.4532623999984935,-0.04951563850045204
+2wikimultihopqa,6673,bge_m3,1,soft,"John Louis I, Prince of Anhalt-Dornburg.",220,13,0.680993199988734,-0.08963164687156677
+2wikimultihopqa,6673,bge_m3,3,soft,"John VI, Prince of Anhalt-Zerbst.",470,12,0.6754309000098146,-0.006542162504047155
+2wikimultihopqa,2484,bge_m3,1,soft,No information about Kat Kiyars.,153,9,0.4661233000224456,-0.35632938146591187
+2wikimultihopqa,2484,bge_m3,3,soft,No.,373,3,0.21672409999882802,-0.05688536539673805
+2wikimultihopqa,6931,bge_m3,1,soft,"Sharon, Vermont.",589,6,0.4224482999998145,-0.41856834292411804
+2wikimultihopqa,6931,bge_m3,3,soft,"Victory, New York.",814,7,0.5327791000017896,-0.48692744970321655
+2wikimultihopqa,7814,bge_m3,1,soft,Babylon.,219,5,0.27909399999771267,-0.03982359543442726
+2wikimultihopqa,7814,bge_m3,3,soft,Babylon.,778,5,0.4541560999932699,-0.061605580151081085
+2wikimultihopqa,5851,bge_m3,1,soft,No information.,227,4,0.24147670000093058,-0.48808011412620544
+2wikimultihopqa,5851,bge_m3,3,soft,No.,372,3,0.2137382000219077,-0.0920976996421814
+2wikimultihopqa,2337,bge_m3,1,soft,Dark Interval.,233,4,0.2342089000158012,-0.285830557346344
+2wikimultihopqa,2337,bge_m3,3,soft,Yeti Obhijaan.,406,8,0.484379000030458,-0.03393969312310219
+2wikimultihopqa,3464,bge_m3,1,soft,Andrew III of Hungary.,144,6,0.3183852999936789,-0.24339313805103302
+2wikimultihopqa,3464,bge_m3,3,soft,Andrew III of Hungary's father.,280,8,0.4547028999659233,-0.22213391959667206
+2wikimultihopqa,4480,bge_m3,1,soft,Konrad IV of Masovia.,263,9,0.5001895999885164,-0.2608773708343506
+2wikimultihopqa,4480,bge_m3,3,soft,"Siemowit III, Duke of Masovia.",801,13,0.841235300002154,-0.03696570545434952
+2wikimultihopqa,9875,bge_m3,1,soft,Death on 29 January 2016.,165,10,0.5624244000064209,-0.12050829827785492
+2wikimultihopqa,9875,bge_m3,3,soft,Lung cancer is not the cause of death of the director of film Around A Small Mountain.,650,20,1.206696400011424,-0.362681120634079
+2wikimultihopqa,2629,bge_m3,1,soft,No information provided.,256,5,0.2795670999912545,-0.6669890880584717
+2wikimultihopqa,2629,bge_m3,3,soft,Not specified.,553,4,0.3264465000247583,-0.6763696074485779
+2wikimultihopqa,7127,bge_m3,1,soft,Mieszko III the Old.,274,8,0.4448761999956332,-0.03122756816446781
+2wikimultihopqa,7127,bge_m3,3,soft,Mieszko III the Old.,600,8,0.514988099981565,-0.13075964152812958
+2wikimultihopqa,3963,bge_m3,1,soft,Those Happy Years.,148,5,0.28519079997204244,-0.05558517947793007
+2wikimultihopqa,3963,bge_m3,3,soft,Those Happy Years.,238,5,0.2820110999746248,-0.2619183659553528
+2wikimultihopqa,9529,bge_m3,1,soft,Ferrara.,201,5,0.2661913000047207,-0.5690659284591675
+2wikimultihopqa,9529,bge_m3,3,soft,Ferrara.,574,5,0.37223269999958575,-0.3357154130935669
+2wikimultihopqa,2848,bge_m3,1,soft,Eric Tanenblatt.,190,7,0.38101780001306906,-0.05642043799161911
+2wikimultihopqa,2848,bge_m3,3,soft,Craig L. Fuller.,520,6,0.43077379994792864,-0.0953582301735878
+2wikimultihopqa,4718,bge_m3,1,soft,"He Ain't Heavy, He's My Father.",230,11,0.5713455000077374,-0.13701145350933075
+2wikimultihopqa,4718,bge_m3,3,soft,L.A. Zombie.,455,6,0.38270630000624806,-0.04889540374279022
+2wikimultihopqa,2954,bge_m3,1,soft,Unknown.,209,3,0.20101630000863224,-0.5324661731719971
+2wikimultihopqa,2954,bge_m3,3,soft,Unknown.,672,3,0.3219859999953769,-0.5813996195793152
+2wikimultihopqa,10562,bge_m3,1,soft,No information about The Hunchback Of Rome.,268,11,0.5834601999958977,-0.36345916986465454
+2wikimultihopqa,10562,bge_m3,3,soft,The Hunchback Of Rome.,465,8,0.4980118000530638,-0.2529543340206146
+2wikimultihopqa,10039,bge_m3,1,soft,There's One Born Every Minute.,151,8,0.42169129999820143,-0.026731478050351143
+2wikimultihopqa,10039,bge_m3,3,soft,There's One Born Every Minute.,376,8,0.4974345000227913,-0.152217835187912
+2wikimultihopqa,741,bge_m3,1,soft,"Atlantic City, New Jersey.",203,7,0.3795013999915682,-0.35620200634002686
+2wikimultihopqa,741,bge_m3,3,soft,Not mentioned.,390,4,0.2801429000101052,-0.7762954235076904
+2wikimultihopqa,290,bge_m3,1,soft,No.,292,3,0.20264350000070408,-0.4225996732711792
+2wikimultihopqa,290,bge_m3,3,soft,No.,805,3,0.3535947999916971,-0.19874779880046844
+2wikimultihopqa,9334,bge_m3,1,soft,1817.,350,4,0.27180159999988973,-0.832013726234436
+2wikimultihopqa,9334,bge_m3,3,soft,Langenschwalbach,624,5,0.3928839999716729,-0.49031221866607666
+2wikimultihopqa,1053,bge_m3,1,soft,England/France.,212,5,0.3107878000009805,-0.22375330328941345
+2wikimultihopqa,1053,bge_m3,3,soft,England/France.,576,5,0.39389579999260604,-0.27708983421325684
+2wikimultihopqa,2184,bge_m3,1,soft,Unknown.,194,3,0.1901691000093706,-0.6284571290016174
+2wikimultihopqa,2184,bge_m3,3,soft,Mathilde Halbach.,461,6,0.38762500003213063,-0.2927689552307129
+2wikimultihopqa,5440,bge_m3,1,soft,No information provided.,324,5,0.31324680004036054,-0.6487821936607361
+2wikimultihopqa,5440,bge_m3,3,soft,Unknown.,843,3,0.3559757000184618,-0.29539191722869873
+2wikimultihopqa,12252,bge_m3,1,soft,Yes.,139,3,0.17898010002681985,-0.5251460075378418
+2wikimultihopqa,12252,bge_m3,3,soft,No.,282,3,0.20542589999968186,-0.6163420081138611
+2wikimultihopqa,9148,bge_m3,1,soft,No information.,222,4,0.23005970002850518,-0.6485626101493835
+2wikimultihopqa,9148,bge_m3,3,soft,Not mentioned.,424,4,0.3091202999930829,-0.6555168628692627
+2wikimultihopqa,11452,bge_m3,1,soft,No information.,674,4,0.35918909998144954,-0.711643397808075
+2wikimultihopqa,11452,bge_m3,3,soft,"December 9, 2007.",794,9,0.64687589998357,-0.08671802282333374
+2wikimultihopqa,518,bge_m3,1,soft,Das Spielzeug Von Paris.,156,7,0.35982339998008683,-0.10615405440330505
+2wikimultihopqa,518,bge_m3,3,soft,A Scream from Silence.,403,7,0.4282251000404358,-0.07469901442527771
+2wikimultihopqa,2536,bge_m3,1,soft,Unknown.,161,3,0.17165019997628406,-0.22769048810005188
+2wikimultihopqa,2536,bge_m3,3,soft,Not specified.,463,4,0.2934462000266649,-0.6767234802246094
+2wikimultihopqa,149,bge_m3,1,soft,King Charles I of Sicily.,176,8,0.4099671999574639,-0.0035279833246022463
+2wikimultihopqa,149,bge_m3,3,soft,King Charles I of Sicily.,571,8,0.5298315000254661,-0.0230685006827116
+2wikimultihopqa,11160,bge_m3,1,soft,Not specified.,339,4,0.2598189999698661,-0.5937381982803345
+2wikimultihopqa,11160,bge_m3,3,soft,"Solothurn, Switzerland.",539,7,0.4791471000062302,-0.020662108436226845
+2wikimultihopqa,1153,bge_m3,1,soft,France.,130,3,0.18118640000466257,-0.09668298065662384
+2wikimultihopqa,1153,bge_m3,3,soft,France.,477,3,0.24963420000858605,-0.36116331815719604
+2wikimultihopqa,11342,bge_m3,1,soft,Not available.,145,4,0.21853569999802858,-0.6500251889228821
+2wikimultihopqa,11342,bge_m3,3,soft,Not mentioned.,250,4,0.2439748999895528,-0.5784047842025757
+2wikimultihopqa,10235,bge_m3,1,soft,No information.,244,4,0.23400689999107271,-0.48823270201683044
+2wikimultihopqa,10235,bge_m3,3,soft,No information.,484,4,0.2971753000165336,-0.8101797103881836
+2wikimultihopqa,8290,bge_m3,1,soft,Night of Dark Shadows.,209,6,0.3420363000477664,-0.305257648229599
+2wikimultihopqa,8290,bge_m3,3,soft,A Night of Horror.,382,6,0.36012620001565665,-0.149729922413826
+2wikimultihopqa,2036,bge_m3,1,soft,The Vienna Psychoanalytic Society.,251,8,0.42138769995654,-0.2281164675951004
+2wikimultihopqa,2036,bge_m3,3,soft,There is no information about Edward Bibring's wife working at a specific place.,658,18,1.0551400000113063,-0.2670951783657074
+2wikimultihopqa,2540,bge_m3,1,soft,Not mentioned.,742,4,0.37724110000999644,-0.7369610071182251
+2wikimultihopqa,2540,bge_m3,3,soft,There is no information about William Killigrew (1606–1695)'s father's education.,1134,22,1.3483272999874316,-0.2643408477306366
+2wikimultihopqa,9848,bge_m3,1,soft,Hungarian.,195,4,0.23348439997062087,-0.1416015625
+2wikimultihopqa,9848,bge_m3,3,soft,Hungarian-American.,456,5,0.35091320000356063,-0.13576357066631317
+2wikimultihopqa,200,bge_m3,1,soft,I don't have information about the director of Light Over Russia.,174,14,0.7091131000197493,-0.42094600200653076
+2wikimultihopqa,200,bge_m3,3,soft,"There is no information about the director of ""Light Over Russia"" or the directors of ""Two for Tonight"" dying.",342,25,1.2863785999943502,-0.427191823720932
+2wikimultihopqa,10770,bge_m3,1,soft,Not mentioned.,464,4,0.3114218999980949,-0.8836296796798706
+2wikimultihopqa,10770,bge_m3,3,soft,19 January 1628,577,6,0.4364942000247538,-0.05848335102200508
+2wikimultihopqa,12101,bge_m3,1,soft,No information provided.,349,5,0.34390089998487383,-0.5077335238456726
+2wikimultihopqa,12101,bge_m3,3,soft,Starvation.,1287,4,0.5487256000051275,-0.17753218114376068
+2wikimultihopqa,251,bge_m3,1,soft,Washington D.C.,189,5,0.280833899974823,-0.3341453969478607
+2wikimultihopqa,251,bge_m3,3,soft,Not specified.,508,4,0.31110829999670386,-0.7499451041221619
+2wikimultihopqa,1688,bge_m3,1,soft,Roucy.,222,5,0.2857062999974005,-0.15627628564834595
+2wikimultihopqa,1688,bge_m3,3,soft,Roucy.,418,5,0.34081990004051477,-0.30067506432533264
+2wikimultihopqa,12296,bge_m3,1,soft,Margaret Douglas.,175,5,0.2802934999926947,-0.2335483729839325
+2wikimultihopqa,12296,bge_m3,3,soft,Margaret Douglas.,501,5,0.341312000004109,-0.026542453095316887
+2wikimultihopqa,7225,bge_m3,1,soft,No information provided.,165,5,0.2734271999797784,-0.42447352409362793
+2wikimultihopqa,7225,bge_m3,3,soft,There is no information about the director of Trading Paint in the passages.,377,15,0.799918299948331,-0.3896191716194153
+2wikimultihopqa,2021,bge_m3,1,soft,No information is given about the director of Between Maybes.,150,13,0.6607084000133909,-0.5633001327514648
+2wikimultihopqa,2021,bge_m3,3,soft,Life Is Hot In Cracktown.,272,8,0.44565559999318793,-0.16481168568134308
+2wikimultihopqa,5859,bge_m3,1,soft,Israel.,233,3,0.20036550000077114,-0.3831849694252014
+2wikimultihopqa,5859,bge_m3,3,soft,No information is available about Dover Kosashvili's birthplace.,400,15,0.8377055000164546,-0.412482351064682
+2wikimultihopqa,937,bge_m3,1,soft,No information provided.,141,5,0.27270420000422746,-0.8271584510803223
+2wikimultihopqa,937,bge_m3,3,soft,No spouse mentioned.,425,5,0.33325989998411387,-0.36752378940582275
+2wikimultihopqa,5426,bge_m3,1,soft,No information is given about Adrián Horacio Gómez.,136,14,0.7504732999950647,-0.36521685123443604
+2wikimultihopqa,5426,bge_m3,3,soft,Álvaro Grant Macdonald.,229,10,0.5146710999542847,-0.09094009548425674
+2wikimultihopqa,6857,bge_m3,1,soft,Not specified.,236,4,0.2361228999798186,-0.8982140421867371
+2wikimultihopqa,6857,bge_m3,3,soft,No information is available about the grandchildren of Stefan Zamoyski in the passages.,678,18,1.0541886999853887,-0.44578906893730164
+2wikimultihopqa,6586,bge_m3,1,soft,Whichever Slew Auntie Roo.,222,9,0.4692788000102155,-0.21230576932430267
+2wikimultihopqa,6586,bge_m3,3,soft,Places In The Heart.,522,6,0.428980499971658,-0.10323204100131989
+2wikimultihopqa,5714,bge_m3,1,soft,No.,311,3,0.21804360003443435,-0.3465530276298523
+2wikimultihopqa,5714,bge_m3,3,soft,No.,609,3,0.2880182000226341,-0.21743541955947876
+2wikimultihopqa,2473,bge_m3,1,soft,Ernst Heinrich Karl Von Dechen.,240,10,0.519116000039503,-0.05489887669682503
+2wikimultihopqa,2473,bge_m3,3,soft,Ernst Heinrich Karl Von Dechen.,903,10,0.7278667999780737,-0.05191611126065254
+2wikimultihopqa,8876,bge_m3,1,soft,No award mentioned.,213,5,0.28434179996838793,-0.4305271804332733
+2wikimultihopqa,8876,bge_m3,3,soft,Grammy Award.,1357,5,0.602090300002601,-0.2374061644077301
+2wikimultihopqa,6847,bge_m3,1,soft,No.,334,3,0.219973300001584,-0.43317240476608276
+2wikimultihopqa,6847,bge_m3,3,soft,"No, they are not.",502,7,0.4527935999794863,-0.2219148874282837
+2wikimultihopqa,10992,bge_m3,1,soft,The Asphalt Jungle.,186,5,0.2976634000078775,-0.2902585566043854
+2wikimultihopqa,10992,bge_m3,3,soft,The information provided does not contain the answer to the question.,356,13,0.7084617000073195,-0.6668272018432617
+2wikimultihopqa,10788,bge_m3,1,soft,No information.,270,4,0.27002179995179176,-0.7198481559753418
+2wikimultihopqa,10788,bge_m3,3,soft,No information available.,539,5,0.3909210999845527,-0.6238282322883606
+2wikimultihopqa,2236,bge_m3,1,soft,Edo De Waart.,215,7,0.4654473999980837,-0.05764518305659294
+2wikimultihopqa,2236,bge_m3,3,soft,Edo De Waart.,482,7,0.440355799975805,-0.023091040551662445
+2wikimultihopqa,6620,bge_m3,1,soft,Everyone Else.,172,4,0.22545630001695827,-0.07412676513195038
+2wikimultihopqa,6620,bge_m3,3,soft,Everyone's Child.,316,5,0.30437010002788156,-0.3623925447463989
+2wikimultihopqa,4026,bge_m3,1,soft,There is no information about Jay'Ed in the passage.,470,13,0.7791258000070229,-0.24640658497810364
+2wikimultihopqa,4026,bge_m3,3,soft,Emil Fackenheim.,628,7,0.4703482000040822,-0.13508346676826477
+2wikimultihopqa,12146,bge_m3,1,soft,Not specified.,274,4,0.25236330000916496,-0.5716081857681274
+2wikimultihopqa,12146,bge_m3,3,soft,"Mendon, Massachusetts.",831,6,0.5149168000207283,-0.02014363370835781
+2wikimultihopqa,5893,bge_m3,1,soft,Kodardas Kalidas Shah.,229,9,0.4713268000050448,-0.04481711611151695
+2wikimultihopqa,5893,bge_m3,3,soft,Emmanuel Oduol.,514,7,0.4875138000352308,-0.04782094061374664
+2wikimultihopqa,6071,bge_m3,1,soft,Yes.,202,3,0.17948449996765703,-0.04966672137379646
+2wikimultihopqa,6071,bge_m3,3,soft,Yes.,406,3,0.2384328999905847,-0.1317041516304016
+2wikimultihopqa,6849,bge_m3,1,soft,The Girl In The Red Velvet Swing.,197,9,0.5027446000021882,-0.3206735849380493
+2wikimultihopqa,6849,bge_m3,3,soft,The Girl In The Red Velvet Swing.,600,9,0.5919989999965765,-0.29569533467292786
+2wikimultihopqa,5943,bge_m3,1,soft,No information about Ek Tho Chance is provided.,450,11,0.6289442999986932,-0.5115324258804321
+2wikimultihopqa,5943,bge_m3,3,soft,No.,924,3,0.3870572000159882,-0.28503215312957764
+2wikimultihopqa,396,bge_m3,1,soft,No information is given about the director of Cold Moon.,186,12,0.6112641000072472,-0.5382028818130493
+2wikimultihopqa,396,bge_m3,3,soft,"Yes, France.",481,5,0.34880380000686273,-0.35063880681991577
+2wikimultihopqa,2664,bge_m3,1,soft,Lalengzama Vangchhia.,151,12,0.6150867000105791,-0.016515333205461502
+2wikimultihopqa,2664,bge_m3,3,soft,Lalengzama Vangchhia.,309,12,0.6498662999947555,-0.019275331869721413
+2wikimultihopqa,2366,bge_m3,1,soft,Not mentioned.,212,4,0.2542600000160746,-0.7159518599510193
+2wikimultihopqa,2366,bge_m3,3,soft,Not mentioned.,473,4,0.30706199997803196,-0.8139539957046509
+2wikimultihopqa,10157,bge_m3,1,soft,Georges Prêtre.,125,6,0.3321308000013232,-0.18203800916671753
+2wikimultihopqa,10157,bge_m3,3,soft,Laura Riding.,215,4,0.2643561000004411,-0.31218600273132324
+2wikimultihopqa,9810,bge_m3,1,soft,King Tiridates III.,535,7,0.4754418999655172,-0.06385089457035065
+2wikimultihopqa,9810,bge_m3,3,soft,Tiridates III.,1308,7,0.70633060002001,-0.1113496944308281
+2wikimultihopqa,10598,bge_m3,1,soft,Iceland.,464,4,0.30854389996966347,-0.022297842428088188
+2wikimultihopqa,10598,bge_m3,3,soft,Iceland.,832,4,0.4202102000126615,-0.16653116047382355
+2wikimultihopqa,4094,bge_m3,1,soft,Not specified.,298,4,0.2567178000463173,-0.9333769679069519
+2wikimultihopqa,4094,bge_m3,3,soft,Unknown.,583,3,0.2852911000372842,-1.0068786144256592
+2wikimultihopqa,3378,bge_m3,1,soft,The Lady Takes A Flyer.,167,8,0.4170604000100866,-0.2325996458530426
+2wikimultihopqa,3378,bge_m3,3,soft,Daniil Khrabrovitsky.,596,10,0.6267261999892071,-0.11438943445682526
+2wikimultihopqa,4176,bge_m3,1,soft,John Vernou Bouvier Jr.,183,8,0.4174314999836497,-0.24712756276130676
+2wikimultihopqa,4176,bge_m3,3,soft,Phelan Beale.,391,6,0.37577929999679327,-0.12095016241073608
+2wikimultihopqa,4417,bge_m3,1,soft,Not specified.,232,4,0.24111040000570938,-0.6536339521408081
+2wikimultihopqa,4417,bge_m3,3,soft,Unknown.,901,3,0.395522799983155,-0.6145346760749817
+2wikimultihopqa,9961,bge_m3,1,soft,"Charles V, Holy Roman Emperor.",213,8,0.44969330000458285,-0.06779509782791138
+2wikimultihopqa,9961,bge_m3,3,soft,John III of Portugal.,497,6,0.39229429996339604,-0.24282251298427582
+2wikimultihopqa,8015,bge_m3,1,soft,No.,167,3,0.1850378999952227,-0.21715013682842255
+2wikimultihopqa,8015,bge_m3,3,soft,No.,877,3,0.36244040000019595,-0.6360222697257996
+2wikimultihopqa,2754,bge_m3,1,soft,Siti Noerbaja.,191,7,0.3763706000172533,-0.06894491612911224
+2wikimultihopqa,2754,bge_m3,3,soft,Flash Gordon Conquers The Universe.,805,9,0.6431811000220478,-0.0158761665225029
+2wikimultihopqa,12280,bge_m3,1,soft,Latvia.,118,4,0.19711710000410676,-0.09934952110052109
+2wikimultihopqa,12280,bge_m3,3,soft,Not specified.,468,4,0.2940128000336699,-0.9382497668266296
+2wikimultihopqa,5224,bge_m3,1,soft,Wolf Warrior.,277,4,0.2611286999890581,-0.16815784573554993
+2wikimultihopqa,5224,bge_m3,3,soft,Wolf Warrior.,495,4,0.3061528999824077,-0.49818092584609985
+2wikimultihopqa,4676,bge_m3,1,soft,Not specified.,277,4,0.25861899997107685,-0.9558347463607788
+2wikimultihopqa,4676,bge_m3,3,soft,"Buchsweiler is not the answer, Buchsweiler is the birthplace of Princess Caroline of Hesse-Darmstadt.",463,28,1.5121188999619335,-0.454325795173645
+2wikimultihopqa,3469,bge_m3,1,soft,Archduchess Maria Amalia of Austria.,213,11,0.5864014999824576,-0.2939494252204895
+2wikimultihopqa,3469,bge_m3,3,soft,Archduchess Maria Amalia of Austria.,431,11,0.6166042999830097,-0.0851520225405693
+2wikimultihopqa,9575,bge_m3,1,soft,There is not enough information to answer the question.,163,11,0.6123907000292093,-0.36498919129371643
+2wikimultihopqa,9575,bge_m3,3,soft,"There is no information about ""The Eagle's Feather"" film.",627,14,0.8153697999659926,-0.40223029255867004
+2wikimultihopqa,6651,bge_m3,1,soft,Germany.,164,3,0.16961290000472218,-0.36243095993995667
+2wikimultihopqa,6651,bge_m3,3,soft,Mülheim an der Ruhr.,273,9,0.49676489998819306,-0.02745697647333145
+2wikimultihopqa,3314,bge_m3,1,soft,There is no information about Nathaniel Mclenaghan in the passage.,136,16,0.8015185999684036,-0.19523151218891144
+2wikimultihopqa,3314,bge_m3,3,soft,Frederick Cleveland Morgan.,321,7,0.4082592999911867,-0.017590707167983055
+2wikimultihopqa,2576,bge_m3,1,soft,Caleb Q. Dyer,184,7,0.39313490001950413,-0.09243083000183105
+2wikimultihopqa,2576,bge_m3,3,soft,Olga Fedori.,325,6,0.35608269996009767,-0.006477202754467726
+2wikimultihopqa,8481,bge_m3,1,soft,"Yes, Bangladesh.",251,5,0.27593409997643903,-0.17136284708976746
+2wikimultihopqa,8481,bge_m3,3,soft,"Yes, Bangladesh.",411,5,0.3310154999489896,-0.12118936330080032
+2wikimultihopqa,10829,bge_m3,1,soft,Yuen Siu-tien.,159,8,0.41304010001476854,-0.24728500843048096
+2wikimultihopqa,10829,bge_m3,3,soft,No information provided.,400,5,0.32831990002887323,-0.6314742565155029
+2wikimultihopqa,747,bge_m3,1,soft,Not specified.,298,4,0.25478910002857447,-0.8717876672744751
+2wikimultihopqa,747,bge_m3,3,soft,Not mentioned.,1059,4,0.4847610999713652,-0.5804659128189087
+2wikimultihopqa,11876,bge_m3,1,soft,Serbia.,513,4,0.3387104999856092,-0.5852756500244141
+2wikimultihopqa,11876,bge_m3,3,soft,Serbia.,1513,4,0.5829748999676667,-0.617069661617279
+2wikimultihopqa,5629,bge_m3,1,soft,Stuttgart.,209,4,0.2318115999805741,-0.459833562374115
+2wikimultihopqa,5629,bge_m3,3,soft,Weimar.,430,4,0.2849862999864854,-0.36167773604393005
+2wikimultihopqa,9271,bge_m3,1,soft,Texas.,192,3,0.19094920001225546,-0.4095507562160492
+2wikimultihopqa,9271,bge_m3,3,soft,No information provided.,354,5,0.319961900007911,-0.6597260236740112
+2wikimultihopqa,4335,bge_m3,1,soft,No information provided.,146,5,0.2925487000029534,-0.6155472993850708
+2wikimultihopqa,4335,bge_m3,3,soft,France.,317,3,0.21640539995860308,-0.5996659994125366
+2wikimultihopqa,5981,bge_m3,1,soft,"There is no information about ""Shadows Of A Great City"" in the passage.",159,18,0.8960534000070766,-0.20009750127792358
+2wikimultihopqa,5981,bge_m3,3,soft,Shadows Of A Great City.,313,8,0.4565922999754548,-0.09318111836910248
+2wikimultihopqa,7047,bge_m3,1,soft,Luxembourg.,214,4,0.2606440999661572,-0.41178375482559204
+2wikimultihopqa,7047,bge_m3,3,soft,Luxembourg.,429,4,0.2974277000175789,-0.17580482363700867
+2wikimultihopqa,9688,bge_m3,1,soft,Alia Bhatt.,151,6,0.31543049996253103,-0.26300665736198425
+2wikimultihopqa,9688,bge_m3,3,soft,Not mentioned.,498,4,0.2905470000114292,-0.6191941499710083
+2wikimultihopqa,8604,bge_m3,1,soft,Elsa Herrmann.,172,6,0.31113340001320466,-0.14954803884029388
+2wikimultihopqa,8604,bge_m3,3,soft,Elsa Herrmann.,434,6,0.37841990002198145,-0.028729910030961037
+2wikimultihopqa,1166,bge_m3,1,soft,No information provided.,228,5,0.2734105000272393,-0.5113556385040283
+2wikimultihopqa,1166,bge_m3,3,soft,No information is available about the director of the film Border (2018 film).,397,17,0.9086471000337042,-0.4872688353061676
+2wikimultihopqa,4464,bge_m3,1,soft,Irish/English.,265,6,0.3829072000226006,-0.3784065246582031
+2wikimultihopqa,4464,bge_m3,3,soft,Irish.,1159,4,0.5355086000054143,-0.24165868759155273
+2wikimultihopqa,5608,bge_m3,1,soft,"Catania, Italy.",123,6,0.2813828000216745,-0.4601045548915863
+2wikimultihopqa,5608,bge_m3,3,soft,Not specified.,478,4,0.29096909996587783,-0.9073829650878906
+2wikimultihopqa,3069,bge_m3,1,soft,There is no information about Eric VI of Denmark's mother's death in the passage.,183,18,0.8907372000394389,-0.20769928395748138
+2wikimultihopqa,3069,bge_m3,3,soft,Not mentioned.,412,4,0.285168899979908,-0.7961904406547546
+2wikimultihopqa,385,bge_m3,1,soft,No information.,333,4,0.268990800017491,-0.6169503331184387
+2wikimultihopqa,385,bge_m3,3,soft,Lancing College.,849,5,0.45471010002074763,-0.030441144481301308
+2wikimultihopqa,9360,bge_m3,1,soft,Not mentioned.,558,4,0.3398175000329502,-0.4834672212600708
+2wikimultihopqa,9360,bge_m3,3,soft,21 November 1856,655,6,0.4581659000250511,-0.010964479297399521
+2wikimultihopqa,9757,bge_m3,1,soft,Pressburg.,369,4,0.2676305000204593,-0.2058105170726776
+2wikimultihopqa,9757,bge_m3,3,soft,Pressburg.,620,4,0.35677459998987615,-0.4311681389808655
+2wikimultihopqa,4003,bge_m3,1,soft,Not specified.,188,4,0.23753379995469004,-0.6171809434890747
+2wikimultihopqa,4003,bge_m3,3,soft,There is no information about the husband's birthplace in the passage.,704,15,0.913448800041806,-0.37886884808540344
+2wikimultihopqa,9535,bge_m3,1,soft,"No, they do not.",158,7,0.3663583999732509,-0.2814868688583374
+2wikimultihopqa,9535,bge_m3,3,soft,No.,440,3,0.2505130000063218,-0.3684390187263489
+2wikimultihopqa,11011,bge_m3,1,soft,Italian-American.,144,4,0.23294369998620823,-0.2479209303855896
+2wikimultihopqa,11011,bge_m3,3,soft,Italian.,301,3,0.20500899996841326,-0.21897447109222412
+2wikimultihopqa,3692,bge_m3,1,soft,Secrets Of The Reef.,263,7,0.43005860003177077,-0.17145054042339325
+2wikimultihopqa,3692,bge_m3,3,soft,Secrets Of The Reef.,546,7,0.47321159997954965,-0.34549444913864136
+2wikimultihopqa,4341,bge_m3,1,soft,American.,133,3,0.16623820003587753,-0.1660001575946808
+2wikimultihopqa,4341,bge_m3,3,soft,American.,519,3,0.28316560003440827,-0.22578975558280945
+2wikimultihopqa,10277,bge_m3,1,soft,"Rally Round The Flag, Boys!.",178,9,0.4674375999602489,-0.017351612448692322
+2wikimultihopqa,10277,bge_m3,3,soft,"Rally Round The Flag, Boys!.",324,9,0.49690769996959716,-0.1143583357334137
+2wikimultihopqa,135,bge_m3,1,soft,Trainer And Temptress.,127,8,0.39137089997529984,-0.16843368113040924
+2wikimultihopqa,135,bge_m3,3,soft,Trainer And Temptress.,350,8,0.47265529999276623,-0.06505294889211655
+2wikimultihopqa,7235,bge_m3,1,soft,Hercules Against The Sons Of The Sun.,153,11,0.5644628999871202,-0.10396771878004074
+2wikimultihopqa,7235,bge_m3,3,soft,Barravento.,332,6,0.3557035999838263,-0.015668515115976334
+2wikimultihopqa,9896,bge_m3,1,soft,No information available.,198,5,0.2747224000049755,-0.5669974088668823
+2wikimultihopqa,9896,bge_m3,3,soft,No information.,357,4,0.261341999983415,-0.7960414290428162
+2wikimultihopqa,9611,bge_m3,1,soft,Stein Erik Hagen.,148,7,0.37181670003337786,-0.11286266148090363
+2wikimultihopqa,9611,bge_m3,3,soft,Kiplangat Sang.,309,7,0.3927061999565922,-0.015399619936943054
+2wikimultihopqa,47,bge_m3,1,soft,The House By The Cemetery.,166,7,0.37851619999855757,-0.025528691709041595
+2wikimultihopqa,47,bge_m3,3,soft,Charlie Chan In Honolulu.,424,6,0.384360000025481,-0.2501344382762909
+2wikimultihopqa,83,bge_m3,1,soft,Captain Kidd And The Slave Girl.,173,8,0.42076469998573884,-0.11973103880882263
+2wikimultihopqa,83,bge_m3,3,soft,Captain Kidd And The Slave Girl.,255,8,0.4301931000081822,-0.14213433861732483
+2wikimultihopqa,8370,bge_m3,1,soft,Women's Suffrage Journal.,142,7,0.3716216000029817,-0.10872548818588257
+2wikimultihopqa,8370,bge_m3,3,soft,Women's Suffrage Journal.,914,7,0.6085878000012599,-0.010980714112520218
+2wikimultihopqa,7772,bge_m3,1,soft,Sweden.,212,3,0.20311700005549937,-0.1777978390455246
+2wikimultihopqa,7772,bge_m3,3,soft,Sweden.,441,3,0.2463632000144571,-0.011462436988949776
+2wikimultihopqa,9653,bge_m3,1,soft,Yongle Emperor.,178,6,0.3491570999613032,-0.256743848323822
+2wikimultihopqa,9653,bge_m3,3,soft,The Yongle Emperor.,647,6,0.46974569995654747,-0.14412736892700195
+2wikimultihopqa,5431,bge_m3,1,soft,American.,179,3,0.18289109994657338,-0.010830705985426903
+2wikimultihopqa,5431,bge_m3,3,soft,American.,338,3,0.2161576999933459,-0.10501126945018768
+2wikimultihopqa,2984,bge_m3,1,soft,Not available.,133,4,0.21623969997745007,-0.7254158854484558
+2wikimultihopqa,2984,bge_m3,3,soft,No information.,390,4,0.31883569998899475,-0.8518068790435791
+2wikimultihopqa,4257,bge_m3,1,soft,Story Of A Kiss.,177,6,0.329661900002975,-0.31964680552482605
+2wikimultihopqa,4257,bge_m3,3,soft,Story Of A Kiss.,323,6,0.36580339999636635,-0.06323467940092087
+2wikimultihopqa,5361,bge_m3,1,soft,Elmina Shepard Taylor.,169,6,0.32301819999702275,-0.011548439972102642
+2wikimultihopqa,5361,bge_m3,3,soft,Elmina Shepard Taylor.,357,6,0.40233159996569157,-0.0017410367727279663
+2wikimultihopqa,8314,bge_m3,1,soft,No information about Made Men film.,197,8,0.41783099999884143,-0.7023174166679382
+2wikimultihopqa,8314,bge_m3,3,soft,Mystère à Shanghai.,469,7,0.42864739999640733,-0.11229962110519409
+2wikimultihopqa,1512,bge_m3,1,soft,Yes.,152,3,0.17343620001338422,-0.49396955966949463
+2wikimultihopqa,1512,bge_m3,3,soft,Yes.,241,3,0.18625909998081625,-0.23412200808525085
+2wikimultihopqa,1261,bge_m3,1,soft,England.,171,3,0.1802169000147842,-0.11579636484384537
+2wikimultihopqa,1261,bge_m3,3,soft,England.,365,3,0.23087010002927855,-0.016164157539606094
+2wikimultihopqa,5045,bge_m3,1,soft,Paadha Kaanikkai.,196,9,0.4756570999743417,-0.010087837465107441
+2wikimultihopqa,5045,bge_m3,3,soft,Paadha Kaanikkai.,517,9,0.5568558999802917,-0.0036496776156127453
+2wikimultihopqa,8,bge_m3,1,soft,No answer available.,184,5,0.2735906000016257,-0.6678817272186279
+2wikimultihopqa,8,bge_m3,3,soft,Fernando Fernán Gómez.,295,10,0.5507648999919184,-0.1671082079410553
+2wikimultihopqa,2380,bge_m3,1,soft,Sir John Tuchet.,384,7,0.41943629999877885,-0.15870267152786255
+2wikimultihopqa,2380,bge_m3,3,soft,"James Audley, 2nd Baron Audley.",994,12,0.8413593000150286,-0.06558363139629364
+2wikimultihopqa,12534,bge_m3,1,soft,No information.,281,4,0.2638864999753423,-0.7332041263580322
+2wikimultihopqa,12534,bge_m3,3,soft,Antoine de Caunes' children are not mentioned in the passages.,606,15,0.8588853999972343,-0.30824756622314453
+2wikimultihopqa,4353,bge_m3,1,soft,Seduced And Abandoned.,205,8,0.4280468999641016,-0.14246462285518646
+2wikimultihopqa,4353,bge_m3,3,soft,Formula of Love.,386,5,0.36922019999474287,-0.07231861352920532
+2wikimultihopqa,11267,bge_m3,1,soft,No information provided.,138,5,0.276210899988655,-0.4892839193344116
+2wikimultihopqa,11267,bge_m3,3,soft,Not mentioned.,419,4,0.2839958999538794,-0.6864282488822937
+2wikimultihopqa,11482,bge_m3,1,soft,Lassie Come Home.,330,7,0.4138208000222221,-0.03560145944356918
+2wikimultihopqa,11482,bge_m3,3,soft,Evan Almighty.,900,5,0.4888939000084065,-0.18604764342308044
+2wikimultihopqa,4860,bge_m3,1,soft,Not available.,216,4,0.23757980001391843,-0.918937623500824
+2wikimultihopqa,4860,bge_m3,3,soft,Not mentioned.,897,4,0.4343652999959886,-0.8473029136657715
+2wikimultihopqa,311,bge_m3,1,soft,"Yes, Pakistan.",143,5,0.2693742999690585,-0.29649797081947327
+2wikimultihopqa,311,bge_m3,3,soft,Yes.,281,3,0.20152130001224577,-0.3196139633655548
+2wikimultihopqa,12243,bge_m3,1,soft,Josip Petrov Babich.,162,8,0.41120989999035373,-0.04792265594005585
+2wikimultihopqa,12243,bge_m3,3,soft,Peter Samuel George Mackenzie.,647,7,0.507861000020057,-0.016788270324468613
+2wikimultihopqa,4344,bge_m3,1,soft,Marshal Of Amarillo.,174,6,0.3193041000049561,-0.14864544570446014
+2wikimultihopqa,4344,bge_m3,3,soft,Marshal Of Amarillo.,359,6,0.3573616999783553,-0.18637704849243164
+2wikimultihopqa,11762,bge_m3,1,soft,No information.,177,4,0.22880199999781325,-0.689887285232544
+2wikimultihopqa,11762,bge_m3,3,soft,"No information about the director's death is available for ""Romeo, Juliet And Darkness"".",548,20,1.1715636999579147,-0.5173557996749878
+2wikimultihopqa,2517,bge_m3,1,soft,A Romance Of Seville.,182,7,0.3654507999890484,-0.07708173245191574
+2wikimultihopqa,2517,bge_m3,3,soft,No information.,770,4,0.4026490999967791,-0.7332450747489929
+2wikimultihopqa,8687,bge_m3,1,soft,Not documented.,324,4,0.26769700000295416,-0.7047251462936401
+2wikimultihopqa,8687,bge_m3,3,soft,Accused of high treason.,1341,7,0.7018947000033222,-0.0742376446723938
+2wikimultihopqa,9329,bge_m3,1,soft,Not available.,174,4,0.2249117000028491,-0.7704833745956421
+2wikimultihopqa,9329,bge_m3,3,soft,"December 11, 1954",622,8,0.5306544000050053,-0.500338077545166
+2wikimultihopqa,3578,bge_m3,1,soft,No information about A Gutter Magdalene is provided.,182,13,0.6682304000132717,-0.3934038281440735
+2wikimultihopqa,3578,bge_m3,3,soft,No.,665,3,0.3132593000191264,-0.5415295362472534
+2wikimultihopqa,9921,bge_m3,1,soft,"No, they do not.",234,7,0.43565449997549877,-0.30738043785095215
+2wikimultihopqa,9921,bge_m3,3,soft,"Yes, both films have French directors.",470,9,0.5876735000056215,-0.38104283809661865
+2wikimultihopqa,4315,bge_m3,1,soft,Not mentioned.,229,4,0.24224759999196976,-0.5603500604629517
+2wikimultihopqa,4315,bge_m3,3,soft,"Williamstown, Vermont.",707,6,0.45898769999621436,-0.046356748789548874
+2wikimultihopqa,6991,bge_m3,1,soft,No.,138,3,0.16472719999728724,-0.5075562000274658
+2wikimultihopqa,6991,bge_m3,3,soft,Yes.,490,3,0.2470716000534594,-0.22698096930980682
+2wikimultihopqa,4292,bge_m3,1,soft,Poland.,234,4,0.2326867000083439,-0.01361144706606865
+2wikimultihopqa,4292,bge_m3,3,soft,Poland.,479,4,0.31556979997549206,-0.09197916090488434
+2wikimultihopqa,5155,bge_m3,1,soft,Unknown.,163,3,0.1905519000138156,-0.9694780111312866
+2wikimultihopqa,5155,bge_m3,3,soft,Not specified.,395,4,0.2799246999784373,-0.7298662066459656
+2wikimultihopqa,8697,bge_m3,1,soft,No information available.,135,5,0.2651454000151716,-0.8671087026596069
+2wikimultihopqa,8697,bge_m3,3,soft,Hamad Al-Robeai.,281,8,0.44489929999690503,-0.05152655020356178
+2wikimultihopqa,2319,bge_m3,1,soft,There is no information about the directors of Bad City Blues.,242,13,0.6581564000225626,-0.39009615778923035
+2wikimultihopqa,2319,bge_m3,3,soft,There is no information about Bad City Blues.,475,10,0.5731695999857038,-0.447990357875824
+2wikimultihopqa,4412,bge_m3,1,soft,Unknown.,127,3,0.14795980002963915,-0.49758821725845337
+2wikimultihopqa,4412,bge_m3,3,soft,Glendale's Forest Lawn Memorial Park Cemetery.,569,10,0.6556328000151552,-0.12656255066394806
+2wikimultihopqa,1491,bge_m3,1,soft,No spouse mentioned.,163,5,0.27335569995921105,-0.4966367483139038
+2wikimultihopqa,1491,bge_m3,3,soft,Not specified.,305,4,0.2518172999843955,-0.8599786758422852
+2wikimultihopqa,4894,bge_m3,1,soft,Count Adolph II of the Marck.,257,10,0.5355411000200547,-0.11166558414697647
+2wikimultihopqa,4894,bge_m3,3,soft,Count Adolph II of the Marck.,362,10,0.5510266000055708,-0.08230448514223099
+2wikimultihopqa,6669,bge_m3,1,soft,Hello Caesar.,221,4,0.23870360001455992,-0.32454732060432434
+2wikimultihopqa,6669,bge_m3,3,soft,Hello Caesar!.,403,4,0.28275250003207475,-0.14522024989128113
+2wikimultihopqa,9663,bge_m3,1,soft,No award mentioned.,215,5,0.32138099998701364,-0.47019466757774353
+2wikimultihopqa,9663,bge_m3,3,soft,No award mentioned.,651,5,0.4181749999988824,-0.5612149238586426
+2wikimultihopqa,10822,bge_m3,1,soft,Yes.,174,3,0.1769450000138022,-0.07200028002262115
+2wikimultihopqa,10822,bge_m3,3,soft,Yes.,525,3,0.28631830000085756,-0.0915936753153801
+2wikimultihopqa,7625,bge_m3,1,soft,Lola Montès.,315,6,0.3575103000039235,-0.26164793968200684
+2wikimultihopqa,7625,bge_m3,3,soft,Lola Montès.,592,6,0.4336081999936141,-0.010309698060154915
+2wikimultihopqa,5964,bge_m3,1,soft,Korea.,192,4,0.23130099999252707,-0.4867333173751831
+2wikimultihopqa,5964,bge_m3,3,soft,1019.,583,4,0.3636797000071965,-0.1802189201116562
+2wikimultihopqa,979,bge_m3,1,soft,A Nightmare On Elm Street 4: The Dream Master.,366,13,0.7138744000112638,-0.012604794465005398
+2wikimultihopqa,979,bge_m3,3,soft,A Nightmare On Elm Street 4: The Dream Master.,759,13,0.816705200006254,-0.11029388755559921
+2wikimultihopqa,8060,bge_m3,1,soft,No information provided.,142,5,0.2698926000157371,-0.6521815061569214
+2wikimultihopqa,8060,bge_m3,3,soft,No information provided.,717,5,0.42226759996265173,-0.8346433639526367
+2wikimultihopqa,2876,bge_m3,1,soft,"Augustus FitzRoy, 7th Duke of Grafton.",168,15,0.7624097999650985,-0.05773197486996651
+2wikimultihopqa,2876,bge_m3,3,soft,"Henry FitzRoy, 5th Duke of Grafton.",592,14,0.8415647000074387,-0.0042944177985191345
+2wikimultihopqa,113,bge_m3,1,soft,Korean.,242,4,0.23304490000009537,-0.38753077387809753
+2wikimultihopqa,113,bge_m3,3,soft,Korean.,474,4,0.2917684999993071,-0.18196336925029755
+2wikimultihopqa,7873,bge_m3,1,soft,No information.,185,4,0.2403819999890402,-0.7517834901809692
+2wikimultihopqa,7873,bge_m3,3,soft,Mad Youth.,269,4,0.25243849999969825,-0.3170221447944641
+2wikimultihopqa,6503,bge_m3,1,soft,"April 22, 1875.",147,9,0.5064902000012808,-0.014495479874312878
+2wikimultihopqa,6503,bge_m3,3,soft,"April 22, 1875.",569,9,0.5650489999679849,-0.06623458862304688
+2wikimultihopqa,1839,bge_m3,1,soft,Unknown.,201,3,0.18347479996737093,-0.47042566537857056
+2wikimultihopqa,1839,bge_m3,3,soft,Not mentioned.,403,4,0.2850444999639876,-0.6602877378463745
+2wikimultihopqa,5070,bge_m3,1,soft,Asia Minor.,304,4,0.25629220000701025,-0.3166612386703491
+2wikimultihopqa,5070,bge_m3,3,soft,Not specified.,609,4,0.3292803000076674,-0.6007975339889526
+2wikimultihopqa,11715,bge_m3,1,soft,Princess Maria Luisa of Spain.,171,9,0.46689030004199594,-0.22411128878593445
+2wikimultihopqa,11715,bge_m3,3,soft,Princess Carolina of Parma.,303,8,0.45309739996446297,-0.033702027052640915
+2wikimultihopqa,10443,bge_m3,1,soft,Unknown.,147,3,0.17850340000586584,-0.6929821372032166
+2wikimultihopqa,10443,bge_m3,3,soft,Unknown.,335,3,0.2163105999934487,-0.5823710560798645
+2wikimultihopqa,3576,bge_m3,1,soft,No information.,166,4,0.23526609997497872,-0.4992762506008148
+2wikimultihopqa,3576,bge_m3,3,soft,Daphne And The Diplomat.,1126,9,0.7259871999849565,-0.1260790228843689
+2wikimultihopqa,11501,bge_m3,1,soft,No information provided.,356,5,0.3167574999970384,-0.8707353472709656
+2wikimultihopqa,11501,bge_m3,3,soft,Dear Gorbachev.,682,7,0.558811099966988,-0.24352619051933289
+2wikimultihopqa,763,bge_m3,1,soft,Irvine Welsh's Ecstasy.,172,8,0.4349583000293933,-0.049945492297410965
+2wikimultihopqa,763,bge_m3,3,soft,Legend of the Sea Wolf.,497,7,0.45160249999025837,-0.060474514961242676
+2wikimultihopqa,10386,bge_m3,1,soft,Unknown.,185,3,0.18098689999897033,-0.42343345284461975
+2wikimultihopqa,10386,bge_m3,3,soft,Unknown.,828,3,0.3771087999921292,-0.7870612740516663
+2wikimultihopqa,10264,bge_m3,1,soft,"The passage does not mention the composer of ""The Private Lives Of Elizabeth And Essex"".",259,18,0.974065599963069,-0.31430479884147644
+2wikimultihopqa,10264,bge_m3,3,soft,Los Angeles.,564,4,0.33195309998700395,-0.00611831434071064
+2wikimultihopqa,8289,bge_m3,1,soft,Unknown.,218,3,0.18393550004111603,-0.7292530536651611
+2wikimultihopqa,8289,bge_m3,3,soft,Not mentioned.,372,4,0.2617595000192523,-0.5838098526000977
+2wikimultihopqa,4193,bge_m3,1,soft,Rübezahl's Wedding.,247,8,0.4220958999940194,-0.06445710361003876
+2wikimultihopqa,4193,bge_m3,3,soft,Rübezahl's Wedding.,418,8,0.4736319000367075,-0.05668046325445175
+2wikimultihopqa,8537,bge_m3,1,soft,Yes.,340,3,0.21804110001539811,-0.3152525722980499
+2wikimultihopqa,8537,bge_m3,3,soft,"No, they are not.",595,7,0.467933899955824,-0.41575634479522705
+2wikimultihopqa,8670,bge_m3,1,soft,"There is no passage about the film ""Duel In The Jungle"".",339,15,0.8327610999695025,-0.3469722867012024
+2wikimultihopqa,8670,bge_m3,3,soft,Not mentioned.,635,4,0.3426012999843806,-0.9395986795425415
+2wikimultihopqa,3886,bge_m3,1,soft,I don't have information about the director of Girls In White.,153,14,0.7084810999804176,-0.38946351408958435
+2wikimultihopqa,3886,bge_m3,3,soft,There is not enough information to answer the question.,260,11,0.59793540003011,-0.42200222611427307
+2wikimultihopqa,9084,bge_m3,1,soft,United States.,201,4,0.22371790005126968,-0.45447224378585815
+2wikimultihopqa,9084,bge_m3,3,soft,Not available.,381,4,0.2590007000253536,-0.8684050440788269
+2wikimultihopqa,3785,bge_m3,1,soft,No information.,182,4,0.22893409995594993,-0.6538191437721252
+2wikimultihopqa,3785,bge_m3,3,soft,"No, they do not.",357,7,0.41422450001118705,-0.3021726608276367
+2wikimultihopqa,4532,bge_m3,1,soft,"Palma, Majorca.",182,7,0.36904339998727664,-0.07181401550769806
+2wikimultihopqa,4532,bge_m3,3,soft,Not mentioned.,380,4,0.26293209998402745,-0.6335172653198242
+2wikimultihopqa,10668,bge_m3,1,soft,The Millennial Bee.,202,6,0.3324082000181079,-0.2556173503398895
+2wikimultihopqa,10668,bge_m3,3,soft,The Millennial Bee.,347,6,0.3863736999919638,-0.17869533598423004
+2wikimultihopqa,3646,bge_m3,1,soft,Sidney Cotton.,196,5,0.3021850999793969,-0.21613669395446777
+2wikimultihopqa,3646,bge_m3,3,soft,Sidney Cotton.,381,5,0.3228013999760151,-0.015024100430309772
+2wikimultihopqa,8720,bge_m3,1,soft,Not specified.,231,4,0.2372474999865517,-0.6634179353713989
+2wikimultihopqa,8720,bge_m3,3,soft,Not mentioned.,498,4,0.2999783999985084,-0.5160094499588013
+2wikimultihopqa,3058,bge_m3,1,soft,"No information is given about Eva Slater, so it cannot be determined.",134,15,0.7785786999738775,-0.5377018451690674
+2wikimultihopqa,3058,bge_m3,3,soft,Eva Slater.,502,5,0.3761062999838032,-0.03557267412543297
+2wikimultihopqa,7852,bge_m3,1,soft,Not mentioned.,255,4,0.2474178000120446,-0.5955930352210999
+2wikimultihopqa,7852,bge_m3,3,soft,Not mentioned.,615,4,0.33482679998269305,-0.5540090799331665
+2wikimultihopqa,3745,bge_m3,1,soft,There is no mention of Pilar Del Río's husband.,365,14,0.7635279000387527,-0.29327890276908875
+2wikimultihopqa,3745,bge_m3,3,soft,Not found in passages.,1083,6,0.6104975999915041,-0.7176422476768494
+2wikimultihopqa,5841,bge_m3,1,soft,Charles I of Baden.,308,7,0.3977312999777496,-0.3294346332550049
+2wikimultihopqa,5841,bge_m3,3,soft,Margrave Charles I of Baden.,705,10,0.6879128000000492,-0.03385674208402634
+2wikimultihopqa,10662,bge_m3,1,soft,No information provided.,151,5,0.26708520000102,-0.40844017267227173
+2wikimultihopqa,10662,bge_m3,3,soft,There is no information about the director of Passport To Rio in the given passages.,340,17,0.8973639999749139,-0.3370494246482849
+2wikimultihopqa,1402,bge_m3,1,soft,My Lady's Latchkey.,206,8,0.4243521000025794,-0.2165260761976242
+2wikimultihopqa,1402,bge_m3,3,soft,The Lackey and the Lady.,466,8,0.5098542000050656,-0.20517656207084656
+2wikimultihopqa,1496,bge_m3,1,soft,Ammayi Kosam.,235,7,0.38720709999324754,-0.24721233546733856
+2wikimultihopqa,1496,bge_m3,3,soft,Ammayi Kosam.,561,7,0.4755254000192508,-0.11247245967388153
+2wikimultihopqa,9158,bge_m3,1,soft,El Santo De La Espada.,242,8,0.4335559999453835,-0.08840771019458771
+2wikimultihopqa,9158,bge_m3,3,soft,Leopoldo Torre Nilsson.,443,10,0.5651039999793284,-0.1085408627986908
+2wikimultihopqa,2820,bge_m3,1,soft,Not specified.,250,4,0.23499869997613132,-0.6251130700111389
+2wikimultihopqa,2820,bge_m3,3,soft,Alabama.,679,3,0.3247825999860652,-0.27591243386268616
+2wikimultihopqa,3574,bge_m3,1,soft,Sergio Livingstone.,197,7,0.3955885000177659,-0.15613357722759247
+2wikimultihopqa,3574,bge_m3,3,soft,Sergio Livingstone.,428,7,0.4312547000008635,-0.0022286931052803993
+2wikimultihopqa,8875,bge_m3,1,soft,Crooklyn.,389,4,0.2836525999591686,-0.09076893329620361
+2wikimultihopqa,8875,bge_m3,3,soft,El Pisito.,975,5,0.4930847999639809,-0.04439213126897812
+2wikimultihopqa,4822,bge_m3,1,soft,No information.,156,4,0.23135190003085881,-0.8362533450126648
+2wikimultihopqa,4822,bge_m3,3,soft,Once Upon A Time In The Woods.,499,9,0.5507611999637447,-0.05979711562395096
+2wikimultihopqa,7021,bge_m3,1,soft,Edward Harley.,403,4,0.30124140001134947,-0.4967830777168274
+2wikimultihopqa,7021,bge_m3,3,soft,"Edward Harley, 5th Earl of Oxford.",673,11,0.7417256000335328,-0.10854746401309967
+2wikimultihopqa,7463,bge_m3,1,soft,No information about Meghan O'Leary in the passage.,138,13,0.6470907000475563,-0.3775526285171509
+2wikimultihopqa,7463,bge_m3,3,soft,Meghan O'Leary.,276,8,0.4468117000069469,-0.015473613515496254
+2wikimultihopqa,7301,bge_m3,1,soft,Yes.,302,3,0.20522679999703541,-0.07453148812055588
+2wikimultihopqa,7301,bge_m3,3,soft,Yes.,789,3,0.35175380000146106,-0.032041795551776886
+2wikimultihopqa,10051,bge_m3,1,soft,Charles Lathrop Pack's father.,177,9,0.5018005999736488,-0.159823939204216
+2wikimultihopqa,10051,bge_m3,3,soft,George Willis Pack.,453,5,0.333962100034114,-0.0404951386153698
+2wikimultihopqa,7259,bge_m3,1,soft,Unknown.,478,3,0.2540179999778047,-0.9204856157302856
+2wikimultihopqa,7259,bge_m3,3,soft,Not mentioned.,898,4,0.42764260002877563,-0.8184852004051208
+2wikimultihopqa,9222,bge_m3,1,soft,No information provided.,152,5,0.26290670002344996,-0.4616638422012329
+2wikimultihopqa,9222,bge_m3,3,soft,There is no information about the director of The Idiot Returns studying.,376,15,0.7891520999837667,-0.34593817591667175
+2wikimultihopqa,3411,bge_m3,1,soft,"Neuburg an der Donau, Germany.",164,11,0.5698069999925792,-0.2918282747268677
+2wikimultihopqa,3411,bge_m3,3,soft,Not mentioned.,373,4,0.27084900002228096,-0.6614315509796143
+2wikimultihopqa,1617,bge_m3,1,soft,Yes.,136,3,0.1674314000410959,-0.05110906809568405
+2wikimultihopqa,1617,bge_m3,3,soft,No.,275,3,0.21303919999627396,-0.29880890250205994
+2wikimultihopqa,2791,bge_m3,1,soft,Not available.,258,4,0.260060100001283,-0.7743077278137207
+2wikimultihopqa,2791,bge_m3,3,soft,Not available.,643,4,0.3650806999648921,-1.0327842235565186
+2wikimultihopqa,2901,bge_m3,1,soft,King Vidor directed both films.,170,8,0.4261669000261463,-0.4256672263145447
+2wikimultihopqa,2901,bge_m3,3,soft,King Vidor.,586,5,0.4174531999742612,-0.24834594130516052
+2wikimultihopqa,99,bge_m3,1,soft,Syria.,148,4,0.2283119999920018,-0.381710022687912
+2wikimultihopqa,99,bge_m3,3,soft,Not mentioned.,515,4,0.33890730002895,-0.7489924430847168
+2wikimultihopqa,3547,bge_m3,1,soft,No information provided.,154,5,0.28887799999210984,-0.8076075911521912
+2wikimultihopqa,3547,bge_m3,3,soft,No information available.,454,5,0.3449204000062309,-0.6728589534759521
+2wikimultihopqa,2769,bge_m3,1,soft,Not mentioned.,258,4,0.2572775000007823,-0.5702955722808838
+2wikimultihopqa,2769,bge_m3,3,soft,Unknown.,681,3,0.34049630002118647,-0.6059033274650574
+2wikimultihopqa,11776,bge_m3,1,soft,Felix of Bourbon-Parma.,197,9,0.48012540000490844,-0.009534243494272232
+2wikimultihopqa,11776,bge_m3,3,soft,Felix of Bourbon-Parma.,478,9,0.5329998999950476,-0.006015134509652853
+2wikimultihopqa,4738,bge_m3,1,soft,Atraco A Las Tres.,158,9,0.45923690003110096,-0.02868606150150299
+2wikimultihopqa,4738,bge_m3,3,soft,Atraco A Las Tres.,291,9,0.5015666999970563,-0.0839732363820076
+2wikimultihopqa,11131,bge_m3,1,soft,There is not enough information to answer the question.,173,11,0.5613755999947898,-0.4428792893886566
+2wikimultihopqa,11131,bge_m3,3,soft,Durango Valley Raiders.,267,6,0.3561601000255905,-0.2086717188358307
+2wikimultihopqa,11839,bge_m3,1,soft,Yes.,175,3,0.1880828999564983,-0.5111650228500366
+2wikimultihopqa,11839,bge_m3,3,soft,No information about Midnight Court is given.,452,9,0.5539580000331625,-0.6091035604476929
+2wikimultihopqa,9297,bge_m3,1,soft,Spanish.,236,3,0.185938700044062,-1.0983612537384033
+2wikimultihopqa,9297,bge_m3,3,soft,Spanish.,670,3,0.3070601999643259,-1.04230535030365
+2wikimultihopqa,538,bge_m3,1,soft,"Sir Thomas Whitmore, 1st Baronet.",312,12,0.6545167999574915,-0.05150247737765312
+2wikimultihopqa,538,bge_m3,3,soft,"Sir Thomas Lawley, 1st Baronet.",782,12,0.771068700007163,-0.03965693712234497
+2wikimultihopqa,5820,bge_m3,1,soft,No information.,125,4,0.1958273000200279,-1.026591181755066
+2wikimultihopqa,5820,bge_m3,3,soft,No information is available to answer the question.,562,10,0.6376511999987997,-0.8599936366081238
+2wikimultihopqa,304,bge_m3,1,soft,No information about Judy Berlin is given.,201,9,0.46933180000633,-0.7885165214538574
+2wikimultihopqa,304,bge_m3,3,soft,No information about Judy Berlin is provided.,432,9,0.5544353000004776,-0.6631141901016235
+2wikimultihopqa,8917,bge_m3,1,soft,Not available.,238,4,0.23384749999968335,-0.9428357481956482
+2wikimultihopqa,8917,bge_m3,3,soft,There is no information about the director of film Tuos in the passages.,479,16,0.925131700001657,-0.32979968190193176
+2wikimultihopqa,7766,bge_m3,1,soft,No information provided about Bulldog Drummond'S Bride.,180,12,0.6759022999904118,-0.4161098301410675
+2wikimultihopqa,7766,bge_m3,3,soft,Bulldog Drummond's Bride.,346,10,0.5698737000348046,-0.028430219739675522
+2wikimultihopqa,2167,bge_m3,1,soft,Not mentioned.,282,4,0.2577259000390768,-0.8119653463363647
+2wikimultihopqa,2167,bge_m3,3,soft,Sir Mountstuart Grant Duff's father.,679,11,0.721721800044179,-0.1298307478427887
+2wikimultihopqa,7841,bge_m3,1,soft,"Yes, British.",188,5,0.27176949998829514,-0.3457639217376709
+2wikimultihopqa,7841,bge_m3,3,soft,No.,395,3,0.23166950000450015,-0.5905995965003967
+2wikimultihopqa,3425,bge_m3,1,soft,Solomon I of Imereti.,167,9,0.45716300001367927,-0.2979974150657654
+2wikimultihopqa,3425,bge_m3,3,soft,Solomon II of Imereti.,411,9,0.5220010000048205,-0.23397383093833923
+2wikimultihopqa,12241,bge_m3,1,soft,Passionate Summer.,194,5,0.2713803999940865,-0.279396653175354
+2wikimultihopqa,12241,bge_m3,3,soft,Little Presents.,334,4,0.2676901999511756,-0.12082062661647797
+2wikimultihopqa,102,bge_m3,1,soft,Greek.,172,3,0.18495060002896935,-0.8323267698287964
+2wikimultihopqa,102,bge_m3,3,soft,Byzantine.,390,5,0.34472870000172406,-0.38986819982528687
+2wikimultihopqa,2085,bge_m3,1,soft,Félix Erviti Barcelona.,157,9,0.45684679999249056,-0.012728520669043064
+2wikimultihopqa,2085,bge_m3,3,soft,Félix Erviti Barcelona.,278,9,0.4908110000542365,-0.027605168521404266
+2wikimultihopqa,8330,bge_m3,1,soft,Ek Hi Bhool (1940 Film),221,10,0.5282363000442274,-0.30081886053085327
+2wikimultihopqa,8330,bge_m3,3,soft,No information available.,487,5,0.3507934000226669,-0.5641433000564575
+2wikimultihopqa,2633,bge_m3,1,soft,Cheyenne Roundup.,180,7,0.36748909996822476,-0.03803881257772446
+2wikimultihopqa,2633,bge_m3,3,soft,Cheyenne Roundup.,289,7,0.40747219999320805,-0.14481008052825928
+2wikimultihopqa,3955,bge_m3,1,soft,The Last Outpost (1951 Film).,236,10,0.5212279999977909,-0.22178581357002258
+2wikimultihopqa,3955,bge_m3,3,soft,"There is no information about the director of ""Who'S Your Brother?"" in the passages.",416,19,0.9957346000010148,-0.4811858534812927
+2wikimultihopqa,9051,bge_m3,1,soft,India.,274,3,0.22530580003513023,-0.0807940736413002
+2wikimultihopqa,9051,bge_m3,3,soft,India.,688,3,0.32804690004559234,-0.04481649398803711
+2wikimultihopqa,3984,bge_m3,1,soft,Yes.,204,3,0.20701110002119094,-0.08924010396003723
+2wikimultihopqa,3984,bge_m3,3,soft,Yes.,604,3,0.2970581999979913,-0.3170500099658966
+2wikimultihopqa,12062,bge_m3,1,soft,Unknown.,155,3,0.17872119997628033,-0.5734543800354004
+2wikimultihopqa,12062,bge_m3,3,soft,Not specified.,536,4,0.3297133999876678,-0.7984050512313843
+2wikimultihopqa,2055,bge_m3,1,soft,The Glass Menagerie (1987 Film),257,11,0.6000109000015073,-0.0471855029463768
+2wikimultihopqa,2055,bge_m3,3,soft,The Glass Menagerie (1987 Film).,442,11,0.6657159000169486,-0.09710142016410828
+2wikimultihopqa,434,bge_m3,1,soft,The Death Kiss.,217,5,0.29771299997810274,-0.016735853627324104
+2wikimultihopqa,434,bge_m3,3,soft,Her Luck In London.,414,6,0.4023365000030026,-0.12684790790081024
+2wikimultihopqa,10007,bge_m3,1,soft,Anne Livingstone.,351,5,0.3167955999961123,-0.22800400853157043
+2wikimultihopqa,10007,bge_m3,3,soft,Anne Livingstone.,482,5,0.3463229999761097,-0.07985848933458328
+2wikimultihopqa,2254,bge_m3,1,soft,"Goodbye, Boys.",151,6,0.31513750000158325,-0.3109859526157379
+2wikimultihopqa,2254,bge_m3,3,soft,Belle Épine.,383,6,0.35707630001707,-0.08094378560781479
+2wikimultihopqa,10686,bge_m3,1,soft,CBS.,277,3,0.20667169999796897,-0.16299128532409668
+2wikimultihopqa,10686,bge_m3,3,soft,There is no director mentioned for the film Inside Pop: The Rock Revolution.,606,16,0.9699191999970935,-0.33738863468170166
+2wikimultihopqa,10103,bge_m3,1,soft,Sex Is Zero 2.,225,7,0.3820763999829069,-0.04254315420985222
+2wikimultihopqa,10103,bge_m3,3,soft,Como Yo Te Quería.,365,8,0.49303120002150536,-0.058477114886045456
+2wikimultihopqa,1766,bge_m3,1,soft,Unknown.,158,3,0.17506870004581288,-0.36103492975234985
+2wikimultihopqa,1766,bge_m3,3,soft,Not available.,503,4,0.2950491999508813,-0.8169134855270386
+2wikimultihopqa,8332,bge_m3,1,soft,Bitter Moon.,385,5,0.3387695999699645,-0.04744088649749756
+2wikimultihopqa,8332,bge_m3,3,soft,Back To School.,617,5,0.38303739996626973,-0.265397846698761
+2wikimultihopqa,5562,bge_m3,1,soft,No.,167,3,0.18008870002813637,-0.5528460741043091
+2wikimultihopqa,5562,bge_m3,3,soft,"No, they are not the same movie.",347,10,0.555543799942825,-0.49902355670928955
+2wikimultihopqa,3520,bge_m3,1,soft,Not available.,268,4,0.26123369997367263,-0.923846423625946
+2wikimultihopqa,3520,bge_m3,3,soft,Not specified.,607,4,0.3395130999851972,-0.7343189120292664
+2wikimultihopqa,3130,bge_m3,1,soft,Louis Panet.,390,5,0.3313450000132434,-0.3599417209625244
+2wikimultihopqa,3130,bge_m3,3,soft,Louis Panet.,615,5,0.39270080003188923,-0.07983396202325821
+2wikimultihopqa,7474,bge_m3,1,soft,Come Home And Meet My Wife.,170,8,0.45355019997805357,-0.05770304799079895
+2wikimultihopqa,7474,bge_m3,3,soft,Come Home And Meet My Wife.,384,8,0.47043039998970926,-0.14893706142902374
+2wikimultihopqa,293,bge_m3,1,soft,Mexico,323,2,0.16710070002591237,-0.14841823279857635
+2wikimultihopqa,293,bge_m3,3,soft,"Los Angeles, California.",551,6,0.44424480001907796,-0.04912648722529411
+2wikimultihopqa,3025,bge_m3,1,soft,Family Honeymoon.,245,6,0.3539885999634862,-0.17333944141864777
+2wikimultihopqa,3025,bge_m3,3,soft,No information.,587,4,0.34993059997214004,-1.2108359336853027
+2wikimultihopqa,12475,bge_m3,1,soft,Alfonso VI of Castile.,242,9,0.4872112000011839,-0.22386908531188965
+2wikimultihopqa,12475,bge_m3,3,soft,Alfonso VII of León and Castile.,1088,12,0.9006471000029705,-0.00703686848282814
+2wikimultihopqa,103,bge_m3,1,soft,Joseph J. Magliocco.,152,8,0.41717339999740943,-0.26583248376846313
+2wikimultihopqa,103,bge_m3,3,soft,Viktoriya Zeynep Güneş.,390,12,0.6647771000280045,-0.08254186064004898
+2wikimultihopqa,2407,bge_m3,1,soft,Kalavar King.,180,5,0.2737343000480905,-0.057833556085824966
+2wikimultihopqa,2407,bge_m3,3,soft,Kalavari Kodalu.,367,7,0.422816900012549,-0.1582220494747162
+2wikimultihopqa,5773,bge_m3,1,soft,"Yes, Azerbaijan.",216,5,0.2882928000180982,-0.1427622139453888
+2wikimultihopqa,5773,bge_m3,3,soft,"No, they are not.",456,7,0.439799000043422,-0.310773640871048
+2wikimultihopqa,8451,bge_m3,1,soft,Ocean's 11.,154,6,0.325269200024195,-0.2035435438156128
+2wikimultihopqa,8451,bge_m3,3,soft,Lewis Milestone.,440,5,0.3300818999996409,-0.2882053256034851
+2wikimultihopqa,4194,bge_m3,1,soft,Australian.,183,3,0.1741223999997601,-0.017871366813778877
+2wikimultihopqa,4194,bge_m3,3,soft,Iranian.,265,4,0.24969389999751002,-0.046847786754369736
+2wikimultihopqa,5632,bge_m3,1,soft,Monte Carlo Or Bust!,484,7,0.4335328000015579,-0.1806958019733429
+2wikimultihopqa,5632,bge_m3,3,soft,Monte Carlo Or Bust!,1045,7,0.6224726000218652,-0.22197315096855164
+2wikimultihopqa,720,bge_m3,1,soft,Behind Prison Gates.,174,5,0.2751237999764271,-0.021300407126545906
+2wikimultihopqa,720,bge_m3,3,soft,Behind Prison Gates.,371,5,0.3153912000125274,-0.17628110945224762
+2wikimultihopqa,7717,bge_m3,1,soft,Unknown.,559,3,0.29443589999573305,-0.5362190008163452
+2wikimultihopqa,7717,bge_m3,3,soft,Dorothea Helena Kirkhoven,1159,9,0.7599158000084572,-0.1368115097284317
+2wikimultihopqa,450,bge_m3,1,soft,Abdul Wahab Khan Tarzi.,247,10,0.594872799993027,-0.010478134267032146
+2wikimultihopqa,450,bge_m3,3,soft,Abdul Wahab Khan Tarzi.,659,10,0.6581706000142731,-0.007266133092343807
+2wikimultihopqa,1692,bge_m3,1,soft,Not mentioned.,425,4,0.2864422000129707,-0.41289395093917847
+2wikimultihopqa,1692,bge_m3,3,soft,Not mentioned.,954,4,0.4372555000009015,-0.478890597820282
+2wikimultihopqa,4201,bge_m3,1,soft,Sweden.,143,3,0.18638160004047677,-0.21924778819084167
+2wikimultihopqa,4201,bge_m3,3,soft,Sweden.,395,3,0.24434979999205098,-0.019670363515615463
+2wikimultihopqa,8857,bge_m3,1,soft,Kęstutis.,168,7,0.3725568000227213,-0.039876844733953476
+2wikimultihopqa,8857,bge_m3,3,soft,Kęstutis.,512,7,0.4524157999549061,-0.07043895125389099
+2wikimultihopqa,5362,bge_m3,1,soft,Not specified.,189,4,0.23136269999668002,-0.5799522995948792
+2wikimultihopqa,5362,bge_m3,3,soft,Not mentioned.,852,4,0.4049427999998443,-0.8030217885971069
+2wikimultihopqa,8344,bge_m3,1,soft,"No, they do not.",250,7,0.3880125000141561,-0.3823469281196594
+2wikimultihopqa,8344,bge_m3,3,soft,"No, they do not.",347,7,0.41247389995260164,-0.27774977684020996
+2wikimultihopqa,8384,bge_m3,1,soft,Our Mother's House.,166,6,0.32405540003674105,-0.3532947599887848
+2wikimultihopqa,8384,bge_m3,3,soft,Alekos Sakellarios.,388,7,0.4400069999974221,-0.22328202426433563
+2wikimultihopqa,10212,bge_m3,1,soft,No information.,290,4,0.2873865999863483,-0.5481938123703003
+2wikimultihopqa,10212,bge_m3,3,soft,No.,724,3,0.32138630002737045,-0.2517743706703186
+2wikimultihopqa,2974,bge_m3,1,soft,Tarzan The Magnificent.,157,7,0.36834509996697307,-0.18228136003017426
+2wikimultihopqa,2974,bge_m3,3,soft,"There is no information about the director of ""Tarzan The Magnificent"" in the passages.",696,20,1.144707200000994,-0.43353918194770813
+2wikimultihopqa,9243,bge_m3,1,soft,No information provided.,195,5,0.27595859998837113,-0.5509957075119019
+2wikimultihopqa,9243,bge_m3,3,soft,No information provided.,398,5,0.3291231999755837,-0.6946896910667419
+2wikimultihopqa,3914,bge_m3,1,soft,No information.,130,4,0.23427079996326938,-0.6558675765991211
+2wikimultihopqa,3914,bge_m3,3,soft,No.,807,3,0.36816689994884655,-0.41431325674057007
+2wikimultihopqa,11996,bge_m3,1,soft,Kerem İnan.,131,7,0.3681960999965668,-0.1178949773311615
+2wikimultihopqa,11996,bge_m3,3,soft,Kerem İnan.,343,7,0.4157627000240609,-0.03270833194255829
+2wikimultihopqa,11671,bge_m3,1,soft,"The Actress, The Dollars And The Transylvanians.",219,13,0.6876149000017904,-0.010385178029537201
+2wikimultihopqa,11671,bge_m3,3,soft,"The Actress, The Dollars And The Transylvanians.",538,13,0.792079700040631,-0.08076213300228119
+2wikimultihopqa,4923,bge_m3,1,soft,Eyes Of The Underworld.,185,8,0.426657099975273,-0.028982043266296387
+2wikimultihopqa,4923,bge_m3,3,soft,Dharkan.,313,5,0.31116679997649044,-0.15702542662620544

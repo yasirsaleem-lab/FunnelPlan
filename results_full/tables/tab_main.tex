@@ -1,0 +1,29 @@
+\begin{table*}[t]
+\centering
+\caption{Gain over the fixed plan hull at equal mean latency, pooled over four datasets (2{,}000 queries per cell; held out 5 fold, 5 seeds). 95\% bootstrap CI in brackets. Bold: Holm adjusted $p<0.05$ within its family (upper block: primary, 17 pooled tests; lower block: secondary, 15). Last column (exploratory): dataset level tests (of 12) with Holm adjusted $p<0.05$ over all 140. Lower block: the published Adaptive $k$ rule and stronger question only routers (Section~\ref{sec:routers}).}
+\label{tab:main}
+\small
+\begin{tabular}{lrrrrrrc}
+\toprule
+ & \multicolumn{2}{c}{Qwen2.5 7B} & \multicolumn{2}{c}{Llama 3.1 8B} & \multicolumn{2}{c}{Qwen3 14B} & Holm \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+Method & gain & 95\% CI & gain & 95\% CI & gain & 95\% CI & sig. \\
+\midrule
+TSR planner (ours) & +0.004 & [$-$0.014, +0.021] & +0.005 & [$-$0.013, +0.023] & +0.004 & [$-$0.014, +0.022] & 0 \\
+Adaptive RAG router & $-$0.023 & [$-$0.042, $-$0.004] & \textbf{$-$0.059} & [$-$0.077, $-$0.038] & \textbf{$-$0.052} & [$-$0.070, $-$0.033] & 3 (neg.) \\
+Adaptive $k$, largest gap only & $-$0.016 & [$-$0.036, +0.003] & $-$0.022 & [$-$0.040, $-$0.003] & $-$0.016 & [$-$0.036, +0.003] & 1 (neg.) \\
+Closed book gate & $-$0.002 & [$-$0.019, +0.014] & $-$0.003 & [$-$0.022, +0.017] & +0.000 & [$-$0.018, +0.019] & 0 \\
+Confidence cascade & +0.013 & [$-$0.007, +0.032] & +0.002 & [$-$0.017, +0.022] & $-$0.004 & [$-$0.022, +0.014] & 0 \\
+\midrule
+\multicolumn{8}{l}{\emph{Faithful and stronger baselines (13)}} \\
+Adaptive $k$, published rule (+5 buffer) & $-$0.003 & [$-$0.024, +0.017] & +0.005 & [$-$0.014, +0.026] & $-$0.014 & [$-$0.033, +0.005] & 0 \\
+Adaptive RAG, BGE-M3 classifier & $-$0.020 & [$-$0.038, $-$0.002] & \textbf{$-$0.045} & [$-$0.065, $-$0.024] & \textbf{$-$0.047} & [$-$0.064, $-$0.028] & 1 (neg.) \\
+Adaptive RAG, FLAN-T5 classifier & $-$0.014 & [$-$0.033, +0.003] & \textbf{$-$0.037} & [$-$0.055, $-$0.017] & \textbf{$-$0.037} & [$-$0.056, $-$0.018] & 0 \\
+Per plan, BGE-M3 + LR & +0.013 & [$-$0.004, +0.031] & +0.004 & [$-$0.015, +0.022] & +0.022 & [+0.003, +0.040] & 0 \\
+Per plan, BGE-M3 $k$NN & +0.002 & [$-$0.017, +0.019] & $-$0.008 & [$-$0.026, +0.010] & +0.016 & [$-$0.004, +0.034] & 0 \\
+\midrule
+Reader cascade 7B $\rightarrow$ Llama 8B & \multicolumn{6}{l}{+0.006 \; [$-$0.012, +0.024] (hull over both readers' plans)} & 0 \\
+Reader cascade 7B $\rightarrow$ 14B & \multicolumn{6}{l}{+0.006 \; [$-$0.012, +0.024] (hull over both readers' plans)} & 0 \\
+\bottomrule
+\end{tabular}
+\end{table*}

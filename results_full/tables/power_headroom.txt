@@ -1,0 +1,66 @@
+== A. Minimum detectable effect, 80% power, two sided
+  dataset  tests=140  a=0.05                       MDE median 0.055  range 0.029..0.063
+  dataset  tests=140  Holm strictest a=0.05/140    MDE median 0.087  range 0.045..0.099
+  pooled   tests= 35  a=0.05                       MDE median 0.027  range 0.025..0.029
+  pooled   tests= 35  Holm strictest a=0.05/35     MDE median 0.039  range 0.035..0.042
+  Reading: a true gain smaller than the MDE would usually be missed. Pooled tests (n = 2000) detect
+  about 0.025 at the nominal level; single datasets (n = 500) about 0.05.
+
+== B. Headroom, held out (choices on training folds, scored on the held out fold; 5 folds x 5 seeds)
+     reader         dataset  best  gate    k2    k3    k5   all
+ qwen2.5-7b              nq 0.730 0.788 0.794 0.829 0.878 0.922
+ qwen2.5-7b        hotpotqa 0.514 0.556 0.612 0.664 0.703 0.758
+ qwen2.5-7b 2wikimultihopqa 0.392 0.468 0.466 0.512 0.573 0.640
+ qwen2.5-7b         musique 0.242 0.262 0.329 0.387 0.436 0.548
+llama3.1-8b              nq 0.682 0.746 0.761 0.794 0.832 0.910
+llama3.1-8b        hotpotqa 0.588 0.622 0.652 0.688 0.716 0.778
+llama3.1-8b 2wikimultihopqa 0.406 0.468 0.466 0.500 0.552 0.638
+llama3.1-8b         musique 0.216 0.244 0.275 0.316 0.373 0.498
+  qwen3-14b              nq 0.768 0.802 0.816 0.842 0.864 0.914
+  qwen3-14b        hotpotqa 0.586 0.622 0.644 0.678 0.724 0.772
+  qwen3-14b 2wikimultihopqa 0.414 0.507 0.494 0.552 0.589 0.654
+  qwen3-14b         musique 0.263 0.298 0.357 0.404 0.449 0.538
+  mean over 12 blocks: best 0.484 | gate oracle +0.532 vs best +0.048 | oracle over 2 plans +0.072, 3 plans +0.114, 5 plans +0.157, all plans +0.231
+  share of the all plan headroom reached with 2 / 3 / 5 plans: 0.32 / 0.50 / 0.69
+
+  Transfer ceiling: route B's held out queries to the cheapest plan that answered for reader A
+        dataset        from          to  transfer  best_fixed_B  oracle_B  gain_vs_best
+             nq  qwen2.5-7b llama3.1-8b     0.740         0.698     0.910         0.042
+             nq  qwen2.5-7b   qwen3-14b     0.766         0.776     0.914        -0.010
+             nq llama3.1-8b  qwen2.5-7b     0.704         0.730     0.922        -0.026
+             nq llama3.1-8b   qwen3-14b     0.734         0.776     0.914        -0.042
+             nq   qwen3-14b  qwen2.5-7b     0.710         0.730     0.914        -0.020
+             nq   qwen3-14b llama3.1-8b     0.734         0.698     0.902         0.036
+       hotpotqa  qwen2.5-7b llama3.1-8b     0.608         0.588     0.778         0.020
+       hotpotqa  qwen2.5-7b   qwen3-14b     0.634         0.596     0.772         0.038
+       hotpotqa llama3.1-8b  qwen2.5-7b     0.578         0.530     0.758         0.048
+       hotpotqa llama3.1-8b   qwen3-14b     0.646         0.596     0.772         0.050
+       hotpotqa   qwen3-14b  qwen2.5-7b     0.548         0.530     0.744         0.018
+       hotpotqa   qwen3-14b llama3.1-8b     0.578         0.588     0.766        -0.010
+2wikimultihopqa  qwen2.5-7b llama3.1-8b     0.268         0.406     0.638        -0.138
+2wikimultihopqa  qwen2.5-7b   qwen3-14b     0.436         0.434     0.654         0.002
+2wikimultihopqa llama3.1-8b  qwen2.5-7b     0.456         0.406     0.640         0.050
+2wikimultihopqa llama3.1-8b   qwen3-14b     0.496         0.434     0.654         0.062
+2wikimultihopqa   qwen3-14b  qwen2.5-7b     0.404         0.392     0.614         0.012
+2wikimultihopqa   qwen3-14b llama3.1-8b     0.296         0.406     0.626        -0.110
+        musique  qwen2.5-7b llama3.1-8b     0.260         0.228     0.498         0.032
+        musique  qwen2.5-7b   qwen3-14b     0.406         0.286     0.538         0.120
+        musique llama3.1-8b  qwen2.5-7b     0.392         0.262     0.548         0.130
+        musique llama3.1-8b   qwen3-14b     0.384         0.286     0.538         0.098
+        musique   qwen3-14b  qwen2.5-7b     0.380         0.262     0.530         0.118
+        musique   qwen3-14b llama3.1-8b     0.268         0.228     0.482         0.040
+  mean transfer gain over B's best fixed plan: +0.023 (B's own oracle: +0.215). Note: in sample for the plan choice of B.
+
+== C. Stability of labels across neighbouring depths (same retriever, same query)
+             flip_mean  nonmono  nonmono_given_ever
+reader                                             
+llama3.1-8b      0.123    0.059               0.110
+qwen2.5-7b       0.121    0.061               0.112
+qwen3-14b        0.120    0.033               0.061
+                 flip_mean  nonmono  nonmono_given_ever
+dataset                                                
+2wikimultihopqa      0.136    0.057               0.114
+hotpotqa             0.120    0.053               0.084
+musique              0.100    0.034               0.101
+nq                   0.129    0.060               0.077
+  overall: label flips between neighbouring depths 0.121; queries right, then wrong, then right again as depth grows: 0.051 of all, 0.094 of those ever answered

@@ -1,0 +1,17 @@
+audit_id,r1,r2,stratum,pair,reader,dataset,query_id
+23,0,1,f1_02_04,musique::210::jeff bridges played reuben j rooster cogburn in true grit,qwen2.5-7b,musique,210
+38,0,1,f1_02_04,nq::1203::passage 1 thames head in gloucestershire north sea via thames estuary passage 3 tavistock lake st clair,llama3.1-8b,nq,1203
+50,0,1,f1_04_07,hotpotqa::95659::musician songwriter,qwen3-14b,hotpotqa,95659
+57,0,1,f1_04_07,hotpotqa::92109::spyker mf1 racing,qwen2.5-7b,hotpotqa,92109
+62,0,1,f1_04_07,hotpotqa::94450::british,llama3.1-8b,hotpotqa,94450
+70,0,1,f1_04_07,2wikimultihopqa::10051::george pack jr,llama3.1-8b,2wikimultihopqa,10051
+73,0,1,f1_04_07,nq::2961::sichuan basin yangtze river valley,qwen2.5-7b,nq,2961
+76,0,1,f1_04_07,nq::602::gardiner cousins bunton,qwen2.5-7b,nq,602
+86,0,1,f1_04_07,musique::1613::376 years,qwen2.5-7b,musique,1613
+87,0,1,f1_04_07,hotpotqa::93293::texas m university,llama3.1-8b,hotpotqa,93293
+97,0,1,f1_07_up,2wikimultihopqa::6759::fredrik klaveness,qwen3-14b,2wikimultihopqa,6759
+105,0,1,f1_07_up,nq::1203::thames head north sea,llama3.1-8b,nq,1203
+130,0,1,f1_07_up,2wikimultihopqa::6857::adam zamoyski,llama3.1-8b,2wikimultihopqa,6857
+150,0,1,contains_long,musique::527::sandra day o connor attended law school at stanford university though this information isn t directly provided in passages based on given passages we can infer she was educated but specific institution is not mentioned,qwen2.5-7b,musique,527
+153,1,0,contains_long,nq::1402::two days after armistice on 1 november 1918,llama3.1-8b,nq,1402
+189,1,0,f1_below_02,nq::2335::roger federer did not win title on 1 february 2015 passage does not mention winner of men s single title on that date,llama3.1-8b,nq,2335

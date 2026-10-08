@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Project specific
+data/raw/
+data/processed/
+tsr/models/
+*.pkl
+*.pt
+*.onnx
+*.index
+*.faiss
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+# FunnelPlan (added 2026-10-08): large or regenerable data; the artifact ships these on a file sharing service
+data/cache/
+data/cache_full/
+data/_archive/
+data/processed_full/**/corpus.jsonl
+data/processed_full/**/*.npz
+data/processed_full/**/*.json.bak
+_archive_v2/
+_backup_20261002/
+_tmp/
+_fp_code.tgz
+*.tar
+*.gguf
+*.safetensors
+*.egg-info/
+*.bak
+*.tmp
+results/

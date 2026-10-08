@@ -1,0 +1,15 @@
+Prompt ablation on 2wikimultihopqa: strict prompt (main labels) vs soft prompt, same queries and passages
+
+== qwen2.5-7b: closed book (no passages, prompt unchanged) strict = 0.252
+  bm25@1: strict prompt 0.288 | soft prompt 0.292 | soft minus strict +0.004 [-0.010, +0.018] | known answers lost (closed book right, RAG wrong): strict 54, soft 54 | vs closed book: strict +0.036, soft +0.040
+  bm25@3: strict prompt 0.330 | soft prompt 0.338 | soft minus strict +0.008 [-0.010, +0.026] | known answers lost (closed book right, RAG wrong): strict 40, soft 43 | vs closed book: strict +0.078, soft +0.086
+  bge_m3@1: strict prompt 0.256 | soft prompt 0.252 | soft minus strict -0.004 [-0.020, +0.012] | known answers lost (closed book right, RAG wrong): strict 58, soft 60 | vs closed book: strict +0.004, soft +0.000
+  bge_m3@3: strict prompt 0.352 | soft prompt 0.360 | soft minus strict +0.008 [-0.008, +0.024] | known answers lost (closed book right, RAG wrong): strict 43, soft 41 | vs closed book: strict +0.100, soft +0.108
+
+== llama3.1-8b: closed book (no passages, prompt unchanged) strict = 0.250
+  bm25@1: strict prompt 0.238 | soft prompt 0.282 | soft minus strict +0.044 [+0.014, +0.076] | known answers lost (closed book right, RAG wrong): strict 72, soft 60 | vs closed book: strict -0.012, soft +0.032
+  bm25@3: strict prompt 0.298 | soft prompt 0.338 | soft minus strict +0.040 [+0.014, +0.066] | known answers lost (closed book right, RAG wrong): strict 60, soft 48 | vs closed book: strict +0.048, soft +0.088
+  bge_m3@1: strict prompt 0.212 | soft prompt 0.238 | soft minus strict +0.026 [-0.004, +0.058] | known answers lost (closed book right, RAG wrong): strict 80, soft 72 | vs closed book: strict -0.038, soft -0.012
+  bge_m3@3: strict prompt 0.336 | soft prompt 0.356 | soft minus strict +0.020 [-0.004, +0.044] | known answers lost (closed book right, RAG wrong): strict 55, soft 52 | vs closed book: strict +0.086, soft +0.106
+
+Reading: if 'vs closed book' turns from negative to positive (or the known answers lost drop sharply) under the soft prompt, the dip is a prompt effect. If it persists, it is a reader effect (context overrides stored knowledge).

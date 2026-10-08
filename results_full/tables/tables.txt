@@ -1,0 +1,139 @@
+===== tab_main
+method                                     qwen2.5-7b                    llama3.1-8b                      qwen3-14b
+planner_tsr               +0.004     [-0.014, +0.021]    +0.005     [-0.013, +0.023]    +0.004     [-0.014, +0.022]  holm_sig=0
+adaptive_rag              -0.023     [-0.042, -0.004]  {-0.059}     [-0.077, -0.038]  {-0.052}     [-0.070, -0.033]  holm_sig=3 (neg.)
+adaptive_k                -0.016     [-0.036, +0.003]    -0.022     [-0.040, -0.003]    -0.016     [-0.036, +0.003]  holm_sig=1 (neg.)
+gate_closed_book          -0.002     [-0.019, +0.014]    -0.003     [-0.022, +0.017]    +0.000     [-0.018, +0.019]  holm_sig=0
+conf_cascade              +0.013     [-0.007, +0.032]    +0.002     [-0.017, +0.022]    -0.004     [-0.022, +0.014]  holm_sig=0
+ak_paper                  -0.003     [-0.024, +0.017]    +0.005     [-0.014, +0.026]    -0.014     [-0.033, +0.005]  holm_sig=0
+ar_emb                    -0.020     [-0.038, -0.002]  {-0.045}     [-0.065, -0.024]  {-0.047}     [-0.064, -0.028]  holm_sig=1 (neg.)
+ar_t5                     -0.014     [-0.033, +0.003]  {-0.037}     [-0.055, -0.017]  {-0.037}     [-0.056, -0.018]  holm_sig=0
+plan_emb                  +0.013     [-0.004, +0.031]    +0.004     [-0.015, +0.022]    +0.022     [+0.003, +0.040]  holm_sig=0
+plan_knn                  +0.002     [-0.017, +0.019]    -0.008     [-0.026, +0.010]    +0.016     [-0.004, +0.034]  holm_sig=0
+reader_cascade qwen2.5-7b->llama3.1-8b      +0.006 [-0.012, +0.024] p_holm 1.000
+reader_cascade qwen2.5-7b->qwen3-14b        +0.006 [-0.012, +0.024] p_holm 1.000
+
+pooled p values (t test on per query gains), Holm within family (primary / secondary):
+  primary   llama3.1-8b              adaptive_k        -0.022 p 2.57e-02 p_holm 3.59e-01
+  primary   qwen2.5-7b               adaptive_k        -0.016 p 1.20e-01 p_holm 1.00e+00
+  primary   qwen3-14b                adaptive_k        -0.016 p 1.12e-01 p_holm 1.00e+00
+  primary   llama3.1-8b              adaptive_rag      -0.059 p 1.65e-09 p_holm 2.80e-08
+  primary   qwen2.5-7b               adaptive_rag      -0.023 p 1.74e-02 p_holm 2.61e-01
+  primary   qwen3-14b                adaptive_rag      -0.052 p 9.43e-08 p_holm 1.51e-06
+  primary   llama3.1-8b              conf_cascade      +0.002 p 8.03e-01 p_holm 1.00e+00
+  primary   qwen2.5-7b               conf_cascade      +0.013 p 2.05e-01 p_holm 1.00e+00
+  primary   qwen3-14b                conf_cascade      -0.004 p 6.64e-01 p_holm 1.00e+00
+  primary   llama3.1-8b              gate_closed_book  -0.003 p 7.81e-01 p_holm 1.00e+00
+  primary   qwen2.5-7b               gate_closed_book  -0.002 p 8.30e-01 p_holm 1.00e+00
+  primary   qwen3-14b                gate_closed_book  +0.000 p 9.68e-01 p_holm 1.00e+00
+  primary   llama3.1-8b              planner_tsr       +0.005 p 6.27e-01 p_holm 1.00e+00
+  primary   qwen2.5-7b               planner_tsr       +0.004 p 6.57e-01 p_holm 1.00e+00
+  primary   qwen3-14b                planner_tsr       +0.004 p 6.81e-01 p_holm 1.00e+00
+  primary   qwen2.5-7b->qwen3-14b    reader_cascade    +0.006 p 5.06e-01 p_holm 1.00e+00
+  primary   qwen2.5-7b->llama3.1-8b  reader_cascade    +0.006 p 5.61e-01 p_holm 1.00e+00
+  secondary llama3.1-8b              ak_paper          +0.005 p 5.93e-01 p_holm 1.00e+00
+  secondary qwen2.5-7b               ak_paper          -0.003 p 7.52e-01 p_holm 1.00e+00
+  secondary qwen3-14b                ak_paper          -0.014 p 1.63e-01 p_holm 1.00e+00
+  secondary llama3.1-8b              ar_emb            -0.045 p 3.66e-06 p_holm 5.12e-05
+  secondary qwen2.5-7b               ar_emb            -0.020 p 3.62e-02 p_holm 3.62e-01
+  secondary qwen3-14b                ar_emb            -0.047 p 1.76e-06 p_holm 2.64e-05
+  secondary llama3.1-8b              ar_t5             -0.037 p 1.26e-04 p_holm 1.51e-03
+  secondary qwen2.5-7b               ar_t5             -0.014 p 1.22e-01 p_holm 9.75e-01
+  secondary qwen3-14b                ar_t5             -0.037 p 8.09e-05 p_holm 1.05e-03
+  secondary llama3.1-8b              plan_emb          +0.004 p 6.78e-01 p_holm 1.00e+00
+  secondary qwen2.5-7b               plan_emb          +0.013 p 1.49e-01 p_holm 1.00e+00
+  secondary qwen3-14b                plan_emb          +0.022 p 1.88e-02 p_holm 2.07e-01
+  secondary llama3.1-8b              plan_knn          -0.008 p 3.86e-01 p_holm 1.00e+00
+  secondary qwen2.5-7b               plan_knn          +0.002 p 8.64e-01 p_holm 1.00e+00
+  secondary qwen3-14b                plan_knn          +0.016 p 8.80e-02 p_holm 7.92e-01
+
+===== tab_per_dataset
+method                    qwen2./NQ  qwen2./HotpotQA     qwen2./2Wiki   qwen2./MuSiQue        llama3/NQ  llama3/HotpotQA     llama3/2Wiki   llama3/MuSiQue        qwen3-/NQ  qwen3-/HotpotQA     qwen3-/2Wiki   qwen3-/MuSiQue
+planner_tsr                  -0.008           -0.003           +0.018           +0.010           +0.003           -0.000           +0.019           -0.003           -0.011           -0.001           +0.030           -0.003
+adaptive_rag                -0.041+           -0.008          -0.042+           +0.000          -0.078*          -0.055+          -0.088*           -0.015          -0.101*          -0.058+           -0.023           -0.025
+adaptive_k                   -0.005           +0.001          -0.056+           -0.004           -0.007           +0.004          -0.086*           +0.002           -0.014           +0.009          -0.065+           +0.005
+gate_closed_book             -0.003           -0.000           -0.001           -0.003           -0.005           -0.000           -0.006           -0.001           -0.000           -0.000           -0.000           +0.002
+conf_cascade                 -0.006           +0.012           +0.003          +0.041+           -0.015           -0.022           +0.030           +0.017           -0.001           -0.001           -0.004           -0.010
+ak_paper                     -0.006           +0.013           -0.035           +0.014           +0.032           +0.005           -0.017           +0.002           +0.002           -0.028           -0.027           -0.004
+ar_emb                       -0.009           -0.032          -0.042+           +0.001          -0.046+          -0.061+          -0.064+           -0.011          -0.056+          -0.074*           -0.027           -0.028
+ar_t5                        +0.009           -0.026          -0.048+           +0.008          -0.040+          -0.058+          -0.048+           -0.000          -0.060+          -0.058+           -0.024           -0.007
+plan_emb                     +0.007           +0.009           +0.038           -0.001           +0.017           -0.008           +0.004           +0.002          +0.050+           -0.007           +0.028           +0.017
+plan_knn                     -0.007           -0.000           +0.019           -0.005           -0.011           -0.013           -0.003           -0.005          +0.045+           -0.012           +0.009           +0.021
+cascade qwen2.5-7b->llama3.1-8b: NQ +0.008  HotpotQA +0.010  2Wiki +0.004  MuSiQue -0.000
+cascade qwen2.5-7b->qwen3-14b: NQ +0.023  HotpotQA +0.002  2Wiki -0.008  MuSiQue +0.008
+
+===== tab_headroom
+reader       data         CB   best   cost  oracle   cost  headrm  gateOr bestGain  best plan
+qwen2.5-7b   NQ        0.284  0.730   0.51   0.922   0.30  +0.192   0.788   -0.003  stella_1_5b@5
+qwen2.5-7b   HotpotQA  0.226  0.530   1.41   0.758   0.32  +0.228   0.568   +0.012  qwen3_reranker_0_6b@3
+qwen2.5-7b   2Wiki     0.258  0.406   1.37   0.640   0.27  +0.234   0.476   +0.018  bge_bm25_rrf@20
+qwen2.5-7b   MuSiQue   0.056  0.262   0.66   0.548   0.30  +0.286   0.280   +0.041  stella_1_5b@10
+llama3.1-8b  NQ        0.418  0.698   0.57   0.910   0.38  +0.212   0.756   +0.003  stella_1_5b@5
+llama3.1-8b  HotpotQA  0.280  0.588   1.71   0.778   0.41  +0.190   0.622   +0.004  qwen3_reranker_0_6b@10
+llama3.1-8b  2Wiki     0.154  0.406   2.20   0.638   0.41  +0.232   0.468   +0.030  qwen3_reranker_0_6b@10
+llama3.1-8b  MuSiQue   0.062  0.228   1.87   0.498   0.53  +0.270   0.256   +0.017  qwen3_reranker_0_6b@5
+qwen3-14b    NQ        0.334  0.776   2.36   0.914   1.74  +0.138   0.810   -0.000  stella_1_5b@10
+qwen3-14b    HotpotQA  0.266  0.596   2.62   0.772   1.47  +0.176   0.630   +0.009  qwen3_reranker_0_6b@3
+qwen3-14b    2Wiki     0.306  0.434   3.70   0.654   1.31  +0.220   0.516   +0.030  qwen3_reranker_0_6b@10
+qwen3-14b    MuSiQue   0.076  0.286   3.71   0.538   1.64  +0.252   0.320   +0.005  qwen3_reranker_0_6b@10
+
+mean headroom (oracle minus best fixed): +0.219; oracle cost / best fixed cost: 0.40 (median); gate oracle minus best fixed: +0.046
+
+===== tab_grading
+audit items with human label: 200; human correct rate 0.400
+label_strict     n=200 acc 0.690 [0.625, 0.755] kappa 0.311 FP 16 FN 46 success 0.365
+label_f1_07      n=200 acc 0.740 [0.680, 0.800] kappa 0.469 FP 31 FN 21 success 0.385
+label_lenient    n=200 acc 0.630 [0.565, 0.695] kappa 0.315 FP 67 FN  7 success 0.456
+label_proposed   n=200 acc 0.720 [0.655, 0.780] kappa 0.412 FP 26 FN 30 success 0.374
+label_final      n=200 acc 0.875 [0.825, 0.920] kappa 0.736 FP  9 FN 16 success 0.406
+judge            n=160 acc 0.875 [0.825, 0.925] kappa 0.726 FP  7 FN 13 success nan
+rater 1 (human) vs Second human rater: kappa 0.837, agreement 0.920, n=200
+final label vs second human: accuracy 0.835, kappa 0.663
+rater 1 (human) vs LLM rater (not human): kappa 0.814, agreement 0.910, n=200
+by stratum:
+                  n  human  final_acc
+stratum                              
+contains_long  30.0  0.533      0.767
+f1_02_04       40.0  0.100      0.925
+f1_04_07       50.0  0.280      0.940
+f1_07_up       40.0  0.625      0.825
+f1_below_02    20.0  0.150      0.850
+strict_short   20.0  0.900      0.900
+
+===== tab_cost
+agent cost per reader (range over datasets) and plan cost error:
+  qwen2.5-7b   a1 24.99..29.25 ms/100tok  a2 37.2..38.7 ms/tok  R2 0.811..0.991  gen 5.0..6.5 tok  APE median 3.9% max 15.6% (n=120)
+  llama3.1-8b  a1 26.91..28.50 ms/100tok  a2 41.8..43.7 ms/tok  R2 0.992..0.996  gen 6.4..8.8 tok  APE median 3.5% max 18.1% (n=120)
+  qwen3-14b    a1 29.98..32.69 ms/100tok  a2 210.4..212.5 ms/tok  R2 0.999..1.000  gen 6.7..8.3 tok  APE median 4.3% max 25.8% (n=96)
+  bm25                   c 0.7..32.1 ms   a 17.1..564.8 us/doc
+  splade_v3              c 45.4..1304.4 ms   a 110.0..1198.5 us/doc
+  bge_m3                 c 28.0..40.8 ms   a 0.0..0.0 us/doc
+  stella_1_5b            c 48.3..65.2 ms   a 0.0..15.7 us/doc
+  bge_bm25_rrf           c 29.5..93.7 ms   a 0.0..138.1 us/doc
+  qwen3_reranker_0_6b    c 1069.9..1429.0 ms   a 0.0..219.3 us/doc
+worst plans:
+        dataset      reader            plan  measured  pred   ape
+        musique   qwen3-14b          bm25@1     1.438 1.809 0.258
+2wikimultihopqa   qwen3-14b       bge_m3@10     2.586 2.082 0.195
+             nq llama3.1-8b          bm25@1     0.319 0.377 0.181
+2wikimultihopqa   qwen3-14b          bm25@1     1.288 1.504 0.168
+2wikimultihopqa  qwen2.5-7b bge_bm25_rrf@20     1.367 1.154 0.156
+
+===== tab_ablation
+        dataset      reader     plan  strict  soft   diff     lo    hi  lost_strict  lost_soft  vs_cb_strict  vs_cb_soft
+2wikimultihopqa  qwen2.5-7b   bm25@1   0.288 0.292  0.004 -0.010 0.018           54         54         0.036       0.040
+2wikimultihopqa  qwen2.5-7b   bm25@3   0.330 0.338  0.008 -0.010 0.026           40         43         0.078       0.086
+2wikimultihopqa  qwen2.5-7b bge_m3@1   0.256 0.252 -0.004 -0.020 0.012           58         60         0.004       0.000
+2wikimultihopqa  qwen2.5-7b bge_m3@3   0.352 0.360  0.008 -0.008 0.024           43         41         0.100       0.108
+2wikimultihopqa llama3.1-8b   bm25@1   0.238 0.282  0.044  0.014 0.076           72         60        -0.012       0.032
+2wikimultihopqa llama3.1-8b   bm25@3   0.298 0.338  0.040  0.014 0.066           60         48         0.048       0.088
+2wikimultihopqa llama3.1-8b bge_m3@1   0.212 0.238  0.026 -0.004 0.058           80         72        -0.038      -0.012
+2wikimultihopqa llama3.1-8b bge_m3@3   0.336 0.356  0.020 -0.004 0.044           55         52         0.086       0.106
+             nq  qwen2.5-7b   bm25@1   0.316 0.328  0.012 -0.008 0.032           54         46         0.098       0.110
+             nq  qwen2.5-7b   bm25@3   0.368 0.370  0.002 -0.006 0.012           52         51         0.150       0.152
+             nq  qwen2.5-7b bge_m3@1   0.542 0.554  0.012  0.002 0.024           29         27         0.324       0.336
+             nq  qwen2.5-7b bge_m3@3   0.638 0.646  0.008 -0.006 0.022           22         24         0.420       0.428
+             nq llama3.1-8b   bm25@1   0.306 0.386  0.080  0.052 0.110           86         54        -0.044       0.036
+             nq llama3.1-8b   bm25@3   0.374 0.422  0.048  0.026 0.072           78         60         0.024       0.072
+             nq llama3.1-8b bge_m3@1   0.536 0.540  0.004 -0.016 0.024           44         37         0.186       0.190
+             nq llama3.1-8b bge_m3@3   0.610 0.590 -0.020 -0.042 0.002           35         34         0.260       0.240
