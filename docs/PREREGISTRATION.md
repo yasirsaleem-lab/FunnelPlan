@@ -93,6 +93,16 @@ Every change is dated and states whether any result of the affected run had been
   Observed on NQ, not acted on: Qwen3 32B answers in sentences more often (21% of retrieval answers above
   20 tokens vs 6% for Qwen3 14B) and abstains more ("the passages do not mention", 5.8% vs 3.6%). Of 25 random
   long answers with F1 < 0.2 and no gold string, 0 were correct, so the strict rule is not under crediting them.
+- **2026-10-09 07:20, R3 defined exactly (before any R3 run; R1 labels of Qwen3 32B seen, in sample only).**
+  Section 1 left open how the second hop query is formed. Fixed now, in `scripts/19_two_hop_plans.py`:
+  plans `bm25_2hop@3` and `bm25_2hop@5`. Hop 1: BM25 top k for the question. Then one reader call writes one
+  search query for the missing information (fixed system text in the script, greedy, at most 32 new tokens;
+  empty output falls back to the question). Hop 2: BM25 top k for that query alone, skipping hop 1 passages.
+  Then the unchanged answer prompt on the 2k passages. "Cost known before execution" means the number of
+  retrieval calls (2) and reader calls (2) is fixed in advance; latency still varies with token counts, as it
+  does for single step plans. Run on all 5 readers and all 4 datasets (NQ included). Cost = hop 1 latency +
+  timed hop 2 latency + both reader calls. The alternative (hop 2 query = question plus hop 1 titles, no reader
+  call) was rejected as a weak method that would lose for trivial reasons.
 - **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
   server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
   Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),
