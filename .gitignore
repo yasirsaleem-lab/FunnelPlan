@@ -57,3 +57,8 @@ _fp_code.tgz
 *.bak
 *.tmp
 results/
+_tools/
+
+# derived by 17_llamacpp_labels.py (rebuilt from corpus.jsonl; progress logs)
+data/processed_full/llamacpp_passages/
+data/processed_full/labels_*_parts/*.jsonl

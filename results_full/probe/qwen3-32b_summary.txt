@@ -1,0 +1,17 @@
+Probe qwen3-32b: 200 items on hotpotqa (0 errors), model C:\Users\USER\models\gguf\Qwen_Qwen3-32B-IQ4_XS.gguf, n_ctx 5632
+VRAM used 18.5 of 20.0 GB (after warm up 18.3)
+
+by depth (ref = Qwen3 14B int8, transformers, same items):
+        n  wall_s  prompt_tokens  gen_tokens  prefill_tps  decode_tps  strict  ref_strict  ref_time
+depth                                                                                              
+0      40   0.288         61.500       6.550      792.547      31.358   0.275       0.225     1.700
+1      40   0.456        191.025       8.425     1041.958      31.487   0.450       0.400     1.306
+3      40   0.694        385.825      11.175     1124.367      31.562   0.350       0.400     1.424
+5      40   0.934        620.950      12.500     1160.397      30.799   0.550       0.575     1.290
+10     40   1.247       1026.225      11.600     1171.416      30.754   0.475       0.450     1.965
+
+strict accuracy 0.420 vs Qwen3 14B 0.410 on the same items; label agreement 0.920; truncated answers (hit 100 tokens): 0
+
+time model: wall = 0.036 + 0.838 ms/prompt token + 30.3 ms/gen token; prompt token ratio vs Qwen tokenizer 1.00
+projected full grid (50,000 calls: 4 datasets x 500 queries x 25 plans, depth <= 10): 12.6 GPU hours (0.52 days), one call at a time
+longest probe prompt 1603 tokens; the grid's longest at depth 10 is about 4948 (needs n_ctx >= that + 100)

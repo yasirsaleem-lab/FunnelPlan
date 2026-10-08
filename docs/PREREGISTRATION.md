@@ -71,4 +71,22 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 ## 7. Amendments
 
-(none yet; every change is dated and states whether any result of the affected run had been seen)
+Every change is dated and states whether any result of the affected run had been seen.
+
+- **2026-10-08, gate G1 result (Qwen3 32B, before R1 started).** Probe of 200 HotpotQA items with
+  `16_reader_probe.py`: 0 errors; VRAM 18.5 of 20 GB; strict accuracy 0.420 vs 0.410 for Qwen3 14B on the same
+  items (label agreement 0.920); projected full grid 12.6 GPU hours (0.52 days). The longest probe prompt was
+  1,603 tokens; the longest grid prompt is about 4,948, below n_ctx 5,632. The context condition is therefore
+  checked again on the full run: `17_llamacpp_labels.py` logs every failed call and refuses to merge while any
+  answer is missing. G1 passes.
+- **2026-10-08, gate G1 result (Gemma 3 27B, before R1 started).** Same probe: 0 errors; VRAM 16.1 of 20 GB;
+  strict accuracy 0.360 vs 0.410 for Qwen3 14B (label agreement 0.880; discordant 7 vs 17, exact McNemar
+  p = 0.064); projected full grid 10.7 GPU hours. Longest grid prompt about 4,775 tokens, n_ctx 6,144. G1 passes.
+  Observed, not acted on: Gemma answers "Not specified." on 4 of 160 retrieval items despite the "give your best
+  guess" instruction, and writes dates as "November 22, 1761" (strict misses these; they are ambiguous and go to
+  the judge). Gemma's chat template has no system role; llama.cpp puts the system text into the user turn.
+  No change to prompts or grading.
+- **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
+  server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
+  Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),
+  whose token counts matched the transformers prompts of Qwen3 14B (median ratio 1.00).

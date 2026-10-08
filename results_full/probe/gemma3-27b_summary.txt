@@ -1,0 +1,17 @@
+Probe gemma3-27b: 200 items on hotpotqa (0 errors), model C:\Users\USER\models\gguf\google_gemma-3-27b-it-IQ4_XS.gguf, n_ctx 6144
+VRAM used 16.1 of 20.0 GB (after warm up 16.1)
+
+by depth (ref = Qwen3 14B int8, transformers, same items):
+        n  wall_s  prompt_tokens  gen_tokens  prefill_tps  decode_tps  strict  ref_strict  ref_time
+depth                                                                                              
+0      40   0.363         54.775       6.350      397.536      32.381   0.350       0.225     1.700
+1      40   0.450        183.400       5.725      759.121      32.376   0.300       0.400     1.306
+3      40   0.550        374.600       4.725     1009.952      31.379   0.325       0.400     1.424
+5      40   0.723        605.775       4.425     1118.452      31.433   0.450       0.575     1.290
+10     40   1.013       1001.475       4.850     1196.591      31.195   0.375       0.450     1.965
+
+strict accuracy 0.360 vs Qwen3 14B 0.410 on the same items; label agreement 0.880; truncated answers (hit 100 tokens): 0
+
+time model: wall = 0.153 + 0.728 ms/prompt token + 27.5 ms/gen token; prompt token ratio vs Qwen tokenizer 0.97
+projected full grid (50,000 calls: 4 datasets x 500 queries x 25 plans, depth <= 10): 10.7 GPU hours (0.45 days), one call at a time
+longest probe prompt 1527 tokens; the grid's longest at depth 10 is about 4775 (needs n_ctx >= that + 100)
