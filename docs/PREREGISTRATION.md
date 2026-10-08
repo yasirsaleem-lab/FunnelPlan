@@ -86,6 +86,13 @@ Every change is dated and states whether any result of the affected run had been
   guess" instruction, and writes dates as "November 22, 1761" (strict misses these; they are ambiguous and go to
   the judge). Gemma's chat template has no system role; llama.cpp puts the system text into the user turn.
   No change to prompts or grading.
+- **2026-10-08 19:50, primary family corrected (NQ labels of Qwen3 32B seen, in sample descriptives only; no
+  H1 test run).** The cascade "7B to Qwen3 32B" is removed from the primary family, which becomes 27 tests.
+  Reason: its cost would add a transformers latency (7B, bf16) to a llama.cpp latency (32B, IQ4_XS), which
+  section 6 already rules out. It is reported as exploratory only if the 7B is re-timed under llama.cpp.
+  Observed on NQ, not acted on: Qwen3 32B answers in sentences more often (21% of retrieval answers above
+  20 tokens vs 6% for Qwen3 14B) and abstains more ("the passages do not mention", 5.8% vs 3.6%). Of 25 random
+  long answers with F1 < 0.2 and no gold string, 0 were correct, so the strict rule is not under crediting them.
 - **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
   server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
   Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),
