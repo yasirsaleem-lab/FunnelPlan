@@ -103,6 +103,13 @@ Every change is dated and states whether any result of the affected run had been
   does for single step plans. Run on all 5 readers and all 4 datasets (NQ included). Cost = hop 1 latency +
   timed hop 2 latency + both reader calls. The alternative (hop 2 query = question plus hop 1 titles, no reader
   call) was rejected as a weak method that would lose for trivial reasons.
+- **2026-10-09 23:50, gate G2 result (R2 complete).** Qwen3 14B GGUF IQ4_XS (llama.cpp) against Qwen3 14B
+  int8 (transformers), HotpotQA, 12,500 cells: label agreement strict 0.960, F1 >= 0.7 0.958, label_final
+  0.957 (judge scores reused where they exist; 190 of 1,875 ambiguous answers fall back to strict until the
+  next judge pass). Identical answer text on 72% of cells. label_final accuracy 0.491 vs 0.500. G2 passes:
+  4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
+  vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
+  that latencies are comparable only within a reader (section 6).
 - **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
   server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
   Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),

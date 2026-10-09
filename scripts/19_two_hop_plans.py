@@ -130,13 +130,12 @@ class Reader:
         return self._transformers(msgs, max_new)
 
     def _server(self, msgs, max_new):
-        import requests
         body = {"messages": msgs, "max_tokens": max_new, "temperature": 0.0, "top_p": 1.0, "seed": 0,
                 "logprobs": True, "top_logprobs": 1, "cache_prompt": False, "stream": False}
         if self.thinking_off:
             body["chat_template_kwargs"] = {"enable_thinking": False}
         t0 = time.perf_counter()
-        r = requests.post(f"{self.url}/v1/chat/completions", json=body, timeout=600)
+        r = G.session().post(f"{self.url}/v1/chat/completions", json=body, timeout=600)   # keep-alive
         wall = time.perf_counter() - t0
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}: {r.text[:300]}")

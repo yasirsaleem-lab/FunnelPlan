@@ -403,5 +403,10 @@ def stage_finalize():
 
 
 if __name__ == "__main__":
-    {"regrade": stage_regrade, "audit": stage_audit, "judge": stage_judge,
-     "finalize": stage_finalize}[CONFIG["stage"]]()
+    # The stage can also be given on the command line (python scripts/08_grading_full.py judge), so stages can be
+    # chained in one unattended command; without an argument CONFIG["stage"] is used as before.
+    stages = {"regrade": stage_regrade, "audit": stage_audit, "judge": stage_judge, "finalize": stage_finalize}
+    stage = sys.argv[1] if len(sys.argv) > 1 else CONFIG["stage"]
+    if stage not in stages:
+        sys.exit(f"Unknown stage {stage}; choose from {list(stages)}")
+    stages[stage]()

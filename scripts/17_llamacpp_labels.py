@@ -146,14 +146,27 @@ def messages(q, doc_ids, texts):
 
 
 # ====================================================================== server
+_SESSION = None
+
+
+def session():
+    """One keep-alive HTTP connection for all calls. A new TCP connection per call (50,000 per grid) churned
+    the Windows network stack; the crash of 2026-10-09 was in tcpip.sys. Timing uses the server's own
+    prompt_ms + predicted_ms, so connection reuse does not change agent_time_s."""
+    global _SESSION
+    if _SESSION is None:
+        import requests
+        _SESSION = requests.Session()
+    return _SESSION
+
+
 def call(url, msgs, thinking_off, timeout=600):
-    import requests
     body = {"messages": msgs, "max_tokens": MAX_NEW_TOKENS, "temperature": 0.0, "top_p": 1.0, "seed": 0,
             "logprobs": True, "top_logprobs": 1, "cache_prompt": False, "stream": False}
     if thinking_off:
         body["chat_template_kwargs"] = {"enable_thinking": False}
     t0 = time.perf_counter()
-    r = requests.post(f"{url}/v1/chat/completions", json=body, timeout=timeout)
+    r = session().post(f"{url}/v1/chat/completions", json=body, timeout=timeout)
     wall = time.perf_counter() - t0
     if r.status_code != 200:
         raise RuntimeError(f"HTTP {r.status_code}: {r.text[:300]}")
