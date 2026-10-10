@@ -87,8 +87,27 @@ def ambiguous(d):
     return ((d.strict == 0) & (d.f1 >= 0.2)) | ((d.em == 0) & (d.contains == 1) & (d.n_answer_tokens >= 8))
 
 
-def label_files():
-    return sorted(f for f in PROC.glob("tsr_labels_*.csv") if not f.stem.endswith("_graded"))
+def label_files(main_only=False):
+    """The paper readers' label files, plus (unless main_only) the extension label sets that need the same
+    grading: the fixed two hop plans (r3_2hop/labels_<reader>.csv, run R3), IRCoT (r4_ircot/labels_<reader>.csv,
+    run R4) and the quantization control
+    (control_labels_<reader>.csv, run R2). Graded copies are written next to each file. The analysis scripts
+    read only tsr_labels_*_graded.csv, so the extension sets never enter them by accident."""
+    main = sorted(f for f in PROC.glob("tsr_labels_*.csv") if not f.stem.endswith("_graded"))
+    if main_only:
+        return main
+    extra = sorted(f for f in (PROC / "r3_2hop").glob("labels_*.csv") if not f.stem.endswith("_graded"))
+    extra += sorted(f for f in (PROC / "r4_ircot").glob("labels_*.csv") if not f.stem.endswith("_graded"))
+    extra += sorted(f for f in PROC.glob("control_labels_*.csv") if not f.stem.endswith("_graded"))
+    return main + extra
+
+
+def reader_name(f):
+    if f.parent.name in ("r3_2hop", "r4_ircot"):
+        return f.parent.name[:2] + "_" + f.stem.replace("labels_", "", 1)
+    if f.stem.startswith("control_labels_"):
+        return "control_" + f.stem.replace("control_labels_", "", 1)
+    return f.stem.replace("tsr_labels_", "")
 
 
 def gold_maps(datasets):
@@ -128,7 +147,7 @@ def stage_regrade():
         sys.exit(f"No tsr_labels_*.csv in {PROC}")
     L, queue = [], []
     for f in files:
-        reader = f.stem.replace("tsr_labels_", "")
+        reader = reader_name(f)
         head = pd.read_csv(f, usecols=["dataset"])
         df = regrade_file(f, gold_maps(head["dataset"].unique()))
         df.drop(columns=["pair"]).to_csv(f.with_name(f.stem + "_graded.csv"), index=False)
@@ -155,7 +174,7 @@ def stage_audit():
         sys.exit(f"{KEY} exists; the audit sheet is never resampled. Delete the grading/audit_* files to redo it.")
     rng = np.random.default_rng(CONFIG["seed"])
     frames = []
-    for f in label_files():
+    for f in label_files(main_only=True):
         g = f.with_name(f.stem + "_graded.csv")
         if not g.exists():
             sys.exit("Run stage 'regrade' first.")
@@ -321,7 +340,7 @@ def stage_finalize():
             L.append(f"Items both raters agree on: {len(agreed)}; disagreements listed in grading/audit_disagreements.csv")
             both[both.r1 != both.r2].to_csv(GDIR / "audit_disagreements.csv")
             graded = {}
-            for f in label_files():
+            for f in label_files(main_only=True):
                 g = pd.read_csv(f.with_name(f.stem + "_graded.csv"), dtype={"query_id": str}, keep_default_na=False)
                 g["pair"] = g["dataset"] + "::" + g["query_id"] + "::" + g["answer"].map(normalize)
                 graded.update(g.drop_duplicates("pair").set_index("pair")[["strict"] + [f"label_{r}" for r in RULES]
@@ -396,7 +415,7 @@ def stage_finalize():
         g.to_csv(gpath, index=False)
         miss = int(((g["ambiguous"] == 1) & jv.isna()).sum())
         t = g.groupby("dataset")[["label_strict", "label_f1_07", "label_lenient", "label_final"]].mean().round(3)
-        L.append(f"== {f.stem.replace('tsr_labels_', '')}: label_final written ({miss} ambiguous rows without a judge score -> strict)")
+        L.append(f"== {reader_name(f)}: label_final written ({miss} ambiguous rows without a judge score -> strict)")
         L.append(t.to_string())
     REPORT.write_text("\n".join(L), encoding="utf-8")
     print("\n".join(L))

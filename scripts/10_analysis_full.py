@@ -76,6 +76,10 @@ CONFIG = {
     # for an inverted index SPLADE; results then go to analysis/<label><out_suffix>/
     "retrieval_cost_override": {},
     "out_suffix": "",
+    # Pre-registration R3/H3: every H1 result is reported with and without the fixed two hop plans
+    # (bm25_2hop@3, bm25_2hop@5 from 19_two_hop_plans.py, graded by 08). True adds them to every reader's plan
+    # set (hull and methods alike) and writes to analysis/<label><out_suffix>_r3/. Command line: --r3
+    "include_r3": False,
     "lambdas": list(np.round(np.concatenate([[0.0], np.geomspace(0.002, 1.0, 20)]), 5)),
     "taus": list(np.round(np.linspace(-3.0, 0.0, 31), 2)),   # log prob thresholds
     "adaptive_k_retrievers": ["bge_m3", "stella_1_5b"],
@@ -109,7 +113,28 @@ def load_reader(reader):
     for c in ("retrieval_time_s", "agent_time_s", "mean_logprob"):
         df[c] = pd.to_numeric(df[c], errors="coerce")
     df["retrieval_time_s"] = df["retrieval_time_s"].fillna(0.0)
+    if CONFIG["include_r3"]:
+        f = PROC / "r3_2hop" / f"labels_{reader}_graded.csv"
+        if not f.exists():
+            sys.exit(f"--r3: {f} is missing. Run 19_two_hop_plans.py for {reader}, then 08 regrade, judge, finalize.")
+        r3 = pd.read_csv(f, dtype={"query_id": str}, keep_default_na=False)
+        if col not in r3.columns:
+            sys.exit(f"--r3: {f.name} has no {col}; run 08 judge and finalize first (rules must match).")
+        r3 = r3[r3["repeat"].astype(int) == 0].copy()
+        r3["y"] = r3[col].astype(int)
+        r3["depth"] = r3["depth"].astype(int)
+        r3["plan"] = r3["retriever"] + "@" + r3["depth"].astype(str)
+        for c in ("retrieval_time_s", "agent_time_s", "mean_logprob"):
+            r3[c] = pd.to_numeric(r3[c], errors="coerce")
+        df = pd.concat([df, r3[[c for c in df.columns if c in r3.columns]]], ignore_index=True)
     return df, col
+
+
+MULTI_STEP = ("bm25_2hop",)
+
+
+def is_multi(p):
+    return p.split("@")[0] in MULTI_STEP
 
 
 class Block:
@@ -279,11 +304,14 @@ def m_adaptive_rag(B, F):
     from sklearn.linear_model import LogisticRegression
 
     def ladder(sel):
-        cheap_ret = [p for p in B.plans if B.depth_of[p] > 0]
-        # rung 1: the most cost efficient retrieval plan on the selection half; rung 2: the best plan
+        single = [p for p in B.plans if B.depth_of[p] > 0 and not is_multi(p)]
+        multi = [p for p in B.plans if is_multi(p)]
+        # rung 1: the most cost efficient single step plan on the training folds; rung 2: the best plan.
+        # With the two hop plans (--r3) rung 2 is the best MULTI step plan, which is the paper's own ladder
+        # (no retrieval / single step / multi step; Jeong et al., NAACL 2024).
         acc = B.Y.loc[sel].mean()
-        r1 = max(cheap_ret, key=lambda p: (acc[p] - acc.get("closed_book@0", 0)) / max(B.cost[p], 1e-6))
-        r2 = acc[cheap_ret].idxmax()
+        r1 = max(single, key=lambda p: (acc[p] - acc.get("closed_book@0", 0)) / max(B.cost[p], 1e-6))
+        r2 = acc[multi].idxmax() if multi else acc[single].idxmax()
         return ["closed_book@0", r1, r2] if "closed_book@0" in B.plans else [r1, r2]
 
     def fit(sel):
@@ -514,10 +542,14 @@ def say(L, s):
 def main():
     import time
     t0 = time.time()
-    out = settings.RESULTS_ROOT / "analysis" / (CONFIG["label"] + CONFIG["out_suffix"])
+    if "--r3" in sys.argv:
+        CONFIG["include_r3"] = True
+    out = settings.RESULTS_ROOT / "analysis" / (CONFIG["label"] + CONFIG["out_suffix"]
+                                                 + ("_r3" if CONFIG["include_r3"] else ""))
     out.mkdir(parents=True, exist_ok=True)
     blocks, fixed_rows, rows, L = {}, [], [], []
     per_query = {}
+    say(L, f"Plan set: {'single step plans PLUS the fixed two hop plans (R3)' if CONFIG['include_r3'] else 'single step plans only'}")
     say(L, f"Repeats: seeds {CONFIG['seeds']} (fold split and XGBoost seed). Gains are averaged per query "
            f"over seeds; CIs bootstrap over queries; 'seeds a..b' is the range of per seed mean gains.")
     say(L, "")

@@ -110,6 +110,22 @@ Every change is dated and states whether any result of the affected run had been
   4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
   vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
   that latencies are comparable only within a reader (section 6).
+- **2026-10-10 04:30, R4 (IRCoT) fixed exactly, before any IRCoT run.** `scripts/20_ircot.py`. Published
+  settings kept: BM25; the query of each later step is the last generated chain of thought sentence; only the
+  first generated sentence is kept; stop on "answer is" or after 8 reason steps; at most 15 paragraphs; a separate
+  reader at the end; the authors' own demonstrations (github.com/StonyBrookNLP/ircot, Apache 2.0, Flan-T5 files)
+  packed in file order up to about 6,000 tokens (24,000 characters), as for their Flan-T5 runs. Choices our setting
+  forces, fixed a priori with no tuning on any test query: K = 4 paragraphs per step (the paper tunes K in
+  {2, 4, 6, 8} on 100 dev questions; we have no separate tuning split with retrieval labels); M = 1 distractor in
+  the demonstrations (paper tunes M in {1, 2, 3}); one demonstration set (the paper averages three); the final
+  reader is our unchanged answer prompt (direct reader, as in the paper's Flan-T5 setting), so that IRCoT differs
+  from the single step plans only in retrieval; raw text completion for the reason step, greedy, at most 64 new
+  tokens. Cost = all reason calls + the answer call + all BM25 calls, measured as for every plan. Readers: Qwen2.5
+  7B, Llama 3.1 8B, Qwen3 14B (H3, 9 tests). Gate G3 compares Llama 3.1 8B on HotpotQA with Moskvoretskii et al.
+  (ACL 2025), whose primary metric is In-Accuracy (prediction contains the gold answer; 0.438, EM 0.414, F1 0.516,
+  3.5 LM calls and 3.45 retrieval calls per question). Our closest metric is the strict rule (exact match or
+  contained). Their 500 question subset and corpus differ from ours (our HotpotQA corpus is the same 5.2M paragraph
+  corpus IRCoT used), so G3 tests the implementation, not a replication.
 - **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
   server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
   Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),
