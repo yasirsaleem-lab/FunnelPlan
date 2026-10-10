@@ -110,6 +110,13 @@ Every change is dated and states whether any result of the affected run had been
   4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
   vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
   that latencies are comparable only within a reader (section 6).
+- **2026-10-10 12:00, R4 bug fix (IRCoT results seen: Llama 3.1 8B, HotpotQA, 147 questions).** The sentence
+  splitter of `20_ircot.py` ended a sentence at every period followed by a space, including initials and
+  abbreviations, so "The W. H. Auden poem ..." became the kept sentence and retrieval query "The W." (9 of 388
+  queries were cut to nothing BM25 can match; more were cut short). This broke the pre-registered rule (keep the
+  first generated sentence). Fixed: no split after an initial, a common abbreviation, or before a lowercase word.
+  The 147 answers produced with the bug are kept apart (`hotpotqa_buggy_splitter.jsonl`) and not used; Llama 3.1 8B
+  on HotpotQA is rerun from the start. No other IRCoT run had started.
 - **2026-10-10 12:30, R5 and R6 fixed exactly, before either was run.**
   R5 (`scripts/23_metis_profiler.py`): the profiler is Qwen3 32B (llama.cpp, thinking off, greedy, question only),
   the largest local model; METIS used GPT-4o or Llama 3.1 70B. It returns joint reasoning (yes/no), complexity

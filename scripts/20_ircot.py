@@ -60,7 +60,12 @@ DATASETS = ["hotpotqa", "2wikimultihopqa", "musique"]
 PROMPTS = Path(__file__).parent.parent / "data" / "ircot_prompts"
 OUT = settings.PROCESSED_DATA_ROOT / "r4_ircot"
 INSTR = "Q: Answer the following question by reasoning step-by-step.\n"
-SENT_END = re.compile(r"(?<=[.!?])\s+")
+SENT_END = re.compile(r"[.!?]\s+")
+# A period after an initial ("W. H. Auden"), a title or a common abbreviation does not end a sentence.
+# (Bug fix 2026-10-10: the first version split there, so "The W. H. Auden ..." became the query "The W.")
+ABBREV = re.compile(r"(?:\b[A-Za-z]|\b(?:Mr|Mrs|Ms|Dr|St|Jr|Sr|No|Nos|vs|Inc|Ltd|Co|Corp|Mt|Ft|Gen|Col|Lt|Sgt|Capt|"
+                    r"Prof|Rev|Gov|Sen|Rep|Pres|Ave|Rd|Univ|Dept|est|approx|ca|Jan|Feb|Mar|Apr|Aug|Sept|Sep|Oct|Nov|"
+                    r"Dec|Vol|pp|ed|al|etc|U\.S|U\.K|e\.g|i\.e|D\.C|a\.m|p\.m))\.$")
 
 
 # ====================================================================== prompt pieces
@@ -97,8 +102,12 @@ def first_sentence(gen):
     g = (gen or "").strip().split("\n")[0].strip()
     if not g:
         return ""
-    parts = SENT_END.split(g, maxsplit=1)
-    return parts[0].strip()
+    for m in SENT_END.finditer(g):
+        head, rest = g[: m.start() + 1], g[m.end():]
+        if ABBREV.search(head) or (rest[:1].islower()):
+            continue                                  # initial, abbreviation, or the sentence continues
+        return head.strip()
+    return g.strip()
 
 
 # ====================================================================== corpus access (title, text) by id
