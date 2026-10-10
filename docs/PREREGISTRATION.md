@@ -110,6 +110,35 @@ Every change is dated and states whether any result of the affected run had been
   4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
   vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
   that latencies are comparable only within a reader (section 6).
+- **2026-10-10 12:30, R5 and R6 fixed exactly, before either was run.**
+  R5 (`scripts/23_metis_profiler.py`): the profiler is Qwen3 32B (llama.cpp, thinking off, greedy, question only),
+  the largest local model; METIS used GPT-4o or Llama 3.1 70B. It returns joint reasoning (yes/no), complexity
+  (high/low), pieces of information n (1 to 10) and a confidence; one profile per query, shared by all readers.
+  METIS's rules mapped to our plan space: depth in [n, 3n] (nearest labelled depth if empty); single step plans for
+  no joint reasoning (METIS map_rerank) and for joint reasoning with low complexity (stuff); with joint reasoning and
+  high complexity the fixed two hop plans are added when they are in the plan set (map_reduce). Confidence below 0.9
+  falls back to the median profile of the training folds (METIS: the recent default). Choice: the most expensive
+  pruned plan with mean cost at most a budget b, else the cheapest pruned plan (METIS: the configuration with the
+  highest resource need that fits). The retriever set (one retriever or all) and b are tuned on the training folds,
+  like every other method. METIS's feedback loop (a golden configuration every 30 queries) is not ported, because
+  it needs gold answers at serving time. Primary: profiler cost 0, the most favourable case for METIS (the profiler
+  runs in another runtime, so its latency cannot be added to the reader's). Secondary: plus the measured profiler
+  latency. It enters the secondary Holm family, as pre-registered.
+  R6 (`scripts/22_weak_baselines.py`): Always RAG = BM25 at k = 5 (the retriever of Adaptive-RAG), Never RAG =
+  closed book, accuracy only with no cost matching, one seed (0), label_strict. Reported for every policy, reader
+  and dataset next to our protocol's result. Descriptive only, no test.
+- **2026-10-10 11:25, gate G3 replaced (IRCoT results seen: Llama 3.1 8B, HotpotQA, 49 of 500 questions;
+  strict 0.571, 3.55 reason calls, 3.37 retrieval calls, 98% of chains stop on "answer is"; no other IRCoT
+  result seen).** G3 as written compares our strict accuracy with the In-Accuracy of Moskvoretskii et al.
+  (0.438). That paper retrieves from the DPR Wikipedia dump of Karpukhin et al. (2020; 21M passages of 100 words);
+  we retrieve from IRCoT's own HotpotQA corpus (5.2M abstracts), on a different 500 question sample. The gate
+  therefore mixes a corpus effect and a sample effect with the implementation check it was meant to be. This flaw
+  was ours and was found only after the first IRCoT answers were seen; we disclose that order here.
+  New G3 (implementation check, all on Llama 3.1 8B, HotpotQA, full 500): (i) mean LM reason calls per question
+  within 0.5 of the published 3.5, (ii) mean retrieval calls within 0.5 of the published 3.45, (iii) at least 95%
+  of chains end with "answer is" (the published stopping rule). If G3 fails, the consequence is unchanged: drop R4
+  and narrow every claim to single step and fixed two hop plans. The paper reports the published 0.438 next to our
+  value and names both differences (corpus and sample). Accuracy is not used as a gate.
 - **2026-10-10 04:30, R4 (IRCoT) fixed exactly, before any IRCoT run.** `scripts/20_ircot.py`. Published
   settings kept: BM25; the query of each later step is the last generated chain of thought sentence; only the
   first generated sentence is kept; stop on "answer is" or after 8 reason steps; at most 15 paragraphs; a separate
