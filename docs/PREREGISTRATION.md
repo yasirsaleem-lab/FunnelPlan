@@ -73,6 +73,14 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-12 20:30, decision rule for two plan sets (fixed before any ar_t5 result for Gemma 3 27B or Qwen3 32B,
+  and before any ar_t5 result with the fixed two hop plans; all other secondary results seen).** Section 2 reports every
+  H1 result with and without the fixed two hop plans but names no deciding set. Fixed now: a secondary result counts as
+  significant only if it survives Holm (30 tests, ar_tfidf excluded) with its CI above 0 in **both** plan sets. Status at
+  this time: plan_emb on Qwen3 32B, gain +0.029 (p 0.0024, single step plans) and +0.030 (p 0.0016, with two hop plans);
+  in the single step set at most 7 of the 30 tests can have a smaller p, so its Holm p is at least 0.056 whatever the
+  missing tests show, and it does not meet the rule. It is reported as the largest secondary effect, not as a positive
+  finding. The same rule applies to the primary family (no positive result in either plan set at this time).
 - **2026-10-08, gate G1 result (Qwen3 32B, before R1 started).** Probe of 200 HotpotQA items with
   `16_reader_probe.py`: 0 errors; VRAM 18.5 of 20 GB; strict accuracy 0.420 vs 0.410 for Qwen3 14B on the same
   items (label agreement 0.920); projected full grid 12.6 GPU hours (0.52 days). The longest probe prompt was
