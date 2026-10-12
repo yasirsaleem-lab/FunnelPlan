@@ -110,6 +110,19 @@ Every change is dated and states whether any result of the affected run had been
   4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
   vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
   that latencies are comparable only within a reader (section 6).
+- **2026-10-10 21:30, second R4 splitter fix (IRCoT results seen: Llama 3.1 8B complete on 3 datasets; Qwen2.5 7B,
+  HotpotQA, 78 questions).** Qwen2.5 7B writes numbered lists, and a leading list marker ("1.") was kept as the
+  sentence and used as the query (9 of 78 questions; such a query matches nothing in BM25). Fixed: a leading list
+  marker ("1.", "(2)", "a)", "Step 3:") is removed before the first sentence is taken, and a sentence without any
+  term BM25 can match triggers no retrieval (the chain continues on the collected paragraphs). Effect on Llama 3.1
+  8B, checked on all its 1,500 chains: no sentence starts with a list marker; one question (HotpotQA 91089, step
+  "E!") had a term-less query and is rerun; every other Llama answer is unchanged by construction. The 78 Qwen2.5 7B
+  answers are kept apart (`hotpotqa_list_marker_bug.jsonl`) and rerun.
+- **2026-10-10 17:40, gate G3 result.** Llama 3.1 8B, HotpotQA, all 500 questions, fixed splitter: 3.52 reason
+  calls (published 3.5), 3.25 retrieval calls (published 3.45), 97.2% of chains end with "answer is". G3 passes.
+  Strict accuracy 0.480 against the published In-Accuracy 0.438 (a difference of 0.042): with the bug fixed and
+  the full sample, the original accuracy gate would also have passed, so the replacement of 11:25 did not change
+  the outcome. Both facts are reported.
 - **2026-10-10 12:00, R4 bug fix (IRCoT results seen: Llama 3.1 8B, HotpotQA, 147 questions).** The sentence
   splitter of `20_ircot.py` ended a sentence at every period followed by a space, including initials and
   abbreviations, so "The W. H. Auden poem ..." became the kept sentence and retrieval query "The W." (9 of 388

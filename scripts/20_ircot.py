@@ -61,6 +61,7 @@ PROMPTS = Path(__file__).parent.parent / "data" / "ircot_prompts"
 OUT = settings.PROCESSED_DATA_ROOT / "r4_ircot"
 INSTR = "Q: Answer the following question by reasoning step-by-step.\n"
 SENT_END = re.compile(r"[.!?]\s+")
+ENUM = re.compile(r"^\s*(?:\(?\d{1,2}[.)]|\(?[a-h]\)|[Ss]tep\s*\d{1,2}\s*[.:)])\s+")   # not "A." (an initial)
 # A period after an initial ("W. H. Auden"), a title or a common abbreviation does not end a sentence.
 # (Bug fix 2026-10-10: the first version split there, so "The W. H. Auden ..." became the query "The W.")
 ABBREV = re.compile(r"(?:\b[A-Za-z]|\b(?:Mr|Mrs|Ms|Dr|St|Jr|Sr|No|Nos|vs|Inc|Ltd|Co|Corp|Mt|Ft|Gen|Col|Lt|Sgt|Capt|"
@@ -102,12 +103,18 @@ def first_sentence(gen):
     g = (gen or "").strip().split("\n")[0].strip()
     if not g:
         return ""
+    g = ENUM.sub("", g)                               # a leading list marker ("1.", "2)", "Step 3:") is not a sentence
     for m in SENT_END.finditer(g):
         head, rest = g[: m.start() + 1], g[m.end():]
         if ABBREV.search(head) or (rest[:1].islower()):
             continue                                  # initial, abbreviation, or the sentence continues
         return head.strip()
     return g.strip()
+
+
+def has_terms(q):
+    """BM25 (bm25s) keeps only tokens of 2+ word characters; a query without any matches nothing."""
+    return bool(re.search(r"\w\w", q or ""))
 
 
 # ====================================================================== corpus access (title, text) by id
@@ -190,8 +197,8 @@ def ircot_one(R, C, demo_text, question, first_ids, first_lat):
         cot.append(s)
         if "answer is" in s.lower():
             break
-        if len(ids) >= MAX_PARAGRAPHS:
-            continue                                   # keep reasoning on the collected paragraphs
+        if len(ids) >= MAX_PARAGRAPHS or not has_terms(s):
+            continue                                   # keep reasoning on the collected paragraphs (no retrieval)
         new, lat = C.search(s, K, set(ids))
         ret_time += lat
         ret_calls += 1
@@ -225,7 +232,7 @@ def stage_run(reader, url, datasets):
         C = Corpus(ds)
         demo_text = demos(ds)
         gold = json.load(open(settings.PROCESSED_DATA_ROOT / ds / "answers.json", encoding="utf-8"))
-        t_start, n = time.time(), 0
+        t_start, n, n_oom_retry, n_failed = time.time(), 0, 0, 0
         with open(p, "a", encoding="utf-8") as f:
             for q in todo:
                 try:
@@ -233,8 +240,26 @@ def stage_run(reader, url, datasets):
                 except KeyboardInterrupt:
                     raise
                 except Exception as e:
-                    print(f"  failed {q}: {str(e)[:150]}", flush=True)
-                    continue
+                    o = None
+                    if "out of memory" in str(e).lower() and R.agent is not None:
+                        # free cached blocks and retry once; greedy decoding makes the retry give the same answer
+                        import gc
+                        import torch
+                        gc.collect()
+                        torch.cuda.empty_cache()
+                        try:
+                            o = ircot_one(R, C, demo_text, data[ds]["qtext"][q], data[ds]["hop1"][q], data[ds]["lat1"][q])
+                            n_oom_retry += 1
+                        except KeyboardInterrupt:
+                            raise
+                        except Exception as e2:
+                            e = e2
+                            gc.collect()
+                            torch.cuda.empty_cache()
+                    if o is None:
+                        n_failed += 1
+                        print(f"  failed {q}: {str(e)[:150]}", flush=True)
+                        continue
                 g = grade_detail(o["answer"], gold.get(q, []))
                 f.write(json.dumps({"reader": reader, "dataset": ds, "query_id": q,
                                     "label": apply_rule(g, "lenient"), "strict": apply_rule(g, "strict")} | o) + "\n")
@@ -247,6 +272,9 @@ def stage_run(reader, url, datasets):
                           f"ETA {(len(todo) - n) * el / n / 60:.0f} min  strict {D.strict.mean():.3f}  "
                           f"reason calls {D.n_reason_calls.mean():.2f}  retrieval calls {D.retrieval_calls.mean():.2f}",
                           flush=True)
+        if n_oom_retry or n_failed:
+            print(f"  {ds}: {n_oom_retry} questions needed an out of memory retry; {n_failed} failed and will be "
+                  f"retried on the next run", flush=True)
         del C
 
 

@@ -1,0 +1,25 @@
+Weak protocol: strict EM, seed 0 only, baselines Always RAG (bm25@5) and Never RAG (closed_book@0), no cost matching.
+Our protocol: held out hull at equal mean latency, 5 x 5 folds and seeds, label_final, Holm.
+
+cells (method x reader x dataset): 100
+'beats both Always RAG and Never RAG' under the weak protocol: 64 (64%)
+  of those, cheaper than Always RAG: 24
+beats the hull under our protocol (CI above 0 and Holm p < 0.05): 0 (0%)
+
+by method (mean over readers and datasets):
+                  margin_vs_always  margin_vs_never  cost_vs_always  ours_gain
+method                                                                        
+adaptive_k                   0.029            0.150           0.826     -0.018
+adaptive_rag                 0.053            0.173           1.750     -0.045
+conf_cascade                 0.083            0.204           1.841      0.002
+gate_closed_book            -0.069            0.052           1.323     -0.002
+planner_tsr                  0.054            0.175           1.118      0.003
+
+by reader:
+             win_weak  win_ours
+reader                         
+gemma3-27b        0.5       0.0
+llama3.1-8b       0.9       0.0
+qwen2.5-7b        0.6       0.0
+qwen3-14b         0.7       0.0
+qwen3-32b         0.5       0.0

@@ -28,7 +28,12 @@ Stages (set CONFIG["stage"]):
            Without ar_t5 the eval takes about 5 to 10 minutes on CPU. With ar_t5: about 1 minute per
            fine-tune, 300 fine-tunes for 3 readers x 4 datasets x 5 seeds x 5 folds (about 5 hours).
 
-Output: results_full/analysis/<label>/routers.csv, routers_per_query.csv, routers_summary.txt
+  --r3     (command line flag) adds the fixed two hop plans (R3) to the plan set, as 10 --r3 does. The
+           Adaptive RAG ladder then uses the best MULTI step plan as its top rung (as in 10), the per plan
+           routers may pick the two hop plans, ak_paper is unchanged (single step plans only). Needs 10 --r3
+           first (its methods.csv and per_query_gains.csv). ar_t5 uses a separate cache (t5_cache_<reader>_r3).
+
+Output: results_full/analysis/<label>[_r3]/routers.csv, routers_per_query.csv, routers_summary.txt
 """
 
 import hashlib
@@ -122,11 +127,13 @@ def load_emb(ds):
 # Adaptive RAG ladder and the paper's silver labels
 # ======================================================================
 def ladder(B, sel):
-    """Same ladder as 10: closed book, the most cost efficient retrieval plan, the best plan (training folds)."""
-    cheap_ret = [p for p in B.plans if B.depth_of[p] > 0]
+    """Same ladder as 10: closed book, the most cost efficient single step plan, the best plan (training folds).
+    With the two hop plans (--r3) the top rung is the best MULTI step plan, exactly as in 10."""
+    single = [p for p in B.plans if B.depth_of[p] > 0 and not A.is_multi(p)]
+    multi = [p for p in B.plans if A.is_multi(p)]
     acc = B.Y.loc[sel].mean()
-    r1 = max(cheap_ret, key=lambda p: (acc[p] - acc.get("closed_book@0", 0)) / max(B.cost[p], 1e-6))
-    r2 = acc[cheap_ret].idxmax()
+    r1 = max(single, key=lambda p: (acc[p] - acc.get("closed_book@0", 0)) / max(B.cost[p], 1e-6))
+    r2 = acc[multi].idxmax() if multi else acc[single].idxmax()
     return ["closed_book@0", r1, r2] if "closed_book@0" in B.plans else [r1, r2]
 
 
@@ -190,7 +197,7 @@ def m_ar_emb(B, E):
 # ======================================================================
 class T5Router:
     def __init__(self, reader):
-        self.cache_file = DIR / f"t5_cache_{reader}.json"
+        self.cache_file = DIR / f"t5_cache_{reader}{'_r3' if A.CONFIG['include_r3'] else ''}.json"
         self.cache = json.load(open(self.cache_file)) if self.cache_file.exists() else {}
         self.tok = None
 
@@ -378,7 +385,7 @@ def m_plan_knn(B, E):
 # Adaptive-k with the published rule (10's adaptive_k is the simpler "largest gap in the top 20" variant)
 # ======================================================================
 def m_ak_paper(B):
-    avail = sorted({int(c.rsplit("@", 1)[1]) for c in B.Y.columns if "@" in c} - {0})
+    avail = sorted({int(c.rsplit("@", 1)[1]) for c in B.Y.columns if "@" in c and not A.is_multi(c)} - {0})
     N, frac, buf = CONFIG["ak_candidates"], CONFIG["ak_top_frac"], CONFIG["ak_buffer"]
 
     def k_paper(r, q):
@@ -410,11 +417,16 @@ def m_ak_paper(B):
 # ======================================================================
 def stage_eval():
     t0 = time.time()
-    out = settings.RESULTS_ROOT / "analysis" / A.CONFIG["label"]
+    out = settings.RESULTS_ROOT / "analysis" / (A.CONFIG["label"] + A.CONFIG["out_suffix"]
+                                                 + ("_r3" if A.CONFIG["include_r3"] else ""))
+    if not (out / "methods.csv").exists() or not (out / "per_query_gains.csv").exists():
+        sys.exit(f"{out} has no methods.csv / per_query_gains.csv. Run 10_analysis_full.py"
+                 f"{' --r3' if A.CONFIG['include_r3'] else ''} first.")
     readers = A.readers() if CONFIG["readers"] == "all" else CONFIG["readers"]
     rows, perq, L = [], [], []
     L.append(f"Routers, same protocol as 10 (label {A.CONFIG['label']}, seeds {A.CONFIG['seeds']}, "
              f"{A.CONFIG['k_folds']} folds, plan cost = {A.CONFIG.get('cost_stat', 'median')}).")
+    L.append(f"Plan set: {'single step plans PLUS the fixed two hop plans (R3)' if A.CONFIG['include_r3'] else 'single step plans only'}")
     for rd in readers:
         df, col = A.load_reader(rd)
         t5 = T5Router(rd) if "ar_t5" in CONFIG["routers"] else None
@@ -512,9 +524,14 @@ if __name__ == "__main__":
     #   python scripts/13_routers.py embed
     #   python scripts/13_routers.py eval ar_tfidf,ar_emb,plan_emb,plan_knn
     #   python scripts/13_routers.py eval ar_t5
+    #   python scripts/13_routers.py eval ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper --r3
+    if "--r3" in sys.argv:
+        A.CONFIG["include_r3"] = True
+        sys.argv = [a for a in sys.argv if a != "--r3"]
     if len(sys.argv) > 1:
         CONFIG["stage"] = sys.argv[1]
     if len(sys.argv) > 2:
         CONFIG["routers"] = sys.argv[2].split(",")
-    log(f"stage {CONFIG['stage']}; routers {CONFIG['routers']}; T5 weights {CONFIG['t5_model']}")
+    log(f"stage {CONFIG['stage']}; routers {CONFIG['routers']}; T5 weights {CONFIG['t5_model']}; "
+        f"two hop plans {'ON (--r3)' if A.CONFIG['include_r3'] else 'off'}")
     {"embed": stage_embed, "eval": stage_eval}[CONFIG["stage"]]()
