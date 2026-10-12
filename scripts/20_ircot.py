@@ -55,7 +55,8 @@ MAX_STEPS = 8             # paper
 MAX_PARAGRAPHS = 15       # paper
 REASON_MAX_TOKENS = 64
 ANSWER_MAX_TOKENS = 100
-DEMO_CHARS = 24000        # about 6,000 tokens of demonstrations (the paper's Flan-T5 budget)
+DEMO_CHARS = 24000        # about 6,000 tokens of demonstrations (see the note in demos())
+DEMO_SEP = "\n\n\n"       # IRCoT's demonstration delimiter
 DATASETS = ["hotpotqa", "2wikimultihopqa", "musique"]
 PROMPTS = Path(__file__).parent.parent / "data" / "ircot_prompts"
 OUT = settings.PROCESSED_DATA_ROOT / "r4_ircot"
@@ -71,6 +72,10 @@ ABBREV = re.compile(r"(?:\b[A-Za-z]|\b(?:Mr|Mrs|Ms|Dr|St|Jr|Sr|No|Nos|vs|Inc|Ltd
 
 # ====================================================================== prompt pieces
 def demos(ds):
+    # Note: IRCoT caps the WHOLE reason prompt (demonstrations plus the test paragraphs) at the model limit, 6,000
+    # tokens for Flan-T5, by dropping demonstrations. Our readers have 32k or more context, so the demonstrations are
+    # packed up to DEMO_CHARS and the prompt is not capped at 6,000; reason_call() applies IRCoT's dropping rule only
+    # when the prompt does not fit in GPU memory. This is a disclosed deviation (pre-registration amendments).
     f = PROMPTS / f"{ds}_gold_with_1_distractors_cot_flan_t5.txt"
     text = f.read_text(encoding="utf-8")
     blocks = []
@@ -179,14 +184,36 @@ def raw_generate(R, prompt, max_new):
             "gen_tokens": int(gen.shape[0]), "time_s": dt}
 
 
+# ====================================================================== reason call that fits the GPU
+def reason_call(R, demo_text, paras, question, cot):
+    """IRCoT's own prompt fitting rule (fit_prompt_into_given_limit in commaqa/inference/prompt_reader.py,
+    remove_method "first"): while the prompt does not fit, drop the FIRST demonstration. IRCoT applies it at the
+    model's token limit (6,000 for Flan-T5); here the limit is the GPU memory, so it acts only when generate() runs
+    out of memory. Returns the output and the number of demonstrations dropped (0 for every prompt that fits, so
+    every answer produced before this rule existed is unchanged). Only the successful call's time is counted."""
+    blocks = demo_text.split(DEMO_SEP) if demo_text else []
+    for drop in range(len(blocks) + 1):
+        try:
+            return raw_generate(R, reason_prompt(DEMO_SEP.join(blocks[drop:]), paras, question, cot),
+                                REASON_MAX_TOKENS), drop
+        except Exception as e:
+            if R.agent is None or "out of memory" not in str(e).lower() or drop == len(blocks):
+                raise
+            import gc
+            import torch
+            gc.collect()
+            torch.cuda.empty_cache()
+
+
 # ====================================================================== one question
 def ircot_one(R, C, demo_text, question, first_ids, first_lat):
     ids = list(first_ids[:K])
     ret_time, ret_calls = first_lat, 1
-    cot, steps, q_time, p_tok, g_tok = [], [], 0.0, 0, 0
+    cot, steps, q_time, p_tok, g_tok, dropped = [], [], 0.0, 0, 0, []
     for step in range(MAX_STEPS):
         paras = [C.passage(i) for i in ids]
-        o = raw_generate(R, reason_prompt(demo_text, paras, question, cot), REASON_MAX_TOKENS)
+        o, d = reason_call(R, demo_text, paras, question, cot)
+        dropped.append(d)
         q_time += o["time_s"]
         p_tok += o["prompt_tokens"] or 0
         g_tok += o["gen_tokens"] or 0
@@ -210,7 +237,8 @@ def ircot_one(R, C, demo_text, question, first_ids, first_lat):
             "first_token_prob": a["first_token_prob"], "finish": a["finish"],
             "cot": cot, "n_reason_calls": len(steps), "reason_time_s": q_time, "reason_prompt_tokens": p_tok,
             "reason_gen_tokens": g_tok, "retrieval_time_s": ret_time, "retrieval_calls": ret_calls,
-            "n_paragraphs": len(ids), "doc_ids": ids, "stopped_on_answer": any("answer is" in c.lower() for c in cot)}
+            "n_paragraphs": len(ids), "doc_ids": ids, "stopped_on_answer": any("answer is" in c.lower() for c in cot),
+            "demos_dropped": dropped}
 
 
 # ====================================================================== stages
@@ -275,6 +303,11 @@ def stage_run(reader, url, datasets):
         if n_oom_retry or n_failed:
             print(f"  {ds}: {n_oom_retry} questions needed an out of memory retry; {n_failed} failed and will be "
                   f"retried on the next run", flush=True)
+        D = pd.DataFrame(T.read_jsonl(p))
+        if "demos_dropped" in D:
+            dd = D["demos_dropped"].map(lambda v: max(v) if isinstance(v, list) and v else 0)
+            print(f"  {ds}: demonstrations dropped to fit the GPU (IRCoT rule) on {int((dd > 0).sum())} of {len(D)} "
+                  f"questions (max {int(dd.max())} dropped)", flush=True)
         del C
 
 
@@ -298,7 +331,8 @@ def stage_merge(reader, datasets):
                          "finish": x["finish"], "lm_calls": x["n_reason_calls"] + 1,
                          "retrieval_calls": x["retrieval_calls"], "n_paragraphs": x["n_paragraphs"],
                          "reason_prompt_tokens": x["reason_prompt_tokens"], "stopped_on_answer": x["stopped_on_answer"],
-                         "cot": " ".join(x["cot"]), "reader": reader})
+                         "cot": " ".join(x["cot"]), "reader": reader,
+                         "demos_dropped_max": max(x.get("demos_dropped") or [0])})
     df = pd.DataFrame(rows)
     p = OUT / f"labels_{reader}.csv"
     df.to_csv(p, index=False)

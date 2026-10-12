@@ -10150,3 +10150,61 @@ nq::925::yoda is portrayed by frank oz in star wars episode iii revenge of sith,
 nq::947::first ancient olympic 200 yard race was not explicitly mentioned in provided passages however first olympic games featured stadion race which was won by coroebus of elis there is no direct reference to 200 yard race in ancient olympics in given passages,9.411809e-07,0.99999994
 nq::95::copper gold silver plated copper,0.0011695191,0.99999994
 nq::95::gold copper,0.9999996,1.0000001
+2wikimultihopqa::1213::king william iv,1.0,0.99999994
+2wikimultihopqa::1692::passage does not provide director s birthday however based on other passages rosshan andrrews who directed udayananu tharam was born on 6 january 1975,0.81757766,1.0
+2wikimultihopqa::1722::joanna of hainaut,4.9605998e-15,0.99999994
+2wikimultihopqa::1989::passage about euphoria by usher does not mention where he was born however usher is known to be american singer and he was born in dallas texas,0.99999994,0.99999994
+2wikimultihopqa::2167::sir mountstuart grant duff s father m e grant duff,1.1994905e-14,1.0000001
+2wikimultihopqa::2184::antoinette of saxe coburg saalfeld,1.3562891e-15,1.0
+2wikimultihopqa::2319::i couldn t find director of woman in white in passages,7.178531e-13,0.99999994
+2wikimultihopqa::2452::glasgow school of art middlesex polytechnic national film and television school,0.96374685,0.99999994
+2wikimultihopqa::2901::return of stranger,6.2158647e-06,0.9999999
+2wikimultihopqa::2984::oklahoma city,1.0,1.0
+2wikimultihopqa::5489::i couldn t find information about directors of films high society blues and counterblast,5.746797e-14,1.0
+2wikimultihopqa::5632::i can t answer that question because film monte carlo or bust is not mentioned in passages,6.507953e-10,0.99999994
+2wikimultihopqa::6759::passages do not provide this information directly given names and relationships mentioned it s likely that anton fredrik klaveness s father or paternal grandfather is not listed among provided individuals,6.3090617e-09,1.0
+2wikimultihopqa::6759::torvald klaveness group passage 3 does not contain answer but passage 2 does anton fredrik klaveness 1874 1958 is father of anton fredrik klaveness 1903 1981,4.0430406e-12,1.0
+2wikimultihopqa::6877::princess elisabeth helene of thurn and taxis s father albert 8th prince of thurn and taxis,0.43800554,0.99999994
+2wikimultihopqa::7259::place of birth of trent reznor s wife mariqueen maandig is not explicitly mentioned in provided passages however it is stated that she is filipino american based on this information her place of birth is likely philippines,2.1468451e-05,1.0
+2wikimultihopqa::9158::i can only answer based on given passages there is no information about director of song of eagle,3.582013e-10,1.0
+2wikimultihopqa::993::selena quintanilla pérez,3.3982697e-09,1.0
+hotpotqa::90497::2009 10 big 12 conference,1.014857e-05,1.0
+hotpotqa::91299::season 6 episode 5,1.0,0.99999994
+hotpotqa::91299::season six episode five,1.0,1.0
+hotpotqa::92184::cleaning services security services facility management services,8.729601e-11,1.0
+hotpotqa::93198::early modernist style,5.278668e-15,0.99999994
+hotpotqa::93744::mandarin taiwanese hokien cantonese japanese indonesian and english,0.00020342744,1.0
+hotpotqa::93825::bats and balls,1.0,1.0
+hotpotqa::94048::all states except ohio missouri and some native american tribal lands,3.649882e-15,1.0
+hotpotqa::94369::iroquois confederacy haudenosaunee comprising mohawk onondaga oneida cayuga seneca and tuscarora peoples,1.0,1.0
+hotpotqa::95049::usaf f 15c manufactured by mcdonnell douglas now boeing,1.0,0.99999994
+hotpotqa::96111::no such contest is mentioned in passages,1.2750958e-05,0.99999994
+hotpotqa::96580::late 19th and early 20th century,0.9999999,1.0
+hotpotqa::96805::october 18 1979,4.2833377e-17,1.0
+hotpotqa::97014::harold gregory hal moore jr,1.2738442e-16,1.0
+hotpotqa::97678::no answer found in passages,6.4804397e-07,0.99999994
+musique::1159::not nominated for any award based on passage,1.08409875e-14,0.99999994
+musique::1379::january 2010,3.6687745e-14,1.0
+musique::1475::central,2.3001569e-13,1.0
+musique::1565::creator of punishment of tythus is titian passage does not mention where titian died so we cannot determine how many times plague occurred in that place however based on information provided plague occurred in venice 22 times between 1361 and 1528 if we assume titian died in venice which is not explicitly stated in passage answer would be 22 but since passage does,1.783249e-11,1.0
+musique::157::academy award for best actor,1.6972885e-14,1.0
+musique::1613::478 years,4.2299627e-13,1.0
+musique::1691::lincoln mountains,1.6551851e-15,0.99999994
+musique::1978::omani forces expelled portuguese,1.0802769e-11,0.99999994
+musique::2011::portuguese empire,2.0012945e-10,1.0
+musique::208::john wayne played u s marshal reuben rooster cogburn in both 1969 and 1975 versions,0.99999994,1.0
+musique::2108::fayetteville is located in cumberland county,1.7425336e-10,0.99999994
+musique::2110::richland,5.60579e-06,0.9999999
+musique::211::reuben j rooster cogburn,1.0,1.0
+musique::2127::university of south carolina has more national championships university of north carolina has more national championships,2.0489749e-08,0.99999994
+musique::2196::3rd largest urban area,1.0,1.0
+musique::2218::summer,0.9999963,1.0000001
+musique::2322::dutch in 1642,9.651068e-05,1.0000001
+musique::410::rabbi menachem mendel schneersohn followed teachings of his father rabbi dovber schneuri and chabad hasidic movement,0.96481556,0.99999994
+musique::508::continuation war,3.6722788e-14,0.99999994
+musique::636::bobby brown plays western district uniformed officer in wire,1.0,1.0
+musique::637::bobby brown plays western district uniformed officer in wire,1.0,1.0
+musique::672::early in season,4.4938745e-12,1.0000001
+musique::679::282 273 bc,2.5438814e-13,1.0
+musique::76::new london township chester county pennsylvania,4.9386185e-14,0.99999994
+musique::963::matt cohen attended columbia university,5.86963e-14,1.0
