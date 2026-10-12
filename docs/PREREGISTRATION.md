@@ -73,6 +73,15 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-13 00:05, audit adjudication (before the adjudication starts; rater agreement seen: audit 1 kappa 0.469,
+  audit 2 kappa 0.695; rater 2 confirmed that he read the written rules).** Items where rater 1 and rater 2
+  disagree (57 in audit 1, 31 in audit 2) are labelled by a third independent rater on a blank sheet
+  (`grading/adjudication_rater3_BLANK.xlsx`, 88 items in a seeded random order, both audits mixed). The sheet shows only
+  the question, gold answers and model answer, with the same written rules; no rater labels, no audit or reader names.
+  No AI. The human reference becomes the majority of the three labels. Reported: the raw kappa of both rater pairs,
+  label_final against the adjudicated labels, and label_final against each rater separately. The rater sheets used
+  are the files exactly as received (`grading/received/`); a copy saved later in Excel had changed one label (audit 2,
+  item 1058) and three notes, and was replaced by the received file; no reported audit number uses the changed copy.
 - **2026-10-12 20:30, decision rule for two plan sets (fixed before any ar_t5 result for Gemma 3 27B or Qwen3 32B,
   and before any ar_t5 result with the fixed two hop plans; all other secondary results seen).** Section 2 reports every
   H1 result with and without the fixed two hop plans but names no deciding set. Fixed now: a secondary result counts as
