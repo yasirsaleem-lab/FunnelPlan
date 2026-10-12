@@ -38,7 +38,7 @@ than about 0.03 pooled".
 | Oct 8 | Plan cost = mean latency instead of median | The latency budget constrains expected cost; the cost model predicts the mean (median error 3.5% to 4.3%); for the 14B the mean is up to 1.8x the median | No conclusion changed; Holm survivors went from 2 to 4 (all negative). Both versions are reported |
 | Oct 8 | Stronger routers (13): BGE-M3, FLAN-T5, per plan LR and kNN | Reviewer risk that the null result comes from a weak router | Secondary family; nothing beats the hull; Adaptive RAG loses with every classifier |
 | Oct 8 | Adaptive k with the published rule (buffer of 5, top 90% search) | Literature check: our first version lacked the buffer | Secondary family; better than gap only on Llama (+0.027), still no gain over the hull |
-| Oct 8 | Second human rater replaces the LLM rater | One human rater is weak evidence | Human vs human kappa 0.837; the LLM labels are kept only as a disclosed extra |
+| Oct 8 | Second rater sheet added (corrected Oct 12) | | Both audit 1 sheets of Oct 7 were labelled by the author (the first author), so kappa 0.837 is the author agreeing with himself, NOT agreement between two people. Corrected Oct 12: audit 1 is relabelled on blank sheets by rater 1 (done) and rater 2 (pending); see docs/RATERS.md |
 
 ## 4. Known implementation dependent quantities
 

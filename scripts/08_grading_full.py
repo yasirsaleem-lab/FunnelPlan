@@ -289,18 +289,21 @@ def kappa(a, b):
 
 def read_rater(path, require_complete=False):
     """Reads <name>.xlsx when it exists (the Excel sheet with a 1/0 dropdown), else <name>.csv.
-    require_complete: use the xlsx only once every item is labelled (rater 2: the human sheet replaces the
-    LLM labels in audit_rater2.csv only when the second human has finished)."""
+    require_complete (rater 2): the xlsx only, and only once every item is labelled; otherwise None, so the audit
+    is skipped. The csv is never used for rater 2 (audit_rater2.csv holds the disclosed LLM reference labels)."""
     xl = path.with_suffix(".xlsx")
     s = None
     if xl.exists():
         s = pd.read_excel(xl, sheet_name="audit")
         n = pd.to_numeric(s["label_1_correct_0_wrong"], errors="coerce").notna().sum()
         if require_complete and n < len(s):
-            print(f"{xl.name}: {n} of {len(s)} labelled, not complete; using {path.name} for now")
-            s = None
+            # never fall back to the csv here: audit_rater2.csv holds LLM labels, which must not stand in for a human
+            print(f"{xl.name}: {n} of {len(s)} labelled, not complete; the audit is skipped until it is complete")
+            return None
     if s is not None:
         pass
+    elif require_complete:
+        return None
     elif path.exists():
         s = pd.read_csv(path, encoding="utf-8-sig", keep_default_na=False)
     else:
@@ -326,8 +329,8 @@ def stage_finalize():
         x2 = RATERS[1].with_suffix(".xlsx")
         human2 = x2.exists() and pd.to_numeric(pd.read_excel(x2, sheet_name="audit")["label_1_correct_0_wrong"],
                                                 errors="coerce").notna().all()
-        L.append("rater 1: human. rater 2: " + ("HUMAN (audit_rater2.xlsx)" if human2 else
-                 "LLM labels (Claude, audit_rater2.csv), NOT human; the human sheet audit_rater2.xlsx is not complete"))
+        L.append("rater 1: human (audit_rater1.xlsx). rater 2: " + ("human (audit_rater2.xlsx)" if human2 else
+                 "NOT complete: audit skipped (LLM labels are never used as a rater). Rater identities: docs/RATERS.md"))
         for name, r in (("rater 1", r1), ("rater 2", r2)):
             n = 0 if r is None else int(r.notna().sum())
             L.append(f"{name}: {n} of {len(key)} labelled")
