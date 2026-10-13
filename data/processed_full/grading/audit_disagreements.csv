@@ -1,17 +1,58 @@
 audit_id,r1,r2,stratum,pair,reader,dataset,query_id
-23,0,1,f1_02_04,musique::210::jeff bridges played reuben j rooster cogburn in true grit,qwen2.5-7b,musique,210
+5,0,1,f1_02_04,nq::2381::around 20 30 years,llama3.1-8b,nq,2381
+14,0,1,f1_02_04,2wikimultihopqa::8876::best male video,qwen2.5-7b,2wikimultihopqa,8876
+18,0,1,f1_02_04,nq::2961::huai river zhu jiang delta,qwen2.5-7b,nq,2961
+19,0,1,f1_02_04,nq::804::after bid before play,qwen2.5-7b,nq,804
+22,0,1,f1_02_04,2wikimultihopqa::7171::monaco,llama3.1-8b,2wikimultihopqa,7171
+23,1,0,f1_02_04,musique::210::jeff bridges played reuben j rooster cogburn in true grit,qwen2.5-7b,musique,210
+25,0,1,f1_02_04,hotpotqa::90882::darling river 2 485 km approximate length,qwen3-14b,hotpotqa,90882
+28,0,1,f1_02_04,musique::1590::ponte dell accademia,llama3.1-8b,musique,1590
+29,0,1,f1_02_04,2wikimultihopqa::10992::stagecoach to monterey,qwen2.5-7b,2wikimultihopqa,10992
+31,0,1,f1_02_04,nq::1314::federal or central government,qwen2.5-7b,nq,1314
+32,0,1,f1_02_04,nq::1596::california arizona and nevada,qwen2.5-7b,nq,1596
+36,0,1,f1_02_04,2wikimultihopqa::4176::edith bouvier beale,qwen3-14b,2wikimultihopqa,4176
+37,0,1,f1_02_04,nq::1596::california arizona and morocco,llama3.1-8b,nq,1596
 38,0,1,f1_02_04,nq::1203::passage 1 thames head in gloucestershire north sea via thames estuary passage 3 tavistock lake st clair,llama3.1-8b,nq,1203
+40,0,1,f1_02_04,musique::2335::35 45 f,qwen3-14b,musique,2335
+42,0,1,f1_04_07,nq::3289::ecosystem services lumber recreation genetic reserve,qwen2.5-7b,nq,3289
+47,0,1,f1_04_07,2wikimultihopqa::2366::1597,qwen2.5-7b,2wikimultihopqa,2366
+49,0,1,f1_04_07,musique::1468::central vietnam,qwen2.5-7b,musique,1468
 50,0,1,f1_04_07,hotpotqa::95659::musician songwriter,qwen3-14b,hotpotqa,95659
+55,0,1,f1_04_07,2wikimultihopqa::12146::best guess massachusetts,qwen2.5-7b,2wikimultihopqa,12146
 57,0,1,f1_04_07,hotpotqa::92109::spyker mf1 racing,qwen2.5-7b,hotpotqa,92109
+58,0,1,f1_04_07,2wikimultihopqa::4860::quebec,llama3.1-8b,2wikimultihopqa,4860
 62,0,1,f1_04_07,hotpotqa::94450::british,llama3.1-8b,hotpotqa,94450
+67,0,1,f1_04_07,musique::1611::tongji bridge,llama3.1-8b,musique,1611
 70,0,1,f1_04_07,2wikimultihopqa::10051::george pack jr,llama3.1-8b,2wikimultihopqa,10051
-73,0,1,f1_04_07,nq::2961::sichuan basin yangtze river valley,qwen2.5-7b,nq,2961
-76,0,1,f1_04_07,nq::602::gardiner cousins bunton,qwen2.5-7b,nq,602
-86,0,1,f1_04_07,musique::1613::376 years,qwen2.5-7b,musique,1613
-87,0,1,f1_04_07,hotpotqa::93293::texas m university,llama3.1-8b,hotpotqa,93293
-97,0,1,f1_07_up,2wikimultihopqa::6759::fredrik klaveness,qwen3-14b,2wikimultihopqa,6759
+72,0,1,f1_04_07,hotpotqa::95760::rodolfo rodríguez saá,llama3.1-8b,hotpotqa,95760
+74,0,1,f1_04_07,2wikimultihopqa::1197::queen jeonghui,llama3.1-8b,2wikimultihopqa,1197
+75,0,1,f1_04_07,musique::532::2011,qwen2.5-7b,musique,532
+79,0,1,f1_04_07,2wikimultihopqa::12146::massachusetts,llama3.1-8b,2wikimultihopqa,12146
+82,0,1,f1_04_07,nq::1986::london waterloo london victoria london st pancras,llama3.1-8b,nq,1986
+83,0,1,f1_04_07,2wikimultihopqa::12331::scipio africanus,llama3.1-8b,2wikimultihopqa,12331
+89,0,1,f1_04_07,hotpotqa::93420::hong kong,qwen2.5-7b,hotpotqa,93420
+92,0,1,f1_07_up,musique::1602::spoken theatre and puppet theatre,llama3.1-8b,musique,1602
+94,0,1,f1_07_up,musique::1471::central coast,qwen2.5-7b,musique,1471
+99,0,1,f1_07_up,musique::2121::johnson county south carolina,qwen3-14b,musique,2121
+102,0,1,f1_07_up,2wikimultihopqa::8145::bangladesh national film award,llama3.1-8b,2wikimultihopqa,8145
+104,0,1,f1_07_up,2wikimultihopqa::586::let s sing again,qwen2.5-7b,2wikimultihopqa,586
 105,0,1,f1_07_up,nq::1203::thames head north sea,llama3.1-8b,nq,1203
-130,0,1,f1_07_up,2wikimultihopqa::6857::adam zamoyski,llama3.1-8b,2wikimultihopqa,6857
+109,0,1,f1_07_up,2wikimultihopqa::2876::william henry fitzroy 6th duke of grafton,qwen2.5-7b,2wikimultihopqa,2876
+113,0,1,f1_07_up,2wikimultihopqa::8145::bangladesh national film award for best editing,qwen2.5-7b,2wikimultihopqa,8145
+117,0,1,f1_07_up,musique::157::academy award for best actress,qwen2.5-7b,musique,157
+121,0,1,f1_07_up,hotpotqa::96658::mexico and spain,llama3.1-8b,hotpotqa,96658
+127,0,1,f1_07_up,musique::163::sir edwin henry landseer,qwen2.5-7b,musique,163
+133,0,1,contains_long,nq::2446::norwegian town fictional version of malibu california school mr grimes toy factory norwegian town,llama3.1-8b,nq,2446
+134,0,1,contains_long,musique::1226::question is unclear and contains incorrect information bedari s country is not recognized term or entity additionally majority religion in area that became india was not islam but hinduism arabic word for islam is الإسلام al islām meaning submission or surrender to will of god,qwen3-14b,musique,1226
+136,0,1,contains_long,musique::1023::no information is given about number of students at university of zurich,llama3.1-8b,musique,1023
+138,0,1,contains_long,musique::1226::question is unclear and contains inaccuracies bedari s country is not recognized term or entity in historical or geographical contexts additionally majority religion in area that became india was hinduism not term that can be directly translated from arabic in this context,qwen3-14b,musique,1226
+148,0,1,contains_long,2wikimultihopqa::4122::passage does not provide information about where evelyn cecil 1st baron rockley s father graduated from however based on information given his father was lord eustace cecil who was educated at harrow and royal military college sandhurst therefore it is likely that lord eustace cecil graduated from harrow and royal military college sandhurst,qwen3-14b,2wikimultihopqa,4122
 150,0,1,contains_long,musique::527::sandra day o connor attended law school at stanford university though this information isn t directly provided in passages based on given passages we can infer she was educated but specific institution is not mentioned,qwen2.5-7b,musique,527
-153,1,0,contains_long,nq::1402::two days after armistice on 1 november 1918,llama3.1-8b,nq,1402
-189,1,0,f1_below_02,nq::2335::roger federer did not win title on 1 february 2015 passage does not mention winner of men s single title on that date,llama3.1-8b,nq,2335
+151,0,1,contains_long,2wikimultihopqa::6849::i don t have information about director of ghosts of port arthur,llama3.1-8b,2wikimultihopqa,6849
+153,0,1,contains_long,nq::1402::two days after armistice on 1 november 1918,llama3.1-8b,nq,1402
+157,0,1,contains_long,musique::1226::question is unclear and contains inaccuracies bedari s country is not recognized term or entity in historical or geographical contexts additionally majority religion in area that became india was hinduism and its meaning in arabic is not typically found in arabic dictionaries as hindu is ethno geographical term not religious one in its original usage,qwen3-14b,musique,1226
+159,0,1,contains_long,2wikimultihopqa::6759::anton fredrik klaveness s father is not mentioned in passages,qwen2.5-7b,2wikimultihopqa,6759
+164,0,1,strict_short,hotpotqa::91956::north queensland cowboys or melbourne storm,qwen2.5-7b,hotpotqa,91956
+183,0,1,f1_below_02,hotpotqa::95784::forbidden creatures focuses on exotic pets and smuggling while no animals were harmed does not specify focus,qwen2.5-7b,hotpotqa,95784
+187,0,1,f1_below_02,hotpotqa::91775::approximately 40 years,qwen3-14b,hotpotqa,91775
+193,0,1,f1_below_02,hotpotqa::97712::clementines have less of organic material with chemical formula chn than oranges,qwen3-14b,hotpotqa,97712

@@ -369,9 +369,20 @@ def stage_finalize():
             for rd, e in ev.dropna(subset=["final"]).assign(reader=ev["reader"].str.split(",")).explode("reader").groupby("reader"):
                 L.append(f"  {rd:14s} n={len(e):3d} accuracy {(e['final'].astype(int) == e['human']).mean():.3f}")
 
-            # Human only reference: rater 1 on all items (rater 2 is an LLM, so the agreed subset is filtered by it)
+            # Main human reference, all items: the majority of three raters (rater 1, rater 2, and a third rater on
+            # every item where they disagree; grading/audit_adjudicated.csv). Without that file: rater 1 alone.
             h = both[both["pair"].isin(graded)].copy()
-            h["human"] = h["r1"].astype(int)
+            adj_f = GDIR / "audit_adjudicated.csv"
+            if adj_f.exists():
+                adj = pd.read_csv(adj_f)
+                adj = adj[adj["audit"] == "audit1"].set_index("audit_id")["human"]
+                h["human"] = adj.reindex(h.index)
+                assert h["human"].notna().all(), "audit_adjudicated.csv misses audit 1 items"
+                h["human"] = h["human"].astype(int)
+                ref_name = "majority of three raters (adjudicated), all items"
+            else:
+                h["human"] = h["r1"].astype(int)
+                ref_name = "rater 1, all items"
             for c in ["strict", "ambiguous"]:
                 h[c] = [graded[p][c] for p in h["pair"]]
             h["judge"] = [jmap.get(p, np.nan) for p in h["pair"]]
@@ -381,7 +392,7 @@ def stage_finalize():
             ok = (y == f_)
             lo, hi = np.percentile([ok[np.random.default_rng(s_).integers(0, len(ok), len(ok))].mean()
                                     for s_ in range(2000)], [2.5, 97.5])
-            L.append(f"\nHuman only reference (rater 1, all items): final n={len(e)} accuracy {ok.mean():.3f} "
+            L.append(f"\nMain human reference ({ref_name}): final n={len(e)} accuracy {ok.mean():.3f} "
                      f"[{lo:.3f}, {hi:.3f}] kappa {kappa(pd.Series(y), pd.Series(f_)):.3f}")
             L.append(f"  false positives (final 1, human 0): {int(((y == 1) & (f_ == 0)).sum())}; "
                      f"false negatives (final 0, human 1): {int(((y == 0) & (f_ == 1)).sum())}; "

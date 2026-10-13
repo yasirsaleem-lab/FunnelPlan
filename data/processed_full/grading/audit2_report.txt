@@ -1,0 +1,33 @@
+Second audit (new readers qwen3-32b, gemma3-27b): 200 items
+  rater 1: 200 of 200 labelled
+  rater 2: 200 of 200 labelled
+Cohen's kappa rater 1 vs rater 2: 0.695 (raw agreement 0.845)
+
+Items both raters agree on (n=169):
+  strict         accuracy 0.751 [0.686, 0.811]  kappa 0.504  FP 1  FN 41
+  label_f1_07    accuracy 0.846 [0.787, 0.899]  kappa 0.693  FP 7  FN 19
+  label_lenient  accuracy 0.852 [0.799, 0.905]  kappa 0.704  FP 19  FN 6
+  label_proposed accuracy 0.769 [0.704, 0.834]  kappa 0.539  FP 7  FN 32
+  label_final    accuracy 0.917 [0.876, 0.959]  kappa 0.834  FP 0  FN 14
+
+All items against rater 2 (n=200):
+  strict         accuracy 0.675 [0.610, 0.740]  kappa 0.390  FP 1  FN 64
+  label_f1_07    accuracy 0.765 [0.705, 0.825]  kappa 0.542  FP 7  FN 40
+  label_lenient  accuracy 0.810 [0.755, 0.860]  kappa 0.612  FP 20  FN 18
+  label_proposed accuracy 0.690 [0.625, 0.755]  kappa 0.407  FP 7  FN 55
+  label_final    accuracy 0.805 [0.750, 0.860]  kappa 0.621  FP 2  FN 37
+
+label_final vs agreed human label, by reader and by stratum:
+  gemma3-27b     n=112 accuracy 0.902
+  qwen3-32b      n=108 accuracy 0.963
+  contains_long  n= 26 accuracy 0.615  human=1 share 0.962
+  f1_02_04       n= 21 accuracy 0.905  human=1 share 0.238
+  f1_04_07       n= 25 accuracy 1.000  human=1 share 0.520
+  f1_07_up       n= 28 accuracy 0.964  human=1 share 0.786
+  long_low_f1    n= 31 accuracy 0.968  human=1 share 0.032
+  short_low_f1   n= 19 accuracy 1.000  human=1 share 0.000
+  strict_short   n= 19 accuracy 1.000  human=1 share 1.000
+
+Long answers with F1 < 0.2 (graded wrong by strict, never judged):
+  qwen3-32b    24.1% of rows; humans call 0.000 of the audited ones correct (n=16) -> about 0.0% of all rows mislabelled as wrong
+  gemma3-27b   0.2% of rows; humans call 0.067 of the audited ones correct (n=15) -> about 0.0% of all rows mislabelled as wrong

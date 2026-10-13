@@ -1,0 +1,32 @@
+audit_id,r1,r2,stratum,pair,reader,dataset,query_id
+1006,0,1,f1_02_04,musique::168::many fled were expelled,gemma3-27b,musique,168
+1019,0,1,f1_07_up,2wikimultihopqa::979::nightmare on elm street,gemma3-27b,2wikimultihopqa,979
+1022,0,1,f1_02_04,2wikimultihopqa::2876::answer is not directly stated in passages best guess paternal grandfather of henry james fitzroy earl of euston would be father of augustus fitzroy 7th duke of grafton though his name is not provided in passages,qwen3-32b,2wikimultihopqa,2876
+1023,0,1,contains_long,musique::1602::kunqu yang yue xi jing suzhou pingtan puppet theatre,gemma3-27b,musique,1602
+1025,0,1,f1_04_07,nq::2404::hard rock,"gemma3-27b,qwen3-32b",nq,2404
+1031,0,1,contains_long,musique::1023::university of zurich where francis travis received his ph d is not mentioned in passage regarding student enrollment therefore exact number of students attending university is unknown,qwen3-32b,musique,1023
+1034,0,1,f1_02_04,musique::432::assets were inherited by british east india company,qwen3-32b,musique,432
+1036,0,1,f1_02_04,nq::95::copper gold palladium nickel cobalt manganese,qwen3-32b,nq,95
+1044,0,1,f1_04_07,hotpotqa::96607::czech lands,gemma3-27b,hotpotqa,96607
+1052,0,1,f1_04_07,hotpotqa::94214::ncaa division i,gemma3-27b,hotpotqa,94214
+1055,0,1,f1_02_04,musique::2127::university of north carolina has more national championships than byu and savannah state university,qwen3-32b,musique,2127
+1069,0,1,f1_07_up,nq::2944::on forearm,gemma3-27b,nq,2944
+1073,0,1,long_low_f1,hotpotqa::93729::passage 1 states anne lamott is non fiction writer passage 2 states stanley elkin is novelist short story writer and essayist,gemma3-27b,hotpotqa,93729
+1074,0,1,strict_short,hotpotqa::96392::children s euthanasia program,"gemma3-27b,qwen3-32b",hotpotqa,96392
+1077,0,1,f1_04_07,musique::632::nba teams,gemma3-27b,musique,632
+1081,1,0,f1_02_04,nq::1468::devastator mixmaster rampage ravage scrapper long haul scorponok fallen sideways demolisher grindor alice,gemma3-27b,nq,1468
+1093,0,1,long_low_f1,nq::2568::main objective of criminal law is to provide mechanism for punishing offender and to protect society against harmful actions by defining crimes and prescribing punishments,qwen3-32b,nq,2568
+1099,0,1,f1_04_07,musique::212::thames ditton surrey,qwen3-32b,musique,212
+1106,0,1,f1_02_04,2wikimultihopqa::10039::born free,"gemma3-27b,qwen3-32b",2wikimultihopqa,10039
+1121,0,1,f1_04_07,2wikimultihopqa::3886::jules white,gemma3-27b,2wikimultihopqa,3886
+1124,0,1,f1_04_07,nq::1878::enamel,"gemma3-27b,qwen3-32b",nq,1878
+1127,0,1,long_low_f1,2wikimultihopqa::8145::best producer best screenplay best dialogue best editing and best child artist,"gemma3-27b,qwen3-32b",2wikimultihopqa,8145
+1131,0,1,contains_long,musique::440::parramatta river flows into hawkesbury river which then flows into port jackson sydney harbour,qwen3-32b,musique,440
+1132,0,1,f1_04_07,hotpotqa::93951::maine,"gemma3-27b,qwen3-32b",hotpotqa,93951
+1134,1,0,f1_02_04,nq::1563::john brown led raid on harper s ferry arsenal robert e lee led soldiers in ending raid,qwen3-32b,nq,1563
+1141,0,1,f1_04_07,nq::3330::2015,"gemma3-27b,qwen3-32b",nq,3330
+1144,1,0,f1_04_07,nq::1615::peter,"gemma3-27b,qwen3-32b",nq,1615
+1163,0,1,contains_long,musique::1602::kun opera yang yue xi jing suzhou pingtan puppet theatre,gemma3-27b,musique,1602
+1182,0,1,short_low_f1,2wikimultihopqa::2540::oxford university,"gemma3-27b,qwen3-32b",2wikimultihopqa,2540
+1183,0,1,f1_02_04,musique::422::mascot of oregon state university is beaver,qwen3-32b,musique,422
+1188,0,1,long_low_f1,hotpotqa::96847::game in which drew gehling voices gord is bully released in 2006 playstation 2 was released in 2000 therefore bully was released in 2006 for playstation 2 answer 2006,qwen3-32b,hotpotqa,96847
