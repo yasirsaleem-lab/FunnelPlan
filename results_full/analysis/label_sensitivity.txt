@@ -1,0 +1,31 @@
+
+===== label rule: lenient
+  H1 primary family, single step plans: 27 tests; positive survivors 0; negative survivors 4; largest gain +0.019 (conf_cascade, qwen2.5-7b)
+    neg gemma3-27b               adaptive_rag     -0.036 [-0.056, -0.016] Holm p 0.0064
+    neg llama3.1-8b              adaptive_rag     -0.052 [-0.071, -0.031] Holm p 0.0000
+    neg qwen3-14b                adaptive_rag     -0.045 [-0.064, -0.024] Holm p 0.0002
+    neg qwen3-32b                adaptive_rag     -0.053 [-0.072, -0.034] Holm p 0.0000
+  H1 primary family, with two hop plans: 27 tests; positive survivors 0; negative survivors 5; largest gain +0.022 (conf_cascade, qwen2.5-7b)
+    neg gemma3-27b               adaptive_rag     -0.033 [-0.053, -0.014] Holm p 0.0284
+    neg llama3.1-8b              adaptive_rag     -0.059 [-0.078, -0.039] Holm p 0.0000
+    neg qwen2.5-7b               adaptive_rag     -0.057 [-0.077, -0.038] Holm p 0.0000
+    neg qwen3-14b                adaptive_rag     -0.060 [-0.079, -0.040] Holm p 0.0000
+    neg qwen3-32b                adaptive_rag     -0.059 [-0.079, -0.039] Holm p 0.0000
+  H3, hull single_step: 3 of 9 significant: qwen2.5-7b 2wikimultihopqa +0.119, llama3.1-8b 2wikimultihopqa +0.109, qwen3-14b 2wikimultihopqa +0.127
+  H3, hull with_r3: 1 of 9 significant: qwen2.5-7b 2wikimultihopqa +0.093
+
+===== label rule: strict
+  H1 primary family, single step plans: 27 tests; positive survivors 0; negative survivors 5; largest gain +0.010 (conf_cascade, llama3.1-8b)
+    neg gemma3-27b               adaptive_rag     -0.036 [-0.054, -0.017] Holm p 0.0055
+    neg llama3.1-8b              adaptive_rag     -0.044 [-0.062, -0.024] Holm p 0.0002
+    neg qwen2.5-7b               adaptive_rag     -0.033 [-0.052, -0.015] Holm p 0.0132
+    neg qwen3-14b                adaptive_rag     -0.043 [-0.062, -0.023] Holm p 0.0003
+    neg qwen3-32b                adaptive_rag     -0.050 [-0.069, -0.031] Holm p 0.0000
+  H1 primary family, with two hop plans: 27 tests; positive survivors 0; negative survivors 5; largest gain +0.009 (reader_cascade, qwen2.5-7b->qwen3-14b)
+    neg gemma3-27b               adaptive_rag     -0.031 [-0.050, -0.012] Holm p 0.0460
+    neg llama3.1-8b              adaptive_rag     -0.046 [-0.065, -0.027] Holm p 0.0001
+    neg qwen2.5-7b               adaptive_rag     -0.050 [-0.070, -0.031] Holm p 0.0000
+    neg qwen3-14b                adaptive_rag     -0.051 [-0.072, -0.031] Holm p 0.0000
+    neg qwen3-32b                adaptive_rag     -0.055 [-0.077, -0.036] Holm p 0.0000
+  H3, hull single_step: 5 of 9 significant: qwen2.5-7b 2wikimultihopqa +0.136, llama3.1-8b 2wikimultihopqa +0.104, llama3.1-8b musique +0.048, qwen3-14b 2wikimultihopqa +0.126, qwen3-14b musique +0.059
+  H3, hull with_r3: 3 of 9 significant: qwen2.5-7b 2wikimultihopqa +0.104, llama3.1-8b musique +0.052, qwen3-14b musique +0.059

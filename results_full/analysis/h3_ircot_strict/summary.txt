@@ -1,0 +1,40 @@
+===== hull: single step plans (primary, H3 as written)
+  qwen2.5-7b   hotpotqa         n=500  IRCoT 0.442 at 21.22s (15.1x the best plan's cost)  hull 0.434  gain +0.008 [-0.037, +0.051]  seeds +0.002..+0.014  best plan qwen3_reranker_0_6b@3 0.448
+  qwen2.5-7b   2wikimultihopqa  n=500  IRCoT 0.518 at 24.67s (18.0x the best plan's cost)  hull 0.382  gain +0.136 [+0.093, +0.180]  seeds +0.122..+0.140  best plan bge_bm25_rrf@20 0.396
+  qwen2.5-7b   musique          n=500  IRCoT 0.220 at 26.06s (39.4x the best plan's cost)  hull 0.196  gain +0.024 [-0.013, +0.061]  seeds +0.014..+0.036  best plan stella_1_5b@10 0.216
+  llama3.1-8b  hotpotqa         n=500  IRCoT 0.480 at 18.62s (10.9x the best plan's cost)  hull 0.508  gain -0.028 [-0.071, +0.016]  seeds -0.028..-0.028  best plan qwen3_reranker_0_6b@10 0.508
+  llama3.1-8b  2wikimultihopqa  n=500  IRCoT 0.498 at 24.06s (10.9x the best plan's cost)  hull 0.394  gain +0.104 [+0.059, +0.148]  seeds +0.098..+0.126  best plan qwen3_reranker_0_6b@10 0.400
+  llama3.1-8b  musique          n=500  IRCoT 0.214 at 19.67s (10.5x the best plan's cost)  hull 0.166  gain +0.048 [+0.013, +0.086]  seeds +0.034..+0.062  best plan qwen3_reranker_0_6b@5 0.192
+  qwen3-14b    hotpotqa         n=500  IRCoT 0.528 at 68.26s (23.0x the best plan's cost)  hull 0.497  gain +0.031 [-0.013, +0.074]  seeds +0.026..+0.036  best plan qwen3_reranker_0_6b@10 0.510
+  qwen3-14b    2wikimultihopqa  n=500  IRCoT 0.562 at 79.76s (21.6x the best plan's cost)  hull 0.436  gain +0.126 [+0.080, +0.166]  seeds +0.126..+0.126  best plan qwen3_reranker_0_6b@10 0.436
+  qwen3-14b    musique          n=500  IRCoT 0.284 at 75.88s (30.1x the best plan's cost)  hull 0.225  gain +0.059 [+0.020, +0.100]  seeds +0.054..+0.064  best plan stella_1_5b@10 0.248
+===== hull: single step + fixed two hop plans (R3)
+  qwen2.5-7b   hotpotqa         n=500  IRCoT 0.442 at 21.22s (15.1x the best plan's cost)  hull 0.434  gain +0.008 [-0.037, +0.051]  seeds +0.002..+0.014  best plan qwen3_reranker_0_6b@3 0.448
+  qwen2.5-7b   2wikimultihopqa  n=500  IRCoT 0.518 at 24.67s (25.5x the best plan's cost)  hull 0.414  gain +0.104 [+0.061, +0.149]  seeds +0.102..+0.110  best plan bm25_2hop@3 0.428
+  qwen2.5-7b   musique          n=500  IRCoT 0.220 at 26.06s (39.4x the best plan's cost)  hull 0.188  gain +0.032 [-0.004, +0.070]  seeds +0.020..+0.050  best plan stella_1_5b@10 0.216
+  llama3.1-8b  hotpotqa         n=500  IRCoT 0.480 at 18.62s (10.9x the best plan's cost)  hull 0.508  gain -0.028 [-0.071, +0.016]  seeds -0.028..-0.028  best plan qwen3_reranker_0_6b@10 0.508
+  llama3.1-8b  2wikimultihopqa  n=500  IRCoT 0.498 at 24.06s (19.4x the best plan's cost)  hull 0.459  gain +0.039 [-0.005, +0.083]  seeds +0.038..+0.040  best plan bm25_2hop@3 0.468
+  llama3.1-8b  musique          n=500  IRCoT 0.214 at 19.67s (10.5x the best plan's cost)  hull 0.162  gain +0.052 [+0.017, +0.090]  seeds +0.034..+0.070  best plan qwen3_reranker_0_6b@5 0.192
+  qwen3-14b    hotpotqa         n=500  IRCoT 0.528 at 68.26s (23.0x the best plan's cost)  hull 0.485  gain +0.043 [-0.001, +0.086]  seeds +0.038..+0.048  best plan qwen3_reranker_0_6b@10 0.510
+  qwen3-14b    2wikimultihopqa  n=500  IRCoT 0.562 at 79.76s (17.5x the best plan's cost)  hull 0.546  gain +0.016 [-0.030, +0.056]  seeds +0.016..+0.016  best plan bm25_2hop@3 0.546
+  qwen3-14b    musique          n=500  IRCoT 0.284 at 75.88s (30.1x the best plan's cost)  hull 0.225  gain +0.059 [+0.020, +0.100]  seeds +0.054..+0.064  best plan stella_1_5b@10 0.248
+
+Holm over the tests of each hull (pre-registered family: 9 tests, single step hull):
+  single_step  qwen2.5-7b   hotpotqa         gain +0.008  p 0.7322  Holm p 0.7322  n.s.
+  single_step  qwen2.5-7b   2wikimultihopqa  gain +0.136  p 0.0000  Holm p 0.0000  SIGNIFICANT
+  single_step  qwen2.5-7b   musique          gain +0.024  p 0.2039  Holm p 0.6528  n.s.
+  single_step  llama3.1-8b  hotpotqa         gain -0.028  p 0.2102  Holm p 0.6528  n.s.
+  single_step  llama3.1-8b  2wikimultihopqa  gain +0.104  p 0.0000  Holm p 0.0000  SIGNIFICANT
+  single_step  llama3.1-8b  musique          gain +0.048  p 0.0099  Holm p 0.0493  SIGNIFICANT
+  single_step  qwen3-14b    hotpotqa         gain +0.031  p 0.1632  Holm p 0.6528  n.s.
+  single_step  qwen3-14b    2wikimultihopqa  gain +0.126  p 0.0000  Holm p 0.0000  SIGNIFICANT
+  single_step  qwen3-14b    musique          gain +0.059  p 0.0035  Holm p 0.0212  SIGNIFICANT
+  with_r3      qwen2.5-7b   hotpotqa         gain +0.008  p 0.7322  Holm p 0.9398  n.s.
+  with_r3      qwen2.5-7b   2wikimultihopqa  gain +0.104  p 0.0000  Holm p 0.0000  SIGNIFICANT
+  with_r3      qwen2.5-7b   musique          gain +0.032  p 0.0811  Holm p 0.4057  n.s.
+  with_r3      llama3.1-8b  hotpotqa         gain -0.028  p 0.2102  Holm p 0.6306  n.s.
+  with_r3      llama3.1-8b  2wikimultihopqa  gain +0.039  p 0.0834  Holm p 0.4057  n.s.
+  with_r3      llama3.1-8b  musique          gain +0.052  p 0.0051  Holm p 0.0359  SIGNIFICANT
+  with_r3      qwen3-14b    hotpotqa         gain +0.043  p 0.0560  Holm p 0.3359  n.s.
+  with_r3      qwen3-14b    2wikimultihopqa  gain +0.016  p 0.4699  Holm p 0.9398  n.s.
+  with_r3      qwen3-14b    musique          gain +0.059  p 0.0035  Holm p 0.0283  SIGNIFICANT
