@@ -1,0 +1,15 @@
+Primary family (27 pooled tests, Holm) under each cost axis, label_final. Latency is the main axis.
+axis       plan set   positive negative  largest gain  largest gain at
+latency    single            0        4        +0.013  conf_cascade qwen2.5-7b
+latency    two hop           0        4        +0.017  reader_cascade qwen2.5-7b->qwen3-14b
+tokens     single            0        5        +0.012  planner_tsr qwen2.5-7b
+tokens     two hop           0        5        +0.013  planner_tsr llama3.1-8b
+tokens_w4  single            0        5        +0.012  planner_tsr llama3.1-8b
+tokens_w4  two hop           0        5        +0.014  planner_tsr llama3.1-8b
+flops      single            0        5        +0.016  conf_cascade llama3.1-8b
+flops      two hop           0        5        +0.011  planner_tsr llama3.1-8b
+calls      single            0        5        +0.006  conf_cascade llama3.1-8b
+calls      two hop           0        8        +0.008  conf_cascade llama3.1-8b
+
+Positive in BOTH plan sets under some axis: 0 
+Verdict independent of the cost axis: YES

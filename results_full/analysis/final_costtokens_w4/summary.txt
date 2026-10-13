@@ -1,0 +1,244 @@
+Cost axis: tokens_w4
+Plan set: single step plans only
+Repeats: seeds [0, 1, 2, 3, 4] (fold split and XGBoost seed). Gains are averaged per query over seeds; CIs bootstrap over queries; 'seeds a..b' is the range of per seed mean gains.
+
+== reader gemma3-27b  (label column label_final)
+  2wikimultihopqa: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@10 0.388 at 1.62s; closed book 0.292
+    planner_tsr       gain vs hull +0.022 [-0.019, +0.061]  seeds +0.017..+0.028  (training folds +0.051)  cost 0.34s
+    adaptive_rag      gain vs hull -0.002 [-0.041, +0.039]  seeds -0.007..+0.003  (training folds +0.082)  cost 0.92s
+    adaptive_k        gain vs hull -0.079 [-0.115, -0.042]  seeds -0.086..-0.075  (training folds -0.087)  cost 0.30s
+    gate_closed_book  gain vs hull -0.010 [-0.048, +0.029]  seeds -0.020..-0.003  (training folds +0.005)  cost 0.15s
+    conf_cascade      gain vs hull +0.000 [-0.041, +0.042]  seeds +0.000..+0.000  (training folds +0.000)  cost 1.73s
+  hotpotqa: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@10 0.612 at 1.13s; closed book 0.338
+    planner_tsr       gain vs hull +0.003 [-0.034, +0.042]  seeds -0.014..+0.022  (training folds +0.035)  cost 0.31s
+    adaptive_rag      gain vs hull -0.053 [-0.093, -0.010]  seeds -0.061..-0.046  (training folds +0.076)  cost 0.61s
+    adaptive_k        gain vs hull +0.005 [-0.037, +0.049]  seeds -0.002..+0.021  (training folds -0.011)  cost 0.23s
+    gate_closed_book  gain vs hull +0.012 [-0.028, +0.055]  seeds +0.008..+0.017  (training folds +0.014)  cost 0.10s
+    conf_cascade      gain vs hull -0.007 [-0.044, +0.033]  seeds -0.024..+0.000  (training folds +0.001)  cost 1.01s
+  musique: 500 queries, 25 plans; best fixed stella_1_5b@10 0.284 at 1.49s; closed book 0.106
+    planner_tsr       gain vs hull +0.007 [-0.021, +0.036]  seeds -0.006..+0.023  (training folds +0.065)  cost 0.27s
+    adaptive_rag      gain vs hull +0.005 [-0.029, +0.039]  seeds -0.005..+0.016  (training folds +0.092)  cost 1.00s
+    adaptive_k        gain vs hull +0.012 [-0.024, +0.047]  seeds +0.008..+0.018  (training folds +0.010)  cost 0.35s
+    gate_closed_book  gain vs hull -0.009 [-0.035, +0.018]  seeds -0.019..+0.002  (training folds +0.006)  cost 0.10s
+    conf_cascade      gain vs hull -0.006 [-0.039, +0.028]  seeds -0.013..-0.000  (training folds +0.002)  cost 0.27s
+  nq: 500 queries, 25 plans; best fixed stella_1_5b@10 0.726 at 1.41s; closed book 0.452
+    planner_tsr       gain vs hull +0.006 [-0.031, +0.040]  seeds -0.001..+0.010  (training folds +0.014)  cost 0.46s
+    adaptive_rag      gain vs hull -0.099 [-0.140, -0.060]  seeds -0.113..-0.091  (training folds +0.084)  cost 0.37s
+    adaptive_k        gain vs hull -0.011 [-0.052, +0.028]  seeds -0.014..-0.007  (training folds -0.010)  cost 0.38s
+    gate_closed_book  gain vs hull -0.002 [-0.045, +0.040]  seeds -0.006..+0.001  (training folds +0.004)  cost 0.08s
+    conf_cascade      gain vs hull -0.001 [-0.038, +0.035]  seeds -0.001..+0.001  (training folds +0.000)  cost 0.59s
+  POOLED planner_tsr       +0.009 [-0.009, +0.027]  n=2000
+  POOLED adaptive_rag      -0.037 [-0.057, -0.017]  n=2000
+  POOLED adaptive_k        -0.018 [-0.038, +0.002]  n=2000
+  POOLED gate_closed_book  -0.002 [-0.021, +0.017]  n=2000
+  POOLED conf_cascade      -0.003 [-0.022, +0.016]  n=2000
+
+== reader llama3.1-8b  (label column label_final)
+  2wikimultihopqa: 500 queries, 31 plans; best fixed qwen3_reranker_0_6b@10 0.406 at 1.61s; closed book 0.154
+    planner_tsr       gain vs hull +0.047 [+0.012, +0.083]  seeds +0.041..+0.054  (training folds +0.102)  cost 0.32s
+    adaptive_rag      gain vs hull -0.062 [-0.101, -0.023]  seeds -0.070..-0.048  (training folds +0.024)  cost 0.99s
+    adaptive_k        gain vs hull -0.048 [-0.082, -0.014]  seeds -0.052..-0.046  (training folds -0.055)  cost 0.32s
+    gate_closed_book  gain vs hull -0.007 [-0.037, +0.025]  seeds -0.009..-0.005  (training folds +0.002)  cost 0.21s
+    conf_cascade      gain vs hull -0.011 [-0.051, +0.032]  seeds -0.019..-0.005  (training folds +0.001)  cost 1.69s
+  hotpotqa: 500 queries, 31 plans; best fixed qwen3_reranker_0_6b@10 0.588 at 1.13s; closed book 0.280
+    planner_tsr       gain vs hull +0.009 [-0.033, +0.049]  seeds +0.000..+0.016  (training folds +0.032)  cost 0.21s
+    adaptive_rag      gain vs hull -0.075 [-0.116, -0.034]  seeds -0.094..-0.050  (training folds +0.076)  cost 0.63s
+    adaptive_k        gain vs hull +0.005 [-0.039, +0.049]  seeds -0.001..+0.010  (training folds -0.001)  cost 0.25s
+    gate_closed_book  gain vs hull -0.003 [-0.041, +0.036]  seeds -0.007..-0.000  (training folds +0.002)  cost 0.11s
+    conf_cascade      gain vs hull -0.004 [-0.045, +0.036]  seeds -0.013..+0.009  (training folds +0.014)  cost 0.46s
+  musique: 500 queries, 31 plans; best fixed qwen3_reranker_0_6b@5 0.228 at 0.82s; closed book 0.062
+    planner_tsr       gain vs hull -0.001 [-0.022, +0.022]  seeds -0.008..+0.011  (training folds +0.053)  cost 0.19s
+    adaptive_rag      gain vs hull -0.018 [-0.051, +0.015]  seeds -0.025..-0.009  (training folds +0.074)  cost 0.88s
+    adaptive_k        gain vs hull -0.005 [-0.035, +0.029]  seeds -0.008..+0.003  (training folds -0.008)  cost 0.38s
+    gate_closed_book  gain vs hull -0.011 [-0.032, +0.011]  seeds -0.012..-0.010  (training folds +0.004)  cost 0.32s
+    conf_cascade      gain vs hull +0.011 [-0.025, +0.047]  seeds -0.001..+0.016  (training folds +0.022)  cost 0.93s
+  nq: 500 queries, 31 plans; best fixed stella_1_5b@5 0.698 at 0.76s; closed book 0.418
+    planner_tsr       gain vs hull -0.004 [-0.043, +0.033]  seeds -0.012..-0.000  (training folds +0.011)  cost 0.32s
+    adaptive_rag      gain vs hull -0.085 [-0.124, -0.046]  seeds -0.104..-0.058  (training folds +0.097)  cost 0.41s
+    adaptive_k        gain vs hull -0.008 [-0.050, +0.033]  seeds -0.011..-0.004  (training folds -0.007)  cost 0.41s
+    gate_closed_book  gain vs hull +0.020 [-0.024, +0.064]  seeds +0.011..+0.027  (training folds +0.028)  cost 0.15s
+    conf_cascade      gain vs hull +0.029 [-0.013, +0.069]  seeds +0.017..+0.034  (training folds +0.035)  cost 0.34s
+  POOLED planner_tsr       +0.012 [-0.005, +0.030]  n=2000
+  POOLED adaptive_rag      -0.060 [-0.078, -0.040]  n=2000
+  POOLED adaptive_k        -0.014 [-0.033, +0.005]  n=2000
+  POOLED gate_closed_book  +0.000 [-0.017, +0.017]  n=2000
+  POOLED conf_cascade      +0.006 [-0.014, +0.027]  n=2000
+
+== reader qwen2.5-7b  (label column label_final)
+  2wikimultihopqa: 500 queries, 31 plans; best fixed bge_bm25_rrf@20 0.406 at 3.07s; closed book 0.258
+    planner_tsr       gain vs hull +0.030 [-0.010, +0.070]  seeds +0.018..+0.040  (training folds +0.055)  cost 0.34s
+    adaptive_rag      gain vs hull -0.029 [-0.068, +0.013]  seeds -0.039..-0.012  (training folds +0.035)  cost 1.56s
+    adaptive_k        gain vs hull -0.026 [-0.067, +0.012]  seeds -0.029..-0.023  (training folds -0.039)  cost 0.31s
+    gate_closed_book  gain vs hull -0.003 [-0.040, +0.035]  seeds -0.008..-0.001  (training folds +0.002)  cost 0.09s
+    conf_cascade      gain vs hull -0.002 [-0.038, +0.033]  seeds -0.006..+0.000  (training folds +0.000)  cost 1.52s
+  hotpotqa: 500 queries, 31 plans; best fixed qwen3_reranker_0_6b@3 0.530 at 0.42s; closed book 0.226
+    planner_tsr       gain vs hull +0.009 [-0.032, +0.051]  seeds -0.000..+0.017  (training folds +0.037)  cost 0.19s
+    adaptive_rag      gain vs hull -0.017 [-0.058, +0.025]  seeds -0.029..-0.002  (training folds +0.112)  cost 0.44s
+    adaptive_k        gain vs hull -0.005 [-0.047, +0.040]  seeds -0.006..-0.003  (training folds -0.005)  cost 0.23s
+    gate_closed_book  gain vs hull -0.006 [-0.045, +0.030]  seeds -0.013..+0.000  (training folds +0.008)  cost 0.09s
+    conf_cascade      gain vs hull -0.003 [-0.044, +0.038]  seeds -0.021..+0.003  (training folds +0.003)  cost 0.25s
+  musique: 500 queries, 31 plans; best fixed stella_1_5b@10 0.262 at 1.52s; closed book 0.056
+    planner_tsr       gain vs hull +0.011 [-0.016, +0.039]  seeds -0.000..+0.015  (training folds +0.063)  cost 0.14s
+    adaptive_rag      gain vs hull +0.010 [-0.025, +0.041]  seeds +0.006..+0.017  (training folds +0.087)  cost 1.00s
+    adaptive_k        gain vs hull +0.003 [-0.033, +0.037]  seeds -0.002..+0.010  (training folds -0.005)  cost 0.36s
+    gate_closed_book  gain vs hull +0.001 [-0.018, +0.021]  seeds -0.002..+0.003  (training folds +0.004)  cost 0.08s
+    conf_cascade      gain vs hull +0.040 [+0.003, +0.075]  seeds +0.034..+0.050  (training folds +0.034)  cost 0.86s
+  nq: 500 queries, 31 plans; best fixed stella_1_5b@5 0.730 at 0.76s; closed book 0.284
+    planner_tsr       gain vs hull -0.001 [-0.040, +0.035]  seeds -0.015..+0.012  (training folds +0.016)  cost 0.44s
+    adaptive_rag      gain vs hull -0.087 [-0.128, -0.047]  seeds -0.110..-0.066  (training folds +0.095)  cost 0.31s
+    adaptive_k        gain vs hull -0.004 [-0.043, +0.035]  seeds -0.007..-0.002  (training folds -0.003)  cost 0.40s
+    gate_closed_book  gain vs hull +0.017 [-0.025, +0.060]  seeds +0.012..+0.022  (training folds +0.028)  cost 0.11s
+    conf_cascade      gain vs hull -0.019 [-0.056, +0.017]  seeds -0.024..-0.015  (training folds +0.008)  cost 0.34s
+  POOLED planner_tsr       +0.012 [-0.006, +0.030]  n=2000
+  POOLED adaptive_rag      -0.031 [-0.050, -0.012]  n=2000
+  POOLED adaptive_k        -0.008 [-0.028, +0.011]  n=2000
+  POOLED gate_closed_book  +0.002 [-0.015, +0.019]  n=2000
+  POOLED conf_cascade      +0.004 [-0.015, +0.024]  n=2000
+
+== reader qwen3-14b  (label column label_final)
+  2wikimultihopqa: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@10 0.434 at 1.68s; closed book 0.306
+    planner_tsr       gain vs hull +0.024 [-0.017, +0.067]  seeds +0.010..+0.032  (training folds +0.063)  cost 0.35s
+    adaptive_rag      gain vs hull -0.027 [-0.065, +0.014]  seeds -0.040..-0.011  (training folds +0.050)  cost 0.83s
+    adaptive_k        gain vs hull -0.053 [-0.091, -0.013]  seeds -0.054..-0.051  (training folds -0.053)  cost 0.31s
+    gate_closed_book  gain vs hull -0.002 [-0.041, +0.038]  seeds -0.010..+0.003  (training folds +0.006)  cost 0.13s
+    conf_cascade      gain vs hull -0.005 [-0.045, +0.032]  seeds -0.007..-0.004  (training folds -0.001)  cost 1.43s
+  hotpotqa: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@3 0.596 at 0.43s; closed book 0.266
+    planner_tsr       gain vs hull +0.005 [-0.034, +0.047]  seeds -0.004..+0.015  (training folds +0.035)  cost 0.20s
+    adaptive_rag      gain vs hull -0.022 [-0.063, +0.018]  seeds -0.047..+0.005  (training folds +0.123)  cost 0.35s
+    adaptive_k        gain vs hull +0.006 [-0.036, +0.052]  seeds +0.003..+0.012  (training folds -0.004)  cost 0.24s
+    gate_closed_book  gain vs hull +0.011 [-0.027, +0.051]  seeds +0.008..+0.013  (training folds +0.011)  cost 0.11s
+    conf_cascade      gain vs hull +0.001 [-0.040, +0.044]  seeds -0.002..+0.004  (training folds +0.009)  cost 0.27s
+  musique: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@10 0.286 at 1.61s; closed book 0.076
+    planner_tsr       gain vs hull +0.005 [-0.020, +0.031]  seeds +0.003..+0.008  (training folds +0.070)  cost 0.14s
+    adaptive_rag      gain vs hull -0.027 [-0.061, +0.006]  seeds -0.032..-0.024  (training folds +0.075)  cost 1.02s
+    adaptive_k        gain vs hull +0.000 [-0.038, +0.037]  seeds -0.003..+0.006  (training folds -0.002)  cost 0.37s
+    gate_closed_book  gain vs hull -0.002 [-0.023, +0.022]  seeds -0.002..-0.001  (training folds +0.002)  cost 0.09s
+    conf_cascade      gain vs hull -0.011 [-0.047, +0.024]  seeds -0.023..-0.004  (training folds +0.005)  cost 0.33s
+  nq: 500 queries, 25 plans; best fixed stella_1_5b@10 0.776 at 1.44s; closed book 0.334
+    planner_tsr       gain vs hull +0.003 [-0.035, +0.035]  seeds -0.004..+0.014  (training folds +0.017)  cost 0.58s
+    adaptive_rag      gain vs hull -0.145 [-0.186, -0.107]  seeds -0.151..-0.140  (training folds +0.038)  cost 0.47s
+    adaptive_k        gain vs hull -0.006 [-0.046, +0.033]  seeds -0.008..-0.004  (training folds -0.005)  cost 0.40s
+    gate_closed_book  gain vs hull +0.010 [-0.033, +0.051]  seeds +0.005..+0.013  (training folds +0.018)  cost 0.11s
+    conf_cascade      gain vs hull +0.010 [-0.029, +0.049]  seeds -0.001..+0.015  (training folds +0.018)  cost 0.32s
+  POOLED planner_tsr       +0.009 [-0.009, +0.027]  n=2000
+  POOLED adaptive_rag      -0.055 [-0.075, -0.037]  n=2000
+  POOLED adaptive_k        -0.013 [-0.032, +0.006]  n=2000
+  POOLED gate_closed_book  +0.004 [-0.014, +0.022]  n=2000
+  POOLED conf_cascade      -0.001 [-0.021, +0.018]  n=2000
+
+== reader qwen3-32b  (label column label_final)
+  2wikimultihopqa: 500 queries, 25 plans; best fixed bge_bm25_rrf@10 0.502 at 1.59s; closed book 0.294
+    planner_tsr       gain vs hull +0.036 [-0.006, +0.075]  seeds +0.026..+0.043  (training folds +0.065)  cost 0.35s
+    adaptive_rag      gain vs hull -0.034 [-0.077, +0.006]  seeds -0.051..-0.026  (training folds +0.033)  cost 0.90s
+    adaptive_k        gain vs hull -0.054 [-0.092, -0.018]  seeds -0.068..-0.043  (training folds -0.061)  cost 0.35s
+    gate_closed_book  gain vs hull -0.002 [-0.042, +0.038]  seeds -0.005..+0.001  (training folds +0.003)  cost 0.10s
+    conf_cascade      gain vs hull +0.001 [-0.037, +0.037]  seeds -0.001..+0.008  (training folds +0.001)  cost 0.94s
+  hotpotqa: 500 queries, 25 plans; best fixed qwen3_reranker_0_6b@10 0.608 at 1.19s; closed book 0.288
+    planner_tsr       gain vs hull +0.000 [-0.041, +0.042]  seeds -0.007..+0.011  (training folds +0.031)  cost 0.21s
+    adaptive_rag      gain vs hull -0.088 [-0.127, -0.047]  seeds -0.100..-0.077  (training folds +0.099)  cost 0.56s
+    adaptive_k        gain vs hull -0.005 [-0.046, +0.038]  seeds -0.013..+0.006  (training folds -0.013)  cost 0.25s
+    gate_closed_book  gain vs hull -0.004 [-0.042, +0.037]  seeds -0.009..+0.000  (training folds +0.003)  cost 0.10s
+    conf_cascade      gain vs hull -0.010 [-0.049, +0.031]  seeds -0.010..-0.008  (training folds +0.008)  cost 0.39s
+  musique: 500 queries, 25 plans; best fixed stella_1_5b@10 0.344 at 1.60s; closed book 0.100
+    planner_tsr       gain vs hull +0.002 [-0.026, +0.031]  seeds -0.007..+0.009  (training folds +0.061)  cost 0.19s
+    adaptive_rag      gain vs hull -0.020 [-0.056, +0.013]  seeds -0.027..-0.011  (training folds +0.087)  cost 1.13s
+    adaptive_k        gain vs hull +0.017 [-0.021, +0.055]  seeds +0.014..+0.019  (training folds +0.007)  cost 0.41s
+    gate_closed_book  gain vs hull -0.006 [-0.032, +0.021]  seeds -0.012..-0.003  (training folds +0.001)  cost 0.11s
+    conf_cascade      gain vs hull -0.012 [-0.045, +0.023]  seeds -0.021..+0.000  (training folds +0.009)  cost 0.76s
+  nq: 500 queries, 25 plans; best fixed stella_1_5b@10 0.760 at 1.47s; closed book 0.358
+    planner_tsr       gain vs hull -0.000 [-0.038, +0.033]  seeds -0.006..+0.004  (training folds +0.010)  cost 0.68s
+    adaptive_rag      gain vs hull -0.127 [-0.167, -0.091]  seeds -0.146..-0.106  (training folds +0.041)  cost 0.53s
+    adaptive_k        gain vs hull -0.010 [-0.051, +0.027]  seeds -0.012..-0.009  (training folds -0.010)  cost 0.41s
+    gate_closed_book  gain vs hull +0.002 [-0.040, +0.044]  seeds -0.005..+0.006  (training folds +0.017)  cost 0.14s
+    conf_cascade      gain vs hull -0.005 [-0.044, +0.034]  seeds -0.010..-0.002  (training folds +0.008)  cost 0.31s
+  POOLED planner_tsr       +0.009 [-0.009, +0.028]  n=2000
+  POOLED adaptive_rag      -0.067 [-0.088, -0.048]  n=2000
+  POOLED adaptive_k        -0.013 [-0.034, +0.006]  n=2000
+  POOLED gate_closed_book  -0.002 [-0.021, +0.016]  n=2000
+  POOLED conf_cascade      -0.006 [-0.026, +0.013]  n=2000
+
+== reader cascade qwen2.5-7b -> qwen3-14b (hull over both readers' fixed plans)
+    2wikimultihopqa  -0.006 [-0.045, +0.032]  seeds -0.024..+0.024  (training folds +0.010)
+    hotpotqa         -0.006 [-0.047, +0.036]  seeds -0.020..+0.008  (training folds +0.001)
+    musique          +0.010 [-0.025, +0.044]  seeds -0.010..+0.022  (training folds +0.028)
+    nq               +0.011 [-0.024, +0.044]  seeds +0.009..+0.013  (training folds +0.019)
+  POOLED reader_cascade +0.002 [-0.016, +0.021]
+
+== reader cascade qwen2.5-7b -> llama3.1-8b (hull over both readers' fixed plans)
+    2wikimultihopqa  +0.011 [-0.028, +0.052]  seeds +0.001..+0.021  (training folds +0.022)
+    hotpotqa         -0.003 [-0.044, +0.035]  seeds -0.013..+0.006  (training folds +0.014)
+    musique          +0.002 [-0.029, +0.033]  seeds -0.004..+0.010  (training folds +0.027)
+    nq               +0.007 [-0.031, +0.041]  seeds +0.003..+0.012  (training folds +0.027)
+  POOLED reader_cascade +0.004 [-0.013, +0.023]
+
+== Holm correction over 108 dataset level tests (t test on per query gains)
+  qwen3-14b                nq               adaptive_rag      gain -0.145  p 0.0000  Holm p 0.0000  SURVIVES
+  qwen3-32b                nq               adaptive_rag      gain -0.127  p 0.0000  Holm p 0.0000  SURVIVES
+  gemma3-27b               nq               adaptive_rag      gain -0.099  p 0.0000  Holm p 0.0001  SURVIVES
+  qwen2.5-7b               nq               adaptive_rag      gain -0.087  p 0.0000  Holm p 0.0018  SURVIVES
+  qwen3-32b                hotpotqa         adaptive_rag      gain -0.088  p 0.0000  Holm p 0.0027  SURVIVES
+  llama3.1-8b              nq               adaptive_rag      gain -0.085  p 0.0000  Holm p 0.0027  SURVIVES
+  gemma3-27b               2wikimultihopqa  adaptive_k        gain -0.079  p 0.0000  Holm p 0.0044  SURVIVES
+  llama3.1-8b              hotpotqa         adaptive_rag      gain -0.075  p 0.0004  Holm p 0.0421  SURVIVES
+  llama3.1-8b              2wikimultihopqa  adaptive_rag      gain -0.062  p 0.0015  Holm p 0.1459  does not survive
+  qwen3-32b                2wikimultihopqa  adaptive_k        gain -0.054  p 0.0052  Holm p 0.5128  does not survive
+  llama3.1-8b              2wikimultihopqa  adaptive_k        gain -0.048  p 0.0073  Holm p 0.7134  does not survive
+  qwen3-14b                2wikimultihopqa  adaptive_k        gain -0.053  p 0.0118  Holm p 1.0000  does not survive
+  llama3.1-8b              2wikimultihopqa  planner_tsr       gain +0.047  p 0.0125  Holm p 1.0000  does not survive
+  gemma3-27b               hotpotqa         adaptive_rag      gain -0.053  p 0.0136  Holm p 1.0000  does not survive
+  qwen2.5-7b               musique          conf_cascade      gain +0.040  p 0.0385  Holm p 1.0000  does not survive
+
+== Paired method comparisons (pooled per reader; difference of per query gains; Holm over all pairs)
+  * gemma3-27b   planner_tsr       minus adaptive_rag      +0.047 [+0.031, +0.063]  Holm p 0.0000
+  * gemma3-27b   planner_tsr       minus adaptive_k        +0.027 [+0.010, +0.045]  Holm p 0.0477
+    gemma3-27b   planner_tsr       minus gate_closed_book  +0.011 [-0.006, +0.030]  Holm p 1.0000
+    gemma3-27b   planner_tsr       minus conf_cascade      +0.013 [-0.001, +0.026]  Holm p 1.0000
+    gemma3-27b   adaptive_rag      minus adaptive_k        -0.019 [-0.040, -0.000]  Holm p 1.0000
+  * gemma3-27b   adaptive_rag      minus gate_closed_book  -0.035 [-0.053, -0.017]  Holm p 0.0041
+  * gemma3-27b   adaptive_rag      minus conf_cascade      -0.034 [-0.050, -0.019]  Holm p 0.0005
+    gemma3-27b   adaptive_k        minus gate_closed_book  -0.016 [-0.038, +0.007]  Holm p 1.0000
+    gemma3-27b   adaptive_k        minus conf_cascade      -0.015 [-0.030, +0.001]  Holm p 1.0000
+    gemma3-27b   gate_closed_book  minus conf_cascade      +0.001 [-0.020, +0.023]  Holm p 1.0000
+  * llama3.1-8b  planner_tsr       minus adaptive_rag      +0.072 [+0.056, +0.089]  Holm p 0.0000
+  * llama3.1-8b  planner_tsr       minus adaptive_k        +0.026 [+0.011, +0.042]  Holm p 0.0139
+    llama3.1-8b  planner_tsr       minus gate_closed_book  +0.012 [-0.004, +0.030]  Holm p 1.0000
+    llama3.1-8b  planner_tsr       minus conf_cascade      +0.006 [-0.010, +0.022]  Holm p 1.0000
+  * llama3.1-8b  adaptive_rag      minus adaptive_k        -0.046 [-0.065, -0.027]  Holm p 0.0001
+  * llama3.1-8b  adaptive_rag      minus gate_closed_book  -0.060 [-0.077, -0.042]  Holm p 0.0000
+  * llama3.1-8b  adaptive_rag      minus conf_cascade      -0.066 [-0.081, -0.051]  Holm p 0.0000
+    llama3.1-8b  adaptive_k        minus gate_closed_book  -0.014 [-0.034, +0.007]  Holm p 1.0000
+    llama3.1-8b  adaptive_k        minus conf_cascade      -0.020 [-0.037, -0.003]  Holm p 0.4256
+    llama3.1-8b  gate_closed_book  minus conf_cascade      -0.006 [-0.027, +0.015]  Holm p 1.0000
+  * qwen2.5-7b   planner_tsr       minus adaptive_rag      +0.043 [+0.025, +0.061]  Holm p 0.0001
+    qwen2.5-7b   planner_tsr       minus adaptive_k        +0.020 [+0.006, +0.035]  Holm p 0.2449
+    qwen2.5-7b   planner_tsr       minus gate_closed_book  +0.010 [-0.009, +0.029]  Holm p 1.0000
+    qwen2.5-7b   planner_tsr       minus conf_cascade      +0.008 [-0.005, +0.021]  Holm p 1.0000
+    qwen2.5-7b   adaptive_rag      minus adaptive_k        -0.023 [-0.042, -0.005]  Holm p 0.4256
+  * qwen2.5-7b   adaptive_rag      minus gate_closed_book  -0.033 [-0.051, -0.016]  Holm p 0.0145
+  * qwen2.5-7b   adaptive_rag      minus conf_cascade      -0.035 [-0.051, -0.019]  Holm p 0.0009
+    qwen2.5-7b   adaptive_k        minus gate_closed_book  -0.010 [-0.031, +0.011]  Holm p 1.0000
+    qwen2.5-7b   adaptive_k        minus conf_cascade      -0.012 [-0.026, +0.001]  Holm p 1.0000
+    qwen2.5-7b   gate_closed_book  minus conf_cascade      -0.002 [-0.023, +0.018]  Holm p 1.0000
+  * qwen3-14b    planner_tsr       minus adaptive_rag      +0.065 [+0.048, +0.082]  Holm p 0.0000
+    qwen3-14b    planner_tsr       minus adaptive_k        +0.022 [+0.006, +0.038]  Holm p 0.1499
+    qwen3-14b    planner_tsr       minus gate_closed_book  +0.005 [-0.013, +0.024]  Holm p 1.0000
+    qwen3-14b    planner_tsr       minus conf_cascade      +0.010 [-0.003, +0.024]  Holm p 1.0000
+  * qwen3-14b    adaptive_rag      minus adaptive_k        -0.042 [-0.060, -0.024]  Holm p 0.0001
+  * qwen3-14b    adaptive_rag      minus gate_closed_book  -0.060 [-0.077, -0.042]  Holm p 0.0000
+  * qwen3-14b    adaptive_rag      minus conf_cascade      -0.054 [-0.070, -0.038]  Holm p 0.0000
+    qwen3-14b    adaptive_k        minus gate_closed_book  -0.017 [-0.039, +0.005]  Holm p 1.0000
+    qwen3-14b    adaptive_k        minus conf_cascade      -0.012 [-0.024, +0.001]  Holm p 1.0000
+    qwen3-14b    gate_closed_book  minus conf_cascade      +0.006 [-0.016, +0.028]  Holm p 1.0000
+  * qwen3-32b    planner_tsr       minus adaptive_rag      +0.077 [+0.060, +0.095]  Holm p 0.0000
+  * qwen3-32b    planner_tsr       minus adaptive_k        +0.022 [+0.009, +0.036]  Holm p 0.0350
+    qwen3-32b    planner_tsr       minus gate_closed_book  +0.012 [-0.007, +0.032]  Holm p 1.0000
+    qwen3-32b    planner_tsr       minus conf_cascade      +0.016 [+0.002, +0.030]  Holm p 0.6128
+  * qwen3-32b    adaptive_rag      minus adaptive_k        -0.054 [-0.074, -0.036]  Holm p 0.0000
+  * qwen3-32b    adaptive_rag      minus gate_closed_book  -0.065 [-0.085, -0.045]  Holm p 0.0000
+  * qwen3-32b    adaptive_rag      minus conf_cascade      -0.061 [-0.079, -0.045]  Holm p 0.0000
+    qwen3-32b    adaptive_k        minus gate_closed_book  -0.011 [-0.033, +0.012]  Holm p 1.0000
+    qwen3-32b    adaptive_k        minus conf_cascade      -0.007 [-0.021, +0.007]  Holm p 1.0000
+    qwen3-32b    gate_closed_book  minus conf_cascade      +0.004 [-0.020, +0.026]  Holm p 1.0000
+  (* = Holm adjusted p < 0.05)
+
+Gain = held out success minus the hull of fixed plans at the same mean cost. A method beats the hull only if the whole CI is above 0. 'training folds' shows how much of the in sample gain survives on unseen queries.
