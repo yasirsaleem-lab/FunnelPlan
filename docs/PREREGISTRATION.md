@@ -73,6 +73,27 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-13 21:15, commit record of every amendment (no rule changes).** The label time of an amendment is when
+  it was written; only the commit time is evidence. Several entries were written before they were committed, and
+  five carry a label later than their commit. Entries are not rewritten; this record states the gap for each one.
+  The repository had no remote before 13 Oct 2026, so no commit before that date has an external timestamp.
+  Where an entry was committed after results it mentions (12 Oct 10:45: the effect count "17 of 500" was added
+  after the run; the code rule was committed on 12 Oct 19:20 in 173d77b), the entry itself says which results
+  had been seen.
+  10-13 20:45 label, first committed 10-13 20:48 in 944b28e: committed within 30 min.
+  10-13 19:30 label, first committed 10-13 19:51 in c015e6b: committed within 30 min.
+  10-13 00:05 label, first committed 10-13 00:00 in 2fa3e60: label is 5 min after the commit; the label time is wrong, the commit time stands.
+  10-12 20:30 label, first committed 10-12 20:29 in d42c27c: label is 1 min after the commit; the label time is wrong, the commit time stands.
+  10-12 10:45 label, first committed 10-13 19:51 in c015e6b: committed 33.1 h after the label time.
+  10-10 21:30 label, first committed 10-12 09:36 in 2686fe2: committed 36.1 h after the label time.
+  10-10 17:40 label, first committed 10-12 09:36 in 2686fe2: committed 39.9 h after the label time.
+  10-10 12:30 label, first committed 10-10 11:30 in 1683415: label is 60 min after the commit; the label time is wrong, the commit time stands.
+  10-10 12:00 label, first committed 10-10 12:03 in 96935eb: committed within 30 min.
+  10-10 11:25 label, first committed 10-10 11:30 in 1683415: committed within 30 min.
+  10-10 04:30 label, first committed 10-10 11:00 in b9b6084: committed 6.5 h after the label time.
+  10-09 23:50 label, first committed 10-09 23:44 in d5b726e: label is 6 min after the commit; the label time is wrong, the commit time stands.
+  10-09 07:20 label, first committed 10-09 07:08 in 30736f2: label is 12 min after the commit; the label time is wrong, the commit time stands.
+  10-08 19:50 label, first committed 10-09 07:01 in 45165e5: committed 11.2 h after the label time.
 - **2026-10-13 20:45 (committed 20:48 in 944b28e; first labelled 22:00 by mistake), robustness, baseline and diagnostic analyses for the paper (fixed before any of them is run,
   except item (a), whose result was seen on 13 Oct 20:30 while checking feasibility).** None of these changes the
   primary or secondary family, the hull, or the decision rule of 12 Oct 20:30. Each is labelled secondary or
