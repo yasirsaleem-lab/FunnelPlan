@@ -544,6 +544,9 @@ def main():
     t0 = time.time()
     if "--r3" in sys.argv:
         CONFIG["include_r3"] = True
+    for a_ in sys.argv:
+        if a_.startswith("--label="):
+            CONFIG["label"] = a_.split("=", 1)[1]
     out = settings.RESULTS_ROOT / "analysis" / (CONFIG["label"] + CONFIG["out_suffix"]
                                                  + ("_r3" if CONFIG["include_r3"] else ""))
     out.mkdir(parents=True, exist_ok=True)

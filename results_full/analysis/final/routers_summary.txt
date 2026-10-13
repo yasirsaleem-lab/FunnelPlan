@@ -1,139 +1,64 @@
 Routers, same protocol as 10 (label final, seeds [0, 1, 2, 3, 4], 5 folds, plan cost = mean).
+Plan set: single step plans only
 == reader gemma3-27b
-  2wikimultihopqa  ar_tfidf  gain -0.008 [-0.047, +0.033]  seeds -0.022..+0.009  (training folds +0.073)  cost 1.59s
-  2wikimultihopqa  ar_emb    gain -0.011 [-0.050, +0.030]  seeds -0.022..-0.001  (training folds +0.088)  cost 1.58s
-  2wikimultihopqa  plan_emb  gain +0.009 [-0.028, +0.045]  seeds +0.005..+0.016  (training folds +0.128)  cost 0.47s
-  2wikimultihopqa  plan_knn  gain +0.019 [-0.020, +0.055]  seeds +0.011..+0.030  (training folds +0.086)  cost 0.44s
-  2wikimultihopqa  ak_paper  gain +0.032 [-0.011, +0.075]  seeds +0.021..+0.043  (training folds -0.004)  cost 1.02s
-  hotpotqa         ar_tfidf  gain -0.033 [-0.074, +0.009]  seeds -0.039..-0.027  (training folds +0.114)  cost 1.23s
-  hotpotqa         ar_emb    gain -0.054 [-0.094, -0.011]  seeds -0.060..-0.044  (training folds +0.086)  cost 1.09s
-  hotpotqa         plan_emb  gain -0.003 [-0.038, +0.032]  seeds -0.011..+0.004  (training folds +0.115)  cost 0.65s
-  hotpotqa         plan_knn  gain -0.015 [-0.052, +0.021]  seeds -0.033..-0.003  (training folds +0.056)  cost 1.10s
-  hotpotqa         ak_paper  gain -0.002 [-0.043, +0.040]  seeds -0.002..-0.002  (training folds -0.002)  cost 0.74s
-  musique          ar_tfidf  gain -0.004 [-0.038, +0.031]  seeds -0.013..+0.011  (training folds +0.089)  cost 1.36s
-  musique          ar_emb    gain -0.022 [-0.054, +0.011]  seeds -0.025..-0.019  (training folds +0.068)  cost 1.28s
-  musique          plan_emb  gain +0.025 [-0.002, +0.053]  seeds +0.006..+0.039  (training folds +0.114)  cost 0.47s
-  musique          plan_knn  gain +0.022 [-0.007, +0.052]  seeds +0.002..+0.043  (training folds +0.079)  cost 0.51s
-  musique          ak_paper  gain -0.002 [-0.040, +0.037]  seeds -0.009..+0.009  (training folds -0.010)  cost 0.97s
-  nq               ar_tfidf  gain -0.054 [-0.093, -0.015]  seeds -0.074..-0.041  (training folds +0.094)  cost 0.50s
-  nq               ar_emb    gain -0.029 [-0.069, +0.008]  seeds -0.042..-0.020  (training folds +0.085)  cost 0.49s
-  nq               plan_emb  gain +0.047 [+0.007, +0.084]  seeds +0.032..+0.062  (training folds +0.138)  cost 0.40s
-  nq               plan_knn  gain +0.013 [-0.027, +0.052]  seeds -0.008..+0.031  (training folds +0.077)  cost 0.41s
-  nq               ak_paper  gain +0.002 [-0.038, +0.040]  seeds -0.002..+0.007  (training folds -0.012)  cost 0.98s
+  2wikimultihopqa  ar_t5     gain -0.013 [-0.051, +0.025]  seeds -0.027..+0.004  (training folds +0.164)  cost 1.78s
+  hotpotqa         ar_t5     gain -0.046 [-0.085, -0.005]  seeds -0.061..-0.027  (training folds +0.130)  cost 1.24s
+  musique          ar_t5     gain -0.004 [-0.037, +0.030]  seeds -0.010..+0.007  (training folds +0.101)  cost 1.48s
+  nq               ar_t5     gain -0.016 [-0.053, +0.022]  seeds -0.022..-0.008  (training folds +0.145)  cost 0.46s
 == reader llama3.1-8b
-  2wikimultihopqa  ar_tfidf  gain -0.088 [-0.127, -0.050]  seeds -0.096..-0.076  (training folds +0.010)  cost 1.36s
-  2wikimultihopqa  ar_emb    gain -0.064 [-0.103, -0.023]  seeds -0.075..-0.054  (training folds +0.043)  cost 1.38s
-  2wikimultihopqa  plan_emb  gain +0.004 [-0.034, +0.041]  seeds -0.026..+0.024  (training folds +0.121)  cost 0.55s
-  2wikimultihopqa  plan_knn  gain -0.003 [-0.036, +0.032]  seeds -0.019..+0.011  (training folds +0.083)  cost 0.75s
-  2wikimultihopqa  ak_paper  gain -0.017 [-0.058, +0.026]  seeds -0.017..-0.017  (training folds -0.017)  cost 0.62s
-  hotpotqa         ar_tfidf  gain -0.055 [-0.097, -0.014]  seeds -0.062..-0.050  (training folds +0.084)  cost 1.03s
-  hotpotqa         ar_emb    gain -0.061 [-0.104, -0.020]  seeds -0.070..-0.055  (training folds +0.046)  cost 0.94s
-  hotpotqa         plan_emb  gain -0.008 [-0.047, +0.031]  seeds -0.027..+0.007  (training folds +0.109)  cost 0.72s
-  hotpotqa         plan_knn  gain -0.013 [-0.052, +0.026]  seeds -0.023..+0.002  (training folds +0.066)  cost 0.92s
-  hotpotqa         ak_paper  gain +0.005 [-0.038, +0.049]  seeds +0.001..+0.010  (training folds -0.002)  cost 0.50s
-  musique          ar_tfidf  gain -0.015 [-0.048, +0.017]  seeds -0.025..-0.009  (training folds +0.083)  cost 1.60s
-  musique          ar_emb    gain -0.011 [-0.044, +0.021]  seeds -0.024..-0.002  (training folds +0.073)  cost 1.45s
-  musique          plan_emb  gain +0.002 [-0.029, +0.032]  seeds -0.013..+0.011  (training folds +0.138)  cost 0.90s
-  musique          plan_knn  gain -0.005 [-0.035, +0.026]  seeds -0.015..+0.010  (training folds +0.077)  cost 0.76s
-  musique          ak_paper  gain +0.002 [-0.034, +0.039]  seeds -0.005..+0.008  (training folds -0.009)  cost 0.70s
-  nq               ar_tfidf  gain -0.065 [-0.104, -0.027]  seeds -0.079..-0.046  (training folds +0.070)  cost 0.43s
-  nq               ar_emb    gain -0.046 [-0.087, -0.006]  seeds -0.057..-0.034  (training folds +0.069)  cost 0.43s
-  nq               plan_emb  gain +0.017 [-0.020, +0.053]  seeds +0.012..+0.028  (training folds +0.115)  cost 0.47s
-  nq               plan_knn  gain -0.011 [-0.048, +0.025]  seeds -0.043..-0.000  (training folds +0.061)  cost 0.48s
-  nq               ak_paper  gain +0.032 [-0.008, +0.070]  seeds +0.029..+0.035  (training folds +0.016)  cost 0.64s
+  2wikimultihopqa  ar_t5     gain -0.048 [-0.085, -0.010]  seeds -0.065..-0.040  (training folds +0.124)  cost 1.52s
+  hotpotqa         ar_t5     gain -0.058 [-0.098, -0.017]  seeds -0.078..-0.044  (training folds +0.107)  cost 0.97s
+  musique          ar_t5     gain -0.000 [-0.034, +0.033]  seeds -0.011..+0.013  (training folds +0.094)  cost 1.68s
+  nq               ar_t5     gain -0.040 [-0.080, -0.002]  seeds -0.050..-0.032  (training folds +0.129)  cost 0.42s
 == reader qwen2.5-7b
-  2wikimultihopqa  ar_tfidf  gain -0.042 [-0.080, -0.003]  seeds -0.049..-0.033  (training folds +0.037)  cost 0.90s
-  2wikimultihopqa  ar_emb    gain -0.042 [-0.078, -0.003]  seeds -0.057..-0.026  (training folds +0.054)  cost 0.89s
-  2wikimultihopqa  plan_emb  gain +0.038 [-0.000, +0.076]  seeds +0.020..+0.043  (training folds +0.125)  cost 0.25s
-  2wikimultihopqa  plan_knn  gain +0.019 [-0.018, +0.055]  seeds +0.001..+0.031  (training folds +0.078)  cost 0.27s
-  2wikimultihopqa  ak_paper  gain -0.035 [-0.074, +0.007]  seeds -0.038..-0.030  (training folds -0.045)  cost 0.56s
-  hotpotqa         ar_tfidf  gain -0.008 [-0.049, +0.034]  seeds -0.022..-0.001  (training folds +0.093)  cost 0.91s
-  hotpotqa         ar_emb    gain -0.032 [-0.072, +0.008]  seeds -0.036..-0.023  (training folds +0.069)  cost 0.82s
-  hotpotqa         plan_emb  gain +0.009 [-0.030, +0.047]  seeds +0.003..+0.017  (training folds +0.132)  cost 0.48s
-  hotpotqa         plan_knn  gain -0.000 [-0.039, +0.037]  seeds -0.023..+0.016  (training folds +0.096)  cost 0.95s
-  hotpotqa         ak_paper  gain +0.013 [-0.029, +0.055]  seeds +0.006..+0.020  (training folds -0.003)  cost 0.42s
-  musique          ar_tfidf  gain +0.000 [-0.034, +0.031]  seeds -0.007..+0.009  (training folds +0.086)  cost 0.90s
-  musique          ar_emb    gain +0.001 [-0.032, +0.033]  seeds -0.007..+0.008  (training folds +0.078)  cost 0.86s
-  musique          plan_emb  gain -0.001 [-0.034, +0.029]  seeds -0.007..+0.011  (training folds +0.128)  cost 0.46s
-  musique          plan_knn  gain -0.005 [-0.034, +0.023]  seeds -0.032..+0.020  (training folds +0.068)  cost 0.49s
-  musique          ak_paper  gain +0.014 [-0.024, +0.052]  seeds +0.012..+0.018  (training folds +0.003)  cost 0.52s
-  nq               ar_tfidf  gain -0.010 [-0.049, +0.029]  seeds -0.022..+0.001  (training folds +0.173)  cost 0.33s
-  nq               ar_emb    gain -0.009 [-0.048, +0.028]  seeds -0.019..+0.006  (training folds +0.155)  cost 0.33s
-  nq               plan_emb  gain +0.007 [-0.028, +0.041]  seeds -0.004..+0.021  (training folds +0.098)  cost 0.45s
-  nq               plan_knn  gain -0.007 [-0.045, +0.028]  seeds -0.018..+0.004  (training folds +0.075)  cost 0.39s
-  nq               ak_paper  gain -0.006 [-0.045, +0.030]  seeds -0.006..-0.006  (training folds -0.006)  cost 0.60s
+  2wikimultihopqa  ar_t5     gain -0.048 [-0.083, -0.010]  seeds -0.071..-0.031  (training folds +0.122)  cost 0.98s
+  hotpotqa         ar_t5     gain -0.026 [-0.064, +0.014]  seeds -0.044..-0.016  (training folds +0.121)  cost 0.95s
+  musique          ar_t5     gain +0.008 [-0.025, +0.040]  seeds +0.005..+0.014  (training folds +0.100)  cost 0.95s
+  nq               ar_t5     gain +0.009 [-0.024, +0.043]  seeds -0.023..+0.025  (training folds +0.233)  cost 0.34s
 == reader qwen3-14b
-  2wikimultihopqa  ar_tfidf  gain -0.023 [-0.062, +0.018]  seeds -0.043..-0.006  (training folds +0.049)  cost 2.29s
-  2wikimultihopqa  ar_emb    gain -0.027 [-0.066, +0.014]  seeds -0.035..-0.018  (training folds +0.064)  cost 2.32s
-  2wikimultihopqa  plan_emb  gain +0.028 [-0.009, +0.067]  seeds +0.019..+0.041  (training folds +0.140)  cost 1.36s
-  2wikimultihopqa  plan_knn  gain +0.009 [-0.027, +0.048]  seeds +0.000..+0.014  (training folds +0.073)  cost 1.30s
-  2wikimultihopqa  ak_paper  gain -0.027 [-0.068, +0.013]  seeds -0.051..-0.008  (training folds -0.033)  cost 2.07s
-  hotpotqa         ar_tfidf  gain -0.058 [-0.098, -0.018]  seeds -0.074..-0.023  (training folds +0.085)  cost 2.06s
-  hotpotqa         ar_emb    gain -0.074 [-0.114, -0.033]  seeds -0.093..-0.053  (training folds +0.051)  cost 2.01s
-  hotpotqa         plan_emb  gain -0.007 [-0.044, +0.033]  seeds -0.017..+0.008  (training folds +0.112)  cost 1.65s
-  hotpotqa         plan_knn  gain -0.012 [-0.051, +0.028]  seeds -0.023..+0.001  (training folds +0.070)  cost 1.87s
-  hotpotqa         ak_paper  gain -0.028 [-0.066, +0.012]  seeds -0.034..-0.022  (training folds -0.015)  cost 1.75s
-  musique          ar_tfidf  gain -0.025 [-0.058, +0.007]  seeds -0.035..-0.009  (training folds +0.072)  cost 2.85s
-  musique          ar_emb    gain -0.028 [-0.061, +0.003]  seeds -0.043..-0.021  (training folds +0.059)  cost 2.79s
-  musique          plan_emb  gain +0.017 [-0.012, +0.046]  seeds +0.011..+0.024  (training folds +0.077)  cost 1.59s
-  musique          plan_knn  gain +0.021 [-0.009, +0.051]  seeds +0.017..+0.026  (training folds +0.061)  cost 1.61s
-  musique          ak_paper  gain -0.004 [-0.043, +0.036]  seeds -0.004..-0.003  (training folds -0.007)  cost 2.28s
-  nq               ar_tfidf  gain -0.085 [-0.123, -0.046]  seeds -0.092..-0.073  (training folds +0.054)  cost 1.86s
-  nq               ar_emb    gain -0.056 [-0.095, -0.020]  seeds -0.064..-0.049  (training folds +0.036)  cost 1.86s
-  nq               plan_emb  gain +0.050 [+0.012, +0.086]  seeds +0.024..+0.068  (training folds +0.120)  cost 1.79s
-  nq               plan_knn  gain +0.045 [+0.007, +0.080]  seeds +0.033..+0.053  (training folds +0.081)  cost 1.80s
-  nq               ak_paper  gain +0.002 [-0.037, +0.037]  seeds -0.002..+0.013  (training folds -0.004)  cost 2.17s
+  2wikimultihopqa  ar_t5     gain -0.024 [-0.062, +0.016]  seeds -0.040..-0.011  (training folds +0.124)  cost 2.40s
+  hotpotqa         ar_t5     gain -0.058 [-0.099, -0.019]  seeds -0.073..-0.035  (training folds +0.108)  cost 2.05s
+  musique          ar_t5     gain -0.007 [-0.040, +0.026]  seeds -0.017..+0.010  (training folds +0.091)  cost 2.95s
+  nq               ar_t5     gain -0.060 [-0.095, -0.026]  seeds -0.085..-0.050  (training folds +0.117)  cost 1.88s
 == reader qwen3-32b
-  2wikimultihopqa  ar_tfidf  gain -0.034 [-0.077, +0.008]  seeds -0.039..-0.026  (training folds +0.036)  cost 1.15s
-  2wikimultihopqa  ar_emb    gain -0.048 [-0.089, -0.006]  seeds -0.057..-0.034  (training folds +0.060)  cost 1.16s
-  2wikimultihopqa  plan_emb  gain +0.040 [+0.002, +0.079]  seeds +0.022..+0.067  (training folds +0.133)  cost 0.48s
-  2wikimultihopqa  plan_knn  gain +0.046 [+0.008, +0.085]  seeds +0.043..+0.050  (training folds +0.091)  cost 0.42s
-  2wikimultihopqa  ak_paper  gain -0.067 [-0.107, -0.027]  seeds -0.074..-0.062  (training folds -0.052)  cost 1.36s
-  hotpotqa         ar_tfidf  gain -0.047 [-0.086, -0.006]  seeds -0.055..-0.037  (training folds +0.116)  cost 1.31s
-  hotpotqa         ar_emb    gain -0.049 [-0.088, -0.008]  seeds -0.057..-0.041  (training folds +0.082)  cost 1.18s
-  hotpotqa         plan_emb  gain +0.019 [-0.017, +0.059]  seeds +0.010..+0.027  (training folds +0.096)  cost 0.46s
-  hotpotqa         plan_knn  gain -0.004 [-0.040, +0.032]  seeds -0.014..+0.005  (training folds +0.057)  cost 1.31s
-  hotpotqa         ak_paper  gain +0.018 [-0.024, +0.062]  seeds +0.011..+0.023  (training folds -0.001)  cost 1.01s
-  musique          ar_tfidf  gain -0.039 [-0.074, -0.006]  seeds -0.049..-0.027  (training folds +0.087)  cost 1.88s
-  musique          ar_emb    gain -0.063 [-0.097, -0.028]  seeds -0.078..-0.050  (training folds +0.066)  cost 1.70s
-  musique          plan_emb  gain +0.028 [-0.004, +0.062]  seeds +0.018..+0.048  (training folds +0.121)  cost 0.91s
-  musique          plan_knn  gain +0.004 [-0.025, +0.033]  seeds -0.010..+0.019  (training folds +0.060)  cost 0.76s
-  musique          ak_paper  gain -0.001 [-0.040, +0.038]  seeds -0.004..+0.004  (training folds -0.003)  cost 1.59s
-  nq               ar_tfidf  gain -0.103 [-0.142, -0.065]  seeds -0.115..-0.081  (training folds +0.098)  cost 0.68s
-  nq               ar_emb    gain -0.080 [-0.120, -0.041]  seeds -0.088..-0.072  (training folds +0.080)  cost 0.64s
-  nq               plan_emb  gain +0.030 [-0.009, +0.069]  seeds +0.026..+0.039  (training folds +0.088)  cost 0.50s
-  nq               plan_knn  gain +0.023 [-0.018, +0.062]  seeds +0.012..+0.033  (training folds +0.062)  cost 0.50s
-  nq               ak_paper  gain +0.014 [-0.025, +0.050]  seeds +0.010..+0.022  (training folds +0.002)  cost 1.34s
+  2wikimultihopqa  ar_t5     gain -0.050 [-0.087, -0.011]  seeds -0.066..-0.036  (training folds +0.134)  cost 1.17s
+  hotpotqa         ar_t5     gain -0.044 [-0.080, -0.005]  seeds -0.064..-0.027  (training folds +0.147)  cost 1.31s
+  musique          ar_t5     gain -0.027 [-0.061, +0.006]  seeds -0.033..-0.015  (training folds +0.110)  cost 2.03s
+  nq               ar_t5     gain -0.046 [-0.083, -0.008]  seeds -0.068..-0.016  (training folds +0.170)  cost 0.52s
 (merged with earlier runs: routers now ['ak_paper', 'ar_emb', 'ar_t5', 'ar_tfidf', 'plan_emb', 'plan_knn'])
 
-== Holm over 220 dataset level tests (10's methods plus these routers)
+== Holm over 228 dataset level tests (10's methods plus these routers)
   qwen3-32b    nq               ar_tfidf  gain -0.103 p 0.0000 Holm p 0.0001  SURVIVES
   llama3.1-8b  2wikimultihopqa  ar_tfidf  gain -0.088 p 0.0000 Holm p 0.0015  SURVIVES
-  qwen3-14b    nq               ar_tfidf  gain -0.085 p 0.0000 Holm p 0.0042  SURVIVES
-  qwen3-32b    nq               ar_emb    gain -0.080 p 0.0001 Holm p 0.0170  SURVIVES
-  qwen3-14b    hotpotqa         ar_emb    gain -0.074 p 0.0003 Holm p 0.0574  does not survive
-  qwen3-32b    musique          ar_emb    gain -0.063 p 0.0004 Holm p 0.0852  does not survive
-  qwen3-32b    2wikimultihopqa  ak_paper  gain -0.067 p 0.0010 Holm p 0.2115  does not survive
-  qwen3-14b    nq               ar_t5     gain -0.060 p 0.0011 Holm p 0.2327  does not survive
-  llama3.1-8b  2wikimultihopqa  ar_emb    gain -0.064 p 0.0013 Holm p 0.2599  does not survive
-  llama3.1-8b  nq               ar_tfidf  gain -0.065 p 0.0016 Holm p 0.3347  does not survive
-  qwen3-14b    hotpotqa         ar_t5     gain -0.058 p 0.0036 Holm p 0.7298  does not survive
-  llama3.1-8b  hotpotqa         ar_emb    gain -0.061 p 0.0041 Holm p 0.8285  does not survive
-  llama3.1-8b  hotpotqa         ar_t5     gain -0.058 p 0.0043 Holm p 0.8546  does not survive
-  qwen3-14b    hotpotqa         ar_tfidf  gain -0.058 p 0.0045 Holm p 0.8866  does not survive
-  qwen3-14b    nq               ar_emb    gain -0.056 p 0.0047 Holm p 0.9208  does not survive
+  qwen3-14b    nq               ar_tfidf  gain -0.085 p 0.0000 Holm p 0.0043  SURVIVES
+  qwen3-32b    nq               ar_emb    gain -0.080 p 0.0001 Holm p 0.0177  SURVIVES
+  qwen3-14b    hotpotqa         ar_emb    gain -0.074 p 0.0003 Holm p 0.0596  does not survive
+  qwen3-32b    musique          ar_emb    gain -0.063 p 0.0004 Holm p 0.0885  does not survive
+  qwen3-32b    2wikimultihopqa  ak_paper  gain -0.067 p 0.0010 Holm p 0.2197  does not survive
+  qwen3-14b    nq               ar_t5     gain -0.060 p 0.0011 Holm p 0.2418  does not survive
+  llama3.1-8b  2wikimultihopqa  ar_emb    gain -0.064 p 0.0013 Holm p 0.2701  does not survive
+  llama3.1-8b  nq               ar_tfidf  gain -0.065 p 0.0016 Holm p 0.3479  does not survive
+  qwen3-14b    hotpotqa         ar_t5     gain -0.058 p 0.0036 Holm p 0.7588  does not survive
+  llama3.1-8b  hotpotqa         ar_emb    gain -0.061 p 0.0041 Holm p 0.8614  does not survive
+  llama3.1-8b  hotpotqa         ar_t5     gain -0.058 p 0.0043 Holm p 0.8888  does not survive
+  qwen3-14b    hotpotqa         ar_tfidf  gain -0.058 p 0.0045 Holm p 0.9222  does not survive
+  qwen3-14b    nq               ar_emb    gain -0.056 p 0.0047 Holm p 0.9582  does not survive
   gemma3-27b   nq               ar_tfidf  gain -0.054 p 0.0080 Holm p 1.0000  does not survive
   llama3.1-8b  hotpotqa         ar_tfidf  gain -0.055 p 0.0096 Holm p 1.0000  does not survive
   gemma3-27b   hotpotqa         ar_emb    gain -0.054 p 0.0108 Holm p 1.0000  does not survive
   qwen2.5-7b   2wikimultihopqa  ar_t5     gain -0.048 p 0.0115 Holm p 1.0000  does not survive
   llama3.1-8b  2wikimultihopqa  ar_t5     gain -0.048 p 0.0117 Holm p 1.0000  does not survive
   qwen3-14b    nq               plan_emb  gain +0.050 p 0.0119 Holm p 1.0000  does not survive
+  qwen3-32b    2wikimultihopqa  ar_t5     gain -0.050 p 0.0120 Holm p 1.0000  does not survive
+  qwen3-32b    nq               ar_t5     gain -0.046 p 0.0192 Holm p 1.0000  does not survive
   qwen3-32b    hotpotqa         ar_emb    gain -0.049 p 0.0195 Holm p 1.0000  does not survive
   qwen3-14b    nq               plan_knn  gain +0.045 p 0.0207 Holm p 1.0000  does not survive
   qwen3-32b    2wikimultihopqa  plan_knn  gain +0.046 p 0.0211 Holm p 1.0000  does not survive
   gemma3-27b   nq               plan_emb  gain +0.047 p 0.0215 Holm p 1.0000  does not survive
   qwen3-32b    2wikimultihopqa  ar_emb    gain -0.048 p 0.0225 Holm p 1.0000  does not survive
+  gemma3-27b   hotpotqa         ar_t5     gain -0.046 p 0.0230 Holm p 1.0000  does not survive
   qwen3-32b    hotpotqa         ar_tfidf  gain -0.047 p 0.0257 Holm p 1.0000  does not survive
+  qwen3-32b    hotpotqa         ar_t5     gain -0.044 p 0.0262 Holm p 1.0000  does not survive
   llama3.1-8b  nq               ar_emb    gain -0.046 p 0.0265 Holm p 1.0000  does not survive
   qwen3-32b    musique          ar_tfidf  gain -0.039 p 0.0283 Holm p 1.0000  does not survive
   qwen2.5-7b   2wikimultihopqa  ar_tfidf  gain -0.042 p 0.0332 Holm p 1.0000  does not survive
@@ -142,12 +67,9 @@ Routers, same protocol as 10 (label final, seeds [0, 1, 2, 3, 4], 5 folds, plan 
   llama3.1-8b  nq               ar_t5     gain -0.040 p 0.0429 Holm p 1.0000  does not survive
 
 == pooled over datasets
-  llama3.1-8b  ar_t5     -0.037 [-0.055, -0.017]  Holm p 0.0026
-  qwen2.5-7b   ar_t5     -0.014 [-0.033, +0.003]  Holm p 1.0000
-  qwen3-14b    ar_t5     -0.037 [-0.056, -0.018]  Holm p 0.0018
-  gemma3-27b   ar_tfidf  -0.025 [-0.044, -0.005]  Holm p 0.2163
-  gemma3-27b   ar_emb    -0.029 [-0.048, -0.009]  Holm p 0.0601
-  gemma3-27b   plan_emb  +0.020 [+0.002, +0.037]  Holm p 0.4888
+  gemma3-27b   ar_tfidf  -0.025 [-0.044, -0.005]  Holm p 0.2283
+  gemma3-27b   ar_emb    -0.029 [-0.048, -0.009]  Holm p 0.0633
+  gemma3-27b   plan_emb  +0.020 [+0.002, +0.037]  Holm p 0.5193
   gemma3-27b   plan_knn  +0.010 [-0.009, +0.027]  Holm p 1.0000
   gemma3-27b   ak_paper  +0.008 [-0.012, +0.028]  Holm p 1.0000
   llama3.1-8b  ar_tfidf  -0.056 [-0.074, -0.035]  Holm p 0.0000
@@ -156,34 +78,33 @@ Routers, same protocol as 10 (label final, seeds [0, 1, 2, 3, 4], 5 folds, plan 
   llama3.1-8b  plan_knn  -0.008 [-0.026, +0.010]  Holm p 1.0000
   llama3.1-8b  ak_paper  +0.005 [-0.014, +0.026]  Holm p 1.0000
   qwen2.5-7b   ar_tfidf  -0.015 [-0.034, +0.003]  Holm p 1.0000
-  qwen2.5-7b   ar_emb    -0.020 [-0.038, -0.002]  Holm p 0.5426
+  qwen2.5-7b   ar_emb    -0.020 [-0.038, -0.002]  Holm p 0.5788
   qwen2.5-7b   plan_emb  +0.013 [-0.004, +0.031]  Holm p 1.0000
   qwen2.5-7b   plan_knn  +0.002 [-0.017, +0.019]  Holm p 1.0000
   qwen2.5-7b   ak_paper  -0.003 [-0.024, +0.017]  Holm p 1.0000
   qwen3-14b    ar_tfidf  -0.048 [-0.066, -0.029]  Holm p 0.0000
   qwen3-14b    ar_emb    -0.047 [-0.064, -0.028]  Holm p 0.0000
-  qwen3-14b    plan_emb  +0.022 [+0.003, +0.040]  Holm p 0.3204
+  qwen3-14b    plan_emb  +0.022 [+0.003, +0.040]  Holm p 0.3393
   qwen3-14b    plan_knn  +0.016 [-0.004, +0.034]  Holm p 1.0000
   qwen3-14b    ak_paper  -0.014 [-0.033, +0.005]  Holm p 1.0000
   qwen3-32b    ar_tfidf  -0.056 [-0.076, -0.036]  Holm p 0.0000
   qwen3-32b    ar_emb    -0.060 [-0.080, -0.041]  Holm p 0.0000
-  qwen3-32b    plan_emb  +0.029 [+0.010, +0.048]  Holm p 0.0487
+  qwen3-32b    plan_emb  +0.029 [+0.010, +0.048]  Holm p 0.0511
   qwen3-32b    plan_knn  +0.017 [-0.002, +0.035]  Holm p 0.9491
   qwen3-32b    ak_paper  -0.009 [-0.029, +0.011]  Holm p 1.0000
+  gemma3-27b   ar_t5     -0.020 [-0.038, -0.001]  Holm p 0.5788
+  llama3.1-8b  ar_t5     -0.037 [-0.055, -0.017]  Holm p 0.0028
+  qwen2.5-7b   ar_t5     -0.014 [-0.033, +0.003]  Holm p 1.0000
+  qwen3-14b    ar_t5     -0.037 [-0.056, -0.018]  Holm p 0.0019
+  qwen3-32b    ar_t5     -0.042 [-0.061, -0.024]  Holm p 0.0003
 
 == paired: router minus 10's method (same queries and seeds; Holm over these pairs)
-  * llama3.1-8b  ar_t5     minus adaptive_rag  +0.022 [+0.011, +0.033]  Holm p 0.0026
-  * llama3.1-8b  ar_t5     minus planner_tsr   -0.041 [-0.055, -0.027]  Holm p 0.0000
-    qwen2.5-7b   ar_t5     minus adaptive_rag  +0.008 [-0.002, +0.018]  Holm p 1.0000
-    qwen2.5-7b   ar_t5     minus planner_tsr   -0.018 [-0.033, -0.003]  Holm p 0.3541
-    qwen3-14b    ar_t5     minus adaptive_rag  +0.015 [+0.005, +0.024]  Holm p 0.0616
-  * qwen3-14b    ar_t5     minus planner_tsr   -0.041 [-0.056, -0.026]  Holm p 0.0000
   * gemma3-27b   ar_tfidf  minus adaptive_rag  +0.008 [+0.005, +0.011]  Holm p 0.0001
-    gemma3-27b   ar_tfidf  minus planner_tsr   -0.024 [-0.040, -0.008]  Holm p 0.0938
+    gemma3-27b   ar_tfidf  minus planner_tsr   -0.024 [-0.040, -0.008]  Holm p 0.1008
     gemma3-27b   ar_emb    minus adaptive_rag  +0.003 [-0.008, +0.015]  Holm p 1.0000
-  * gemma3-27b   ar_emb    minus planner_tsr   -0.028 [-0.043, -0.012]  Holm p 0.0183
+  * gemma3-27b   ar_emb    minus planner_tsr   -0.028 [-0.043, -0.012]  Holm p 0.0200
   * gemma3-27b   plan_emb  minus adaptive_rag  +0.052 [+0.037, +0.067]  Holm p 0.0000
-    gemma3-27b   plan_emb  minus planner_tsr   +0.021 [+0.007, +0.034]  Holm p 0.0964
+    gemma3-27b   plan_emb  minus planner_tsr   +0.021 [+0.007, +0.034]  Holm p 0.1041
   * gemma3-27b   plan_knn  minus adaptive_rag  +0.042 [+0.027, +0.057]  Holm p 0.0000
     gemma3-27b   plan_knn  minus planner_tsr   +0.011 [-0.002, +0.024]  Holm p 1.0000
   * gemma3-27b   ak_paper  minus adaptive_rag  +0.040 [+0.023, +0.057]  Holm p 0.0001
@@ -198,35 +119,45 @@ Routers, same protocol as 10 (label final, seeds [0, 1, 2, 3, 4], 5 folds, plan 
     llama3.1-8b  plan_knn  minus planner_tsr   -0.013 [-0.024, -0.001]  Holm p 0.6082
   * llama3.1-8b  ak_paper  minus adaptive_rag  +0.064 [+0.046, +0.082]  Holm p 0.0000
     llama3.1-8b  ak_paper  minus planner_tsr   +0.001 [-0.013, +0.015]  Holm p 1.0000
-  * qwen2.5-7b   ar_tfidf  minus adaptive_rag  +0.008 [+0.004, +0.012]  Holm p 0.0012
+  * qwen2.5-7b   ar_tfidf  minus adaptive_rag  +0.008 [+0.004, +0.012]  Holm p 0.0013
     qwen2.5-7b   ar_tfidf  minus planner_tsr   -0.019 [-0.035, -0.003]  Holm p 0.4113
     qwen2.5-7b   ar_emb    minus adaptive_rag  +0.003 [-0.009, +0.014]  Holm p 1.0000
-    qwen2.5-7b   ar_emb    minus planner_tsr   -0.024 [-0.040, -0.008]  Holm p 0.0764
+    qwen2.5-7b   ar_emb    minus planner_tsr   -0.024 [-0.040, -0.008]  Holm p 0.0819
   * qwen2.5-7b   plan_emb  minus adaptive_rag  +0.036 [+0.021, +0.052]  Holm p 0.0002
     qwen2.5-7b   plan_emb  minus planner_tsr   +0.009 [-0.002, +0.021]  Holm p 1.0000
-    qwen2.5-7b   plan_knn  minus adaptive_rag  +0.024 [+0.009, +0.040]  Holm p 0.0596
+    qwen2.5-7b   plan_knn  minus adaptive_rag  +0.024 [+0.009, +0.040]  Holm p 0.0656
     qwen2.5-7b   plan_knn  minus planner_tsr   -0.002 [-0.015, +0.009]  Holm p 1.0000
     qwen2.5-7b   ak_paper  minus adaptive_rag  +0.020 [+0.003, +0.037]  Holm p 0.5400
     qwen2.5-7b   ak_paper  minus planner_tsr   -0.007 [-0.022, +0.008]  Holm p 1.0000
-    qwen3-14b    ar_tfidf  minus adaptive_rag  +0.004 [+0.001, +0.007]  Holm p 0.2960
+    qwen3-14b    ar_tfidf  minus adaptive_rag  +0.004 [+0.001, +0.007]  Holm p 0.3206
   * qwen3-14b    ar_tfidf  minus planner_tsr   -0.052 [-0.067, -0.036]  Holm p 0.0000
     qwen3-14b    ar_emb    minus adaptive_rag  +0.005 [-0.005, +0.016]  Holm p 1.0000
   * qwen3-14b    ar_emb    minus planner_tsr   -0.050 [-0.067, -0.035]  Holm p 0.0000
   * qwen3-14b    plan_emb  minus adaptive_rag  +0.074 [+0.058, +0.089]  Holm p 0.0000
-    qwen3-14b    plan_emb  minus planner_tsr   +0.018 [+0.006, +0.030]  Holm p 0.0938
+    qwen3-14b    plan_emb  minus planner_tsr   +0.018 [+0.006, +0.030]  Holm p 0.1008
   * qwen3-14b    plan_knn  minus adaptive_rag  +0.068 [+0.051, +0.084]  Holm p 0.0000
     qwen3-14b    plan_knn  minus planner_tsr   +0.012 [-0.001, +0.025]  Holm p 0.9083
-  * qwen3-14b    ak_paper  minus adaptive_rag  +0.038 [+0.022, +0.054]  Holm p 0.0001
+  * qwen3-14b    ak_paper  minus adaptive_rag  +0.038 [+0.022, +0.054]  Holm p 0.0002
     qwen3-14b    ak_paper  minus planner_tsr   -0.018 [-0.033, -0.003]  Holm p 0.4662
     qwen3-32b    ar_tfidf  minus adaptive_rag  +0.004 [-0.001, +0.008]  Holm p 1.0000
   * qwen3-32b    ar_tfidf  minus planner_tsr   -0.060 [-0.077, -0.043]  Holm p 0.0000
     qwen3-32b    ar_emb    minus adaptive_rag  -0.000 [-0.014, +0.013]  Holm p 1.0000
   * qwen3-32b    ar_emb    minus planner_tsr   -0.064 [-0.082, -0.047]  Holm p 0.0000
   * qwen3-32b    plan_emb  minus adaptive_rag  +0.089 [+0.073, +0.105]  Holm p 0.0000
-  * qwen3-32b    plan_emb  minus planner_tsr   +0.025 [+0.010, +0.039]  Holm p 0.0468
+    qwen3-32b    plan_emb  minus planner_tsr   +0.025 [+0.010, +0.039]  Holm p 0.0514
   * qwen3-32b    plan_knn  minus adaptive_rag  +0.077 [+0.061, +0.093]  Holm p 0.0000
     qwen3-32b    plan_knn  minus planner_tsr   +0.013 [-0.001, +0.027]  Holm p 1.0000
   * qwen3-32b    ak_paper  minus adaptive_rag  +0.051 [+0.032, +0.070]  Holm p 0.0000
     qwen3-32b    ak_paper  minus planner_tsr   -0.013 [-0.028, +0.002]  Holm p 1.0000
+    gemma3-27b   ar_t5     minus adaptive_rag  +0.013 [+0.003, +0.022]  Holm p 0.3775
+    gemma3-27b   ar_t5     minus planner_tsr   -0.019 [-0.034, -0.004]  Holm p 0.3775
+  * llama3.1-8b  ar_t5     minus adaptive_rag  +0.022 [+0.011, +0.033]  Holm p 0.0028
+  * llama3.1-8b  ar_t5     minus planner_tsr   -0.041 [-0.055, -0.027]  Holm p 0.0000
+    qwen2.5-7b   ar_t5     minus adaptive_rag  +0.008 [-0.002, +0.018]  Holm p 1.0000
+    qwen2.5-7b   ar_t5     minus planner_tsr   -0.018 [-0.033, -0.003]  Holm p 0.3775
+    qwen3-14b    ar_t5     minus adaptive_rag  +0.015 [+0.005, +0.024]  Holm p 0.0659
+  * qwen3-14b    ar_t5     minus planner_tsr   -0.041 [-0.056, -0.026]  Holm p 0.0000
+    qwen3-32b    ar_t5     minus adaptive_rag  +0.018 [+0.006, +0.029]  Holm p 0.0656
+  * qwen3-32b    ar_t5     minus planner_tsr   -0.046 [-0.063, -0.030]  Holm p 0.0000
 
 All routers see only the question. Gain = held out success minus the held out hull at equal mean cost. A router beats the hull only if the CI is above 0 and Holm p < 0.05.

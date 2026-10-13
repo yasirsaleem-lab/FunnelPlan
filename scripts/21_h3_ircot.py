@@ -82,7 +82,10 @@ def h3_block(B, ir, seeds, k):
 
 def main():
     partial = "--partial" in sys.argv
-    out = settings.RESULTS_ROOT / "analysis" / "h3_ircot"
+    lab = next((a_.split("=", 1)[1] for a_ in sys.argv if a_.startswith("--label=")), None)
+    if lab:
+        A.CONFIG["label"] = lab                   # sensitivity run; the main run (label_final) is untouched
+    out = settings.RESULTS_ROOT / "analysis" / ("h3_ircot" + (f"_{lab}" if lab else ""))
     out.mkdir(parents=True, exist_ok=True)
     L, res = [], []
     say = lambda s: (print(s, flush=True), L.append(s))
