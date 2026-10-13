@@ -73,7 +73,7 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
-- **2026-10-13 22:00, robustness, baseline and diagnostic analyses for the paper (fixed before any of them is run,
+- **2026-10-13 20:45 (committed 20:48 in 944b28e; first labelled 22:00 by mistake), robustness, baseline and diagnostic analyses for the paper (fixed before any of them is run,
   except item (a), whose result was seen on 13 Oct 20:30 while checking feasibility).** None of these changes the
   primary or secondary family, the hull, or the decision rule of 12 Oct 20:30. Each is labelled secondary or
   exploratory in the paper and is reported whatever it shows.
