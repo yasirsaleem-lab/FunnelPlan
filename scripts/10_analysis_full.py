@@ -80,6 +80,9 @@ CONFIG = {
     # (bm25_2hop@3, bm25_2hop@5 from 19_two_hop_plans.py, graded by 08). True adds them to every reader's plan
     # set (hull and methods alike) and writes to analysis/<label><out_suffix>_r3/. Command line: --r3
     "include_r3": False,
+    # "mix" (main): the fixed plan hull, best randomised mix of two plans at mean cost c.
+    # "step" (robustness, --hull=step): best single fixed plan with mean cost <= c, no mixing.
+    "hull_mode": "mix",
     "lambdas": list(np.round(np.concatenate([[0.0], np.geomspace(0.002, 1.0, 20)]), 5)),
     "taus": list(np.round(np.linspace(-3.0, 0.0, 31), 2)),   # log prob thresholds
     "adaptive_k_retrievers": ["bge_m3", "stella_1_5b"],
@@ -231,8 +234,15 @@ def hull_at(Y, cost, idx, c, eval_idx=None):
     the test fold itself is optimistic: with 100 test queries the best of 31
     plans is inflated by selection, which would unfairly sink every method.)
     """
-    H = _hull_vertices(Y, cost, idx)
     ev = idx if eval_idx is None else eval_idx
+    if CONFIG.get("hull_mode", "mix") == "step":
+        # Robustness baseline without randomised mixing: the single fixed plan with the best success on idx among
+        # the plans whose mean cost is at most c (the cheapest plan if none is that cheap), measured on eval_idx.
+        m = _means(Y, idx)
+        ok = [p for p in Y.columns if cost[p] <= c]
+        best = max(ok, key=lambda p: (m[p], -cost[p])) if ok else min(Y.columns, key=lambda p: (cost[p], -m[p]))
+        return float(_means(Y, ev)[best])
+    H = _hull_vertices(Y, cost, idx)
     xs = [h[0] for h in H]
     m = _means(Y, ev)
     ys = [m[h[2]] for h in H]
@@ -547,6 +557,9 @@ def main():
     for a_ in sys.argv:
         if a_.startswith("--label="):
             CONFIG["label"] = a_.split("=", 1)[1]
+        if a_ == "--hull=step":                    # robustness: best single fixed plan at or below the cost
+            CONFIG["hull_mode"] = "step"
+            CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_stephull"
     out = settings.RESULTS_ROOT / "analysis" / (CONFIG["label"] + CONFIG["out_suffix"]
                                                  + ("_r3" if CONFIG["include_r3"] else ""))
     out.mkdir(parents=True, exist_ok=True)

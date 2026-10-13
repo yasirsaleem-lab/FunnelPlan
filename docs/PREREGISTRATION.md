@@ -73,6 +73,15 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-13 19:30, robustness analyses added after the main results were seen (they change no primary test,
+  family or decision rule).** (a) Grading sensitivity (`scripts/24_label_sensitivity.py`): H1 (primary family, both
+  plan sets) and H3 rerun with label_lenient and label_strict. Added because the adjudicated audit shows label_final is
+  conservative (false negatives far above false positives). Result: H1 unchanged under both rules (0 positive survivors,
+  Adaptive RAG negative for 4 or 5 readers); H3 on 2WikiMultihopQA significant for all three readers under all rules;
+  Qwen3 14B on MuSiQue significant under label_final and strict but not lenient, so it is reported as not robust.
+  (b) Step baseline (`scripts/25_step_hull.py`, `--hull=step` in 10 and 13): the best single fixed plan with mean cost
+  at most the policy's, without randomised mixing, reported next to the hull together with the gain a non adaptive
+  coin flip between two fixed plans already obtains over it. The hull stays the pre-registered baseline.
 - **2026-10-13 00:05, audit adjudication (before the adjudication starts; rater agreement seen: audit 1 kappa 0.469,
   audit 2 kappa 0.695; rater 2 confirmed that he read the written rules).** Items where rater 1 and rater 2
   disagree (57 in audit 1, 31 in audit 2) are labelled by a third independent rater on a blank sheet
@@ -90,43 +99,15 @@ Every change is dated and states whether any result of the affected run had been
   in the single step set at most 7 of the 30 tests can have a smaller p, so its Holm p is at least 0.056 whatever the
   missing tests show, and it does not meet the rule. It is reported as the largest secondary effect, not as a positive
   finding. The same rule applies to the primary family (no positive result in either plan set at this time).
-- **2026-10-08, gate G1 result (Qwen3 32B, before R1 started).** Probe of 200 HotpotQA items with
-  `16_reader_probe.py`: 0 errors; VRAM 18.5 of 20 GB; strict accuracy 0.420 vs 0.410 for Qwen3 14B on the same
-  items (label agreement 0.920); projected full grid 12.6 GPU hours (0.52 days). The longest probe prompt was
-  1,603 tokens; the longest grid prompt is about 4,948, below n_ctx 5,632. The context condition is therefore
-  checked again on the full run: `17_llamacpp_labels.py` logs every failed call and refuses to merge while any
-  answer is missing. G1 passes.
-- **2026-10-08, gate G1 result (Gemma 3 27B, before R1 started).** Same probe: 0 errors; VRAM 16.1 of 20 GB;
-  strict accuracy 0.360 vs 0.410 for Qwen3 14B (label agreement 0.880; discordant 7 vs 17, exact McNemar
-  p = 0.064); projected full grid 10.7 GPU hours. Longest grid prompt about 4,775 tokens, n_ctx 6,144. G1 passes.
-  Observed, not acted on: Gemma answers "Not specified." on 4 of 160 retrieval items despite the "give your best
-  guess" instruction, and writes dates as "November 22, 1761" (strict misses these; they are ambiguous and go to
-  the judge). Gemma's chat template has no system role; llama.cpp puts the system text into the user turn.
-  No change to prompts or grading.
-- **2026-10-08 19:50, primary family corrected (NQ labels of Qwen3 32B seen, in sample descriptives only; no
-  H1 test run).** The cascade "7B to Qwen3 32B" is removed from the primary family, which becomes 27 tests.
-  Reason: its cost would add a transformers latency (7B, bf16) to a llama.cpp latency (32B, IQ4_XS), which
-  section 6 already rules out. It is reported as exploratory only if the 7B is re-timed under llama.cpp.
-  Observed on NQ, not acted on: Qwen3 32B answers in sentences more often (21% of retrieval answers above
-  20 tokens vs 6% for Qwen3 14B) and abstains more ("the passages do not mention", 5.8% vs 3.6%). Of 25 random
-  long answers with F1 < 0.2 and no gold string, 0 were correct, so the strict rule is not under crediting them.
-- **2026-10-09 07:20, R3 defined exactly (before any R3 run; R1 labels of Qwen3 32B seen, in sample only).**
-  Section 1 left open how the second hop query is formed. Fixed now, in `scripts/19_two_hop_plans.py`:
-  plans `bm25_2hop@3` and `bm25_2hop@5`. Hop 1: BM25 top k for the question. Then one reader call writes one
-  search query for the missing information (fixed system text in the script, greedy, at most 32 new tokens;
-  empty output falls back to the question). Hop 2: BM25 top k for that query alone, skipping hop 1 passages.
-  Then the unchanged answer prompt on the 2k passages. "Cost known before execution" means the number of
-  retrieval calls (2) and reader calls (2) is fixed in advance; latency still varies with token counts, as it
-  does for single step plans. Run on all 5 readers and all 4 datasets (NQ included). Cost = hop 1 latency +
-  timed hop 2 latency + both reader calls. The alternative (hop 2 query = question plus hop 1 titles, no reader
-  call) was rejected as a weak method that would lose for trivial reasons.
-- **2026-10-09 23:50, gate G2 result (R2 complete).** Qwen3 14B GGUF IQ4_XS (llama.cpp) against Qwen3 14B
-  int8 (transformers), HotpotQA, 12,500 cells: label agreement strict 0.960, F1 >= 0.7 0.958, label_final
-  0.957 (judge scores reused where they exist; 190 of 1,875 ambiguous answers fall back to strict until the
-  next judge pass). Identical answer text on 72% of cells. label_final accuracy 0.491 vs 0.500. G2 passes:
-  4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
-  vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
-  that latencies are comparable only within a reader (section 6).
+- **2026-10-12 10:45, R4 prompt length (IRCoT results seen: 7B and Llama complete; Qwen3 14B complete on HotpotQA
+  and MuSiQue, 238 of 500 on 2WikiMultihopQA).** IRCoT caps the whole reason prompt at the model's limit (6,000 tokens
+  for Flan-T5) by dropping demonstrations (fit_prompt_into_given_limit, remove_method "first"). Our readers have 32k or
+  more context, so demonstrations are packed up to 24,000 characters and the prompt is not capped at 6,000; mean reason
+  prompts are about 7,000 to 8,000 tokens. The amendment of 10 Oct 04:30 called 6,000 tokens the demonstration budget;
+  that was a misreading of the paper's code and is corrected here. Prompts that exceed GPU memory (Qwen3 14B int8 on
+  2WikiMultihopQA) use IRCoT's own rule: the first demonstration is dropped until the prompt fits. Prompts that fit are
+  unchanged, so all earlier answers are unaffected. Effect: Qwen3 14B, 2WikiMultihopQA, 17 of 500 questions (3.4%), at
+  most 3 of 11 demonstrations dropped; no other reader or dataset affected. Recorded per question (`demos_dropped`).
 - **2026-10-10 21:30, second R4 splitter fix (IRCoT results seen: Llama 3.1 8B complete on 3 datasets; Qwen2.5 7B,
   HotpotQA, 78 questions).** Qwen2.5 7B writes numbered lists, and a leading list marker ("1.") was kept as the
   sentence and used as the query (9 of 78 questions; such a query matches nothing in BM25). Fixed: a leading list
@@ -140,13 +121,6 @@ Every change is dated and states whether any result of the affected run had been
   Strict accuracy 0.480 against the published In-Accuracy 0.438 (a difference of 0.042): with the bug fixed and
   the full sample, the original accuracy gate would also have passed, so the replacement of 11:25 did not change
   the outcome. Both facts are reported.
-- **2026-10-10 12:00, R4 bug fix (IRCoT results seen: Llama 3.1 8B, HotpotQA, 147 questions).** The sentence
-  splitter of `20_ircot.py` ended a sentence at every period followed by a space, including initials and
-  abbreviations, so "The W. H. Auden poem ..." became the kept sentence and retrieval query "The W." (9 of 388
-  queries were cut to nothing BM25 can match; more were cut short). This broke the pre-registered rule (keep the
-  first generated sentence). Fixed: no split after an initial, a common abbreviation, or before a lowercase word.
-  The 147 answers produced with the bug are kept apart (`hotpotqa_buggy_splitter.jsonl`) and not used; Llama 3.1 8B
-  on HotpotQA is rerun from the start. No other IRCoT run had started.
 - **2026-10-10 12:30, R5 and R6 fixed exactly, before either was run.**
   R5 (`scripts/23_metis_profiler.py`): the profiler is Qwen3 32B (llama.cpp, thinking off, greedy, question only),
   the largest local model; METIS used GPT-4o or Llama 3.1 70B. It returns joint reasoning (yes/no), complexity
@@ -164,6 +138,13 @@ Every change is dated and states whether any result of the affected run had been
   R6 (`scripts/22_weak_baselines.py`): Always RAG = BM25 at k = 5 (the retriever of Adaptive-RAG), Never RAG =
   closed book, accuracy only with no cost matching, one seed (0), label_strict. Reported for every policy, reader
   and dataset next to our protocol's result. Descriptive only, no test.
+- **2026-10-10 12:00, R4 bug fix (IRCoT results seen: Llama 3.1 8B, HotpotQA, 147 questions).** The sentence
+  splitter of `20_ircot.py` ended a sentence at every period followed by a space, including initials and
+  abbreviations, so "The W. H. Auden poem ..." became the kept sentence and retrieval query "The W." (9 of 388
+  queries were cut to nothing BM25 can match; more were cut short). This broke the pre-registered rule (keep the
+  first generated sentence). Fixed: no split after an initial, a common abbreviation, or before a lowercase word.
+  The 147 answers produced with the bug are kept apart (`hotpotqa_buggy_splitter.jsonl`) and not used; Llama 3.1 8B
+  on HotpotQA is rerun from the start. No other IRCoT run had started.
 - **2026-10-10 11:25, gate G3 replaced (IRCoT results seen: Llama 3.1 8B, HotpotQA, 49 of 500 questions;
   strict 0.571, 3.55 reason calls, 3.37 retrieval calls, 98% of chains stop on "answer is"; no other IRCoT
   result seen).** G3 as written compares our strict accuracy with the In-Accuracy of Moskvoretskii et al.
@@ -192,6 +173,43 @@ Every change is dated and states whether any result of the affected run had been
   3.5 LM calls and 3.45 retrieval calls per question). Our closest metric is the strict rule (exact match or
   contained). Their 500 question subset and corpus differ from ours (our HotpotQA corpus is the same 5.2M paragraph
   corpus IRCoT used), so G3 tests the implementation, not a replication.
+- **2026-10-09 23:50, gate G2 result (R2 complete).** Qwen3 14B GGUF IQ4_XS (llama.cpp) against Qwen3 14B
+  int8 (transformers), HotpotQA, 12,500 cells: label agreement strict 0.960, F1 >= 0.7 0.958, label_final
+  0.957 (judge scores reused where they exist; 190 of 1,875 ambiguous answers fall back to strict until the
+  next judge pass). Identical answer text on 72% of cells. label_final accuracy 0.491 vs 0.500. G2 passes:
+  4 bit llama.cpp readers are reported next to the int8 and bf16 readers. Mean reader time 0.32 s (llama.cpp)
+  vs 1.58 s (transformers int8) for the same model: the runtime changes latency about 5 times, which confirms
+  that latencies are comparable only within a reader (section 6).
+- **2026-10-09 07:20, R3 defined exactly (before any R3 run; R1 labels of Qwen3 32B seen, in sample only).**
+  Section 1 left open how the second hop query is formed. Fixed now, in `scripts/19_two_hop_plans.py`:
+  plans `bm25_2hop@3` and `bm25_2hop@5`. Hop 1: BM25 top k for the question. Then one reader call writes one
+  search query for the missing information (fixed system text in the script, greedy, at most 32 new tokens;
+  empty output falls back to the question). Hop 2: BM25 top k for that query alone, skipping hop 1 passages.
+  Then the unchanged answer prompt on the 2k passages. "Cost known before execution" means the number of
+  retrieval calls (2) and reader calls (2) is fixed in advance; latency still varies with token counts, as it
+  does for single step plans. Run on all 5 readers and all 4 datasets (NQ included). Cost = hop 1 latency +
+  timed hop 2 latency + both reader calls. The alternative (hop 2 query = question plus hop 1 titles, no reader
+  call) was rejected as a weak method that would lose for trivial reasons.
+- **2026-10-08 19:50, primary family corrected (NQ labels of Qwen3 32B seen, in sample descriptives only; no
+  H1 test run).** The cascade "7B to Qwen3 32B" is removed from the primary family, which becomes 27 tests.
+  Reason: its cost would add a transformers latency (7B, bf16) to a llama.cpp latency (32B, IQ4_XS), which
+  section 6 already rules out. It is reported as exploratory only if the 7B is re-timed under llama.cpp.
+  Observed on NQ, not acted on: Qwen3 32B answers in sentences more often (21% of retrieval answers above
+  20 tokens vs 6% for Qwen3 14B) and abstains more ("the passages do not mention", 5.8% vs 3.6%). Of 25 random
+  long answers with F1 < 0.2 and no gold string, 0 were correct, so the strict rule is not under crediting them.
+- **2026-10-08, gate G1 result (Qwen3 32B, before R1 started).** Probe of 200 HotpotQA items with
+  `16_reader_probe.py`: 0 errors; VRAM 18.5 of 20 GB; strict accuracy 0.420 vs 0.410 for Qwen3 14B on the same
+  items (label agreement 0.920); projected full grid 12.6 GPU hours (0.52 days). The longest probe prompt was
+  1,603 tokens; the longest grid prompt is about 4,948, below n_ctx 5,632. The context condition is therefore
+  checked again on the full run: `17_llamacpp_labels.py` logs every failed call and refuses to merge while any
+  answer is missing. G1 passes.
+- **2026-10-08, gate G1 result (Gemma 3 27B, before R1 started).** Same probe: 0 errors; VRAM 16.1 of 20 GB;
+  strict accuracy 0.360 vs 0.410 for Qwen3 14B (label agreement 0.880; discordant 7 vs 17, exact McNemar
+  p = 0.064); projected full grid 10.7 GPU hours. Longest grid prompt about 4,775 tokens, n_ctx 6,144. G1 passes.
+  Observed, not acted on: Gemma answers "Not specified." on 4 of 160 retrieval items despite the "give your best
+  guess" instruction, and writes dates as "November 22, 1761" (strict misses these; they are ambiguous and go to
+  the judge). Gemma's chat template has no system role; llama.cpp puts the system text into the user turn.
+  No change to prompts or grading.
 - **2026-10-08, implementation detail (no R1 result seen).** For llama.cpp readers, `agent_time_s` is the
   server's compute time (prompt_ms + predicted_ms), the analogue of the `generate()` time measured in 04.
   Wall time per call is stored as `wall_s`. Prompts were checked identical to the probe items (200 of 200),

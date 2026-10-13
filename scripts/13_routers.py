@@ -528,6 +528,10 @@ if __name__ == "__main__":
     if "--r3" in sys.argv:
         A.CONFIG["include_r3"] = True
         sys.argv = [a for a in sys.argv if a != "--r3"]
+    if "--hull=step" in sys.argv:                  # robustness baseline (see 10_analysis_full.py, hull_mode)
+        A.CONFIG["hull_mode"] = "step"
+        A.CONFIG["out_suffix"] = A.CONFIG["out_suffix"] + "_stephull"
+        sys.argv = [a for a in sys.argv if a != "--hull=step"]
     if len(sys.argv) > 1:
         CONFIG["stage"] = sys.argv[1]
     if len(sys.argv) > 2:

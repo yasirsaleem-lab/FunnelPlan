@@ -10,7 +10,21 @@ Items both raters agree on (n=169):
   label_proposed accuracy 0.769 [0.704, 0.834]  kappa 0.539  FP 7  FN 32
   label_final    accuracy 0.917 [0.876, 0.959]  kappa 0.834  FP 0  FN 14
 
-All items against rater 2 (n=200):
+All items against the majority of three raters (main reference) (n=200):
+  strict         accuracy 0.720 [0.655, 0.785]  kappa 0.434  FP 4  FN 52
+  label_f1_07    accuracy 0.800 [0.745, 0.855]  kappa 0.598  FP 11  FN 29
+  label_lenient  accuracy 0.805 [0.745, 0.855]  kappa 0.611  FP 28  FN 11
+  label_proposed accuracy 0.735 [0.675, 0.795]  kappa 0.466  FP 10  FN 43
+  label_final    accuracy 0.840 [0.790, 0.885]  kappa 0.679  FP 6  FN 26
+
+All items against rater 1 alone (n=200):
+  strict         accuracy 0.750 [0.690, 0.810]  kappa 0.468  FP 6  FN 44
+  label_f1_07    accuracy 0.820 [0.765, 0.875]  kappa 0.631  FP 14  FN 22
+  label_lenient  accuracy 0.785 [0.725, 0.840]  kappa 0.578  FP 35  FN 8
+  label_proposed accuracy 0.765 [0.705, 0.825]  kappa 0.509  FP 12  FN 35
+  label_final    accuracy 0.900 [0.855, 0.940]  kappa 0.795  FP 5  FN 15
+
+All items against rater 2 alone (n=200):
   strict         accuracy 0.675 [0.610, 0.740]  kappa 0.390  FP 1  FN 64
   label_f1_07    accuracy 0.765 [0.705, 0.825]  kappa 0.542  FP 7  FN 40
   label_lenient  accuracy 0.810 [0.755, 0.860]  kappa 0.612  FP 20  FN 18

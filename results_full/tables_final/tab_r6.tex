@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering\small
+\caption{Weak protocol (strict EM, one seed, no cost matching) against ours.}
+\label{tab:r6}
+\begin{tabular}{lrrrr}
+\toprule
+Policy & Margin vs Always RAG & Margin vs Never RAG & Cost vs Always RAG & Gain, our protocol \\
+\midrule
+Adaptive k (gap) & +0.029 & +0.150 & 0.83x & -0.018 \\
+Adaptive RAG router & +0.052 & +0.173 & 1.75x & -0.045 \\
+Confidence cascade & +0.083 & +0.204 & 1.84x & +0.002 \\
+Closed book gate & -0.069 & +0.052 & 1.32x & -0.002 \\
+TSR planner & +0.054 & +0.175 & 1.12x & +0.003 \\
+\bottomrule
+\end{tabular}
+\end{table}

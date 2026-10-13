@@ -1,0 +1,9 @@
+Audit,Rule,n,acc,lo,hi,FP,FN
+"Audit 1 (7B, Llama, Qwen3 14B)",strict EM,200,0.635,0.565,0.7,11,62
+"Audit 1 (7B, Llama, Qwen3 14B)",F1 >= 0.7,200,0.735,0.665,0.795,21,32
+"Audit 1 (7B, Llama, Qwen3 14B)",lenient,200,0.695,0.63,0.755,50,11
+"Audit 1 (7B, Llama, Qwen3 14B)",label_final,200,0.8,0.745,0.85,6,34
+"Audit 2 (Gemma, Qwen3 32B)",strict EM,200,0.72,0.655,0.78,4,52
+"Audit 2 (Gemma, Qwen3 32B)",F1 >= 0.7,200,0.8,0.745,0.855,11,29
+"Audit 2 (Gemma, Qwen3 32B)",lenient,200,0.805,0.745,0.86,28,11
+"Audit 2 (Gemma, Qwen3 32B)",label_final,200,0.84,0.785,0.89,6,26

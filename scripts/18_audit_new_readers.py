@@ -245,7 +245,18 @@ def stage_report():
 
     agreed = b[b.r1 == b.r2].assign(human=lambda x: x.r1)
     block(agreed, "Items both raters agree on", "human")
-    block(b.assign(human=b.r2), "All items against rater 2", "human")
+    adj_f = GDIR / "audit_adjudicated.csv"
+    if adj_f.exists():
+        # main reference: majority of three raters (a third rater labelled every item the two raters disagree on)
+        adj = pd.read_csv(adj_f)
+        adj = adj[adj["audit"] == "audit2"].set_index("audit_id")["human"]
+        maj = adj.reindex(b.index)
+        if maj.notna().all():
+            block(b.assign(human=maj.astype(int)), "All items against the majority of three raters (main reference)", "human")
+        else:
+            L.append("\naudit_adjudicated.csv misses audit 2 items; majority block skipped")
+    block(b.assign(human=b.r1), "All items against rater 1 alone", "human")
+    block(b.assign(human=b.r2), "All items against rater 2 alone", "human")
     main = "label_final" if have_final else "strict"
     L.append(f"\n{main} vs agreed human label, by reader and by stratum:")
     ex = agreed.assign(reader=agreed["reader"].str.split(",")).explode("reader")

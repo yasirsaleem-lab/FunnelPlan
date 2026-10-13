@@ -1,0 +1,66 @@
+Primary family (27 pooled tests) against two baselines, label_final.
+mix_value = gain of a non adaptive coin flip between two fixed plans over the best single plan at that cost.
+
+== single step plans: positive against the step baseline 5 of 27; positive against the hull 0
+   mean mix_value +0.017 (range -0.046 to +0.057)
+                                          gain_mix  p_holm_mix  gain_step  ci_low_step  ci_high_step  p_holm_step  mix_value
+reader                  method                                                                                              
+qwen3-32b               planner_tsr          0.004       1.000      0.061        0.041         0.080        0.000      0.056
+                        gate_closed_book    -0.001       1.000      0.056        0.035         0.075        0.000      0.057
+gemma3-27b              planner_tsr         -0.001       1.000      0.048        0.030         0.066        0.000      0.050
+qwen3-14b               planner_tsr          0.004       1.000      0.042        0.024         0.061        0.000      0.038
+llama3.1-8b             planner_tsr          0.005       1.000      0.029        0.011         0.049        0.039      0.025
+                        conf_cascade         0.002       1.000      0.026        0.006         0.046        0.191      0.024
+qwen2.5-7b->qwen3-14b   reader_cascade       0.006       1.000      0.020        0.001         0.037        0.500      0.014
+qwen3-32b               conf_cascade        -0.003       1.000      0.016       -0.004         0.036        1.000      0.019
+qwen2.5-7b              planner_tsr          0.004       1.000      0.013       -0.005         0.030        1.000      0.009
+gemma3-27b              adaptive_k          -0.025       0.314      0.012       -0.008         0.032        1.000      0.037
+qwen3-32b               adaptive_k          -0.012       1.000      0.011       -0.010         0.030        1.000      0.022
+qwen2.5-7b              gate_closed_book    -0.002       1.000      0.009       -0.008         0.026        1.000      0.011
+                        conf_cascade         0.013       1.000      0.009       -0.010         0.029        1.000     -0.003
+gemma3-27b              conf_cascade         0.000       1.000      0.004       -0.015         0.023        1.000      0.004
+                        gate_closed_book    -0.004       1.000      0.003       -0.017         0.023        1.000      0.007
+qwen2.5-7b->llama3.1-8b reader_cascade       0.006       1.000      0.003       -0.016         0.022        1.000     -0.003
+qwen3-14b               adaptive_k          -0.016       1.000      0.003       -0.017         0.022        1.000      0.019
+llama3.1-8b             adaptive_k          -0.022       0.539      0.002       -0.016         0.021        1.000      0.024
+qwen3-14b               conf_cascade        -0.004       1.000      0.001       -0.018         0.019        1.000      0.005
+qwen2.5-7b              adaptive_k          -0.016       1.000     -0.000       -0.020         0.018        1.000      0.016
+llama3.1-8b             gate_closed_book    -0.003       1.000     -0.005       -0.025         0.015        1.000     -0.002
+gemma3-27b              adaptive_rag        -0.032       0.025     -0.014       -0.033         0.006        1.000      0.019
+qwen2.5-7b              adaptive_rag        -0.023       0.382     -0.015       -0.034         0.004        1.000      0.008
+qwen3-32b               adaptive_rag        -0.060       0.000     -0.040       -0.060        -0.020        0.001      0.020
+llama3.1-8b             adaptive_rag        -0.059       0.000     -0.042       -0.061        -0.022        0.000      0.017
+qwen3-14b               gate_closed_book     0.000       1.000     -0.046       -0.065        -0.027        0.000     -0.046
+                        adaptive_rag        -0.052       0.000     -0.047       -0.065        -0.028        0.000      0.005
+
+== with two hop plans: positive against the step baseline 7 of 27; positive against the hull 0
+   mean mix_value +0.023 (range -0.035 to +0.077)
+                                          gain_mix  p_holm_mix  gain_step  ci_low_step  ci_high_step  p_holm_step  mix_value
+reader                  method                                                                                              
+gemma3-27b              planner_tsr          0.004       1.000      0.080        0.061         0.098        0.000      0.077
+qwen3-32b               planner_tsr          0.007       1.000      0.066        0.047         0.085        0.000      0.059
+                        gate_closed_book     0.000       1.000      0.060        0.040         0.079        0.000      0.060
+qwen2.5-7b->qwen3-14b   reader_cascade       0.017       1.000      0.058        0.039         0.076        0.000      0.041
+qwen3-14b               planner_tsr          0.005       1.000      0.038        0.021         0.056        0.001      0.034
+llama3.1-8b             conf_cascade        -0.000       1.000      0.038        0.018         0.058        0.004      0.038
+qwen3-32b               conf_cascade        -0.003       1.000      0.034        0.014         0.054        0.012      0.038
+llama3.1-8b             planner_tsr          0.006       1.000      0.025        0.006         0.044        0.122      0.019
+gemma3-27b              conf_cascade        -0.005       1.000      0.020        0.001         0.039        0.581      0.025
+qwen3-14b               conf_cascade        -0.007       1.000      0.020        0.000         0.038        0.624      0.027
+qwen2.5-7b              conf_cascade         0.011       1.000      0.018       -0.003         0.037        1.000      0.006
+qwen2.5-7b->llama3.1-8b reader_cascade      -0.001       1.000      0.014       -0.006         0.033        1.000      0.015
+qwen2.5-7b              planner_tsr          0.002       1.000      0.013       -0.005         0.030        1.000      0.011
+gemma3-27b              adaptive_k          -0.023       0.545      0.012       -0.008         0.032        1.000      0.034
+qwen3-32b               adaptive_k          -0.011       1.000      0.011       -0.010         0.030        1.000      0.022
+qwen2.5-7b              gate_closed_book    -0.002       1.000      0.009       -0.008         0.026        1.000      0.011
+gemma3-27b              gate_closed_book    -0.004       1.000      0.004       -0.016         0.023        1.000      0.008
+qwen3-14b               adaptive_k          -0.016       1.000      0.003       -0.017         0.022        1.000      0.019
+llama3.1-8b             adaptive_k          -0.022       0.565      0.002       -0.016         0.021        1.000      0.024
+qwen2.5-7b              adaptive_k          -0.016       1.000     -0.000       -0.020         0.018        1.000      0.016
+gemma3-27b              adaptive_rag        -0.021       0.733     -0.001       -0.021         0.018        1.000      0.020
+llama3.1-8b             gate_closed_book    -0.001       1.000     -0.004       -0.024         0.016        1.000     -0.003
+qwen3-14b               gate_closed_book    -0.001       1.000     -0.036       -0.055        -0.017        0.007     -0.035
+qwen3-32b               adaptive_rag        -0.052       0.000     -0.039       -0.060        -0.019        0.003      0.013
+qwen3-14b               adaptive_rag        -0.058       0.000     -0.040       -0.060        -0.021        0.001      0.018
+qwen2.5-7b              adaptive_rag        -0.051       0.000     -0.044       -0.064        -0.025        0.000      0.007
+llama3.1-8b             adaptive_rag        -0.069       0.000     -0.056       -0.075        -0.036        0.000      0.013
