@@ -1,0 +1,401 @@
+audit_id,dataset,query_id,reader,pair,rater1,rater2,rater3,human,audit
+1,musique,1034,qwen2.5-7b,musique::1034::king henry iii,0,0,,0,audit1
+2,musique,2356,qwen2.5-7b,musique::2356::john f kennedy,0,0,,0,audit1
+3,musique,220,llama3.1-8b,musique::220::16th century,0,0,,0,audit1
+4,2wikimultihopqa,200,qwen2.5-7b,2wikimultihopqa::200::tonight city will die,0,0,,0,audit1
+5,nq,2381,llama3.1-8b,nq::2381::around 20 30 years,0,1,1.0,1,audit1
+6,hotpotqa,93735,qwen2.5-7b,hotpotqa::93735::not all 12 million were italian,0,0,,0,audit1
+7,hotpotqa,90698,llama3.1-8b,hotpotqa::90698::shopping and entertainment complex,1,1,,1,audit1
+8,hotpotqa,95223,qwen2.5-7b,hotpotqa::95223::u s 56,0,0,,0,audit1
+9,2wikimultihopqa,7159,qwen2.5-7b,2wikimultihopqa::7159::john berkeley 2nd baron berkeley,0,0,,0,audit1
+10,musique,1639,qwen2.5-7b,musique::1639::over 1000 years,0,0,,0,audit1
+11,nq,2975,qwen3-14b,nq::2975::mod that enables access to otherwise inaccessible mini game in grand theft auto san andreas which features crude sexual content,1,1,,1,audit1
+12,hotpotqa,91689,llama3.1-8b,hotpotqa::91689::northrop f 15 reporter,0,0,,0,audit1
+13,2wikimultihopqa,4176,llama3.1-8b,2wikimultihopqa::4176::bouvier beale,0,0,,0,audit1
+14,2wikimultihopqa,8876,qwen2.5-7b,2wikimultihopqa::8876::best male video,0,1,1.0,1,audit1
+15,2wikimultihopqa,2901,qwen2.5-7b,2wikimultihopqa::2901::bluebeard s ten honeymoons,0,0,,0,audit1
+16,hotpotqa,91444,qwen3-14b,hotpotqa::91444::born in 21st century,0,0,,0,audit1
+17,nq,2950,qwen2.5-7b,nq::2950::ancient sumerians in mesopotamia,0,0,,0,audit1
+18,nq,2961,qwen2.5-7b,nq::2961::huai river zhu jiang delta,0,1,1.0,1,audit1
+19,nq,804,qwen2.5-7b,nq::804::after bid before play,0,1,1.0,1,audit1
+20,hotpotqa,95989,llama3.1-8b,hotpotqa::95989::i m not given any information about county,0,0,,0,audit1
+21,2wikimultihopqa,744,qwen3-14b,2wikimultihopqa::744::12 april 1634,0,0,,0,audit1
+22,2wikimultihopqa,7171,llama3.1-8b,2wikimultihopqa::7171::monaco,0,1,1.0,1,audit1
+23,musique,210,qwen2.5-7b,musique::210::jeff bridges played reuben j rooster cogburn in true grit,1,0,0.0,0,audit1
+24,nq,1298,qwen3-14b,nq::1298::not mentioned in passages,0,0,,0,audit1
+25,hotpotqa,90882,qwen3-14b,hotpotqa::90882::darling river 2 485 km approximate length,0,1,1.0,1,audit1
+26,musique,2294,qwen2.5-7b,musique::2294::1 173 people sq mi,0,0,,0,audit1
+27,2wikimultihopqa,1166,llama3.1-8b,2wikimultihopqa::1166::no information is given about director of film border 2018 film in passages,0,0,,0,audit1
+28,musique,1590,llama3.1-8b,musique::1590::ponte dell accademia,0,1,1.0,1,audit1
+29,2wikimultihopqa,10992,qwen2.5-7b,2wikimultihopqa::10992::stagecoach to monterey,0,1,0.0,0,audit1
+30,hotpotqa,93267,qwen3-14b,hotpotqa::93267::april 10 1918,0,0,,0,audit1
+31,nq,1314,qwen2.5-7b,nq::1314::federal or central government,0,1,0.0,0,audit1
+32,nq,1596,qwen2.5-7b,nq::1596::california arizona and nevada,0,1,0.0,0,audit1
+33,hotpotqa,91635,qwen3-14b,hotpotqa::91635::voice actress in animated film alpha and omega did not voice any character in video game based on provided passages,0,0,,0,audit1
+34,musique,1084,qwen2.5-7b,musique::1084::komo tv,0,0,,0,audit1
+35,musique,679,qwen2.5-7b,musique::679::200 bc to 190 bc,0,0,,0,audit1
+36,2wikimultihopqa,4176,qwen3-14b,2wikimultihopqa::4176::edith bouvier beale,0,1,0.0,0,audit1
+37,nq,1596,llama3.1-8b,nq::1596::california arizona and morocco,0,1,0.0,0,audit1
+38,nq,1203,llama3.1-8b,nq::1203::passage 1 thames head in gloucestershire north sea via thames estuary passage 3 tavistock lake st clair,0,1,1.0,1,audit1
+39,hotpotqa,96382,qwen3-14b,hotpotqa::96382::admiral s men occupied rose theatre in 1590s,0,0,,0,audit1
+40,musique,2335,qwen3-14b,musique::2335::35 45 f,0,1,0.0,0,audit1
+41,hotpotqa,91001,llama3.1-8b,hotpotqa::91001::fortnightly lifestyle and women s magazines,1,1,,1,audit1
+42,nq,3289,qwen2.5-7b,nq::3289::ecosystem services lumber recreation genetic reserve,0,1,0.0,0,audit1
+43,musique,44,qwen3-14b,musique::44::south aroostook county,0,0,,0,audit1
+44,musique,1790,llama3.1-8b,musique::1790::four years,1,1,,1,audit1
+45,2wikimultihopqa,4894,llama3.1-8b,2wikimultihopqa::4894::count adolph ii of marck,0,0,,0,audit1
+46,nq,2333,qwen3-14b,nq::2333::unknown,1,1,,1,audit1
+47,2wikimultihopqa,2366,qwen2.5-7b,2wikimultihopqa::2366::1597,0,1,1.0,1,audit1
+48,nq,1274,llama3.1-8b,nq::1274::crust mantle outer core inner core,1,1,,1,audit1
+49,musique,1468,qwen2.5-7b,musique::1468::central vietnam,0,1,0.0,0,audit1
+50,hotpotqa,95659,qwen3-14b,hotpotqa::95659::musician songwriter,0,1,1.0,1,audit1
+51,2wikimultihopqa,11448,llama3.1-8b,2wikimultihopqa::11448::john of ibelin,0,0,,0,audit1
+52,2wikimultihopqa,5440,llama3.1-8b,2wikimultihopqa::5440::mario bava,0,0,,0,audit1
+53,hotpotqa,94527,qwen3-14b,hotpotqa::94527::15 members,0,0,,0,audit1
+54,hotpotqa,92184,llama3.1-8b,hotpotqa::92184::cleaning services catering services security services,1,1,,1,audit1
+55,2wikimultihopqa,12146,qwen2.5-7b,2wikimultihopqa::12146::best guess massachusetts,0,1,1.0,1,audit1
+56,nq,2216,qwen3-14b,nq::2216::over 50 countries,1,1,,1,audit1
+57,hotpotqa,92109,qwen2.5-7b,hotpotqa::92109::spyker mf1 racing,0,1,0.0,0,audit1
+58,2wikimultihopqa,4860,llama3.1-8b,2wikimultihopqa::4860::quebec,0,1,1.0,1,audit1
+59,nq,587,llama3.1-8b,nq::587::santa monica california,1,1,,1,audit1
+60,2wikimultihopqa,6107,qwen2.5-7b,2wikimultihopqa::6107::guess you l l never get rich,1,1,,1,audit1
+61,musique,44,llama3.1-8b,musique::44::frederick county,0,0,,0,audit1
+62,hotpotqa,94450,llama3.1-8b,hotpotqa::94450::british,0,1,0.0,0,audit1
+63,musique,2218,qwen3-14b,musique::2218::in atlantic ocean typically during summer and early fall,1,1,,1,audit1
+64,hotpotqa,90664,llama3.1-8b,hotpotqa::90664::sasanian empire,0,0,,0,audit1
+65,musique,1103,qwen2.5-7b,musique::1103::january 12 2018,0,0,,0,audit1
+66,musique,963,qwen2.5-7b,musique::963::university of chicago,0,0,,0,audit1
+67,musique,1611,llama3.1-8b,musique::1611::tongji bridge,0,1,0.0,0,audit1
+68,musique,2106,qwen3-14b,musique::2106::henry county,0,0,,0,audit1
+69,hotpotqa,90497,llama3.1-8b,hotpotqa::90497::2010 big 12,0,0,,0,audit1
+70,2wikimultihopqa,10051,llama3.1-8b,2wikimultihopqa::10051::george pack jr,0,1,0.0,0,audit1
+71,nq,3313,llama3.1-8b,nq::3313::advisory speed limit,1,1,,1,audit1
+72,hotpotqa,95760,llama3.1-8b,hotpotqa::95760::rodolfo rodríguez saá,0,1,1.0,1,audit1
+73,nq,2961,qwen2.5-7b,nq::2961::sichuan basin yangtze river valley,1,1,,1,audit1
+74,2wikimultihopqa,1197,llama3.1-8b,2wikimultihopqa::1197::queen jeonghui,0,1,0.0,0,audit1
+75,musique,532,qwen2.5-7b,musique::532::2011,0,1,1.0,1,audit1
+76,nq,602,qwen2.5-7b,nq::602::gardiner cousins bunton,0,0,,0,audit1
+77,hotpotqa,96658,llama3.1-8b,hotpotqa::96658::mexico and guatemala,0,0,,0,audit1
+78,hotpotqa,90497,qwen3-14b,hotpotqa::90497::2014 pac 12 conference,0,0,,0,audit1
+79,2wikimultihopqa,12146,llama3.1-8b,2wikimultihopqa::12146::massachusetts,0,1,1.0,1,audit1
+80,nq,2278,llama3.1-8b,nq::2278::tandi,1,1,,1,audit1
+81,2wikimultihopqa,8305,qwen2.5-7b,2wikimultihopqa::8305::james cochrane,0,0,,0,audit1
+82,nq,1986,llama3.1-8b,nq::1986::london waterloo london victoria london st pancras,0,1,0.0,0,audit1
+83,2wikimultihopqa,12331,llama3.1-8b,2wikimultihopqa::12331::scipio africanus,0,1,0.0,0,audit1
+84,nq,614,qwen2.5-7b,nq::614::pyongyang north korea,0,0,,0,audit1
+85,musique,2126,qwen2.5-7b,musique::2126::university of alabama,0,0,,0,audit1
+86,musique,1613,qwen2.5-7b,musique::1613::376 years,0,0,,0,audit1
+87,hotpotqa,93293,llama3.1-8b,hotpotqa::93293::texas m university,1,1,,1,audit1
+88,musique,461,llama3.1-8b,musique::461::ted mosby,0,0,,0,audit1
+89,hotpotqa,93420,qwen2.5-7b,hotpotqa::93420::hong kong,0,1,0.0,0,audit1
+90,nq,1560,llama3.1-8b,nq::1560::uralic language family,1,1,,1,audit1
+91,2wikimultihopqa,538,qwen2.5-7b,2wikimultihopqa::538::sir thomas lawley,1,1,,1,audit1
+92,musique,1602,llama3.1-8b,musique::1602::spoken theatre and puppet theatre,0,1,0.0,0,audit1
+93,nq,1783,llama3.1-8b,nq::1783::september 8 2010,1,1,,1,audit1
+94,musique,1471,qwen2.5-7b,musique::1471::central coast,0,1,0.0,0,audit1
+95,hotpotqa,92005,llama3.1-8b,hotpotqa::92005::november 11 1918,1,1,,1,audit1
+96,nq,2794,llama3.1-8b,nq::2794::edinburgh scotland,1,1,,1,audit1
+97,2wikimultihopqa,6759,qwen3-14b,2wikimultihopqa::6759::fredrik klaveness,1,1,,1,audit1
+98,2wikimultihopqa,149,llama3.1-8b,2wikimultihopqa::149::charles i of sicily,1,1,,1,audit1
+99,musique,2121,qwen3-14b,musique::2121::johnson county south carolina,0,1,0.0,0,audit1
+100,hotpotqa,94541,llama3.1-8b,hotpotqa::94541::baltimore to sandy hook,1,1,,1,audit1
+101,hotpotqa,96246,llama3.1-8b,hotpotqa::96246::virginia kentucky tennessee,1,1,,1,audit1
+102,2wikimultihopqa,8145,llama3.1-8b,2wikimultihopqa::8145::bangladesh national film award,0,1,0.0,0,audit1
+103,nq,1198,llama3.1-8b,nq::1198::ernest rutherford,1,1,,1,audit1
+104,2wikimultihopqa,586,qwen2.5-7b,2wikimultihopqa::586::let s sing again,0,1,0.0,0,audit1
+105,nq,1203,llama3.1-8b,nq::1203::thames head north sea,0,1,1.0,1,audit1
+106,nq,3178,qwen2.5-7b,nq::3178::donald bradman,1,1,,1,audit1
+107,2wikimultihopqa,1498,qwen2.5-7b,2wikimultihopqa::1498::when en el cielo pasen lista,1,1,,1,audit1
+108,hotpotqa,92184,qwen2.5-7b,hotpotqa::92184::cleaning catering security,1,1,,1,audit1
+109,2wikimultihopqa,2876,qwen2.5-7b,2wikimultihopqa::2876::william henry fitzroy 6th duke of grafton,0,1,0.0,0,audit1
+110,nq,1947,qwen2.5-7b,nq::1947::june 13 to 22 2012,1,1,,1,audit1
+111,hotpotqa,95203,qwen2.5-7b,hotpotqa::95203::to squarepants or not to squareppants,1,1,,1,audit1
+112,nq,510,llama3.1-8b,nq::510::mgm resorts,1,1,,1,audit1
+113,2wikimultihopqa,8145,qwen2.5-7b,2wikimultihopqa::8145::bangladesh national film award for best editing,0,1,0.0,0,audit1
+114,hotpotqa,90497,qwen3-14b,hotpotqa::90497::2007 big 12 conference,0,0,,0,audit1
+115,hotpotqa,96246,llama3.1-8b,hotpotqa::96246::virginia kentucky and tennessee,1,1,,1,audit1
+116,musique,1885,qwen2.5-7b,musique::1885::march 29,1,1,,1,audit1
+117,musique,157,qwen2.5-7b,musique::157::academy award for best actress,0,1,1.0,1,audit1
+118,musique,1309,qwen2.5-7b,musique::1309::sea air land,1,1,,1,audit1
+119,musique,1159,qwen2.5-7b,musique::1159::academy award for best actor,0,0,,0,audit1
+120,nq,2960,qwen3-14b,nq::2960::civil war,1,1,,1,audit1
+121,hotpotqa,96658,llama3.1-8b,hotpotqa::96658::mexico and spain,0,1,1.0,1,audit1
+122,nq,2749,qwen2.5-7b,nq::2749::foreign exchange call option,1,1,,1,audit1
+123,nq,3143,llama3.1-8b,nq::3143::224 7 days,1,1,,1,audit1
+124,2wikimultihopqa,11776,llama3.1-8b,2wikimultihopqa::11776::felix of bourbon parma,1,1,,1,audit1
+125,hotpotqa,91819,llama3.1-8b,hotpotqa::91819::scored 1 000 points with two different teams,1,1,,1,audit1
+126,musique,1672,qwen2.5-7b,musique::1672::koh phi phi,1,1,,1,audit1
+127,musique,163,qwen2.5-7b,musique::163::sir edwin henry landseer,0,1,0.0,0,audit1
+128,hotpotqa,90466,llama3.1-8b,hotpotqa::90466::robert erskine childers,1,1,,1,audit1
+129,musique,29,llama3.1-8b,musique::29::sir francis baring,1,1,,1,audit1
+130,2wikimultihopqa,6857,llama3.1-8b,2wikimultihopqa::6857::adam zamoyski,1,1,,1,audit1
+131,hotpotqa,97725,llama3.1-8b,hotpotqa::97725::i don t have information about john william henry ii,0,0,,0,audit1
+132,nq,3163,llama3.1-8b,nq::3163::cast of film including meryl streep emily blunt james corden anna kendrick chris pine and others,1,1,,1,audit1
+133,nq,2446,llama3.1-8b,nq::2446::norwegian town fictional version of malibu california school mr grimes toy factory norwegian town,0,1,1.0,1,audit1
+134,musique,1226,qwen3-14b,musique::1226::question is unclear and contains incorrect information bedari s country is not recognized term or entity additionally majority religion in area that became india was not islam but hinduism arabic word for islam is الإسلام al islām meaning submission or surrender to will of god,0,1,0.0,0,audit1
+135,2wikimultihopqa,4168,llama3.1-8b,2wikimultihopqa::4168::i couldn t find death information of directors of films bawarchi and manhattan romance,0,0,,0,audit1
+136,musique,1023,llama3.1-8b,musique::1023::no information is given about number of students at university of zurich,0,1,1.0,1,audit1
+137,2wikimultihopqa,8451,llama3.1-8b,2wikimultihopqa::8451::i can t answer that question because passage does not contain answer however i can tell you that passage does not mention director of ocean s 11,0,0,,0,audit1
+138,musique,1226,qwen3-14b,musique::1226::question is unclear and contains inaccuracies bedari s country is not recognized term or entity in historical or geographical contexts additionally majority religion in area that became india was hinduism not term that can be directly translated from arabic in this context,0,1,0.0,0,audit1
+139,hotpotqa,97725,llama3.1-8b,hotpotqa::97725::i cannot verify age of john william henry ii,0,0,,0,audit1
+140,2wikimultihopqa,102,qwen3-14b,2wikimultihopqa::102::byzantine as she is referred to as dowager queen maria komnene and komnenos family was of byzantine origin,1,1,,1,audit1
+141,nq,1582,qwen2.5-7b,nq::1582::dollree mapp police shon birns edward keeling don king,1,1,,1,audit1
+142,hotpotqa,97769,qwen2.5-7b,hotpotqa::97769::tricia helfer voices sarah kerrigan in starcraft 2,1,1,,1,audit1
+143,hotpotqa,91958,qwen2.5-7b,hotpotqa::91958::passage does not explicitly state change in lead vocalist for maroon 5 s sixth studio album therefore we can infer that lead vocalist remains adam levine,1,1,,1,audit1
+144,nq,739,llama3.1-8b,nq::739::1 india wins freedom 2 ghubar e khatir 3 tazkirah 4 tarjumanul quran 5 al hilal 6 al balagh 7 lissan us sidq 8 nairang e aalam 9 al misbah 10 dahulbab,1,1,,1,audit1
+145,2wikimultihopqa,12090,llama3.1-8b,2wikimultihopqa::12090::i couldn t find information on kari lindroos,0,0,,0,audit1
+146,hotpotqa,94202,llama3.1-8b,hotpotqa::94202::no passage 1 does not confirm yoo hoo is carbonated passage 4 does not confirm faygo is carbonated,1,1,,1,audit1
+147,hotpotqa,96585,llama3.1-8b,hotpotqa::96585::michael stipe s bandmate was not bassist but rather bassist was michael s bandmate mike mills,1,1,,1,audit1
+148,2wikimultihopqa,4122,qwen3-14b,2wikimultihopqa::4122::passage does not provide information about where evelyn cecil 1st baron rockley s father graduated from however based on information given his father was lord eustace cecil who was educated at harrow and royal military college sandhurst therefore it is likely that lord eustace cecil graduated from harrow and royal military college sandhurst,0,1,1.0,1,audit1
+149,musique,1210,llama3.1-8b,musique::1210::i couldn t find answer in given passages,0,0,,0,audit1
+150,musique,527,qwen2.5-7b,musique::527::sandra day o connor attended law school at stanford university though this information isn t directly provided in passages based on given passages we can infer she was educated but specific institution is not mentioned,0,1,1.0,1,audit1
+151,2wikimultihopqa,6849,llama3.1-8b,2wikimultihopqa::6849::i don t have information about director of ghosts of port arthur,0,1,1.0,1,audit1
+152,nq,151,qwen3-14b,nq::151::mcchicken sandwich from mcdonald s typically consists of toasted wheat bun breaded chicken patty shredded lettuce and mayonnaise in some regions it may include additional ingredients like caramelized onions cheddar cheese or teriyaki sauce,1,1,,1,audit1
+153,nq,1402,llama3.1-8b,nq::1402::two days after armistice on 1 november 1918,0,1,1.0,1,audit1
+154,nq,2379,qwen3-14b,nq::2379::in digestive systems of many organisms specifically in duodenum,1,1,,1,audit1
+155,musique,1761,qwen3-14b,musique::1761::position of governor in vatican city which houses head of catholicism pope and st peter s basilica was ended in 1952 with death of marchese camillo serafini first and only governor basilica of st peter is not directly associated with knife in last supper in context of governor s position however in leonardo da vinci s painting of last supper peter is,1,1,,1,audit1
+156,hotpotqa,97769,qwen2.5-7b,hotpotqa::97769::tricia helfer voiced sarah kerrigan in starcraft 2,1,1,,1,audit1
+157,musique,1226,qwen3-14b,musique::1226::question is unclear and contains inaccuracies bedari s country is not recognized term or entity in historical or geographical contexts additionally majority religion in area that became india was hinduism and its meaning in arabic is not typically found in arabic dictionaries as hindu is ethno geographical term not religious one in its original usage,0,1,0.0,0,audit1
+158,2wikimultihopqa,7766,llama3.1-8b,2wikimultihopqa::7766::bulldog drummond s bride 1939 was released first,1,1,,1,audit1
+159,2wikimultihopqa,6759,qwen2.5-7b,2wikimultihopqa::6759::anton fredrik klaveness s father is not mentioned in passages,0,1,1.0,1,audit1
+160,hotpotqa,94369,qwen3-14b,hotpotqa::94369::six nations comprising mohawk onondaga oneida cayuga seneca and tuscarora peoples,1,1,,1,audit1
+161,hotpotqa,96392,qwen2.5-7b,hotpotqa::96392::nazi euthanasia program,1,1,,1,audit1
+162,hotpotqa,93075,llama3.1-8b,hotpotqa::93075::yes,1,1,,1,audit1
+163,2wikimultihopqa,4420,llama3.1-8b,2wikimultihopqa::4420::no,1,1,,1,audit1
+164,hotpotqa,91956,qwen2.5-7b,hotpotqa::91956::north queensland cowboys or melbourne storm,0,1,0.0,0,audit1
+165,musique,1817,llama3.1-8b,musique::1817::15th century,1,1,,1,audit1
+166,2wikimultihopqa,4464,llama3.1-8b,2wikimultihopqa::4464::irish,1,1,,1,audit1
+167,musique,1001,llama3.1-8b,musique::1001::yeltsin,1,1,,1,audit1
+168,nq,2650,llama3.1-8b,nq::2650::during metaphase of cell division,1,1,,1,audit1
+169,nq,2854,llama3.1-8b,nq::2854::archduke franz ferdinand of austria,1,1,,1,audit1
+170,2wikimultihopqa,10822,llama3.1-8b,2wikimultihopqa::10822::no,1,1,,1,audit1
+171,musique,1533,qwen3-14b,musique::1533::1981 world series,1,1,,1,audit1
+172,musique,1789,qwen2.5-7b,musique::1789::kuat tv 6,1,1,,1,audit1
+173,2wikimultihopqa,4168,llama3.1-8b,2wikimultihopqa::4168::manhattan romance,1,1,,1,audit1
+174,2wikimultihopqa,9119,llama3.1-8b,2wikimultihopqa::9119::i cannot verify director of leatherheads,0,0,,0,audit1
+175,nq,553,qwen2.5-7b,nq::553::declared neutrality,1,1,,1,audit1
+176,musique,1870,qwen2.5-7b,musique::1870::thursday march 29 2018,1,1,,1,audit1
+177,hotpotqa,95198,llama3.1-8b,hotpotqa::95198::bonkyll castle,1,1,,1,audit1
+178,hotpotqa,97040,qwen3-14b,hotpotqa::97040::visit 2015 directed by m night shyamalan,1,1,,1,audit1
+179,nq,3011,llama3.1-8b,nq::3011::1956,1,1,,1,audit1
+180,nq,98,llama3.1-8b,nq::98::late 1967,1,1,,1,audit1
+181,2wikimultihopqa,3193,llama3.1-8b,2wikimultihopqa::3193::there is no information about directors of these films in given passages,0,0,,0,audit1
+182,musique,211,llama3.1-8b,musique::211::i m not able to find answer in given passages,0,0,,0,audit1
+183,hotpotqa,95784,qwen2.5-7b,hotpotqa::95784::forbidden creatures focuses on exotic pets and smuggling while no animals were harmed does not specify focus,0,1,0.0,0,audit1
+184,musique,2084,qwen2.5-7b,musique::2084::this question cannot be answered based on given passages there is no mention of changes two performer or any information about largest city and capitol of state related to performer,0,0,,0,audit1
+185,musique,1737,qwen3-14b,musique::1737::not mentioned in passages,0,0,,0,audit1
+186,2wikimultihopqa,10662,llama3.1-8b,2wikimultihopqa::10662::there is no information about director of film passport to rio dying in given passages,0,0,,0,audit1
+187,hotpotqa,91775,qwen3-14b,hotpotqa::91775::approximately 40 years,0,1,0.0,0,audit1
+188,nq,1783,llama3.1-8b,nq::1783::2009,0,0,,0,audit1
+189,nq,2335,llama3.1-8b,nq::2335::roger federer did not win title on 1 february 2015 passage does not mention winner of men s single title on that date,0,0,,0,audit1
+190,musique,1613,qwen2.5-7b,musique::1613::not enough information,0,0,,0,audit1
+191,musique,289,llama3.1-8b,musique::289::blake lewis,0,0,,0,audit1
+192,nq,1679,qwen3-14b,nq::1679::unknown,0,0,,0,audit1
+193,hotpotqa,97712,qwen3-14b,hotpotqa::97712::clementines have less of organic material with chemical formula chn than oranges,0,1,0.0,0,audit1
+194,nq,2810,llama3.1-8b,nq::2810::no in new york you don t need permit to shoot at range if supervised,1,1,,1,audit1
+195,nq,2020,llama3.1-8b,nq::2020::unknown,0,0,,0,audit1
+196,2wikimultihopqa,12331,llama3.1-8b,2wikimultihopqa::12331::lucius aemulus,0,0,,0,audit1
+197,hotpotqa,90950,qwen3-14b,hotpotqa::90950::17 august 1788,0,0,,0,audit1
+198,hotpotqa,95468,llama3.1-8b,hotpotqa::95468::saloon,0,0,,0,audit1
+199,2wikimultihopqa,9243,qwen2.5-7b,2wikimultihopqa::9243::germany,0,0,,0,audit1
+200,2wikimultihopqa,2865,qwen2.5-7b,2wikimultihopqa::2865::germany,0,0,,0,audit1
+1001,musique,1652,gemma3-27b,musique::1652::over 20 years,0,0,,0,audit2
+1002,nq,3212,"gemma3-27b,qwen3-32b",nq::3212::prince henry navigator,1,1,,1,audit2
+1003,hotpotqa,94648,gemma3-27b,hotpotqa::94648::passages do not contain answer best guess possibly,0,0,,0,audit2
+1004,musique,1518,"gemma3-27b,qwen3-32b",musique::1518::cairo illinois,1,1,,1,audit2
+1005,nq,1560,"gemma3-27b,qwen3-32b",nq::1560::uralic,1,1,,1,audit2
+1006,musique,168,gemma3-27b,musique::168::many fled were expelled,0,1,0.0,0,audit2
+1007,musique,1258,"gemma3-27b,qwen3-32b",musique::1258::min zhou and carl l bankston iii,1,1,,1,audit2
+1008,nq,148,gemma3-27b,nq::148::mark andreessen defined it,1,1,,1,audit2
+1009,2wikimultihopqa,3469,"gemma3-27b,qwen3-32b",2wikimultihopqa::3469::archduchess maria amalia of austria,0,0,,0,audit2
+1010,nq,1468,gemma3-27b,nq::1468::devastator mixmaster rampage ravage scrapper long haul scorponok fallen sideways demolisher jetfire,1,1,,1,audit2
+1011,2wikimultihopqa,1166,qwen3-32b,2wikimultihopqa::1166::director of film border 2018 film ali abbasi did not have their educational background mentioned in provided passages therefore answer cannot be determined from given information,0,0,,0,audit2
+1012,hotpotqa,93712,gemma3-27b,hotpotqa::93712::everglades and south east forests,0,0,,0,audit2
+1013,2wikimultihopqa,2483,qwen3-32b,2wikimultihopqa::2483::duke de of qin is father of duke xuan of qin paternal grandfather of duke xuan of qin is duke xian of qin,1,1,,1,audit2
+1014,nq,2773,qwen3-32b,nq::2773::carbon can be found in all land living organisms both alive and dead and in soils,1,1,,1,audit2
+1015,hotpotqa,94444,gemma3-27b,hotpotqa::94444::swiss mercenaries and genoese milanese,0,0,,0,audit2
+1016,2wikimultihopqa,4003,"gemma3-27b,qwen3-32b",2wikimultihopqa::4003::boston massachusetts,1,1,,1,audit2
+1017,2wikimultihopqa,12222,qwen3-32b,2wikimultihopqa::12222::anthony ashley cooper 2nd earl of shaftesbury,0,0,,0,audit2
+1018,nq,605,qwen3-32b,nq::605::goku first went super saiyan 4 in dragon ball gt,1,1,,1,audit2
+1019,2wikimultihopqa,979,gemma3-27b,2wikimultihopqa::979::nightmare on elm street,0,1,1.0,1,audit2
+1020,hotpotqa,96761,qwen3-32b,hotpotqa::96761::answer is not directly mentioned in provided passages best guess ford falcon,1,1,,1,audit2
+1021,2wikimultihopqa,3852,"gemma3-27b,qwen3-32b",2wikimultihopqa::3852::jeanne de bar,1,1,,1,audit2
+1022,2wikimultihopqa,2876,qwen3-32b,2wikimultihopqa::2876::answer is not directly stated in passages best guess paternal grandfather of henry james fitzroy earl of euston would be father of augustus fitzroy 7th duke of grafton though his name is not provided in passages,0,1,1.0,1,audit2
+1023,musique,1602,gemma3-27b,musique::1602::kunqu yang yue xi jing suzhou pingtan puppet theatre,0,1,0.0,0,audit2
+1024,musique,2250,qwen3-32b,musique::2250::marcel bich died in paris busiest airport in paris is paris charles de gaulle airport,1,1,,1,audit2
+1025,nq,2404,"gemma3-27b,qwen3-32b",nq::2404::hard rock,0,1,0.0,0,audit2
+1026,nq,585,qwen3-32b,nq::585::none of passages mention who plays lady talisa in game of thrones,0,0,,0,audit2
+1027,nq,739,"gemma3-27b,qwen3-32b",nq::739::india wins freedom ghubar e khatir tazkirah tarjumanul quran,1,1,,1,audit2
+1028,hotpotqa,95749,"gemma3-27b,qwen3-32b",hotpotqa::95749::jersey barriers,1,1,,1,audit2
+1029,musique,73,"gemma3-27b,qwen3-32b",musique::73::london,0,0,,0,audit2
+1030,nq,1645,"gemma3-27b,qwen3-32b",nq::1645::auguste escoffier,1,1,,1,audit2
+1031,musique,1023,qwen3-32b,musique::1023::university of zurich where francis travis received his ph d is not mentioned in passage regarding student enrollment therefore exact number of students attending university is unknown,0,1,1.0,1,audit2
+1032,musique,1237,qwen3-32b,musique::1237::author of feminine mystique is betty friedan american average salary of working citizen in united states is not provided in passages,0,0,,0,audit2
+1033,musique,1605,qwen3-32b,musique::1605::antonio vivaldi was born in venice passage 2 mentions that during black death in 1348 out of 18 doctors in venice five had died and 12 were missing this indicates at least one major plague outbreak in venice there is no mention of other plague occurrences in venice in provided passages answer at least once,0,0,,0,audit2
+1034,musique,432,qwen3-32b,musique::432::assets were inherited by british east india company,0,1,0.0,0,audit2
+1035,hotpotqa,93644,"gemma3-27b,qwen3-32b",hotpotqa::93644::illinois,0,0,,0,audit2
+1036,nq,95,qwen3-32b,nq::95::copper gold palladium nickel cobalt manganese,0,1,1.0,1,audit2
+1037,nq,1340,qwen3-32b,nq::1340::four wars have been held between india and pakistan,1,1,,1,audit2
+1038,nq,2443,gemma3-27b,nq::2443::level 2 and 3,0,0,,0,audit2
+1039,2wikimultihopqa,5629,gemma3-27b,2wikimultihopqa::5629::not stated,0,0,,0,audit2
+1040,hotpotqa,91233,"gemma3-27b,qwen3-32b",hotpotqa::91233::pierre womé,1,1,,1,audit2
+1041,musique,998,qwen3-32b,musique::998::passages do not provide information about who introduced system of musical notation in region after second punic war therefore i cannot provide specific answer,0,0,,0,audit2
+1042,nq,1941,qwen3-32b,nq::1941::passages do not specify number of seas that chinese dragons are protectors of however they are mentioned as rulers of moving bodies of water including seas answer not specified,0,0,,0,audit2
+1043,hotpotqa,93039,"gemma3-27b,qwen3-32b",hotpotqa::93039::mark hollis,1,1,,1,audit2
+1044,hotpotqa,96607,gemma3-27b,hotpotqa::96607::czech lands,0,1,1.0,1,audit2
+1045,nq,376,gemma3-27b,nq::376::not specified,0,0,,0,audit2
+1046,hotpotqa,91190,"gemma3-27b,qwen3-32b",hotpotqa::91190::eddie eagle,1,1,,1,audit2
+1047,nq,2140,gemma3-27b,nq::2140::nixon,1,1,,1,audit2
+1048,nq,2637,qwen3-32b,nq::2637::possible early pregnancy check again later,0,0,,0,audit2
+1049,2wikimultihopqa,8802,gemma3-27b,2wikimultihopqa::8802::passage does not contain information best guess yes,1,1,,1,audit2
+1050,nq,1198,gemma3-27b,nq::1198::rutherford,1,1,,1,audit2
+1051,musique,1883,"gemma3-27b,qwen3-32b",musique::1883::july 12 2016,0,0,,0,audit2
+1052,hotpotqa,94214,gemma3-27b,hotpotqa::94214::ncaa division i,0,1,1.0,1,audit2
+1053,musique,2216,gemma3-27b,musique::2216::passage does not contain answer best guess unknown,0,0,,0,audit2
+1054,2wikimultihopqa,11448,gemma3-27b,2wikimultihopqa::11448::john of jaffa,0,0,,0,audit2
+1055,musique,2127,qwen3-32b,musique::2127::university of north carolina has more national championships than byu and savannah state university,0,1,1.0,1,audit2
+1056,hotpotqa,97127,gemma3-27b,hotpotqa::97127::actor directors,1,1,,1,audit2
+1057,musique,1761,"gemma3-27b,qwen3-32b",musique::1761::1952,1,1,,1,audit2
+1058,2wikimultihopqa,1166,qwen3-32b,2wikimultihopqa::1166::danish film school,1,1,,1,audit2
+1059,nq,2355,gemma3-27b,nq::2355::outkast erykah badu,0,0,,0,audit2
+1060,2wikimultihopqa,12090,qwen3-32b,2wikimultihopqa::12090::kari lindroos is younger than jean dominique compans,1,1,,1,audit2
+1061,2wikimultihopqa,11482,qwen3-32b,2wikimultihopqa::11482::lassie come home was directed by fred m wilcox born 1901 and evan almighty was directed by tom shadyac born 1958 therefore answer is evan almighty,1,1,,1,audit2
+1062,musique,1333,qwen3-32b,musique::1333::march 31 or april 1,0,0,,0,audit2
+1063,musique,2121,qwen3-32b,musique::2121::halifax county,0,0,,0,audit2
+1064,nq,602,gemma3-27b,nq::602::robin cousins jason gardiner ashley roberts karen barber,1,1,,1,audit2
+1065,musique,1085,gemma3-27b,musique::1085::about half,1,1,,1,audit2
+1066,hotpotqa,96382,qwen3-32b,hotpotqa::96382::english renaissance theatre,0,0,,0,audit2
+1067,2wikimultihopqa,2380,qwen3-32b,2wikimultihopqa::2380::john tuchet 8th baron audley,0,0,,0,audit2
+1068,hotpotqa,93712,qwen3-32b,hotpotqa::93712::south dade high school is not mentioned as being located between two national parks in provided passages however based on its location near homestead florida it could be inferred to be near everglades national park and biscayne national park answer everglades national park and biscayne national park,1,1,,1,audit2
+1069,nq,2944,gemma3-27b,nq::2944::on forearm,0,1,0.0,0,audit2
+1070,nq,2671,qwen3-32b,nq::2671::url generally has form protocol hostname filename specifying protocol hostname and often file or resource path,1,1,,1,audit2
+1071,hotpotqa,92530,"gemma3-27b,qwen3-32b",hotpotqa::92530::general motors,1,1,,1,audit2
+1072,nq,2443,gemma3-27b,nq::2443::entry level to 7,1,1,,1,audit2
+1073,hotpotqa,93729,gemma3-27b,hotpotqa::93729::passage 1 states anne lamott is non fiction writer passage 2 states stanley elkin is novelist short story writer and essayist,0,1,1.0,1,audit2
+1074,hotpotqa,96392,"gemma3-27b,qwen3-32b",hotpotqa::96392::children s euthanasia program,0,1,1.0,1,audit2
+1075,hotpotqa,95015,gemma3-27b,hotpotqa::95015::passages do not mention harry everett smith best guess possibly,0,0,,0,audit2
+1076,hotpotqa,94756,gemma3-27b,hotpotqa::94756::passages do not mention coldplay best guess no,1,1,,1,audit2
+1077,musique,632,gemma3-27b,musique::632::nba teams,0,1,1.0,1,audit2
+1078,hotpotqa,94654,gemma3-27b,hotpotqa::94654::passages do not contain answer jaguar land rover,0,0,,0,audit2
+1079,musique,1628,qwen3-32b,musique::1628::manchester united f c,0,0,,0,audit2
+1080,nq,2512,gemma3-27b,nq::2512::ricki lee coulter sonia kruger shane jacobsen todd mckenney,0,0,,0,audit2
+1081,nq,1468,gemma3-27b,nq::1468::devastator mixmaster rampage ravage scrapper long haul scorponok fallen sideways demolisher grindor alice,1,0,0.0,0,audit2
+1082,2wikimultihopqa,4822,"gemma3-27b,qwen3-32b",2wikimultihopqa::4822::once upon time in woods,1,1,,1,audit2
+1083,2wikimultihopqa,1213,"gemma3-27b,qwen3-32b",2wikimultihopqa::1213::william iv,1,1,,1,audit2
+1084,musique,744,qwen3-32b,musique::744::inter marriage and conversions,1,1,,1,audit2
+1085,nq,3079,gemma3-27b,nq::3079::john adams benjamin franklin alexander hamilton john jay thomas jefferson james madison george washington,1,1,,1,audit2
+1086,hotpotqa,96068,"gemma3-27b,qwen3-32b",hotpotqa::96068::university of rochester,0,0,,0,audit2
+1087,nq,1480,"gemma3-27b,qwen3-32b",nq::1480::wilhelm conrad röntgen,1,1,,1,audit2
+1088,nq,3214,qwen3-32b,nq::3214::angle of leaning tower of pisa is approximately 3 9 degrees,1,1,,1,audit2
+1089,hotpotqa,93744,gemma3-27b,hotpotqa::93744::taiwanese hokkien cantonese japanese indonesian english,1,1,,1,audit2
+1090,musique,1386,qwen3-32b,musique::1386::january 3 2015,1,1,,1,audit2
+1091,hotpotqa,96202,gemma3-27b,hotpotqa::96202::9 seasons 172 episodes,0,0,,0,audit2
+1092,hotpotqa,96246,qwen3-32b,hotpotqa::96246::kentucky virginia and tennessee,1,1,,1,audit2
+1093,nq,2568,qwen3-32b,nq::2568::main objective of criminal law is to provide mechanism for punishing offender and to protect society against harmful actions by defining crimes and prescribing punishments,0,1,0.0,0,audit2
+1094,nq,2931,gemma3-27b,nq::2931::thomas hobbes leviathan,1,1,,1,audit2
+1095,2wikimultihopqa,12222,qwen3-32b,2wikimultihopqa::12222::anthony ashley cooper 7th earl of shaftesbury,0,0,,0,audit2
+1096,musique,1475,gemma3-27b,musique::1475::passage does not contain answer best guess south west region,0,0,,0,audit2
+1097,musique,212,gemma3-27b,musique::212::thames ditton,0,0,,0,audit2
+1098,2wikimultihopqa,3425,gemma3-27b,2wikimultihopqa::3425::passage 4 states elene was married to levan levan,0,0,,0,audit2
+1099,musique,212,qwen3-32b,musique::212::thames ditton surrey,0,1,0.0,0,audit2
+1100,hotpotqa,95585,"gemma3-27b,qwen3-32b",hotpotqa::95585::colorado river,0,0,,0,audit2
+1101,musique,963,gemma3-27b,musique::963::not specified,0,0,,0,audit2
+1102,hotpotqa,92411,"gemma3-27b,qwen3-32b",hotpotqa::92411::frank sinatra show,0,0,,0,audit2
+1103,hotpotqa,91153,gemma3-27b,hotpotqa::91153::passage does not contain answer best guess unknown,0,0,,0,audit2
+1104,nq,2698,"gemma3-27b,qwen3-32b",nq::2698::geraldine somerville,1,1,,1,audit2
+1105,2wikimultihopqa,3751,gemma3-27b,2wikimultihopqa::3751::george beresford,1,1,,1,audit2
+1106,2wikimultihopqa,10039,"gemma3-27b,qwen3-32b",2wikimultihopqa::10039::born free,0,1,0.0,0,audit2
+1107,musique,1565,qwen3-32b,musique::1565::creator of punishment of tythus is titian who died in venice italy there is no specific information in provided passages about how many times plague occurred in venice therefore based on given information answer cannot be determined,0,0,,0,audit2
+1108,nq,1268,qwen3-32b,nq::1268::father fermín lasuén,1,1,,1,audit2
+1109,nq,525,"gemma3-27b,qwen3-32b",nq::525::november 18 1961,1,1,,1,audit2
+1110,hotpotqa,91299,qwen3-32b,hotpotqa::91299::season six episode 5,1,1,,1,audit2
+1111,2wikimultihopqa,2801,"gemma3-27b,qwen3-32b",2wikimultihopqa::2801::mieszko i,0,0,,0,audit2
+1112,hotpotqa,92571,gemma3-27b,hotpotqa::92571::not found ireland,0,0,,0,audit2
+1113,hotpotqa,94814,qwen3-32b,hotpotqa::94814::viva media ag changed its name to viva media gmbh in 2004 new acronym gmbh stands for gesellschaft mit beschränkter haftung which is german term for limited liability company,1,1,,1,audit2
+1114,hotpotqa,90484,"gemma3-27b,qwen3-32b",hotpotqa::90484::world war i,0,0,,0,audit2
+1115,musique,461,"gemma3-27b,qwen3-32b",musique::461::tracy mcconnell,0,0,,0,audit2
+1116,musique,2048,gemma3-27b,musique::2048::passages do not contain answer best guess 1990,1,1,,1,audit2
+1117,2wikimultihopqa,5770,gemma3-27b,2wikimultihopqa::5770::jean baptiste taschereau,0,0,,0,audit2
+1118,nq,1095,gemma3-27b,nq::1095::passage does not contain answer best guess not mentioned,0,0,,0,audit2
+1119,2wikimultihopqa,6487,"gemma3-27b,qwen3-32b",2wikimultihopqa::6487::friedrich wilhelm von reden,1,1,,1,audit2
+1120,hotpotqa,97723,qwen3-32b,hotpotqa::97723::not specified in passages,0,0,,0,audit2
+1121,2wikimultihopqa,3886,gemma3-27b,2wikimultihopqa::3886::jules white,0,1,0.0,0,audit2
+1122,hotpotqa,92613,"gemma3-27b,qwen3-32b",hotpotqa::92613::dirk nowitzki,1,1,,1,audit2
+1123,hotpotqa,97577,"gemma3-27b,qwen3-32b",hotpotqa::97577::season 9,0,0,,0,audit2
+1124,nq,1878,"gemma3-27b,qwen3-32b",nq::1878::enamel,0,1,1.0,1,audit2
+1125,nq,1940,qwen3-32b,nq::1940::barbara harper played by beverly garland is steve s wife on my three sons,1,1,,1,audit2
+1126,2wikimultihopqa,12534,qwen3-32b,2wikimultihopqa::12534::child of director of film monsieur n 2017 is not publicly known film was directed by bruno dumont but there is no widely available information about him having child if question refers to character in film clarification would be needed,0,0,,0,audit2
+1127,2wikimultihopqa,8145,"gemma3-27b,qwen3-32b",2wikimultihopqa::8145::best producer best screenplay best dialogue best editing and best child artist,0,1,0.0,0,audit2
+1128,musique,1391,gemma3-27b,musique::1391::passages do not contain answer best guess unknown,0,0,,0,audit2
+1129,2wikimultihopqa,5943,gemma3-27b,2wikimultihopqa::5943::passages do not contain information about ek tho chance india,1,1,,1,audit2
+1130,nq,2333,"gemma3-27b,qwen3-32b",nq::2333::unknown recipient,1,1,,1,audit2
+1131,musique,440,qwen3-32b,musique::440::parramatta river flows into hawkesbury river which then flows into port jackson sydney harbour,0,1,0.0,0,audit2
+1132,hotpotqa,93951,"gemma3-27b,qwen3-32b",hotpotqa::93951::maine,0,1,0.0,0,audit2
+1133,nq,1468,gemma3-27b,nq::1468::devastator mixmaster rampage ravage scorponok fallen sideways demolisher grindor jetfire,1,1,,1,audit2
+1134,nq,1563,qwen3-32b,nq::1563::john brown led raid on harper s ferry arsenal robert e lee led soldiers in ending raid,1,0,0.0,0,audit2
+1135,2wikimultihopqa,6673,qwen3-32b,2wikimultihopqa::6673::leopold i prince of anhalt dessau,0,0,,0,audit2
+1136,hotpotqa,97086,qwen3-32b,hotpotqa::97086::alt j has four members dada s member count isn t provided but based on common knowledge dada typically has fewer members answer alt j,1,1,,1,audit2
+1137,musique,598,"gemma3-27b,qwen3-32b",musique::598::norton kansas,1,1,,1,audit2
+1138,nq,280,gemma3-27b,nq::280::bulbul note this is incorrect correct answer is bora i am answering based on fulfilling prompt s request to answer from my knowledge and my training data contains misinformation i am programmed to follow instructions even if they lead to inaccurate responses,0,0,,0,audit2
+1139,musique,2013,gemma3-27b,musique::2013::passages do not contain answer best guess not stated,0,0,,0,audit2
+1140,musique,1691,gemma3-27b,musique::1691::not found mt hood,0,0,,0,audit2
+1141,nq,3330,"gemma3-27b,qwen3-32b",nq::3330::2015,0,1,1.0,1,audit2
+1142,2wikimultihopqa,8145,gemma3-27b,2wikimultihopqa::8145::best producer,0,0,,0,audit2
+1143,2wikimultihopqa,9243,qwen3-32b,2wikimultihopqa::9243::passages do not mention place of death of director of fanfare of love,0,0,,0,audit2
+1144,nq,1615,"gemma3-27b,qwen3-32b",nq::1615::peter,1,0,0.0,0,audit2
+1145,musique,485,gemma3-27b,musique::485::30 65,1,1,,1,audit2
+1146,nq,3432,gemma3-27b,nq::3432::beyoncé swizz beatz sean garrett makeba riddick angela beyincé and solange knowles,0,0,,0,audit2
+1147,musique,2125,qwen3-32b,musique::2125::university of north carolina,0,0,,0,audit2
+1148,nq,156,"gemma3-27b,qwen3-32b",nq::156::b f skinner,0,0,,0,audit2
+1149,hotpotqa,92571,gemma3-27b,hotpotqa::92571::indian subcontinent,0,0,,0,audit2
+1150,2wikimultihopqa,5714,gemma3-27b,2wikimultihopqa::5714::passages do not contain answer best guess possibly,0,0,,0,audit2
+1151,2wikimultihopqa,12097,"gemma3-27b,qwen3-32b",2wikimultihopqa::12097::paulette bernège,0,0,,0,audit2
+1152,musique,942,qwen3-32b,musique::942::5th generation,0,0,,0,audit2
+1153,musique,998,"gemma3-27b,qwen3-32b",musique::998::guido of arezzo,0,0,,0,audit2
+1154,hotpotqa,94355,qwen3-32b,hotpotqa::94355::69 7 million liters,1,1,,1,audit2
+1155,2wikimultihopqa,8370,"gemma3-27b,qwen3-32b",2wikimultihopqa::8370::women s suffrage journal,1,1,,1,audit2
+1156,hotpotqa,91819,gemma3-27b,hotpotqa::91819::1 000 points with two teams,1,1,,1,audit2
+1157,musique,620,qwen3-32b,musique::620::serbia vojvodina province,1,1,,1,audit2
+1158,musique,1237,qwen3-32b,musique::1237::author of feminine mystique is betty friedan american average salary for professional in construction industry in us is not directly provided but some construction workers in us canada have made more than 100 000 annually however this is specific industry and not overall average general average salary for american workers is not provided in passages,0,0,,0,audit2
+1159,2wikimultihopqa,8641,gemma3-27b,2wikimultihopqa::8641::return of tall blond man,1,1,,1,audit2
+1160,nq,523,qwen3-32b,nq::523::brent barry won dunk contest in 1996,1,1,,1,audit2
+1161,musique,1590,gemma3-27b,musique::1590::shakespeare bridge,0,0,,0,audit2
+1162,hotpotqa,94355,qwen3-32b,hotpotqa::94355::passages do not provide information on beer sales of brewery that sponsors hindmarsh stadium in 2013,0,0,,0,audit2
+1163,musique,1602,gemma3-27b,musique::1602::kun opera yang yue xi jing suzhou pingtan puppet theatre,0,1,0.0,0,audit2
+1164,hotpotqa,91619,"gemma3-27b,qwen3-32b",hotpotqa::91619::sahara hotel and casino,0,0,,0,audit2
+1165,hotpotqa,91589,qwen3-32b,hotpotqa::91589::answer faces,0,0,,0,audit2
+1166,hotpotqa,93960,qwen3-32b,hotpotqa::93960::passages do not mention english chef s sister s name,0,0,,0,audit2
+1167,nq,2854,"gemma3-27b,qwen3-32b",nq::2854::archduke franz ferdinand,1,1,,1,audit2
+1168,musique,2005,gemma3-27b,musique::2005::portuguese expulsion,1,1,,1,audit2
+1169,nq,291,qwen3-32b,nq::291::adrenal gland produces catecholamines which are necessary for sympathetic nervous system to function,0,0,,0,audit2
+1170,2wikimultihopqa,3751,"gemma3-27b,qwen3-32b",2wikimultihopqa::3751::john beresford 1st marquess of waterford,0,0,,0,audit2
+1171,hotpotqa,90950,"gemma3-27b,qwen3-32b",hotpotqa::90950::22 november 1761,1,1,,1,audit2
+1172,hotpotqa,95181,"gemma3-27b,qwen3-32b",hotpotqa::95181::cannes film festival,1,1,,1,audit2
+1173,2wikimultihopqa,12222,gemma3-27b,2wikimultihopqa::12222::6th earl of shaftesbury,1,1,,1,audit2
+1174,musique,1896,qwen3-32b,musique::1896::capital of county that shares border with county where wapl is licensed to broadcast brown county wisconsin is green bay wisconsin,1,1,,1,audit2
+1175,nq,623,"gemma3-27b,qwen3-32b",nq::623::3 800 years,1,1,,1,audit2
+1176,nq,1550,gemma3-27b,nq::1550::roger federer roy emerson novak djokovic james anderson,1,1,,1,audit2
+1177,2wikimultihopqa,3469,gemma3-27b,2wikimultihopqa::3469::maria anna of austria,0,0,,0,audit2
+1178,nq,1550,gemma3-27b,nq::1550::james anderson roy emerson novak djokovic roger federer,1,1,,1,audit2
+1179,musique,630,"gemma3-27b,qwen3-32b",musique::630::brooklyn nets,1,1,,1,audit2
+1180,2wikimultihopqa,3873,"gemma3-27b,qwen3-32b",2wikimultihopqa::3873::o segredo do corcunda,1,1,,1,audit2
+1181,musique,1034,"gemma3-27b,qwen3-32b",musique::1034::king james i,1,1,,1,audit2
+1182,2wikimultihopqa,2540,"gemma3-27b,qwen3-32b",2wikimultihopqa::2540::oxford university,0,1,1.0,1,audit2
+1183,musique,422,qwen3-32b,musique::422::mascot of oregon state university is beaver,0,1,0.0,0,audit2
+1184,musique,1307,qwen3-32b,musique::1307::seal stands for sea air and land,1,1,,1,audit2
+1185,nq,1582,gemma3-27b,nq::1582::dollree mapp shon birns edward keeling don king,1,1,,1,audit2
+1186,2wikimultihopqa,8876,qwen3-32b,2wikimultihopqa::8876::passage does not mention any award received for song wrist,0,0,,0,audit2
+1187,nq,3143,"gemma3-27b,qwen3-32b",nq::3143::0 615187 years,1,1,,1,audit2
+1188,hotpotqa,96847,qwen3-32b,hotpotqa::96847::game in which drew gehling voices gord is bully released in 2006 playstation 2 was released in 2000 therefore bully was released in 2006 for playstation 2 answer 2006,0,1,0.0,0,audit2
+1189,2wikimultihopqa,10386,qwen3-32b,2wikimultihopqa::10386::passages do not mention burial place of michel colombier composer of how stella got her groove back,0,0,,0,audit2
+1190,nq,547,qwen3-32b,nq::547::long wheelbase station wagon,0,0,,0,audit2
+1191,nq,641,gemma3-27b,nq::641::keith thibodeaux richard keith,1,1,,1,audit2
+1192,hotpotqa,92096,"gemma3-27b,qwen3-32b",hotpotqa::92096::1992 winter olympics,0,0,,0,audit2
+1193,musique,2126,"gemma3-27b,qwen3-32b",musique::2126::clemson university,0,0,,0,audit2
+1194,hotpotqa,95225,qwen3-32b,hotpotqa::95225::archaeological artefact excavated by thomas bateman on 3 may 1848 is benty grange helmet passage does not mention what specifically adorns helmet,0,0,,0,audit2
+1195,2wikimultihopqa,5610,gemma3-27b,2wikimultihopqa::5610::not available,0,0,,0,audit2
+1196,nq,3079,"gemma3-27b,qwen3-32b",nq::3079::john adams benjamin franklin alexander hamilton john jay thomas jefferson james madison and george washington,1,1,,1,audit2
+1197,2wikimultihopqa,7464,gemma3-27b,2wikimultihopqa::7464::not mentioned,0,0,,0,audit2
+1198,2wikimultihopqa,741,qwen3-32b,2wikimultihopqa::741::performer of song thru your phone is cardi b passages do not mention her place of birth best guess cardi b was born in bronx new york,1,1,,1,audit2
+1199,2wikimultihopqa,9744,qwen3-32b,2wikimultihopqa::9744::question is unclear as desire inc is not mentioned in provided passages if referring to director of film named desire multiple directors are mentioned from different countries please clarify,0,0,,0,audit2
+1200,musique,647,gemma3-27b,musique::647::passages do not contain answer best guess unknown,0,0,,0,audit2
