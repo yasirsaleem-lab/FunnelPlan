@@ -73,6 +73,39 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-13 22:00, robustness, baseline and diagnostic analyses for the paper (fixed before any of them is run,
+  except item (a), whose result was seen on 13 Oct 20:30 while checking feasibility).** None of these changes the
+  primary or secondary family, the hull, or the decision rule of 12 Oct 20:30. Each is labelled secondary or
+  exploratory in the paper and is reported whatever it shows.
+  (a) Non superiority at the margin of section 2 (secondary). Per test, H0 gain >= 0.03 against gain < 0.03, one
+  sided t test on the 2,000 per query gains, Holm over the 27 primary tests, in both plan sets; plus the largest one
+  sided 95% upper bound. Result already seen: 27 of 27 pass in the single step set (largest bound 0.029), 25 of 27 with
+  two hop plans (largest bound 0.032, 7B to Qwen3 14B reader cascade, Holm p 0.081; Qwen2.5 7B conf_cascade Holm p
+  0.061). Reported as computed, with this disclosure.
+  (b) External sanity check (descriptive, no test). Llama 3.1 8B closed book and BM25 "contains" accuracy next to the
+  published Never RAG and Always RAG values of Moskvoretskii et al. (ACL 2025); Adaptive RAG against Always RAG from the
+  R6 output.
+  (c) Stronger learned policies (secondary, new family of 2 policies x 5 readers = 10 tests, Holm within it, same
+  two plan set rule, same folds, seeds and hull as 10). c1 classifier gate: gradient boosted trees on the closed
+  book answer's mean_logprob, min_logprob, first_token_prob, gen_tokens and n_answer_tokens predict whether the closed
+  book answer is correct; retrieve with plan p when the predicted probability is below tau (p and tau chosen on the
+  training folds as in gate_closed_book). c2 planner_tsr with self knowledge: the planner_tsr model and lambda search
+  with the same closed book features added; the closed book call is charged to every query. c2 also gets a learning
+  curve (20, 40, 60, 80, 100% of the training folds), descriptive.
+  (d) Cost axes (secondary). The hull is refitted and the primary family retested with four costs in place of
+  latency, units fixed for all readers: reader tokens (prompt plus generated, per 1,000); price weighted tokens
+  (prompt plus 4 x generated, per 1,000); FLOPs (per 1e13: 2 x reader parameters x tokens; plus the reranker, 2 x
+  0.6e9 x 100 candidates x 220 tokens; plus the dense query encoder, 2 x its parameters x 32 tokens; ANN search not
+  counted); calls (LLM calls plus retrieval, rerank and fusion calls). For the two hop plans the query writing call
+  is added: its prompt is taken as the bm25@k answer prompt of the same query and its output as the sub query
+  length in characters / 4. The verdict is called independent of the cost axis only if no positive survivor appears
+  under any axis in both plan sets. Every claim covers mean cost; p95 latency is descriptive only.
+  (e) Headroom and grading (exploratory). Held out oracle_K of 15 at the hull's cost and the fraction of the gap
+  each policy closes; oracle under label_strict against label_final. Per arm share of judge decided answers and of
+  the contains_long stratum in every H1 and H3 cell; attenuation factor J = sensitivity + specificity - 1 from the
+  audit tables; Gwet AC1 and Krippendorff alpha next to kappa.
+  (f) Mechanism (exploratory). For planner_tsr and c2: per plan AUROC, and AUROC on which of the two hull support
+  plans wins on queries where they disagree; share of queries sent to the most common plan.
 - **2026-10-13 19:30, robustness analyses added after the main results were seen (they change no primary test,
   family or decision rule).** (a) Grading sensitivity (`scripts/24_label_sensitivity.py`): H1 (primary family, both
   plan sets) and H3 rerun with label_lenient and label_strict. Added because the adjudicated audit shows label_final is

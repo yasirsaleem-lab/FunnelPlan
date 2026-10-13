@@ -83,6 +83,10 @@ CONFIG = {
     # "mix" (main): the fixed plan hull, best randomised mix of two plans at mean cost c.
     # "step" (robustness, --hull=step): best single fixed plan with mean cost <= c, no mixing.
     "hull_mode": "mix",
+    # Cost axis (amendment 13 Oct 22:00 (d), --cost=X): "latency" (main, seconds), "tokens" (prompt + generated,
+    # per 1,000), "tokens_w4" (prompt + 4 x generated, per 1,000), "flops" (per 1e13), "calls". Units are fixed
+    # for all readers, so reader cascades compare like with like. Writes to analysis/<label>_cost<X>[_r3]/.
+    "cost_axis": "latency",
     "lambdas": list(np.round(np.concatenate([[0.0], np.geomspace(0.002, 1.0, 20)]), 5)),
     "taus": list(np.round(np.linspace(-3.0, 0.0, 31), 2)),   # log prob thresholds
     "adaptive_k_retrievers": ["bge_m3", "stella_1_5b"],
@@ -129,11 +133,62 @@ def load_reader(reader):
         r3["plan"] = r3["retriever"] + "@" + r3["depth"].astype(str)
         for c in ("retrieval_time_s", "agent_time_s", "mean_logprob"):
             r3[c] = pd.to_numeric(r3[c], errors="coerce")
+        # tokens of the query writing call (cost axes only): prompt = the bm25@k answer prompt of the same query
+        # (same question and hop 1 passages), output = sub query characters / 4
+        base = df[df["retriever"] == "bm25"].assign(pt=lambda x: pd.to_numeric(x["prompt_tokens"], errors="coerce"))
+        base = base.set_index(["dataset", "query_id", "depth"])["pt"]
+        qp = [base.get((d_, q_, k_), np.nan) for d_, q_, k_ in zip(r3["dataset"], r3["query_id"], r3["depth"])]
+        sq = r3["subquery"].astype(str).str.len() / 4.0 if "subquery" in r3.columns else 0.0
+        r3["extra_tokens"] = pd.Series(qp, index=r3.index).fillna(np.nanmean(qp)) + sq
+        df["extra_tokens"] = 0.0
         df = pd.concat([df, r3[[c for c in df.columns if c in r3.columns]]], ignore_index=True)
+    df = add_cost_axes(df, reader)
     return df, col
 
 
 MULTI_STEP = ("bm25_2hop",)
+
+# ---- cost axes other than latency (amendment 13 Oct 22:00 (d)); parameter counts from the model cards
+READER_PARAMS = {"qwen2.5-7b": 7.62e9, "llama3.1-8b": 8.03e9, "qwen3-14b": 14.8e9, "qwen3-14b-gguf": 14.8e9,
+                 "gemma3-27b": 27.4e9, "qwen3-32b": 32.8e9}
+_QENC = 32                                                   # query tokens for a dense query encoder
+_RERANK = 2 * 0.6e9 * 100 * 220                              # Qwen3 Reranker 0.6B, 100 candidates x 220 tokens
+RETR_FLOPS = {"closed_book": 0.0, "bm25": 0.0, "bm25_2hop": 0.0,
+              "splade_v3": 2 * 0.11e9 * _QENC, "bge_m3": 2 * 0.568e9 * _QENC, "stella_1_5b": 2 * 1.54e9 * _QENC,
+              "bge_bm25_rrf": 2 * 0.568e9 * _QENC, "qwen3_reranker_0_6b": 2 * 0.568e9 * _QENC + _RERANK}
+# retrieval side calls: retriever calls + fusion + rerank (the reranker reranks the bge_bm25_rrf list in full mode)
+RETR_CALLS = {"closed_book": 0, "bm25": 1, "splade_v3": 1, "bge_m3": 1, "stella_1_5b": 1, "bge_bm25_rrf": 3,
+              "qwen3_reranker_0_6b": 4, "bm25_2hop": 2}
+
+
+def add_cost_axes(df, reader):
+    """Per answer cost on every axis: columns ret_x and agent_x for CONFIG['cost_axis'] (latency untouched)."""
+    ax = CONFIG["cost_axis"]
+    if ax == "latency":
+        return df
+    for c in ("prompt_tokens", "gen_tokens", "extra_tokens"):
+        df[c] = pd.to_numeric(df[c], errors="coerce") if c in df.columns else 0.0
+    df["extra_tokens"] = df["extra_tokens"].fillna(0.0)
+    tok_in = df["prompt_tokens"].fillna(df["prompt_tokens"].mean()) + df["extra_tokens"]
+    tok_out = df["gen_tokens"].fillna(df["gen_tokens"].mean())
+    retr = df["retriever"]
+    llm_calls = np.where(retr.isin(MULTI_STEP), 2, 1)
+    if ax == "tokens":
+        df["agent_x"], df["ret_x"] = (tok_in + tok_out) / 1e3, 0.0
+    elif ax == "tokens_w4":
+        df["agent_x"], df["ret_x"] = (tok_in + 4 * tok_out) / 1e3, 0.0
+    elif ax == "flops":
+        if reader not in READER_PARAMS:
+            sys.exit(f"--cost=flops: no parameter count for reader {reader}")
+        df["agent_x"] = 2 * READER_PARAMS[reader] * (tok_in + tok_out) / 1e13
+        df["ret_x"] = retr.map(RETR_FLOPS).astype(float) / 1e13
+    elif ax == "calls":
+        df["agent_x"], df["ret_x"] = llm_calls.astype(float), retr.map(RETR_CALLS).astype(float)
+    else:
+        sys.exit(f"unknown cost axis {ax}")
+    if df["ret_x"].isna().any():
+        sys.exit(f"cost axis {ax}: unknown retriever {sorted(set(retr[df['ret_x'].isna()]))}")
+    return df
 
 
 def is_multi(p):
@@ -153,8 +208,9 @@ class Block:
         # Plan cost = MEAN latency per query (expected cost; what a latency budget constrains and what the
         # cost model predicts). The median understates plans with long generations (14B: mean/median up to 1.8).
         agg = CONFIG["cost_stat"]
-        self.ret_cost = d.groupby("plan")["retrieval_time_s"].agg(agg)[keep]
-        self.agent_cost = d.groupby("plan")["agent_time_s"].agg(agg)[keep]
+        rc, ac = ("retrieval_time_s", "agent_time_s") if CONFIG["cost_axis"] == "latency" else ("ret_x", "agent_x")
+        self.ret_cost = d.groupby("plan")[rc].agg(agg)[keep]
+        self.agent_cost = d.groupby("plan")[ac].agg(agg)[keep]
         for r_, v_ in CONFIG["retrieval_cost_override"].items():
             self.ret_cost[[p for p in keep if p.split("@")[0] == r_]] = float(v_)
         self.cost = self.ret_cost + self.agent_cost
@@ -560,11 +616,16 @@ def main():
         if a_ == "--hull=step":                    # robustness: best single fixed plan at or below the cost
             CONFIG["hull_mode"] = "step"
             CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_stephull"
+        if a_.startswith("--cost="):               # robustness: another cost axis (amendment 13 Oct 22:00 (d))
+            CONFIG["cost_axis"] = a_.split("=", 1)[1]
+            if CONFIG["cost_axis"] != "latency":
+                CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_cost" + CONFIG["cost_axis"]
     out = settings.RESULTS_ROOT / "analysis" / (CONFIG["label"] + CONFIG["out_suffix"]
                                                  + ("_r3" if CONFIG["include_r3"] else ""))
     out.mkdir(parents=True, exist_ok=True)
     blocks, fixed_rows, rows, L = {}, [], [], []
     per_query = {}
+    say(L, f"Cost axis: {CONFIG['cost_axis']}")
     say(L, f"Plan set: {'single step plans PLUS the fixed two hop plans (R3)' if CONFIG['include_r3'] else 'single step plans only'}")
     say(L, f"Repeats: seeds {CONFIG['seeds']} (fold split and XGBoost seed). Gains are averaged per query "
            f"over seeds; CIs bootstrap over queries; 'seeds a..b' is the range of per seed mean gains.")
