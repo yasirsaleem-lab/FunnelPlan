@@ -1,0 +1,52 @@
+profiles: 2000; joint reasoning 0.73, high complexity 0.67, median pieces 3, confidence >= 0.9: 0.43, mean profiler time 1.39s (Qwen3 32B, llama.cpp)
+  gemma3-27b   2wikimultihopqa  metis                      gain +0.009 [-0.029, +0.044]  cost 0.70s
+  gemma3-27b   2wikimultihopqa  metis_with_profiler_cost   gain -0.032 [-0.069, +0.004]  cost 2.63s
+  gemma3-27b   hotpotqa         metis                      gain +0.001 [-0.042, +0.042]  cost 0.59s
+  gemma3-27b   hotpotqa         metis_with_profiler_cost   gain -0.020 [-0.062, +0.023]  cost 3.14s
+  gemma3-27b   musique          metis                      gain -0.003 [-0.038, +0.033]  cost 1.34s
+  gemma3-27b   musique          metis_with_profiler_cost   gain -0.002 [-0.036, +0.032]  cost 3.05s
+  gemma3-27b   nq               metis                      gain +0.001 [-0.039, +0.037]  cost 0.65s
+  gemma3-27b   nq               metis_with_profiler_cost   gain +0.013 [-0.027, +0.049]  cost 2.04s
+  POOLED gemma3-27b   metis                      +0.002 [-0.017, +0.022]
+  POOLED gemma3-27b   metis_with_profiler_cost   -0.010 [-0.030, +0.010]
+  llama3.1-8b  2wikimultihopqa  metis                      gain -0.005 [-0.039, +0.034]  cost 0.45s
+  llama3.1-8b  2wikimultihopqa  metis_with_profiler_cost   gain -0.032 [-0.072, +0.009]  cost 2.29s
+  llama3.1-8b  hotpotqa         metis                      gain -0.006 [-0.048, +0.035]  cost 0.51s
+  llama3.1-8b  hotpotqa         metis_with_profiler_cost   gain -0.016 [-0.059, +0.028]  cost 2.95s
+  llama3.1-8b  musique          metis                      gain +0.012 [-0.025, +0.047]  cost 1.76s
+  llama3.1-8b  musique          metis_with_profiler_cost   gain +0.015 [-0.022, +0.053]  cost 3.26s
+  llama3.1-8b  nq               metis                      gain +0.004 [-0.035, +0.042]  cost 0.42s
+  llama3.1-8b  nq               metis_with_profiler_cost   gain +0.009 [-0.034, +0.049]  cost 1.87s
+  POOLED llama3.1-8b  metis                      +0.001 [-0.018, +0.020]
+  POOLED llama3.1-8b  metis_with_profiler_cost   -0.006 [-0.026, +0.015]
+  qwen2.5-7b   2wikimultihopqa  metis                      gain +0.007 [-0.032, +0.047]  cost 0.42s
+  qwen2.5-7b   2wikimultihopqa  metis_with_profiler_cost   gain -0.022 [-0.059, +0.019]  cost 1.98s
+  qwen2.5-7b   hotpotqa         metis                      gain -0.016 [-0.054, +0.021]  cost 0.56s
+  qwen2.5-7b   hotpotqa         metis_with_profiler_cost   gain +0.008 [-0.033, +0.052]  cost 2.81s
+  qwen2.5-7b   musique          metis                      gain +0.002 [-0.035, +0.036]  cost 0.59s
+  qwen2.5-7b   musique          metis_with_profiler_cost   gain -0.003 [-0.037, +0.027]  cost 2.51s
+  qwen2.5-7b   nq               metis                      gain -0.012 [-0.048, +0.022]  cost 0.43s
+  qwen2.5-7b   nq               metis_with_profiler_cost   gain -0.030 [-0.070, +0.007]  cost 1.84s
+  POOLED qwen2.5-7b   metis                      -0.005 [-0.024, +0.013]
+  POOLED qwen2.5-7b   metis_with_profiler_cost   -0.012 [-0.031, +0.007]
+  qwen3-14b    2wikimultihopqa  metis                      gain -0.003 [-0.043, +0.039]  cost 1.53s
+  qwen3-14b    2wikimultihopqa  metis_with_profiler_cost   gain -0.006 [-0.043, +0.035]  cost 3.45s
+  qwen3-14b    hotpotqa         metis                      gain -0.007 [-0.046, +0.033]  cost 2.19s
+  qwen3-14b    hotpotqa         metis_with_profiler_cost   gain -0.002 [-0.044, +0.041]  cost 4.07s
+  qwen3-14b    musique          metis                      gain -0.003 [-0.039, +0.032]  cost 2.44s
+  qwen3-14b    musique          metis_with_profiler_cost   gain +0.001 [-0.033, +0.034]  cost 4.44s
+  qwen3-14b    nq               metis                      gain +0.001 [-0.037, +0.036]  cost 1.95s
+  qwen3-14b    nq               metis_with_profiler_cost   gain -0.023 [-0.063, +0.014]  cost 3.38s
+  POOLED qwen3-14b    metis                      -0.003 [-0.022, +0.016]
+  POOLED qwen3-14b    metis_with_profiler_cost   -0.007 [-0.027, +0.012]
+  qwen3-32b    2wikimultihopqa  metis                      gain -0.007 [-0.047, +0.032]  cost 0.84s
+  qwen3-32b    2wikimultihopqa  metis_with_profiler_cost   gain -0.070 [-0.109, -0.029]  cost 3.12s
+  qwen3-32b    hotpotqa         metis                      gain -0.003 [-0.043, +0.038]  cost 1.67s
+  qwen3-32b    hotpotqa         metis_with_profiler_cost   gain +0.010 [-0.032, +0.055]  cost 3.35s
+  qwen3-32b    musique          metis                      gain +0.002 [-0.037, +0.042]  cost 1.90s
+  qwen3-32b    musique          metis_with_profiler_cost   gain +0.011 [-0.027, +0.049]  cost 3.54s
+  qwen3-32b    nq               metis                      gain +0.003 [-0.036, +0.038]  cost 0.92s
+  qwen3-32b    nq               metis_with_profiler_cost   gain -0.009 [-0.048, +0.026]  cost 2.31s
+  POOLED qwen3-32b    metis                      -0.001 [-0.021, +0.018]
+  POOLED qwen3-32b    metis_with_profiler_cost   -0.015 [-0.034, +0.005]
+Pooled p values enter the secondary Holm family (with the 13 routers) in 12_tables.py.
