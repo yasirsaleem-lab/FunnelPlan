@@ -1,0 +1,34 @@
+Stronger policies (amendment 13 Oct 20:45 (c)). Label final, seeds [0, 1, 2, 3, 4], 5 folds, cost axis latency.
+
+== single step plans: 10 pooled tests, Holm over 10
+  qwen3-14b    planner_sk  +0.001 [-0.018, +0.020]  Holm p 1.0000  
+  qwen3-14b    clf_gate    -0.000 [-0.018, +0.018]  Holm p 1.0000  
+  llama3.1-8b  clf_gate    -0.001 [-0.020, +0.018]  Holm p 1.0000  
+  gemma3-27b   clf_gate    -0.001 [-0.019, +0.018]  Holm p 1.0000  
+  qwen3-32b    clf_gate    -0.001 [-0.018, +0.016]  Holm p 1.0000  
+  qwen2.5-7b   clf_gate    -0.002 [-0.018, +0.012]  Holm p 1.0000  
+  llama3.1-8b  planner_sk  -0.005 [-0.023, +0.015]  Holm p 1.0000  
+  gemma3-27b   planner_sk  -0.007 [-0.024, +0.011]  Holm p 1.0000  
+  qwen3-32b    planner_sk  -0.008 [-0.026, +0.010]  Holm p 1.0000  
+  qwen2.5-7b   planner_sk  -0.008 [-0.026, +0.009]  Holm p 1.0000  
+
+== two hop plans: 10 pooled tests, Holm over 10
+  qwen3-14b    planner_sk  -0.002 [-0.021, +0.017]  Holm p 1.0000  
+  llama3.1-8b  clf_gate    -0.002 [-0.022, +0.017]  Holm p 1.0000  
+  qwen2.5-7b   clf_gate    -0.003 [-0.019, +0.012]  Holm p 1.0000  
+  qwen3-14b    clf_gate    -0.003 [-0.021, +0.014]  Holm p 1.0000  
+  llama3.1-8b  planner_sk  -0.004 [-0.023, +0.016]  Holm p 1.0000  
+  gemma3-27b   clf_gate    -0.004 [-0.022, +0.013]  Holm p 1.0000  
+  qwen3-32b    clf_gate    -0.006 [-0.022, +0.011]  Holm p 1.0000  
+  qwen2.5-7b   planner_sk  -0.007 [-0.025, +0.010]  Holm p 1.0000  
+  gemma3-27b   planner_sk  -0.008 [-0.025, +0.010]  Holm p 1.0000  
+  qwen3-32b    planner_sk  -0.014 [-0.032, +0.003]  Holm p 1.0000  
+
+== Decision rule (both plan sets): 0 positive
+
+== Learning curve, planner_sk, single step plans (pooled gain over the hull; descriptive)
+  gemma3-27b    20%: -0.026   40%: -0.016   60%: -0.013   80%: -0.011  100%: -0.007
+  llama3.1-8b   20%: -0.022   40%: -0.013   60%: -0.011   80%: -0.008  100%: -0.005
+  qwen2.5-7b    20%: -0.039   40%: -0.022   60%: -0.012   80%: -0.005  100%: -0.008
+  qwen3-14b     20%: -0.010   40%: -0.003   60%: +0.002   80%: -0.002  100%: +0.001
+  qwen3-32b     20%: -0.038   40%: -0.028   60%: -0.017   80%: -0.009  100%: -0.008

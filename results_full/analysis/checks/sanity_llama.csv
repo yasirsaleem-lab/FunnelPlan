@@ -1,0 +1,5 @@
+dataset,published_never,published_always,ours_closed_book,ours_bm25@1,ours_bm25@3,ours_bm25@5,ours_bm25@10
+nq,0.446,0.496,0.35,0.306,0.374,0.426,0.48
+hotpotqa,0.286,0.41,0.21,0.312,0.338,0.382,0.398
+2wikimultihopqa,0.318,0.374,0.25,0.238,0.298,0.332,0.346
+musique,0.106,0.1,0.046,0.054,0.078,0.116,0.128

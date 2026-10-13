@@ -1,0 +1,10 @@
+reader,dataset,gain,p_holm,ircot_judge,plan_judge,ircot_contains_long,plan_contains_long,ircot_tokens,plan_tokens,hull_plan
+qwen2.5-7b,hotpotqa,0.0075999999999999,1.0,0.14,0.15,0.002,0.002,2.474,2.256,qwen3_reranker_0_6b@3
+qwen2.5-7b,2wikimultihopqa,0.1396,6.575184389890232e-09,0.1,0.108,0.01,0.004,2.966,3.138,bge_bm25_rrf@20
+qwen2.5-7b,musique,0.0303999999999999,0.6273709197989573,0.166,0.168,0.004,0.008,2.6,2.758,stella_1_5b@10
+llama3.1-8b,hotpotqa,-0.034,0.6273709197989573,0.134,0.142,0.004,0.006,3.064,2.804,qwen3_reranker_0_6b@10
+llama3.1-8b,2wikimultihopqa,0.088,0.0006682589016555,0.09,0.088,0.012,0.008,3.354,3.61,qwen3_reranker_0_6b@10
+llama3.1-8b,musique,0.0211999999999999,0.8072942517988699,0.122,0.138,0.006,0.014,4.818,4.588,qwen3_reranker_0_6b@5
+qwen3-14b,hotpotqa,0.014,1.0,0.124,0.152,0.006,0.012,2.762,3.06,qwen3_reranker_0_6b@3
+qwen3-14b,2wikimultihopqa,0.156,5.494489382231068e-11,0.086,0.096,0.012,0.012,3.092,4.104,qwen3_reranker_0_6b@10
+qwen3-14b,musique,0.0744,0.002861818936914,0.198,0.172,0.026,0.03,5.156,4.806,qwen3_reranker_0_6b@10
