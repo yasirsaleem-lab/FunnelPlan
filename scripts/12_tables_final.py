@@ -9,7 +9,8 @@ Writes results_full/tables_final/:
 
 Inputs (all produced by earlier scripts): analysis/final[_r3]/ (10, 13), analysis/metis[_r3]/ (23),
 analysis/h3_ircot[_lenient|_strict]/ (21, 24), analysis/weak_protocol/ (22), analysis/lenient*|strict* (24),
-analysis/step_hull_primary*.csv (25, optional), grading/audit_adjudicated.csv (audits), r4_ircot labels (20).
+analysis/step_hull_primary*.csv (25, optional), analysis/cost_axes_primary.csv (27), analysis/stronger_policies (28),
+analysis/checks (29), grading/audit_adjudicated.csv (audits), r4_ircot labels (20).
 
 Usage: python scripts/12_tables_final.py
 """
@@ -264,6 +265,132 @@ def t_headroom():
     tex_table("headroom", T, "Headroom per reader and dataset (in sample, 25 plans).", "llrrrrr")
 
 
+# ====================================================================== amendment 13 Oct 20:45
+def t_noninf():
+    """(a) Non superiority at the preregistered 0.03 margin: one sided t test per primary test, Holm over 27."""
+    from scipy import stats
+    rows = []
+    for tag, nm in (("final", "single step"), ("final_r3", "with two hop")):
+        pq = pd.read_csv(AN / tag / "per_query_gains.csv", dtype={"query_id": str})
+        pq = pq[pq.method.isin(PRIMARY)]
+        R = []
+        for (rd, m), g in pq.groupby(["reader", "method"]):
+            d = g.gain.to_numpy(float); n = len(d); se = d.std(ddof=1) / np.sqrt(n)
+            R.append({"reader": rd, "method": m, "gain": d.mean(), "ub95": d.mean() + stats.t.ppf(0.95, n - 1) * se,
+                      "p": stats.t.cdf((d.mean() - 0.03) / se, n - 1)})
+        R = pd.DataFrame(R); R["p_holm"] = holm(R.p.values)
+        top = R.loc[R.ub95.idxmax()]
+        rows.append({"Plan set": nm, "Tests": len(R), "Upper bound below 0.03": int((R.ub95 < 0.03).sum()),
+                     "Rejected at 0.03 after Holm": int((R.p_holm < 0.05).sum()),
+                     "Largest upper bound": f"{top.ub95:.3f} ({PN[top.method]}, {RN.get(top.reader, top.reader)})"})
+    T = pd.DataFrame(rows)
+    md_table("Non superiority at the preregistered margin of 0.03 (one sided 95% upper bounds)", T,
+             "Secondary analysis (amendment 13 Oct 20:45 (a)); the margin was preregistered on 8 Oct, the test was added later and its result was seen before the amendment.")
+    tex_table("noninf", T, "Non superiority at the preregistered 0.03 margin (27 primary tests per plan set).", "lrrrl")
+    for r in rows:
+        VERD.append(f"Non superiority at 0.03, {r['Plan set']}: {r['Rejected at 0.03 after Holm']} of {r['Tests']} after Holm; largest bound {r['Largest upper bound']}")
+
+
+def t_cost_axes():
+    """(d) The primary family under other cost axes."""
+    A_ = pd.read_csv(AN / "cost_axes_primary.csv")
+    AXN = {"latency": "Latency (main)", "tokens": "Reader tokens", "tokens_w4": "Tokens, output x4", "flops": "FLOPs", "calls": "Calls"}
+    rows = []
+    for ax in AXN:
+        r = {"Cost axis": AXN[ax]}
+        for ps, nm in (("single_step", "single step"), ("two_hop", "two hop")):
+            g = A_[(A_.axis == ax) & (A_.plan_set == ps)]
+            r[f"Positive, {nm}"] = int(((g.p_holm < 0.05) & (g.ci_low > 0)).sum())
+            r[f"Negative, {nm}"] = int(((g.p_holm < 0.05) & (g.ci_high < 0)).sum())
+            r[f"Largest gain, {nm}"] = sg(g.gain.max())
+        rows.append(r)
+    T = pd.DataFrame(rows)
+    md_table("H1 primary family under five cost axes (27 tests per cell)", T,
+             "Calls give every depth of a retriever the same cost, so this axis cannot price depth; Adaptive k is negative there for that reason.")
+    tex_table("cost", T, "Primary family under five cost axes: positive and negative Holm survivors.", "lrrrrrr")
+    VERD.append("Cost axes: positive survivors under latency, tokens, tokens x4, FLOPs, calls = "
+                + ", ".join(f"{r['Positive, single step']}/{r['Positive, two hop']}" for r in rows))
+
+
+def t_stronger():
+    """(c) Classifier gate and planner with self knowledge (28)."""
+    F = pd.read_csv(AN / "stronger_policies" / "family.csv")
+    nmap = {"clf_gate": "Classifier gate (c1)", "planner_sk": "Planner with self knowledge (c2)"}
+    rows = []
+    for m in ("clf_gate", "planner_sk"):
+        for rd in READERS:
+            a = F[(F.method == m) & (F.reader == rd) & (F.plan_set == "single step")]
+            b = F[(F.method == m) & (F.reader == rd) & (F.plan_set == "two hop")]
+            if not len(a) or not len(b):
+                continue
+            a, b = a.iloc[0], b.iloc[0]
+            rows.append({"Policy": nmap[m], "Reader": RN[rd],
+                         "Gain, single step [95% CI]": f"{sg(a.gain)} [{sg(a.ci_low)}, {sg(a.ci_high)}]", "Holm p": pv(a.p_holm),
+                         "Gain, with two hop [95% CI]": f"{sg(b.gain)} [{sg(b.ci_low)}, {sg(b.ci_high)}]", "Holm p ": pv(b.p_holm)})
+    T = pd.DataFrame(rows)
+    md_table("Stronger learned policies (secondary family of 10 tests per plan set)", T)
+    tex_table("stronger", T, "Classifier gate and planner with closed book confidence features against the hull.", "llrrrr")
+    pos = F[(F.p_holm < 0.05) & (F.ci_low > 0)].groupby(["reader", "method"]).plan_set.nunique()
+    VERD.append(f"Stronger policies: {int((pos == 2).sum())} of 10 positive in both plan sets; range of gains {F.gain.min():+.3f} to {F.gain.max():+.3f}")
+    f = AN / "stronger_policies" / "learning_curve.csv"
+    if f.exists():
+        LC = pd.read_csv(f)
+        pts = LC.groupby(["reader", "frac"]).apply(lambda x: x.sum_gain.sum() / x.n.sum()).unstack()
+        T2 = pts.reset_index().rename(columns={"reader": "Reader"})
+        T2["Reader"] = T2["Reader"].map(RN)
+        T2.columns = ["Reader"] + [f"{int(c * 100)}% of training" for c in pts.columns]
+        for c in T2.columns[1:]:
+            T2[c] = T2[c].map(sg)
+        md_table("Learning curve of the planner with self knowledge (pooled gain over the hull, single step plans)", T2)
+        tex_table("curve", T2, "Gain over the hull as the training share grows (descriptive).", "l" + "r" * (len(T2.columns) - 1))
+
+
+def t_checks():
+    """(b), (e), (f): sanity table, grading factor, agreement, matched cost headroom, mechanism (29)."""
+    C = AN / "checks"
+    S_ = pd.read_csv(C / "sanity_llama.csv")
+    T = pd.DataFrame([{"Dataset": DN[r.dataset], "Published Never RAG": f"{r.published_never:.3f}", "Ours, closed book": f"{r.ours_closed_book:.3f}",
+                       "Published Always RAG": f"{r.published_always:.3f}", "Ours, BM25 k=5": f"{r['ours_bm25@5']:.3f}",
+                       "Ours, BM25 k=10": f"{r['ours_bm25@10']:.3f}"} for _, r in S_.iterrows()])
+    md_table("Sanity check against Moskvoretskii et al. (ACL 2025), Llama 3.1 8B, answer contained accuracy", T,
+             "Published values from Table 1 of Moskvoretskii et al. (checked 13 Oct 2026); their corpus is the Karpukhin et al. Wikipedia and their retrieval depth is not stated.")
+    tex_table("sanity", T, "Llama 3.1 8B against published Never and Always RAG (answer contained accuracy).", "lrrrrr")
+    W = pd.read_csv(AN / "weak_protocol" / "weak_vs_ours.csv"); a = W[W.method == "adaptive_rag"]
+    VERD.append(f"Adaptive RAG vs Always RAG (weak protocol): mean margin {a.margin_vs_always.mean():+.3f}, above in "
+                f"{int((a.margin_vs_always > 0).sum())} of {len(a)} cells (implementation behaves as published)")
+    G = pd.read_csv(C / "grading_J.csv"); Ag = pd.read_csv(C / "rater_agreement.csv")
+    T = pd.DataFrame([{"Audit": r.audit, "Sensitivity": f"{r.sensitivity:.3f}", "Specificity": f"{r.specificity:.3f}",
+                       "J": f"{r.J:.3f}", "J, reweighted": f"{r.J_weighted:.3f}",
+                       "Raters: raw agreement": f"{g.raw_agreement:.3f}", "Cohen kappa": f"{g.cohen_kappa:.3f}",
+                       "Gwet AC1": f"{g.gwet_ac1:.3f}", "Krippendorff alpha": f"{g.krippendorff_alpha:.3f}"}
+                      for (_, r), (_, g) in zip(G.iterrows(), Ag.iterrows())])
+    md_table("Grading error and rater agreement", T,
+             "Observed differences equal J times true differences when grading error is the same in both arms.")
+    tex_table("grading", T, "label_final against the human majority (J) and agreement of the two raters before adjudication.", "lrrrrrrrr")
+    H = pd.read_csv(C / "headroom_matched.csv")
+    T = H.groupby("reader")[["oracle_k2", "gap_k2", "gap_k3", "gap_all", "oracle_all_final", "oracle_all_strict"]].mean().reindex(READERS).reset_index()
+    T = pd.DataFrame([{"Reader": RN[r.reader], "Oracle gap, 2 plans": sg(r.gap_k2), "3 plans": sg(r.gap_k3), "All plans": sg(r.gap_all),
+                       "Any plan correct, label_final": f"{r.oracle_all_final:.3f}", "Any plan correct, strict": f"{r.oracle_all_strict:.3f}"}
+                      for _, r in T.iterrows()])
+    Fg = pd.read_csv(C / "fraction_of_gap.csv")
+    best = Fg.groupby("reader").fraction_of_gap_k2.max().reindex(READERS)
+    T["Largest share of the 2 plan gap closed by a policy"] = [f"{v:.2f}" for v in best.values]
+    md_table("Headroom at matched cost (held out oracles against the hull at the same mean cost)", T)
+    tex_table("headroom_matched", T, "Held out oracle gap over the hull at matched cost, and the share policies close.", "lrrrrrr")
+    VERD.append(f"Headroom at matched cost: 2 plan oracle gap {H.gap_k2.mean():+.3f}; best policy closes at most {Fg.fraction_of_gap_k2.max():.2f} of it")
+    M = pd.read_csv(C / "mechanism.csv"); E = pd.read_csv(C / "exposure_policy_vs_hull.csv")
+    g = M.groupby("policy")[["per_plan_auroc", "mean_cross_plan_corr", "pair_auroc", "modal_plan_share"]].mean()
+    e = E.groupby("policy")[["policy_judge", "hull_judge", "policy_clong", "hull_clong"]].mean()
+    T = pd.DataFrame([{"Policy": {"planner_tsr": "TSR planner", "planner_sk": "Planner with self knowledge"}[k],
+                       "Per plan AUROC": f"{r.per_plan_auroc:.3f}", "Which hull plan wins, AUROC": f"{r.pair_auroc:.3f}",
+                       "Most used plan share": f"{r.modal_plan_share:.3f}",
+                       "Judge share, policy / hull": f"{e.loc[k, 'policy_judge']:.3f} / {e.loc[k, 'hull_judge']:.3f}"}
+                      for k, r in g.iterrows()])
+    md_table("Mechanism: planners predict difficulty, not which plan wins (seed 0 folds, single step plans)", T)
+    tex_table("mechanism", T, "What the planners learn, and grading exposure of policy and hull.", "lrrrr")
+    VERD.append("Mechanism: pair AUROC " + ", ".join(f"{k} {r.pair_auroc:.3f}" for k, r in g.iterrows()))
+
+
 # ====================================================================== audits
 def t_audit():
     s8 = importlib.util.spec_from_file_location("g8", Path(__file__).parent / "08_grading_full.py")
@@ -302,7 +429,8 @@ def t_audit():
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     MD.append("# FunnelPlan final tables\n\nGenerated by scripts/12_tables_final.py from the result files. Gains are differences in the share of questions answered correctly.")
-    for fn in (t_h1, t_secondary, t_h3, t_sensitivity, t_step, t_r3, t_r6, t_ircot, t_headroom, t_audit):
+    for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
+               t_ircot, t_headroom, t_checks, t_audit):
         try:
             fn()
         except FileNotFoundError as e:

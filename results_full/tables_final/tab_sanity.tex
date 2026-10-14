@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering\small
+\caption{Llama 3.1 8B against published Never and Always RAG (answer contained accuracy).}
+\label{tab:sanity}
+\begin{tabular}{lrrrrr}
+\toprule
+Dataset & Published Never RAG & Ours, closed book & Published Always RAG & Ours, BM25 k=5 & Ours, BM25 k=10 \\
+\midrule
+NQ & 0.446 & 0.350 & 0.496 & 0.426 & 0.480 \\
+HotpotQA & 0.286 & 0.210 & 0.410 & 0.382 & 0.398 \\
+2Wiki & 0.318 & 0.250 & 0.374 & 0.332 & 0.346 \\
+MuSiQue & 0.106 & 0.046 & 0.100 & 0.116 & 0.128 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -3,7 +3,7 @@
 Final figures for the paper (5 readers). CPU only; reads results, never reruns an analysis.
 Needs scripts/12_tables_final.py to have run first (it writes tables_final/audit_rules.csv).
 Usage:  python scripts/26_figures.py
-Output: results_full/figures_final/f1..f9 (.png and .pdf)
+Output: results_full/figures_final/f1..f11 (.png and .pdf)
 """
 import importlib.util, os, sys
 from pathlib import Path
@@ -260,7 +260,58 @@ def f9():
     _save(fig, "f9_grading.png"); plt.close(fig)
 
 
+# ---------------------------------------------------------------- F10 headroom at matched cost and what policies reach
+def f10():
+    C = AN / "checks"
+    H = pd.read_csv(C / "headroom_matched.csv").groupby("reader")[["gap_k2", "gap_k3", "gap_all"]].mean().loc[READERS]
+    P = T12.primary_family(AN / "final")
+    P = P[P.reader.isin(READERS)].groupby("reader").gain.max().reindex(READERS)
+    M = pd.read_csv(C / "mechanism.csv").groupby("policy")[["per_plan_auroc", "pair_auroc"]].mean()
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.2, 2.8), gridspec_kw={"width_ratios": [2.3, 1]})
+    x = np.arange(len(READERS)); w = 0.2
+    series = (("gap_k2", "#9cc3ee", "oracle over 2 plans"), ("gap_k3", BLUE, "oracle over 3 plans"),
+              ("gap_all", "#1d4f8f", "oracle over all plans"))
+    for i, (c, col, lab) in enumerate(series):
+        ax.bar(x + (i - 1.5) * (w + 0.015), H[c], w, color=col, label=lab, zorder=2)
+    ax.bar(x + 1.5 * (w + 0.015), P.values, w, color=ORANGE, label=f"best adaptive policy (at most {P.max():+.3f})", zorder=2)
+    ax.axhline(0, color=MUTED, lw=0.8)
+    ax.set_xticks(x); ax.set_xticklabels([RN[r] for r in READERS], fontsize=7.4)
+    ax.set_ylabel("gain over the hull, same cost"); hgrid(ax, "y"); ax.set_ylim(-0.02, 0.52)
+    ax.set_title("Held out headroom exists; policies do not reach it", loc="left")
+    ax.legend(fontsize=6.6, ncol=2, loc="upper left")
+    names = {"planner_tsr": "TSR planner", "planner_sk": "Planner + self\nknowledge"}
+    y = np.arange(len(M)); h = 0.34
+    bx.barh(y + h / 2, M.per_plan_auroc, h, color=BLUE, label="is the query answerable")
+    bx.barh(y - h / 2, M.pair_auroc, h, color=ORANGE, label="which hull plan wins")
+    for yi, a, b in zip(y, M.per_plan_auroc, M.pair_auroc):
+        bx.text(a + 0.01, yi + h / 2, f"{a:.2f}", va="center", fontsize=6.6, color=INK2)
+        bx.text(b + 0.01, yi - h / 2, f"{b:.2f}", va="center", fontsize=6.6, color=INK2)
+    bx.axvline(0.5, color=RED, lw=0.8, ls="--"); bx.text(0.505, -0.75, "chance", color=RED, fontsize=6.4)
+    bx.set_yticks(y); bx.set_yticklabels([names.get(i, i) for i in M.index], fontsize=7); bx.set_xlim(0.4, 0.75)
+    bx.set_xlabel("AUROC (held out)"); hgrid(bx); bx.set_title("What planners learn", loc="left")
+    bx.set_ylim(-0.9, len(M) - 0.4)
+    bx.legend(fontsize=6.2, loc="upper center", bbox_to_anchor=(0.45, -0.3), ncol=1)
+    fig.tight_layout(); _save(fig, "f10_headroom_matched.png"); plt.close(fig)
+
+
+# ---------------------------------------------------------------- F11 learning curve
+def f11():
+    LC = pd.read_csv(AN / "stronger_policies" / "learning_curve.csv")
+    pts = LC.groupby(["reader", "frac"]).apply(lambda x: x.sum_gain.sum() / x.n.sum()).unstack()
+    fig, ax = plt.subplots(figsize=(4.6, 2.7))
+    cols = [BLUE, ORANGE, AQUA, YELLOW, MAGENTA]
+    for rd, col in zip(READERS, cols):
+        if rd in pts.index:
+            ax.plot(pts.columns * 100, pts.loc[rd], marker="o", ms=3.2, lw=1.4, color=col, label=RN[rd])
+    ax.axhline(0, color=INK2, lw=0.9); ax.text(21, 0.002, "hull", fontsize=6.8, color=INK2)
+    ax.set_xlabel("share of the training folds used (%)"); ax.set_ylabel("gain over the hull")
+    ax.set_xticks([20, 40, 60, 80, 100]); hgrid(ax, "y")
+    ax.set_title("Planner with self knowledge: more data approaches the hull", loc="left")
+    ax.legend(fontsize=6.6, ncol=2, loc="lower right")
+    fig.tight_layout(); _save(fig, "f11_learning_curve.png"); plt.close(fig)
+
+
 if __name__ == "__main__":
-    for f in (f1, f2, f3, f4, f5, f6, f7, f8, f9):
+    for f in (f1, f2, f3, f4, f5, f6, f7, f8, f9, f10, f11):
         f()
     print(f"Written {OUTD}")

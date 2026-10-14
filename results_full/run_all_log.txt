@@ -1,0 +1,35 @@
+
+=== run_all_analysis started 2026-10-13 23:28:48 (from step 1)
+[1/16] python scripts/10_analysis_full.py  (H1 primary family, single step plans -> analysis/final/)
+    exit 0 after 474s
+[2/16] python scripts/10_analysis_full.py --r3  (H1 primary family, with two hop plans -> analysis/final_r3/)
+    exit 0 after 507s
+[3/16] python scripts/13_routers.py eval ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5  (secondary routers, single step)
+    exit 0 after 487s
+[4/16] python scripts/13_routers.py eval ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5 --r3  (secondary routers, two hop)
+    exit 0 after 502s
+[5/16] python scripts/15_power_headroom.py  (power, held out oracles, label stability -> tables/)
+    exit 0 after 3s
+[6/16] python scripts/21_h3_ircot.py  (H3, IRCoT against the hull -> analysis/h3_ircot/)
+    exit 0 after 6s
+[7/16] python scripts/22_weak_baselines.py  (R6, weak protocol -> analysis/weak_protocol/)
+    exit 0 after 1s
+[8/16] python scripts/23_metis_profiler.py eval  (METIS port, single step -> analysis/metis/)
+    exit 0 after 1252s
+[9/16] python scripts/23_metis_profiler.py eval --r3  (METIS port, two hop -> analysis/metis_r3/)
+    exit 0 after 1473s
+[10/16] python scripts/24_label_sensitivity.py  (grading sensitivity (lenient, strict))
+    exit 0 after 1914s
+[11/16] python scripts/25_step_hull.py  (step baseline)
+    exit 0 after 1566s
+[12/16] python scripts/27_cost_axes.py  (cost axes: tokens, tokens x4, FLOPs, calls)
+    exit 0 after 3705s
+[13/16] python scripts/28_stronger_policies.py  (classifier gate and planner with self knowledge)
+    exit 0 after 1334s
+[14/16] python scripts/29_checks.py  (sanity table, grading factor, matched cost headroom, mechanism)
+    exit 0 after 97s
+[15/16] python scripts/12_tables_final.py  (final tables and verdicts -> tables_final/)
+    exit 0 after 12s
+[16/16] python scripts/26_figures.py  (final figures -> figures_final/)
+    exit 0 after 9s
+=== done in 3.71 h

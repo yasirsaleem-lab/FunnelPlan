@@ -1,3 +1,4 @@
+Cost axis: latency
 Plan set: single step plans only
 Repeats: seeds [0, 1, 2, 3, 4] (fold split and XGBoost seed). Gains are averaged per query over seeds; CIs bootstrap over queries; 'seeds a..b' is the range of per seed mean gains.
 

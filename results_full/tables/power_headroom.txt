@@ -1,8 +1,8 @@
 == A. Minimum detectable effect, 80% power, two sided
-  dataset  tests=140  a=0.05                       MDE median 0.055  range 0.029..0.063
-  dataset  tests=140  Holm strictest a=0.05/140    MDE median 0.087  range 0.045..0.099
-  pooled   tests= 35  a=0.05                       MDE median 0.027  range 0.025..0.029
-  pooled   tests= 35  Holm strictest a=0.05/35     MDE median 0.039  range 0.035..0.042
+  dataset  tests=228  a=0.05                       MDE median 0.055  range 0.029..0.063
+  dataset  tests=228  Holm strictest a=0.05/228    MDE median 0.089  range 0.047..0.101
+  pooled   tests= 57  a=0.05                       MDE median 0.027  range 0.025..0.029
+  pooled   tests= 57  Holm strictest a=0.05/57     MDE median 0.040  range 0.037..0.043
   Reading: a true gain smaller than the MDE would usually be missed. Pooled tests (n = 2000) detect
   about 0.025 at the nominal level; single datasets (n = 500) about 0.05.
 

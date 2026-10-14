@@ -78,7 +78,7 @@ def graded(reader):
 
 # ====================================================================== (b)
 # Moskvoretskii et al., ACL 2025 (2025.acl-long.319), Llama 3.1 8B, BM25, In-Accuracy (answer contained).
-# Values as extracted in our research notes of 13 Oct 2026; check against the paper's table before citing.
+# Values checked against Table 1 of the paper on 13 Oct 2026 (BM25, Karpukhin et al. Wikipedia; depth not stated).
 PUBLISHED = {"nq": (0.446, 0.496), "hotpotqa": (0.286, 0.410), "2wikimultihopqa": (0.318, 0.374),
              "musique": (0.106, 0.100)}
 

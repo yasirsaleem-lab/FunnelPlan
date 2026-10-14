@@ -12,6 +12,10 @@ The repository produces the experiments for an ICDE 2027 Experiment, Analysis
 and Benchmark (EAB) submission (deadline 11 November 2026). Every run is local.
 No API model is used.
 
+**To reproduce the paper, start with [ARTIFACT.md](ARTIFACT.md).** The final results are in
+`results_full/tables_final/` (`verdicts.txt`, `tables.md`) and `results_full/figures_final/`. The status section
+below is historical (4 October 2026).
+
 ---
 
 ## Contents
