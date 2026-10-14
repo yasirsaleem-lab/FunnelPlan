@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Fixed two hop plans (pre-registration run R3, defined in the amendment of 2026-10-09).
 

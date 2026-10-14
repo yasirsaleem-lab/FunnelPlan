@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Final tables for the paper (5 readers, both plan sets). CPU only, reads results; never reruns an analysis.
 

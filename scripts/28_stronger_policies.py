@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Stronger learned policies (amendment 2026-10-13 20:45, item (c)). Concern: the routers may be weak, and the ACL 2025
 uncertainty baselines were missing. Two policies, same protocol as 10 (imported from it: same queries, plans, mean plan

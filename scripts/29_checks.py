@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Checks fixed in the amendment of 2026-10-13 20:45, items (b), (e) and (f). CPU only, no new answers.
 

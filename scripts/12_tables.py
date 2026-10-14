@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Paper tables (LaTeX, booktabs) plus a plain text copy of every table.
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Fit the plan cost model.
 

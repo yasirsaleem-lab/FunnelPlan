@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 v3 TSR label generation.
 

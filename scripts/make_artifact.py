@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Build the reproducibility package for the paper.
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Offline planner evaluation (v3), from the out of fold predictions in
 results/tsr/cv_predictions.csv. No GPU, no retrieval reruns.

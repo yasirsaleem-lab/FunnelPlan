@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Regrade the stored agent answers under several rules, and audit the rules by hand.
 

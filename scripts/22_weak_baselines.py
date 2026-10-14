@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 R6 (pre-registered): how much of an "adaptive retrieval wins" result is produced by the evaluation protocol?
 No new GPU runs: the same answers, scored under the weak protocol common in the literature.

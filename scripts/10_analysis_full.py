@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Full mode analysis: the fixed plan hull, our planner, and published adaptive
 retrieval baselines, all under ONE held out protocol. CPU only, minutes.

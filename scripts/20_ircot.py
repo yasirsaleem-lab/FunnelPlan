@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 IRCoT reference point (pre-registration run R4; hypothesis H3). Not a plan: its cost depends on the data.
 

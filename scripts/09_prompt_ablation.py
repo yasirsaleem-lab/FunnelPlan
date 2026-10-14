@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Prompt ablation: does the "use only the passages" instruction cause the
 "retrieval hurts a reader that already knows the answer" effect?

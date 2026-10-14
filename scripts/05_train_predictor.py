@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Train and evaluate the TSR predictor (v3).
 

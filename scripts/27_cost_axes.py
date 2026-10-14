@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Cost axes (amendment 2026-10-13 20:45, item (d)). Concern: latency comes from one GPU, so the verdict may be
 an artifact of that machine. Refits the hull and retests the primary family (27 pooled tests, Holm) with four costs

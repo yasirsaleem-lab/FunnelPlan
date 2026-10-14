@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Retrieval quality per retriever and depth, and how well each reader uses a context that holds the answer.
 

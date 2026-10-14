@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Reviewer point: "the fixed plan hull assumes a system randomises between two plans; compare against the best SINGLE
 fixed plan at or below the policy's cost instead".

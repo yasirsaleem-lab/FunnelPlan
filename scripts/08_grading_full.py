@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Grading for the full mode labels: rules, a local LLM judge, and a two rater
 human audit that validates both.

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Prepare the four full datasets for CORPUS_MODE=full.
 

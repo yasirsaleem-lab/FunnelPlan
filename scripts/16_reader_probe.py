@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Timing and quality probe for larger readers served by llama.cpp (GGUF), before committing GPU days.
 

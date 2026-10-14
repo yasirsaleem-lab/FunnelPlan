@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Stronger routers. Answers the reviewer question "is the null result an artifact of a weak router?"
 

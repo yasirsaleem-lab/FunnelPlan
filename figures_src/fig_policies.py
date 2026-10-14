@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Figure 2: the baseline and the policy families as small flow charts with one visual grammar, in the
 FunnelPlan palette (figures_src/palette.py): teal filled start and end, outlined steps, amber decisions, slate

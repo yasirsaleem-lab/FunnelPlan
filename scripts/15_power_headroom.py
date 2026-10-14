@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Power and headroom: how small a gain could we detect, and how much of the oracle headroom is realistic?
 

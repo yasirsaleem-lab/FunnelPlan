@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 R5 (pre-registered): a METIS style per query profiler policy (Ray et al., SOSP 2025), ported to our plan space.
 

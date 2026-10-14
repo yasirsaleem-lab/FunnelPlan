@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Final figures for the paper (5 readers). CPU only; reads results, never reruns an analysis.
 Needs scripts/12_tables_final.py to have run first (it writes tables_final/audit_rules.csv).

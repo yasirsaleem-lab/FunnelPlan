@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Human audit of the answers of the readers added in the extension (Qwen3 32B and Gemma 3 27B; pre-registration R1).
 

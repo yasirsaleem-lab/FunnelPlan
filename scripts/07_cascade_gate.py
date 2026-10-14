@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Route B gate: does a reader cascade (7B -> 14B, gated on the 7B's confidence)
 beat the best fixed configuration at equal cost?

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Plan grid labels for readers served by llama.cpp (pre-registration run R1, and R2 for the quantization control).
 

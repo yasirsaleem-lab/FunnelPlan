@@ -13,6 +13,3 @@ Adjudication: the 88 items where rater 1 and rater 2 disagree (57 in audit 1, 31
 independent rater, rater 3, returned 2026-10-13 14:42 (`grading/received/adjudication_rater3_BLANK.xlsx`), on a blank
 sheet in random order without rater labels, audit or reader names, and without AI. The human reference is the majority
 of the three labels (`grading/audit_adjudicated.csv`).
-
-History: the first audit 1 sheets (2026-10-07) were labelled by the author and are no longer used as rater labels
-(see docs/DECISIONS.md, 8 Oct entry, and the git history). No LLM labels are used as a rater.

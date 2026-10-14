@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Paper figures from the outputs of 08 (grading) and 10 (analysis).
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Measure TSR label noise properly.
 

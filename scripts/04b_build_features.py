@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Build the v3 feature table from the v3 retrieval caches.
 

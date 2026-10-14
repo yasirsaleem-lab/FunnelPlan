@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 H3 (pre-registered): IRCoT against the held out fixed plan hull at IRCoT's own mean latency.
 

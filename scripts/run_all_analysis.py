@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Rebuild every analysis, table and figure of the paper from the released answer files. CPU only.
 

@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Figure 1: the FunnelPlan benchmark as layered bands (read bottom to top), using the FunnelPlan palette
 (figures_src/palette.py). Writes results_full/figures_final/fig_framework.{drawio,svg,pdf,png}.

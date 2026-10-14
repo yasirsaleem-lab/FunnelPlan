@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 """
 Profile retrieval latency. Configure with the CONFIG block, then run.
 
