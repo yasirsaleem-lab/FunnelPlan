@@ -1,7 +1,7 @@
 # FunnelPlan: reproducibility package
 
-This package reproduces every number, table and figure of the ICDE 2027 Experiment, Analysis and Benchmark paper
-on adaptive retrieval policies against the fixed plan hull. It has three levels. Level 1 needs nothing but a text
+This package reproduces every number, table and figure of the FunnelPlan study of adaptive retrieval policies
+against the fixed plan hull. It has three levels. Level 1 needs nothing but a text
 editor. Level 2 needs a CPU and a few hours. Level 3 regenerates the answers and needs a GPU for several days.
 
 ## 1. Check the results without running anything

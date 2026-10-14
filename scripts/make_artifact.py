@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Build the reproducibility package for the paper (ICDE requires all artifacts with the submission).
+Build the reproducibility package for the paper.
 
 The package = every file tracked by git (code, docs, pre-registration, graded answers, audits, results)
             + the files git ignores but the analyses need: the retrieval caches data/cache_full/retrievals_v3/*.pkl
