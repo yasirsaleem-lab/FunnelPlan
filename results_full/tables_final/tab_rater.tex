@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\small
+\caption{Grading rules against each human reference. Rater 1 is a co-author who labelled blind; rater 2 is not an author.}
+\label{tab:rater}
+\begin{tabular}{llrrrr}
+\toprule
+Audit & Rule & n & Majority of three & Rater 2 alone (not an author) & Rater 1 alone (author) \\
+\midrule
+Audit 1 (7B, Llama, Qwen3 14B) & strict EM & 200 & 0.635 & 0.520 & 0.685 \\
+Audit 1 (7B, Llama, Qwen3 14B) & F1 $\geq$ 0.7 & 200 & 0.735 & 0.700 & 0.755 \\
+Audit 1 (7B, Llama, Qwen3 14B) & lenient & 200 & 0.695 & 0.760 & 0.645 \\
+Audit 1 (7B, Llama, Qwen3 14B) & label\_final & 200 & 0.800 & 0.685 & 0.870 \\
+Audit 2 (Gemma, Qwen3 32B) & strict EM & 200 & 0.720 & 0.675 & 0.750 \\
+Audit 2 (Gemma, Qwen3 32B) & F1 $\geq$ 0.7 & 200 & 0.800 & 0.765 & 0.820 \\
+Audit 2 (Gemma, Qwen3 32B) & lenient & 200 & 0.805 & 0.810 & 0.785 \\
+Audit 2 (Gemma, Qwen3 32B) & label\_final & 200 & 0.840 & 0.805 & 0.900 \\
+\bottomrule
+\end{tabular}
+\end{table}

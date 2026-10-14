@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{IRCoT runs. Succ.: IRCoT success; Best: best fixed plan (in sample). LM and Ret.: reader and retrieval calls per question. Sec.: seconds per question. Lat.: latency relative to the best fixed plan.}
+\label{tab:p_ircot}
+\begin{tabular}{@{}llrrrrrr@{}}
+\toprule
+Reader & Data & Succ. & Best & LM & Ret. & Sec. & Lat. \\
+\midrule
+Qwen2.5 7B & HotpotQA & 0.522 & 0.530 & 5.7 & 3.6 & 21.2 & 15$\times$ \\
+Qwen2.5 7B & 2Wiki & 0.532 & 0.406 & 6.4 & 3.9 & 24.7 & 18$\times$ \\
+Qwen2.5 7B & MuSiQue & 0.270 & 0.262 & 6.7 & 3.8 & 26.1 & 39$\times$ \\
+Llama 3.1 8B & HotpotQA & 0.554 & 0.588 & 4.5 & 3.2 & 18.6 & 11$\times$ \\
+Llama 3.1 8B & 2Wiki & 0.494 & 0.406 & 5.4 & 3.7 & 24.1 & 11$\times$ \\
+Llama 3.1 8B & MuSiQue & 0.242 & 0.228 & 4.7 & 3.4 & 19.7 & 11$\times$ \\
+Qwen3 14B & HotpotQA & 0.604 & 0.596 & 4.9 & 3.4 & 68.3 & 26$\times$ \\
+Qwen3 14B & 2Wiki & 0.568 & 0.434 & 5.4 & 3.6 & 79.8 & 22$\times$ \\
+Qwen3 14B & MuSiQue & 0.336 & 0.286 & 5.3 & 3.6 & 75.9 & 20$\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}

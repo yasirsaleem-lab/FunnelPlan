@@ -5,15 +5,20 @@ Writes results_full/tables_final/:
   tables.md          every table in readable form (the source for the paper text)
   tab_*.tex          booktabs LaTeX tables
   verdicts.txt       the pre-registered decisions, computed from the files (H1, secondary family, H3, robustness)
+  tab_summary.tex    every family and robustness check in one table (the paper's verdict table)
+  tab_rater.tex      grading rules against each human reference (majority of three, each rater alone)
+  tab_p_*.tex        compact tables for the paper body (retrievers, plans, gains, IRCoT, weak protocol, mechanism, raters)
 
 Inputs (all produced by earlier scripts): analysis/final[_r3]/ (10, 13), analysis/metis[_r3]/ (23),
 analysis/h3_ircot[_lenient|_strict]/ (21, 24), analysis/weak_protocol/ (22), analysis/lenient*|strict* (24),
 analysis/step_hull_primary*.csv (25, optional), analysis/cost_axes_primary.csv (27), analysis/stronger_policies (28),
 analysis/checks (29), grading/audit_adjudicated.csv (audits), r4_ircot labels (20).
 
-Usage: python scripts/12_tables_final.py
+Usage: python scripts/12_tables_final.py               (writes results_full/tables_final/)
+       python scripts/12_tables_final.py --out DIR     (writes to DIR instead; for testing)
 """
 
+import re
 import importlib.util
 import os
 import sys
@@ -31,7 +36,7 @@ from config import settings
 
 AN = settings.RESULTS_ROOT / "analysis"
 PROC = settings.PROCESSED_DATA_ROOT
-OUT = settings.RESULTS_ROOT / "tables_final"
+OUT = Path(sys.argv[sys.argv.index("--out") + 1]) if "--out" in sys.argv else settings.RESULTS_ROOT / "tables_final"
 READERS = ["qwen2.5-7b", "llama3.1-8b", "qwen3-14b", "gemma3-27b", "qwen3-32b"]
 RN = {"qwen2.5-7b": "Qwen2.5 7B", "llama3.1-8b": "Llama 3.1 8B", "qwen3-14b": "Qwen3 14B",
       "gemma3-27b": "Gemma 3 27B", "qwen3-32b": "Qwen3 32B",
@@ -50,6 +55,7 @@ _s.loader.exec_module(S)
 holm, primary_family = S.holm, S.primary_family
 
 MD, TEX, VERD = [], {}, []
+NONINF, AUD = [], {}     # filled by t_noninf and t_audit, read by t_summary and t_rater
 
 
 def sg(x, d=3):
@@ -70,8 +76,18 @@ def md_table(title, df, note=""):
         MD.append(f"\n{note}")
 
 
+def tex_esc(v):
+    """Escape a cell for LaTeX: underscores, percent, comparison signs, and a true minus before numbers."""
+    s = str(v)
+    if "$" in s:
+        return s
+    s = s.replace("_", r"\_").replace("%", r"\%").replace(">=", r"$\geq$").replace("<=", r"$\leq$")
+    s = s.replace("<", r"$<$").replace(">", r"$>$").replace("\u2020", r"$^\dagger$")
+    return re.sub(r"(?<![A-Za-z0-9])-(?=\d)", r"$-$", s)
+
+
 def tex_table(name, df, caption, align=None):
-    esc = lambda v: str(v).replace("_", r"\_").replace("%", r"\%").replace("<", r"$<$")
+    esc = tex_esc
     align = align or "l" * len(df.columns)
     L = [r"\begin{table}[t]", r"\centering\small", f"\\caption{{{esc(caption)}}}", f"\\label{{tab:{name}}}",
          f"\\begin{{tabular}}{{{align}}}", r"\toprule", " & ".join(esc(c) for c in df.columns) + r" \\", r"\midrule"]
@@ -286,6 +302,7 @@ def t_noninf():
     md_table("Non superiority at the preregistered margin of 0.03 (one sided 95% upper bounds)", T,
              "Secondary analysis (amendment 13 Oct 20:45 (a)); the margin was preregistered on 8 Oct, the test was added later and its result was seen before the amendment.")
     tex_table("noninf", T, "Non superiority at the preregistered 0.03 margin (27 primary tests per plan set).", "lrrrl")
+    NONINF.extend(rows)
     for r in rows:
         VERD.append(f"Non superiority at 0.03, {r['Plan set']}: {r['Rejected at 0.03 after Holm']} of {r['Tests']} after Holm; largest bound {r['Largest upper bound']}")
 
@@ -334,7 +351,8 @@ def t_stronger():
     f = AN / "stronger_policies" / "learning_curve.csv"
     if f.exists():
         LC = pd.read_csv(f)
-        pts = LC.groupby(["reader", "frac"]).apply(lambda x: x.sum_gain.sum() / x.n.sum()).unstack()
+        g = LC.groupby(["reader", "frac"])[["sum_gain", "n"]].sum()      # pooled gain per question = sum / count
+        pts = (g["sum_gain"] / g["n"]).unstack()
         T2 = pts.reset_index().rename(columns={"reader": "Reader"})
         T2["Reader"] = T2["Reader"].map(RN)
         T2.columns = ["Reader"] + [f"{int(c * 100)}% of training" for c in pts.columns]
@@ -408,6 +426,7 @@ def t_audit():
         for c in ["strict", "label_f1_07", "label_lenient", "ambiguous"]:
             a[c] = [graded[p][c] for p in a.pair]
         a["final"] = [jmap.get(p, s_) if amb == 1 else s_ for p, s_, amb in zip(a.pair, a.strict, a.ambiguous)]
+        AUD[name] = a
         kap = G.kappa(a.rater1.astype(int), a.rater2.astype(int))
         for c, nm in (("strict", "strict EM"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final")):
             ok = (a[c].astype(int) == a.human.astype(int)).values
@@ -422,14 +441,328 @@ def t_audit():
                    hi=T["Accuracy vs majority of three"].str.extract(r", ([0-9.]+)\]")[0].astype(float))
     num[["Audit", "Rule", "n", "acc", "lo", "hi", "FP", "FN"]].to_csv(OUT / "audit_rules.csv", index=False)
     md_table("Human audits: grading rules against the majority of three raters", T)
-    tex_table("audit", T, "Grading rules against the human reference (majority of three independent raters).", "lrlrrrrr")
+    tex_table("audit", T, "Grading rules against the human reference (majority of three raters).", "lrlrrrrr")
+
+
+# ====================================================================== rater reference (amendment 14 Oct 2026)
+def t_rater():
+    """Accuracy of each grading rule against three human references: the majority of three raters (main), rater 2
+    alone (not an author) and rater 1 alone (an author of the paper). Checks that the grading validation does not
+    depend on the author's labels."""
+    rules = (("strict", "strict EM"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final"))
+    rows = []
+    for name, a in AUD.items():
+        for c, nm in rules:
+            pred = a[c].astype(int).values
+            row = {"Audit": name, "Rule": nm, "n": len(a)}
+            for ref, col in (("Majority of three", "human"), ("Rater 2 alone (not an author)", "rater2"), ("Rater 1 alone (author)", "rater1")):
+                row[ref] = f"{(pred == a[col].astype(int).values).mean():.3f}"
+            rows.append(row)
+    T = pd.DataFrame(rows)
+    md_table("Grading rules against each human reference (rater 1 is a co-author; rater 2 is not)", T)
+    tex_table("rater", T, "Grading rules against each human reference. Rater 1 is a co-author who labelled blind; rater 2 is not an author.", "llrrrr")
+    for name in AUD:
+        g = T[(T.Audit == name) & (T.Rule == "label_final")].iloc[0]
+        VERD.append(f"Rater reference, {name}: label_final accuracy vs majority {g['Majority of three']}, "
+                    f"vs rater 2 alone {g['Rater 2 alone (not an author)']}, vs rater 1 alone {g['Rater 1 alone (author)']}")
+
+
+# ====================================================================== verdict summary (the paper's main table)
+def t_summary():
+    """Every family and robustness check in one table: Holm survivors with the CI above (Pos) or below (Neg) zero, and
+    the largest pooled gain, for both plan sets."""
+    def cnt(F, gain="gain", lo="ci_low", hi="ci_high", p="p_holm"):
+        return (int(((F[p] < 0.05) & (F[lo] > 0)).sum()), int(((F[p] < 0.05) & (F[hi] < 0)).sum()), float(F[gain].max()), len(F))
+    rows = []
+    def add(name, A, B, **kw):
+        a, b = cnt(A, **kw), cnt(B, **kw)
+        rows.append({"Test family": name, "Tests": a[3], "Pos/Neg, single step": f"{a[0]}/{a[1]}", "Max, single step": sg(a[2]),
+                     "Pos/Neg, with two hop": f"{b[0]}/{b[1]}", "Max, with two hop": sg(b[2])})
+    add("Primary: latency (main)", primary_family(AN / "final"), primary_family(AN / "final_r3"))
+    C = pd.read_csv(AN / "cost_axes_primary.csv")
+    for ax, nm in (("tokens", "Primary: tokens"), ("tokens_w4", "Primary: tokens, output x4"),
+                   ("flops", "Primary: FLOPs"), ("calls", "Primary: calls")):
+        add(nm, C[(C.axis == ax) & (C.plan_set == "single_step")], C[(C.axis == ax) & (C.plan_set == "two_hop")])
+    add("Primary: best single plan\u2020", pd.read_csv(AN / "step_hull_primary.csv"), pd.read_csv(AN / "step_hull_primary_r3.csv"),
+        gain="gain_step", lo="ci_low_step", hi="ci_high_step", p="p_holm_step")
+    for lab in ("strict", "lenient"):
+        add(f"Primary: {lab} grading", primary_family(AN / lab), primary_family(AN / f"{lab}_r3"))
+    add("Secondary routers, METIS", secondary("final", "metis"), secondary("final_r3", "metis_r3"))
+    St = pd.read_csv(AN / "stronger_policies" / "family.csv")
+    add("Stronger policies", St[St.plan_set == "single step"], St[St.plan_set == "two hop"])
+    T = pd.DataFrame(rows)
+    note = ""
+    if len(NONINF) == 2:
+        note = (f"Margin test at 0.03 (upper bound below the margin after Holm): {NONINF[0]['Rejected at 0.03 after Holm']} of "
+                f"{NONINF[0]['Tests']} single step, {NONINF[1]['Rejected at 0.03 after Holm']} of {NONINF[1]['Tests']} with two hop.")
+    md_table("Verdict summary: every family and robustness check (Pos/Neg = Holm survivors with CI above/below 0)", T, note)
+    esc = tex_esc
+    L = [r"\begin{table}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{3pt}",
+         r"\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% CI lies above or below zero; Max is the largest pooled gain. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}",
+         r"\label{tab:summary}", r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule",
+         r" & & \multicolumn{2}{c}{Single step plans} & \multicolumn{2}{c}{With two hop plans} \\",
+         r"\cmidrule(lr){3-4}\cmidrule(l){5-6}", r"Test family & Tests & Pos/Neg & Max & Pos/Neg & Max \\", r"\midrule"]
+    for r in rows:
+        L.append(" & ".join(esc(v) for v in r.values()) + r" \\")
+    if note:
+        L += [r"\midrule", r"\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{" + note + "}" + r" \\"]
+    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    TEX["summary"] = "\n".join(L)
+    hull_rows = [r for r in rows if "best single plan" not in r["Test family"]]
+    step = [r for r in rows if "best single plan" in r["Test family"]]
+    VERD.append("Summary: rows against the hull with positive survivors in both plan sets: "
+                + str(sum(int(r["Pos/Neg, single step"].split("/")[0]) > 0 and int(r["Pos/Neg, with two hop"].split("/")[0]) > 0 for r in hull_rows))
+                + f" of {len(hull_rows)}")
+    if step:
+        VERD.append(f"Against the best single plan (no mixing): positive {step[0]['Pos/Neg, single step'].split('/')[0]} single step, "
+                    f"{step[0]['Pos/Neg, with two hop'].split('/')[0]} with two hop; largest gain {step[0]['Max, single step']} and "
+                    f"{step[0]['Max, with two hop']}. These wins vanish against the hull, so they come from mixing, not from question features.")
+
+
+# ====================================================================== compact tables for the paper body
+def _n(x, bold=False, d=3, sign=True):
+    """A number as a LaTeX cell: true minus sign, optional bold."""
+    if pd.isna(x):
+        return ""
+    x = 0.0 if round(float(x), d) == 0 else float(x)
+    t = f"{x:+.{d}f}" if sign else f"{x:.{d}f}"
+    t = t.replace("-", "$-$")
+    return r"\textbf{" + t + "}" if bold else t
+
+
+def _tex(name, caption, colspec, head, body, star=False, size=r"\footnotesize", sep="3pt"):
+    env = "table*" if star else "table"
+    L = [rf"\begin{{{env}}}[t]", r"\centering" + size, rf"\setlength{{\tabcolsep}}{{{sep}}}", rf"\caption{{{caption}}}",
+         rf"\label{{tab:{name}}}", rf"\begin{{tabular}}{{{colspec}}}", r"\toprule"] + head + [r"\midrule"] + body + [r"\bottomrule", r"\end{tabular}", rf"\end{{{env}}}"]
+    TEX[name] = "\n".join(L)
+
+
+RET = [("closed_book", "Closed book"), ("bm25", "BM25"), ("splade_v3", "SPLADE v3"), ("bge_m3", "BGE M3 (dense)"),
+       ("stella_1_5b", "Stella 1.5B"), ("bge_bm25_rrf", "BGE M3 + BM25 (RRF)"), ("qwen3_reranker_0_6b", "Qwen3 Reranker"),
+       ("bm25_2hop", "BM25, two hop")]
+
+
+def t_p_retrievers():
+    """Success of each retriever at depth 5 (two hop: 5 per hop), mean over the five readers, and its retrieval time."""
+    F = pd.read_csv(AN / "final_r3" / "fixed_plans.csv")
+    F["ret"] = F.plan.str.split("@").str[0]; F["k"] = F.plan.str.split("@").str[1].astype(int)
+    body = []
+    for key, nm in RET:
+        g = F[(F.ret == key) & (F.k == (0 if key == "closed_book" else 5))]
+        cells = []
+        for ds in DN:
+            v = g[g.dataset == ds].groupby("reader").success.mean()
+            cells.append(_n(v.mean(), sign=False))
+        rt = g.retrieval_s.mean()
+        body.append(f"{nm} & " + " & ".join(cells) + f" & {rt:.3f}" + r" \\")
+    best = {}
+    for ds in DN:
+        g = F[(F.dataset == ds) & (F.k == 5)].groupby(["ret"]).success.mean()
+        best[ds] = g.idxmax()
+    _tex("p_retrievers", r"Fixed plans at depth 5: success averaged over the five readers (in sample, \texttt{label\_final}), and mean retrieval time per question. Two hop: BM25 with 5 passages per hop.",
+         "@{}lrrrrr@{}", [r"Plan & NQ & HotpotQA & 2Wiki & MuSiQue & Retr.\ (s) \\"], body)
+    md_table("Fixed plans at depth 5, mean success over readers", pd.DataFrame({"best plan at k=5": best}, index=list(best)).reset_index())
+
+
+def t_p_plans():
+    """Per reader and dataset: closed book, best single step plan, per question oracle over all single step plans of
+    the reader, and the best two hop plan minus the best single step plan (all in sample)."""
+    R3 = pd.read_csv(AN / "final_r3" / "fixed_plans.csv")
+    body = []
+    for rd in READERS:
+        d = pd.read_csv(PROC / f"tsr_labels_{rd}_graded.csv", dtype={"query_id": str}, keep_default_na=False,
+                        usecols=["dataset", "query_id", "retriever", "depth", "repeat", "label_final"])
+        d = d[d.repeat.astype(int) == 0]
+        d["plan"] = d.retriever + "@" + d.depth.astype(str); d["y"] = d.label_final.astype(int)
+        cells = []
+        for ds in DN:
+            Y = d[d.dataset == ds].pivot_table(index="query_id", columns="plan", values="y")
+            acc = Y.mean()
+            g = R3[(R3.reader == rd) & (R3.dataset == ds)]
+            two = g[g.plan.str.startswith("bm25_2hop")].success.max()
+            one = g[~g.plan.str.startswith("bm25_2hop")].success.max()
+            cells += [_n(acc.get("closed_book@0", np.nan), sign=False), _n(acc.max(), sign=False),
+                      _n(Y.max(axis=1).mean(), sign=False), _n(two - one)]
+        body.append(f"{RN[rd]} & " + " & ".join(cells) + r" \\")
+    head = [r" & \multicolumn{4}{c}{NQ} & \multicolumn{4}{c}{HotpotQA} & \multicolumn{4}{c}{2Wiki} & \multicolumn{4}{c}{MuSiQue} \\",
+            r"\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}\cmidrule(l){14-17}",
+            r"Reader" + r" & CB & Best & Orc. & 2h" * 4 + r" \\"]
+    _tex("p_plans", r"Fixed plans per reader and dataset (in sample, \texttt{label\_final}). CB: closed book. Best: best single step plan. Orc.: share of questions that at least one single step plan answers. 2h: best fixed two hop plan minus the best single step plan.",
+         "@{}l" + "rrrr" * 4 + "@{}", head, body, star=True, sep="2.6pt")
+
+
+def t_p_gains():
+    """Gain over the held out hull for every policy and reader in both plan sets; bold = Holm survivor."""
+    P = (primary_family(AN / "final"), primary_family(AN / "final_r3"))
+    Sx = (secondary("final", "metis"), secondary("final_r3", "metis_r3"))
+    St = pd.read_csv(AN / "stronger_policies" / "family.csv")
+    St = (St[St.plan_set == "single step"], St[St.plan_set == "two hop"])
+    rows = [("Primary", P, "planner_tsr", "TSR planner"), ("Primary", P, "adaptive_rag", "Adaptive RAG"),
+            ("Primary", P, "adaptive_k", "Adaptive k"), ("Primary", P, "gate_closed_book", "Closed book gate"),
+            ("Primary", P, "conf_cascade", "Confidence cascade"),
+            ("Primary", P, ("reader_cascade", "qwen2.5-7b->llama3.1-8b"), "Reader cascade to Llama 3.1 8B"),
+            ("Primary", P, ("reader_cascade", "qwen2.5-7b->qwen3-14b"), "Reader cascade to Qwen3 14B"),
+            ("Secondary", Sx, "ak_paper", "Adaptive k, published rule"), ("Secondary", Sx, "ar_emb", "Adaptive RAG, BGE M3 classifier"),
+            ("Secondary", Sx, "ar_t5", "Adaptive RAG, FLAN-T5 classifier"), ("Secondary", Sx, "plan_emb", "Per plan logistic regression"),
+            ("Secondary", Sx, "plan_knn", "Per plan kNN"), ("Secondary", Sx, "metis", "METIS port"),
+            ("Stronger", St, "clf_gate", "Classifier gate"), ("Stronger", St, "planner_sk", "Planner, self knowledge")]
+    body, last = [], None
+    for fam, D, key, nm in rows:
+        if last and fam != last:
+            body.append(r"\midrule")
+        last = fam
+        cells = []
+        for rd in READERS:
+            for F in D:
+                if isinstance(key, tuple):
+                    r = F[(F.method == key[0]) & (F.reader == key[1])] if rd == "qwen2.5-7b" else F.iloc[0:0]
+                else:
+                    r = F[(F.method == key) & (F.reader == rd)]
+                if not len(r):
+                    cells.append(""); continue
+                r = r.iloc[0]
+                cells.append(_n(r.gain, bold=bool(r.p_holm < 0.05 and (r.ci_low > 0 or r.ci_high < 0))))
+        body.append(f"{nm} & " + " & ".join(cells) + r" \\")
+    head = [" & " + " & ".join(rf"\multicolumn{{2}}{{c}}{{{RN[r]}}}" for r in READERS) + r" \\",
+            r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(l){10-11}",
+            r"Policy" + r" & S & T" * 5 + r" \\"]
+    _tex("p_gains", r"Gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B.",
+         "@{}l" + "rr" * 5 + "@{}", head, body, star=True, sep="4pt")
+
+
+def t_p_ircot():
+    H = pd.read_csv(AN / "h3_ircot" / "h3.csv"); H = H[H.hull == "single_step"]
+    body = []
+    for rd in ["qwen2.5-7b", "llama3.1-8b", "qwen3-14b"]:
+        d = pd.read_csv(PROC / "r4_ircot" / f"labels_{rd}_graded.csv", keep_default_na=False)
+        for ds in ["hotpotqa", "2wikimultihopqa", "musique"]:
+            g = d[d.dataset == ds]; h = H[(H.reader == rd) & (H.dataset == ds)].iloc[0]
+            sec = (pd.to_numeric(g.agent_time_s) + pd.to_numeric(g.retrieval_time_s)).mean()
+            body.append(f"{RN[rd]} & {DN[ds]} & {g.label_final.astype(int).mean():.3f} & {h.best_fixed_success:.3f} & "
+                        f"{pd.to_numeric(g.lm_calls).mean():.1f} & {pd.to_numeric(g.retrieval_calls).mean():.1f} & {sec:.1f} & "
+                        f"{h.ircot_cost_s / h.best_fixed_cost_s:.0f}" + r"$\times$ \\")
+    _tex("p_ircot", r"IRCoT runs. Succ.: IRCoT success; Best: best fixed plan (in sample). LM and Ret.: reader and retrieval calls per question. Sec.: seconds per question. Lat.: latency relative to the best fixed plan.",
+         "@{}llrrrrrr@{}", [r"Reader & Data & Succ. & Best & LM & Ret. & Sec. & Lat. \\"], body)
+
+
+def t_p_weak():
+    W = pd.read_csv(AN / "weak_protocol" / "weak_vs_ours.csv")
+    W["win"] = (W.margin_vs_always > 0) & (W.margin_vs_never > 0)
+    order = ["planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade"]
+    nm = {"planner_tsr": "TSR planner", "adaptive_rag": "Adaptive RAG", "adaptive_k": "Adaptive k",
+          "gate_closed_book": "Closed book gate", "conf_cascade": "Confidence cascade"}
+    body = []
+    for m in order:
+        g = W[W.method == m]
+        body.append(f"{nm[m]} & {_n(g.margin_vs_always.mean())} & {_n(g.margin_vs_never.mean())} & {g.cost_vs_always.mean():.2f}"
+                    + r"$\times$" + f" & {int(g.win.sum())}/{len(g)} & {_n(g.ours_gain.mean())}" + r" \\")
+    _tex("p_weak", r"The same answers under two protocols, mean over 20 reader and dataset cells. Weak protocol: accuracy margin over Always RAG (BM25, $k=5$) and Never RAG, cost relative to Always RAG, and cells that beat both (strict grading, one seed). Ours: gain over the held out hull at equal latency.",
+         "@{}lrrrrr@{}", [r" & \multicolumn{4}{c}{Weak protocol} & Ours \\", r"\cmidrule(lr){2-5}\cmidrule(l){6-6}",
+                          r"Policy & vs Always & vs Never & Cost & Wins & Gain \\"], body)
+
+
+def t_p_mechanism():
+    M = pd.read_csv(AN / "checks" / "mechanism.csv"); E = pd.read_csv(AN / "checks" / "exposure_policy_vs_hull.csv")
+    g = M.groupby("policy")[["per_plan_auroc", "mean_cross_plan_corr", "pair_auroc", "modal_plan_share"]].mean()
+    e = E.groupby("policy")[["policy_judge", "hull_judge"]].mean()
+    body = []
+    for k, nm in (("planner_tsr", "TSR planner"), ("planner_sk", "Self knowledge")):
+        r = g.loc[k]
+        body.append(f"{nm} & {r.per_plan_auroc:.2f} & {r.mean_cross_plan_corr:.2f} & {r.pair_auroc:.2f} & {r.modal_plan_share:.2f} & "
+                    f"{e.loc[k, 'policy_judge']:.3f} / {e.loc[k, 'hull_judge']:.3f}" + r" \\")
+    _tex("p_mechanism", r"What the planners learn (held out, seed 0 folds, single step plans, mean over 20 cells). Plan AUC: AUROC of predicted success per plan. Corr.: correlation of predictions across plans. Pair AUC: AUROC for which hull plan answers when exactly one does. Top plan: share of questions sent to the most used plan. Judge: share of answers graded by the judge, policy / hull. Self knowledge: the planner with closed book confidence features.",
+         "@{}lrrrrr@{}", [r"Policy & Plan AUC & Corr. & Pair AUC & Top plan & Judge \\"], body, sep="2.4pt")
+
+
+def t_p_rater():
+    rules = (("strict", "Strict EM"), ("label_f1_07", r"F1 $\geq$ 0.7"), ("label_lenient", "Lenient"), ("final", r"\texttt{label\_final}"))
+    body = []
+    names = list(AUD)
+    for c, nm in rules:
+        cells = []
+        for name in names:
+            a = AUD[name]; pred = a[c].astype(int).values
+            for col in ("human", "rater1", "rater2"):
+                cells.append(f"{(pred == a[col].astype(int).values).mean():.3f}")
+        body.append(f"{nm} & " + " & ".join(cells) + r" \\")
+    rate = " & ".join(f"{AUD[n][col].astype(int).mean():.2f}" for n in names for col in ("human", "rater1", "rater2"))
+    body += [r"\midrule", r"Share marked correct & " + rate + r" \\"]
+    _tex("p_rater", r"Accuracy of each grading rule against three human references on the two audits of 200 answers. Maj.: majority of three raters (the reference used in the paper). R1: rater 1 alone (a coauthor, labelled blind). R2: rater 2 alone (not an author). Audit 1 covers Qwen2.5 7B, Llama 3.1 8B and Qwen3 14B; audit 2 covers Gemma 3 27B and Qwen3 32B.",
+         "@{}lrrrrrr@{}", [r" & \multicolumn{3}{c}{Audit 1} & \multicolumn{3}{c}{Audit 2} \\",
+                          r"\cmidrule(lr){2-4}\cmidrule(l){5-7}", r"Rule & Maj. & R1 & R2 & Maj. & R1 & R2 \\"], body)
+
+
+def t_p_datasets():
+    """Primary policies per dataset (held out gain, mean over the five readers), pooled, and the same gain measured on
+    the training folds, where the policy and the hull were fitted (in sample)."""
+    M = pd.read_csv(AN / "final" / "methods.csv"); M = M[~M.reader.str.contains("->")]
+    nm = {"planner_tsr": "TSR planner", "adaptive_rag": "Adaptive RAG", "adaptive_k": "Adaptive k",
+          "gate_closed_book": "Closed book gate", "conf_cascade": "Confidence cascade"}
+    body = []
+    for m in nm:
+        g = M[M.method == m]
+        per = g.groupby("dataset").gain.mean()
+        pooled = g[g.dataset == "pooled"]
+        cells = [_n(per.get(ds, np.nan)) for ds in DN] + [_n(pooled.gain.mean()), _n(g[g.dataset != "pooled"].gain_selection_half.mean())]
+        body.append(f"{nm[m]} & " + " & ".join(cells) + r" \\")
+    _tex("p_datasets", r"Primary policies per dataset: gain over the hull on held out questions with single step plans, mean over the five readers (descriptive, no test). Train: the same gain measured on the training folds, where the policy and the hull were fitted (mean over datasets and readers).",
+         "@{}lrrrrrr@{}", [r" & \multicolumn{5}{c}{Held out} & \\", r"\cmidrule(lr){2-6}",
+                          r"Policy & NQ & Hotpot & 2Wiki & MuSiQue & Pooled & Train \\"], body, sep="2.6pt")
+
+
+def t_p_curve():
+    LC = pd.read_csv(AN / "stronger_policies" / "learning_curve.csv")
+    g = LC.groupby(["reader", "frac"])[["sum_gain", "n"]].sum()
+    pts = (g["sum_gain"] / g["n"]).unstack()
+    body = [f"{RN[rd]} & " + " & ".join(_n(pts.loc[rd, c]) for c in pts.columns) + r" \\" for rd in READERS if rd in pts.index]
+    head = [r"Reader & " + " & ".join(f"{int(round(c * 100))}\\%" for c in pts.columns) + r" \\"]
+    _tex("p_curve", r"Learning curve of the planner with self knowledge features: pooled gain over the hull (single step plans) when it is trained on a share of the training folds.",
+         "@{}l" + "r" * len(pts.columns) + "@{}", head, body)
+
+
+def t_p_sanity():
+    S_ = pd.read_csv(AN / "checks" / "sanity_llama.csv")
+    body = [f"{DN[r.dataset]} & {r.published_never:.3f} & {r.ours_closed_book:.3f} & {r.published_always:.3f} & "
+            f"{r['ours_bm25@5']:.3f} & {r['ours_bm25@10']:.3f}" + r" \\" for _, r in S_.iterrows()]
+    _tex("p_sanity", r"Llama 3.1 8B against the values published by Moskvoretskii et al.\ (their Table 1), answer contained accuracy. Pub.: published. Their corpus and prompt differ from ours.",
+         "@{}lrrrrr@{}", [r" & \multicolumn{2}{c}{Never RAG} & \multicolumn{3}{c}{Always RAG (BM25)} \\",
+                          r"\cmidrule(lr){2-3}\cmidrule(l){4-6}", r"Dataset & Pub. & Ours & Pub. & Ours $k$=5 & Ours $k$=10 \\"], body)
+
+
+def t_p_headroom():
+    C = AN / "checks"
+    H = pd.read_csv(C / "headroom_matched.csv")
+    T = H.groupby("reader")[["gap_k2", "gap_k3", "gap_all", "oracle_all_final", "oracle_all_strict"]].mean().reindex(READERS)
+    best = pd.read_csv(C / "fraction_of_gap.csv").groupby("reader").fraction_of_gap_k2.max().reindex(READERS)
+    body = [f"{RN[rd]} & {_n(r.gap_k2)} & {_n(r.gap_k3)} & {_n(r.gap_all)} & {r.oracle_all_final:.3f} & {r.oracle_all_strict:.3f} & {best[rd]:.2f}" + r" \\"
+            for rd, r in T.iterrows()]
+    _tex("p_headroom", r"Held out headroom at matched cost, mean over datasets. Gap: oracle over 2, 3 or all fixed plans minus the hull at the oracle's mean latency. Any: share of questions that some plan answers, under \texttt{label\_final} and the strict rule. Closed: largest share of the 2 plan gap closed by a primary policy.",
+         "@{}lrrrrrr@{}", [r" & \multicolumn{3}{c}{Gap} & \multicolumn{2}{c}{Any} & \\", r"\cmidrule(lr){2-4}\cmidrule(lr){5-6}",
+                          r"Reader & 2 & 3 & All & Final & Strict & Closed \\"], body, sep="2.8pt")
+
+
+def t_p_h3rules():
+    H = {lab: pd.read_csv(AN / f"h3_ircot{suf}" / "h3.csv") for lab, suf in (("final", ""), ("lenient", "_lenient"), ("strict", "_strict"))}
+    body = []
+    F = H["final"]
+    for _, a in F[F.hull == "single_step"].iterrows():
+        cells = []
+        for lab, hull in (("final", "single_step"), ("lenient", "single_step"), ("strict", "single_step"), ("final", "with_r3")):
+            r = H[lab][(H[lab].hull == hull) & (H[lab].reader == a.reader) & (H[lab].dataset == a.dataset)].iloc[0]
+            cells.append(_n(r.gain, bold=bool(r.p_holm < 0.05 and r.ci_low > 0)))
+        body.append(f"{RN[a.reader]} & {DN[a.dataset]} & " + " & ".join(cells) + r" \\")
+    _tex("p_h3rules", r"IRCoT gain over the held out hull at its own latency under three grading rules. Bold: Holm survivor over the 9 tests with the 95\% CI above zero. Last column: hull with the fixed two hop plans, \texttt{label\_final}.",
+         "@{}llrrrr@{}", [r" & & \multicolumn{3}{c}{Single step hull} & Two hop \\", r"\cmidrule(lr){3-5}\cmidrule(l){6-6}",
+                          r"Reader & Data & Final & Lenient & Strict & Final \\"], body)
 
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     MD.append("# FunnelPlan final tables\n\nGenerated by scripts/12_tables_final.py from the result files. Gains are differences in the share of questions answered correctly.")
     for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
-               t_ircot, t_headroom, t_checks, t_audit):
+               t_ircot, t_headroom, t_checks, t_audit, t_rater, t_summary,
+               t_p_retrievers, t_p_plans, t_p_gains, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
+               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules):
         try:
             fn()
         except FileNotFoundError as e:

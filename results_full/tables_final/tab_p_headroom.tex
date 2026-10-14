@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{2.8pt}
+\caption{Held out headroom at matched cost, mean over datasets. Gap: oracle over 2, 3 or all fixed plans minus the hull at the oracle's mean latency. Any: share of questions that some plan answers, under \texttt{label\_final} and the strict rule. Closed: largest share of the 2 plan gap closed by a primary policy.}
+\label{tab:p_headroom}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{3}{c}{Gap} & \multicolumn{2}{c}{Any} & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Reader & 2 & 3 & All & Final & Strict & Closed \\
+\midrule
+Qwen2.5 7B & +0.100 & +0.173 & +0.351 & 0.717 & 0.647 & 0.13 \\
+Llama 3.1 8B & +0.085 & +0.125 & +0.312 & 0.706 & 0.655 & 0.05 \\
+Qwen3 14B & +0.086 & +0.149 & +0.326 & 0.720 & 0.663 & 0.04 \\
+Gemma 3 27B & +0.106 & +0.163 & +0.338 & 0.720 & 0.627 & 0.00 \\
+Qwen3 32B & +0.112 & +0.172 & +0.327 & 0.758 & 0.720 & 0.04 \\
+\bottomrule
+\end{tabular}
+\end{table}

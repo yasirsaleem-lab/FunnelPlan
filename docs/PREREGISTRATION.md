@@ -73,6 +73,16 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-14 20:20, two reporting analyses added after all results were seen (no rule changes, no new
+  model runs).** (a) Rater reference check, `tab_rater` in `scripts/12_tables_final.py`. The entry of 13 Oct 00:05
+  promised label_final against each rater separately; this table reports it and extends it to the strict, F1 and
+  lenient rules. Reason: rater 1 is a co-author and rater 2 is not. The audit labels and the audit results of
+  13 Oct had been seen. Result, audit 1 / audit 2:
+  label_final accuracy 0.800 / 0.840 against the majority, 0.685 / 0.805 against rater 2 alone, 0.870 / 0.900
+  against rater 1 alone. It is reported as a threat to validity; H1 has 0 positive survivors under strict,
+  lenient and label_final grading. (b) Verdict summary, `tab_summary` in the same script: one row per family
+  and robustness check, read from existing result files. It adds no test. Both are exploratory reporting and
+  change no preregistered test, decision rule or margin. Earlier entries are not rewritten.
 - **2026-10-14 11:50, correction to the commit record of 2026-10-13 21:15 (no rule changes, no results
   involved).** That entry says the repository "had no remote before 13 Oct 2026". This implies a remote from
   13 Oct, which is wrong: no remote existed until 14 Oct. The first push went to a private GitHub repository on

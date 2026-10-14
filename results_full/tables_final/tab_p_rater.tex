@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Accuracy of each grading rule against three human references on the two audits of 200 answers. Maj.: majority of three raters (the reference used in the paper). R1: rater 1 alone (a coauthor, labelled blind). R2: rater 2 alone (not an author). Audit 1 covers Qwen2.5 7B, Llama 3.1 8B and Qwen3 14B; audit 2 covers Gemma 3 27B and Qwen3 32B.}
+\label{tab:p_rater}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+ & \multicolumn{3}{c}{Audit 1} & \multicolumn{3}{c}{Audit 2} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+Rule & Maj. & R1 & R2 & Maj. & R1 & R2 \\
+\midrule
+Strict EM & 0.635 & 0.685 & 0.520 & 0.720 & 0.750 & 0.675 \\
+F1 $\geq$ 0.7 & 0.735 & 0.755 & 0.700 & 0.800 & 0.820 & 0.765 \\
+Lenient & 0.695 & 0.645 & 0.760 & 0.805 & 0.785 & 0.810 \\
+\texttt{label\_final} & 0.800 & 0.870 & 0.685 & 0.840 & 0.900 & 0.805 \\
+\midrule
+Share marked correct & 0.51 & 0.39 & 0.66 & 0.49 & 0.44 & 0.56 \\
+\bottomrule
+\end{tabular}
+\end{table}

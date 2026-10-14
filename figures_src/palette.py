@@ -33,6 +33,15 @@ STEP_LINE = "#3A3F4A"   # outline of process steps
 ARROW = "#3F4756"       # flow arrows (slate)
 
 
+# Data figures (scripts/26_figures.py): the same two hues, plus neutrals and a five colour set for readers or policies.
+DATA_TEAL = TEAL               # main series: single step plans, our protocol, IRCoT, audit 1
+DATA_AMBER = "#C27C0E"         # second series: with two hop plans, weak protocol, audit 2 (brighter than AMBER for marks)
+DATA_GREY = "#B8BCC2"          # fixed plans and other context marks
+DATA_SLATE = ARROW             # hull lines, reference lines
+TEAL_RAMP = ["#A9D3CF", "#4E9C97", "#0F5E63"]   # light to dark: 2 plans, 3 plans, all plans
+CATEGORICAL = ["#0F5E63", "#C27C0E", "#5D5BA6", "#B4495E", "#6F8A2B"]   # teal, amber, indigo, rose, olive
+
+
 def _lum(hexc):
     c = [int(hexc[i:i + 2], 16) / 255 for i in (1, 3, 5)]
     c = [v / 12.92 if v <= 0.04045 else ((v + 0.055) / 1.055) ** 2.4 for v in c]

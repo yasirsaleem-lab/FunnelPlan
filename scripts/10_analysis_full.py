@@ -5,12 +5,13 @@ retrieval baselines, all under ONE held out protocol. CPU only, minutes.
 Replaces 05, 06 and 07 for the paper runs (those stay for the sub200k pilot).
 
 Per (reader, dataset), on the same 500 queries:
-  * fixed plans: success and median measured cost (retrieval + reader) of
+  * fixed plans: success and mean measured cost (retrieval + reader) of
     every (retriever, depth) plan, closed book included;
   * the HULL: upper concave hull of the fixed plans (randomised mixing), the
     baseline every method must beat;
-  * methods (each picks its settings on half A of the queries, is scored on
-    half B, then the halves swap; results pooled, paired bootstrap CI):
+  * methods (each picks its settings on 4 of 5 folds and is scored on the
+    held out fold; repeated over 5 seeds, gains averaged per query, paired
+    bootstrap CI):
 
     planner_tsr       ours: plan prior + residual XGBoost on decision time
                       features (query text features + a BM25 probe whose cost
@@ -39,9 +40,8 @@ Gain = method success minus hull success at the method's mean cost, both on
 the held out fold. The hull's plans are chosen on the training folds, exactly
 like the method's settings, so baseline and method get the same information.
 
-Not reproduced: METIS (SOSP 2025) uses an LLM profiler plus a serving system
-(batching, GPU memory scheduling); its configuration space differs from ours.
-It is discussed, not rerun.
+METIS (SOSP 2025) is not run here. Its serving system is out of scope; a port
+of its profiler is in scripts/23_metis_profiler.py (secondary family).
 
 Output: results_full/analysis/<label>/  fixed_plans.csv, methods.csv, summary.txt
 """

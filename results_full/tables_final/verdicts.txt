@@ -18,3 +18,7 @@ R6: weak protocol wins 64 of 100; our protocol 0
 Adaptive RAG vs Always RAG (weak protocol): mean margin +0.052, above in 17 of 20 cells (implementation behaves as published)
 Headroom at matched cost: 2 plan oracle gap +0.098; best policy closes at most 0.13 of it
 Mechanism: pair AUROC planner_sk 0.480, planner_tsr 0.499
+Rater reference, Audit 1 (7B, Llama, Qwen3 14B): label_final accuracy vs majority 0.800, vs rater 2 alone 0.685, vs rater 1 alone 0.870
+Rater reference, Audit 2 (Gemma, Qwen3 32B): label_final accuracy vs majority 0.840, vs rater 2 alone 0.805, vs rater 1 alone 0.900
+Summary: rows against the hull with positive survivors in both plan sets: 0 of 9
+Against the best single plan (no mixing): positive 5 single step, 7 with two hop; largest gain +0.061 and +0.080. These wins vanish against the hull, so they come from mixing, not from question features.

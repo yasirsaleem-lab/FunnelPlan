@@ -276,3 +276,42 @@ Observed differences equal J times true differences when grading error is the sa
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | F1 >= 0.7 | 200 | 0.800 [0.745, 0.855] | 0.598 | 11 | 29 |
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | lenient | 200 | 0.805 [0.745, 0.860] | 0.611 | 28 | 11 |
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | label_final | 200 | 0.840 [0.785, 0.890] | 0.679 | 6 | 26 |
+
+## Grading rules against each human reference (rater 1 is a co-author; rater 2 is not)
+
+| Audit | Rule | n | Majority of three | Rater 2 alone (not an author) | Rater 1 alone (author) |
+|---|---|---|---|---|---|
+| Audit 1 (7B, Llama, Qwen3 14B) | strict EM | 200 | 0.635 | 0.520 | 0.685 |
+| Audit 1 (7B, Llama, Qwen3 14B) | F1 >= 0.7 | 200 | 0.735 | 0.700 | 0.755 |
+| Audit 1 (7B, Llama, Qwen3 14B) | lenient | 200 | 0.695 | 0.760 | 0.645 |
+| Audit 1 (7B, Llama, Qwen3 14B) | label_final | 200 | 0.800 | 0.685 | 0.870 |
+| Audit 2 (Gemma, Qwen3 32B) | strict EM | 200 | 0.720 | 0.675 | 0.750 |
+| Audit 2 (Gemma, Qwen3 32B) | F1 >= 0.7 | 200 | 0.800 | 0.765 | 0.820 |
+| Audit 2 (Gemma, Qwen3 32B) | lenient | 200 | 0.805 | 0.810 | 0.785 |
+| Audit 2 (Gemma, Qwen3 32B) | label_final | 200 | 0.840 | 0.805 | 0.900 |
+
+## Verdict summary: every family and robustness check (Pos/Neg = Holm survivors with CI above/below 0)
+
+| Test family | Tests | Pos/Neg, single step | Max, single step | Pos/Neg, with two hop | Max, with two hop |
+|---|---|---|---|---|---|
+| Primary: latency (main) | 27 | 0/4 | +0.013 | 0/4 | +0.017 |
+| Primary: tokens | 27 | 0/5 | +0.012 | 0/5 | +0.013 |
+| Primary: tokens, output x4 | 27 | 0/5 | +0.012 | 0/5 | +0.014 |
+| Primary: FLOPs | 27 | 0/5 | +0.016 | 0/5 | +0.011 |
+| Primary: calls | 27 | 0/5 | +0.006 | 0/8 | +0.008 |
+| Primary: best single plan† | 27 | 5/4 | +0.061 | 7/5 | +0.080 |
+| Primary: strict grading | 27 | 0/5 | +0.010 | 0/5 | +0.009 |
+| Primary: lenient grading | 27 | 0/4 | +0.019 | 0/5 | +0.022 |
+| Secondary routers, METIS | 30 | 0/6 | +0.029 | 1/5 | +0.030 |
+| Stronger policies | 10 | 0/0 | +0.001 | 0/0 | -0.002 |
+
+Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single step, 25 of 27 with two hop.
+
+## Fixed plans at depth 5, mean success over readers
+
+| index | best plan at k=5 |
+|---|---|
+| nq | stella_1_5b |
+| hotpotqa | qwen3_reranker_0_6b |
+| 2wikimultihopqa | bm25_2hop |
+| musique | qwen3_reranker_0_6b |

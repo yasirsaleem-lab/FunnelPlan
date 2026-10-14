@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Learning curve of the planner with self knowledge features: pooled gain over the hull (single step plans) when it is trained on a share of the training folds.}
+\label{tab:p_curve}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+Reader & 20\% & 40\% & 60\% & 80\% & 100\% \\
+\midrule
+Qwen2.5 7B & $-$0.039 & $-$0.022 & $-$0.012 & $-$0.005 & $-$0.008 \\
+Llama 3.1 8B & $-$0.022 & $-$0.013 & $-$0.011 & $-$0.008 & $-$0.005 \\
+Qwen3 14B & $-$0.010 & $-$0.003 & +0.002 & $-$0.002 & +0.001 \\
+Gemma 3 27B & $-$0.026 & $-$0.016 & $-$0.013 & $-$0.011 & $-$0.007 \\
+Qwen3 32B & $-$0.038 & $-$0.028 & $-$0.017 & $-$0.009 & $-$0.008 \\
+\bottomrule
+\end{tabular}
+\end{table}
