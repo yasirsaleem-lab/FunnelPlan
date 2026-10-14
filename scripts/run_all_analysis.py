@@ -13,7 +13,7 @@ Usage:  python scripts/run_all_analysis.py            (3.7 hours on a Ryzen 7 57
         python scripts/run_all_analysis.py --from 15  (resume at step 15 of the list; see --list)
         python scripts/run_all_analysis.py --list     (print the steps only)
 Output: results_full/analysis/, results_full/tables/, results_full/tables_final/ (tables.md, verdicts.txt),
-        results_full/figures_final/, and results_full/run_all_log.txt
+        results_full/figures_final/ (every PNG at 600 dpi, every PDF vector), and results_full/run_all_log.txt
 Check:  results_full/tables_final/verdicts.txt must match the verdicts reported in the paper.
 """
 
@@ -43,6 +43,8 @@ STEPS = [
     (29, ["scripts/29_checks.py"], "sanity table, grading factor, matched cost headroom, mechanism"),
     (12, ["scripts/12_tables_final.py"], "final tables and verdicts -> tables_final/"),
     (26, ["scripts/26_figures.py"], "final figures -> figures_final/"),
+    ("F1", ["figures_src/fig_framework.py"], "Figure 1, benchmark layers -> figures_final/fig_framework"),
+    ("F2", ["figures_src/fig_policies.py"], "Figure 2, policy flow charts -> figures_final/fig_policies"),
 ]
 
 

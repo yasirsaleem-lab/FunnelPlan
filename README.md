@@ -63,7 +63,7 @@ All answers, grades and costs are included, so the analyses need only a CPU.
 conda create -n FunnelPlan python=3.10 -y
 conda activate FunnelPlan
 pip install -e .                       # a CPU build of torch is enough for the analyses
-python scripts/run_all_analysis.py     # 16 steps, about 4 hours on an 8 core desktop CPU
+python scripts/run_all_analysis.py     # 18 steps, about 4 hours on an 8 core desktop CPU
 ```
 
 This rebuilds `results_full/analysis/`, `results_full/tables_final/` (tables and `verdicts.txt`) and
@@ -112,7 +112,7 @@ FunnelPlan/
 └── results_full/
     ├── analysis/               one folder per analysis, with per question gains
     ├── tables_final/           tables.md, verdicts.txt, LaTeX tables
-    └── figures_final/          figures (PNG and PDF)
+    └── figures_final/          figures (PDF, and PNG at 600 dpi)
 ```
 
 ## Answer file format

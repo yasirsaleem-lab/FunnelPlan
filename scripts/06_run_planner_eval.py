@@ -65,7 +65,7 @@ def plot(fr: pd.DataFrame, fixed: pd.DataFrame, path: Path):
         ax.grid(alpha=0.3)
     axes[0][0].legend(fontsize=8)
     fig.tight_layout()
-    fig.savefig(path, dpi=150)
+    fig.savefig(path, dpi=600)
 
 
 def main():

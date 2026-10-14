@@ -67,7 +67,7 @@ plt.rcParams.update({
     "axes.edgecolor": MUTED, "axes.labelcolor": INK, "xtick.color": INK2, "ytick.color": INK2,
     "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.6,
     "xtick.major.width": 0.6, "ytick.major.width": 0.6, "lines.linewidth": 1.2,
-    "pdf.fonttype": 42, "ps.fonttype": 42, "savefig.dpi": 300, "legend.frameon": False,
+    "pdf.fonttype": 42, "ps.fonttype": 42, "savefig.dpi": 600, "legend.frameon": False,
 })
 COL1, COL2 = 3.5, 7.16      # IEEE single and double column widths (inches)
 

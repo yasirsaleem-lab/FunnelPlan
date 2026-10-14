@@ -11,7 +11,7 @@ editor. Level 2 needs a CPU and a few hours. Level 3 regenerates the answers and
 | Every preregistered decision, computed from the result files | `results_full/tables_final/verdicts.txt` |
 | Every table in readable form | `results_full/tables_final/tables.md` |
 | LaTeX tables used in the paper | `results_full/tables_final/tab_*.tex` |
-| Figures | `results_full/figures_final/f1` to `f11` (`.png`, `.pdf`) |
+| Figures | `results_full/figures_final/f1` to `f11`, `fig_framework`, `fig_policies` (`.pdf` vector, `.png` at 600 dpi) |
 | Per query gains of every test | `results_full/analysis/*/per_query_gains.csv` |
 | Preregistration, amendments, commit record | `docs/PREREGISTRATION.md` (section 7) |
 | Design decisions and their history | `docs/DECISIONS.md` |
@@ -23,7 +23,7 @@ All answers, labels and costs are in the package, so no model is needed.
 
 ```
 pip install -e .                      # Python 3.10 or later; a CPU build of torch is enough for this level
-python scripts/run_all_analysis.py    # 16 steps; see --list. Resume after an error with --from <step>
+python scripts/run_all_analysis.py    # 18 steps; see --list. Resume after an error with --from <step>
 ```
 
 The run rewrites `results_full/analysis/`, `results_full/tables/`, `results_full/tables_final/` and

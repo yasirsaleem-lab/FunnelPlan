@@ -72,6 +72,14 @@ def chips(sc, y, h, labels):
         sc.text(x, y, cw, h, [(t, FS_ITEM, False, INK) for t in s.split("\n")], pad=8, lh=1.2)
 
 
+def fit_widths(cards, gap=GAP):
+    """card widths for one row: each card gets its widest line plus padding, and the spare room is shared equally,
+    so the tightest card keeps the same margin as the others (fonts measure a few px wider on some systems)."""
+    need = [max([text_width(t, FS_TITLE, True)] + [text_width("• " + s, FS_ITEM) for s in it]) + 24 for t, it in cards]
+    spare = (X1 - X0) - gap * (len(cards) - 1) - sum(need)
+    return [n + spare / len(cards) for n in need]
+
+
 def row(widths):
     """x positions for cards of the given widths, filling the card area with equal gaps."""
     free = (X1 - X0) - sum(widths)
@@ -89,14 +97,14 @@ def main():
     # ---- analyses (top)
     h = 160
     band(sc, y, h, "Analyses")
-    ws = [218] * 5
+    cards = [("H1: policy vs hull", ["27 primary tests", "30 secondary tests", "10 stronger policies"]),
+             ("Robustness", ["3 grading rules", "5 cost axes", "single plan baseline", "margin test at 0.03"]),
+             ("H3: multi step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
+             ("Mechanism", ["oracle headroom", "what planners learn"]),
+             ("Weak protocol", ["Always RAG baseline", "one seed, strict EM"])]
+    ws = fit_widths(cards)
     xs = row(ws)
-    for x, w, (t, it) in zip(xs, ws, [
-            ("H1: policy vs hull", ["27 primary tests", "30 secondary tests", "10 stronger policies"]),
-            ("Robustness", ["3 grading rules", "5 cost axes", "single plan baseline", "margin test at 0.03"]),
-            ("H3: multi step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
-            ("Mechanism", ["oracle headroom", "what planners learn"]),
-            ("Weak protocol", ["Always RAG baseline", "one seed, strict EM"])]):
+    for x, w, (t, it) in zip(xs, ws, cards):
         card(sc, x, y + 8, w, h - 16, t, it)
     y += h + GAP
     # ---- protocol

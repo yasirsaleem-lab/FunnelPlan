@@ -3,7 +3,7 @@
 Final figures for the paper (5 readers). CPU only; reads results, never reruns an analysis.
 Needs scripts/12_tables_final.py to have run first (it writes tables_final/audit_rules.csv).
 Usage:  python scripts/26_figures.py
-Output: results_full/figures_final/f1..f11 (.png and .pdf)
+Output: results_full/figures_final/f1..f11 (.pdf vector with embedded fonts, .png at 600 dpi)
 """
 import importlib.util, os, sys
 from pathlib import Path
@@ -24,9 +24,12 @@ PROC = settings.PROCESSED_DATA_ROOT
 OUTD = settings.RESULTS_ROOT / "figures_final"; OUTD.mkdir(parents=True, exist_ok=True)
 
 
+DPI = 600     # PNG resolution; the PDF is vector
+
+
 def _save(fig, name):
     base = OUTD / name.replace(".png", "")
-    fig.savefig(str(base) + ".png"); fig.savefig(str(base) + ".pdf")
+    fig.savefig(str(base) + ".png", dpi=DPI); fig.savefig(str(base) + ".pdf")
 
 
 BLUE, ORANGE, AQUA, YELLOW, MAGENTA, RED = "#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#e34948"
@@ -34,7 +37,8 @@ INK, INK2, MUTED, GRID = "#0b0b0b", "#52514e", "#8a8984", "#e6e5e1"
 plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8.5, "axes.edgecolor": MUTED, "axes.labelcolor": INK2,
                      "xtick.color": INK2, "ytick.color": INK2, "axes.spines.top": False, "axes.spines.right": False,
                      "axes.titlesize": 9.5, "axes.titleweight": "bold", "axes.titlecolor": INK, "axes.grid": False,
-                     "legend.frameon": False, "savefig.dpi": 220, "savefig.bbox": "tight", "axes.unicode_minus": True})
+                     "legend.frameon": False, "savefig.dpi": 600, "savefig.bbox": "tight", "axes.unicode_minus": True,
+                     "pdf.fonttype": 42, "ps.fonttype": 42})
 RN = {"qwen2.5-7b": "Qwen2.5 7B", "llama3.1-8b": "Llama 3.1 8B", "qwen3-14b": "Qwen3 14B", "gemma3-27b": "Gemma 3 27B",
       "qwen3-32b": "Qwen3 32B"}
 READERS = list(RN)
@@ -297,7 +301,8 @@ def f10():
 # ---------------------------------------------------------------- F11 learning curve
 def f11():
     LC = pd.read_csv(AN / "stronger_policies" / "learning_curve.csv")
-    pts = LC.groupby(["reader", "frac"]).apply(lambda x: x.sum_gain.sum() / x.n.sum()).unstack()
+    g = LC.groupby(["reader", "frac"])[["sum_gain", "n"]].sum()      # pooled gain per question = sum / count
+    pts = (g["sum_gain"] / g["n"]).unstack()
     fig, ax = plt.subplots(figsize=(4.6, 2.7))
     cols = [BLUE, ORANGE, AQUA, YELLOW, MAGENTA]
     for rd, col in zip(READERS, cols):
