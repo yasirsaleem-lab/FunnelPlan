@@ -79,7 +79,8 @@ exact versions used. No API model was used.
 * Build the package with `python scripts/make_artifact.py` on a clean tree; the file name carries the git commit.
 * The preregistration file and every amendment are under version control. Section 7 of `docs/PREREGISTRATION.md`
   records, for each amendment, when it was written and when it was first committed. The repository had no remote
-  before 13 October 2026, so commits before that date have no external timestamp.
+  until 14 October 2026; the first push to GitHub (11:42 UTC+8, every commit up to c38d1aa) is the earliest
+  external timestamp, so no commit before it has one.
 * The human audit files in `data/processed_full/grading/received/` are the files as the raters sent them.
 
 ## 6. What is not included, and why

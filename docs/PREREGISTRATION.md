@@ -73,6 +73,12 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-14 11:50, correction to the commit record of 2026-10-13 21:15 (no rule changes, no results
+  involved).** That entry says the repository "had no remote before 13 Oct 2026". This implies a remote from
+  13 Oct, which is wrong: no remote existed until 14 Oct. The first push went to a private GitHub repository on
+  2026-10-14 at 11:42:19 (UTC+8), as recorded by git's log of the push, and carried every commit up to c38d1aa.
+  No commit made before that push has an external timestamp, including the amendments of 8 to 13 Oct; their
+  only evidence is the commit time, as the 13 Oct entry states. The 13 Oct entry is not rewritten.
 - **2026-10-13 21:15, commit record of every amendment (no rule changes).** The label time of an amendment is when
   it was written; only the commit time is evidence. Several entries were written before they were committed, and
   five carry a label later than their commit. Entries are not rewritten; this record states the gap for each one.
