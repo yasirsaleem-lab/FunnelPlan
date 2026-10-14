@@ -83,37 +83,91 @@ This rebuilds `results_full/analysis/`, `results_full/tables_final/` (tables and
 | Human audit sheets and reports | `scripts/08_grading_full.py`, `scripts/18_audit_new_readers.py` |
 | Latency profiles | `scripts/03_profile_latency.py` |
 
-Each script documents its usage at the top. The analysis scripts are `10` (primary family), `13` (secondary routers),
-`15` (power and headroom), `21` (IRCoT), `22` (weak protocol), `23` (METIS port), `24` (grading sensitivity),
-`25` (single plan baseline), `27` (cost axes), `28` (stronger policies), `29` (sanity, grading and mechanism checks),
-`12` (tables) and `26` (figures).
+The analysis scripts are listed under [Repository layout](#repository-layout).
 
 ## Repository layout
 
 ```
 FunnelPlan/
-├── ARTIFACT.md                 reproduction guide
+├── README.md, ARTIFACT.md      overview; reproduction guide and file inventory
 ├── config.py                   paths, models, corpus mode, offline mode
+├── logutil.py                  run logs for the long GPU scripts (results_full/logs/)
+├── pyproject.toml              package metadata and version ranges
 ├── docs/
 │   ├── PREREGISTRATION.md      hypotheses, families, decision rules, dated amendments
 │   ├── DECISIONS.md            design decisions and their history
-│   └── RATERS.md               human audit procedure and raters
+│   ├── RATERS.md               human audit procedure and raters
+│   └── environment.txt         exact package versions (pip freeze)
 ├── data/
 │   ├── data_loader.py, corpus_utils.py
+│   ├── ircot_prompts/          IRCoT demonstrations from the authors' release, with their licence
+│   ├── cache_full/retrievals_v3/   cached ranked lists per dataset and retriever (inputs to every plan)
 │   └── processed_full/
-│       ├── tsr_labels_<reader>_graded.csv     every (question, plan) answer: grade, cost, confidence
-│       ├── r3_2hop/, r4_ircot/                two hop plans and IRCoT
+│       ├── <dataset>/                         queries.jsonl, qrels.tsv, answers.json (corpus.jsonl is not tracked)
+│       ├── tsr_labels_<reader>[_graded].csv   every (question, plan) answer: grade, cost, confidence
+│       ├── labels_<reader>_parts/             per dataset and retriever parts of the answer files
+│       ├── control_labels_qwen3-14b-gguf*.csv quantization control (Qwen3 14B in GGUF)
+│       ├── r3_2hop/, r4_ircot/                fixed two hop plans and IRCoT runs
 │       ├── grading/                           judge scores, audit keys, rater files as received, adjudication
-│       ├── routers/, metis/                   router inputs and METIS profiles
-│       └── latency_*.json                     latency profiles
-├── retrievers/                 BM25, SPLADE, dense, fusion, rerankers
-├── tsr/                        readers and prompts, grading rules, features, cross validation
-├── scripts/                    numbered pipeline (see above)
+│       ├── routers/, metis/                   router embeddings and caches, METIS profiles
+│       ├── ablation_prompt/                   prompt ablation answers (script 09)
+│       ├── retrieval_quality/                 retrieval hit rates and reader use of the context (script 14)
+│       ├── probe/                             probe items for the llama.cpp readers (script 16)
+│       └── latency_*.json, cost_model_params.json, cpu_fallback_hotpotqa.json   latency profiles and cost model inputs
+├── retrievers/                 BM25, SPLADE v3, BGE M3, Stella 1.5B, fusion, Qwen3 rerankers
+│                               (GTE Qwen2 7B and Qwen3 Reranker 4B are kept from the pilot, not used in the paper runs)
+├── tsr/                        readers and prompts, grading rules, features, cross validation, predictor
+├── planner/                    budget aware planner and its fallback
+├── cost_model/                 plan cost model and latency profiler
+├── evaluation/                 retrieval metrics and the paired t test
+├── figures_src/                diagram sources for Fig. 1 and Fig. 2 (palette.py is shared with the data figures)
+├── tests/                      unit tests (retrievers, reranker padding, planner, cost model)
+├── scripts/                    every pipeline step (table below)
 └── results_full/
     ├── analysis/               one folder per analysis, with per question gains
-    ├── tables_final/           tables.md, verdicts.txt, LaTeX tables
-    └── figures_final/          figures (PDF, and PNG at 600 dpi)
+    ├── tables_final/           tables.md, verdicts.txt, LaTeX tables (12_tables_final.py)
+    ├── figures_final/          figures, PDF and PNG at 600 dpi (26_figures.py, figures_src/)
+    ├── tables/                 power, held out oracles, label stability, retrieval quality (scripts 14, 15)
+    ├── probe/                  llama.cpp reader probes and the quantization control report (script 16)
+    └── run_all_log.txt         log of the last full analysis run
 ```
+
+### Scripts
+
+Scripts run from the repository root (`python scripts/<name>.py`). Each documents its usage at the top.
+
+| Script | Stage | What it does |
+|---|---|---|
+| `00_prepare_full_corpora.py` | data | builds the four corpora, queries, qrels and answers |
+| `03_profile_latency.py` | GPU | profiles retrieval latency per retriever and depth |
+| `04_generate_tsr_labels.py` | GPU | retrieves once per retriever, answers every plan with the transformers readers |
+| `08_grading_full.py` | grading | strict rule, local judge, final label, human audit sheets and reports |
+| `09_prompt_ablation.py` | GPU | prompt ablation: the effect of the "use only the passages" instruction |
+| `14_retrieval_quality.py` | analysis | retrieval hit rates per retriever and depth, and how readers use the context |
+| `16_reader_probe.py` | GPU | timing and quality probe for the llama.cpp readers (gate G1) |
+| `17_llamacpp_labels.py` | GPU | answers every plan with the llama.cpp readers (R1) and the quantization control (R2) |
+| `18_audit_new_readers.py` | grading | second human audit, for Gemma 3 27B and Qwen3 32B |
+| `19_two_hop_plans.py` | GPU | fixed two hop plans (R3) |
+| `20_ircot.py` | GPU | IRCoT runs (R4) |
+| `10_analysis_full.py` | analysis | H1 primary family: the fixed plan hull against every primary policy |
+| `13_routers.py` | analysis | secondary routers (published Adaptive k rule, Adaptive RAG on embeddings and FLAN T5, per plan LR and kNN) |
+| `15_power_headroom.py` | analysis | minimum detectable effect, held out oracles, label stability |
+| `21_h3_ircot.py` | analysis | H3: IRCoT against the hull at its own latency |
+| `22_weak_baselines.py` | analysis | R6: the same answers under the weak protocol |
+| `23_metis_profiler.py` | GPU, analysis | R5: METIS style profiler (profiles with Qwen3 32B, then evaluation) |
+| `24_label_sensitivity.py` | analysis | H1 and H3 under the strict and lenient grading rules |
+| `25_step_hull.py` | analysis | baseline without mixing: the best single plan at the policy's cost |
+| `27_cost_axes.py` | analysis | H1 under tokens, price weighted tokens, FLOPs and calls |
+| `28_stronger_policies.py` | analysis | classifier gate and planner with closed book confidence features, learning curve |
+| `29_checks.py` | analysis | sanity check against published numbers, grading error, matched cost headroom, mechanism |
+| `12_tables_final.py` | output | final tables, `tables.md` and `verdicts.txt` |
+| `26_figures.py` | output | final data figures |
+| `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
+| `make_artifact.py` | output | builds the reproducibility package |
+| `01_subsample_corpora.py` | pilot | subsampled corpora for the pilot (not used in the paper runs) |
+| `04b_build_features.py`, `04c_label_noise_check.py`, `04d_regrade_labels.py` | pilot | pilot features, label noise and regrading |
+| `05_train_predictor.py`, `06_run_planner_eval.py`, `07_cascade_gate.py` | pilot | pilot predictor, planner and cascade evaluation, replaced by `10` |
+| `11_figures.py`, `12_tables.py` | superseded | earlier three reader figures and tables, replaced by `26` and `12_tables_final.py` |
 
 ## Answer file format
 
