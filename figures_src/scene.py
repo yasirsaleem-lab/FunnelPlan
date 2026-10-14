@@ -8,21 +8,44 @@ printed at 7.16 in, 19 px is about 7 pt, the smallest text the figures use. PNGs
 """
 
 import html
+import os
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from PIL import ImageFont
 
-FONT = "Liberation Sans"          # Arial metrics; draw.io falls back to Helvetica or Arial
-FONT_FILES = {False: "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
-              True: "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"}
+# Liberation Sans and Arial have identical character widths, so the layout is the same on every system.
+FONT = "Liberation Sans, Arial, Helvetica, sans-serif"      # SVG font-family list; draw.io uses Helvetica
+SYMBOL_FONT = "DejaVu Sans, Segoe UI Symbol, sans-serif"     # for the loop arrow glyph
+_WIN = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
+_HERE = Path(__file__).parent / "fonts"                      # optional: drop LiberationSans-*.ttf here
+FONT_CANDIDATES = {
+    False: [_HERE / "LiberationSans-Regular.ttf",
+            Path("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"),
+            Path("/usr/share/fonts/liberation-sans/LiberationSans-Regular.ttf"),
+            _WIN / "arial.ttf", Path("/Library/Fonts/Arial.ttf"),
+            Path("/System/Library/Fonts/Supplemental/Arial.ttf")],
+    True: [_HERE / "LiberationSans-Bold.ttf",
+           Path("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"),
+           Path("/usr/share/fonts/liberation-sans/LiberationSans-Bold.ttf"),
+           _WIN / "arialbd.ttf", Path("/Library/Fonts/Arial Bold.ttf"),
+           Path("/System/Library/Fonts/Supplemental/Arial Bold.ttf")],
+}
 _FONTS = {}
+
+
+def _font_file(bold):
+    for f in FONT_CANDIDATES[bold]:
+        if f.is_file():
+            return str(f)
+    raise FileNotFoundError("No Liberation Sans or Arial font found for text measurement. Put "
+                            "LiberationSans-Regular.ttf and LiberationSans-Bold.ttf in figures_src/fonts/.")
 
 
 def text_width(s, size, bold=False):
     key = (size, bold)
     if key not in _FONTS:
-        _FONTS[key] = ImageFont.truetype(FONT_FILES[bold], size)
+        _FONTS[key] = ImageFont.truetype(_font_file(bold), size)
     return _FONTS[key].getlength(s)
 
 

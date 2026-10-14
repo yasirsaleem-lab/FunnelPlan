@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from scene import Scene, wrap  # noqa: E402
+from scene import SYMBOL_FONT, Scene, wrap  # noqa: E402
 from palette import (AMBER, AMBER_LINE, AMBER_TINT, ARROW, INK, MUTED, SAND, SAND_LINE, STEP_LINE,  # noqa: E402
                      TEAL, TEAL_LINE, TEAL_TINT)
 
@@ -139,7 +139,7 @@ def main():
     arrow(sc, [(cx - 61, Y_B2 + 31), (xl, Y_B2 + 31), (xl, Y_B1 + 24), (cx - 64, Y_B1 + 24)], dash=True)
     label(sc, xl + 2, Y_B2 + 34, "no", align="left", w=40)
     sc.box(xl - 15, Y_D + 8, 30, 34, fill=SAND, stroke=SAND, sw=0.5, r=6)
-    sc.text(xl - 15, Y_D + 6, 30, 38, [("↻", 28, True, ARROW)], pad=0, family="DejaVu Sans")
+    sc.text(xl - 15, Y_D + 6, 30, 38, [("↻", 28, True, ARROW)], pad=0, family=SYMBOL_FONT)
 
     sc.save(OUT)
     print(f"written {OUT}.drawio/.svg/.pdf/.png ({W} x {H})")
