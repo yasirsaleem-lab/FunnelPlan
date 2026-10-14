@@ -4,7 +4,7 @@ FunnelPlan figure palette, shared by every diagram.
 Two accents only, each with one job:
   * teal  : structure (layer labels, card titles, start and end of a flow, the baseline)
   * amber : the point where a policy decides, and the LLM marker
-Everything else is warm neutral or ink. Teal and amber sit on the blue and yellow ends of the colour axis
+Backgrounds are tints of the same two hues; everything else is ink or slate. Teal and amber sit on the blue and yellow ends of the colour axis
 that the common colour vision deficiencies keep, and they differ in lightness, so they stay apart in grayscale.
 Text colours pass WCAG AA (contrast 4.5 or more) on white; check with `python figures_src/palette.py`.
 """
@@ -17,8 +17,17 @@ TEAL_LINE = "#9CC4C1"
 AMBER = "#965600"       # decisions, LLM marker
 AMBER_TINT = "#FBF0DE"
 AMBER_LINE = "#D9B77E"
-SAND = "#F5F2EC"        # layer and column fill
+SAND = "#F5F2EC"        # neutral fill (kept for small elements)
 SAND_LINE = "#DCD4C6"
+# Figure 1 layers: one teal ramp, lightest at the bottom (Data) and deepest at the top (Analyses),
+# so the colour follows the reading order. Teal text keeps contrast 4.8 or more on every step.
+LAYER_RAMP = ["#E6F4F2", "#DAEFEC", "#CEE9E5", "#C2E3DE", "#B6DDD8", "#AAD7D1"]
+LAYER_LINE = "#8FC3BC"
+# Figure 2 columns: warm gold for the baseline every policy is compared with, light teal for the policies,
+# cool grey with a dashed amber border for the reference.
+BASE_TINT, BASE_LINE = "#F9E6BF", "#DDB46A"
+POLICY_TINT, POLICY_LINE = "#DDF0EC", "#8FC3BC"
+REF_TINT, REF_LINE = "#EEF0F3", "#D9B77E"
 CARD_LINE = "#CFC7B9"
 STEP_LINE = "#3A3F4A"   # outline of process steps
 ARROW = "#3F4756"       # flow arrows (slate)
@@ -40,3 +49,5 @@ if __name__ == "__main__":
         c = globals()[name]
         print(f"{name:6s} {c}  on white {contrast(c):4.1f}  on sand {contrast(c, SAND):4.1f}")
     print(f"white on TEAL {contrast('#FFFFFF', TEAL):4.1f}   AMBER on AMBER_TINT {contrast(AMBER, AMBER_TINT):4.1f}")
+    for c in LAYER_RAMP + [BASE_TINT, POLICY_TINT, REF_TINT]:
+        print(f"{c}: TEAL {contrast(TEAL, c):4.1f}  MUTED {contrast(MUTED, c):4.1f}  INK {contrast(INK, c):4.1f}")

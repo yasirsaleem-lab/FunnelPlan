@@ -9,13 +9,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from scene import Scene, text_width  # noqa: E402
-from palette import (AMBER, CARD_LINE, INK, MUTED, SAND, SAND_LINE, TEAL, TEAL_LINE,  # noqa: E402
-                     TEAL_TINT)
+from palette import AMBER, CARD_LINE, INK, LAYER_LINE, LAYER_RAMP, MUTED, TEAL, TEAL_LINE  # noqa: E402
 
 OUT = Path(__file__).parent.parent / "results_full" / "figures_final" / "fig_framework"
-BAND_F, BAND_S, CARD_S = SAND, SAND_LINE, CARD_LINE   # layers and cards: warm neutral
-LABEL, TITLE = TEAL, TEAL                              # layer labels and card titles: teal
-CHIP_F, CHIP_S = TEAL_TINT, TEAL_LINE                  # protocol chips: teal tint
+BAND_S, CARD_S = LAYER_LINE, CARD_LINE    # layers: teal ramp (LAYER_RAMP), cards: white
+LABEL, TITLE = TEAL, TEAL                  # layer labels and card titles: teal
+CHIP_F, CHIP_S = "#ffffff", TEAL_LINE      # protocol chips: white on the teal layer
+TOP_DOWN = ["Analyses", "Protocol", "Policies", "Measurement", "Plan matrix", "Data"]
 W, H = 1400, 772
 LX, LW = 14, 214                 # label column
 X0, X1 = 238, 1388               # card area
@@ -33,7 +33,8 @@ def robot(sc, x, y, s=20):
 
 
 def band(sc, y, h, label, sub=None):
-    sc.box(LX - 6, y, W - 2 * (LX - 6), h, fill=BAND_F, stroke=BAND_S, sw=1.5, r=14)
+    fill = LAYER_RAMP[len(TOP_DOWN) - 1 - TOP_DOWN.index(label)]    # deepest at the top
+    sc.box(LX - 6, y, W - 2 * (LX - 6), h, fill=fill, stroke=BAND_S, sw=1.5, r=14)
     lines = [(label, FS_LABEL, True, LABEL)]
     if sub:
         lines += [(s, 17, False, MUTED) for s in sub]

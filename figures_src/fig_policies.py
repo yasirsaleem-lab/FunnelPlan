@@ -2,8 +2,8 @@
 """
 Figure 2: the baseline and the policy families as small flow charts with one visual grammar, in the
 FunnelPlan palette (figures_src/palette.py): teal filled start and end, outlined steps, amber decisions, slate
-arrows, dashed paths not taken. Column colour gives the role: teal tint for the baseline, warm neutral for the
-policies, a dashed border for the reference. Writes results_full/figures_final/fig_policies.{drawio,svg,pdf,png}.
+arrows, dashed paths not taken. Column colour gives the role: warm gold for the baseline, light teal for the
+policies, cool grey with a dashed border for the reference. Writes results_full/figures_final/fig_policies.{drawio,svg,pdf,png}.
 Usage: python figures_src/fig_policies.py
 """
 import sys
@@ -11,12 +11,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from scene import SYMBOL_FONT, Scene, wrap  # noqa: E402
-from palette import (AMBER, AMBER_LINE, AMBER_TINT, ARROW, INK, MUTED, SAND, SAND_LINE, STEP_LINE,  # noqa: E402
-                     TEAL, TEAL_LINE, TEAL_TINT)
+from palette import (AMBER, ARROW, BASE_LINE, BASE_TINT, INK, MUTED, POLICY_LINE, POLICY_TINT,  # noqa: E402
+                     REF_LINE, REF_TINT, STEP_LINE, TEAL)
 
 OUT = Path(__file__).parent.parent / "results_full" / "figures_final" / "fig_policies"
 TITLE = TEAL
-BASE, POLICY, REF = (TEAL_TINT, TEAL_LINE, False), (SAND, SAND_LINE, False), (SAND, AMBER_LINE, True)
+BASE, POLICY, REF = (BASE_TINT, BASE_LINE, False), (POLICY_TINT, POLICY_LINE, False), (REF_TINT, REF_LINE, True)
 ROLES = [BASE, POLICY, POLICY, POLICY, POLICY, REF]     # (fill, border, dashed border) per column
 W, COLW, GAP, X0 = 1400, 218, 12.4, 8
 FS, FS_T = 19, 22
@@ -35,7 +35,7 @@ def step(sc, cx, y, s, w=176, h=48):
 
 
 def decision(sc, cx, y, s, w=176, h=74):
-    sc.box(cx - w / 2, y, w, h, fill=AMBER_TINT, stroke=AMBER, sw=2.2, kind="diamond")
+    sc.box(cx - w / 2, y, w, h, fill="#ffffff", stroke=AMBER, sw=2.2, kind="diamond")
     lines = wrap(s, FS, w * 0.62)
     sc.text(cx - w * 0.36, y, w * 0.72, h, [(t, FS, True, AMBER) for t in lines], pad=2, lh=1.1)
 
@@ -138,7 +138,7 @@ def main():
     xl = cx - 88
     arrow(sc, [(cx - 61, Y_B2 + 31), (xl, Y_B2 + 31), (xl, Y_B1 + 24), (cx - 64, Y_B1 + 24)], dash=True)
     label(sc, xl + 2, Y_B2 + 34, "no", align="left", w=40)
-    sc.box(xl - 15, Y_D + 8, 30, 34, fill=SAND, stroke=SAND, sw=0.5, r=6)
+    sc.box(xl - 15, Y_D + 8, 30, 34, fill=REF_TINT, stroke=REF_TINT, sw=0.5, r=6)
     sc.text(xl - 15, Y_D + 6, 30, 38, [("↻", 28, True, ARROW)], pad=0, family=SYMBOL_FONT)
 
     sc.save(OUT)
