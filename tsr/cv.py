@@ -248,7 +248,7 @@ def fixed_hull(fixed: pd.DataFrame, cost: float) -> float:
     pts = sorted(zip(fixed["mean_cost_s"], fixed["success"]))
     # Only the efficient part matters: points after the most successful plan are
     # dominated (more cost, less success). Beyond that plan the baseline is flat:
-    # with more budget you can always still run the best plan.
+    # a larger budget can always still run the best plan.
     best = max(range(len(pts)), key=lambda i: (pts[i][1], -pts[i][0]))
     pts = pts[: best + 1]
     hull = []

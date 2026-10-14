@@ -39,7 +39,7 @@ ANA = settings.RESULTS_ROOT / "analysis" / CONFIG["label"]
 OUT = settings.RESULTS_ROOT / "figures"
 PROC = settings.PROCESSED_DATA_ROOT
 
-# ---- style: validated categorical slots (adjacent CVD dE >= 9.1), ink for text, recessive grid
+# ---- style: colour blind safe categorical colours, dark text, light grid
 INK, INK2, MUTED, GRID = "#0b0b0b", "#52514e", "#8a8984", "#e4e3df"
 SLOTS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
 METHODS = ["planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade"]
@@ -47,7 +47,7 @@ M_LABEL = {"planner_tsr": "TSR planner (ours)", "adaptive_rag": "Adaptive RAG", 
            "gate_closed_book": "Closed book gate", "conf_cascade": "Confidence cascade",
            "reader_cascade": "Reader cascade"}
 M_COLOR = dict(zip(METHODS, SLOTS))
-M_MARK = dict(zip(METHODS, ["o", "s", "^", "D", "v"]))      # secondary encoding: identity never color alone
+M_MARK = dict(zip(METHODS, ["o", "s", "^", "D", "v"]))      # markers as well as colours, so no series relies on colour alone
 # stronger routers from 13: the Adaptive RAG variants share its colour (same ladder), per plan routers get new slots
 ROUTERS = ["ak_paper", "ar_emb", "ar_t5", "plan_emb", "plan_knn"]
 M_LABEL.update({"adaptive_k": "Adaptive k, gap only", "ak_paper": "Adaptive k, published",

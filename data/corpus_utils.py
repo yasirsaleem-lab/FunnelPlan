@@ -1,10 +1,9 @@
 """
 Shared helpers for corpus and query handling.
 
-Every script used to build its own corpus_list with only {"id", "text"}.
-That silently dropped the "title" field, so no retriever indexed titles and
-the agent never saw them. For HotpotQA the title is often the bridge entity,
-so this removed key evidence. Use these helpers everywhere instead.
+Every script builds its corpus list with these helpers, so the "title" field
+is kept, indexed and shown to the reader. For HotpotQA the title is often the
+bridge entity.
 """
 
 from typing import Any, Dict, List, Optional

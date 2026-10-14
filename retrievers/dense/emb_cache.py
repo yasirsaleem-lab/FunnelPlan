@@ -1,7 +1,7 @@
 """
 Disk cache and search index for dense corpus embeddings.
 
-Changes (2026-10-04, full corpora):
+Design:
   * get_or_encode() encodes in chunks into an fp16 .npy memmap with a progress
     file. A crash in hour 9 of a 10 hour encode resumes where it stopped.
     5.2M x 1024 dims in fp16 is 10.7 GB on disk and is never held twice in RAM.
@@ -9,7 +9,7 @@ Changes (2026-10-04, full corpora):
     encoder (retrieval runs before the reader is loaded), else in chunks on
     the CPU. Cosine scores of normalised vectors in fp16 differ from fp32 in
     the 3rd or 4th decimal; ranks are almost always unchanged.
-  * Old float32 caches (<key>.npy, the 200k subsample) still load.
+  * Float32 caches of the 200k subsample (<key>.npy) still load.
 
 The cache key covers model name, passage text function version, an extra tag
 (pooling, max length) and a hash of all passage ids and text prefixes, so a
@@ -107,9 +107,9 @@ def get_or_encode(key: str, texts: List[str], encode_fn: Callable[[List[str]], n
 def _repair(path, texts, repair_fn) -> np.ndarray:
     """Find rows that are not finite and re-encode them with repair_fn.
 
-    2026-10-04: Stella v5 in fp16 produced 108 NaN rows out of 101,958 on
-    MuSiQue. torch.topk ranks NaN above every real score, so every query
-    returned the same 108 passages and Stella recall@10 was 0.0. A .ok marker
+    fp16 encoding can produce NaN rows (Stella v5: 108 of 101,958 on MuSiQue).
+    torch.topk ranks NaN above every real score, so such rows would be returned
+    for every query. A .ok marker
     records a clean scan so a 10 GB matrix is checked only once."""
     ok = path.with_name(path.name + ".ok")
     if ok.exists():

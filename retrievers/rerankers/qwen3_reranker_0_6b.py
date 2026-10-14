@@ -6,12 +6,10 @@ Two usage modes:
      call search(query, k). It re-ranks a FIXED pool of base candidates.
   2. As a scorer (used by feature building): score_pairs(query, passages).
 
-FIX (2026-10-02): _score_batch padded on the RIGHT but read logits at
-position -1. For every sequence shorter than the longest one in the batch,
-position -1 is a pad token, so its "yes/no" logits were meaningless. With
-batch_size=16 almost every score was wrong. That corrupted both the two
-reranker plans and all six reranker features. Sequences are now LEFT padded
-with an explicit attention mask, as in the official Qwen3-Reranker example.
+_score_batch reads the "yes/no" logits at position -1, so sequences are LEFT
+padded with an explicit attention mask, as in the official Qwen3-Reranker
+example. With right padding, position -1 would be a pad token for every
+sequence shorter than the longest one in the batch.
 """
 
 import gc

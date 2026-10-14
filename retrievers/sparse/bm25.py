@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class BM25Retriever(BaseRetriever):
-    """BM25 (bm25s). Change (2026-10-04): the index is saved to the cache and
+    """BM25 (bm25s). The index is saved to the cache and
     reloaded, so the 5.2M passage HotpotQA index is built once, not in every
     block that uses BM25 (BM25, the hybrid and the reranker base)."""
 

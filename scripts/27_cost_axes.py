@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Cost axes (amendment 2026-10-13 20:45, item (d)). Reviewer point: latency comes from one GPU, so the verdict may be
+Cost axes (amendment 2026-10-13 20:45, item (d)). Concern: latency comes from one GPU, so the verdict may be
 an artifact of that machine. Refits the hull and retests the primary family (27 pooled tests, Holm) with four costs
 in place of latency, in both plan sets:
   tokens     reader prompt plus generated tokens, per 1,000

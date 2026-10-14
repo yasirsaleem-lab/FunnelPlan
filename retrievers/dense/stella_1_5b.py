@@ -1,9 +1,8 @@
 """
 Stella 1.5B dense retriever (NovaSearch/stella_en_1.5B_v5).
 
-FIXES (2026-10-02):
-  1. settings.STELLA_MODEL pointed to infgrad/stella-base-en-v2 (~110M).
-     Every earlier "stella_1_5b" number came from the base model.
+Design:
+  1. Model from settings.STELLA_MODEL (the 1.5B v5 model).
   2. Stella v5 needs the "s2p_query" prompt on queries (documents get none).
      Without it, query and passage embeddings are not in the trained space.
   3. Titles are indexed (title + text).

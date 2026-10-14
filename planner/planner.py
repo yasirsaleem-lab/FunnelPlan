@@ -1,14 +1,8 @@
 """
 Budget aware retrieval planner (v3).
 
-Change (2026-10-02). The old planner ran EVERY (retriever, depth) that fit
-the budget, built features from each result list, and then kept one. So the
-real latency was the sum over all candidate plans, not the latency of the
-chosen plan; the budget was never respected. It also built features without
-the reranker, while the predictor was trained with reranker features, so the
-inputs did not match training.
-
-The v3 planner:
+Only the chosen plan runs, so the measured latency is the latency of that
+plan, and the decision features match those used in training.
   plan():     one BM25 probe (~2 ms) -> predicted TSR for all plans from
               decision time features -> pick the best plan whose expected cost
               (retrieval + agent) fits the budget, or maximise p - lambda*cost

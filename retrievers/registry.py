@@ -1,8 +1,8 @@
 """
 One place that maps plan retriever names to constructors.
 
-2026-10-04: adds "bge_bm25_rrf" (BGE-M3 + BM25 fused with RRF), and the
-reranker base can be any non reranker retriever (full mode reranks the hybrid).
+Includes "bge_bm25_rrf" (BGE-M3 + BM25 fused with RRF). The reranker base can
+be any non reranker retriever (full mode reranks the hybrid).
 """
 
 from config import settings

@@ -11,8 +11,8 @@ logger = logging.getLogger(__name__)
 class HybridRRFRetriever(BaseRetriever):
     """GTE-Qwen2-7B (dense) + BM25 (sparse) fused with Reciprocal Rank Fusion.
 
-    Change (2026-10-02): added cleanup() so the 7B model is released before the
-    agent loads. Fusion pool is max(k, 100) from each side.
+    cleanup() releases the 7B model before the agent loads. Fusion pool is
+    max(k, 100) from each side.
     """
 
     def __init__(self, dense_retriever=None, sparse_retriever=None, rrf_k: int = 60, pool: int = 100,

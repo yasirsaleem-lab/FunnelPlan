@@ -39,7 +39,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 # Corpus mode must be set BEFORE config is imported. Child processes inherit it.
 #   "sub200k": 200k subsample, 2 datasets, 200 queries (pilot and gate runs)
-#   "full":    full corpora, 4 datasets, 500 queries (the ICDE paper runs)
+#   "full":    full corpora, 4 datasets, 500 queries (the paper runs)
 CORPUS_MODE = "full"
 import os
 os.environ["FUNNELPLAN_CORPUS_MODE"] = CORPUS_MODE

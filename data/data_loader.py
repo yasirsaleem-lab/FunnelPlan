@@ -473,7 +473,7 @@ def get_processed(
     else:
         raise ValueError(f"Unknown dataset: {dataset_name}")
 
-    # Subsample corpus — GOLD-PRESERVING
+    # Subsample corpus, preserving gold documents
     cap = settings.PASSAGE_CAP
     if len(corpus) > cap:
         logger.info(f"Subsampling {dataset_name} corpus from {len(corpus)} to {cap} (preserving gold)")

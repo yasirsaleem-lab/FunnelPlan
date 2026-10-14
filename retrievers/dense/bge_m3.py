@@ -1,12 +1,8 @@
 """
 BGE-M3 dense retriever (dense head only, via SentenceTransformers).
 
-FIX (2026-10-02): with model.half() the corpus embeddings came back as
-float16 NumPy arrays. NumPy has no BLAS path for fp16, so every search did a
-slow 200k x 1024 fp16 matmul. That is why bge_m3 profiled at ~1.0 s per query
-(slower than the 7B GTE model) and why its cost model looked wrong.
-Embeddings are now float32. Re-run latency profiling after this change.
-Titles are also indexed now.
+Corpus embeddings are float32: NumPy has no BLAS path for fp16, so fp16
+search would dominate the measured latency. Titles are indexed.
 """
 
 import logging

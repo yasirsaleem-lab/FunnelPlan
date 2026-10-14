@@ -1,13 +1,11 @@
 """
 GTE-Qwen2-7B-instruct dense retriever.
 
-FIXES (2026-10-02):
-  1. Last token pooling (the trained pooling), not mean pooling.
+Design:
+  1. Last token pooling (the trained pooling).
   2. Query instruction prefix "Instruct: <task>\\nQuery: <query>".
   3. Pinned to one GPU; load fails if any layer lands on CPU or disk.
   4. Titles indexed; float32 embeddings for fast NumPy search.
-
-FIXES (2026-10-02, evening):
   5. VRAM guard. On Windows the NVIDIA driver can silently spill GPU
      allocations into shared system RAM ("Sysmem Fallback") instead of
      raising out of memory. The model then runs ~20x slower and nothing

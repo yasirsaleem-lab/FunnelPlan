@@ -1,11 +1,10 @@
 """
 SPLADE-v3 sparse retriever.
 
-FIXES (2026-10-02):
-  1. SPLADE term weights are max_t log(1 + ReLU(logit)) over tokens. The log
-     was missing, so weights were unsaturated logits and ranking quality fell.
-  2. Documents are encoded in batches with the attention mask applied, instead
-     of one forward pass per document.
+Design:
+  1. Term weights are max_t log(1 + ReLU(logit)) over tokens (the SPLADE
+     log saturation).
+  2. Documents are encoded in batches with the attention mask applied.
   3. Titles are indexed.
 """
 

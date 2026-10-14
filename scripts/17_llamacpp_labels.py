@@ -150,8 +150,8 @@ _SESSION = None
 
 
 def session():
-    """One keep-alive HTTP connection for all calls. A new TCP connection per call (50,000 per grid) churned
-    the Windows network stack; the crash of 2026-10-09 was in tcpip.sys. Timing uses the server's own
+    """One keep-alive HTTP connection for all calls. A new TCP connection per call (50,000 per grid)
+    destabilised the Windows network stack. Timing uses the server's own
     prompt_ms + predicted_ms, so connection reuse does not change agent_time_s."""
     global _SESSION
     if _SESSION is None:

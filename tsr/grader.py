@@ -1,7 +1,7 @@
 """
 Answer grading for NQ and HotpotQA (and BRIGHT).
 
-Changes (2026-10-03):
+Notes:
   1. SQuAD normalisation: lowercase, strip punctuation AND the articles
      a / an / the (Rajpurkar et al., EMNLP 2016). Without article removal,
      "Mariinsky Ballet" did not exactly match "The Mariinsky Ballet".
@@ -14,7 +14,7 @@ Changes (2026-10-03):
        strict    exact match OR gold appears as a word sequence in the answer
        f1_07     strict OR token F1 >= 0.7
        lenient   strict OR token F1 >= 0.4   (the rule used to make the v3 labels)
-       proposed  the colleague's rule: strict, else skip F1 when a multi token
+       proposed  alternative rule: strict, else skip F1 when a multi token
                  gold has a much shorter answer, else F1 >= 0.7
 """
 
@@ -71,7 +71,7 @@ def grade_detail(answer: str, golds: List[str]) -> Dict:
         f = token_f1(answer, g)
         if f > out["f1"]:
             out.update(f1=f, f1_gold=g, n_gold_tokens=len(g_tokens))
-        # colleague's rule, evaluated per gold alias
+        # 'proposed' rule, evaluated per gold alias
         if a and (a == gn or contains_words(a, gn)):
             out["proposed"] = 1
         elif a and not (len(g_tokens) >= 2 and len(a_tokens) < 0.75 * len(g_tokens)) and f >= 0.7:

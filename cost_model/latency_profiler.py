@@ -1,11 +1,10 @@
 """
 Profiles search latency for each retriever on a sample of queries.
 
-Change (2026-10-02): uses the shared retriever registry (rerankers use the
-same base and fixed candidate pool as the label pipeline), indexes titles,
-synchronises CUDA around each timed call, and releases each retriever after
-profiling. Re-run after the bge_m3 fp32 fix: its old 1.0 s/query was an
-artifact of fp16 NumPy matmul.
+Retrievers come from the shared registry (rerankers use the same base and
+fixed candidate pool as the label pipeline). Titles are indexed, CUDA is
+synchronised around each timed call, and each retriever is released after
+profiling.
 """
 
 import json
@@ -147,7 +146,7 @@ def save_meta(ds: str, name: str, meta: Dict[str, Any]) -> None:
 
 
 def main(config: Dict[str, Any]):
-    """2026-10-04: queries are the same seeded sample the labels use; depths
+    """Queries are the same seeded sample the labels use; depths
     include the plan grid; index load time, peak RAM, peak VRAM, dense index
     placement (GPU or CPU) and cache size on disk are saved per retriever.
     Note: build_index on a cached corpus measures LOAD time, not encode time.

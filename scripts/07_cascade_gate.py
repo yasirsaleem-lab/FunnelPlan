@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 """
-2026-10-06: the held out hull is now chosen on the selection half and scored
-on the test half (before: chosen on the test half, which inflated the hull by
-selection and biased the gain down by about 2 to 6 points). Verdict unchanged:
-f1_07 +0.017 [-0.027, +0.062], FAIL.
-
 Route B gate: does a reader cascade (7B -> 14B, gated on the 7B's confidence)
 beat the best fixed configuration at equal cost?
 

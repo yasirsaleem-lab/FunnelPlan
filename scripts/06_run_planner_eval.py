@@ -3,9 +3,6 @@
 Offline planner evaluation (v3), from the out of fold predictions in
 results/tsr/cv_predictions.csv. No GPU, no retrieval reruns.
 
-Change (2026-10-02). The old script judged the planner by nDCG / recall
-against qrels, read a file that does not exist (tsr_labels_clean.csv), used a
-model API that 05 no longer saved, and gave the planner no reranker plans.
 The planner's job is task success under a cost budget, so that is what this
 script measures, per dataset and pooled:
   * success and mean cost per budget: planner vs best fixed plan vs oracle

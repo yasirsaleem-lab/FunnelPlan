@@ -56,3 +56,24 @@ than about 0.03 pooled".
 
 Multi step retrieval (IRCoT, Self-RAG, FLARE), query rewriting, readers above 14B parameters, API models,
 batched serving, cost in money.
+
+## 6. Implementation fixes during the pilot (before the preregistration of 8 Oct)
+
+These bugs were found and fixed while the pipeline was built. Each fix is in the git history under its date. The
+code comments describe the current behaviour only.
+
+| When | File | Fix |
+|---|---|---|
+| Oct 2 | `retrievers/sparse/splade_v3.py` | Term weights lacked the log in log(1 + ReLU(logit)); ranking quality was reduced |
+| Oct 2 | `retrievers/rerankers/qwen3_reranker_0_6b.py` | Batches were right padded while logits were read at position -1, so most scores in a batch were wrong; now left padded (test: `tests/test_reranker_padding.py`) |
+| Oct 2 | `config.py`, `retrievers/dense/stella_1_5b.py` | The Stella setting pointed to stella-base-en-v2 (~110M); earlier "stella_1_5b" numbers came from that model. The s2p_query prompt was also missing |
+| Oct 2 | `retrievers/dense/bge_m3.py` | fp16 embeddings made NumPy search slow (about 1.0 s per query), an artifact in the latency profile; now float32 and re-profiled |
+| Oct 2 | `retrievers/dense/gte_qwen2_7b.py` | Mean pooling replaced by last token pooling; query instruction added; guard against silent VRAM spill to system RAM. The model was later dropped |
+| Oct 2 | `data/corpus_utils.py` | Corpus lists dropped the title field, so no retriever indexed titles and the reader never saw them |
+| Oct 2 | `config.py` | The reranker candidate pool grew with depth (100, 150, 200); it is now fixed at 100 |
+| Oct 2 | `planner/planner.py`, `scripts/06_run_planner_eval.py` | The planner ran every plan within the budget before choosing one, and its evaluation measured nDCG instead of task success |
+| Oct 3 | `tsr/grader.py` | Article removal added to answer normalisation (SQuAD rule) |
+| Oct 4 | `retrievers/dense/emb_cache.py` | Stella v5 in fp16 gave 108 NaN rows of 101,958 on MuSiQue; NaN ranked first for every query (recall@10 0.0). Such rows are now re-encoded and the matrix is checked |
+| Oct 6 | `scripts/07_cascade_gate.py` | The gate's hull was chosen on the test half, which inflated it; now chosen on the selection half. Verdict unchanged: f1_07 +0.017 [-0.027, +0.062], FAIL |
+
+The IRCoT sentence splitter bug of Oct 10 (after the preregistration) is disclosed in `docs/PREREGISTRATION.md`.

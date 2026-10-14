@@ -1,7 +1,7 @@
 import os
 
 # ----------------------------------------------------------------------------
-# Hugging Face offline mode (2026-10-02).
+# Hugging Face offline mode.
 # By default transformers / sentence-transformers send a HEAD request to
 # huggingface.co to check for updates even when the model is cached. From
 # mainland China that request often fails (SSL EOF) and stalls every run.
@@ -48,8 +48,7 @@ class Settings(BaseSettings):
 
     BM25_IMPLEMENTATION: str = "bm25"
     SPLADE_V3_MODEL: str = "naver/splade-v3"
-    # FIX: the old value "infgrad/stella-base-en-v2" is a ~110M model, not Stella 1.5B.
-    # All earlier "stella_1_5b" results were produced by the base model.
+    # Stella 1.5B v5 (not stella-base-en-v2, a ~110M model).
     STELLA_MODEL: str = "NovaSearch/stella_en_1.5B_v5"
     GTE_QWEN_MODEL: str = "Alibaba-NLP/gte-Qwen2-7B-instruct"
     BGE_M3_MODEL: str = "BAAI/bge-m3"
@@ -59,8 +58,7 @@ class Settings(BaseSettings):
 
     # Reranker plans re-rank the top RERANK_CANDIDATES of RERANK_BASE.
     # The candidate pool is fixed, so "depth" only controls how many reranked
-    # passages reach the agent. Before this fix the pool grew with depth
-    # (100 / 150 / 200), which mixed two effects into one variable.
+    # passages reach the agent.
     RERANK_BASE: str = "bm25"
     RERANK_CANDIDATES: int = 100
 
@@ -92,9 +90,9 @@ class Settings(BaseSettings):
 settings = Settings()
 
 # ----------------------------------------------------------------------------
-# Corpus mode (2026-10-04).
+# Corpus mode.
 #   "sub200k": the original 200k gold preserving subsample (pilot, gate run).
-#   "full":    full corpora, 4 datasets, 500 queries (the ICDE paper runs).
+#   "full":    full corpora, 4 datasets, 500 queries (the paper runs).
 # Set with the environment variable FUNNELPLAN_CORPUS_MODE=full, or edit the
 # default below. In full mode every data, cache and results path moves to its
 # own *_full folder, so the two modes can never mix files.

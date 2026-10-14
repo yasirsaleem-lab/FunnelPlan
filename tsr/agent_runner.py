@@ -1,7 +1,7 @@
 """
 Reader (agent) models for TSR labels.
 
-Changes (2026-10-03, EAB plan):
+Notes:
   * READERS registry. One name selects model, precision and generation
     settings, and that name tags every output file. Readers:
         qwen2.5-7b       Qwen/Qwen2.5-7B-Instruct, bf16            (main reader)

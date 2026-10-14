@@ -574,7 +574,7 @@ def reader_cascade(blocks, A, Bn, ds):
     def run(cfg, idx):
         x, y, rate, thr = cfg
         ra, rb = a.rows(idx), b.rows(idx)
-        esc = a.Cn[ra, a.pcol[x]] <= thr                 # NaN confidence -> not escalated (as before)
+        esc = a.Cn[ra, a.pcol[x]] <= thr                 # NaN confidence -> not escalated
         succ = np.where(esc, b.Yn[rb, b.pcol[y]], a.Yn[ra, a.pcol[x]])
         same = a.retr_of[x] == b.retr_of[y]
         cost = a.cost[x] + esc.mean() * (b.agent_cost[y] + (0 if same else b.ret_cost[y]))

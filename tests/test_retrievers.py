@@ -8,14 +8,12 @@ from retrievers.sparse.bm25 import BM25Retriever
 from retrievers.dense.stella_1_5b import StellaRetriever
 from retrievers.hybrid.gte_bm25_rrf import HybridRRFRetriever
 
-# We test only a subset of retrievers to keep tests fast.
-# In practice, you might test all but they require heavy models.
-# We'll test BM25 (light) and the base interface.
+# Only the base interface and BM25 are tested; dense models are too heavy for unit tests.
 
 def test_base_interface():
     """Ensure BaseRetriever has abstract methods."""
     with pytest.raises(TypeError):
-        # Can't instantiate abstract class
+        # an abstract class cannot be instantiated
         BaseRetriever()
 
 

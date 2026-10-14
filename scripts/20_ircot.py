@@ -64,7 +64,6 @@ INSTR = "Q: Answer the following question by reasoning step-by-step.\n"
 SENT_END = re.compile(r"[.!?]\s+")
 ENUM = re.compile(r"^\s*(?:\(?\d{1,2}[.)]|\(?[a-h]\)|[Ss]tep\s*\d{1,2}\s*[.:)])\s+")   # not "A." (an initial)
 # A period after an initial ("W. H. Auden"), a title or a common abbreviation does not end a sentence.
-# (Bug fix 2026-10-10: the first version split there, so "The W. H. Auden ..." became the query "The W.")
 ABBREV = re.compile(r"(?:\b[A-Za-z]|\b(?:Mr|Mrs|Ms|Dr|St|Jr|Sr|No|Nos|vs|Inc|Ltd|Co|Corp|Mt|Ft|Gen|Col|Lt|Sgt|Capt|"
                     r"Prof|Rev|Gov|Sen|Rep|Pres|Ave|Rd|Univ|Dept|est|approx|ca|Jan|Feb|Mar|Apr|Aug|Sept|Sep|Oct|Nov|"
                     r"Dec|Vol|pp|ed|al|etc|U\.S|U\.K|e\.g|i\.e|D\.C|a\.m|p\.m))\.$")
