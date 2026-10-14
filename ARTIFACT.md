@@ -38,7 +38,7 @@ Inputs used at this level:
 | Graded answers of every (query, plan, reader) | `data/processed_full/tsr_labels_<reader>_graded.csv` |
 | Fixed two hop plans (R3) | `data/processed_full/r3_2hop/labels_<reader>_graded.csv` |
 | IRCoT runs (R4) | `data/processed_full/r4_ircot/labels_<reader>_graded.csv` |
-| Query text and ranked lists with scores | `data/cache_full/retrievals_v3/*.pkl` (shipped in the package, ignored by git) |
+| Query text and ranked lists with scores | `data/cache_full/retrievals_v3/*.pkl` (in the repository; pandas and Python objects written by `04_generate_tsr_labels.py`) |
 | Router embeddings and FLAN T5 predictions | `data/processed_full/routers/emb_*.npz`, `t5_cache_*.json` |
 | METIS style profiles (Qwen3 32B) | `data/processed_full/metis/profiles.jsonl` |
 | LLM judge scores | `data/processed_full/grading/judge_scores.csv` |
