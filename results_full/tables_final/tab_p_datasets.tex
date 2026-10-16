@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{2.6pt}
 \caption{Primary policies per dataset: gain over the hull on held out questions with single step plans, mean over the five readers (descriptive, no test). Train: the same gain measured on the training folds, where the policy and the hull were fitted (mean over datasets and readers).}
 \label{tab:p_datasets}
-\begin{tabular}{@{}lrrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr@{}}
 \toprule
  & \multicolumn{5}{c}{Held out} & \\
 \cmidrule(lr){2-6}
@@ -15,5 +15,5 @@ Adaptive k & $-$0.010 & +0.000 & $-$0.069 & +0.006 & $-$0.018 & $-$0.020 \\
 Closed book gate & $-$0.002 & $-$0.001 & $-$0.002 & $-$0.001 & $-$0.002 & +0.001 \\
 Confidence cascade & $-$0.006 & +0.000 & +0.007 & +0.005 & +0.002 & +0.009 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

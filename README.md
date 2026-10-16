@@ -33,7 +33,7 @@ computed from the result files.
 | Component | Setting |
 |---|---|
 | Datasets | Natural Questions, HotpotQA, 2WikiMultihopQA, MuSiQue; 500 questions each, seeded sample |
-| Corpora | BEIR corpora for NQ (2.68M passages) and HotpotQA (5.23M); pooled train and dev paragraphs for 2WikiMultihopQA (413k) and MuSiQue (102k), as in IRCoT |
+| Corpora | BEIR corpora for NQ (2.68M passages) and HotpotQA (5.23M); pooled train and dev paragraphs for 2WikiMultihopQA (413k) and MuSiQue (102k); smaller than the IRCoT corpora (430k and 139k), so not directly comparable |
 | Retrievers | BM25, SPLADE v3, BGE M3, Stella 1.5B v5, BGE M3 plus BM25 fused by reciprocal rank fusion (k = 60), Qwen3 Reranker 0.6B over the fused top 100 |
 | Depths | 0 (closed book), 1, 3, 5, 10, 20 |
 | Fixed two hop plans | BM25, 3 or 5 passages per hop; the reader writes the second query |

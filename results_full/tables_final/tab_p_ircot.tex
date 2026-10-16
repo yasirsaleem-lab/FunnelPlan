@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{3pt}
 \caption{IRCoT runs. Succ.: IRCoT success; Best: best fixed plan (in sample). LM and Ret.: reader and retrieval calls per question. Sec.: seconds per question. Lat.: latency relative to the best fixed plan.}
 \label{tab:p_ircot}
-\begin{tabular}{@{}llrrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrr@{}}
 \toprule
 Reader & Data & Succ. & Best & LM & Ret. & Sec. & Lat. \\
 \midrule
@@ -17,5 +17,5 @@ Qwen3 14B & HotpotQA & 0.604 & 0.596 & 4.9 & 3.4 & 68.3 & 26$\times$ \\
 Qwen3 14B & 2Wiki & 0.568 & 0.434 & 5.4 & 3.6 & 79.8 & 22$\times$ \\
 Qwen3 14B & MuSiQue & 0.336 & 0.286 & 5.3 & 3.6 & 75.9 & 20$\times$ \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

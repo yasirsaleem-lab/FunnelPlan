@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{2.6pt}
 \caption{Fixed plans per reader and dataset (in sample, \texttt{label\_final}). CB: closed book. Best: best single step plan. Orc.: share of questions that at least one single step plan answers. 2h: best fixed two hop plan minus the best single step plan.}
 \label{tab:p_plans}
-\begin{tabular}{@{}lrrrrrrrrrrrrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrrrrrrrrr@{}}
 \toprule
  & \multicolumn{4}{c}{NQ} & \multicolumn{4}{c}{HotpotQA} & \multicolumn{4}{c}{2Wiki} & \multicolumn{4}{c}{MuSiQue} \\
 \cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}\cmidrule(l){14-17}
@@ -15,5 +15,5 @@ Qwen3 14B & 0.334 & 0.776 & 0.914 & $-$0.186 & 0.266 & 0.596 & 0.772 & $-$0.020 
 Gemma 3 27B & 0.452 & 0.726 & 0.926 & $-$0.156 & 0.338 & 0.612 & 0.754 & $-$0.052 & 0.292 & 0.388 & 0.644 & +0.118 & 0.106 & 0.284 & 0.556 & +0.004 \\
 Qwen3 32B & 0.358 & 0.760 & 0.928 & $-$0.166 & 0.288 & 0.608 & 0.790 & $-$0.024 & 0.294 & 0.502 & 0.700 & +0.098 & 0.100 & 0.344 & 0.616 & $-$0.032 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table*}

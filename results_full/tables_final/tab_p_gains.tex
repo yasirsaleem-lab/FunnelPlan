@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{4pt}
 \caption{Gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B.}
 \label{tab:p_gains}
-\begin{tabular}{@{}lrrrrrrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrrr@{}}
 \toprule
  & \multicolumn{2}{c}{Qwen2.5 7B} & \multicolumn{2}{c}{Llama 3.1 8B} & \multicolumn{2}{c}{Qwen3 14B} & \multicolumn{2}{c}{Gemma 3 27B} & \multicolumn{2}{c}{Qwen3 32B} \\
 \cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(l){10-11}
@@ -27,5 +27,5 @@ METIS port & $-$0.005 & $-$0.003 & +0.001 & +0.003 & $-$0.003 & $-$0.004 & +0.00
 Classifier gate & $-$0.002 & $-$0.003 & $-$0.001 & $-$0.002 & +0.000 & $-$0.003 & $-$0.001 & $-$0.004 & $-$0.001 & $-$0.006 \\
 Planner, self knowledge & $-$0.008 & $-$0.007 & $-$0.005 & $-$0.004 & +0.001 & $-$0.002 & $-$0.007 & $-$0.008 & $-$0.008 & $-$0.014 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table*}

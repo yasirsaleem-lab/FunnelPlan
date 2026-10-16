@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{3pt}
 \caption{The same answers under two protocols, mean over 20 reader and dataset cells. Weak protocol: accuracy margin over Always RAG (BM25, $k=5$) and Never RAG, cost relative to Always RAG, and cells that beat both (strict grading, one seed). Ours: gain over the held out hull at equal latency.}
 \label{tab:p_weak}
-\begin{tabular}{@{}lrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
  & \multicolumn{4}{c}{Weak protocol} & Ours \\
 \cmidrule(lr){2-5}\cmidrule(l){6-6}
@@ -15,5 +15,5 @@ Adaptive k & +0.029 & +0.150 & 0.83$\times$ & 12/20 & $-$0.018 \\
 Closed book gate & $-$0.069 & +0.052 & 1.32$\times$ & 5/20 & $-$0.002 \\
 Confidence cascade & +0.083 & +0.204 & 1.84$\times$ & 18/20 & +0.002 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

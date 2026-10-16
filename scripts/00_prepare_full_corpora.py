@@ -9,11 +9,13 @@ works unchanged in full mode.
                      5.23M passages). No subsampling. Queries, answers and qrels
                      are copied from data/processed/<ds>/, so query ids match the
                      pilot (the 500 query sample contains the 200 pilot queries).
-  musique            Corpus = all unique paragraphs of train + dev (the IRCoT
-                     construction, ACL 2023). Queries = dev (answerable split).
+  musique            Corpus = all unique paragraphs of train + dev (101,958).
+                     IRCoT (ACL 2023) also pools paragraphs, but its corpus is
+                     larger (139,416), so the two are not directly comparable.
+                     Queries = dev (answerable split).
                      Put musique_ans_v1.0_train.jsonl and musique_ans_v1.0_dev.jsonl
                      in data/raw/musique/  (Hugging Face: bdsaglam/musique).
-  2wikimultihopqa    Same construction. Put train.json and dev.json (original
+  2wikimultihopqa    Same construction (413,024; IRCoT reports 430,225). Put train.json and dev.json (original
                      format with context and supporting_facts) in
                      data/raw/2wikimultihopqa/  (Hugging Face: voidful/2WikiMultihopQA).
 

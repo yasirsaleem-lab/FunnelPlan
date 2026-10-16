@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{3pt}
 \caption{IRCoT gain over the held out hull at its own latency under three grading rules. Bold: Holm survivor over the 9 tests with the 95\% CI above zero. Last column: hull with the fixed two hop plans, \texttt{label\_final}.}
 \label{tab:p_h3rules}
-\begin{tabular}{@{}llrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr@{}}
 \toprule
  & & \multicolumn{3}{c}{Single step hull} & Two hop \\
 \cmidrule(lr){3-5}\cmidrule(l){6-6}
@@ -19,5 +19,5 @@ Qwen3 14B & HotpotQA & +0.014 & +0.010 & +0.031 & +0.014 \\
 Qwen3 14B & 2Wiki & \textbf{+0.156} & \textbf{+0.127} & \textbf{+0.126} & +0.014 \\
 Qwen3 14B & MuSiQue & \textbf{+0.074} & +0.050 & \textbf{+0.059} & \textbf{+0.080} \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

@@ -3,7 +3,7 @@
 \setlength{\tabcolsep}{3pt}
 \caption{Llama 3.1 8B against the values published by Moskvoretskii et al.\ (their Table 1), answer contained accuracy. Pub.: published. Their corpus and prompt differ from ours.}
 \label{tab:p_sanity}
-\begin{tabular}{@{}lrrrrr@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
  & \multicolumn{2}{c}{Never RAG} & \multicolumn{3}{c}{Always RAG (BM25)} \\
 \cmidrule(lr){2-3}\cmidrule(l){4-6}
@@ -14,5 +14,5 @@ HotpotQA & 0.286 & 0.210 & 0.410 & 0.382 & 0.398 \\
 2Wiki & 0.318 & 0.250 & 0.374 & 0.332 & 0.346 \\
 MuSiQue & 0.106 & 0.046 & 0.100 & 0.116 & 0.128 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}
