@@ -499,14 +499,14 @@ def t_summary():
     esc = tex_esc
     L = [r"\begin{table}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{3pt}",
          r"\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% CI lies above or below zero; Max is the largest pooled gain. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}",
-         r"\label{tab:summary}", r"\begin{tabular}{@{}lrrrrr@{}}", r"\toprule",
+         r"\label{tab:summary}", r"\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}", r"\toprule",
          r" & & \multicolumn{2}{c}{Single step plans} & \multicolumn{2}{c}{With two hop plans} \\",
          r"\cmidrule(lr){3-4}\cmidrule(l){5-6}", r"Test family & Tests & Pos/Neg & Max & Pos/Neg & Max \\", r"\midrule"]
     for r in rows:
         L.append(" & ".join(esc(v) for v in r.values()) + r" \\")
     if note:
         L += [r"\midrule", r"\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{" + note + "}" + r" \\"]
-    L += [r"\bottomrule", r"\end{tabular}", r"\end{table}"]
+    L += [r"\bottomrule", r"\end{tabular*}", r"\end{table}"]
     TEX["summary"] = "\n".join(L)
     hull_rows = [r for r in rows if "best single plan" not in r["Test family"]]
     step = [r for r in rows if "best single plan" in r["Test family"]]
@@ -530,10 +530,15 @@ def _n(x, bold=False, d=3, sign=True):
     return r"\textbf{" + t + "}" if bold else t
 
 
+def _fullwidth(colspec):
+    """Column spec for tabular* at the full column (or page) width: extra space goes between columns."""
+    return (r"@{\extracolsep{\fill}}" + colspec[3:]) if colspec.startswith("@{}") else (r"@{\extracolsep{\fill}}" + colspec)
+
+
 def _tex(name, caption, colspec, head, body, star=False, size=r"\footnotesize", sep="3pt"):
     env = "table*" if star else "table"
     L = [rf"\begin{{{env}}}[t]", r"\centering" + size, rf"\setlength{{\tabcolsep}}{{{sep}}}", rf"\caption{{{caption}}}",
-         rf"\label{{tab:{name}}}", rf"\begin{{tabular}}{{{colspec}}}", r"\toprule"] + head + [r"\midrule"] + body + [r"\bottomrule", r"\end{tabular}", rf"\end{{{env}}}"]
+         rf"\label{{tab:{name}}}", rf"\begin{{tabular*}}{{\linewidth}}{{{_fullwidth(colspec)}}}", r"\toprule"] + head + [r"\midrule"] + body + [r"\bottomrule", r"\end{tabular*}", rf"\end{{{env}}}"]
     TEX[name] = "\n".join(L)
 
 
