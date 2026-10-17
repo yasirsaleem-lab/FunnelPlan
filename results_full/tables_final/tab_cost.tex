@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Primary family under five cost axes: positive and negative Holm survivors.}
 \label{tab:cost}
-\begin{tabular}{lrrrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr}
 \toprule
-Cost axis & Positive, single step & Negative, single step & Largest gain, single step & Positive, two hop & Negative, two hop & Largest gain, two hop \\
+Cost axis & \begin{tabular}[b]{@{}r@{}}Positive, \\ single step\end{tabular} & \begin{tabular}[b]{@{}r@{}}Negative, \\ single step\end{tabular} & \begin{tabular}[b]{@{}r@{}}Largest gain, \\ single step\end{tabular} & \begin{tabular}[b]{@{}r@{}}Positive, two \\ hop\end{tabular} & \begin{tabular}[b]{@{}r@{}}Negative, two \\ hop\end{tabular} & \begin{tabular}[b]{@{}r@{}}Largest gain, \\ two hop\end{tabular} \\
 \midrule
 Latency (main) & 0 & 4 & +0.013 & 0 & 4 & +0.017 \\
 Reader tokens & 0 & 5 & +0.012 & 0 & 5 & +0.013 \\
@@ -12,5 +13,5 @@ Tokens, output x4 & 0 & 5 & +0.012 & 0 & 5 & +0.014 \\
 FLOPs & 0 & 5 & +0.016 & 0 & 5 & +0.011 \\
 Calls & 0 & 5 & +0.006 & 0 & 8 & +0.008 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Classifier gate and planner with closed book confidence features against the hull.}
 \label{tab:stronger}
-\begin{tabular}{llrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
 \toprule
-Policy & Reader & Gain, single step [95\% CI] & Holm p & Gain, with two hop [95\% CI] & Holm p  \\
+Policy & Reader & \begin{tabular}[b]{@{}r@{}}Gain, single \\ step [95\% CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Gain, with two \\ hop [95\% CI]\end{tabular} & Holm p  \\
 \midrule
 Classifier gate (c1) & Qwen2.5 7B & $-$0.002 [$-$0.018, +0.012] & 1.000 & $-$0.003 [$-$0.019, +0.012] & 1.000 \\
 Classifier gate (c1) & Llama 3.1 8B & $-$0.001 [$-$0.020, +0.018] & 1.000 & $-$0.002 [$-$0.022, +0.017] & 1.000 \\
@@ -17,5 +18,5 @@ Planner with self knowledge (c2) & Qwen3 14B & +0.001 [$-$0.018, +0.020] & 1.000
 Planner with self knowledge (c2) & Gemma 3 27B & $-$0.007 [$-$0.024, +0.011] & 1.000 & $-$0.008 [$-$0.025, +0.010] & 1.000 \\
 Planner with self knowledge (c2) & Qwen3 32B & $-$0.008 [$-$0.026, +0.010] & 1.000 & $-$0.014 [$-$0.032, +0.003] & 1.000 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

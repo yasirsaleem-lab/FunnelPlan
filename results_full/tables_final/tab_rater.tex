@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Grading rules against each human reference. Rater 1 is a co-author who labelled blind; rater 2 is not an author.}
 \label{tab:rater}
-\begin{tabular}{llrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
 \toprule
-Audit & Rule & n & Majority of three & Rater 2 alone (not an author) & Rater 1 alone (author) \\
+Audit & Rule & n & \begin{tabular}[b]{@{}r@{}}Majority of \\ three\end{tabular} & \begin{tabular}[b]{@{}r@{}}Rater 2 alone \\ (not an \\ author)\end{tabular} & \begin{tabular}[b]{@{}r@{}}Rater 1 alone \\ (author)\end{tabular} \\
 \midrule
 Audit 1 (7B, Llama, Qwen3 14B) & strict EM & 200 & 0.635 & 0.520 & 0.685 \\
 Audit 1 (7B, Llama, Qwen3 14B) & F1 $\geq$ 0.7 & 200 & 0.735 & 0.700 & 0.755 \\
@@ -15,5 +16,5 @@ Audit 2 (Gemma, Qwen3 32B) & F1 $\geq$ 0.7 & 200 & 0.800 & 0.765 & 0.820 \\
 Audit 2 (Gemma, Qwen3 32B) & lenient & 200 & 0.805 & 0.810 & 0.785 \\
 Audit 2 (Gemma, Qwen3 32B) & label\_final & 200 & 0.840 & 0.805 & 0.900 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

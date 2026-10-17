@@ -41,7 +41,7 @@ READERS: Dict[str, Dict[str, Any]] = {
     "qwen2.5-7b":      {"hf": "Qwen/Qwen2.5-7B-Instruct", "quant": None, "max_new_tokens": 100},
     # Llama is gated on Hugging Face; download it from ModelScope into "local".
     "llama3.1-8b":     {"hf": "meta-llama/Llama-3.1-8B-Instruct", "quant": None, "max_new_tokens": 100,
-                        "local": r"C:\Users\USER\models\Meta-Llama-3.1-8B-Instruct"},
+                        "local": os.environ.get("FUNNELPLAN_LLAMA_DIR", r"C:\models\Meta-Llama-3.1-8B-Instruct")},
     "qwen3-14b":       {"hf": "Qwen/Qwen3-14B", "quant": "int8", "max_new_tokens": 100,
                         "chat_kwargs": {"enable_thinking": False}},
     "qwen2.5-7b-4bit": {"hf": "Qwen/Qwen2.5-7B-Instruct", "quant": "nf4", "max_new_tokens": 32},

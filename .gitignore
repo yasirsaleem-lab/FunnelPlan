@@ -59,7 +59,10 @@ _fp_code.tgz
 results/
 _tools/
 
-# derived by 17_llamacpp_labels.py (rebuilt from corpus.jsonl; progress logs)
+# derived by 04_llamacpp_labels.py (rebuilt from corpus.jsonl; progress logs)
 data/processed_full/llamacpp_passages/
 data/processed_full/labels_*_parts/*.jsonl
 paper/
+
+# extended version of the paper (not part of the experiments)
+Supplemental paper/

@@ -6,7 +6,7 @@ r4_ircot/), the retrieval caches (data/cache_full/retrievals_v3/*.pkl, used for 
 the router inputs (data/processed_full/routers/emb_*.npz and t5_cache_*.json), the METIS profiles
 (data/processed_full/metis/profiles.jsonl) and the human audit files (data/processed_full/grading/).
 No GPU, no model weights and no corpus are needed. Generating the answers themselves is a separate GPU step
-(scripts 04, 17, 19, 20 and the judge stage of 08; see ARTIFACT.md).
+(scripts 02, 04, 05, 06 and the judge stage of 07; see ARTIFACT.md).
 
 Usage:  python scripts/run_all_analysis.py            (3.7 hours on a Ryzen 7 5700X, 8 cores)
         python scripts/run_all_analysis.py --from 15  (resume at step 15 of the list; see --list)
@@ -26,22 +26,22 @@ PY = sys.executable
 
 # (script number, command, what it produces); order respects every dependency
 STEPS = [
-    (10, ["scripts/10_analysis_full.py"], "H1 primary family, single step plans -> analysis/final/"),
-    (10, ["scripts/10_analysis_full.py", "--r3"], "H1 primary family, with two hop plans -> analysis/final_r3/"),
-    (13, ["scripts/13_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5"], "secondary routers, single step"),
-    (13, ["scripts/13_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5", "--r3"], "secondary routers, two hop"),
-    (15, ["scripts/15_power_headroom.py"], "power, held out oracles, label stability -> tables/"),
-    (21, ["scripts/21_h3_ircot.py"], "H3, IRCoT against the hull -> analysis/h3_ircot/"),
-    (22, ["scripts/22_weak_baselines.py"], "R6, weak protocol -> analysis/weak_protocol/"),
-    (23, ["scripts/23_metis_profiler.py", "eval"], "METIS port, single step -> analysis/metis/"),
-    (23, ["scripts/23_metis_profiler.py", "eval", "--r3"], "METIS port, two hop -> analysis/metis_r3/"),
-    (24, ["scripts/24_label_sensitivity.py"], "grading sensitivity (lenient, strict)"),
-    (25, ["scripts/25_step_hull.py"], "step baseline"),
-    (27, ["scripts/27_cost_axes.py"], "cost axes: tokens, tokens x4, FLOPs, calls"),
-    (28, ["scripts/28_stronger_policies.py"], "classifier gate and planner with self knowledge"),
-    (29, ["scripts/29_checks.py"], "sanity table, grading factor, matched cost headroom, mechanism"),
-    (12, ["scripts/12_tables_final.py"], "final tables and verdicts -> tables_final/"),
-    (26, ["scripts/26_figures.py"], "final figures -> figures_final/"),
+    (11, ["scripts/11_analysis_full.py"], "H1 primary family, single step plans -> analysis/final/"),
+    (11, ["scripts/11_analysis_full.py", "--r3"], "H1 primary family, with two hop plans -> analysis/final_r3/"),
+    (12, ["scripts/12_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5"], "secondary routers, single step"),
+    (12, ["scripts/12_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5", "--r3"], "secondary routers, two hop"),
+    (14, ["scripts/14_power_headroom.py"], "power, held out oracles, label stability -> tables/"),
+    (15, ["scripts/15_h3_ircot.py"], "H3, IRCoT against the hull -> analysis/h3_ircot/"),
+    (16, ["scripts/16_weak_baselines.py"], "R6, weak protocol -> analysis/weak_protocol/"),
+    (13, ["scripts/13_metis_profiler.py", "eval"], "METIS port, single step -> analysis/metis/"),
+    (13, ["scripts/13_metis_profiler.py", "eval", "--r3"], "METIS port, two hop -> analysis/metis_r3/"),
+    (17, ["scripts/17_label_sensitivity.py"], "grading sensitivity (lenient, strict)"),
+    (18, ["scripts/18_step_hull.py"], "step baseline"),
+    (19, ["scripts/19_cost_axes.py"], "cost axes: tokens, tokens x4, FLOPs, calls"),
+    (20, ["scripts/20_stronger_policies.py"], "classifier gate and planner with self knowledge"),
+    (21, ["scripts/21_checks.py"], "sanity table, grading factor, matched cost headroom, mechanism"),
+    (22, ["scripts/22_tables_final.py"], "final tables and verdicts -> tables_final/"),
+    (23, ["scripts/23_figures.py"], "final figures -> figures_final/"),
     ("F1", ["figures_src/fig_framework.py"], "Figure 1, benchmark layers -> figures_final/fig_framework"),
     ("F2", ["figures_src/fig_policies.py"], "Figure 2, policy flow charts -> figures_final/fig_policies"),
 ]

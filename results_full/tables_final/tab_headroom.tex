@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Headroom per reader and dataset (in sample, 25 plans).}
 \label{tab:headroom}
-\begin{tabular}{llrrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrr}
 \toprule
-Reader & Dataset & Closed book & Best fixed plan & Oracle & Headroom & Unsolved \\
+Reader & Dataset & Closed book & \begin{tabular}[b]{@{}r@{}}Best fixed \\ plan\end{tabular} & Oracle & Headroom & Unsolved \\
 \midrule
 Qwen2.5 7B & 2Wiki & 0.258 & 0.392 & 0.614 & 0.222 & 0.386 \\
 Qwen2.5 7B & HotpotQA & 0.226 & 0.530 & 0.744 & 0.214 & 0.256 \\
@@ -27,5 +28,5 @@ Qwen3 32B & HotpotQA & 0.288 & 0.608 & 0.790 & 0.182 & 0.210 \\
 Qwen3 32B & MuSiQue & 0.100 & 0.344 & 0.616 & 0.272 & 0.384 \\
 Qwen3 32B & NQ & 0.358 & 0.760 & 0.928 & 0.168 & 0.072 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

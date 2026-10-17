@@ -75,13 +75,13 @@ This rebuilds `results_full/analysis/`, `results_full/tables_final/` (tables and
 | Step | Script |
 |---|---|
 | Build corpora | `scripts/00_prepare_full_corpora.py` |
-| Retrieve, then answer with transformers readers | `scripts/04_generate_tsr_labels.py` |
-| Answer with llama.cpp readers | `scripts/16_reader_probe.py` (setup), `scripts/17_llamacpp_labels.py` |
-| Fixed two hop plans | `scripts/19_two_hop_plans.py` |
-| IRCoT | `scripts/20_ircot.py` |
-| Grade (strict rule, judge, final label) | `scripts/08_grading_full.py` |
-| Human audit sheets and reports | `scripts/08_grading_full.py`, `scripts/18_audit_new_readers.py` |
-| Latency profiles | `scripts/03_profile_latency.py` |
+| Retrieve, then answer with transformers readers | `scripts/02_generate_tsr_labels.py` |
+| Answer with llama.cpp readers | `scripts/03_reader_probe.py` (setup), `scripts/04_llamacpp_labels.py` |
+| Fixed two hop plans | `scripts/05_two_hop_plans.py` |
+| IRCoT | `scripts/06_ircot.py` |
+| Grade (strict rule, judge, final label) | `scripts/07_grading_full.py` |
+| Human audit sheets and reports | `scripts/07_grading_full.py`, `scripts/08_audit_new_readers.py` |
+| Latency profiles | `scripts/01_profile_latency.py` |
 
 The analysis scripts are listed under [Repository layout](#repository-layout).
 
@@ -111,24 +111,22 @@ FunnelPlan/
 │       ├── grading/                           judge scores, audit keys, rater files as received, adjudication
 │       ├── routers/, metis/                   router embeddings and caches, METIS profiles
 │       ├── ablation_prompt/                   prompt ablation answers (script 09)
-│       ├── retrieval_quality/                 retrieval hit rates and reader use of the context (script 14)
-│       ├── probe/                             probe items for the llama.cpp readers (script 16)
+│       ├── retrieval_quality/                 retrieval hit rates and reader use of the context (script 10)
+│       ├── probe/                             probe items for the llama.cpp readers (script 03)
 │       └── latency_*.json, cost_model_params.json, cpu_fallback_hotpotqa.json   latency profiles and cost model inputs
 ├── retrievers/                 BM25, SPLADE v3, BGE M3, Stella 1.5B, fusion, Qwen3 rerankers
 │                               (GTE Qwen2 7B and Qwen3 Reranker 4B are kept from the pilot, not used in the paper runs)
-├── tsr/                        readers and prompts, grading rules, features, cross validation, predictor
-├── planner/                    budget aware planner and its fallback
+├── tsr/                        readers and prompts, grading rules, question and score features
 ├── cost_model/                 plan cost model and latency profiler
-├── evaluation/                 retrieval metrics and the paired t test
 ├── figures_src/                diagram sources for Fig. 1 and Fig. 2 (palette.py is shared with the data figures)
-├── tests/                      unit tests (retrievers, reranker padding, planner, cost model)
+├── tests/                      unit tests (retrievers, reranker padding, cost model)
 ├── scripts/                    every pipeline step (table below)
 └── results_full/
     ├── analysis/               one folder per analysis, with per question gains
-    ├── tables_final/           tables.md, verdicts.txt, LaTeX tables (12_tables_final.py)
-    ├── figures_final/          figures, PDF and PNG at 600 dpi (26_figures.py, figures_src/)
-    ├── tables/                 power, held out oracles, label stability, retrieval quality (scripts 14, 15)
-    ├── probe/                  llama.cpp reader probes and the quantization control report (script 16)
+    ├── tables_final/           tables.md, verdicts.txt, LaTeX tables (22_tables_final.py)
+    ├── figures_final/          figures, PDF and PNG at 600 dpi (23_figures.py, figures_src/)
+    ├── tables/                 power, held out oracles, label stability, retrieval quality (scripts 10, 14)
+    ├── probe/                  llama.cpp reader probes and the quantization control report (script 03)
     └── run_all_log.txt         log of the last full analysis run
 ```
 
@@ -139,35 +137,45 @@ Scripts run from the repository root (`python scripts/<name>.py`). Each document
 | Script | Stage | What it does |
 |---|---|---|
 | `00_prepare_full_corpora.py` | data | builds the four corpora, queries, qrels and answers |
-| `03_profile_latency.py` | GPU | profiles retrieval latency per retriever and depth |
-| `04_generate_tsr_labels.py` | GPU | retrieves once per retriever, answers every plan with the transformers readers |
-| `08_grading_full.py` | grading | strict rule, local judge, final label, human audit sheets and reports |
+| `01_profile_latency.py` | GPU | profiles retrieval latency per retriever and depth |
+| `02_generate_tsr_labels.py` | GPU | retrieves once per retriever, answers every plan with the transformers readers |
+| `03_reader_probe.py` | GPU | timing and quality probe for the llama.cpp readers (gate G1) |
+| `04_llamacpp_labels.py` | GPU | answers every plan with the llama.cpp readers (R1) and the quantization control (R2) |
+| `05_two_hop_plans.py` | GPU | fixed two hop plans (R3) |
+| `06_ircot.py` | GPU | IRCoT runs (R4) |
+| `07_grading_full.py` | grading | strict rule, local judge, final label, human audit sheets and reports |
+| `08_audit_new_readers.py` | grading | second human audit, for Gemma 3 27B and Qwen3 32B |
 | `09_prompt_ablation.py` | GPU | prompt ablation: the effect of the "use only the passages" instruction |
-| `14_retrieval_quality.py` | analysis | retrieval hit rates per retriever and depth, and how readers use the context |
-| `16_reader_probe.py` | GPU | timing and quality probe for the llama.cpp readers (gate G1) |
-| `17_llamacpp_labels.py` | GPU | answers every plan with the llama.cpp readers (R1) and the quantization control (R2) |
-| `18_audit_new_readers.py` | grading | second human audit, for Gemma 3 27B and Qwen3 32B |
-| `19_two_hop_plans.py` | GPU | fixed two hop plans (R3) |
-| `20_ircot.py` | GPU | IRCoT runs (R4) |
-| `10_analysis_full.py` | analysis | H1 primary family: the fixed plan hull against every primary policy |
-| `13_routers.py` | analysis | secondary routers (published Adaptive k rule, Adaptive RAG on embeddings and FLAN T5, per plan LR and kNN) |
-| `15_power_headroom.py` | analysis | minimum detectable effect, held out oracles, label stability |
-| `21_h3_ircot.py` | analysis | H3: IRCoT against the hull at its own latency |
-| `22_weak_baselines.py` | analysis | R6: the same answers under the weak protocol |
-| `23_metis_profiler.py` | GPU, analysis | R5: METIS style profiler (profiles with Qwen3 32B, then evaluation) |
-| `24_label_sensitivity.py` | analysis | H1 and H3 under the strict and lenient grading rules |
-| `25_step_hull.py` | analysis | baseline without mixing: the best single plan at the policy's cost |
-| `27_cost_axes.py` | analysis | H1 under tokens, price weighted tokens, FLOPs and calls |
-| `28_stronger_policies.py` | analysis | classifier gate and planner with closed book confidence features, learning curve |
-| `29_checks.py` | analysis | sanity check against published numbers, grading error, matched cost headroom, mechanism |
-| `12_tables_final.py` | output | final tables, `tables.md` and `verdicts.txt` |
-| `26_figures.py` | output | final data figures |
+| `10_retrieval_quality.py` | analysis | retrieval hit rates per retriever and depth, and how readers use the context |
+| `11_analysis_full.py` | analysis | H1 primary family: the fixed plan hull against every primary policy |
+| `12_routers.py` | analysis | secondary routers (published Adaptive k rule, Adaptive RAG on embeddings and FLAN T5, per plan LR and kNN) |
+| `13_metis_profiler.py` | GPU, analysis | R5: METIS style profiler (profiles with Qwen3 32B, then evaluation) |
+| `14_power_headroom.py` | analysis | minimum detectable effect, held out oracles, label stability |
+| `15_h3_ircot.py` | analysis | H3: IRCoT against the hull at its own latency |
+| `16_weak_baselines.py` | analysis | R6: the same answers under the weak protocol |
+| `17_label_sensitivity.py` | analysis | H1 and H3 under the strict and lenient grading rules |
+| `18_step_hull.py` | analysis | baseline without mixing: the best single plan at the policy's cost |
+| `19_cost_axes.py` | analysis | H1 under tokens, price weighted tokens, FLOPs and calls |
+| `20_stronger_policies.py` | analysis | classifier gate and planner with closed book confidence features, learning curve |
+| `21_checks.py` | analysis | sanity check against published numbers, grading error, matched cost headroom, mechanism |
+| `22_tables_final.py` | output | final tables, `tables.md` and `verdicts.txt` |
+| `23_figures.py` | output | final data figures |
 | `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
 | `make_artifact.py` | output | builds the reproducibility package |
-| `01_subsample_corpora.py` | pilot | subsampled corpora for the pilot (not used in the paper runs) |
-| `04b_build_features.py`, `04c_label_noise_check.py`, `04d_regrade_labels.py` | pilot | pilot features, label noise and regrading |
-| `05_train_predictor.py`, `06_run_planner_eval.py`, `07_cascade_gate.py` | pilot | pilot predictor, planner and cascade evaluation, replaced by `10` |
-| `11_figures.py`, `12_tables.py` | superseded | earlier three reader figures and tables, replaced by `26` and `12_tables_final.py` |
+
+Script numbers changed on 17 October 2026, when the pilot and superseded scripts were removed. Older documents
+(`docs/PREREGISTRATION.md`, `docs/DECISIONS.md`, the run logs in `results_full/logs/`) use the old numbers:
+
+| Old | New | Old | New | Old | New |
+|---|---|---|---|---|---|
+| 03 | 01 | 14 | 10 | 22 | 16 |
+| 04 | 02 | 10 | 11 | 24 | 17 |
+| 16 | 03 | 13 | 12 | 25 | 18 |
+| 17 | 04 | 23 | 13 | 27 | 19 |
+| 19 | 05 | 15 | 14 | 28 | 20 |
+| 20 | 06 | 21 | 15 | 29 | 21 |
+| 08 | 07 | 12 (`12_tables_final`) | 22 | 26 | 23 |
+| 18 | 08 | 00, 09 | unchanged | | |
 
 ## Answer file format
 
@@ -200,7 +208,7 @@ machine independent costs.
   download a model.
 * **Windows GPU memory.** When VRAM runs out, the driver silently spills into system RAM and runs about 20 times
   slower. The scripts run one process per block and check free VRAM after loading.
-* **Do not profile latency while labelling.** Running scripts 03 and 04 at the same time corrupts both timings.
+* **Do not profile latency while labelling.** Running scripts 01 and 02 at the same time corrupts both timings.
 
 ## Citation
 

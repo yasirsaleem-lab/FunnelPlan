@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{IRCoT runs: accuracy, calls, stopping and latency.}
 \label{tab:ircot}
-\begin{tabular}{llrrrrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrrr}
 \toprule
-Reader & Dataset & label\_final & strict & LM calls & Retrieval calls & Stops on answer & Seconds per question & Demos dropped (questions) \\
+Reader & Dataset & label\_final & strict & LM calls & \begin{tabular}[b]{@{}r@{}}Retrieval \\ calls\end{tabular} & \begin{tabular}[b]{@{}r@{}}Stops on \\ answer\end{tabular} & \begin{tabular}[b]{@{}r@{}}Seconds per \\ question\end{tabular} & \begin{tabular}[b]{@{}r@{}}Demos dropped \\ (questions)\end{tabular} \\
 \midrule
 Qwen2.5 7B & 2Wiki & 0.532 & 0.518 & 6.39 & 3.86 & 0.828 & 24.7 & 0 \\
 Qwen2.5 7B & HotpotQA & 0.522 & 0.442 & 5.74 & 3.60 & 0.872 & 21.2 & 0 \\
@@ -16,5 +17,5 @@ Qwen3 14B & 2Wiki & 0.568 & 0.562 & 5.42 & 3.64 & 0.974 & 79.8 & 17 \\
 Qwen3 14B & HotpotQA & 0.604 & 0.528 & 4.88 & 3.42 & 0.966 & 68.3 & 0 \\
 Qwen3 14B & MuSiQue & 0.336 & 0.284 & 5.29 & 3.56 & 0.938 & 75.9 & 0 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

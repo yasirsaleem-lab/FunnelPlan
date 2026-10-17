@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Fixed two hop plans against the best single step plan (in sample).}
 \label{tab:r3}
-\begin{tabular}{llllr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llllr}
 \toprule
-Reader & Dataset & Best single step & Best two hop & Difference \\
+Reader & Dataset & \begin{tabular}[b]{@{}l@{}}Best single \\ step\end{tabular} & Best two hop & Difference \\
 \midrule
 Qwen2.5 7B & NQ & 0.730 (stella\_1\_5b@5, 0.51 s) & 0.564 (bm25\_2hop@5, 1.10 s) & $-$0.166 \\
 Qwen2.5 7B & HotpotQA & 0.530 (qwen3\_reranker\_0\_6b@3, 1.41 s) & 0.492 (bm25\_2hop@5, 1.01 s) & $-$0.038 \\
@@ -27,5 +28,5 @@ Qwen3 32B & HotpotQA & 0.608 (qwen3\_reranker\_0\_6b@10, 2.49 s) & 0.584 (bm25\_
 Qwen3 32B & 2Wiki & 0.502 (bge\_bm25\_rrf@10, 1.86 s) & 0.600 (bm25\_2hop@3, 1.83 s) & +0.098 \\
 Qwen3 32B & MuSiQue & 0.344 (stella\_1\_5b@10, 2.10 s) & 0.312 (bm25\_2hop@5, 3.00 s) & $-$0.032 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

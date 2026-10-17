@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Secondary family: stronger routers and the METIS port (30 tests per plan set).}
 \label{tab:secondary}
-\begin{tabular}{llrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
 \toprule
-Method & Reader & Gain, single step & Holm p & Gain, with two hop & Holm p  \\
+Method & Reader & \begin{tabular}[b]{@{}r@{}}Gain, single \\ step\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Gain, with two \\ hop\end{tabular} & Holm p  \\
 \midrule
 Adaptive k (published rule) & Qwen2.5 7B & $-$0.003 [$-$0.024, +0.017] & 1.000 & $-$0.007 [$-$0.028, +0.014] & 1.000 \\
 Adaptive k (published rule) & Llama 3.1 8B & +0.005 [$-$0.014, +0.026] & 1.000 & +0.005 [$-$0.015, +0.025] & 1.000 \\
@@ -37,5 +38,5 @@ METIS port & Qwen3 14B & $-$0.003 [$-$0.022, +0.016] & 1.000 & $-$0.004 [$-$0.02
 METIS port & Gemma 3 27B & +0.002 [$-$0.017, +0.022] & 1.000 & $-$0.006 [$-$0.026, +0.013] & 1.000 \\
 METIS port & Qwen3 32B & $-$0.001 [$-$0.021, +0.018] & 1.000 & +0.013 [$-$0.006, +0.032] & 1.000 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

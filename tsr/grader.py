@@ -7,10 +7,10 @@ Notes:
      "Mariinsky Ballet" did not exactly match "The Mariinsky Ballet".
   2. grade_detail() returns the evidence behind a decision (exact match,
      gold contained in answer, best token F1, answer length) instead of a
-     bare yes/no. scripts/04d_regrade_labels.py stores this evidence so any
+     bare yes/no. scripts/07_grading_full.py stores this evidence so any
      rule can be applied later without rerunning the agent.
   3. Several named rules. Which one the paper uses is decided by the hand
-     audit in 04d, not by intuition:
+     audits (07_grading_full.py, 08_audit_new_readers.py), not by intuition:
        strict    exact match OR gold appears as a word sequence in the answer
        f1_07     strict OR token F1 >= 0.7
        lenient   strict OR token F1 >= 0.4   (the rule used to make the v3 labels)

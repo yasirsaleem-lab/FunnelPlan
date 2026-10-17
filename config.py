@@ -69,7 +69,7 @@ class Settings(BaseSettings):
     ]
     PLAN_DEPTHS: List[int] = [10, 50, 100]
 
-    # Label file written by scripts/04_generate_tsr_labels.py (v3 pipeline).
+    # Label file written by scripts/02_generate_tsr_labels.py (v3 pipeline).
     LABELS_FILE: str = "tsr_labels_v3.csv"
     FEATURES_FILE: str = "features_v3.csv"
 

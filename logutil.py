@@ -1,7 +1,7 @@
 """
 Run logs for the long scripts (03, 04).
 
-setup_logging("04_generate_tsr_labels", CONFIG) adds a file handler next to
+setup_logging("02_generate_tsr_labels", CONFIG) adds a file handler next to
 the console, so everything that goes through `logging` (block starts, cache
 hits, "encoded X/N", NaN repair counts, TSR per depth, errors) is kept in
 

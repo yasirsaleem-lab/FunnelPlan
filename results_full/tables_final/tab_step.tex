@@ -1,13 +1,14 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{Primary family against the best single fixed plan at or below the policy's cost.}
 \label{tab:step}
-\begin{tabular}{lrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
 \toprule
-Plan set & Positive vs hull & Positive vs best single plan & Mean value of non adaptive mixing & Largest gain vs best single plan \\
+Plan set & \begin{tabular}[b]{@{}r@{}}Positive vs \\ hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Positive vs \\ best single \\ plan\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean value of \\ non adaptive \\ mixing\end{tabular} & \begin{tabular}[b]{@{}r@{}}Largest gain \\ vs best single \\ plan\end{tabular} \\
 \midrule
 single step & 0 & 5 & +0.017 & +0.061 \\
 with two hop & 0 & 7 & +0.023 & +0.080 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

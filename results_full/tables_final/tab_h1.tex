@@ -1,10 +1,11 @@
 \begin{table}[t]
 \centering\small
+\setlength{\tabcolsep}{4pt}
 \caption{H1, primary family: gain over the held out fixed plan hull at equal mean latency (27 pooled tests, 2,000 questions each).}
 \label{tab:h1}
-\begin{tabular}{llrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
 \toprule
-Policy & Reader & Gain, single step [95\% CI] & Holm p & Gain, with two hop [95\% CI] & Holm p  \\
+Policy & Reader & \begin{tabular}[b]{@{}r@{}}Gain, single \\ step [95\% CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Gain, with two \\ hop [95\% CI]\end{tabular} & Holm p  \\
 \midrule
 TSR planner & Qwen2.5 7B & +0.004 [$-$0.014, +0.021] & 1.000 & +0.002 [$-$0.015, +0.019] & 1.000 \\
 TSR planner & Llama 3.1 8B & +0.005 [$-$0.013, +0.023] & 1.000 & +0.006 [$-$0.012, +0.025] & 1.000 \\
@@ -34,5 +35,5 @@ Confidence cascade & Qwen3 32B & $-$0.003 [$-$0.023, +0.015] & 1.000 & $-$0.003 
 Reader cascade & 7B to Llama 3.1 8B & +0.006 [$-$0.012, +0.024] & 1.000 & $-$0.001 [$-$0.018, +0.017] & 1.000 \\
 Reader cascade & 7B to Qwen3 14B & +0.006 [$-$0.012, +0.024] & 1.000 & +0.017 [$-$0.001, +0.036] & 1.000 \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
 \end{table}

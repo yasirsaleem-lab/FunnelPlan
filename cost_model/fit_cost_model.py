@@ -151,7 +151,7 @@ def main_full():
             logger.info(f"--- retrieval cost, {ds} ({pf.name})")
             entry["retrieval"] = fit_retrieval(json.loads(pf.read_text()))
         else:
-            logger.warning(f"{pf.name} missing; run scripts/03_profile_latency.py")
+            logger.warning(f"{pf.name} missing; run scripts/01_profile_latency.py")
         for reader, df in readers.items():
             sub = df[df["dataset"] == ds]
             if len(sub):
@@ -191,7 +191,7 @@ def main():
         cm.retrieval = fit_retrieval(profiles)
         cm.source["retrieval"] = names
     else:
-        logger.error(f"{PROFILE_FILE} not found. Run scripts/03_profile_latency.py.")
+        logger.error(f"{PROFILE_FILE} not found. Run scripts/01_profile_latency.py.")
     if LABELS_FILE.exists():
         agent = fit_agent(LABELS_FILE)
         if agent:

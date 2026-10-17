@@ -73,6 +73,14 @@ Latencies of llama.cpp readers are compared only within the same reader (each re
 
 Every change is dated and states whether any result of the affected run had been seen.
 
+- **2026-10-17 12:10, rater names removed and scripts renumbered (no rule changes, no results changed; every result
+  had been seen).** (a) The entry of 2026-10-13 00:05 named the two raters; their names are replaced by "rater 1"
+  and "rater 2". Nothing else in that entry or in any other entry is changed. Rater 1 is a coauthor; rater 2 and the
+  adjudicating rater 3 are not authors. (b) The pilot and superseded scripts were removed and the remaining scripts
+  renumbered in pipeline order. Entries below use the old numbers; README.md, section Scripts, maps old to new.
+  (c) The rater sheets in `grading/` and `grading/received/` carried the raters' names in their file metadata (last
+  modified by, and the folder path Excel stores). These became rater1, rater2 and rater3, and the two received file
+  names that held a name became `audit_rater2_received.xlsx` and `audit2_rater2_received.xlsx`. No cell changed.
 - **2026-10-14 20:20, two reporting analyses added after all results were seen (no rule changes, no new
   model runs).** (a) Rater reference check, `tab_rater` in `scripts/12_tables_final.py`. The entry of 13 Oct 00:05
   promised label_final against each rater separately; this table reports it and extends it to the strict, F1 and

@@ -33,7 +33,7 @@ STEP_LINE = "#3A3F4A"   # outline of process steps
 ARROW = "#3F4756"       # flow arrows (slate)
 
 
-# Data figures (scripts/26_figures.py): the same two hues, plus neutrals and a five colour set for readers or policies.
+# Data figures (scripts/23_figures.py): the same two hues, plus neutrals and a five colour set for readers or policies.
 DATA_TEAL = TEAL               # main series: single step plans, our protocol, IRCoT, audit 1
 DATA_AMBER = "#C27C0E"         # second series: with two hop plans, weak protocol, audit 2 (brighter than AMBER for marks)
 DATA_GREY = "#B8BCC2"          # fixed plans and other context marks

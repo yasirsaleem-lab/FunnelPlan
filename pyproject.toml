@@ -7,7 +7,7 @@ name = "funnelplan"
 version = "0.3.0"
 description = "FunnelPlan: budget aware retrieval planning and TSR benchmarking for retrieval augmented agents"
 readme = "README.md"
-authors = [{ name = "FunnelPlan authors", email = "noreply@example.com" }]
+authors = [{ name = "FunnelPlan authors" }]
 license = { text = "MIT" }
 requires-python = ">=3.10"
 classifiers = [
@@ -60,8 +60,6 @@ packages = [
     "retrievers.rerankers",
     "cost_model",
     "tsr",
-    "planner",
-    "evaluation",
 ]
 include-package-data = false
 
@@ -71,4 +69,4 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 120
-exclude = ["_archive_v2", "_backup_20261002", "data", "results", "results_full"]
+exclude = ["data", "results_full", "paper", "Supplemental paper"]

@@ -23,7 +23,7 @@ audit1 200  67  34  93   6        0.663        0.939 0.603                 0.610
 audit2 200  72  26  96   6        0.735        0.941 0.676                 0.658                 0.987       0.645                                 1.0
    J is the factor by which non differential grading error shrinks a true difference (observed = J x true). The weighted J reweights audit strata to the population of unique answers in those strata; answers outside every stratum are not covered (share shown).
 
-   Rater 1 (rater 1) against rater 2 (rater 2), before adjudication:
+   Rater 1 against rater 2, before adjudication:
  audit   n  raw_agreement  cohen_kappa  gwet_ac1  krippendorff_alpha  rate_rater1  rate_rater2
 audit1 200          0.715        0.469     0.431               0.430        0.385        0.660
 audit2 200          0.845        0.695     0.690               0.691        0.440        0.565
