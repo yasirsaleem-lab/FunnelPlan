@@ -8,13 +8,11 @@ editor. Level 2 needs a CPU and a few hours. Level 3 regenerates the answers and
 
 | What | Where |
 |---|---|
-| Every preregistered decision, computed from the result files | `results_full/tables_final/verdicts.txt` |
+| The decision of every test family, computed from the result files | `results_full/tables_final/verdicts.txt` |
 | Every table in readable form | `results_full/tables_final/tables.md` |
 | LaTeX tables used in the paper | `results_full/tables_final/tab_*.tex` |
 | Figures | `results_full/figures_final/f2` to `f11`, `fig_framework`, `fig_policies` (`.pdf` vector, `.png` at 600 dpi) |
 | Per query gains of every test | `results_full/analysis/*/per_query_gains.csv` |
-| Preregistration, amendments, commit record | `docs/PREREGISTRATION.md` (section 7) |
-| Design decisions and their history | `docs/DECISIONS.md` |
 | Human raters and how the audits were run | `docs/RATERS.md` |
 
 ## 2. Rerun every analysis on a CPU (level 2)
@@ -77,12 +75,8 @@ exact versions used. No API model was used.
 * `MANIFEST.sha256` inside the package lists the sha256 and size of every file. The same list is kept next to the
   zip file. Check it with `sha256sum -c` after removing the size column, or with a short Python loop.
 * Build the package with `python scripts/make_artifact.py` on a clean tree; the file name carries the git commit.
-* The preregistration file and every amendment are under version control. Section 7 of `docs/PREREGISTRATION.md`
-  records, for each amendment, when it was written and when it was first committed. The repository had no remote
-  until 14 October 2026; the first push to GitHub (11:42 UTC+8, every commit up to c38d1aa) is the earliest
-  external timestamp, so no commit before it has one.
 * The human audit files in `data/processed_full/grading/received/` are the files as the raters sent them, except that
-  the raters' names were removed from the file metadata (no cell changed; see the amendment of 17 October 2026).
+  the raters' names were removed from the file metadata (no cell changed).
 
 ## 6. What is not included, and why
 

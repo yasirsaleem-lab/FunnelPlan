@@ -52,8 +52,7 @@ and the TSR planner with those signals added.
 **Protocol.** 5 folds x 5 seeds. Every policy and the hull choose their settings on four folds and are scored on the
 fifth, so each question is scored once per seed. Gains are averaged per question over seeds and tested with a one
 sample t test on 2,000 questions per test, with bootstrap 95% intervals and Holm correction within each family. A
-result counts only if it survives Holm with its interval above zero in both plan sets. The hypotheses, families and
-decision rule were written down before the runs: see `docs/PREREGISTRATION.md`, including every dated amendment.
+result counts only if it survives Holm with its interval above zero in both plan sets.
 
 ## Reproduce the results
 
@@ -94,8 +93,6 @@ FunnelPlan/
 ├── logutil.py                  run logs for the long GPU scripts (results_full/logs/)
 ├── pyproject.toml              package metadata and version ranges
 ├── docs/
-│   ├── PREREGISTRATION.md      hypotheses, families, decision rules, dated amendments
-│   ├── DECISIONS.md            design decisions and their history
 │   ├── RATERS.md               human audit procedure and raters
 │   └── environment.txt         exact package versions (pip freeze)
 ├── data/
@@ -163,8 +160,8 @@ Scripts run from the repository root (`python scripts/<name>.py`). Each document
 | `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
 | `make_artifact.py` | output | builds the reproducibility package |
 
-Script numbers changed on 17 October 2026, when the pilot and superseded scripts were removed. Older documents
-(`docs/PREREGISTRATION.md`, `docs/DECISIONS.md`, the run logs in `results_full/logs/`) use the old numbers:
+Script numbers changed on 17 October 2026, when the pilot and superseded scripts were removed. The run logs in
+`results_full/logs/` use the old numbers:
 
 | Old | New | Old | New | Old | New |
 |---|---|---|---|---|---|

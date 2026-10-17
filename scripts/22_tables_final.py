@@ -4,7 +4,7 @@ Final tables for the paper (5 readers, both plan sets). CPU only, reads results;
 Writes results_full/tables_final/:
   tables.md          every table in readable form (the source for the paper text)
   tab_*.tex          booktabs LaTeX tables
-  verdicts.txt       the pre-registered decisions, computed from the files (H1, secondary family, H3, robustness)
+  verdicts.txt       the decisions of every test family, computed from the files (H1, secondary family, H3, robustness)
   tab_summary.tex    every family and robustness check in one table (the paper's verdict table)
   tab_rater.tex      grading rules against each human reference (majority of three, each rater alone)
   tab_p_*.tex        compact tables for the paper body (retrievers, plans, gains, IRCoT, weak protocol, mechanism, raters)
@@ -158,7 +158,7 @@ def t_secondary():
                          "Holm p ": "" if b is None else pv(b.p_holm)})
     T = pd.DataFrame(rows)
     md_table("Secondary family (30 tests per plan set; ar_tfidf excluded, appendix only)", T,
-             "Decision rule (amendment 2026-10-12 20:30): significant only if Holm p < 0.05 and CI above 0 in BOTH plan sets.")
+             "Decision rule: significant only if Holm p < 0.05 and CI above 0 in BOTH plan sets.")
     tex_table("secondary", T, "Secondary family: stronger routers and the METIS port (30 tests per plan set).", "llrrrr")
     sa = (A.p_holm < 0.05) & (A.ci_low > 0); sb = (B.p_holm < 0.05) & (B.ci_low > 0)
     ka = set(map(tuple, A[sa][["reader", "method"]].values)); kb = set(map(tuple, B[sb][["reader", "method"]].values))
@@ -183,7 +183,7 @@ def t_h3():
                      "Gain, with two hop": sg(b.gain), "Holm p ": pv(b.p_holm),
                      "Sig. final/lenient/strict": "/".join(sig(l, "single_step") for l in ("final", "lenient", "strict"))})
     T = pd.DataFrame(rows)
-    md_table("H3, IRCoT against the hull at IRCoT's own latency (9 pre-registered tests)", T)
+    md_table("H3, IRCoT against the hull at IRCoT's own latency (9 tests)", T)
     tex_table("h3", T, "H3: IRCoT against the held out fixed plan hull at IRCoT's own mean latency.", "llrrrrrrl")
     for lab, D in H.items():
         for hull, g in D.groupby("hull"):
@@ -297,9 +297,9 @@ def t_headroom():
     tex_table("headroom", T, "Headroom per reader and dataset (in sample, 25 plans).", "llrrrrr")
 
 
-# ====================================================================== amendment 13 Oct 20:45
+# ====================================================================== margin test, cost axes, stronger policies, checks
 def t_noninf():
-    """(a) Non superiority at the preregistered 0.03 margin: one sided t test per primary test, Holm over 27."""
+    """(a) Non superiority at the 0.03 margin: one sided t test per primary test, Holm over 27."""
     from scipy import stats
     rows = []
     for tag, nm in (("final", "single step"), ("final_r3", "with two hop")):
@@ -316,9 +316,9 @@ def t_noninf():
                      "Rejected at 0.03 after Holm": int((R.p_holm < 0.05).sum()),
                      "Largest upper bound": f"{top.ub95:.3f} ({PN[top.method]}, {RN.get(top.reader, top.reader)})"})
     T = pd.DataFrame(rows)
-    md_table("Non superiority at the preregistered margin of 0.03 (one sided 95% upper bounds)", T,
-             "Secondary analysis (amendment 13 Oct 20:45 (a)); the margin was preregistered on 8 Oct, the test was added later and its result was seen before the amendment.")
-    tex_table("noninf", T, "Non superiority at the preregistered 0.03 margin (27 primary tests per plan set).", "lrrrl")
+    md_table("Non superiority at a margin of 0.03 (one sided 95% upper bounds)", T,
+             "Secondary analysis, added after the main results were seen.")
+    tex_table("noninf", T, "Non superiority at the 0.03 margin (27 primary tests per plan set).", "lrrrl")
     NONINF.extend(rows)
     for r in rows:
         VERD.append(f"Non superiority at 0.03, {r['Plan set']}: {r['Rejected at 0.03 after Holm']} of {r['Tests']} after Holm; largest bound {r['Largest upper bound']}")
@@ -461,7 +461,7 @@ def t_audit():
     tex_table("audit", T, "Grading rules against the human reference (majority of three raters).", "lrlrrrrr")
 
 
-# ====================================================================== rater reference (amendment 14 Oct 2026)
+# ====================================================================== rater reference
 def t_rater():
     """Accuracy of each grading rule against three human references: the majority of three raters (main), rater 2
     alone (not an author) and rater 1 alone (an author of the paper). Checks that the grading validation does not
