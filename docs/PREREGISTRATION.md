@@ -81,6 +81,9 @@ Every change is dated and states whether any result of the affected run had been
   (c) The rater sheets in `grading/` and `grading/received/` carried the raters' names in their file metadata (last
   modified by, and the folder path Excel stores). These became rater1, rater2 and rater3, and the two received file
   names that held a name became `audit_rater2_received.xlsx` and `audit2_rater2_received.xlsx`. No cell changed.
+  (d) The git history was rewritten to remove the names from every commit (author fields included); commit
+  dates and contents are otherwise unchanged. `docs/COMMIT_MAP.txt` maps the old commit hashes cited in this section
+  to the new ones. Earlier versions of the rater sheets were removed from the history; only the cleaned sheets remain.
 - **2026-10-14 20:20, two reporting analyses added after all results were seen (no rule changes, no new
   model runs).** (a) Rater reference check, `tab_rater` in `scripts/12_tables_final.py`. The entry of 13 Oct 00:05
   promised label_final against each rater separately; this table reports it and extends it to the strict, F1 and
