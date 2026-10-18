@@ -1,5 +1,5 @@
 """
-Checks fixed in the amendment of 2026-10-13 20:45, items (b), (e) and (f). CPU only, no new answers.
+Checks on the stored answers, items (b), (e) and (f). CPU only, no new answers.
 
   (b) sanity     Llama 3.1 8B "contains" accuracy (closed book, BM25 at k = 1, 3, 5, 10) next to the published
                  Never RAG and Always RAG In-Accuracy of Moskvoretskii et al. (ACL 2025, Llama 3.1 8B, BM25, 500
@@ -399,7 +399,7 @@ def main():
     parts = [a for a in sys.argv[1:] if not a.startswith("-")] or ["sanity", "grading", "headroom", "mechanism"]
     fn = {"sanity": part_sanity, "grading": part_grading, "headroom": part_headroom, "mechanism": part_mechanism}
     t0 = time.time()
-    say(f"Checks (amendment 13 Oct 20:45 (b), (e), (f)); label {A.CONFIG['label']}; parts {parts}")
+    say(f"Checks (b), (e), (f); label {A.CONFIG['label']}; parts {parts}")
     for p in parts:
         fn[p]()
     name = "checks_summary.txt" if len(parts) == 4 else f"checks_{'_'.join(parts)}.txt"

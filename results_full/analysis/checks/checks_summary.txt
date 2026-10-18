@@ -1,4 +1,4 @@
-Checks (amendment 13 Oct 20:45 (b), (e), (f)); label final; parts ['sanity', 'grading', 'headroom', 'mechanism']
+Checks (b), (e), (f); label final; parts ['sanity', 'grading', 'headroom', 'mechanism']
 == (b) Sanity check: Llama 3.1 8B 'contains' accuracy against Moskvoretskii et al. (ACL 2025)
    published: Never RAG / Always RAG In-Accuracy (Llama 3.1 8B, BM25; their retrieval depth: check the paper)
         dataset  published_never  published_always  ours_closed_book  ours_bm25@1  ours_bm25@3  ours_bm25@5  ours_bm25@10

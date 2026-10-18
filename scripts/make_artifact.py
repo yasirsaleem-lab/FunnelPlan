@@ -1,7 +1,7 @@
 """
 Build the reproducibility package for the paper.
 
-The package = every file tracked by git (code, docs, pre-registration, graded answers, audits, results)
+The package = every file tracked by git (code, docs, graded answers, audits, results)
             + the files git ignores but the analyses need: the retrieval caches data/cache_full/retrievals_v3/*.pkl
               (query text and ranked lists with scores) and the router embeddings data/processed_full/routers/emb_*.npz.
 Not included (too large or regenerable, listed in ARTIFACT.md): corpora, BM25/SPLADE/dense indexes, model weights,

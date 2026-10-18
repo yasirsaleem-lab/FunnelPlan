@@ -1,5 +1,5 @@
 """
-H3 (pre-registered): IRCoT against the held out fixed plan hull at IRCoT's own mean latency.
+H3: IRCoT against the held out fixed plan hull at IRCoT's own mean latency.
 
 Per (reader, dataset) for Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B on HotpotQA, 2WikiMultihopQA, MuSiQue (9 tests):
   the hull's plans are chosen on the training folds (5 folds x 5 seeds, exactly as in 11_analysis_full.py) and
@@ -126,7 +126,7 @@ def main():
         for h, g in R.groupby("hull"):
             R.loc[g.index, "p_holm"] = A.holm(g["p"].to_numpy())
         say("")
-        say("Holm over the tests of each hull (pre-registered family: 9 tests, single step hull):")
+        say("Holm over the tests of each hull (family: 9 tests, single step hull):")
         for _, r in R.iterrows():
             sig = "SIGNIFICANT" if (r["p_holm"] < 0.05 and r["ci_low"] > 0) else ("significantly BELOW" if (r["p_holm"] < 0.05 and r["ci_high"] < 0) else "n.s.")
             say(f"  {r['hull']:12s} {r['reader']:12s} {r['dataset']:16s} gain {r['gain']:+.3f}  p {r['p']:.4f}  Holm p {r['p_holm']:.4f}  {sig}")

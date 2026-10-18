@@ -1,5 +1,5 @@
 """
-Human audit of the answers of the readers added in the extension (Qwen3 32B and Gemma 3 27B; pre-registration R1).
+Human audit of the answers of the readers added in the extension (Qwen3 32B and Gemma 3 27B; run R1).
 
 Why a second audit: the first audit (07_grading_full.py, 200 items) sampled only the three original readers.
 The new readers answer differently (the 32B writes sentences and abstains more often), so the grading rule must

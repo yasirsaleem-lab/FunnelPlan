@@ -1,5 +1,5 @@
 """
-Fixed two hop plans (pre-registration run R3, defined in the amendment of 2026-10-09).
+Fixed two hop plans (run R3).
 
 Plan bm25_2hop@k, k in {3, 5}. The number of retrieval calls (2) and reader calls (2) is fixed before execution.
   hop 1   BM25 top k for the question (the cached BM25 list of 04, the same as plan bm25@k).

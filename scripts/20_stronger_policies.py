@@ -1,5 +1,5 @@
 """
-Stronger learned policies (amendment 2026-10-13 20:45, item (c)). Concern: the routers may be weak, and the ACL 2025
+Stronger learned policies. Concern: the routers may be weak, and the ACL 2025
 uncertainty baselines were missing. Two policies, same protocol as 10 (imported from it: same queries, plans, mean plan
 costs, 5 folds x 5 seeds, settings chosen on the training folds, gain against the hull fitted on the training folds):
 
@@ -206,7 +206,7 @@ def run_plan_set(r3, L, curve):
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     curve = "--no-curve" not in sys.argv
-    L = [f"Stronger policies (amendment 13 Oct 20:45 (c)). Label {A.CONFIG['label']}, seeds {A.CONFIG['seeds']}, "
+    L = [f"Stronger policies. Label {A.CONFIG['label']}, seeds {A.CONFIG['seeds']}, "
          f"{A.CONFIG['k_folds']} folds, cost axis {A.CONFIG['cost_axis']}."]
     D1, F1, LC = run_plan_set(False, L, curve)
     D2, F2, _ = run_plan_set(True, L, False)

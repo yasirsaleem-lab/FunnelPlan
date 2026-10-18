@@ -1,5 +1,5 @@
 """
-Plan grid labels for readers served by llama.cpp (pre-registration run R1, and R2 for the quantization control).
+Plan grid labels for readers served by llama.cpp (run R1, and R2 for the quantization control).
 
 Same design as 02_generate_tsr_labels.py for Qwen3 14B: the same 500 queries per dataset, the same 25 plans
 (closed book plus 6 retrievers x depths 1, 3, 5, 10), the same cached retrieval lists, the same prompt text and
@@ -380,7 +380,7 @@ def stage_report(reader, datasets):
              f"f1_07 {(m.f1_07 == m.label_f1_07).mean():.3f}")
     L.append(f"truncated answers (finish = length): {int((D.get('finish', pd.Series(dtype=str)) == 'length').sum())}")
     if READERS[reader]["control"]:
-        L.append("Gate G2 (pre-registered): label agreement >= 0.85 with Qwen3 14B int8. The decisive number uses "
+        L.append("Gate G2: label agreement >= 0.85 with Qwen3 14B int8. The decisive number uses "
                  "label_final after grading; strict and f1_07 agreement above are the deterministic proxies.")
     out = settings.RESULTS_ROOT / "probe" / f"grid_{reader}_report.txt"
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -396,7 +396,7 @@ if __name__ == "__main__":
     ap.add_argument("--datasets", nargs="*", default=None, help="default: all 4 (the control uses hotpotqa)")
     a = ap.parse_args()
     if a.datasets is None and READERS[a.reader]["control"]:
-        a.datasets = ["hotpotqa"]                  # R2 is pre-registered on HotpotQA only
+        a.datasets = ["hotpotqa"]                  # R2 runs on HotpotQA only
     if a.stage == "run":
         stage_run(a.reader, a.url, a.datasets)
     elif a.stage == "status":

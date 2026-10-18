@@ -1,5 +1,5 @@
 """
-R5 (pre-registered): a METIS style per query profiler policy (Ray et al., SOSP 2025), ported to our plan space.
+R5: a METIS style per query profiler policy (Ray et al., SOSP 2025), ported to our plan space.
 
 METIS: a larger LLM profiles each query (joint reasoning yes/no, complexity high/low, pieces of information
 1..10, confidence); rules map the profile to a pruned configuration space (num_chunks in [n, 3n]; synthesis

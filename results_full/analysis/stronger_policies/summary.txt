@@ -1,4 +1,4 @@
-Stronger policies (amendment 13 Oct 20:45 (c)). Label final, seeds [0, 1, 2, 3, 4], 5 folds, cost axis latency.
+Stronger policies. Label final, seeds [0, 1, 2, 3, 4], 5 folds, cost axis latency.
 
 == single step plans: 10 pooled tests, Holm over 10
   qwen3-14b    planner_sk  +0.001 [-0.018, +0.020]  Holm p 1.0000  

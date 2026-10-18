@@ -75,14 +75,14 @@ CONFIG = {
     # for an inverted index SPLADE; results then go to analysis/<label><out_suffix>/
     "retrieval_cost_override": {},
     "out_suffix": "",
-    # Pre-registration R3/H3: every H1 result is reported with and without the fixed two hop plans
+    # R3/H3: every H1 result is reported with and without the fixed two hop plans
     # (bm25_2hop@3, bm25_2hop@5 from 05_two_hop_plans.py, graded by 08). True adds them to every reader's plan
     # set (hull and methods alike) and writes to analysis/<label><out_suffix>_r3/. Command line: --r3
     "include_r3": False,
     # "mix" (main): the fixed plan hull, best randomised mix of two plans at mean cost c.
     # "step" (robustness, --hull=step): best single fixed plan with mean cost <= c, no mixing.
     "hull_mode": "mix",
-    # Cost axis (amendment 13 Oct 20:45 (d), --cost=X): "latency" (main, seconds), "tokens" (prompt + generated,
+    # Cost axis (--cost=X): "latency" (main, seconds), "tokens" (prompt + generated,
     # per 1,000), "tokens_w4" (prompt + 4 x generated, per 1,000), "flops" (per 1e13), "calls". Units are fixed
     # for all readers, so reader cascades compare like with like. Writes to analysis/<label>_cost<X>[_r3]/.
     "cost_axis": "latency",
@@ -147,7 +147,7 @@ def load_reader(reader):
 
 MULTI_STEP = ("bm25_2hop",)
 
-# ---- cost axes other than latency (amendment 13 Oct 20:45 (d)); parameter counts from the model cards
+# ---- cost axes other than latency; parameter counts from the model cards
 READER_PARAMS = {"qwen2.5-7b": 7.62e9, "llama3.1-8b": 8.03e9, "qwen3-14b": 14.8e9, "qwen3-14b-gguf": 14.8e9,
                  "gemma3-27b": 27.4e9, "qwen3-32b": 32.8e9}
 _QENC = 32                                                   # query tokens for a dense query encoder
@@ -615,7 +615,7 @@ def main():
         if a_ == "--hull=step":                    # robustness: best single fixed plan at or below the cost
             CONFIG["hull_mode"] = "step"
             CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_stephull"
-        if a_.startswith("--cost="):               # robustness: another cost axis (amendment 13 Oct 20:45 (d))
+        if a_.startswith("--cost="):               # robustness: another cost axis
             CONFIG["cost_axis"] = a_.split("=", 1)[1]
             if CONFIG["cost_axis"] != "latency":
                 CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_cost" + CONFIG["cost_axis"]

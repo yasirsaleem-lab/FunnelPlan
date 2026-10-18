@@ -11,4 +11,4 @@ hotpotqa 0       500   0.218       0.214   0.120       1.360            110
 
 label agreement with qwen3-14b: strict 0.960, f1_07 0.958
 truncated answers (finish = length): 51
-Gate G2 (pre-registered): label agreement >= 0.85 with Qwen3 14B int8. The decisive number uses label_final after grading; strict and f1_07 agreement above are the deterministic proxies.
+Gate G2: label agreement >= 0.85 with Qwen3 14B int8. The decisive number uses label_final after grading; strict and f1_07 agreement above are the deterministic proxies.

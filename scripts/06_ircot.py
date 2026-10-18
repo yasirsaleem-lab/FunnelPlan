@@ -1,7 +1,7 @@
 """
-IRCoT reference point (pre-registration run R4; hypothesis H3). Not a plan: its cost depends on the data.
+IRCoT reference point (run R4; hypothesis H3). Not a plan: its cost depends on the data.
 
-IRCoT (Trivedi et al., ACL 2023) as published, with the choices our setting forces stated in docs/PREREGISTRATION.md:
+IRCoT (Trivedi et al., ACL 2023) as published, with the choices our setting forces:
   retrieve  BM25 (our bm25s index, the same as plan bm25@k) for the question: top K paragraphs.
   reason    the reader continues a chain of thought, in the authors' few shot format ("Wikipedia Title: ..." blocks,
             "Q: Answer the following question by reasoning step-by-step.", "A: ..."), with the authors' own
@@ -49,7 +49,7 @@ _s19 = importlib.util.spec_from_file_location("twohop19", Path(__file__).parent 
 T = importlib.util.module_from_spec(_s19)
 _s19.loader.exec_module(T)               # Reader (transformers or llama.cpp), setup(), G (= script 04)
 
-K = 4                     # paragraphs per retrieval step (paper grid {2, 4, 6, 8}; fixed a priori, see amendment)
+K = 4                     # paragraphs per retrieval step (paper grid {2, 4, 6, 8}; fixed before the runs)
 MAX_STEPS = 8             # paper
 MAX_PARAGRAPHS = 15       # paper
 REASON_MAX_TOKENS = 64
@@ -73,7 +73,7 @@ def demos(ds):
     # Note: IRCoT caps the WHOLE reason prompt (demonstrations plus the test paragraphs) at the model limit, 6,000
     # tokens for Flan-T5, by dropping demonstrations. Our readers have 32k or more context, so the demonstrations are
     # packed up to DEMO_CHARS and the prompt is not capped at 6,000; reason_call() applies IRCoT's dropping rule only
-    # when the prompt does not fit in GPU memory. This is a disclosed deviation (pre-registration amendments).
+    # when the prompt does not fit in GPU memory. This is a deviation from the published method.
     f = PROMPTS / f"{ds}_gold_with_1_distractors_cot_flan_t5.txt"
     text = f.read_text(encoding="utf-8")
     blocks = []
