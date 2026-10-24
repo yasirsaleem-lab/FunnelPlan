@@ -60,7 +60,10 @@ NONINF, AUD = [], {}     # filled by t_noninf and t_audit, read by t_summary and
 
 
 def sg(x, d=3):
-    return "" if pd.isna(x) else f"{x:+.{d}f}"
+    if pd.isna(x):
+        return ""
+    s = f"{x:+.{d}f}"
+    return f"{0:.{d}f}" if float(s) == 0 else s      # no "-0.000" for values that round to zero
 
 
 def pv(p):
@@ -809,17 +812,18 @@ def t_review():
             if "dataset" in M:
                 M = M[M.dataset == "pooled"]
             for r in M.itertuples():
-                plain[(r.method, r.reader, ps)] = (r.ci_low, r.ci_high)
+                plain[(r.method, r.reader, ps)] = (r.ci_low, r.ci_high, r.gain)
+    from scipy import stats
     rows = []
     for r in F.itertuples():
-        lo, hi = plain.get((r.method, r.reader, r.plan_set), (np.nan, np.nan))
+        lo, hi, g = plain.get((r.method, r.reader, r.plan_set), (np.nan, np.nan, np.nan))
         rows.append({"Policy": PN.get(r.method, r.method), "Reader": RN.get(r.reader, r.reader), "Plan set": r.plan_set,
-                     "Plain 95% CI": f"[{sg(lo)}, {sg(hi)}]", "Refit mean": sg(r.mean),
-                     "Refit 95% CI": f"[{sg(r.low)}, {sg(r.high)}]", "One sided upper": sg(r.upper_one_sided),
-                     "Share above 0": f"{r.share_above_0:.2f}"})
+                     "Gain": sg(g), "Plain 95% CI": f"[{sg(lo)}, {sg(hi)}]",
+                     "Gain +/- 1.96 refit SD": f"[{sg(g - 1.96 * r.sd)}, {sg(g + 1.96 * r.sd)}]",
+                     "p, refit SD": pv(2 * stats.norm.sf(abs(g / r.sd))), "Refit mean shift": sg(r.mean - g)})
     T = pd.DataFrame(rows)
     md_table("Review: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)", T)
-    tex_table("review_refit", T, "Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). Each resample holds about 63% distinct questions, which lowers the refit mean of learned policies.", "lllrrrrr")
+    tex_table("review_refit", T, "Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). The interval and p value use the refit spread (standard deviation) around the observed gain. Each resample holds only about 63% distinct questions, so a learned policy trains on less information and its refit mean shifts down (last column); the cascades, which learn little, do not shift.", "lllrrrrr")
     # --- mechanism
     M = pd.read_csv(R / "mechanism_all_seeds.csv")
     P = pd.read_csv(R / "mechanism_pairs.csv")
@@ -857,19 +861,33 @@ def t_review():
     T = pd.DataFrame(rows)
     md_table("Review: oracle headroom at each policy's own cost (gap / fraction closed)", T)
     tex_table("review_headroom", T, "Oracle headroom at each policy's own mean cost: gap of the pair oracle frontier over the hull (pairs chosen on the training folds), and the fraction of that gap the policy closes (pooled gain over gap), mean over datasets. Per plan LR without its embedding cost.", "lrrrrr")
-    # --- plan_emb with its own cost charged
+    # --- plan_emb with its own cost charged, and trained on all four datasets (exploratory)
     O = pd.read_csv(R / "plan_emb_with_overhead.csv")
+    ms = O.delta_ms.max()
+    Pf = R / "plan_emb_pooled_training.csv"
+    Pt = pd.read_csv(Pf) if Pf.exists() else None
     rows = []
-    for r in O.itertuples():
-        Rp = secondary("final", "metis") if r.plan_set == "single step" else secondary("final_r3", "metis_r3")
-        b = Rp[(Rp.method == "plan_emb") & (Rp.reader == r.reader)].iloc[0]
-        rows.append({"Reader": RN[r.reader], "Plan set": r.plan_set,
-                     "Replay, no embedding cost [95% CI]": f"{sg(b.gain)} [{sg(b.ci_low)}, {sg(b.ci_high)}]",
-                     "Holm p": pv(b.p_holm),
-                     "Embedding charged [95% CI]": f"{sg(r.gain)} [{sg(r.ci_low)}, {sg(r.ci_high)}]", "p": pv(r.p)})
+    for ps in ("single step", "with two hop"):
+        Sec = secondary("final", "metis") if ps == "single step" else secondary("final_r3", "metis_r3")
+        for rd in READERS:
+            b = Sec[(Sec.method == "plan_emb") & (Sec.reader == rd)].iloc[0]
+            o = O[(O.plan_set == ps) & (O.reader == rd) & (O.delta_ms == ms)].iloc[0]
+            row = {"Reader": RN[rd], "Plan set": ps,
+                   "Per dataset, replay [95% CI]": f"{sg(b.gain)} [{sg(b.ci_low)}, {sg(b.ci_high)}]", "Holm p": pv(b.p_holm),
+                   "Per dataset, own cost [95% CI]": f"{sg(o.gain)} [{sg(o.ci_low)}, {sg(o.ci_high)}]", "p": pv(o.p)}
+            if Pt is not None:
+                for dl, lab in ((0.0, "Pooled, replay"), (ms, "Pooled, own cost")):
+                    x = Pt[(Pt.plan_set == ps) & (Pt.reader == rd) & (np.isclose(Pt.delta_ms, dl))].iloc[0]
+                    row[lab] = sg(x.gain)
+                    row["p" + (" " if dl == 0 else "  ")] = pv(x.p)
+            rows.append(row)
     T = pd.DataFrame(rows)
-    md_table("Review: per plan LR with its measured embedding cost (24.6 ms per question) charged", T)
-    tex_table("review_overhead", T, "Per plan logistic regression with and without its measured query embedding and classifier cost (24.6 ms per question). Holm p: secondary family of 30 tests; p: unadjusted.", "llrrrr")
+    md_table(f"Review: per plan LR without and with its own cost ({ms:.1f} ms when the plan does not embed with BGE-M3), "
+             "trained per dataset and on all four datasets", T)
+    tex_table("review_overhead", T, f"Per plan logistic regression without and with its own cost: {ms:.1f} ms for the query embedding and classifiers, charged when the chosen plan does not embed the query with BGE-M3 anyway; lambda is tuned with these costs. Per dataset: trained on 400 questions per dataset (Holm p: secondary family of 30 tests). Pooled training (exploratory): one model on the training folds of all four datasets. p: unadjusted.",
+              "ll" + "rr" * ((len(T.columns) - 2) // 2))
+    TEX["review_overhead"] = TEX["review_overhead"].replace(r"\centering\small", r"\centering\footnotesize").replace(
+        r"\setlength{\tabcolsep}{4pt}", r"\setlength{\tabcolsep}{2pt}")     # ten columns: smaller type to fit the width
     # --- learning curve of plan_emb
     LC = pd.read_csv(R / "learning_curve_plan_emb.csv")
     g = LC.groupby(["reader", "frac"])[["sum_gain", "n"]].sum()

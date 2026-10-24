@@ -1,22 +1,22 @@
 \begin{table}[t]
-\centering\small
-\setlength{\tabcolsep}{4pt}
-\caption{Per plan logistic regression with and without its measured query embedding and classifier cost (24.6 ms per question). Holm p: secondary family of 30 tests; p: unadjusted.}
+\centering\footnotesize
+\setlength{\tabcolsep}{2pt}
+\caption{Per plan logistic regression without and with its own cost: 24.6 ms for the query embedding and classifiers, charged when the chosen plan does not embed the query with BGE-M3 anyway; lambda is tuned with these costs. Per dataset: trained on 400 questions per dataset (Holm p: secondary family of 30 tests). Pooled training (exploratory): one model on the training folds of all four datasets. p: unadjusted.}
 \label{tab:review_overhead}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrrrr}
 \toprule
-Reader & Plan set & \begin{tabular}[b]{@{}r@{}}Replay, no \\ embedding cost \\ {}[95\% CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Embedding \\ charged [95\% \\ CI]\end{tabular} & p \\
+Reader & Plan set & \begin{tabular}[b]{@{}r@{}}Per dataset, \\ replay [95\% \\ CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Per dataset, \\ own cost [95\% \\ CI]\end{tabular} & p & Pooled, replay & p  & \begin{tabular}[b]{@{}r@{}}Pooled, own \\ cost\end{tabular} & p   \\
 \midrule
-Gemma 3 27B & single step & +0.020 [+0.002, +0.037] & 0.642 & +0.006 [$-$0.012, +0.024] & 0.521 \\
-Llama 3.1 8B & single step & +0.004 [$-$0.015, +0.022] & 1.000 & $-$0.012 [$-$0.030, +0.006] & 0.211 \\
-Qwen2.5 7B & single step & +0.013 [$-$0.004, +0.031] & 1.000 & +0.000 [$-$0.017, +0.018] & 0.970 \\
-Qwen3 14B & single step & +0.022 [+0.003, +0.040] & 0.415 & +0.007 [$-$0.011, +0.026] & 0.449 \\
-Qwen3 32B & single step & +0.029 [+0.010, +0.048] & 0.058 & +0.012 [$-$0.007, +0.030] & 0.227 \\
-Gemma 3 27B & with two hop & +0.024 [+0.007, +0.042] & 0.184 & +0.012 [$-$0.006, +0.029] & 0.197 \\
-Llama 3.1 8B & with two hop & +0.006 [$-$0.012, +0.025] & 1.000 & $-$0.007 [$-$0.025, +0.011] & 0.454 \\
-Qwen2.5 7B & with two hop & +0.015 [$-$0.002, +0.033] & 1.000 & +0.004 [$-$0.014, +0.021] & 0.694 \\
-Qwen3 14B & with two hop & +0.024 [+0.006, +0.042] & 0.200 & +0.010 [$-$0.008, +0.028] & 0.253 \\
-Qwen3 32B & with two hop & +0.030 [+0.011, +0.048] & 0.042 & +0.013 [$-$0.006, +0.031] & 0.162 \\
+Qwen2.5 7B & single step & +0.013 [$-$0.004, +0.031] & 1.000 & +0.002 [$-$0.016, +0.019] & 0.841 & $-$0.002 & 0.807 & $-$0.012 & 0.185 \\
+Llama 3.1 8B & single step & +0.004 [$-$0.015, +0.022] & 1.000 & $-$0.006 [$-$0.023, +0.012] & 0.521 & +0.005 & 0.614 & $-$0.010 & 0.249 \\
+Qwen3 14B & single step & +0.022 [+0.003, +0.040] & 0.415 & +0.011 [$-$0.007, +0.030] & 0.223 & +0.011 & 0.237 & 0.000 & 0.998 \\
+Gemma 3 27B & single step & +0.020 [+0.002, +0.037] & 0.642 & +0.005 [$-$0.012, +0.023] & 0.542 & +0.010 & 0.278 & 0.000 & 0.995 \\
+Qwen3 32B & single step & +0.029 [+0.010, +0.048] & 0.058 & +0.007 [$-$0.011, +0.025] & 0.419 & +0.012 & 0.180 & $-$0.011 & 0.219 \\
+Qwen2.5 7B & with two hop & +0.015 [$-$0.002, +0.033] & 1.000 & +0.007 [$-$0.010, +0.024] & 0.430 & $-$0.003 & 0.721 & $-$0.008 & 0.368 \\
+Llama 3.1 8B & with two hop & +0.006 [$-$0.012, +0.025] & 1.000 & $-$0.002 [$-$0.020, +0.016] & 0.812 & +0.007 & 0.425 & $-$0.006 & 0.505 \\
+Qwen3 14B & with two hop & +0.024 [+0.006, +0.042] & 0.200 & +0.013 [$-$0.005, +0.031] & 0.154 & +0.016 & 0.086 & +0.007 & 0.479 \\
+Gemma 3 27B & with two hop & +0.024 [+0.007, +0.042] & 0.184 & +0.014 [$-$0.003, +0.032] & 0.114 & +0.018 & 0.046 & +0.016 & 0.088 \\
+Qwen3 32B & with two hop & +0.030 [+0.011, +0.048] & 0.042 & +0.013 [$-$0.006, +0.030] & 0.154 & +0.012 & 0.177 & $-$0.002 & 0.788 \\
 \bottomrule
 \end{tabular*}
 \end{table}

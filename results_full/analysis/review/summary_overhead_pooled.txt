@@ -1,0 +1,71 @@
+Review checks; parts ['overhead', 'pooled']; label final; seeds [0, 1, 2, 3, 4]
+
+== per plan router (per dataset training) with its own cost: +24.6 ms per question, except when the chosen plan embeds the query with BGE-M3 anyway (['bge_bm25_rrf', 'bge_m3', 'qwen3_reranker_0_6b']); lambda tuned with these costs
+  dataset   single step  gemma3-27b   own cost  0.0 ms: gain +0.0196 [+0.0019, +0.0375]  p 0.0305
+  dataset   single step  gemma3-27b   own cost 24.6 ms: gain +0.0055 [-0.0122, +0.0231]  p 0.5423
+  dataset   single step  llama3.1-8b  own cost  0.0 ms: gain +0.0039 [-0.0147, +0.0221]  p 0.6779
+  dataset   single step  llama3.1-8b  own cost 24.6 ms: gain -0.0059 [-0.0231, +0.0122]  p 0.5207
+  dataset   single step  qwen2.5-7b   own cost  0.0 ms: gain +0.0134 [-0.0040, +0.0310]  p 0.1487
+  dataset   single step  qwen2.5-7b   own cost 24.6 ms: gain +0.0018 [-0.0159, +0.0188]  p 0.8411
+  dataset   single step  qwen3-14b    own cost  0.0 ms: gain +0.0218 [+0.0034, +0.0403]  p 0.0188
+  dataset   single step  qwen3-14b    own cost 24.6 ms: gain +0.0115 [-0.0072, +0.0299]  p 0.2227
+  dataset   single step  qwen3-32b    own cost  0.0 ms: gain +0.0294 [+0.0103, +0.0479]  p 0.0024
+  dataset   single step  qwen3-32b    own cost 24.6 ms: gain +0.0075 [-0.0106, +0.0251]  p 0.4193
+  dataset   with two hop gemma3-27b   own cost  0.0 ms: gain +0.0244 [+0.0068, +0.0420]  p 0.0077
+  dataset   with two hop gemma3-27b   own cost 24.6 ms: gain +0.0145 [-0.0032, +0.0319]  p 0.1141
+  dataset   with two hop llama3.1-8b  own cost  0.0 ms: gain +0.0064 [-0.0117, +0.0246]  p 0.4897
+  dataset   with two hop llama3.1-8b  own cost 24.6 ms: gain -0.0022 [-0.0195, +0.0156]  p 0.8119
+  dataset   with two hop qwen2.5-7b   own cost  0.0 ms: gain +0.0155 [-0.0022, +0.0328]  p 0.0905
+  dataset   with two hop qwen2.5-7b   own cost 24.6 ms: gain +0.0072 [-0.0102, +0.0244]  p 0.4297
+  dataset   with two hop qwen3-14b    own cost  0.0 ms: gain +0.0241 [+0.0061, +0.0419]  p 0.0087
+  dataset   with two hop qwen3-14b    own cost 24.6 ms: gain +0.0133 [-0.0046, +0.0308]  p 0.1544
+  dataset   with two hop qwen3-32b    own cost  0.0 ms: gain +0.0298 [+0.0105, +0.0475]  p 0.0016
+  dataset   with two hop qwen3-32b    own cost 24.6 ms: gain +0.0130 [-0.0056, +0.0302]  p 0.1542
+  check against script 12 (final): largest difference 0.00000
+  check against script 12 (final_r3): largest difference 0.00000
+  (overhead done, 789s)
+
+== per plan router trained on all four datasets together (dataset indicators added; about 1,600 training questions instead of 400); each dataset keeps its own folds, hull and lambda; own cost 0 and 24.6 ms
+  pooled    single step  gemma3-27b   own cost  0.0 ms: gain +0.0096 [-0.0070, +0.0272]  p 0.2776
+  pooled    single step  gemma3-27b   own cost 24.6 ms: gain -0.0001 [-0.0159, +0.0174]  p 0.9948
+  pooled    single step  llama3.1-8b  own cost  0.0 ms: gain +0.0047 [-0.0128, +0.0233]  p 0.6142
+  pooled    single step  llama3.1-8b  own cost 24.6 ms: gain -0.0105 [-0.0275, +0.0078]  p 0.2493
+  pooled    single step  qwen2.5-7b   own cost  0.0 ms: gain -0.0022 [-0.0190, +0.0155]  p 0.8073
+  pooled    single step  qwen2.5-7b   own cost 24.6 ms: gain -0.0120 [-0.0293, +0.0052]  p 0.1852
+  pooled    single step  qwen3-14b    own cost  0.0 ms: gain +0.0108 [-0.0068, +0.0284]  p 0.2372
+  pooled    single step  qwen3-14b    own cost 24.6 ms: gain -0.0000 [-0.0181, +0.0180]  p 0.9975
+  pooled    single step  qwen3-32b    own cost  0.0 ms: gain +0.0123 [-0.0060, +0.0300]  p 0.1804
+  pooled    single step  qwen3-32b    own cost 24.6 ms: gain -0.0111 [-0.0285, +0.0059]  p 0.2188
+  pooled    with two hop gemma3-27b   own cost  0.0 ms: gain +0.0177 [+0.0002, +0.0349]  p 0.0459
+  pooled    with two hop gemma3-27b   own cost 24.6 ms: gain +0.0158 [-0.0020, +0.0335]  p 0.0877
+  pooled    with two hop llama3.1-8b  own cost  0.0 ms: gain +0.0074 [-0.0102, +0.0249]  p 0.4254
+  pooled    with two hop llama3.1-8b  own cost 24.6 ms: gain -0.0061 [-0.0236, +0.0117]  p 0.5046
+  pooled    with two hop qwen2.5-7b   own cost  0.0 ms: gain -0.0032 [-0.0198, +0.0138]  p 0.7209
+  pooled    with two hop qwen2.5-7b   own cost 24.6 ms: gain -0.0081 [-0.0257, +0.0083]  p 0.3680
+  pooled    with two hop qwen3-14b    own cost  0.0 ms: gain +0.0158 [-0.0024, +0.0336]  p 0.0860
+  pooled    with two hop qwen3-14b    own cost 24.6 ms: gain +0.0065 [-0.0118, +0.0237]  p 0.4787
+  pooled    with two hop qwen3-32b    own cost  0.0 ms: gain +0.0121 [-0.0063, +0.0293]  p 0.1772
+  pooled    with two hop qwen3-32b    own cost 24.6 ms: gain -0.0024 [-0.0206, +0.0150]  p 0.7881
+  Holm within each plan set and cost (5 readers):
+    plan_set  delta_ms      reader    gain      p  p_holm_within_variant
+ single step       0.0  gemma3-27b  0.0096 0.2776                 0.9487
+ single step      24.6  gemma3-27b -0.0001 0.9948                 1.0000
+ single step       0.0 llama3.1-8b  0.0047 0.6142                 1.0000
+ single step      24.6 llama3.1-8b -0.0105 0.2493                 0.9260
+ single step       0.0  qwen2.5-7b -0.0022 0.8073                 1.0000
+ single step      24.6  qwen2.5-7b -0.0120 0.1852                 0.9260
+ single step       0.0   qwen3-14b  0.0108 0.2372                 0.9487
+ single step      24.6   qwen3-14b -0.0000 0.9975                 1.0000
+ single step       0.0   qwen3-32b  0.0123 0.1804                 0.9019
+ single step      24.6   qwen3-32b -0.0111 0.2188                 0.9260
+with two hop       0.0  gemma3-27b  0.0177 0.0459                 0.2294
+with two hop      24.6  gemma3-27b  0.0158 0.0877                 0.4383
+with two hop       0.0 llama3.1-8b  0.0074 0.4254                 0.8507
+with two hop      24.6 llama3.1-8b -0.0061 0.5046                 1.0000
+with two hop       0.0  qwen2.5-7b -0.0032 0.7209                 0.8507
+with two hop      24.6  qwen2.5-7b -0.0081 0.3680                 1.0000
+with two hop       0.0   qwen3-14b  0.0158 0.0860                 0.3441
+with two hop      24.6   qwen3-14b  0.0065 0.4787                 1.0000
+with two hop       0.0   qwen3-32b  0.0121 0.1772                 0.5316
+with two hop      24.6   qwen3-32b -0.0024 0.7881                 1.0000
+  (pooled done, 1463s)

@@ -22,7 +22,12 @@ Checks asked for in the internal review (October 2026). CPU only; no new model c
              comparator) if its output is missing.
   curve      (comment 5) Learning curve of plan_emb: 20% to 100% of the training folds.
   overhead   (comment 8) plan_emb with its own cost charged: --overhead_ms X (from 25_latency_e2e.py) is added to the
-             policy's cost per question; the hull is then read at the higher cost.
+             cost of every plan whose retrieval does not embed the query with BGE-M3 anyway; the router tunes lambda
+             with these costs, and the hull is read at the policy's charged cost. Also checks that, with no own cost,
+             it reproduces script 12.
+  pooled     (comment 5, exploratory) plan_emb trained on the training folds of all four datasets together (about
+             1,600 questions instead of 400, dataset indicators added), with and without its own cost. Not part of
+             the default run: --parts pooled --overhead_ms X.
   boundary   (comment 1) How often a policy's mean cost falls below the cheapest plan or on the flat part of the hull.
 
 Usage:  python scripts/24_review_checks.py                         every part except overhead (about 3 to 5 hours)
@@ -566,35 +571,168 @@ def part_curve():
 
 
 # ====================================================================== plan_emb with its overhead charged
+# ====================================================================== per plan router: own cost charged, pooled training
+BGE_RETRIEVERS = {"bge_m3", "bge_bm25_rrf", "qwen3_reranker_0_6b"}   # plans whose retrieval embeds the query with BGE-M3
+
+
+def eff_cost(B, plans, delta):
+    """Plan costs as the router pays them: + delta (embedding and classifiers) unless the plan's own retrieval embeds
+    the query with BGE-M3 anyway (BGE-M3, the RRF hybrid, and the reranker, whose candidates come from that hybrid)."""
+    c = B.cost[plans].to_numpy().astype(float)
+    if delta:
+        c = c + delta * np.array([0.0 if p.split("@")[0] in BGE_RETRIEVERS else 1.0 for p in plans])
+    return c
+
+
+def pick_lambda_eff(B, sel, P_oof, plans, ceff):
+    """R.pick_lambda with the router's own plan costs (the hull keeps the plain plan costs)."""
+    r = B.rows(sel)
+    cols = [B.pcol[p] for p in plans]
+    best = None
+    for lam in A.CONFIG["lambdas"]:
+        k = (P_oof - lam * ceff[None, :]).argmax(1)
+        s = B.Yn[r, [cols[i] for i in k]]
+        g = s.mean() - A.hull_at(B.Y, B.cost, sel, float(ceff[k].mean()))
+        if best is None or g > best[0]:
+            best = (g, lam)
+    return best[1]
+
+
+def fit_predict(Xtr, Ytr, Xte, oh_tr=None, oh_te=None):
+    """R.m_plan_emb's model (PCA 64 + one logistic regression per plan); pooled training adds dataset indicators
+    after the PCA."""
+    from sklearn.decomposition import PCA
+    from sklearn.linear_model import LogisticRegression
+    pca = PCA(n_components=min(R.CONFIG["pca_dim"], len(Xtr) - 1), random_state=0).fit(Xtr)
+    Ztr, Zte = pca.transform(Xtr), pca.transform(Xte)
+    if oh_tr is not None:
+        Ztr, Zte = np.hstack([Ztr, oh_tr]), np.hstack([Zte, oh_te])
+    P = np.empty((len(Xte), Ytr.shape[1]))
+    for j in range(Ytr.shape[1]):
+        yj = Ytr[:, j]
+        P[:, j] = yj[0] if yj.min() == yj.max() else LogisticRegression(max_iter=2000, C=1.0).fit(Ztr, yj).predict_proba(Zte)[:, 1]
+    return P
+
+
+def router_gains(blocks, embs, seed, pooled, deltas):
+    """Held out gains of the per plan router for one reader and seed. blocks/embs: dataset -> Block / embeddings.
+    pooled=False trains per dataset (R.m_plan_emb); pooled=True trains one model on the training folds of all four
+    datasets (dataset indicators added). Every dataset keeps its own folds (the split of A.heldout for this seed),
+    its own hull and its own lambda. Returns {delta: {dataset: per question gain Series}}."""
+    A._CUR_SEED[0] = seed
+    dss = sorted(blocks)
+    plans = sorted(set.intersection(*[set(blocks[d].plans) for d in dss])) if pooled else None
+    folds = {}
+    for d in dss:
+        q = blocks[d].q.copy()
+        np.random.default_rng(seed).shuffle(q)
+        folds[d] = [q[i::A.CONFIG["k_folds"]] for i in range(A.CONFIG["k_folds"])]
+    out = {dl: {d: [] for d in dss} for dl in deltas}
+    for i in range(A.CONFIG["k_folds"]):
+        sel = {d: np.concatenate([folds[d][j] for j in range(A.CONFIG["k_folds"]) if j != i]) for d in dss}
+        test = {d: folds[d][i] for d in dss}
+        if pooled:
+            tr_all = [(d, q) for d in dss for q in sel[d]]
+            Xtr = np.vstack([embs[d].loc[sel[d]].to_numpy() for d in dss])
+            Ytr = np.vstack([blocks[d].Y.loc[sel[d], plans].to_numpy() for d in dss])
+            ohtr = np.vstack([np.tile(np.eye(len(dss))[k], (len(sel[d]), 1)) for k, d in enumerate(dss)])
+            oof = np.empty(Ytr.shape)
+            for te in R.inner_splits(len(tr_all), seed):
+                trn = np.setdiff1d(np.arange(len(tr_all)), te)
+                oof[te] = fit_predict(Xtr[trn], Ytr[trn], Xtr[te], ohtr[trn], ohtr[te])
+            start = np.cumsum([0] + [len(sel[d]) for d in dss])
+            for k, d in enumerate(dss):
+                B = blocks[d]
+                Pte = fit_predict(Xtr, Ytr, embs[d].loc[test[d]].to_numpy(), ohtr,
+                                  np.tile(np.eye(len(dss))[k], (len(test[d]), 1)))
+                for dl in deltas:
+                    ce = eff_cost(B, plans, dl)
+                    lam = pick_lambda_eff(B, sel[d], oof[start[k]:start[k + 1]], plans, ce)
+                    kk = (Pte - lam * ce[None, :]).argmax(1)
+                    s = B.Yn[B.rows(test[d]), [B.pcol[plans[j]] for j in kk]]
+                    h = A.hull_at(B.Y, B.cost, sel[d], float(ce[kk].mean()), eval_idx=test[d])
+                    out[dl][d].append(pd.Series(s - h, index=test[d]))
+        else:
+            for d in dss:
+                B, E = blocks[d], embs[d]
+                pl = B.plans
+                X, Y = E.loc[sel[d]].to_numpy(), B.Y.loc[sel[d], pl].to_numpy()
+                oof = np.empty(Y.shape)
+                for te in R.inner_splits(len(sel[d]), seed):
+                    trn = np.setdiff1d(np.arange(len(sel[d])), te)
+                    oof[te] = fit_predict(X[trn], Y[trn], X[te])
+                Pte = fit_predict(X, Y, E.loc[test[d]].to_numpy())
+                for dl in deltas:
+                    ce = eff_cost(B, pl, dl)
+                    lam = pick_lambda_eff(B, sel[d], oof, pl, ce)
+                    kk = (Pte - lam * ce[None, :]).argmax(1)
+                    s = B.Yn[B.rows(test[d]), [B.pcol[pl[j]] for j in kk]]
+                    h = A.hull_at(B.Y, B.cost, sel[d], float(ce[kk].mean()), eval_idx=test[d])
+                    out[dl][d].append(pd.Series(s - h, index=test[d]))
+    return {dl: {d: pd.concat(v).sort_index() for d, v in m.items()} for dl, m in out.items()}
+
+
+def run_router_variant(pooled, deltas, tag):
+    rows, perq = [], []
+    for r3 in (False, True):
+        A.CONFIG["include_r3"] = r3
+        ps = "with two hop" if r3 else "single step"
+        for rd in readers():
+            t0 = time.time()
+            df, _ = A.load_reader(rd)
+            blocks = {ds: A.Block(df, ds) for ds in sorted(df.dataset.unique())}
+            embs = {ds: load_E(ds, B) for ds, B in blocks.items()}
+            acc = {dl: {d: [] for d in blocks} for dl in deltas}
+            for sd in A.CONFIG["seeds"]:
+                g = router_gains(blocks, embs, sd, pooled, deltas)
+                for dl in deltas:
+                    for d in blocks:
+                        acc[dl][d].append(g[dl][d])
+            for dl in deltas:
+                parts = [pd.concat(acc[dl][d], axis=1).mean(axis=1) for d in sorted(blocks)]
+                for d, p in zip(sorted(blocks), parts):
+                    perq.append(pd.DataFrame({"variant": tag, "plan_set": ps, "reader": rd, "delta_ms": dl * 1000,
+                                              "dataset": d, "query_id": p.index.astype(str), "gain": p.values}))
+                x = np.concatenate([p.to_numpy() for p in parts])
+                lo, hi = A.boot_ci(x, A.CONFIG["n_boot"], A.CONFIG["seed"])
+                rows.append({"variant": tag, "plan_set": ps, "reader": rd, "delta_ms": dl * 1000, "gain": x.mean(),
+                             "ci_low": lo, "ci_high": hi, "p": A.p_two_sided(x), "n": len(x)})
+                say(f"  {tag:9s} {ps:12s} {rd:12s} own cost {dl * 1000:4.1f} ms: gain {x.mean():+.4f} "
+                    f"[{lo:+.4f}, {hi:+.4f}]  p {rows[-1]['p']:.4f}")
+            print(f"    {tag} {ps} {rd} done ({time.time() - t0:.0f}s)", flush=True)
+    A.CONFIG["include_r3"] = False
+    return pd.DataFrame(rows), pd.concat(perq, ignore_index=True)
+
+
 def part_overhead():
     ms = float(arg("--overhead_ms", "nan"))
     if not np.isfinite(ms):
         sys.exit("--parts overhead needs --overhead_ms X (the measured embedding + classifier time)")
-    delta = ms / 1000.0
-    say(f"\n== plan_emb with its own overhead charged: +{ms:.1f} ms per question")
-    rows = []
-    for r3 in (False, True):
-        A.CONFIG["include_r3"] = r3
-        for rd in readers():
-            df, _ = A.load_reader(rd)
-            per = []
-            for ds in sorted(df.dataset.unique()):
-                B = A.Block(df, ds)
-                E = load_E(ds, B)
-
-                def mk():
-                    fit, apply_ = R.m_plan_emb(B, E)
-                    return fit, (lambda cfg, idx: (lambda s, c: (s, c + delta))(*apply_(cfg, idx)))
-                d, *_ = A.repeated(B, mk)
-                per.append(d)
-            d = np.concatenate(per)
-            lo, hi = A.boot_ci(d, A.CONFIG["n_boot"], A.CONFIG["seed"])
-            rows.append({"plan_set": "with two hop" if r3 else "single step", "reader": rd, "gain": d.mean(),
-                         "ci_low": lo, "ci_high": hi, "p": A.p_two_sided(d)})
-    A.CONFIG["include_r3"] = False
-    T = pd.DataFrame(rows)
+    say(f"\n== per plan router (per dataset training) with its own cost: +{ms:.1f} ms per question, except when the chosen "
+        f"plan embeds the query with BGE-M3 anyway ({sorted(BGE_RETRIEVERS)}); lambda tuned with these costs")
+    T, PQ = run_router_variant(False, [0.0, ms / 1000.0], "dataset")
     T.to_csv(OUT / "plan_emb_with_overhead.csv", index=False)
-    say(T.round(4).to_string(index=False))
+    PQ.to_csv(OUT / "plan_emb_with_overhead_per_query.csv", index=False)
+    # check: with no own cost this must reproduce script 12's per plan router
+    for r3, d in ((False, "final"), (True, "final_r3")):
+        ref = pd.read_csv(AN / d / "routers_pooled.csv")
+        ref = ref[ref.method == "plan_emb"].set_index("reader").gain
+        mine = T[(T.delta_ms == 0) & (T.plan_set == ("with two hop" if r3 else "single step"))].set_index("reader").gain
+        say(f"  check against script 12 ({d}): largest difference {np.abs(mine - ref.reindex(mine.index)).max():.5f}")
+
+
+def part_pooled():
+    ms = float(arg("--overhead_ms", "24.6"))
+    say(f"\n== per plan router trained on all four datasets together (dataset indicators added; about 1,600 training "
+        f"questions instead of 400); each dataset keeps its own folds, hull and lambda; own cost 0 and {ms:.1f} ms")
+    T, PQ = run_router_variant(True, [0.0, ms / 1000.0], "pooled")
+    T["p_holm_within_variant"] = np.nan
+    for (ps, dl), g in T.groupby(["plan_set", "delta_ms"]):
+        T.loc[g.index, "p_holm_within_variant"] = A.holm(g.p.to_numpy())
+    T.to_csv(OUT / "plan_emb_pooled_training.csv", index=False)
+    PQ.to_csv(OUT / "plan_emb_pooled_training_per_query.csv", index=False)
+    say("  Holm within each plan set and cost (5 readers):")
+    say(T[["plan_set", "delta_ms", "reader", "gain", "p", "p_holm_within_variant"]].round(4).to_string(index=False))
 
 
 # ====================================================================== cost boundaries
@@ -631,7 +769,8 @@ def main():
         + ("; QUICK TEST RUN, numbers not for the paper" if QUICK else ""))
     for p in PARTS:
         {"inference": part_inference, "refit": part_refit, "mechanism": part_mechanism, "headroom": part_headroom,
-         "ablation": part_ablation, "curve": part_curve, "overhead": part_overhead, "boundary": part_boundary}[p]()
+         "ablation": part_ablation, "curve": part_curve, "overhead": part_overhead, "boundary": part_boundary,
+         "pooled": part_pooled}[p]()
         say(f"  ({p} done, {time.time() - t0:.0f}s)")
         (OUT / f"summary_{'_'.join(PARTS)}{'_quick' if QUICK else ''}.txt").write_text("\n".join(LINES), encoding="utf-8")
     print(f"Written {OUT}")
