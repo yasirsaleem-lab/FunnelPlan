@@ -85,7 +85,7 @@ def f2():
               for m in ["planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade"]]
     panels.append(("reader_cascade", [("reader_cascade", "qwen2.5-7b->qwen3-14b"), ("reader_cascade", "qwen2.5-7b->llama3.1-8b")],
                    ["7B to Qwen3 14B", "7B to Llama 3.1 8B"]))
-    fig, axes = plt.subplots(2, 3, figsize=(W2, 3.2), sharex=True)
+    fig, axes = plt.subplots(2, 3, figsize=(W2, 2.8), sharex=True)
     for ax, (m, keys, labels) in zip(axes.flat, panels):
         n = len(keys); y = np.arange(n)[::-1].astype(float)
         ax.axvspan(-0.027, 0.027, color=BAND, zorder=0, lw=0)
@@ -133,7 +133,7 @@ def f3():
 # ---------------------------------------------------------------- F4 frontier examples (paper)
 def f4():
     F = pd.read_csv(ANS + "final/fixed_plans.csv"); M = pd.read_csv(ANS + "final/methods.csv")
-    fig, axes = plt.subplots(1, 2, figsize=(W2, 2.45))
+    fig, axes = plt.subplots(1, 2, figsize=(W2, 2.1))
     cols = dict(zip(["planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade"], CATEGORICAL))
     for ax, (rd, ds) in zip(axes, [("qwen3-32b", "hotpotqa"), ("qwen2.5-7b", "musique")]):
         f = F[(F.reader == rd) & (F.dataset == ds)].sort_values("cost_s")
@@ -148,7 +148,10 @@ def f4():
             while len(hl) >= 2 and (hl[-1][1] - hl[-2][1]) * (pnt[0] - hl[-2][0]) <= (pnt[1] - hl[-2][1]) * (hl[-1][0] - hl[-2][0]):
                 hl.pop()
             hl.append(pnt)
-        hl = np.array(hl); ax.plot(hl[:, 0], hl[:, 1], color=SLATE, lw=1.1, zorder=3, label="fixed plan hull")
+        hl = np.array(hl)
+        # A mix is linear in RAW cost; on the log axis the hull between two vertices is a curve, so draw it densely
+        xd = np.geomspace(hl[0, 0], hl[-1, 0], 400) if len(hl) > 1 else hl[:, 0]
+        ax.plot(xd, np.interp(xd, hl[:, 0], hl[:, 1]), color=SLATE, lw=1.1, zorder=3, label="fixed plan hull")
         m = M[(M.reader == rd) & (M.dataset == ds)]
         for meth, col in cols.items():
             r = m[m.method == meth]
@@ -190,7 +193,7 @@ def f6():
     H = pd.read_csv(ANS + "h3_ircot/h3.csv"); a = H[H.hull == "single_step"].set_index(["reader", "dataset"])
     b = H[H.hull == "with_r3"].set_index(["reader", "dataset"])
     cells = [(r, d) for r in ["qwen2.5-7b", "llama3.1-8b", "qwen3-14b"] for d in ["hotpotqa", "2wikimultihopqa", "musique"]]
-    fig, (ax, tx) = plt.subplots(1, 2, figsize=(W2, 2.7), gridspec_kw={"width_ratios": [4.2, 1]}, sharey=True)
+    fig, (ax, tx) = plt.subplots(1, 2, figsize=(W2, 2.3), gridspec_kw={"width_ratios": [4.2, 1]}, sharey=True)
     y = np.arange(len(cells))[::-1]
     for yi, c in zip(y, cells):
         s, t = a.loc[c], b.loc[c]
@@ -265,8 +268,8 @@ def f8():
 # ---------------------------------------------------------------- F9 grading (paper, one column)
 def f9():
     A = pd.read_csv(settings.RESULTS_ROOT / "tables_final" / "audit_rules.csv")
-    rules = ["strict EM", "F1 >= 0.7", "lenient", "label_final"]
-    shown = {"strict EM": "Strict EM", "F1 >= 0.7": "F1 of 0.7 or more", "lenient": "Lenient", "label_final": "label_final"}
+    rules = ["strict", "F1 >= 0.7", "lenient", "label_final"]
+    shown = {"strict": "Strict", "F1 >= 0.7": "F1 of 0.7 or more", "lenient": "Lenient", "label_final": "label_final"}
     fig, ax = plt.subplots(figsize=(W1, 2.3)); y = np.arange(len(rules))[::-1]; h = 0.36
     for k, (aud, col, lab) in enumerate(((A.Audit.unique()[0], TEAL, "audit 1: Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B"),
                                          (A.Audit.unique()[1], AMB, "audit 2: Gemma 3 27B, Qwen3 32B"))):
@@ -289,7 +292,7 @@ def f10():
     P = T12.primary_family(AN / "final")
     P = P[P.reader.isin(READERS)].groupby("reader").gain.max().reindex(READERS)
     M = pd.read_csv(C / "mechanism.csv").groupby("policy")[["per_plan_auroc", "pair_auroc"]].mean()
-    fig, (ax, bx) = plt.subplots(1, 2, figsize=(W2, 2.35), gridspec_kw={"width_ratios": [2.2, 1]})
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(W2, 2.05), gridspec_kw={"width_ratios": [2.2, 1]})
     x = np.arange(len(READERS)); w = 0.19
     for i, (c, col, lab) in enumerate((("gap_k2", TEAL_RAMP[0], "oracle over 2 plans"), ("gap_k3", TEAL_RAMP[1], "oracle over 3 plans"),
                                        ("gap_all", TEAL_RAMP[2], "oracle over all plans"))):

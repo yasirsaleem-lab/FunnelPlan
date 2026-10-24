@@ -1,0 +1,95 @@
+Review checks; parts ['inference', 'refit', 'mechanism', 'headroom', 'ablation', 'curve', 'boundary', 'overhead']; label final; seeds [0, 1, 2, 3, 4]
+
+== inference: plain versus dataset stratified bootstrap of pooled gains (95% intervals; one sided 95% upper bound)
+  single step  primary           tests 27  stratified/plain width: median 1.000 range 0.955..1.047  interval above 0: plain 0, stratified 0  upper bound below 0.03: plain 26, stratified 26  tests that change: 0
+  single step  secondary routers tests 30  stratified/plain width: median 0.990 range 0.925..1.039  interval above 0: plain 3, stratified 3  upper bound below 0.03: plain 24, stratified 24  tests that change: 0
+  with two hop primary           tests 27  stratified/plain width: median 0.997 range 0.928..1.052  interval above 0: plain 0, stratified 0  upper bound below 0.03: plain 25, stratified 25  tests that change: 0
+  with two hop secondary routers tests 30  stratified/plain width: median 0.984 range 0.956..1.035  interval above 0: plain 5, stratified 5  upper bound below 0.03: plain 23, stratified 23  tests that change: 0
+  Holm adjusted minimum detectable effect, primary pooled tests: median 0.040, range 0.037..0.043 (nominal median 0.027)
+    plan_set     reader   method   gain  plain_low  plain_high  strat_low  strat_high  mde_holm
+with two hop  qwen3-32b plan_emb 0.0298     0.0105      0.0475     0.0120      0.0484    0.0404
+ single step  qwen3-32b plan_emb 0.0294     0.0103      0.0479     0.0104      0.0485    0.0404
+with two hop gemma3-27b plan_emb 0.0244     0.0068      0.0420     0.0071      0.0419    0.0377
+with two hop  qwen3-14b plan_emb 0.0241     0.0061      0.0419     0.0065      0.0413    0.0387
+with two hop  qwen3-32b plan_knn 0.0228     0.0032      0.0402     0.0045      0.0410    0.0390
+ single step  qwen3-14b plan_emb 0.0218     0.0034      0.0403     0.0040      0.0396    0.0387
+  (inference done, 13s)
+
+== refit bootstrap (100 replicates; questions resampled within each dataset; folds, policy, hull and weights refitted every time)
+  plan_emb        qwen3-32b              single step  refit mean +0.0060  95% [-0.0157, +0.0319]  one sided upper +0.0260  above 0 in 0.69 of replicates  (1402s)
+  plan_emb        qwen3-32b              with two hop refit mean +0.0110  95% [-0.0098, +0.0345]  one sided upper +0.0277  above 0 in 0.81 of replicates  (1519s)
+  conf_cascade    qwen2.5-7b             with two hop refit mean +0.0125  95% [-0.0070, +0.0340]  one sided upper +0.0324  above 0 in 0.85 of replicates  (413s)
+  reader_cascade  qwen2.5-7b->qwen3-14b  with two hop refit mean +0.0149  95% [-0.0086, +0.0422]  one sided upper +0.0317  above 0 in 0.89 of replicates  (5009s)
+  (refit done, 8357s)
+
+== mechanism: what the policies learn (held out, single step plans, all seeds)
+  plan_emb     per plan AUROC 0.647 (seeds 0.645..0.652)  cross plan corr 0.735  pair AUROC pooled 0.656 (seeds 0.650..0.669; seed 0 95% [0.628, 0.675])  discordant questions per seed 2397  modal plan share 0.43
+  planner_sk   per plan AUROC 0.654 (seeds 0.652..0.658)  cross plan corr 0.993  pair AUROC pooled 0.567 (seeds 0.547..0.577; seed 0 95% [0.542, 0.597])  discordant questions per seed 1595  modal plan share 0.60
+  planner_tsr  per plan AUROC 0.624 (seeds 0.620..0.627)  cross plan corr 0.994  pair AUROC pooled 0.594 (seeds 0.575..0.605; seed 0 95% [0.546, 0.602])  discordant questions per seed 1842  modal plan share 0.50
+  (mechanism done, 9255s)
+
+== headroom at each policy's own mean cost: oracle frontier indexed by budget
+   (oracle over plan pairs: the pairs on the oracle frontier are chosen on the training folds and measured on
+    the held out fold, exactly as the hull's plans are; the frontier is read at the policy's mean cost)
+  gap of the pair oracle frontier over the hull at the policy's cost, mean over datasets:
+reader            gemma3-27b  llama3.1-8b  qwen2.5-7b  qwen3-14b  qwen3-32b
+method                                                                     
+adaptive_k             0.124        0.110       0.108      0.119      0.138
+adaptive_rag           0.104        0.077       0.117      0.095      0.101
+conf_cascade           0.095        0.069       0.098      0.080      0.090
+gate_closed_book       0.086        0.060       0.043      0.025      0.025
+plan_emb               0.138        0.080       0.120      0.143      0.160
+planner_tsr            0.101        0.087       0.113      0.104      0.132
+  fraction of that gap closed (pooled gain / gap; negative = loses):
+reader            gemma3-27b  llama3.1-8b  qwen2.5-7b  qwen3-14b  qwen3-32b
+method                                                                     
+adaptive_k             -0.20        -0.20       -0.15      -0.14      -0.08
+adaptive_rag           -0.31        -0.77       -0.20      -0.55      -0.59
+conf_cascade            0.00         0.04        0.13      -0.05      -0.04
+gate_closed_book       -0.04        -0.05       -0.04       0.02      -0.04
+plan_emb                0.14         0.05        0.11       0.15       0.18
+planner_tsr            -0.01         0.05        0.04       0.04       0.03
+  largest fraction closed by a primary policy: 0.13; by plan_emb: 0.18
+  (headroom done, 9267s)
+
+== protocol ablation: the same 100 cells (5 primary policies x 5 readers x 4 datasets), one factor at a time
+   64 of 100  weak: beats Always RAG and Never RAG on accuracy (strict, seed 0, no cost matching)
+   54 of 100  comparator: best single plan at the same cost (strict, seed 0)
+   30 of 100  comparator: fixed plan hull at the same cost (strict, seed 0)
+   27 of 100  seeds: 5 fold splits instead of 1 (strict)
+   28 of 100  grading: label_final instead of strict
+    1 of 100  decision: 95% interval above 0 and p < 0.05 per cell
+    0 of 100  decision: Holm over the 100 cells
+    8 of  25  pooling: one test per policy and reader over 4 datasets, gain above 0
+    0 of  25  pooling + Holm over the primary family (the paper's rule)
+  (ablation done, 9350s)
+
+== learning curve of plan_emb (single step plans; share of the training folds)
+frac            0.2     0.4     0.6     0.8     1.0
+reader                                             
+gemma3-27b  -0.0008  0.0076  0.0049  0.0140  0.0196
+llama3.1-8b -0.0104 -0.0069 -0.0053 -0.0018  0.0039
+qwen2.5-7b  -0.0050  0.0017  0.0044  0.0096  0.0134
+qwen3-14b    0.0046  0.0077  0.0156  0.0150  0.0218
+qwen3-32b    0.0004  0.0061  0.0114  0.0230  0.0294
+  (curve done, 11199s)
+
+== where policy costs fall on the hull (per reader and dataset cell, mean cost over folds and seeds)
+  single step  cells 220: below the cheapest plan 0, on the flat part (at or above the cost of the most successful plan, in sample) 22
+  with two hop cells 220: below the cheapest plan 0, on the flat part (at or above the cost of the most successful plan, in sample) 32
+  Note: the hull's vertices are chosen on the training folds, so the flat part starts at a slightly different cost in each fold; in sample costs are a close guide.
+  (boundary done, 11199s)
+
+== plan_emb with its own overhead charged: +24.6 ms per question
+    plan_set      reader    gain  ci_low  ci_high      p
+ single step  gemma3-27b  0.0058 -0.0120   0.0238 0.5208
+ single step llama3.1-8b -0.0117 -0.0304   0.0063 0.2115
+ single step  qwen2.5-7b  0.0004 -0.0170   0.0181 0.9697
+ single step   qwen3-14b  0.0070 -0.0114   0.0256 0.4487
+ single step   qwen3-32b  0.0117 -0.0074   0.0302 0.2266
+with two hop  gemma3-27b  0.0118 -0.0059   0.0293 0.1969
+with two hop llama3.1-8b -0.0069 -0.0252   0.0112 0.4540
+with two hop  qwen2.5-7b  0.0036 -0.0139   0.0211 0.6939
+with two hop   qwen3-14b  0.0105 -0.0076   0.0282 0.2526
+with two hop   qwen3-32b  0.0132 -0.0059   0.0309 0.1624
+  (overhead done, 12116s)

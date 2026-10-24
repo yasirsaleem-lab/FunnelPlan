@@ -1,0 +1,441 @@
+plan_set,reader,dataset,method,cost_s,below_cheapest,flat_part
+single step,gemma3-27b,2wikimultihopqa,planner_tsr,0.4523895571769806,False,False
+single step,gemma3-27b,2wikimultihopqa,adaptive_rag,1.58564015945272,False,False
+single step,gemma3-27b,2wikimultihopqa,adaptive_k,0.4819155424597827,False,False
+single step,gemma3-27b,2wikimultihopqa,gate_closed_book,0.3117639325564911,False,False
+single step,gemma3-27b,2wikimultihopqa,conf_cascade,1.1792160318348062,False,False
+single step,gemma3-27b,2wikimultihopqa,ar_tfidf,1.58564015945272,False,False
+single step,gemma3-27b,2wikimultihopqa,ar_emb,1.5804775583462245,False,False
+single step,gemma3-27b,2wikimultihopqa,plan_emb,0.4670806248163118,False,False
+single step,gemma3-27b,2wikimultihopqa,plan_knn,0.4407801851815165,False,False
+single step,gemma3-27b,2wikimultihopqa,ak_paper,1.0200268927804494,False,False
+single step,gemma3-27b,2wikimultihopqa,ar_t5,1.782671815182485,False,False
+single step,gemma3-27b,hotpotqa,planner_tsr,1.425543334270728,False,False
+single step,gemma3-27b,hotpotqa,adaptive_rag,1.2302383448952758,False,False
+single step,gemma3-27b,hotpotqa,adaptive_k,0.4449707464724239,False,False
+single step,gemma3-27b,hotpotqa,gate_closed_book,0.2985762720148895,False,False
+single step,gemma3-27b,hotpotqa,conf_cascade,2.447577735192383,False,True
+single step,gemma3-27b,hotpotqa,ar_tfidf,1.2302383448952758,False,False
+single step,gemma3-27b,hotpotqa,ar_emb,1.0865895444267415,False,False
+single step,gemma3-27b,hotpotqa,plan_emb,0.6534491871213933,False,False
+single step,gemma3-27b,hotpotqa,plan_knn,1.10195360223778,False,False
+single step,gemma3-27b,hotpotqa,ak_paper,0.7442276730964238,False,False
+single step,gemma3-27b,hotpotqa,ar_t5,1.2397928492309296,False,False
+single step,gemma3-27b,musique,planner_tsr,0.422545513831228,False,False
+single step,gemma3-27b,musique,adaptive_rag,1.3649417100501022,False,False
+single step,gemma3-27b,musique,adaptive_k,0.530883101964545,False,False
+single step,gemma3-27b,musique,gate_closed_book,0.3026062661428967,False,False
+single step,gemma3-27b,musique,conf_cascade,0.5498738516290251,False,False
+single step,gemma3-27b,musique,ar_tfidf,1.3649417100501022,False,False
+single step,gemma3-27b,musique,ar_emb,1.276548314918736,False,False
+single step,gemma3-27b,musique,plan_emb,0.4688671736667947,False,False
+single step,gemma3-27b,musique,plan_knn,0.5078578929509139,False,False
+single step,gemma3-27b,musique,ak_paper,0.9668785518005454,False,False
+single step,gemma3-27b,musique,ar_t5,1.482100110289857,False,True
+single step,gemma3-27b,nq,planner_tsr,0.7398690788461897,False,False
+single step,gemma3-27b,nq,adaptive_rag,0.609195124316312,False,False
+single step,gemma3-27b,nq,adaptive_k,0.5689586400950853,False,False
+single step,gemma3-27b,nq,gate_closed_book,0.3051447402207191,False,False
+single step,gemma3-27b,nq,conf_cascade,1.2442160502605095,False,True
+single step,gemma3-27b,nq,ar_tfidf,0.5032529924230755,False,False
+single step,gemma3-27b,nq,ar_emb,0.4904206832129341,False,False
+single step,gemma3-27b,nq,plan_emb,0.3960121252385907,False,False
+single step,gemma3-27b,nq,plan_knn,0.4081352278576437,False,False
+single step,gemma3-27b,nq,ak_paper,0.980472620152724,False,True
+single step,gemma3-27b,nq,ar_t5,0.4639518702174643,False,False
+single step,llama3.1-8b,2wikimultihopqa,planner_tsr,0.4061683669029963,False,False
+single step,llama3.1-8b,2wikimultihopqa,adaptive_rag,1.3585595262960564,False,False
+single step,llama3.1-8b,2wikimultihopqa,adaptive_k,0.3882476820899353,False,False
+single step,llama3.1-8b,2wikimultihopqa,gate_closed_book,2.7168874252969486,False,True
+single step,llama3.1-8b,2wikimultihopqa,conf_cascade,1.5493269344750942,False,False
+single step,llama3.1-8b,2wikimultihopqa,ar_tfidf,1.3585595262960564,False,False
+single step,llama3.1-8b,2wikimultihopqa,ar_emb,1.376978095129339,False,False
+single step,llama3.1-8b,2wikimultihopqa,plan_emb,0.548888939282784,False,False
+single step,llama3.1-8b,2wikimultihopqa,plan_knn,0.748397616945494,False,False
+single step,llama3.1-8b,2wikimultihopqa,ak_paper,0.616572984148171,False,False
+single step,llama3.1-8b,2wikimultihopqa,ar_t5,1.5188352662291504,False,False
+single step,llama3.1-8b,hotpotqa,planner_tsr,1.324495684120578,False,False
+single step,llama3.1-8b,hotpotqa,adaptive_rag,1.0253411838433957,False,False
+single step,llama3.1-8b,hotpotqa,adaptive_k,0.376157454441352,False,False
+single step,llama3.1-8b,hotpotqa,gate_closed_book,2.077037336200126,False,True
+single step,llama3.1-8b,hotpotqa,conf_cascade,1.1123741749619342,False,False
+single step,llama3.1-8b,hotpotqa,ar_tfidf,1.0253411838433957,False,False
+single step,llama3.1-8b,hotpotqa,ar_emb,0.9376828919556932,False,False
+single step,llama3.1-8b,hotpotqa,plan_emb,0.7165170977166375,False,False
+single step,llama3.1-8b,hotpotqa,plan_knn,0.919785150378085,False,False
+single step,llama3.1-8b,hotpotqa,ak_paper,0.4989415918997968,False,False
+single step,llama3.1-8b,hotpotqa,ar_t5,0.9730585075387744,False,False
+single step,llama3.1-8b,musique,planner_tsr,0.6654624728929565,False,False
+single step,llama3.1-8b,musique,adaptive_rag,1.6033195853989264,False,False
+single step,llama3.1-8b,musique,adaptive_k,0.4996684734230512,False,False
+single step,llama3.1-8b,musique,gate_closed_book,2.428932457005329,False,True
+single step,llama3.1-8b,musique,conf_cascade,1.9192496813540163,False,True
+single step,llama3.1-8b,musique,ar_tfidf,1.6033195853989264,False,False
+single step,llama3.1-8b,musique,ar_emb,1.4501119584279123,False,False
+single step,llama3.1-8b,musique,plan_emb,0.8951714270239775,False,False
+single step,llama3.1-8b,musique,plan_knn,0.7615946541492155,False,False
+single step,llama3.1-8b,musique,ak_paper,0.6974073965793961,False,False
+single step,llama3.1-8b,musique,ar_t5,1.6811835805871636,False,False
+single step,llama3.1-8b,nq,planner_tsr,0.615723566088149,False,True
+single step,llama3.1-8b,nq,adaptive_rag,0.4633888368683201,False,False
+single step,llama3.1-8b,nq,adaptive_k,0.4429410684150147,False,False
+single step,llama3.1-8b,nq,gate_closed_book,0.9361412281701272,False,True
+single step,llama3.1-8b,nq,conf_cascade,0.7418008222939594,False,True
+single step,llama3.1-8b,nq,ar_tfidf,0.4310837961422876,False,False
+single step,llama3.1-8b,nq,ar_emb,0.4314560900627472,False,False
+single step,llama3.1-8b,nq,plan_emb,0.469729940972357,False,False
+single step,llama3.1-8b,nq,plan_knn,0.4831736304133903,False,False
+single step,llama3.1-8b,nq,ak_paper,0.643947713320257,False,True
+single step,llama3.1-8b,nq,ar_t5,0.4224660965741544,False,False
+single step,qwen2.5-7b,2wikimultihopqa,planner_tsr,0.2781344162232212,False,False
+single step,qwen2.5-7b,2wikimultihopqa,adaptive_rag,0.9020614322831496,False,False
+single step,qwen2.5-7b,2wikimultihopqa,adaptive_k,0.3162096975093172,False,False
+single step,qwen2.5-7b,2wikimultihopqa,gate_closed_book,0.1965439365080726,False,False
+single step,qwen2.5-7b,2wikimultihopqa,conf_cascade,0.777771040652776,False,False
+single step,qwen2.5-7b,2wikimultihopqa,ar_tfidf,0.9020614322831496,False,False
+single step,qwen2.5-7b,2wikimultihopqa,ar_emb,0.8947580880292927,False,False
+single step,qwen2.5-7b,2wikimultihopqa,plan_emb,0.2451279293872565,False,False
+single step,qwen2.5-7b,2wikimultihopqa,plan_knn,0.2664372763382136,False,False
+single step,qwen2.5-7b,2wikimultihopqa,ak_paper,0.5552866095140498,False,False
+single step,qwen2.5-7b,2wikimultihopqa,ar_t5,0.9847874667848908,False,False
+single step,qwen2.5-7b,hotpotqa,planner_tsr,1.0067618458216707,False,False
+single step,qwen2.5-7b,hotpotqa,adaptive_rag,0.9121453430922396,False,False
+single step,qwen2.5-7b,hotpotqa,adaptive_k,0.2993962281241186,False,False
+single step,qwen2.5-7b,hotpotqa,gate_closed_book,0.2301216410004361,False,False
+single step,qwen2.5-7b,hotpotqa,conf_cascade,0.4859162677765727,False,False
+single step,qwen2.5-7b,hotpotqa,ar_tfidf,0.9121453430922396,False,False
+single step,qwen2.5-7b,hotpotqa,ar_emb,0.8235393096302664,False,False
+single step,qwen2.5-7b,hotpotqa,plan_emb,0.4798179997117157,False,False
+single step,qwen2.5-7b,hotpotqa,plan_knn,0.952930315699592,False,False
+single step,qwen2.5-7b,hotpotqa,ak_paper,0.4184584915064167,False,False
+single step,qwen2.5-7b,hotpotqa,ar_t5,0.9450879649722566,False,False
+single step,qwen2.5-7b,musique,planner_tsr,0.2730082773256749,False,False
+single step,qwen2.5-7b,musique,adaptive_rag,0.9044680595877906,False,True
+single step,qwen2.5-7b,musique,adaptive_k,0.3488577870781947,False,False
+single step,qwen2.5-7b,musique,gate_closed_book,0.1979364290875454,False,False
+single step,qwen2.5-7b,musique,conf_cascade,0.6291066944037871,False,False
+single step,qwen2.5-7b,musique,ar_tfidf,0.9044680595877906,False,True
+single step,qwen2.5-7b,musique,ar_emb,0.8630963317181898,False,True
+single step,qwen2.5-7b,musique,plan_emb,0.4594307420850296,False,False
+single step,qwen2.5-7b,musique,plan_knn,0.4906617158085411,False,False
+single step,qwen2.5-7b,musique,ak_paper,0.5222661122167337,False,False
+single step,qwen2.5-7b,musique,ar_t5,0.951439238778267,False,True
+single step,qwen2.5-7b,nq,planner_tsr,0.4946825801537757,False,False
+single step,qwen2.5-7b,nq,adaptive_rag,0.3518118830082611,False,False
+single step,qwen2.5-7b,nq,adaptive_k,0.4064908935803036,False,False
+single step,qwen2.5-7b,nq,gate_closed_book,0.2120694063826284,False,False
+single step,qwen2.5-7b,nq,conf_cascade,0.5274999151341525,False,True
+single step,qwen2.5-7b,nq,ar_tfidf,0.3314214094388408,False,False
+single step,qwen2.5-7b,nq,ar_emb,0.3325181158934955,False,False
+single step,qwen2.5-7b,nq,plan_emb,0.4492847025624314,False,False
+single step,qwen2.5-7b,nq,plan_knn,0.3926806883757177,False,False
+single step,qwen2.5-7b,nq,ak_paper,0.5953248396115748,False,True
+single step,qwen2.5-7b,nq,ar_t5,0.3401280736942099,False,False
+single step,qwen3-14b,2wikimultihopqa,planner_tsr,1.4241478693982703,False,False
+single step,qwen3-14b,2wikimultihopqa,adaptive_rag,2.2904493522011315,False,False
+single step,qwen3-14b,2wikimultihopqa,adaptive_k,1.4488283945256353,False,False
+single step,qwen3-14b,2wikimultihopqa,gate_closed_book,1.190536285799113,False,False
+single step,qwen3-14b,2wikimultihopqa,conf_cascade,4.197150502100947,False,True
+single step,qwen3-14b,2wikimultihopqa,ar_tfidf,2.2904493522011315,False,False
+single step,qwen3-14b,2wikimultihopqa,ar_emb,2.324894918707621,False,False
+single step,qwen3-14b,2wikimultihopqa,plan_emb,1.3628220054901257,False,False
+single step,qwen3-14b,2wikimultihopqa,plan_knn,1.304569548178104,False,False
+single step,qwen3-14b,2wikimultihopqa,ak_paper,2.07116516262882,False,False
+single step,qwen3-14b,2wikimultihopqa,ar_t5,2.4028363201066893,False,False
+single step,qwen3-14b,hotpotqa,planner_tsr,2.0788480722561986,False,False
+single step,qwen3-14b,hotpotqa,adaptive_rag,2.0635427499416443,False,False
+single step,qwen3-14b,hotpotqa,adaptive_k,1.4920596369628754,False,False
+single step,qwen3-14b,hotpotqa,gate_closed_book,1.3603278160021872,False,False
+single step,qwen3-14b,hotpotqa,conf_cascade,3.4991151344864204,False,True
+single step,qwen3-14b,hotpotqa,ar_tfidf,2.0635427499416443,False,False
+single step,qwen3-14b,hotpotqa,ar_emb,2.006837118300026,False,False
+single step,qwen3-14b,hotpotqa,plan_emb,1.6496394401423249,False,False
+single step,qwen3-14b,hotpotqa,plan_knn,1.8725531674726277,False,False
+single step,qwen3-14b,hotpotqa,ak_paper,1.74812963058289,False,False
+single step,qwen3-14b,hotpotqa,ar_t5,2.049078717188718,False,False
+single step,qwen3-14b,musique,planner_tsr,1.5637754164488278,False,False
+single step,qwen3-14b,musique,adaptive_rag,2.8471701417385145,False,False
+single step,qwen3-14b,musique,adaptive_k,1.7487706509939838,False,False
+single step,qwen3-14b,musique,gate_closed_book,4.803908616945986,False,True
+single step,qwen3-14b,musique,conf_cascade,1.8732420611848424,False,False
+single step,qwen3-14b,musique,ar_tfidf,2.8471701417385145,False,False
+single step,qwen3-14b,musique,ar_emb,2.7882358748885707,False,False
+single step,qwen3-14b,musique,plan_emb,1.5901850401050377,False,False
+single step,qwen3-14b,musique,plan_knn,1.6084547279524388,False,False
+single step,qwen3-14b,musique,ak_paper,2.28123274444854,False,False
+single step,qwen3-14b,musique,ar_t5,2.952250183072091,False,False
+single step,qwen3-14b,nq,planner_tsr,2.0013132881382028,False,False
+single step,qwen3-14b,nq,adaptive_rag,1.9178530060695749,False,False
+single step,qwen3-14b,nq,adaptive_k,1.898612346387672,False,False
+single step,qwen3-14b,nq,gate_closed_book,1.5685501219994622,False,False
+single step,qwen3-14b,nq,conf_cascade,3.1827918768032686,False,True
+single step,qwen3-14b,nq,ar_tfidf,1.8614484334378556,False,False
+single step,qwen3-14b,nq,ar_emb,1.862599250751713,False,False
+single step,qwen3-14b,nq,plan_emb,1.790636138321645,False,False
+single step,qwen3-14b,nq,plan_knn,1.7979066336281997,False,False
+single step,qwen3-14b,nq,ak_paper,2.1693511613468037,False,False
+single step,qwen3-14b,nq,ar_t5,1.8846935782525671,False,False
+single step,qwen3-32b,2wikimultihopqa,planner_tsr,0.6496740805525224,False,False
+single step,qwen3-32b,2wikimultihopqa,adaptive_rag,1.1455881005529287,False,False
+single step,qwen3-32b,2wikimultihopqa,adaptive_k,0.6463583654636227,False,False
+single step,qwen3-32b,2wikimultihopqa,gate_closed_book,0.2898953359507312,False,False
+single step,qwen3-32b,2wikimultihopqa,conf_cascade,1.6580743614275613,False,False
+single step,qwen3-32b,2wikimultihopqa,ar_tfidf,1.1455881005529287,False,False
+single step,qwen3-32b,2wikimultihopqa,ar_emb,1.1601984591934,False,False
+single step,qwen3-32b,2wikimultihopqa,plan_emb,0.4794295862533845,False,False
+single step,qwen3-32b,2wikimultihopqa,plan_knn,0.4235096781905699,False,False
+single step,qwen3-32b,2wikimultihopqa,ak_paper,1.3551397030608223,False,False
+single step,qwen3-32b,2wikimultihopqa,ar_t5,1.1749650251287724,False,False
+single step,qwen3-32b,hotpotqa,planner_tsr,1.0962579216024395,False,False
+single step,qwen3-32b,hotpotqa,adaptive_rag,1.31191873848041,False,False
+single step,qwen3-32b,hotpotqa,adaptive_k,0.5349021933844237,False,False
+single step,qwen3-32b,hotpotqa,gate_closed_book,0.2918273379148026,False,False
+single step,qwen3-32b,hotpotqa,conf_cascade,1.363123198715286,False,False
+single step,qwen3-32b,hotpotqa,ar_tfidf,1.31191873848041,False,False
+single step,qwen3-32b,hotpotqa,ar_emb,1.1807807039352245,False,False
+single step,qwen3-32b,hotpotqa,plan_emb,0.4572477325532201,False,False
+single step,qwen3-32b,hotpotqa,plan_knn,1.3062929880434668,False,False
+single step,qwen3-32b,hotpotqa,ak_paper,1.0125046644484237,False,False
+single step,qwen3-32b,hotpotqa,ar_t5,1.3146790290278385,False,False
+single step,qwen3-32b,musique,planner_tsr,0.5029432230765957,False,False
+single step,qwen3-32b,musique,adaptive_rag,1.875628158294936,False,False
+single step,qwen3-32b,musique,adaptive_k,0.8504764079605451,False,False
+single step,qwen3-32b,musique,gate_closed_book,0.3583890176514445,False,False
+single step,qwen3-32b,musique,conf_cascade,1.351184164565076,False,False
+single step,qwen3-32b,musique,ar_tfidf,1.875628158294936,False,False
+single step,qwen3-32b,musique,ar_emb,1.698153787026914,False,False
+single step,qwen3-32b,musique,plan_emb,0.9063338095249264,False,False
+single step,qwen3-32b,musique,plan_knn,0.7629633346016043,False,False
+single step,qwen3-32b,musique,ak_paper,1.591626027944545,False,False
+single step,qwen3-32b,musique,ar_t5,2.027809445522857,False,False
+single step,qwen3-32b,nq,planner_tsr,1.1903866244613897,False,False
+single step,qwen3-32b,nq,adaptive_rag,0.8108811566307783,False,False
+single step,qwen3-32b,nq,adaptive_k,0.721227093220724,False,False
+single step,qwen3-32b,nq,gate_closed_book,0.3556450358012014,False,False
+single step,qwen3-32b,nq,conf_cascade,0.9034545309797736,False,False
+single step,qwen3-32b,nq,ar_tfidf,0.6795177224651698,False,False
+single step,qwen3-32b,nq,ar_emb,0.641061236862512,False,False
+single step,qwen3-32b,nq,plan_emb,0.5036291088286855,False,False
+single step,qwen3-32b,nq,plan_knn,0.4968740917881486,False,False
+single step,qwen3-32b,nq,ak_paper,1.3361105558967237,False,False
+single step,qwen3-32b,nq,ar_t5,0.5188970317390951,False,False
+with two hop,gemma3-27b,2wikimultihopqa,planner_tsr,0.6473226544796153,False,False
+with two hop,gemma3-27b,2wikimultihopqa,adaptive_rag,0.8884871259781465,False,False
+with two hop,gemma3-27b,2wikimultihopqa,adaptive_k,0.4819155424597827,False,False
+with two hop,gemma3-27b,2wikimultihopqa,gate_closed_book,0.4582514216335789,False,False
+with two hop,gemma3-27b,2wikimultihopqa,conf_cascade,1.0244841676191114,False,False
+with two hop,gemma3-27b,2wikimultihopqa,ar_tfidf,0.8884871259781465,False,False
+with two hop,gemma3-27b,2wikimultihopqa,ar_emb,0.8794081666202936,False,False
+with two hop,gemma3-27b,2wikimultihopqa,plan_emb,0.9288806865359523,False,False
+with two hop,gemma3-27b,2wikimultihopqa,plan_knn,0.8581327008124802,False,False
+with two hop,gemma3-27b,2wikimultihopqa,ak_paper,0.948207987255996,False,False
+with two hop,gemma3-27b,2wikimultihopqa,ar_t5,0.9633234254967264,False,False
+with two hop,gemma3-27b,hotpotqa,planner_tsr,1.3598711440514597,False,False
+with two hop,gemma3-27b,hotpotqa,adaptive_rag,0.9082664553962932,False,False
+with two hop,gemma3-27b,hotpotqa,adaptive_k,0.4449707464724239,False,False
+with two hop,gemma3-27b,hotpotqa,gate_closed_book,0.2985762720148895,False,False
+with two hop,gemma3-27b,hotpotqa,conf_cascade,1.9029256852895773,False,False
+with two hop,gemma3-27b,hotpotqa,ar_tfidf,0.9082664553962932,False,False
+with two hop,gemma3-27b,hotpotqa,ar_emb,0.8220931783493203,False,False
+with two hop,gemma3-27b,hotpotqa,plan_emb,1.186405128335243,False,False
+with two hop,gemma3-27b,hotpotqa,plan_knn,1.2962114853277564,False,False
+with two hop,gemma3-27b,hotpotqa,ak_paper,0.7442276730964238,False,False
+with two hop,gemma3-27b,hotpotqa,ar_t5,0.9082871051359536,False,False
+with two hop,gemma3-27b,musique,planner_tsr,0.4435167578894288,False,False
+with two hop,gemma3-27b,musique,adaptive_rag,1.2189858915426623,False,False
+with two hop,gemma3-27b,musique,adaptive_k,0.530883101964545,False,False
+with two hop,gemma3-27b,musique,gate_closed_book,0.3026062661428967,False,False
+with two hop,gemma3-27b,musique,conf_cascade,0.6102013870426668,False,False
+with two hop,gemma3-27b,musique,ar_tfidf,1.2189858915426623,False,False
+with two hop,gemma3-27b,musique,ar_emb,1.1499065109862907,False,False
+with two hop,gemma3-27b,musique,plan_emb,0.6158062581731892,False,False
+with two hop,gemma3-27b,musique,plan_knn,0.6432788087992956,False,False
+with two hop,gemma3-27b,musique,ak_paper,0.9668785518005454,False,False
+with two hop,gemma3-27b,musique,ar_t5,1.3160470131991209,False,False
+with two hop,gemma3-27b,nq,planner_tsr,0.7604664832485897,False,False
+with two hop,gemma3-27b,nq,adaptive_rag,0.749465327639342,False,False
+with two hop,gemma3-27b,nq,adaptive_k,0.5689586400950853,False,False
+with two hop,gemma3-27b,nq,gate_closed_book,0.3051447402207191,False,False
+with two hop,gemma3-27b,nq,conf_cascade,1.2711653379405097,False,True
+with two hop,gemma3-27b,nq,ar_tfidf,0.5252445322732295,False,False
+with two hop,gemma3-27b,nq,ar_emb,0.4999236513750902,False,False
+with two hop,gemma3-27b,nq,plan_emb,0.3960121252385907,False,False
+with two hop,gemma3-27b,nq,plan_knn,0.4081352278576437,False,False
+with two hop,gemma3-27b,nq,ak_paper,0.980472620152724,False,True
+with two hop,gemma3-27b,nq,ar_t5,0.4598034160933762,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,planner_tsr,0.4057983704531704,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,adaptive_rag,0.870819758008154,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,adaptive_k,0.3882476820899353,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,gate_closed_book,1.7916615012011607,False,True
+with two hop,llama3.1-8b,2wikimultihopqa,conf_cascade,0.9815542217695796,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,ar_tfidf,0.870819758008154,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,ar_emb,0.8776805124270315,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,plan_emb,0.7491825344326741,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,plan_knn,0.9427811021895608,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,ak_paper,0.616572984148171,False,False
+with two hop,llama3.1-8b,2wikimultihopqa,ar_t5,0.9370919407040856,False,False
+with two hop,llama3.1-8b,hotpotqa,planner_tsr,1.354430178311186,False,False
+with two hop,llama3.1-8b,hotpotqa,adaptive_rag,0.8479883382605662,False,False
+with two hop,llama3.1-8b,hotpotqa,adaptive_k,0.376157454441352,False,False
+with two hop,llama3.1-8b,hotpotqa,gate_closed_book,2.077037336200126,False,True
+with two hop,llama3.1-8b,hotpotqa,conf_cascade,1.1311881943901896,False,False
+with two hop,llama3.1-8b,hotpotqa,ar_tfidf,0.8479883382605662,False,False
+with two hop,llama3.1-8b,hotpotqa,ar_emb,0.7846518825662617,False,False
+with two hop,llama3.1-8b,hotpotqa,plan_emb,0.7478074474569171,False,False
+with two hop,llama3.1-8b,hotpotqa,plan_knn,1.0999756908590614,False,False
+with two hop,llama3.1-8b,hotpotqa,ak_paper,0.4989415918997968,False,False
+with two hop,llama3.1-8b,hotpotqa,ar_t5,0.8087106901309278,False,False
+with two hop,llama3.1-8b,musique,planner_tsr,0.6500328143727948,False,False
+with two hop,llama3.1-8b,musique,adaptive_rag,1.3785598592066095,False,False
+with two hop,llama3.1-8b,musique,adaptive_k,0.4996684734230512,False,False
+with two hop,llama3.1-8b,musique,gate_closed_book,2.428932457005329,False,True
+with two hop,llama3.1-8b,musique,conf_cascade,1.900921145942888,False,True
+with two hop,llama3.1-8b,musique,ar_tfidf,1.3785598592066095,False,False
+with two hop,llama3.1-8b,musique,ar_emb,1.2571487061180866,False,False
+with two hop,llama3.1-8b,musique,plan_emb,0.8630777275292855,False,False
+with two hop,llama3.1-8b,musique,plan_knn,0.8282561803293027,False,False
+with two hop,llama3.1-8b,musique,ak_paper,0.6974073965793961,False,False
+with two hop,llama3.1-8b,musique,ar_t5,1.436755523218351,False,False
+with two hop,llama3.1-8b,nq,planner_tsr,0.6267109479850774,False,True
+with two hop,llama3.1-8b,nq,adaptive_rag,0.7067553646003024,False,True
+with two hop,llama3.1-8b,nq,adaptive_k,0.4429410684150147,False,False
+with two hop,llama3.1-8b,nq,gate_closed_book,0.9361412281701272,False,True
+with two hop,llama3.1-8b,nq,conf_cascade,0.761495119370428,False,True
+with two hop,llama3.1-8b,nq,ar_tfidf,0.5001324572093975,False,False
+with two hop,llama3.1-8b,nq,ar_emb,0.4971147196999454,False,False
+with two hop,llama3.1-8b,nq,plan_emb,0.469729940972357,False,False
+with two hop,llama3.1-8b,nq,plan_knn,0.4831736304133903,False,False
+with two hop,llama3.1-8b,nq,ak_paper,0.643947713320257,False,True
+with two hop,llama3.1-8b,nq,ar_t5,0.4325739137699012,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,planner_tsr,0.2807647297739251,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,adaptive_rag,0.6561493303574234,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,adaptive_k,0.3162096975093172,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,gate_closed_book,0.1965439365080726,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,conf_cascade,0.6508015925180551,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,ar_tfidf,0.6561493303574234,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,ar_emb,0.6497426921605277,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,plan_emb,0.2798225277765575,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,plan_knn,0.3447320848476888,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,ak_paper,0.5552866095140498,False,False
+with two hop,qwen2.5-7b,2wikimultihopqa,ar_t5,0.7039754311120509,False,False
+with two hop,qwen2.5-7b,hotpotqa,planner_tsr,1.0782482453824895,False,False
+with two hop,qwen2.5-7b,hotpotqa,adaptive_rag,0.6573197658452181,False,False
+with two hop,qwen2.5-7b,hotpotqa,adaptive_k,0.2993962281241186,False,False
+with two hop,qwen2.5-7b,hotpotqa,gate_closed_book,0.2301216410004361,False,False
+with two hop,qwen2.5-7b,hotpotqa,conf_cascade,0.4864858008805712,False,False
+with two hop,qwen2.5-7b,hotpotqa,ar_tfidf,0.6573197658452181,False,False
+with two hop,qwen2.5-7b,hotpotqa,ar_emb,0.6031968006185262,False,False
+with two hop,qwen2.5-7b,hotpotqa,plan_emb,0.6266784047630612,False,False
+with two hop,qwen2.5-7b,hotpotqa,plan_knn,0.9595826668695722,False,False
+with two hop,qwen2.5-7b,hotpotqa,ak_paper,0.4184584915064167,False,False
+with two hop,qwen2.5-7b,hotpotqa,ar_t5,0.6768555497290307,False,False
+with two hop,qwen2.5-7b,musique,planner_tsr,0.2696818193962962,False,False
+with two hop,qwen2.5-7b,musique,adaptive_rag,0.8258127673698155,False,True
+with two hop,qwen2.5-7b,musique,adaptive_k,0.3488577870781947,False,False
+with two hop,qwen2.5-7b,musique,gate_closed_book,0.1979364290875454,False,False
+with two hop,qwen2.5-7b,musique,conf_cascade,0.6529203234035343,False,False
+with two hop,qwen2.5-7b,musique,ar_tfidf,0.8258127673698155,False,True
+with two hop,qwen2.5-7b,musique,ar_emb,0.7880960658003235,False,True
+with two hop,qwen2.5-7b,musique,plan_emb,0.5859222464196104,False,False
+with two hop,qwen2.5-7b,musique,plan_knn,0.5327742870445962,False,False
+with two hop,qwen2.5-7b,musique,ak_paper,0.5222661122167337,False,False
+with two hop,qwen2.5-7b,musique,ar_t5,0.8682590573315581,False,True
+with two hop,qwen2.5-7b,nq,planner_tsr,0.4909808541253265,False,False
+with two hop,qwen2.5-7b,nq,adaptive_rag,0.50527847332287,False,False
+with two hop,qwen2.5-7b,nq,adaptive_k,0.4064908935803036,False,False
+with two hop,qwen2.5-7b,nq,gate_closed_book,0.2120694063826284,False,False
+with two hop,qwen2.5-7b,nq,conf_cascade,0.5274999151341525,False,True
+with two hop,qwen2.5-7b,nq,ar_tfidf,0.4014147256954451,False,False
+with two hop,qwen2.5-7b,nq,ar_emb,0.3904814723508779,False,False
+with two hop,qwen2.5-7b,nq,plan_emb,0.4492847025624314,False,False
+with two hop,qwen2.5-7b,nq,plan_knn,0.3926806883757177,False,False
+with two hop,qwen2.5-7b,nq,ak_paper,0.5953248396115748,False,True
+with two hop,qwen2.5-7b,nq,ar_t5,0.3625324183854782,False,False
+with two hop,qwen3-14b,2wikimultihopqa,planner_tsr,1.4338344390487328,False,False
+with two hop,qwen3-14b,2wikimultihopqa,adaptive_rag,2.8824502027487915,False,False
+with two hop,qwen3-14b,2wikimultihopqa,adaptive_k,1.4488283945256353,False,False
+with two hop,qwen3-14b,2wikimultihopqa,gate_closed_book,1.190536285799113,False,False
+with two hop,qwen3-14b,2wikimultihopqa,conf_cascade,3.8819660736796857,False,False
+with two hop,qwen3-14b,2wikimultihopqa,ar_tfidf,2.8824502027487915,False,False
+with two hop,qwen3-14b,2wikimultihopqa,ar_emb,2.944594825798652,False,False
+with two hop,qwen3-14b,2wikimultihopqa,plan_emb,2.4128748930692376,False,False
+with two hop,qwen3-14b,2wikimultihopqa,plan_knn,2.8001253841742244,False,False
+with two hop,qwen3-14b,2wikimultihopqa,ak_paper,2.07116516262882,False,False
+with two hop,qwen3-14b,2wikimultihopqa,ar_t5,3.046180843965653,False,False
+with two hop,qwen3-14b,hotpotqa,planner_tsr,2.160607124440004,False,False
+with two hop,qwen3-14b,hotpotqa,adaptive_rag,2.910201259063687,False,True
+with two hop,qwen3-14b,hotpotqa,adaptive_k,1.4920596369628754,False,False
+with two hop,qwen3-14b,hotpotqa,gate_closed_book,1.3603278160021872,False,False
+with two hop,qwen3-14b,hotpotqa,conf_cascade,3.4988997854040225,False,True
+with two hop,qwen3-14b,hotpotqa,ar_tfidf,2.910201259063687,False,True
+with two hop,qwen3-14b,hotpotqa,ar_emb,2.763425939804789,False,True
+with two hop,qwen3-14b,hotpotqa,plan_emb,1.9381793168579096,False,False
+with two hop,qwen3-14b,hotpotqa,plan_knn,2.237205420514216,False,False
+with two hop,qwen3-14b,hotpotqa,ak_paper,1.74812963058289,False,False
+with two hop,qwen3-14b,hotpotqa,ar_t5,2.874865173174767,False,True
+with two hop,qwen3-14b,musique,planner_tsr,1.5956762507563726,False,False
+with two hop,qwen3-14b,musique,adaptive_rag,4.496486658943467,False,True
+with two hop,qwen3-14b,musique,adaptive_k,1.7487706509939838,False,False
+with two hop,qwen3-14b,musique,gate_closed_book,5.040466796842037,False,True
+with two hop,qwen3-14b,musique,conf_cascade,1.9043848042538647,False,False
+with two hop,qwen3-14b,musique,ar_tfidf,4.496486658943467,False,True
+with two hop,qwen3-14b,musique,ar_emb,4.337292183396354,False,True
+with two hop,qwen3-14b,musique,plan_emb,1.656364384680582,False,False
+with two hop,qwen3-14b,musique,plan_knn,1.6350220450237236,False,False
+with two hop,qwen3-14b,musique,ak_paper,2.28123274444854,False,False
+with two hop,qwen3-14b,musique,ar_t5,4.810682969977445,False,True
+with two hop,qwen3-14b,nq,planner_tsr,2.024367013854041,False,False
+with two hop,qwen3-14b,nq,adaptive_rag,2.481592022856032,False,True
+with two hop,qwen3-14b,nq,adaptive_k,1.898612346387672,False,False
+with two hop,qwen3-14b,nq,gate_closed_book,1.5685501219994622,False,False
+with two hop,qwen3-14b,nq,conf_cascade,3.1827918768032686,False,True
+with two hop,qwen3-14b,nq,ar_tfidf,2.046144270939813,False,False
+with two hop,qwen3-14b,nq,ar_emb,1.9291326605200687,False,False
+with two hop,qwen3-14b,nq,plan_emb,1.790636138321645,False,False
+with two hop,qwen3-14b,nq,plan_knn,1.7979066336281997,False,False
+with two hop,qwen3-14b,nq,ak_paper,2.1693511613468037,False,False
+with two hop,qwen3-14b,nq,ar_t5,1.910536762423422,False,False
+with two hop,qwen3-32b,2wikimultihopqa,planner_tsr,0.807511939619266,False,False
+with two hop,qwen3-32b,2wikimultihopqa,adaptive_rag,1.1756629614598415,False,False
+with two hop,qwen3-32b,2wikimultihopqa,adaptive_k,0.6463583654636227,False,False
+with two hop,qwen3-32b,2wikimultihopqa,gate_closed_book,0.462267323299811,False,False
+with two hop,qwen3-32b,2wikimultihopqa,conf_cascade,1.7128176099434436,False,False
+with two hop,qwen3-32b,2wikimultihopqa,ar_tfidf,1.1756629614598415,False,False
+with two hop,qwen3-32b,2wikimultihopqa,ar_emb,1.192610871512635,False,False
+with two hop,qwen3-32b,2wikimultihopqa,plan_emb,1.109421350365975,False,False
+with two hop,qwen3-32b,2wikimultihopqa,plan_knn,1.1509578773539062,False,False
+with two hop,qwen3-32b,2wikimultihopqa,ak_paper,1.3231110169102092,False,False
+with two hop,qwen3-32b,2wikimultihopqa,ar_t5,1.205284573274727,False,False
+with two hop,qwen3-32b,hotpotqa,planner_tsr,1.479479106548785,False,False
+with two hop,qwen3-32b,hotpotqa,adaptive_rag,1.0630722795751673,False,False
+with two hop,qwen3-32b,hotpotqa,adaptive_k,0.5349021933844237,False,False
+with two hop,qwen3-32b,hotpotqa,gate_closed_book,0.2918273379148026,False,False
+with two hop,qwen3-32b,hotpotqa,conf_cascade,1.258693826809074,False,False
+with two hop,qwen3-32b,hotpotqa,ar_tfidf,1.0630722795751673,False,False
+with two hop,qwen3-32b,hotpotqa,ar_emb,0.9670755326135424,False,False
+with two hop,qwen3-32b,hotpotqa,plan_emb,0.6893504109274535,False,False
+with two hop,qwen3-32b,hotpotqa,plan_knn,1.523563801444176,False,False
+with two hop,qwen3-32b,hotpotqa,ak_paper,1.0125046644484237,False,False
+with two hop,qwen3-32b,hotpotqa,ar_t5,1.0621691101751571,False,False
+with two hop,qwen3-32b,musique,planner_tsr,0.4946395821878627,False,False
+with two hop,qwen3-32b,musique,adaptive_rag,2.2099856185702755,False,True
+with two hop,qwen3-32b,musique,adaptive_k,0.8504764079605451,False,False
+with two hop,qwen3-32b,musique,gate_closed_book,0.3610918985154457,False,False
+with two hop,qwen3-32b,musique,conf_cascade,1.4222446947945395,False,False
+with two hop,qwen3-32b,musique,ar_tfidf,2.2099856185702755,False,True
+with two hop,qwen3-32b,musique,ar_emb,1.9854672250294048,False,False
+with two hop,qwen3-32b,musique,plan_emb,0.9176623143656488,False,False
+with two hop,qwen3-32b,musique,plan_knn,0.9252005465440308,False,False
+with two hop,qwen3-32b,musique,ak_paper,1.591626027944545,False,False
+with two hop,qwen3-32b,musique,ar_t5,2.3834815316233606,False,True
+with two hop,qwen3-32b,nq,planner_tsr,1.22334830889499,False,False
+with two hop,qwen3-32b,nq,adaptive_rag,1.000137135161662,False,False
+with two hop,qwen3-32b,nq,adaptive_k,0.721227093220724,False,False
+with two hop,qwen3-32b,nq,gate_closed_book,0.3556450358012014,False,False
+with two hop,qwen3-32b,nq,conf_cascade,0.9034545309797736,False,False
+with two hop,qwen3-32b,nq,ar_tfidf,0.7168044629501967,False,False
+with two hop,qwen3-32b,nq,ar_emb,0.6676231701913922,False,False
+with two hop,qwen3-32b,nq,plan_emb,0.5036291088286855,False,False
+with two hop,qwen3-32b,nq,plan_knn,0.4968740917881486,False,False
+with two hop,qwen3-32b,nq,ak_paper,1.3361105558967237,False,False
+with two hop,qwen3-32b,nq,ar_t5,0.5149053747550336,False,False

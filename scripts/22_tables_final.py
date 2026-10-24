@@ -4,10 +4,11 @@ Final tables for the paper (5 readers, both plan sets). CPU only, reads results;
 Writes results_full/tables_final/:
   tables.md          every table in readable form (the source for the paper text)
   tab_*.tex          booktabs LaTeX tables
-  verdicts.txt       the decisions of every test family, computed from the files (H1, secondary family, H3, robustness)
+  verdicts.txt       the decisions of every test family, computed from the files (H1, secondary family, H2, robustness)
   tab_summary.tex    every family and robustness check in one table (the paper's verdict table)
   tab_rater.tex      grading rules against each human reference (majority of three, each rater alone)
   tab_p_*.tex        compact tables for the paper body (retrievers, plans, gains, IRCoT, weak protocol, mechanism, raters)
+  tab_review_*.tex   review checks (scripts 24 and 25): inference, refit, mechanism, headroom, overhead, curve, latency, ablation
 
 Inputs (all produced by earlier scripts): analysis/final[_r3]/ (10, 13), analysis/metis[_r3]/ (23),
 analysis/h3_ircot[_lenient|_strict]/ (21, 24), analysis/weak_protocol/ (22), analysis/lenient*|strict* (24),
@@ -99,7 +100,8 @@ def _hdr(c, a, width=14):
     if len(lines) == 1:
         return tex_esc(c)
     al = a if a in "lrc" else "c"
-    return rf"\begin{{tabular}}[b]{{@{{}}{al}@{{}}}}" + r" \\ ".join(tex_esc(x) for x in lines) + r"\end{tabular}"
+    cells = [("{}" if x.startswith("[") else "") + tex_esc(x) for x in lines]   # "\\ [" would read as a length
+    return rf"\begin{{tabular}}[b]{{@{{}}{al}@{{}}}}" + r" \\ ".join(cells) + r"\end{tabular}"
 
 
 def tex_table(name, df, caption, align=None):
@@ -167,7 +169,7 @@ def t_secondary():
     VERD.append(f"Secondary: negative survivors single step {int(((A.p_holm < 0.05) & (A.ci_high < 0)).sum())}, two hop {int(((B.p_holm < 0.05) & (B.ci_high < 0)).sum())}")
 
 
-# ====================================================================== H3 and sensitivity
+# ====================================================================== H2 (IRCoT) and sensitivity
 def t_h3():
     rows, verd = [], {}
     H = {lab: pd.read_csv(AN / f"h3_ircot{suf}" / "h3.csv") for lab, suf in
@@ -183,19 +185,19 @@ def t_h3():
                      "Gain, with two hop": sg(b.gain), "Holm p ": pv(b.p_holm),
                      "Sig. final/lenient/strict": "/".join(sig(l, "single_step") for l in ("final", "lenient", "strict"))})
     T = pd.DataFrame(rows)
-    md_table("H3, IRCoT against the hull at IRCoT's own latency (9 tests)", T)
-    tex_table("h3", T, "H3: IRCoT against the held out fixed plan hull at IRCoT's own mean latency.", "llrrrrrrl")
+    md_table("H2, IRCoT against the hull at IRCoT's own latency (9 tests)", T)
+    tex_table("h3", T, "H2: IRCoT against the held out fixed plan hull at IRCoT's own mean latency.", "llrrrrrrl")
     for lab, D in H.items():
         for hull, g in D.groupby("hull"):
             k = g[(g.p_holm < 0.05) & (g.ci_low > 0)]
-            VERD.append(f"H3 [{lab}, {hull}]: {len(k)} of {len(g)} significant: " + ", ".join(f"{RN[r.reader]} {DN[r.dataset]} {r.gain:+.3f}" for r in k.itertuples()))
+            VERD.append(f"H2 [{lab}, {hull}]: {len(k)} of {len(g)} significant: " + ", ".join(f"{RN[r.reader]} {DN[r.dataset]} {r.gain:+.3f}" for r in k.itertuples()))
     # robust: significant under all three rules with the single step hull
     if len(H) == 3:
         keys = None
         for lab, D in H.items():
             g = D[D.hull == "single_step"]; k = set(map(tuple, g[(g.p_holm < 0.05) & (g.ci_low > 0)][["reader", "dataset"]].values))
             keys = k if keys is None else keys & k
-        VERD.append(f"H3 robust under all three label rules (single step hull): {sorted(keys)}")
+        VERD.append(f"H2 robust under all three label rules (single step hull): {sorted(keys)}")
 
 
 def t_sensitivity():
@@ -260,7 +262,7 @@ def t_r6():
                        "Cost vs Always RAG": f"{r.cost_vs_always:.2f}x", "Gain, our protocol": sg(r.ours_gain)} for m, r in g.iterrows()])
     md_table("R6, weak protocol against ours (same answers)", T,
              f"Cells winning under the weak protocol: {int(win_w.sum())} of {len(W)} ({int((win_w & (W.cost_vs_always < 1)).sum())} also cheaper than Always RAG); under ours: {int(win_o.sum())}.")
-    tex_table("r6", T, "Weak protocol (strict EM, one seed, no cost matching) against ours.", "lrrrr")
+    tex_table("r6", T, "Weak protocol (strict rule, one seed, no cost matching) against ours.", "lrrrr")
     VERD.append(f"R6: weak protocol wins {int(win_w.sum())} of {len(W)}; our protocol {int(win_o.sum())}")
 
 
@@ -445,7 +447,7 @@ def t_audit():
         a["final"] = [jmap.get(p, s_) if amb == 1 else s_ for p, s_, amb in zip(a.pair, a.strict, a.ambiguous)]
         AUD[name] = a
         kap = G.kappa(a.rater1.astype(int), a.rater2.astype(int))
-        for c, nm in (("strict", "strict EM"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final")):
+        for c, nm in (("strict", "strict"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final")):
             ok = (a[c].astype(int) == a.human.astype(int)).values
             rng = np.random.default_rng(0); bs = [ok[rng.integers(0, len(ok), len(ok))].mean() for _ in range(2000)]
             rows.append({"Audit": name, "Rater kappa (two raters)": f"{kap:.3f}", "Rule": nm, "n": len(a),
@@ -466,7 +468,7 @@ def t_rater():
     """Accuracy of each grading rule against three human references: the majority of three raters (main), rater 2
     alone (not an author) and rater 1 alone (an author of the paper). Checks that the grading validation does not
     depend on the author's labels."""
-    rules = (("strict", "strict EM"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final"))
+    rules = (("strict", "strict"), ("label_f1_07", "F1 >= 0.7"), ("label_lenient", "lenient"), ("final", "label_final"))
     rows = []
     for name, a in AUD.items():
         for c, nm in rules:
@@ -697,7 +699,7 @@ def t_p_mechanism():
 
 
 def t_p_rater():
-    rules = (("strict", "Strict EM"), ("label_f1_07", r"F1 $\geq$ 0.7"), ("label_lenient", "Lenient"), ("final", r"\texttt{label\_final}"))
+    rules = (("strict", "Strict"), ("label_f1_07", r"F1 $\geq$ 0.7"), ("label_lenient", "Lenient"), ("final", r"\texttt{label\_final}"))
     body = []
     names = list(AUD)
     for c, nm in rules:
@@ -778,13 +780,151 @@ def t_p_h3rules():
                           r"Reader & Data & Final & Lenient & Strict & Final \\"], body)
 
 
+# ====================================================================== review checks (scripts 24 and 25)
+def t_review():
+    """Tables from the review checks: refit bootstrap, mechanism, same budget headroom, overhead, curve, latency, ablation."""
+    R = AN / "review"
+    if not R.exists():
+        raise FileNotFoundError(str(R))
+    from sklearn.metrics import roc_auc_score
+    PS = {"single step": "single step", "with two hop": "with two hop"}
+    # --- inference: plain against stratified bootstrap
+    I = pd.read_csv(R / "inference_stratified.csv")
+    I["w"] = (I.strat_high - I.strat_low) / (I.plain_high - I.plain_low)
+    rows = []
+    for (ps, fam), g in I.groupby(["plan_set", "family"], sort=False):
+        rows.append({"Plan set": ps, "Family": fam, "Tests": len(g),
+                     "Width ratio (median, range)": f"{g.w.median():.2f} ({g.w.min():.2f} to {g.w.max():.2f})",
+                     "Interval above 0, plain / stratified": f"{int((g.plain_low > 0).sum())} / {int((g.strat_low > 0).sum())}",
+                     "Upper bound below 0.03, plain / stratified": f"{int((g.plain_high < 0.03).sum())} / {int((g.strat_high < 0.03).sum())}"})
+    T = pd.DataFrame(rows)
+    md_table("Review: plain against dataset stratified bootstrap", T)
+    tex_table("review_inference", T, "Pooled tests under the plain bootstrap and a bootstrap stratified by dataset. Width ratio: stratified interval width over plain width.", "llrrrr")
+    # --- refit bootstrap
+    F = pd.read_csv(R / "refit_bootstrap.csv")
+    plain = {}
+    for ps, d in (("single step", "final"), ("with two hop", "final_r3")):
+        for f in ("methods.csv", "routers_pooled.csv"):
+            M = pd.read_csv(AN / d / f)
+            if "dataset" in M:
+                M = M[M.dataset == "pooled"]
+            for r in M.itertuples():
+                plain[(r.method, r.reader, ps)] = (r.ci_low, r.ci_high)
+    rows = []
+    for r in F.itertuples():
+        lo, hi = plain.get((r.method, r.reader, r.plan_set), (np.nan, np.nan))
+        rows.append({"Policy": PN.get(r.method, r.method), "Reader": RN.get(r.reader, r.reader), "Plan set": r.plan_set,
+                     "Plain 95% CI": f"[{sg(lo)}, {sg(hi)}]", "Refit mean": sg(r.mean),
+                     "Refit 95% CI": f"[{sg(r.low)}, {sg(r.high)}]", "One sided upper": sg(r.upper_one_sided),
+                     "Share above 0": f"{r.share_above_0:.2f}"})
+    T = pd.DataFrame(rows)
+    md_table("Review: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)", T)
+    tex_table("review_refit", T, "Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). Each resample holds about 63% distinct questions, which lowers the refit mean of learned policies.", "lllrrrrr")
+    # --- mechanism
+    M = pd.read_csv(R / "mechanism_all_seeds.csv")
+    P = pd.read_csv(R / "mechanism_pairs.csv")
+    rng = np.random.default_rng(0)
+    rows = []
+    for pol in ("planner_tsr", "planner_sk", "plan_emb"):
+        g, p0 = M[M.policy == pol], P[(P.policy == pol) & (P.seed == P.seed.min())]
+        blocks = [(x.score_diff.to_numpy(), x.first_wins.to_numpy()) for _, x in p0.groupby(["reader", "dataset"])]
+        stat = lambda bl: np.mean([roc_auc_score(y, s) for s, y in bl if 0 < y.mean() < 1])
+        bs = []
+        for _ in range(500):
+            bb = []
+            for s, y in blocks:
+                i = rng.integers(0, len(s), len(s))
+                bb.append((s[i], y[i]))
+            bs.append(stat(bb))
+        ps = g.groupby("seed").pair_auroc.mean()
+        rows.append({"Policy": {"planner_tsr": "TSR planner", "planner_sk": "Planner, self knowledge", "plan_emb": "Per plan LR"}[pol],
+                     "Plan AUROC": f"{g.per_plan_auroc.mean():.3f}", "Cross plan corr.": f"{g.cross_plan_corr.mean():.3f}",
+                     "Pair AUROC": f"{ps.mean():.3f}", "Seed range": f"{ps.min():.3f} to {ps.max():.3f}",
+                     "Seed 0 95% CI": f"[{np.percentile(bs, 2.5):.3f}, {np.percentile(bs, 97.5):.3f}]",
+                     "Pair questions per seed": f"{len(p0):,}", "Top plan share": f"{g.modal_plan_share.mean():.2f}"})
+    T = pd.DataFrame(rows)
+    md_table("Review: what the policies learn (all 5 seeds; pair AUROC is the mean over reader and dataset blocks)", T)
+    tex_table("review_mechanism", T, "What the policies learn, over all five seeds (single step plans, held out). Pair AUROC: for questions that exactly one of the two hull plans answers, AUROC for which one, averaged over the 20 reader and dataset blocks; interval: bootstrap over questions within blocks, seed 0.", "lrrrrrrr")
+    # --- headroom at the policy's own budget
+    H = pd.read_csv(R / "headroom_same_budget_pooled.csv")
+    rows = []
+    for m in ("planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade", "plan_emb"):
+        row = {"Policy": PN.get(m, m)}
+        for rd in READERS:
+            x = H[(H.method == m) & (H.reader == rd)]
+            row[RN[rd]] = f"{x.gap_pairs.iloc[0]:.3f} / {x.closed.iloc[0]:+.2f}" if len(x) else ""
+        rows.append(row)
+    T = pd.DataFrame(rows)
+    md_table("Review: oracle headroom at each policy's own cost (gap / fraction closed)", T)
+    tex_table("review_headroom", T, "Oracle headroom at each policy's own mean cost: gap of the pair oracle frontier over the hull (pairs chosen on the training folds), and the fraction of that gap the policy closes (pooled gain over gap), mean over datasets. Per plan LR without its embedding cost.", "lrrrrr")
+    # --- plan_emb with its own cost charged
+    O = pd.read_csv(R / "plan_emb_with_overhead.csv")
+    rows = []
+    for r in O.itertuples():
+        Rp = secondary("final", "metis") if r.plan_set == "single step" else secondary("final_r3", "metis_r3")
+        b = Rp[(Rp.method == "plan_emb") & (Rp.reader == r.reader)].iloc[0]
+        rows.append({"Reader": RN[r.reader], "Plan set": r.plan_set,
+                     "Replay, no embedding cost [95% CI]": f"{sg(b.gain)} [{sg(b.ci_low)}, {sg(b.ci_high)}]",
+                     "Holm p": pv(b.p_holm),
+                     "Embedding charged [95% CI]": f"{sg(r.gain)} [{sg(r.ci_low)}, {sg(r.ci_high)}]", "p": pv(r.p)})
+    T = pd.DataFrame(rows)
+    md_table("Review: per plan LR with its measured embedding cost (24.6 ms per question) charged", T)
+    tex_table("review_overhead", T, "Per plan logistic regression with and without its measured query embedding and classifier cost (24.6 ms per question). Holm p: secondary family of 30 tests; p: unadjusted.", "llrrrr")
+    # --- learning curve of plan_emb
+    LC = pd.read_csv(R / "learning_curve_plan_emb.csv")
+    g = LC.groupby(["reader", "frac"])[["sum_gain", "n"]].sum()
+    C = (g.sum_gain / g.n).unstack()
+    rows = [{"Reader": RN[rd], **{f"{int(f * 100)}%": sg(C.loc[rd, f]) for f in C.columns}} for rd in READERS if rd in C.index]
+    allr = LC.groupby("frac")[["sum_gain", "n"]].sum()
+    rows.append({"Reader": "Pooled", **{f"{int(f * 100)}%": sg(allr.loc[f, "sum_gain"] / allr.loc[f, "n"]) for f in allr.index}})
+    T = pd.DataFrame(rows)
+    md_table("Review: learning curve of per plan LR (gain over the hull, single step plans, no embedding cost)", T)
+    tex_table("review_curve", T, "Learning curve of per plan logistic regression: pooled gain over the hull when trained on a share of the training folds (single step plans, without its embedding cost).", "lrrrrr")
+    # --- live latency check
+    L = AN.parent / "latency_e2e"
+    rows, prow = [], []
+    for ds in ("musique", "2wikimultihopqa"):
+        fc = L / f"qwen2.5-7b_{ds}_cells.csv"
+        if not fc.exists():
+            continue
+        Cc = pd.read_csv(fc)
+        gc_ = Cc.groupby(["query_id", "plan"]).agg(live=("live_total_s", "median"), sr=("stored_retrieval_s", "first"),
+                                                   sa=("stored_agent_s", "first"), lr=("live_retrieval_s", "median"),
+                                                   dev=("device", "first")).reset_index()
+        gc_["retr"] = gc_.plan.str.split("@").str[0]
+        for rt_, x in gc_.groupby("retr"):
+            dev = x.dev.iloc[0] if isinstance(x.dev.iloc[0], str) else ""
+            rows.append({"Data": DN[ds], "Retriever": rt_.replace("_", " "), "Cells": len(x),
+                         "Live s": f"{x.live.mean():.3f}", "Stored s": f"{(x.sr + x.sa).mean():.3f}",
+                         "Live / stored": f"{x.live.mean() / (x.sr + x.sa).mean():.3f}",
+                         "Retrieval live / stored s": f"{x.lr.mean():.3f} / {x.sr.mean():.3f}",
+                         "Index": {"gpu": "GPU", "cpu": "CPU"}.get(dev, "no dense index" if rt_ != "closed_book" else "")})
+        Pp = pd.read_csv(L / f"qwen2.5-7b_{ds}_policies.csv")
+        for pol, x in Pp.groupby("policy"):
+            prow.append({"Data": DN[ds], "Policy": PN.get(pol, pol), "Questions": len(x), "Live s": f"{x.live_s.mean():.3f}",
+                         "Replay s": f"{x.replay_s.mean():.3f}", "Live / replay": f"{x.live_s.mean() / x.replay_s.mean():.3f}",
+                         "Same decision": f"{(x.live_escalated == x.stored_escalated).mean():.2f}"})
+    if rows:
+        T = pd.DataFrame(rows)
+        md_table("Review: live end to end latency against the replay, Qwen2.5 7B (cells: median of 3 live runs)", T)
+        tex_table("review_latency", T, "Live end to end time against the stored time of the same cells, Qwen2.5 7B (median of three live runs per cell). Index: where the dense index sat with the reader loaded. Stella and the reranker did not fit next to the reader.", "llrrrrrl")
+        T = pd.DataFrame(prow)
+        md_table("Review: live end to end policy cost against the replayed cost, Qwen2.5 7B", T)
+        tex_table("review_latency_policies", T, "Policies run live end to end against their replayed cost, Qwen2.5 7B (questions whose retrievers fit next to the reader). Per plan LR includes its 24.6 ms embedding in the live time only.", "llrrrrr")
+    # --- protocol ablation
+    A = pd.read_csv(R / "protocol_ablation.csv")
+    T = pd.DataFrame({"Step": A.step, "Wins": [f"{w} of {o}" for w, o in zip(A.wins, A.of)]})
+    md_table("Review: the weak protocol turned into ours one factor at a time", T)
+    tex_table("review_ablation", T, "The weak protocol turned into ours one factor at a time on the same 100 cells (5 primary policies, 5 readers, 4 datasets); the last two rows pool over datasets (25 tests).", "lr")
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     MD.append("# FunnelPlan final tables\n\nGenerated by scripts/22_tables_final.py from the result files. Gains are differences in the share of questions answered correctly.")
     for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
                t_ircot, t_headroom, t_checks, t_audit, t_rater, t_summary,
                t_p_retrievers, t_p_plans, t_p_gains, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
-               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules):
+               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_review):
         try:
             fn()
         except FileNotFoundError as e:

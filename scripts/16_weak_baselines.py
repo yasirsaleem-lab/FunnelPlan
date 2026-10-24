@@ -84,7 +84,7 @@ def main():
     out = settings.RESULTS_ROOT / "analysis" / "weak_protocol"
     out.mkdir(parents=True, exist_ok=True)
     R.to_csv(out / "weak_vs_ours.csv", index=False)
-    L = [f"Weak protocol: strict EM, seed 0 only, baselines Always RAG ({ALWAYS}) and Never RAG ({NEVER}), no cost matching.",
+    L = [f"Weak protocol: strict rule, seed 0 only, baselines Always RAG ({ALWAYS}) and Never RAG ({NEVER}), no cost matching.",
          f"Our protocol: held out hull at equal mean latency, 5 x 5 folds and seeds, label_final, Holm.", ""]
     win_weak = (R.margin_vs_always > 0) & (R.margin_vs_never > 0)
     win_ours = (R.ours_ci_low > 0) & (R.ours_p_holm < 0.05)

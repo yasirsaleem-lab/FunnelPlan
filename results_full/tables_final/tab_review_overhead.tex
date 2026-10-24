@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Per plan logistic regression with and without its measured query embedding and classifier cost (24.6 ms per question). Holm p: secondary family of 30 tests; p: unadjusted.}
+\label{tab:review_overhead}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
+\toprule
+Reader & Plan set & \begin{tabular}[b]{@{}r@{}}Replay, no \\ embedding cost \\ {}[95\% CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Embedding \\ charged [95\% \\ CI]\end{tabular} & p \\
+\midrule
+Gemma 3 27B & single step & +0.020 [+0.002, +0.037] & 0.642 & +0.006 [$-$0.012, +0.024] & 0.521 \\
+Llama 3.1 8B & single step & +0.004 [$-$0.015, +0.022] & 1.000 & $-$0.012 [$-$0.030, +0.006] & 0.211 \\
+Qwen2.5 7B & single step & +0.013 [$-$0.004, +0.031] & 1.000 & +0.000 [$-$0.017, +0.018] & 0.970 \\
+Qwen3 14B & single step & +0.022 [+0.003, +0.040] & 0.415 & +0.007 [$-$0.011, +0.026] & 0.449 \\
+Qwen3 32B & single step & +0.029 [+0.010, +0.048] & 0.058 & +0.012 [$-$0.007, +0.030] & 0.227 \\
+Gemma 3 27B & with two hop & +0.024 [+0.007, +0.042] & 0.184 & +0.012 [$-$0.006, +0.029] & 0.197 \\
+Llama 3.1 8B & with two hop & +0.006 [$-$0.012, +0.025] & 1.000 & $-$0.007 [$-$0.025, +0.011] & 0.454 \\
+Qwen2.5 7B & with two hop & +0.015 [$-$0.002, +0.033] & 1.000 & +0.004 [$-$0.014, +0.021] & 0.694 \\
+Qwen3 14B & with two hop & +0.024 [+0.006, +0.042] & 0.200 & +0.010 [$-$0.008, +0.028] & 0.253 \\
+Qwen3 32B & with two hop & +0.030 [+0.011, +0.048] & 0.042 & +0.013 [$-$0.006, +0.031] & 0.162 \\
+\bottomrule
+\end{tabular*}
+\end{table}

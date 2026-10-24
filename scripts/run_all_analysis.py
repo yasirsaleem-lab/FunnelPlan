@@ -8,7 +8,7 @@ the router inputs (data/processed_full/routers/emb_*.npz and t5_cache_*.json), t
 No GPU, no model weights and no corpus are needed. Generating the answers themselves is a separate GPU step
 (scripts 02, 04, 05, 06 and the judge stage of 07; see ARTIFACT.md).
 
-Usage:  python scripts/run_all_analysis.py            (3.7 hours on a Ryzen 7 5700X, 8 cores)
+Usage:  python scripts/run_all_analysis.py            (about 7 hours on a Ryzen 7 5700X, 8 cores)
         python scripts/run_all_analysis.py --from 15  (resume at step 15 of the list; see --list)
         python scripts/run_all_analysis.py --list     (print the steps only)
 Output: results_full/analysis/, results_full/tables/, results_full/tables_final/ (tables.md, verdicts.txt),
@@ -31,7 +31,7 @@ STEPS = [
     (12, ["scripts/12_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5"], "secondary routers, single step"),
     (12, ["scripts/12_routers.py", "eval", "ar_tfidf,ar_emb,plan_emb,plan_knn,ak_paper,ar_t5", "--r3"], "secondary routers, two hop"),
     (14, ["scripts/14_power_headroom.py"], "power, held out oracles, label stability -> tables/"),
-    (15, ["scripts/15_h3_ircot.py"], "H3, IRCoT against the hull -> analysis/h3_ircot/"),
+    (15, ["scripts/15_h3_ircot.py"], "H2 (IRCoT) against the hull -> analysis/h3_ircot/"),
     (16, ["scripts/16_weak_baselines.py"], "R6, weak protocol -> analysis/weak_protocol/"),
     (13, ["scripts/13_metis_profiler.py", "eval"], "METIS port, single step -> analysis/metis/"),
     (13, ["scripts/13_metis_profiler.py", "eval", "--r3"], "METIS port, two hop -> analysis/metis_r3/"),
@@ -40,6 +40,7 @@ STEPS = [
     (19, ["scripts/19_cost_axes.py"], "cost axes: tokens, tokens x4, FLOPs, calls"),
     (20, ["scripts/20_stronger_policies.py"], "classifier gate and planner with self knowledge"),
     (21, ["scripts/21_checks.py"], "sanity table, grading factor, matched cost headroom, mechanism"),
+    (24, ["scripts/24_review_checks.py"], "review checks -> analysis/review/"),
     (22, ["scripts/22_tables_final.py"], "final tables and verdicts -> tables_final/"),
     (23, ["scripts/23_figures.py"], "final figures -> figures_final/"),
     ("F1", ["figures_src/fig_framework.py"], "Figure 1, benchmark layers -> figures_final/fig_framework"),

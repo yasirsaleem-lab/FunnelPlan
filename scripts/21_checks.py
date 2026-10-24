@@ -100,7 +100,7 @@ def part_sanity():
     say("   A gap above about 0.05 needs an explanation (corpus, depth, prompt).")
     W = pd.read_csv(AN / "weak_protocol" / "weak_vs_ours.csv")
     a = W[W.method == "adaptive_rag"]
-    say(f"\n   Adaptive RAG against Always RAG under the weak protocol (R6, strict EM, one seed): mean margin "
+    say(f"\n   Adaptive RAG against Always RAG under the weak protocol (R6, strict rule, one seed): mean margin "
         f"{a.margin_vs_always.mean():+.3f}; {int((a.margin_vs_always > 0).sum())} of {len(a)} reader x dataset "
         f"cells above Always RAG, {int((a.margin_vs_always < 0).sum())} below")
     say(a.groupby("reader").margin_vs_always.mean().round(3).to_string())

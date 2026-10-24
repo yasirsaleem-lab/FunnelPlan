@@ -1,0 +1,10 @@
+step,wins,of
+"weak: beats Always RAG and Never RAG on accuracy (strict, seed 0, no cost matching)",64,100
+"comparator: best single plan at the same cost (strict, seed 0)",54,100
+"comparator: fixed plan hull at the same cost (strict, seed 0)",30,100
+seeds: 5 fold splits instead of 1 (strict),27,100
+grading: label_final instead of strict,28,100
+decision: 95% interval above 0 and p < 0.05 per cell,1,100
+decision: Holm over the 100 cells,0,100
+"pooled, gain above 0",8,25
+"pooled, Holm",0,25

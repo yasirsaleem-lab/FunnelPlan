@@ -1,0 +1,482 @@
+dataset,policy,query_id,setting,device,live_s,live_escalated,stored_escalated,replay_s,stored_s,overhead_s,embedding_cosine
+2wikimultihopqa,gate_closed_book,10038,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1488771999720484,False,False,0.1942653989999089,0.1529231000167783,,
+2wikimultihopqa,gate_closed_book,10062,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18562740000197664,False,False,0.1942653989999089,0.1917477000097278,,
+2wikimultihopqa,gate_closed_book,10386,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.186133700015489,False,False,0.1942653989999089,0.1899517999845557,,
+2wikimultihopqa,gate_closed_book,10839,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.0751789000350982,False,False,0.1942653989999089,0.080771500011906,,
+2wikimultihopqa,gate_closed_book,10912,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18667780002579093,False,False,0.1942653989999089,0.1909738999966066,,
+2wikimultihopqa,gate_closed_book,11118,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.22317750001093373,False,False,0.1942653989999089,0.2322541000030469,,
+2wikimultihopqa,gate_closed_book,11317,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.14924850000534207,False,False,0.1942653989999089,0.1605567999940831,,
+2wikimultihopqa,gate_closed_book,1166,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.2262598000233993,False,False,0.1942653989999089,0.2308717999840155,,
+2wikimultihopqa,gate_closed_book,11834,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.07643469999311492,False,False,0.1942653989999089,0.0782736999972257,,
+2wikimultihopqa,gate_closed_book,12136,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18567859998438507,False,False,0.1942653989999089,0.1896083999890834,,
+2wikimultihopqa,gate_closed_book,1608,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.11218090000329539,False,False,0.1942653989999089,0.1164660000067669,,
+2wikimultihopqa,gate_closed_book,2473,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.22241439996287227,False,False,0.1942653989999089,0.2687571999849751,,
+2wikimultihopqa,gate_closed_book,2954,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1856316999765113,False,False,0.1942653989999089,0.2044546999968588,,
+2wikimultihopqa,gate_closed_book,3069,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1862461999990046,False,False,0.1942653989999089,0.1933245999971404,,
+2wikimultihopqa,gate_closed_book,3881,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.27509060001466423,False,False,0.1942653989999089,0.248404699988896,,
+2wikimultihopqa,gate_closed_book,4122,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.14954200002830476,False,False,0.1942653989999089,0.1544617000035941,,
+2wikimultihopqa,gate_closed_book,4335,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.2596375999855809,False,False,0.1942653989999089,0.2769845000002533,,
+2wikimultihopqa,gate_closed_book,4617,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.11189840000588447,False,False,0.1942653989999089,0.1159752999956253,,
+2wikimultihopqa,gate_closed_book,47,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18432080000638962,False,False,0.1942653989999089,0.1916633000073488,,
+2wikimultihopqa,gate_closed_book,4844,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.14826759998686612,False,False,0.1942653989999089,0.1535968999960459,,
+2wikimultihopqa,gate_closed_book,5711,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18338770000264049,False,False,0.1942653989999089,0.1909914999851025,,
+2wikimultihopqa,gate_closed_book,5740,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1848446000367403,False,False,0.1942653989999089,0.1917577000276651,,
+2wikimultihopqa,gate_closed_book,6072,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1485503000440076,False,False,0.1942653989999089,0.1555301999906078,,
+2wikimultihopqa,gate_closed_book,6431,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.2578829999547452,False,False,0.1942653989999089,0.2757644999946933,,
+2wikimultihopqa,gate_closed_book,6552,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.07570460002170876,False,False,0.1942653989999089,0.0780387999839149,,
+2wikimultihopqa,gate_closed_book,7464,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.11114170000655577,False,False,0.1942653989999089,0.1190409999981056,,
+2wikimultihopqa,gate_closed_book,7882,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.07522070000413805,False,False,0.1942653989999089,0.0796150999958626,,
+2wikimultihopqa,gate_closed_book,7983,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.24891640001442283,False,False,0.1942653989999089,0.2305495000036899,,
+2wikimultihopqa,gate_closed_book,8015,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.07593950000591576,False,False,0.1942653989999089,0.0779519000207074,,
+2wikimultihopqa,gate_closed_book,8299,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.33370540000032634,False,False,0.1942653989999089,0.3488349999825004,,
+2wikimultihopqa,gate_closed_book,8370,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.22649020003154874,False,False,0.1942653989999089,0.2325915000110399,,
+2wikimultihopqa,gate_closed_book,8971,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1553076999844052,False,False,0.1942653989999089,0.1608800000103656,,
+2wikimultihopqa,gate_closed_book,9084,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.0757671000319533,False,False,0.1942653989999089,0.0917974000039976,,
+2wikimultihopqa,gate_closed_book,9462,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.40832119999686256,False,False,0.1942653989999089,0.4294564000156242,,
+2wikimultihopqa,gate_closed_book,9520,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.0761507999850437,False,False,0.1942653989999089,0.0767851000127848,,
+2wikimultihopqa,gate_closed_book,9896,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.18505309999454767,False,False,0.1942653989999089,0.1940257999813184,,
+2wikimultihopqa,gate_closed_book,9961,"(-3.0, 'bge_bm25_rrf@1')",gpu,0.1847192000132054,False,False,0.1942653989999089,0.1935950999904889,,
+2wikimultihopqa,gate_closed_book,10051,"(-1.6, 'bm25@3')",no dense index,0.18445490003796294,False,False,0.1942653989999089,0.1975370000000111,,
+2wikimultihopqa,gate_closed_book,10264,"(-1.6, 'bm25@3')",no dense index,0.32580930000403896,True,True,0.5107289418004219,0.3323480999970342,,
+2wikimultihopqa,gate_closed_book,10381,"(-1.6, 'bm25@3')",no dense index,0.14900289999786764,False,False,0.1942653989999089,0.154942299996037,,
+2wikimultihopqa,gate_closed_book,10562,"(-1.6, 'bm25@3')",no dense index,0.44019519997527823,False,False,0.1942653989999089,0.4609864999947604,,
+2wikimultihopqa,gate_closed_book,11108,"(-1.6, 'bm25@3')",no dense index,0.11221809999551624,False,False,0.1942653989999089,0.1215140999993309,,
+2wikimultihopqa,gate_closed_book,11131,"(-1.6, 'bm25@3')",no dense index,0.15125330002047122,False,False,0.1942653989999089,0.1581262999970931,,
+2wikimultihopqa,gate_closed_book,11839,"(-1.6, 'bm25@3')",no dense index,0.07704899995587766,False,False,0.1942653989999089,0.0795140000118408,,
+2wikimultihopqa,gate_closed_book,11851,"(-1.6, 'bm25@3')",no dense index,0.14979389996733516,False,False,0.1942653989999089,0.1526718999957665,,
+2wikimultihopqa,gate_closed_book,12243,"(-1.6, 'bm25@3')",no dense index,0.2575778999598697,False,False,0.1942653989999089,0.2697058000194374,,
+2wikimultihopqa,gate_closed_book,12296,"(-1.6, 'bm25@3')",no dense index,0.2576946000335738,False,False,0.1942653989999089,0.269055600016145,,
+2wikimultihopqa,gate_closed_book,12331,"(-1.6, 'bm25@3')",no dense index,0.368652299977839,False,False,0.1942653989999089,0.3825089999882038,,
+2wikimultihopqa,gate_closed_book,12399,"(-1.6, 'bm25@3')",no dense index,0.40357740002218634,False,False,0.1942653989999089,0.438342300010845,,
+2wikimultihopqa,gate_closed_book,12403,"(-1.6, 'bm25@3')",no dense index,0.3068451000144705,False,False,0.1942653989999089,0.309375100012403,,
+2wikimultihopqa,gate_closed_book,1491,"(-1.6, 'bm25@3')",no dense index,0.29487759998301044,False,False,0.1942653989999089,0.3120308000070508,,
+2wikimultihopqa,gate_closed_book,1964,"(-1.6, 'bm25@3')",no dense index,0.07559880003100261,False,False,0.1942653989999089,0.0799688999832142,,
+2wikimultihopqa,gate_closed_book,2036,"(-1.6, 'bm25@3')",no dense index,0.11170960002345964,False,False,0.1942653989999089,0.1156617999949958,,
+2wikimultihopqa,gate_closed_book,2055,"(-1.6, 'bm25@3')",no dense index,0.22679060004884377,False,False,0.1942653989999089,0.2379952000046614,,
+2wikimultihopqa,gate_closed_book,2128,"(-1.6, 'bm25@3')",no dense index,0.18484260002151132,False,False,0.1942653989999089,0.1997641999914776,,
+2wikimultihopqa,gate_closed_book,2154,"(-1.6, 'bm25@3')",no dense index,0.14808409998659045,False,False,0.1942653989999089,0.1535752000054344,,
+2wikimultihopqa,gate_closed_book,2340,"(-1.6, 'bm25@3')",no dense index,0.2949813000159338,False,False,0.1942653989999089,0.3054700000211596,,
+2wikimultihopqa,gate_closed_book,2435,"(-1.6, 'bm25@3')",no dense index,0.5139197999960743,False,False,0.1942653989999089,0.5424589999893215,,
+2wikimultihopqa,gate_closed_book,2801,"(-1.6, 'bm25@3')",no dense index,0.2943524000002071,False,False,0.1942653989999089,0.3100980999879539,,
+2wikimultihopqa,gate_closed_book,2848,"(-1.6, 'bm25@3')",no dense index,0.22591130004730076,False,False,0.1942653989999089,0.2322585999791044,,
+2wikimultihopqa,gate_closed_book,2884,"(-1.6, 'bm25@3')",no dense index,0.1501832000212744,False,False,0.1942653989999089,0.1582213000219781,,
+2wikimultihopqa,gate_closed_book,2955,"(-1.6, 'bm25@3')",no dense index,0.14698929997393861,False,False,0.1942653989999089,0.1582628000178374,,
+2wikimultihopqa,gate_closed_book,2963,"(-1.6, 'bm25@3')",no dense index,0.14862280001398176,False,False,0.1942653989999089,0.1535879999864846,,
+2wikimultihopqa,gate_closed_book,2984,"(-1.6, 'bm25@3')",no dense index,0.18531769997207448,False,False,0.1942653989999089,0.1944980999978725,,
+2wikimultihopqa,gate_closed_book,3254,"(-1.6, 'bm25@3')",no dense index,0.18448340002214536,False,False,0.1942653989999089,0.2222168000007514,,
+2wikimultihopqa,gate_closed_book,3464,"(-1.6, 'bm25@3')",no dense index,0.18346879997989163,False,False,0.1942653989999089,0.1935163000016473,,
+2wikimultihopqa,gate_closed_book,3469,"(-1.6, 'bm25@3')",no dense index,0.3323266999796033,False,False,0.1942653989999089,0.3462429999781307,,
+2wikimultihopqa,gate_closed_book,357,"(-1.6, 'bm25@3')",no dense index,0.25819689995842054,False,False,0.1942653989999089,0.2753655000124126,,
+2wikimultihopqa,gate_closed_book,3646,"(-1.6, 'bm25@3')",no dense index,0.15216749999672174,False,False,0.1942653989999089,0.1561490999883972,,
+2wikimultihopqa,gate_closed_book,3751,"(-1.6, 'bm25@3')",no dense index,0.5488784000044689,False,False,0.1942653989999089,0.5886672000051476,,
+2wikimultihopqa,gate_closed_book,3813,"(-1.6, 'bm25@3')",no dense index,0.18425009999191388,False,False,0.1942653989999089,0.1972079999977722,,
+2wikimultihopqa,gate_closed_book,3963,"(-1.6, 'bm25@3')",no dense index,0.1480827999766916,False,False,0.1942653989999089,0.1556814000068698,,
+2wikimultihopqa,gate_closed_book,3973,"(-1.6, 'bm25@3')",no dense index,0.257694200030528,False,False,0.1942653989999089,0.2696686999988742,,
+2wikimultihopqa,gate_closed_book,4003,"(-1.6, 'bm25@3')",no dense index,0.07498350000241771,False,False,0.1942653989999089,0.0800655999919399,,
+2wikimultihopqa,gate_closed_book,4094,"(-1.6, 'bm25@3')",no dense index,0.14759950002189726,False,False,0.1942653989999089,0.1563656000071205,,
+2wikimultihopqa,gate_closed_book,4099,"(-1.6, 'bm25@3')",no dense index,0.1847908000345342,False,False,0.1942653989999089,0.1998214999912306,,
+2wikimultihopqa,gate_closed_book,4201,"(-1.6, 'bm25@3')",no dense index,0.11195719998795539,False,False,0.1942653989999089,0.1191588999936357,,
+2wikimultihopqa,gate_closed_book,4344,"(-1.6, 'bm25@3')",no dense index,0.1481453999876976,False,False,0.1942653989999089,0.1571705999958794,,
+2wikimultihopqa,gate_closed_book,4417,"(-1.6, 'bm25@3')",no dense index,0.110654300020542,False,False,0.1942653989999089,0.1187033999885898,,
+2wikimultihopqa,gate_closed_book,4629,"(-1.6, 'bm25@3')",no dense index,0.07475259999046102,False,False,0.1942653989999089,0.0855397999985143,,
+2wikimultihopqa,gate_closed_book,4718,"(-1.6, 'bm25@3')",no dense index,0.18431919999420643,False,False,0.1942653989999089,0.1960584000044036,,
+2wikimultihopqa,gate_closed_book,5099,"(-1.6, 'bm25@3')",no dense index,0.22786210000049323,False,False,0.1942653989999089,0.2319318000227213,,
+2wikimultihopqa,gate_closed_book,5155,"(-1.6, 'bm25@3')",no dense index,0.11158999998588115,False,False,0.1942653989999089,0.1200582000019494,,
+2wikimultihopqa,gate_closed_book,5224,"(-1.6, 'bm25@3')",no dense index,0.11127140000462532,False,False,0.1942653989999089,0.1179468000191263,,
+2wikimultihopqa,gate_closed_book,5404,"(-1.6, 'bm25@3')",no dense index,0.25809139996999875,False,False,0.1942653989999089,0.2719056000059936,,
+2wikimultihopqa,gate_closed_book,5894,"(-1.6, 'bm25@3')",no dense index,0.1483377999975346,False,False,0.1942653989999089,0.1569254999922122,,
+2wikimultihopqa,gate_closed_book,5931,"(-1.6, 'bm25@3')",no dense index,0.07533159997547045,False,False,0.1942653989999089,0.0976008000143338,,
+2wikimultihopqa,gate_closed_book,6107,"(-1.6, 'bm25@3')",no dense index,0.07564169995021075,False,False,0.1942653989999089,0.0771543000009842,,
+2wikimultihopqa,gate_closed_book,6757,"(-1.6, 'bm25@3')",no dense index,0.14785629999823868,False,False,0.1942653989999089,0.1573598000104539,,
+2wikimultihopqa,gate_closed_book,6759,"(-1.6, 'bm25@3')",no dense index,0.2589520000037737,False,False,0.1942653989999089,0.2697957999771461,,
+2wikimultihopqa,gate_closed_book,6847,"(-1.6, 'bm25@3')",no dense index,0.07528470002580434,False,False,0.1942653989999089,0.0868713999807369,,
+2wikimultihopqa,gate_closed_book,6877,"(-1.6, 'bm25@3')",no dense index,0.2591738000046462,False,False,0.1942653989999089,0.2683254000148736,,
+2wikimultihopqa,gate_closed_book,7054,"(-1.6, 'bm25@3')",no dense index,0.18525689997477457,False,False,0.1942653989999089,0.2024048999883234,,
+2wikimultihopqa,gate_closed_book,720,"(-1.6, 'bm25@3')",no dense index,0.1479348000138998,False,False,0.1942653989999089,0.1530045999970752,,
+2wikimultihopqa,gate_closed_book,7463,"(-1.6, 'bm25@3')",no dense index,0.25905819999752566,False,False,0.1942653989999089,0.2723503000161145,,
+2wikimultihopqa,gate_closed_book,7841,"(-1.6, 'bm25@3')",no dense index,0.0815881000016816,False,False,0.1942653989999089,0.0823656999855302,,
+2wikimultihopqa,gate_closed_book,7852,"(-1.6, 'bm25@3')",no dense index,0.14868290000595152,False,False,0.1942653989999089,0.1554159000224899,,
+2wikimultihopqa,gate_closed_book,8,"(-1.6, 'bm25@3')",no dense index,0.1480710000032559,False,False,0.1942653989999089,0.1544172999856528,,
+2wikimultihopqa,gate_closed_book,8060,"(-1.6, 'bm25@3')",no dense index,0.18407059996388853,False,False,0.1942653989999089,0.1947655999974813,,
+2wikimultihopqa,gate_closed_book,8116,"(-1.6, 'bm25@3')",no dense index,0.2932936000288464,False,False,0.1942653989999089,0.3140256999759003,,
+2wikimultihopqa,gate_closed_book,8166,"(-1.6, 'bm25@3')",no dense index,0.14881049998803064,False,False,0.1942653989999089,0.154318000015337,,
+2wikimultihopqa,gate_closed_book,828,"(-1.6, 'bm25@3')",no dense index,0.14755689998855814,False,False,0.1942653989999089,0.1550101000175345,,
+2wikimultihopqa,gate_closed_book,8290,"(-1.6, 'bm25@3')",no dense index,0.18480390001786873,False,False,0.1942653989999089,0.1955944999936036,,
+2wikimultihopqa,gate_closed_book,83,"(-1.6, 'bm25@3')",no dense index,0.14737240003887564,False,False,0.1942653989999089,0.1583306999818887,,
+2wikimultihopqa,gate_closed_book,8305,"(-1.6, 'bm25@3')",no dense index,0.1843537000240758,False,False,0.1942653989999089,0.1961334999941755,,
+2wikimultihopqa,gate_closed_book,8344,"(-1.6, 'bm25@3')",no dense index,0.0758652999647893,False,False,0.1942653989999089,0.0826968000037595,,
+2wikimultihopqa,gate_closed_book,850,"(-1.6, 'bm25@3')",no dense index,0.18574679997982457,False,False,0.1942653989999089,0.1951894999947399,,
+2wikimultihopqa,gate_closed_book,8875,"(-1.6, 'bm25@3')",no dense index,0.11520440003369004,False,False,0.1942653989999089,0.115070999978343,,
+2wikimultihopqa,gate_closed_book,8876,"(-1.6, 'bm25@3')",no dense index,0.1490083999815397,False,False,0.1942653989999089,0.1804667999967932,,
+2wikimultihopqa,gate_closed_book,9243,"(-1.6, 'bm25@3')",no dense index,0.11246410000603646,False,False,0.1942653989999089,0.114830400008941,,
+2wikimultihopqa,gate_closed_book,9380,"(-1.6, 'bm25@3')",no dense index,0.07509940001182258,False,False,0.1942653989999089,0.0776719999848865,,
+2wikimultihopqa,gate_closed_book,9611,"(-1.6, 'bm25@3')",no dense index,0.22125130001222715,False,False,0.1942653989999089,0.237220500013791,,
+2wikimultihopqa,gate_closed_book,9653,"(-1.6, 'bm25@3')",no dense index,0.14815069996984676,False,False,0.1942653989999089,0.1562468000047374,,
+2wikimultihopqa,gate_closed_book,9757,"(-1.6, 'bm25@3')",no dense index,0.11211550002917647,False,False,0.1942653989999089,0.1193002999934833,,
+2wikimultihopqa,gate_closed_book,979,"(-1.6, 'bm25@3')",no dense index,0.2953418000251986,False,False,0.1942653989999089,0.3101633000187576,,
+2wikimultihopqa,gate_closed_book,9848,"(-1.6, 'bm25@3')",no dense index,0.07485709997126833,False,False,0.1942653989999089,0.0816686000034678,,
+2wikimultihopqa,conf_cascade,10038,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.19371949997730553,False,False,0.3164635428005131,0.20405719999689598,,
+2wikimultihopqa,conf_cascade,10062,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.369124999968335,True,True,1.683805383401981,1.5043031999957748,,
+2wikimultihopqa,conf_cascade,10386,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.363597299961839,True,True,1.683805383401981,2.0413688000116963,,
+2wikimultihopqa,conf_cascade,10839,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.022533299983479,True,True,1.683805383401981,1.193115400004899,,
+2wikimultihopqa,conf_cascade,10912,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.398875999962911,False,False,0.3164635428005131,0.40201560000423336,,
+2wikimultihopqa,conf_cascade,11118,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.092989700031467,True,True,1.683805383401981,1.3218257000553422,,
+2wikimultihopqa,conf_cascade,11317,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.1943496000021696,False,False,0.3164635428005131,0.20250700000906352,,
+2wikimultihopqa,conf_cascade,1166,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.4438318000175059,False,False,0.3164635428005131,0.4495741999999154,,
+2wikimultihopqa,conf_cascade,11834,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.24313379998784512,False,False,0.3164635428005131,0.251005600002827,,
+2wikimultihopqa,conf_cascade,12136,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36344929999904707,False,False,0.3164635428005131,0.3719781000108923,,
+2wikimultihopqa,conf_cascade,1608,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.5571003999793902,False,False,0.3164635428005131,0.5856036999903153,,
+2wikimultihopqa,conf_cascade,2473,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3487861000467092,False,False,0.3164635428005131,0.3653424000076484,,
+2wikimultihopqa,conf_cascade,2954,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.5272638000315055,True,True,1.683805383401981,1.935763300047256,,
+2wikimultihopqa,conf_cascade,3069,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.1010681000188924,True,True,1.683805383401981,1.3652894000115339,,
+2wikimultihopqa,conf_cascade,3881,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.4841744000441395,True,True,1.683805383401981,2.2681008000217844,,
+2wikimultihopqa,conf_cascade,4122,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,3.4402712999726646,True,True,1.683805383401981,2.9355503999977373,,
+2wikimultihopqa,conf_cascade,4335,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.9961348000215366,True,True,1.683805383401981,1.6668222000007518,,
+2wikimultihopqa,conf_cascade,4617,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36663810000754893,False,False,0.3164635428005131,0.3848126000084448,,
+2wikimultihopqa,conf_cascade,47,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2871534999576397,False,False,0.3164635428005131,0.2930359999882057,,
+2wikimultihopqa,conf_cascade,4844,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2803660999634303,False,False,0.3164635428005131,0.290482400014298,,
+2wikimultihopqa,conf_cascade,5711,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.062906400009524,True,True,1.683805383401981,1.25071179997758,,
+2wikimultihopqa,conf_cascade,5740,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2898437000112608,False,False,0.3164635428005131,0.30927840000367707,,
+2wikimultihopqa,conf_cascade,6072,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2560158999986015,False,False,0.3164635428005131,0.26649789998191403,,
+2wikimultihopqa,conf_cascade,6431,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3407058999873698,False,False,0.3164635428005131,0.35292890001437616,,
+2wikimultihopqa,conf_cascade,6552,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.1812966000288725,False,False,0.3164635428005131,0.18412760001956469,,
+2wikimultihopqa,conf_cascade,7464,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.18166999996174127,False,False,0.3164635428005131,0.1881081000028643,,
+2wikimultihopqa,conf_cascade,7882,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.974548100028187,True,True,1.683805383401981,1.174671400018269,,
+2wikimultihopqa,conf_cascade,7983,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.49224779999349266,False,False,0.3164635428005131,0.5106902999687009,,
+2wikimultihopqa,conf_cascade,8015,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.7961217000265606,True,True,1.683805383401981,1.050334699975792,,
+2wikimultihopqa,conf_cascade,8299,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.4750371999689378,False,False,0.3164635428005131,0.48787790001370007,,
+2wikimultihopqa,conf_cascade,8370,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.29618160001700744,False,False,0.3164635428005131,0.3015079000033437,,
+2wikimultihopqa,conf_cascade,8971,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.14510530000552535,False,False,0.3164635428005131,0.1506511999759823,,
+2wikimultihopqa,conf_cascade,9084,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2157781000132672,True,True,1.683805383401981,1.5773497000045604,,
+2wikimultihopqa,conf_cascade,9462,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.539212099974975,False,False,0.3164635428005131,0.5523702999926171,,
+2wikimultihopqa,conf_cascade,9520,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.11929560004500672,False,False,0.3164635428005131,0.1216649999551008,,
+2wikimultihopqa,conf_cascade,9896,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.046110499999486,True,True,1.683805383401981,1.2497964999929536,,
+2wikimultihopqa,conf_cascade,9961,"('bm25@3', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2581254999968223,True,True,1.683805383401981,1.6352873000141697,,
+2wikimultihopqa,conf_cascade,10051,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.263053700036835,True,True,1.7412814214020034,1.3883735000272277,,
+2wikimultihopqa,conf_cascade,10264,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.30906110000796616,False,False,0.3739395808005356,0.3168541999766603,,
+2wikimultihopqa,conf_cascade,103,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36779399996157736,False,False,0.3739395808005356,0.4013755000196397,,
+2wikimultihopqa,conf_cascade,10323,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.6901310000102967,True,True,1.7412814214020034,1.9733583999914117,,
+2wikimultihopqa,conf_cascade,10619,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.43264120002277195,False,False,0.3739395808005356,0.4455329999909735,,
+2wikimultihopqa,conf_cascade,10686,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2142996999900788,False,False,0.3739395808005356,0.2162508000037632,,
+2wikimultihopqa,conf_cascade,11011,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.17528490000404418,False,False,0.3739395808005356,0.1773698000179137,,
+2wikimultihopqa,conf_cascade,11108,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.7598857000120915,True,True,1.7412814214020034,2.2077610999403987,,
+2wikimultihopqa,conf_cascade,11131,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2517148000188172,False,False,0.3739395808005356,0.2525501000054645,,
+2wikimultihopqa,conf_cascade,11501,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.34923600003821775,False,False,0.3739395808005356,0.3560172999859787,,
+2wikimultihopqa,conf_cascade,11715,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36162540002260357,False,False,0.3739395808005356,0.3774143999908118,,
+2wikimultihopqa,conf_cascade,11839,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.30588159995386377,False,False,0.3739395808005356,0.3077855999872553,,
+2wikimultihopqa,conf_cascade,11890,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.8761999999987893,True,True,1.7412814214020034,1.1377081999962682,,
+2wikimultihopqa,conf_cascade,1197,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.9630366999772377,True,True,1.7412814214020034,1.4578406999935396,,
+2wikimultihopqa,conf_cascade,12243,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.424726199998986,False,False,0.3739395808005356,0.4317719000100624,,
+2wikimultihopqa,conf_cascade,12331,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3651714000152424,False,False,0.3739395808005356,0.3722033999802078,,
+2wikimultihopqa,conf_cascade,12403,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.4799337000004016,False,False,0.3739395808005356,0.49297390002175234,,
+2wikimultihopqa,conf_cascade,135,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3658906000200659,False,False,0.3739395808005356,0.3715225000050849,,
+2wikimultihopqa,conf_cascade,1491,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.0266078000422567,True,True,1.7412814214020034,1.1955406999913973,,
+2wikimultihopqa,conf_cascade,1964,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2499215000425465,True,True,1.7412814214020034,1.3639938999840524,,
+2wikimultihopqa,conf_cascade,2036,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2939009999972768,False,False,0.3739395808005356,0.3052004000055603,,
+2wikimultihopqa,conf_cascade,2055,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.4874009999912232,False,False,0.3739395808005356,0.4928204000461846,,
+2wikimultihopqa,conf_cascade,2154,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.37010870000813156,False,False,0.3739395808005356,0.3738666000135708,,
+2wikimultihopqa,conf_cascade,2340,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,3.145458500017412,True,True,1.7412814214020034,2.641077300009784,,
+2wikimultihopqa,conf_cascade,2435,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.6473918000119738,False,False,0.3739395808005356,0.6537886000005527,,
+2wikimultihopqa,conf_cascade,2540,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,4.817809799977113,True,True,1.7412814214020034,4.080484300007811,,
+2wikimultihopqa,conf_cascade,2801,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.47445540002081543,False,False,0.3739395808005356,0.4883632999844849,,
+2wikimultihopqa,conf_cascade,2865,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.773600600019563,True,True,1.7412814214020034,0.8620384999958332,,
+2wikimultihopqa,conf_cascade,2952,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.38752609997754917,False,False,0.3739395808005356,0.3991908000025432,,
+2wikimultihopqa,conf_cascade,2955,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.08108789997641,True,True,1.7412814214020034,1.1928765999909954,,
+2wikimultihopqa,conf_cascade,2984,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.7952001999947242,True,True,1.7412814214020034,0.9803597000427543,,
+2wikimultihopqa,conf_cascade,3464,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2905472000129521,False,False,0.3739395808005356,0.29981370002496976,,
+2wikimultihopqa,conf_cascade,3469,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.4591221999726258,False,False,0.3739395808005356,0.4662379000219516,,
+2wikimultihopqa,conf_cascade,3578,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.20027520001167431,False,False,0.3739395808005356,0.2025232999876606,,
+2wikimultihopqa,conf_cascade,3745,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.5279328000033274,True,True,1.7412814214020034,1.785565899976063,,
+2wikimultihopqa,conf_cascade,3853,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.0020026999991387,True,True,1.7412814214020034,1.4612286999763453,,
+2wikimultihopqa,conf_cascade,3963,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3649654999608174,False,False,0.3739395808005356,0.3771222999785095,,
+2wikimultihopqa,conf_cascade,3973,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.6390872999909334,False,False,0.3739395808005356,0.7124875999870709,,
+2wikimultihopqa,conf_cascade,4029,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36208769999211654,False,False,0.3739395808005356,0.404315099993255,,
+2wikimultihopqa,conf_cascade,4176,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.104950600012671,True,True,1.7412814214020034,1.7311852000129877,,
+2wikimultihopqa,conf_cascade,429,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.851851599989459,True,True,1.7412814214020034,2.4893650000158223,,
+2wikimultihopqa,conf_cascade,4344,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2899448999669403,False,False,0.3739395808005356,0.2939507999981287,,
+2wikimultihopqa,conf_cascade,4353,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3905964999576099,False,False,0.3739395808005356,0.39674409996950993,,
+2wikimultihopqa,conf_cascade,4420,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.20737970003392547,False,False,0.3739395808005356,0.2243262999982106,,
+2wikimultihopqa,conf_cascade,4629,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.4821469000307843,True,True,1.7412814214020034,1.614173000009032,,
+2wikimultihopqa,conf_cascade,4718,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3759676999761723,False,False,0.3739395808005356,0.3866095999837852,,
+2wikimultihopqa,conf_cascade,4860,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.1577521999715827,True,True,1.7412814214020034,1.4578804000630043,,
+2wikimultihopqa,conf_cascade,5070,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3150943000218831,False,False,0.3739395808005356,0.3169939000217709,,
+2wikimultihopqa,conf_cascade,5099,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3620851999730803,False,False,0.3739395808005356,0.3695331000199075,,
+2wikimultihopqa,conf_cascade,5174,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3346843000035733,False,False,0.3739395808005356,0.33462990002590226,,
+2wikimultihopqa,conf_cascade,518,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.33040360000450164,False,False,0.3739395808005356,0.3389435999852139,,
+2wikimultihopqa,conf_cascade,5224,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.24586780002573505,False,False,0.3739395808005356,0.24649849999696002,,
+2wikimultihopqa,conf_cascade,5894,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2648005000082776,True,True,1.7412814214020034,1.3694869999890213,,
+2wikimultihopqa,conf_cascade,5958,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.18135710002388805,False,False,0.3739395808005356,0.18314070001360952,,
+2wikimultihopqa,conf_cascade,6000,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2817034000181593,False,False,0.3739395808005356,0.2935243000101763,,
+2wikimultihopqa,conf_cascade,6071,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.21434969996334985,False,False,0.3739395808005356,0.221747600036906,,
+2wikimultihopqa,conf_cascade,6107,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.49882430001162,True,True,1.7412814214020034,2.360054199991281,,
+2wikimultihopqa,conf_cascade,6759,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.6591150999884121,False,False,0.3739395808005356,0.6885545999975875,,
+2wikimultihopqa,conf_cascade,6847,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2103779999888502,False,False,0.3739395808005356,0.22679110002354708,,
+2wikimultihopqa,conf_cascade,6866,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.17632640001829714,False,False,0.3739395808005356,0.1774038999865296,,
+2wikimultihopqa,conf_cascade,6877,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.6077499000239186,False,False,0.3739395808005356,0.6638874999771359,,
+2wikimultihopqa,conf_cascade,7047,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.27876600000308827,False,False,0.3739395808005356,0.28577129999757733,,
+2wikimultihopqa,conf_cascade,7463,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.29816069995285943,False,False,0.3739395808005356,0.30094339998322533,,
+2wikimultihopqa,conf_cascade,7474,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.36199880001368,False,False,0.3739395808005356,0.3700729999982285,,
+2wikimultihopqa,conf_cascade,7841,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2092193000135012,False,False,0.3739395808005356,0.2096142999944277,,
+2wikimultihopqa,conf_cascade,7985,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.32566270005190745,False,False,0.3739395808005356,0.33221930000581773,,
+2wikimultihopqa,conf_cascade,8116,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3870725999586284,False,False,0.3739395808005356,0.39310149999801064,,
+2wikimultihopqa,conf_cascade,8166,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.460482900030911,True,True,1.7412814214020034,2.3739679999416694,,
+2wikimultihopqa,conf_cascade,828,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.101169999979902,True,True,1.7412814214020034,1.7810546999971848,,
+2wikimultihopqa,conf_cascade,8289,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2100551000330597,True,True,1.7412814214020034,1.5524587999971118,,
+2wikimultihopqa,conf_cascade,8290,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.328836600005161,False,False,0.3739395808005356,0.3391601000039372,,
+2wikimultihopqa,conf_cascade,8344,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.18152919999556616,False,False,0.3739395808005356,0.1883174999966285,,
+2wikimultihopqa,conf_cascade,850,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.025343800021801,True,True,1.7412814214020034,1.171893100021407,,
+2wikimultihopqa,conf_cascade,8875,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.32170759997097775,False,False,0.3739395808005356,0.3204903999867383,,
+2wikimultihopqa,conf_cascade,9243,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,1.9560731000383385,True,True,1.7412814214020034,1.1078550000092944,,
+2wikimultihopqa,conf_cascade,9334,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.3367482000030577,False,False,0.3739395808005356,0.3513485000003129,,
+2wikimultihopqa,conf_cascade,9360,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.550706000009086,False,False,0.3739395808005356,0.5397240000020246,,
+2wikimultihopqa,conf_cascade,9529,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.2243404000182636,True,True,1.7412814214020034,1.609712000034051,,
+2wikimultihopqa,conf_cascade,9535,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.035298699978739,True,True,1.7412814214020034,1.7196740000217687,,
+2wikimultihopqa,conf_cascade,9653,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.28811840002890676,False,False,0.3739395808005356,0.2891976999526377,,
+2wikimultihopqa,conf_cascade,9757,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,0.2821461000130512,False,False,0.3739395808005356,0.28353819999028923,,
+2wikimultihopqa,conf_cascade,993,"('bm25@5', 'bge_bm25_rrf@20', -0.1)",cpu+no dense index,2.468552100006491,True,True,1.7412814214020034,1.9417497999966145,,
+2wikimultihopqa,conf_cascade,10157,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.2623306000023149,False,False,0.3739395808005356,0.2678972000139765,,
+2wikimultihopqa,conf_cascade,10668,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.3573636999935843,False,False,0.3739395808005356,0.3668279999983497,,
+2wikimultihopqa,conf_cascade,1085,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.460674200032372,False,False,0.3739395808005356,0.4739585000206715,,
+2wikimultihopqa,conf_cascade,11452,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.5973900999524631,False,False,0.3739395808005356,0.6356744000222534,,
+2wikimultihopqa,conf_cascade,1153,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.18421360000502318,False,False,0.3739395808005356,0.187408600031631,,
+2wikimultihopqa,conf_cascade,11762,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.252274300029967,False,False,0.3739395808005356,0.2606328999972901,,
+2wikimultihopqa,conf_cascade,12146,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.26130640000337735,False,False,0.3739395808005356,0.2732592000102158,,
+2wikimultihopqa,conf_cascade,12222,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.6818025999818929,False,False,0.3739395808005356,0.6982537000149023,,
+2wikimultihopqa,conf_cascade,12280,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.2397215999662876,False,False,0.3739395808005356,0.2411825000017415,,
+2wikimultihopqa,conf_cascade,1323,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.21770169999217615,False,False,0.3739395808005356,0.2252986000094096,,
+2wikimultihopqa,conf_cascade,1562,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.355509799963329,False,False,0.3739395808005356,0.3622918000037316,,
+2wikimultihopqa,conf_cascade,2254,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.31174839998129755,False,False,0.3739395808005356,0.3182958000106736,,
+2wikimultihopqa,conf_cascade,2452,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.43684680003207177,False,False,0.3739395808005356,0.48424289998365555,,
+2wikimultihopqa,conf_cascade,2483,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.45010780001757666,False,False,0.3739395808005356,0.45973629999207327,,
+2wikimultihopqa,conf_cascade,2576,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.28906099998857826,False,False,0.3739395808005356,0.2959090000076685,,
+2wikimultihopqa,conf_cascade,2629,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.36721870000474155,False,False,0.3739395808005356,0.3850921999837737,,
+2wikimultihopqa,conf_cascade,2680,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.32663480000337586,False,False,0.3739395808005356,0.3292211999942083,,
+2wikimultihopqa,conf_cascade,2901,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.44340340001508594,False,False,0.3739395808005356,0.4690989000082481,,
+2wikimultihopqa,conf_cascade,3025,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.36300269997445866,False,False,0.3739395808005356,0.3695079999743029,,
+2wikimultihopqa,conf_cascade,3585,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.26487000001361594,False,False,0.3739395808005356,0.26926939998520527,,
+2wikimultihopqa,conf_cascade,4301,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.2861049000057392,False,False,0.3739395808005356,0.3012425000197253,,
+2wikimultihopqa,conf_cascade,4341,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.17650240001967177,False,False,0.3739395808005356,0.1782525000162422,,
+2wikimultihopqa,conf_cascade,4480,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.508254999993369,False,False,0.3739395808005356,0.521822200011229,,
+2wikimultihopqa,conf_cascade,4676,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.27847670001210645,False,False,0.3739395808005356,0.2875585000147111,,
+2wikimultihopqa,conf_cascade,5362,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.1804095000261441,False,False,0.3739395808005356,0.1817906999785917,,
+2wikimultihopqa,conf_cascade,538,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.6624359000124969,False,False,0.3739395808005356,0.6730532000074162,,
+2wikimultihopqa,conf_cascade,5562,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.20349040004657581,False,False,0.3739395808005356,0.20387220001430248,,
+2wikimultihopqa,conf_cascade,5943,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.29687570000533015,False,False,0.3739395808005356,0.3260301999980583,,
+2wikimultihopqa,conf_cascade,6427,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.4350218999898061,False,False,0.3739395808005356,0.4855977999686728,,
+2wikimultihopqa,conf_cascade,6586,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.35070800001267344,False,False,0.3739395808005356,0.36483149998821307,,
+2wikimultihopqa,conf_cascade,6829,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.5330965000321157,False,False,0.3739395808005356,0.5470645999885164,,
+2wikimultihopqa,conf_cascade,7202,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.43727370002307,False,False,0.3739395808005356,0.4472165000042877,,
+2wikimultihopqa,conf_cascade,7301,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.23959750001085922,False,False,0.3739395808005356,0.2395466999732889,,
+2wikimultihopqa,conf_cascade,7766,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.49926710000727326,False,False,0.3739395808005356,0.5864294999919366,,
+2wikimultihopqa,conf_cascade,7873,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.18870040000183508,False,False,0.3739395808005356,0.1908732999872881,,
+2wikimultihopqa,conf_cascade,8128,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.36379289999604225,False,False,0.3739395808005356,0.3770752999989781,,
+2wikimultihopqa,conf_cascade,8314,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.3562497000093572,False,False,0.3739395808005356,0.36611339999944886,,
+2wikimultihopqa,conf_cascade,8489,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.4463073000079021,False,False,0.3739395808005356,0.4555118999560363,,
+2wikimultihopqa,conf_cascade,8697,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.36243219999596477,False,False,0.3739395808005356,0.3725996000284794,,
+2wikimultihopqa,conf_cascade,8720,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.33842230000300333,False,False,0.3739395808005356,0.3405565999855753,,
+2wikimultihopqa,conf_cascade,8802,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.24056850001215935,False,False,0.3739395808005356,0.24401289998786518,,
+2wikimultihopqa,conf_cascade,8922,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.25235619995510206,False,False,0.3739395808005356,0.31237369999871584,,
+2wikimultihopqa,conf_cascade,9113,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.47687209997093305,False,False,0.3739395808005356,0.4877285000111441,,
+2wikimultihopqa,conf_cascade,9261,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.5190352000063285,False,False,0.3739395808005356,0.547450599988224,,
+2wikimultihopqa,conf_cascade,9271,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.21108670003013685,False,False,0.3739395808005356,0.21337050001602612,,
+2wikimultihopqa,conf_cascade,9575,"('bm25@5', 'bge_bm25_rrf@5', -1.3)",cpu+no dense index,0.31268819997785613,False,False,0.3739395808005356,0.31557330000214273,,
+2wikimultihopqa,plan_emb,10381,bge_bm25_rrf@3,cpu,1.258209599996917,True,True,0.4338427952007623,0.3818580000079236,0.02487189997918904,1.0000001192092896
+2wikimultihopqa,plan_emb,8876,bge_m3@3,cpu,1.4727546999929473,True,True,0.3870903725994867,0.4996129999926779,0.02418720000423491,1.0
+2wikimultihopqa,plan_emb,10038,bm25@1,no dense index,0.14893249998567626,True,True,0.25334470080031307,0.164944899996044,0.02597269997932017,1.0
+2wikimultihopqa,plan_emb,10062,bm25@1,no dense index,0.23906290001468733,True,True,0.25334470080031307,0.2254723999940324,0.02594139997381717,1.0
+2wikimultihopqa,plan_emb,10157,bm25@5,no dense index,0.2850004000356421,True,True,0.3739395808005356,0.2678972000139765,0.026407100027427077,1.0000001192092896
+2wikimultihopqa,plan_emb,10562,bm25@1,no dense index,0.5126046999357641,True,True,0.25334470080031307,0.5904682999826036,0.024341699958313257,1.0
+2wikimultihopqa,plan_emb,10668,bm25@1,no dense index,0.288858900021296,True,True,0.25334470080031307,0.21864229999482632,0.024171299999579787,1.0
+2wikimultihopqa,plan_emb,10839,bm25@1,no dense index,0.146187300037127,True,True,0.25334470080031307,0.1232160000072325,0.024220900028012693,1.0
+2wikimultihopqa,plan_emb,10912,bm25@1,no dense index,0.3291042000055313,True,True,0.25334470080031307,0.3152500999858602,0.024346599995624274,1.0
+2wikimultihopqa,plan_emb,11317,bm25@1,no dense index,0.18494720000308007,True,True,0.25334470080031307,0.1660246000101323,0.024177199986297637,1.0000001192092896
+2wikimultihopqa,plan_emb,11452,bm25@1,no dense index,0.406473399954848,True,True,0.25334470080031307,0.4018393000005744,0.0242374999797903,1.0
+2wikimultihopqa,plan_emb,11762,bm25@1,no dense index,0.20139549998566508,True,True,0.25334470080031307,0.1798458999837747,0.02434399997582659,1.0000001192092896
+2wikimultihopqa,plan_emb,11839,bm25@3,no dense index,0.23876679997192696,True,True,0.3164635428005131,0.2164548999862744,0.024429399985820055,1.0
+2wikimultihopqa,plan_emb,11890,bm25@1,no dense index,0.16022439993685111,True,True,0.25334470080031307,0.127563900023233,0.024540699960198253,1.0000001192092896
+2wikimultihopqa,plan_emb,12136,bm25@3,no dense index,0.38768569997046143,True,True,0.3164635428005131,0.3719781000108923,0.02430869999807328,0.9999999403953552
+2wikimultihopqa,plan_emb,12243,bm25@3,no dense index,0.419732499984093,True,True,0.3164635428005131,0.4036122000252362,0.024421599984634668,1.0
+2wikimultihopqa,plan_emb,12296,bm25@1,no dense index,0.16646739997668192,True,True,0.25334470080031307,0.15754729998297978,0.024249900016002357,1.0
+2wikimultihopqa,plan_emb,12399,bm25@3,no dense index,0.4981065999600105,True,True,0.3164635428005131,0.49695780000183726,0.024294500006362796,1.0
+2wikimultihopqa,plan_emb,135,bm25@1,no dense index,0.2936232999782078,True,True,0.25334470080031307,0.27604210001300084,0.02454130002297461,0.9999999403953552
+2wikimultihopqa,plan_emb,1608,bm25@3,no dense index,0.5829799000639468,True,True,0.3164635428005131,0.5856036999903153,0.024564500025007874,1.0
+2wikimultihopqa,plan_emb,2055,bm25@1,no dense index,0.34834699996281415,True,True,0.25334470080031307,0.3332205000333487,0.024855699972249568,1.0
+2wikimultihopqa,plan_emb,2128,bm25@3,no dense index,0.5457787000341341,True,True,0.3164635428005131,0.5453399999823886,0.02445690002059564,1.0000001192092896
+2wikimultihopqa,plan_emb,2254,bm25@1,no dense index,0.2531176999909803,True,True,0.25334470080031307,0.23754780000308517,0.02457970002433285,1.0
+2wikimultihopqa,plan_emb,2473,bm25@3,no dense index,0.3725456000538543,True,True,0.3164635428005131,0.3653424000076484,0.024558700039051473,1.0000001192092896
+2wikimultihopqa,plan_emb,2540,bm25@3,no dense index,0.5413609999231994,True,True,0.3164635428005131,0.5324112999951466,0.02457059995504096,1.0
+2wikimultihopqa,plan_emb,2576,bm25@3,no dense index,0.2830309999990277,True,True,0.3164635428005131,0.2624873000313528,0.024514999997336417,0.9999999403953552
+2wikimultihopqa,plan_emb,2680,bm25@3,no dense index,0.3152911000070162,True,True,0.3164635428005131,0.2994259999832138,0.024467599985655397,1.0
+2wikimultihopqa,plan_emb,2848,bm25@3,no dense index,0.2867860000114888,True,True,0.3164635428005131,0.2694692999939434,0.02461080002831295,1.0
+2wikimultihopqa,plan_emb,2952,bm25@3,no dense index,0.32545399997616187,True,True,0.3164635428005131,0.30391470002359705,0.023958600009791553,1.0000001192092896
+2wikimultihopqa,plan_emb,3254,bm25@3,no dense index,0.2850949000567198,True,True,0.3164635428005131,0.263975699985167,0.024379200011026114,1.0
+2wikimultihopqa,plan_emb,357,bm25@1,no dense index,0.27674950001528487,True,True,0.25334470080031307,0.25832679998711683,0.024434100021608174,1.0
+2wikimultihopqa,plan_emb,3578,bm25@1,no dense index,0.1280132999527268,True,True,0.25334470080031307,0.1048532999702728,0.024583099992014468,1.0
+2wikimultihopqa,plan_emb,3646,bm25@5,no dense index,0.30168729997240007,True,True,0.3739395808005356,0.2840251000015996,0.024676699948031455,1.0000001192092896
+2wikimultihopqa,plan_emb,3751,bm25@3,no dense index,0.7111831999500282,True,True,0.3164635428005131,0.728502899990417,0.024435299972537905,1.0
+2wikimultihopqa,plan_emb,3813,bm25@1,no dense index,0.3302758000208996,True,True,0.25334470080031307,0.3152670999697874,0.024872500041965395,1.0000001192092896
+2wikimultihopqa,plan_emb,3963,bm25@1,no dense index,0.4790617999387905,True,True,0.25334470080031307,0.4667849000252317,0.02472499996656552,1.0000001192092896
+2wikimultihopqa,plan_emb,4029,bm25@1,no dense index,0.23855439998442307,True,True,0.25334470080031307,0.22315179998986417,0.02444670000113547,1.0
+2wikimultihopqa,plan_emb,4094,bm25@1,no dense index,0.12807979999342933,True,True,0.25334470080031307,0.1081768000149167,0.024777800019364804,1.0
+2wikimultihopqa,plan_emb,4099,bm25@1,no dense index,0.24305160000221804,True,True,0.25334470080031307,0.2281304999778512,0.024339099996723235,1.0000001192092896
+2wikimultihopqa,plan_emb,4122,bm25@3,no dense index,0.5752528000157326,True,True,0.3164635428005131,0.5804233999806456,0.024242700019385666,1.0
+2wikimultihopqa,plan_emb,4301,bm25@3,no dense index,0.278425500029698,True,True,0.3164635428005131,0.2740607000014278,0.024224599997978657,1.0
+2wikimultihopqa,plan_emb,4335,bm25@1,no dense index,0.14679310005158186,True,True,0.25334470080031307,0.1356216999993193,0.024185500049497932,1.0
+2wikimultihopqa,plan_emb,4344,bm25@1,no dense index,0.2421426000073552,True,True,0.25334470080031307,0.21860819999710648,0.024177299987059087,1.0
+2wikimultihopqa,plan_emb,4420,bm25@3,no dense index,0.20723309996537864,True,True,0.3164635428005131,0.19576200001756652,0.024234200012870133,1.0000001192092896
+2wikimultihopqa,plan_emb,4617,bm25@1,no dense index,0.2070578999700956,True,True,0.25334470080031307,0.1964104000362567,0.024320999975316226,1.0
+2wikimultihopqa,plan_emb,47,bm25@1,no dense index,0.23980380001012236,True,True,0.25334470080031307,0.2175453999952878,0.024223099986556917,1.0
+2wikimultihopqa,plan_emb,4718,bm25@1,no dense index,0.2559954000171274,True,True,0.25334470080031307,0.2393738999962806,0.025382500025443733,1.0
+2wikimultihopqa,plan_emb,4844,bm25@3,no dense index,0.3089238000684418,True,True,0.3164635428005131,0.290482400014298,0.027523000026121736,1.0
+2wikimultihopqa,plan_emb,5099,bm25@3,no dense index,0.3462500000023283,True,True,0.3164635428005131,0.3331716999819036,0.024205400026403368,1.0
+2wikimultihopqa,plan_emb,5224,bm25@1,no dense index,0.16615100001217797,True,True,0.25334470080031307,0.1440236000053118,0.02426999999443069,1.0
+2wikimultihopqa,plan_emb,5404,bm25@5,no dense index,0.37610259995562956,True,True,0.3739395808005356,0.3571610999933909,0.02472039998974651,1.0
+2wikimultihopqa,plan_emb,5931,bm25@5,no dense index,0.2312094999360852,True,True,0.3739395808005356,0.2105870000086724,0.02483009995194152,1.0
+2wikimultihopqa,plan_emb,5943,bm25@1,no dense index,0.1276003000093624,True,True,0.25334470080031307,0.10826139998971471,0.024354199995286763,1.0
+2wikimultihopqa,plan_emb,6000,bm25@1,no dense index,0.18500089994631708,True,True,0.25334470080031307,0.163889499992365,0.02427579998038709,1.0000001192092896
+2wikimultihopqa,plan_emb,6071,bm25@3,no dense index,0.19949319993611425,True,True,0.3164635428005131,0.1817224000114947,0.024305299972184002,1.0
+2wikimultihopqa,plan_emb,6107,bm25@3,no dense index,0.44848620000993833,True,True,0.3164635428005131,0.4473546000081114,0.024224599997978657,1.0000001192092896
+2wikimultihopqa,plan_emb,6431,bm25@3,no dense index,0.3615512000396848,True,True,0.3164635428005131,0.35292890001437616,0.024530199996661395,1.0
+2wikimultihopqa,plan_emb,6829,bm25@1,no dense index,0.38435629999730736,True,True,0.25334470080031307,0.37515169999096537,0.025324499991256744,1.0000001192092896
+2wikimultihopqa,plan_emb,7054,bm25@1,no dense index,0.4699467999744229,True,True,0.25334470080031307,0.4659136999980546,0.024355100002139807,1.0
+2wikimultihopqa,plan_emb,720,bm25@1,no dense index,0.20288660004734993,True,True,0.25334470080031307,0.17971160003799008,0.024186499998904765,1.0
+2wikimultihopqa,plan_emb,7463,bm25@3,no dense index,0.3524036000017077,True,True,0.3164635428005131,0.3335554999939631,0.024165499955415726,1.0000001192092896
+2wikimultihopqa,plan_emb,7464,bm25@1,no dense index,0.164825199986808,True,True,0.25334470080031307,0.1444844000216107,0.024262199993245304,1.0000001192092896
+2wikimultihopqa,plan_emb,7474,bm25@3,no dense index,0.35259640001459047,True,True,0.3164635428005131,0.3345580999739467,0.02422279998427257,1.0
+2wikimultihopqa,plan_emb,7766,bm25@3,no dense index,0.4648645000415854,True,True,0.3164635428005131,0.5194180999824312,0.024066300014965236,1.0
+2wikimultihopqa,plan_emb,7841,bm25@1,no dense index,0.12908049998804927,True,True,0.25334470080031307,0.1042945999943185,0.02429069997742772,1.0000001192092896
+2wikimultihopqa,plan_emb,7873,bm25@1,no dense index,0.14771410002140328,True,True,0.25334470080031307,0.12758189998567102,0.02430119999917224,1.0
+2wikimultihopqa,plan_emb,8,bm25@1,no dense index,0.2032428000238724,True,True,0.25334470080031307,0.1801860000123269,0.024224599997978657,1.0
+2wikimultihopqa,plan_emb,8128,bm25@1,no dense index,0.3174009000067599,True,True,0.25334470080031307,0.31203240001923405,0.024226200010161847,1.0
+2wikimultihopqa,plan_emb,8290,bm25@3,no dense index,0.284285000001546,True,True,0.3164635428005131,0.270002100005513,0.024426300020422786,1.0
+2wikimultihopqa,plan_emb,8299,bm25@3,no dense index,0.49535440001636744,True,True,0.3164635428005131,0.48787790001370007,0.024636400048621,1.0
+2wikimultihopqa,plan_emb,83,bm25@1,no dense index,0.31271760002709925,True,True,0.25334470080031307,0.2939539999933913,0.024322299985215068,1.0
+2wikimultihopqa,plan_emb,8305,bm25@3,no dense index,0.631048200011719,True,True,0.3164635428005131,0.6366158000018913,0.024341600015759468,1.0
+2wikimultihopqa,plan_emb,8314,bm25@3,no dense index,0.3543372999993153,True,True,0.3164635428005131,0.33200090000173066,0.02422110002953559,0.9999999403953552
+2wikimultihopqa,plan_emb,8370,bm25@3,no dense index,0.321017199952621,True,True,0.3164635428005131,0.3015079000033437,0.024298699980136007,1.0
+2wikimultihopqa,plan_emb,8489,bm25@1,no dense index,0.42627100000390783,True,True,0.25334470080031307,0.4247133999888319,0.024223199987318367,1.0000001192092896
+2wikimultihopqa,plan_emb,8697,bm25@3,no dense index,0.3252931000315584,True,True,0.3164635428005131,0.3080355999991297,0.024862400023266673,1.0
+2wikimultihopqa,plan_emb,8802,bm25@1,no dense index,0.13396969996392727,True,True,0.25334470080031307,0.112214099994162,0.024246999993920326,1.0
+2wikimultihopqa,plan_emb,8875,bm25@5,no dense index,0.3398689000168815,True,True,0.3739395808005356,0.3204903999867383,0.02417079999577254,1.0000001192092896
+2wikimultihopqa,plan_emb,8971,bm25@1,no dense index,0.13375710003310814,True,True,0.25334470080031307,0.1113290000066626,0.02445100003387779,1.0
+2wikimultihopqa,plan_emb,9113,bm25@1,no dense index,0.2667304000351578,True,True,0.25334470080031307,0.24649210000643498,0.024127700016833842,1.0
+2wikimultihopqa,plan_emb,9360,bm25@3,no dense index,0.5239035999402404,True,True,0.3164635428005131,0.5047241999709512,0.024120899965055287,1.0
+2wikimultihopqa,plan_emb,9462,bm25@1,no dense index,0.49676879995968193,True,True,0.25334470080031307,0.4902259999944362,0.024239699996542186,1.0
+2wikimultihopqa,plan_emb,9535,bm25@3,no dense index,0.16780269995797426,True,True,0.3164635428005131,0.1443105999787803,0.024159699969459325,1.0
+2wikimultihopqa,plan_emb,9575,bm25@1,no dense index,0.22068289999151602,True,True,0.25334470080031307,0.19923930001095858,0.024258799967356026,1.0
+2wikimultihopqa,plan_emb,979,bm25@3,no dense index,0.6485181999742053,True,True,0.3164635428005131,0.6575438000145368,0.02414569997927174,1.0
+2wikimultihopqa,plan_emb,9848,bm25@1,no dense index,0.16327900002943352,True,True,0.25334470080031307,0.14283959998283519,0.024135700019542128,0.9999998807907104
+2wikimultihopqa,plan_emb,10051,closed_book@0,,0.20894740003859624,True,True,0.1942653989999089,0.1975370000000111,0.0257963000331074,1.0
+2wikimultihopqa,plan_emb,10264,closed_book@0,,0.09776829998008907,True,True,0.1942653989999089,0.0790113000257406,0.023290199984330684,1.0000001192092896
+2wikimultihopqa,plan_emb,103,closed_book@0,,0.4614214999601245,True,True,0.1942653989999089,0.460787199990591,0.024412899976596236,1.0
+2wikimultihopqa,plan_emb,10323,closed_book@0,,0.17143269994994625,True,True,0.1942653989999089,0.1564946999715175,0.02432339999359101,1.0
+2wikimultihopqa,plan_emb,10386,closed_book@0,,0.20640190003905445,True,True,0.1942653989999089,0.1899517999845557,0.024398100038524717,1.0000001192092896
+2wikimultihopqa,plan_emb,10619,closed_book@0,,0.17100959998788312,True,True,0.1942653989999089,0.1574380999954883,0.023907899972982705,0.9999999403953552
+2wikimultihopqa,plan_emb,10686,closed_book@0,,0.13455860002432019,True,True,0.1942653989999089,0.1231667000101879,0.023902299988549203,1.0
+2wikimultihopqa,plan_emb,1085,closed_book@0,,0.13465039996663108,True,True,0.1942653989999089,0.1175914999912493,0.023872499994467944,1.0
+2wikimultihopqa,plan_emb,11011,closed_book@0,,0.09909180004615337,True,True,0.1942653989999089,0.0942880000220611,0.024339099996723235,1.0
+2wikimultihopqa,plan_emb,11108,closed_book@0,,0.13494790002005175,True,True,0.1942653989999089,0.1215140999993309,0.024311100016348064,1.0000001192092896
+2wikimultihopqa,plan_emb,11118,closed_book@0,,0.24313499999698251,True,True,0.1942653989999089,0.2322541000030469,0.02435449999757111,1.0
+2wikimultihopqa,plan_emb,11131,closed_book@0,,0.1701318999985233,True,True,0.1942653989999089,0.1581262999970931,0.024275300034787506,1.0000001192092896
+2wikimultihopqa,plan_emb,11501,closed_book@0,,0.242198699968867,True,True,0.1942653989999089,0.2362301000102888,0.02422439999645576,1.0000001192092896
+2wikimultihopqa,plan_emb,1153,closed_book@0,,0.09897760004969314,True,True,0.1942653989999089,0.0766064999916125,0.024500300001818687,1.0
+2wikimultihopqa,plan_emb,1166,closed_book@0,,0.24381210003048182,True,True,0.1942653989999089,0.2308717999840155,0.024205900030210614,1.0
+2wikimultihopqa,plan_emb,11715,closed_book@0,,0.27970910008298233,True,True,0.1942653989999089,0.2914377000124659,0.024413100036326796,1.0000001192092896
+2wikimultihopqa,plan_emb,11834,closed_book@0,,0.09999939997214824,True,True,0.1942653989999089,0.0782736999972257,0.024350999970920384,1.0
+2wikimultihopqa,plan_emb,11851,closed_book@0,,0.1710166999255307,True,True,0.1942653989999089,0.1526718999957665,0.024359399976674467,1.0
+2wikimultihopqa,plan_emb,1197,closed_book@0,,0.20760029996745288,True,True,0.1942653989999089,0.1954226999951061,0.024576399999205023,1.0
+2wikimultihopqa,plan_emb,12146,closed_book@0,,0.24438829999417067,True,True,0.1942653989999089,0.2316098000155761,0.024685800017323345,1.0
+2wikimultihopqa,plan_emb,12222,closed_book@0,,0.5440935000078753,True,True,0.1942653989999089,0.5474697000172455,0.0242199000203982,1.0000001192092896
+2wikimultihopqa,plan_emb,12280,closed_book@0,,0.13566520001040772,True,True,0.1942653989999089,0.1163468000013381,0.024506799993105233,1.0
+2wikimultihopqa,plan_emb,12331,closed_book@0,,0.38803839997854084,True,True,0.1942653989999089,0.3825089999882038,0.023910799995064735,1.0
+2wikimultihopqa,plan_emb,12403,closed_book@0,,0.31635310006095096,True,True,0.1942653989999089,0.309375100012403,0.024342200020328164,1.0000001192092896
+2wikimultihopqa,plan_emb,1323,closed_book@0,,0.10016649996396154,True,True,0.1942653989999089,0.0803798999986611,0.024835199990775436,1.0
+2wikimultihopqa,plan_emb,1491,closed_book@0,,0.31630599999334663,True,True,0.1942653989999089,0.3120308000070508,0.024248700006864965,1.0
+2wikimultihopqa,plan_emb,1562,closed_book@0,,0.24358710000524297,True,True,0.1942653989999089,0.2357097000058274,0.024491599993780255,1.0
+2wikimultihopqa,plan_emb,1964,closed_book@0,,0.09915610001189634,True,True,0.1942653989999089,0.0799688999832142,0.024799900013022125,0.9999999403953552
+2wikimultihopqa,plan_emb,2036,closed_book@0,,0.1355452000279911,True,True,0.1942653989999089,0.1156617999949958,0.02474740002071485,1.0
+2wikimultihopqa,plan_emb,2154,closed_book@0,,0.17272299999604002,True,True,0.1942653989999089,0.1535752000054344,0.024656200024764985,1.0000001192092896
+2wikimultihopqa,plan_emb,2340,closed_book@0,,0.31510720000369474,True,True,0.1942653989999089,0.3054700000211596,0.02430119999917224,1.0
+2wikimultihopqa,plan_emb,2435,closed_book@0,,0.5341003999346867,True,True,0.1942653989999089,0.5424589999893215,0.024503499967977405,1.0
+2wikimultihopqa,plan_emb,2452,closed_book@0,,0.17185969999991357,True,True,0.1942653989999089,0.1579919000214431,0.02461109997238964,1.0000001192092896
+2wikimultihopqa,plan_emb,2483,closed_book@0,,0.2441802999819629,True,True,0.1942653989999089,0.2477913000038825,0.02458099997602403,1.0
+2wikimultihopqa,plan_emb,2629,closed_book@0,,0.13524789997609332,True,True,0.1942653989999089,0.1181946999859064,0.024686999968253076,1.0
+2wikimultihopqa,plan_emb,2801,closed_book@0,,0.31542060000356287,True,True,0.1942653989999089,0.3100980999879539,0.024514099990483373,1.0
+2wikimultihopqa,plan_emb,2865,closed_book@0,,0.1711197000113316,True,True,0.1942653989999089,0.1608304999826941,0.024398300040047616,1.0
+2wikimultihopqa,plan_emb,2884,closed_book@0,,0.1833776999847032,True,True,0.1942653989999089,0.1582213000219781,0.024282899976242334,1.0000001192092896
+2wikimultihopqa,plan_emb,2901,closed_book@0,,0.2083983999909833,True,True,0.1942653989999089,0.1921152000140864,0.024273800023365766,1.0000001192092896
+2wikimultihopqa,plan_emb,2954,closed_book@0,,0.21226910001132637,True,True,0.1942653989999089,0.2044546999968588,0.024460699991323054,1.0
+2wikimultihopqa,plan_emb,2955,closed_book@0,,0.17127619992243126,True,True,0.1942653989999089,0.1582628000178374,0.02400459995260462,1.0000001192092896
+2wikimultihopqa,plan_emb,2963,closed_book@0,,0.17121679993579164,True,True,0.1942653989999089,0.1535879999864846,0.024417299951892346,1.0
+2wikimultihopqa,plan_emb,2984,closed_book@0,,0.2071647999691777,True,True,0.1942653989999089,0.1944980999978725,0.024685699958354235,1.0
+2wikimultihopqa,plan_emb,3025,closed_book@0,,0.2079012999893166,True,True,0.1942653989999089,0.1947021999803837,0.024333500012289733,1.0
+2wikimultihopqa,plan_emb,3069,closed_book@0,,0.20861760003026575,True,True,0.1942653989999089,0.1933245999971404,0.02478120004525408,1.0
+2wikimultihopqa,plan_emb,3464,closed_book@0,,0.2081762999878265,True,True,0.1942653989999089,0.1935163000016473,0.02445069997338578,1.0000001192092896
+2wikimultihopqa,plan_emb,3469,closed_book@0,,0.3633222000207752,True,True,0.1942653989999089,0.3462429999781307,0.024391299986746162,1.0
+2wikimultihopqa,plan_emb,3585,closed_book@0,,0.09907579998252913,True,True,0.1942653989999089,0.0779495000024326,0.02445229998556897,1.0
+2wikimultihopqa,plan_emb,3745,closed_book@0,,0.17139159998623654,True,True,0.1942653989999089,0.1595385000109672,0.024675799999386072,1.0
+2wikimultihopqa,plan_emb,3853,closed_book@0,,0.13522950001060963,True,True,0.1942653989999089,0.1172021999955177,0.02497670002048835,1.0
+2wikimultihopqa,plan_emb,3881,closed_book@0,,0.24413949996232986,True,True,0.1942653989999089,0.248404699988896,0.024755399965215474,1.0
+2wikimultihopqa,plan_emb,3973,closed_book@0,,0.2796237000147812,True,True,0.1942653989999089,0.2696686999988742,0.024448400014080107,1.0
+2wikimultihopqa,plan_emb,4003,closed_book@0,,0.09969329996965826,True,True,0.1942653989999089,0.0800655999919399,0.024750899989157915,1.0
+2wikimultihopqa,plan_emb,4176,closed_book@0,,0.24397550005232915,True,True,0.1942653989999089,0.2303136000118684,0.024466400034725666,1.0000001192092896
+2wikimultihopqa,plan_emb,4201,closed_book@0,,0.13464080006815493,True,True,0.1942653989999089,0.1191588999936357,0.024328700033947825,1.0
+2wikimultihopqa,plan_emb,429,closed_book@0,,0.35255090007558465,True,True,0.1942653989999089,0.3505067999940365,0.024466400034725666,1.0000001192092896
+2wikimultihopqa,plan_emb,4341,closed_book@0,,0.0990056999726221,True,True,0.1942653989999089,0.0790579000022262,0.024448500014841557,1.0
+2wikimultihopqa,plan_emb,4353,closed_book@0,,0.2803768999874592,True,True,0.1942653989999089,0.2677347999997437,0.02414890000363812,1.0
+2wikimultihopqa,plan_emb,4417,closed_book@0,,0.13493320002453402,True,True,0.1942653989999089,0.1187033999885898,0.024476799997501075,1.000000238418579
+2wikimultihopqa,plan_emb,4480,closed_book@0,,0.3153765000170097,True,True,0.1942653989999089,0.3139920000103302,0.024306499981321394,1.0000001192092896
+2wikimultihopqa,plan_emb,4629,closed_book@0,,0.09931719995802268,True,True,0.1942653989999089,0.0855397999985143,0.024485699948854744,1.0000001192092896
+2wikimultihopqa,plan_emb,4676,closed_book@0,,0.24278369994135574,True,True,0.1942653989999089,0.2316713999898638,0.024334099958650768,1.0
+2wikimultihopqa,plan_emb,4860,closed_book@0,,0.10216659994330257,True,True,0.1942653989999089,0.0780626999912783,0.026257799996528774,0.9999999403953552
+2wikimultihopqa,plan_emb,5070,closed_book@0,,0.17492460005450994,True,True,0.1942653989999089,0.1611618000024464,0.024340700008906424,1.0
+2wikimultihopqa,plan_emb,5155,closed_book@0,,0.13578680000500754,True,True,0.1942653989999089,0.1200582000019494,0.02421810000669211,1.0000001192092896
+2wikimultihopqa,plan_emb,5174,closed_book@0,,0.17089800001122057,True,True,0.1942653989999089,0.1564420000067912,0.0241323999944143,1.0000001192092896
+2wikimultihopqa,plan_emb,518,closed_book@0,,0.24309880001237616,True,True,0.1942653989999089,0.2338945000083185,0.02431459998479113,1.0000001192092896
+2wikimultihopqa,plan_emb,5362,closed_book@0,,0.2082759999902919,True,True,0.1942653989999089,0.1938688000082038,0.02472029998898506,1.0
+2wikimultihopqa,plan_emb,538,closed_book@0,,0.42622229998232797,True,True,0.1942653989999089,0.4229185000003781,0.024278600001707673,1.000000238418579
+2wikimultihopqa,plan_emb,5562,closed_book@0,,0.09924429998500273,True,True,0.1942653989999089,0.0777888000011444,0.02428220002911985,1.0
+2wikimultihopqa,plan_emb,5711,closed_book@0,,0.20743279997259378,True,True,0.1942653989999089,0.1909914999851025,0.024565199972130358,1.0000001192092896
+2wikimultihopqa,plan_emb,5740,closed_book@0,,0.20835930004250258,True,True,0.1942653989999089,0.1917577000276651,0.02424920001067221,0.9999999403953552
+2wikimultihopqa,plan_emb,5894,closed_book@0,,0.17137919995002449,True,True,0.1942653989999089,0.1569254999922122,0.024052599968854338,1.0
+2wikimultihopqa,plan_emb,5958,closed_book@0,,0.09892720001516864,True,True,0.1942653989999089,0.0781752000038977,0.02432219998445362,1.0
+2wikimultihopqa,plan_emb,6072,closed_book@0,,0.17269710003165528,True,True,0.1942653989999089,0.1555301999906078,0.02438730001449585,1.0
+2wikimultihopqa,plan_emb,6427,closed_book@0,,0.3160770999966189,True,True,0.1942653989999089,0.318064899998717,0.02461229998152703,1.0
+2wikimultihopqa,plan_emb,6552,closed_book@0,,0.09993539995048195,True,True,0.1942653989999089,0.0780387999839149,0.024483099987264723,1.0000001192092896
+2wikimultihopqa,plan_emb,6586,closed_book@0,,0.31655479996697977,True,True,0.1942653989999089,0.3125547000090591,0.024234300013631582,1.0
+2wikimultihopqa,plan_emb,6757,closed_book@0,,0.17133759998250753,True,True,0.1942653989999089,0.1573598000104539,0.02485519996844232,1.0000001192092896
+2wikimultihopqa,plan_emb,6759,closed_book@0,,0.2829807999660261,True,True,0.1942653989999089,0.2697957999771461,0.02495900000212714,1.0000001192092896
+2wikimultihopqa,plan_emb,6847,closed_book@0,,0.09940899995854124,True,True,0.1942653989999089,0.0868713999807369,0.02489989995956421,1.0
+2wikimultihopqa,plan_emb,6866,closed_book@0,,0.13619140000082552,True,True,0.1942653989999089,0.1180145999824162,0.025291899975854903,1.0
+2wikimultihopqa,plan_emb,6877,closed_book@0,,0.2804532999289222,True,True,0.1942653989999089,0.2683254000148736,0.024749599979259074,1.0
+2wikimultihopqa,plan_emb,7047,closed_book@0,,0.13536589994328097,True,True,0.1942653989999089,0.1212818000058177,0.024328199971932918,1.0000001192092896
+2wikimultihopqa,plan_emb,7202,closed_book@0,,0.17151800001738593,True,True,0.1942653989999089,0.1572601000079885,0.02419630001531914,1.0
+2wikimultihopqa,plan_emb,7301,closed_book@0,,0.09820350003428757,True,True,0.1942653989999089,0.0825712000078056,0.023889000003691763,1.0000001192092896
+2wikimultihopqa,plan_emb,7852,closed_book@0,,0.17026240000268444,True,True,0.1942653989999089,0.1554159000224899,0.023932599986437708,1.0
+2wikimultihopqa,plan_emb,7882,closed_book@0,,0.09899670007871464,True,True,0.1942653989999089,0.0796150999958626,0.02440800005570054,1.0
+2wikimultihopqa,plan_emb,7983,closed_book@0,,0.24818559997947887,True,True,0.1942653989999089,0.2305495000036899,0.024183499976061285,0.9999999403953552
+2wikimultihopqa,plan_emb,7985,closed_book@0,,0.27975819999119267,True,True,0.1942653989999089,0.2695822000096086,0.02416469994932413,1.0000001192092896
+2wikimultihopqa,plan_emb,8015,closed_book@0,,0.09918159997323528,True,True,0.1942653989999089,0.0779519000207074,0.024168499978259206,1.0000001192092896
+2wikimultihopqa,plan_emb,8060,closed_book@0,,0.2082769999979064,True,True,0.1942653989999089,0.1947655999974813,0.024127100012265146,1.0
+2wikimultihopqa,plan_emb,8116,closed_book@0,,0.31586900004185736,True,True,0.1942653989999089,0.3140256999759003,0.02408659999491647,1.0000001192092896
+2wikimultihopqa,plan_emb,8166,closed_book@0,,0.1710259999963455,True,True,0.1942653989999089,0.154318000015337,0.02415610000025481,1.0
+2wikimultihopqa,plan_emb,828,closed_book@0,,0.17131159995915368,True,True,0.1942653989999089,0.1550101000175345,0.024522699997760355,1.0000001192092896
+2wikimultihopqa,plan_emb,8289,closed_book@0,,0.21310140000423416,True,True,0.1942653989999089,0.198352999985218,0.024254899995867163,1.0000001192092896
+2wikimultihopqa,plan_emb,8344,closed_book@0,,0.09906610002508387,True,True,0.1942653989999089,0.0826968000037595,0.023630800016690046,1.0
+2wikimultihopqa,plan_emb,850,closed_book@0,,0.2086297000059858,True,True,0.1942653989999089,0.1951894999947399,0.024397000030148774,1.0000001192092896
+2wikimultihopqa,plan_emb,8720,closed_book@0,,0.09963399998378009,True,True,0.1942653989999089,0.0782864999782759,0.024383599986322224,0.9999999403953552
+2wikimultihopqa,plan_emb,8922,closed_book@0,,0.09954099997412413,True,True,0.1942653989999089,0.0789807999972254,0.023943200008943677,1.0
+2wikimultihopqa,plan_emb,9084,closed_book@0,,0.09958720003487542,True,True,0.1942653989999089,0.0917974000039976,0.02423630002886057,1.0
+2wikimultihopqa,plan_emb,9243,closed_book@0,,0.13477869995404035,True,True,0.1942653989999089,0.114830400008941,0.024282699974719435,1.0000001192092896
+2wikimultihopqa,plan_emb,9261,closed_book@0,,0.17083920002914965,True,True,0.1942653989999089,0.1564460000081453,0.023931800038553774,1.0
+2wikimultihopqa,plan_emb,9271,closed_book@0,,0.24390459997812286,True,True,0.1942653989999089,0.2336439999926369,0.024237999983597547,1.000000238418579
+2wikimultihopqa,plan_emb,9334,closed_book@0,,0.20742829993832856,True,True,0.1942653989999089,0.192256999987876,0.024226199951954186,1.0000001192092896
+2wikimultihopqa,plan_emb,9380,closed_book@0,,0.09886599995661527,True,True,0.1942653989999089,0.0776719999848865,0.024376099987421185,1.0
+2wikimultihopqa,plan_emb,9520,closed_book@0,,0.09889830002794042,True,True,0.1942653989999089,0.0767851000127848,0.02413380000507459,1.0000001192092896
+2wikimultihopqa,plan_emb,9529,closed_book@0,,0.39209609996760264,True,True,0.1942653989999089,0.3909163000062108,0.024744700000155717,1.0
+2wikimultihopqa,plan_emb,9611,closed_book@0,,0.24328310001874343,True,True,0.1942653989999089,0.237220500013791,0.02394720003940165,1.0000001192092896
+2wikimultihopqa,plan_emb,9653,closed_book@0,,0.1705342999775894,True,True,0.1942653989999089,0.1562468000047374,0.02423619996989146,1.0
+2wikimultihopqa,plan_emb,9757,closed_book@0,,0.13474759995006025,True,True,0.1942653989999089,0.1193002999934833,0.024337299983017147,1.0
+2wikimultihopqa,plan_emb,9896,closed_book@0,,0.206786299997475,True,True,0.1942653989999089,0.1940257999813184,0.024120200017932802,1.0
+2wikimultihopqa,plan_emb,993,closed_book@0,,0.24319490004563704,True,True,0.1942653989999089,0.235032799973851,0.024210100003983825,1.000000238418579
+2wikimultihopqa,plan_emb,9961,closed_book@0,,0.2111913000117056,True,True,0.1942653989999089,0.1935950999904889,0.023933300049975514,1.0000001192092896

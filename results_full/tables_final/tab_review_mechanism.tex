@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{What the policies learn, over all five seeds (single step plans, held out). Pair AUROC: for questions that exactly one of the two hull plans answers, AUROC for which one, averaged over the 20 reader and dataset blocks; interval: bootstrap over questions within blocks, seed 0.}
+\label{tab:review_mechanism}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrr}
+\toprule
+Policy & Plan AUROC & \begin{tabular}[b]{@{}r@{}}Cross plan \\ corr.\end{tabular} & Pair AUROC & Seed range & Seed 0 95\% CI & \begin{tabular}[b]{@{}r@{}}Pair questions \\ per seed\end{tabular} & Top plan share \\
+\midrule
+TSR planner & 0.624 & 0.994 & 0.514 & 0.499 to 0.538 & [0.466, 0.528] & 1,842 & 0.50 \\
+Planner, self knowledge & 0.654 & 0.993 & 0.481 & 0.473 to 0.490 & [0.450, 0.508] & 1,595 & 0.60 \\
+Per plan LR & 0.647 & 0.735 & 0.596 & 0.582 to 0.609 & [0.573, 0.629] & 2,397 & 0.43 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). Each resample holds about 63\% distinct questions, which lowers the refit mean of learned policies.}
+\label{tab:review_refit}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrrrr}
+\toprule
+Policy & Reader & Plan set & Plain 95\% CI & Refit mean & Refit 95\% CI & \begin{tabular}[b]{@{}r@{}}One sided \\ upper\end{tabular} & Share above 0 \\
+\midrule
+Per plan LR & Qwen3 32B & single step & [+0.010, +0.048] & +0.006 & [$-$0.016, +0.032] & +0.026 & 0.69 \\
+Per plan LR & Qwen3 32B & with two hop & [+0.011, +0.048] & +0.011 & [$-$0.010, +0.035] & +0.028 & 0.81 \\
+Confidence cascade & Qwen2.5 7B & with two hop & [$-$0.008, +0.030] & +0.013 & [$-$0.007, +0.034] & +0.032 & 0.85 \\
+Reader cascade & 7B to Qwen3 14B & with two hop & [$-$0.001, +0.036] & +0.015 & [$-$0.009, +0.042] & +0.032 & 0.89 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,22 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Live end to end time against the stored time of the same cells, Qwen2.5 7B (median of three live runs per cell). Index: where the dense index sat with the reader loaded. Stella and the reranker did not fit next to the reader.}
+\label{tab:review_latency}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrl}
+\toprule
+Data & Retriever & Cells & Live s & Stored s & Live / stored & \begin{tabular}[b]{@{}r@{}}Retrieval live \\ /stored s\end{tabular} & Index \\
+\midrule
+MuSiQue & bge bm25 rrf & 16 & 0.542 & 0.538 & 1.007 & 0.029 / 0.027 & GPU \\
+MuSiQue & bge m3 & 19 & 0.556 & 0.560 & 0.993 & 0.027 / 0.027 & GPU \\
+MuSiQue & bm25 & 18 & 0.450 & 0.451 & 0.998 & 0.001 / 0.001 & no dense index \\
+MuSiQue & closed book & 4 & 0.164 & 0.164 & 0.998 & 0.000 / 0.000 &  \\
+MuSiQue & splade v3 & 11 & 0.473 & 0.475 & 0.997 & 0.040 / 0.045 & no dense index \\
+2Wiki & bge bm25 rrf & 16 & 1.536 & 0.800 & 1.919 & 0.980 / 0.036 & CPU \\
+2Wiki & bge m3 & 19 & 1.521 & 0.570 & 2.668 & 0.979 / 0.030 & CPU \\
+2Wiki & bm25 & 18 & 0.470 & 0.481 & 0.978 & 0.004 / 0.004 & no dense index \\
+2Wiki & closed book & 4 & 0.176 & 0.185 & 0.950 & 0.000 / 0.000 &  \\
+2Wiki & splade v3 & 11 & 0.587 & 0.638 & 0.919 & 0.124 / 0.152 & no dense index \\
+\bottomrule
+\end{tabular*}
+\end{table}

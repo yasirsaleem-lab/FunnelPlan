@@ -80,7 +80,7 @@ Secondary analysis, added after the main results were seen.
 
 Decision rule: significant only if Holm p < 0.05 and CI above 0 in BOTH plan sets.
 
-## H3, IRCoT against the hull at IRCoT's own latency (9 tests)
+## H2, IRCoT against the hull at IRCoT's own latency (9 tests)
 
 | Reader | Dataset | IRCoT success | Latency vs best plan | Gain, single step hull | Holm p | Gain, with two hop | Holm p  | Sig. final/lenient/strict |
 |---|---|---|---|---|---|---|---|---|
@@ -268,11 +268,11 @@ Observed differences equal J times true differences when grading error is the sa
 
 | Audit | Rater kappa (two raters) | Rule | n | Accuracy vs majority of three | Kappa | FP | FN |
 |---|---|---|---|---|---|---|---|
-| Audit 1 (7B, Llama, Qwen3 14B) | 0.469 | strict EM | 200 | 0.635 [0.565, 0.700] | 0.274 | 11 | 62 |
+| Audit 1 (7B, Llama, Qwen3 14B) | 0.469 | strict | 200 | 0.635 [0.565, 0.700] | 0.274 | 11 | 62 |
 | Audit 1 (7B, Llama, Qwen3 14B) | 0.469 | F1 >= 0.7 | 200 | 0.735 [0.665, 0.795] | 0.471 | 21 | 32 |
 | Audit 1 (7B, Llama, Qwen3 14B) | 0.469 | lenient | 200 | 0.695 [0.630, 0.755] | 0.388 | 50 | 11 |
 | Audit 1 (7B, Llama, Qwen3 14B) | 0.469 | label_final | 200 | 0.800 [0.745, 0.850] | 0.601 | 6 | 34 |
-| Audit 2 (Gemma, Qwen3 32B) | 0.695 | strict EM | 200 | 0.720 [0.655, 0.780] | 0.434 | 4 | 52 |
+| Audit 2 (Gemma, Qwen3 32B) | 0.695 | strict | 200 | 0.720 [0.655, 0.780] | 0.434 | 4 | 52 |
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | F1 >= 0.7 | 200 | 0.800 [0.745, 0.855] | 0.598 | 11 | 29 |
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | lenient | 200 | 0.805 [0.745, 0.860] | 0.611 | 28 | 11 |
 | Audit 2 (Gemma, Qwen3 32B) | 0.695 | label_final | 200 | 0.840 [0.785, 0.890] | 0.679 | 6 | 26 |
@@ -281,11 +281,11 @@ Observed differences equal J times true differences when grading error is the sa
 
 | Audit | Rule | n | Majority of three | Rater 2 alone (not an author) | Rater 1 alone (author) |
 |---|---|---|---|---|---|
-| Audit 1 (7B, Llama, Qwen3 14B) | strict EM | 200 | 0.635 | 0.520 | 0.685 |
+| Audit 1 (7B, Llama, Qwen3 14B) | strict | 200 | 0.635 | 0.520 | 0.685 |
 | Audit 1 (7B, Llama, Qwen3 14B) | F1 >= 0.7 | 200 | 0.735 | 0.700 | 0.755 |
 | Audit 1 (7B, Llama, Qwen3 14B) | lenient | 200 | 0.695 | 0.760 | 0.645 |
 | Audit 1 (7B, Llama, Qwen3 14B) | label_final | 200 | 0.800 | 0.685 | 0.870 |
-| Audit 2 (Gemma, Qwen3 32B) | strict EM | 200 | 0.720 | 0.675 | 0.750 |
+| Audit 2 (Gemma, Qwen3 32B) | strict | 200 | 0.720 | 0.675 | 0.750 |
 | Audit 2 (Gemma, Qwen3 32B) | F1 >= 0.7 | 200 | 0.800 | 0.765 | 0.820 |
 | Audit 2 (Gemma, Qwen3 32B) | lenient | 200 | 0.805 | 0.810 | 0.785 |
 | Audit 2 (Gemma, Qwen3 32B) | label_final | 200 | 0.840 | 0.805 | 0.900 |
@@ -315,3 +315,105 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | hotpotqa | qwen3_reranker_0_6b |
 | 2wikimultihopqa | bm25_2hop |
 | musique | qwen3_reranker_0_6b |
+
+## Review: plain against dataset stratified bootstrap
+
+| Plan set | Family | Tests | Width ratio (median, range) | Interval above 0, plain / stratified | Upper bound below 0.03, plain / stratified |
+|---|---|---|---|---|---|
+| single step | primary | 27 | 1.00 (0.95 to 1.05) | 0 / 0 | 26 / 26 |
+| single step | secondary routers | 30 | 0.99 (0.92 to 1.04) | 3 / 3 | 24 / 24 |
+| with two hop | primary | 27 | 1.00 (0.93 to 1.05) | 0 / 0 | 25 / 25 |
+| with two hop | secondary routers | 30 | 0.98 (0.96 to 1.04) | 5 / 5 | 23 / 23 |
+
+## Review: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)
+
+| Policy | Reader | Plan set | Plain 95% CI | Refit mean | Refit 95% CI | One sided upper | Share above 0 |
+|---|---|---|---|---|---|---|---|
+| Per plan LR | Qwen3 32B | single step | [+0.010, +0.048] | +0.006 | [-0.016, +0.032] | +0.026 | 0.69 |
+| Per plan LR | Qwen3 32B | with two hop | [+0.011, +0.048] | +0.011 | [-0.010, +0.035] | +0.028 | 0.81 |
+| Confidence cascade | Qwen2.5 7B | with two hop | [-0.008, +0.030] | +0.013 | [-0.007, +0.034] | +0.032 | 0.85 |
+| Reader cascade | 7B to Qwen3 14B | with two hop | [-0.001, +0.036] | +0.015 | [-0.009, +0.042] | +0.032 | 0.89 |
+
+## Review: what the policies learn (all 5 seeds; pair AUROC is the mean over reader and dataset blocks)
+
+| Policy | Plan AUROC | Cross plan corr. | Pair AUROC | Seed range | Seed 0 95% CI | Pair questions per seed | Top plan share |
+|---|---|---|---|---|---|---|---|
+| TSR planner | 0.624 | 0.994 | 0.514 | 0.499 to 0.538 | [0.466, 0.528] | 1,842 | 0.50 |
+| Planner, self knowledge | 0.654 | 0.993 | 0.481 | 0.473 to 0.490 | [0.450, 0.508] | 1,595 | 0.60 |
+| Per plan LR | 0.647 | 0.735 | 0.596 | 0.582 to 0.609 | [0.573, 0.629] | 2,397 | 0.43 |
+
+## Review: oracle headroom at each policy's own cost (gap / fraction closed)
+
+| Policy | Qwen2.5 7B | Llama 3.1 8B | Qwen3 14B | Gemma 3 27B | Qwen3 32B |
+|---|---|---|---|---|---|
+| TSR planner | 0.113 / +0.04 | 0.087 / +0.05 | 0.104 / +0.04 | 0.101 / -0.01 | 0.132 / +0.03 |
+| Adaptive RAG router | 0.117 / -0.20 | 0.077 / -0.77 | 0.095 / -0.55 | 0.104 / -0.31 | 0.101 / -0.59 |
+| Adaptive k (gap) | 0.108 / -0.15 | 0.110 / -0.20 | 0.119 / -0.14 | 0.124 / -0.20 | 0.138 / -0.08 |
+| Closed book gate | 0.043 / -0.04 | 0.060 / -0.05 | 0.025 / +0.02 | 0.086 / -0.04 | 0.025 / -0.04 |
+| Confidence cascade | 0.098 / +0.13 | 0.069 / +0.04 | 0.080 / -0.05 | 0.095 / +0.00 | 0.090 / -0.04 |
+| Per plan LR | 0.120 / +0.11 | 0.080 / +0.05 | 0.143 / +0.15 | 0.138 / +0.14 | 0.160 / +0.18 |
+
+## Review: per plan LR with its measured embedding cost (24.6 ms per question) charged
+
+| Reader | Plan set | Replay, no embedding cost [95% CI] | Holm p | Embedding charged [95% CI] | p |
+|---|---|---|---|---|---|
+| Gemma 3 27B | single step | +0.020 [+0.002, +0.037] | 0.642 | +0.006 [-0.012, +0.024] | 0.521 |
+| Llama 3.1 8B | single step | +0.004 [-0.015, +0.022] | 1.000 | -0.012 [-0.030, +0.006] | 0.211 |
+| Qwen2.5 7B | single step | +0.013 [-0.004, +0.031] | 1.000 | +0.000 [-0.017, +0.018] | 0.970 |
+| Qwen3 14B | single step | +0.022 [+0.003, +0.040] | 0.415 | +0.007 [-0.011, +0.026] | 0.449 |
+| Qwen3 32B | single step | +0.029 [+0.010, +0.048] | 0.058 | +0.012 [-0.007, +0.030] | 0.227 |
+| Gemma 3 27B | with two hop | +0.024 [+0.007, +0.042] | 0.184 | +0.012 [-0.006, +0.029] | 0.197 |
+| Llama 3.1 8B | with two hop | +0.006 [-0.012, +0.025] | 1.000 | -0.007 [-0.025, +0.011] | 0.454 |
+| Qwen2.5 7B | with two hop | +0.015 [-0.002, +0.033] | 1.000 | +0.004 [-0.014, +0.021] | 0.694 |
+| Qwen3 14B | with two hop | +0.024 [+0.006, +0.042] | 0.200 | +0.010 [-0.008, +0.028] | 0.253 |
+| Qwen3 32B | with two hop | +0.030 [+0.011, +0.048] | 0.042 | +0.013 [-0.006, +0.031] | 0.162 |
+
+## Review: learning curve of per plan LR (gain over the hull, single step plans, no embedding cost)
+
+| Reader | 20% | 40% | 60% | 80% | 100% |
+|---|---|---|---|---|---|
+| Qwen2.5 7B | -0.005 | +0.002 | +0.004 | +0.010 | +0.013 |
+| Llama 3.1 8B | -0.010 | -0.007 | -0.005 | -0.002 | +0.004 |
+| Qwen3 14B | +0.005 | +0.008 | +0.016 | +0.015 | +0.022 |
+| Gemma 3 27B | -0.001 | +0.008 | +0.005 | +0.014 | +0.020 |
+| Qwen3 32B | +0.000 | +0.006 | +0.011 | +0.023 | +0.029 |
+| Pooled | -0.002 | +0.003 | +0.006 | +0.012 | +0.018 |
+
+## Review: live end to end latency against the replay, Qwen2.5 7B (cells: median of 3 live runs)
+
+| Data | Retriever | Cells | Live s | Stored s | Live / stored | Retrieval live / stored s | Index |
+|---|---|---|---|---|---|---|---|
+| MuSiQue | bge bm25 rrf | 16 | 0.542 | 0.538 | 1.007 | 0.029 / 0.027 | GPU |
+| MuSiQue | bge m3 | 19 | 0.556 | 0.560 | 0.993 | 0.027 / 0.027 | GPU |
+| MuSiQue | bm25 | 18 | 0.450 | 0.451 | 0.998 | 0.001 / 0.001 | no dense index |
+| MuSiQue | closed book | 4 | 0.164 | 0.164 | 0.998 | 0.000 / 0.000 |  |
+| MuSiQue | splade v3 | 11 | 0.473 | 0.475 | 0.997 | 0.040 / 0.045 | no dense index |
+| 2Wiki | bge bm25 rrf | 16 | 1.536 | 0.800 | 1.919 | 0.980 / 0.036 | CPU |
+| 2Wiki | bge m3 | 19 | 1.521 | 0.570 | 2.668 | 0.979 / 0.030 | CPU |
+| 2Wiki | bm25 | 18 | 0.470 | 0.481 | 0.978 | 0.004 / 0.004 | no dense index |
+| 2Wiki | closed book | 4 | 0.176 | 0.185 | 0.950 | 0.000 / 0.000 |  |
+| 2Wiki | splade v3 | 11 | 0.587 | 0.638 | 0.919 | 0.124 / 0.152 | no dense index |
+
+## Review: live end to end policy cost against the replayed cost, Qwen2.5 7B
+
+| Data | Policy | Questions | Live s | Replay s | Live / replay | Same decision |
+|---|---|---|---|---|---|---|
+| MuSiQue | Closed book gate | 200 | 0.191 | 0.202 | 0.944 | 1.00 |
+| MuSiQue | Per plan LR | 55 | 0.403 | 0.409 | 0.986 | 1.00 |
+| 2Wiki | Confidence cascade | 165 | 0.858 | 0.717 | 1.196 | 1.00 |
+| 2Wiki | Closed book gate | 116 | 0.186 | 0.197 | 0.942 | 1.00 |
+| 2Wiki | Per plan LR | 200 | 0.259 | 0.235 | 1.103 | 1.00 |
+
+## Review: the weak protocol turned into ours one factor at a time
+
+| Step | Wins |
+|---|---|
+| weak: beats Always RAG and Never RAG on accuracy (strict, seed 0, no cost matching) | 64 of 100 |
+| comparator: best single plan at the same cost (strict, seed 0) | 54 of 100 |
+| comparator: fixed plan hull at the same cost (strict, seed 0) | 30 of 100 |
+| seeds: 5 fold splits instead of 1 (strict) | 27 of 100 |
+| grading: label_final instead of strict | 28 of 100 |
+| decision: 95% interval above 0 and p < 0.05 per cell | 1 of 100 |
+| decision: Holm over the 100 cells | 0 of 100 |
+| pooled, gain above 0 | 8 of 25 |
+| pooled, Holm | 0 of 25 |

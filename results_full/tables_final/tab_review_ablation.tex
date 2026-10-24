@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{The weak protocol turned into ours one factor at a time on the same 100 cells (5 primary policies, 5 readers, 4 datasets); the last two rows pool over datasets (25 tests).}
+\label{tab:review_ablation}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lr}
+\toprule
+Step & Wins \\
+\midrule
+weak: beats Always RAG and Never RAG on accuracy (strict, seed 0, no cost matching) & 64 of 100 \\
+comparator: best single plan at the same cost (strict, seed 0) & 54 of 100 \\
+comparator: fixed plan hull at the same cost (strict, seed 0) & 30 of 100 \\
+seeds: 5 fold splits instead of 1 (strict) & 27 of 100 \\
+grading: label\_final instead of strict & 28 of 100 \\
+decision: 95\% interval above 0 and p $<$ 0.05 per cell & 1 of 100 \\
+decision: Holm over the 100 cells & 0 of 100 \\
+pooled, gain above 0 & 8 of 25 \\
+pooled, Holm & 0 of 25 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Policies run live end to end against their replayed cost, Qwen2.5 7B (questions whose retrievers fit next to the reader). Per plan LR includes its 24.6 ms embedding in the live time only.}
+\label{tab:review_latency_policies}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrr}
+\toprule
+Data & Policy & Questions & Live s & Replay s & Live / replay & Same decision \\
+\midrule
+MuSiQue & Closed book gate & 200 & 0.191 & 0.202 & 0.944 & 1.00 \\
+MuSiQue & Per plan LR & 55 & 0.403 & 0.409 & 0.986 & 1.00 \\
+2Wiki & Confidence cascade & 165 & 0.858 & 0.717 & 1.196 & 1.00 \\
+2Wiki & Closed book gate & 116 & 0.186 & 0.197 & 0.942 & 1.00 \\
+2Wiki & Per plan LR & 200 & 0.259 & 0.235 & 1.103 & 1.00 \\
+\bottomrule
+\end{tabular*}
+\end{table}

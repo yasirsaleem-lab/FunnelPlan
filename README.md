@@ -62,7 +62,7 @@ All answers, grades and costs are included, so the analyses need only a CPU.
 conda create -n FunnelPlan python=3.10 -y
 conda activate FunnelPlan
 pip install -e .                       # a CPU build of torch is enough for the analyses
-python scripts/run_all_analysis.py     # 18 steps, about 4 hours on an 8 core desktop CPU
+python scripts/run_all_analysis.py     # 19 steps, about 7 hours on an 8 core desktop CPU
 ```
 
 This rebuilds `results_full/analysis/`, `results_full/tables_final/` (tables and `verdicts.txt`) and
@@ -123,6 +123,8 @@ FunnelPlan/
     ├── tables_final/           tables.md, verdicts.txt, LaTeX tables (22_tables_final.py)
     ├── figures_final/          figures, PDF and PNG at 600 dpi (23_figures.py, figures_src/)
     ├── tables/                 power, held out oracles, label stability, retrieval quality (scripts 10, 14)
+    ├── analysis/review/        review checks (24_review_checks.py)
+    ├── latency_e2e/            live latency check (25_latency_e2e.py)
     ├── probe/                  llama.cpp reader probes and the quantization control report (script 03)
     └── run_all_log.txt         log of the last full analysis run
 ```
@@ -148,14 +150,16 @@ Scripts run from the repository root (`python scripts/<name>.py`). Each document
 | `12_routers.py` | analysis | secondary routers (published Adaptive k rule, Adaptive RAG on embeddings and FLAN T5, per plan LR and kNN) |
 | `13_metis_profiler.py` | GPU, analysis | R5: METIS style profiler (profiles with Qwen3 32B, then evaluation) |
 | `14_power_headroom.py` | analysis | minimum detectable effect, held out oracles, label stability |
-| `15_h3_ircot.py` | analysis | H3: IRCoT against the hull at its own latency |
+| `15_h3_ircot.py` | analysis | H2 in the paper (file names keep the older label h3): IRCoT against the hull at its own latency |
 | `16_weak_baselines.py` | analysis | R6: the same answers under the weak protocol |
-| `17_label_sensitivity.py` | analysis | H1 and H3 under the strict and lenient grading rules |
+| `17_label_sensitivity.py` | analysis | H1 and H2 (IRCoT) under the strict and lenient grading rules |
 | `18_step_hull.py` | analysis | baseline without mixing: the best single plan at the policy's cost |
 | `19_cost_axes.py` | analysis | H1 under tokens, price weighted tokens, FLOPs and calls |
 | `20_stronger_policies.py` | analysis | classifier gate and planner with closed book confidence features, learning curve |
 | `21_checks.py` | analysis | sanity check against published numbers, grading error, matched cost headroom, mechanism |
 | `22_tables_final.py` | output | final tables, `tables.md` and `verdicts.txt` |
+| `24_review_checks.py` | analysis | review checks: stratified and refit bootstrap, mechanism of the strongest router, headroom at the same budget, protocol ablation, router learning curve, overhead charged, cost boundaries |
+| `25_latency_e2e.py` | GPU | live end to end run of cells and policies against the replayed cost; reader swap time |
 | `23_figures.py` | output | final data figures |
 | `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
 | `make_artifact.py` | output | builds the reproducibility package |

@@ -21,13 +21,13 @@ All answers, labels and costs are in the package, so no model is needed.
 
 ```
 pip install -e .                      # Python 3.10 or later; a CPU build of torch is enough for this level
-python scripts/run_all_analysis.py    # 18 steps; see --list. Resume after an error with --from <step>
+python scripts/run_all_analysis.py    # 19 steps; see --list. Resume after an error with --from <step>
 ```
 
 The run rewrites `results_full/analysis/`, `results_full/tables/`, `results_full/tables_final/` and
 `results_full/figures_final/`. Compare the new `verdicts.txt` with the paper. The analyses are deterministic
 (fixed fold seeds 0 to 4, fixed XGBoost and bootstrap seeds), so the numbers should match on the library versions
-in `docs/environment.txt`; other versions can move the third decimal. The full run took 3.7 hours on the author's machine (Ryzen 7 5700X, 8 cores).
+in `docs/environment.txt`; other versions can move the third decimal. The full run takes about 7 hours on the author's machine (Ryzen 7 5700X, 8 cores): 3.7 hours for steps 11 to 21 and 3.4 hours for the review checks (step 24).
 
 Inputs used at this level:
 

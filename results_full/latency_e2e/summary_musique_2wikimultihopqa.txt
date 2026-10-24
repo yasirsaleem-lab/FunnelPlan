@@ -1,0 +1,93 @@
+Live end to end latency check. Reader qwen2.5-7b, datasets ['musique', '2wikimultihopqa'], 200 questions and 100 cells per dataset, seed 0 settings.
+
+== musique
+  gate_closed_book  settings per fold: ["(-1.4, 'bge_m3@5')", "(-2.3, 'bm25@1')", "(-1.4, 'bge_bm25_rrf@5')", "(-2.3, 'bm25@1')", "(-2.3, 'bm25@1')"]
+  conf_cascade      settings per fold: ["('stella_1_5b@1', 'stella_1_5b@10', -0.1)", "('stella_1_5b@1', 'stella_1_5b@10', -0.1)", "('stella_1_5b@1', 'stella_1_5b@10', -0.1)", "('stella_1_5b@1', 'stella_1_5b@10', -0.1)", "('stella_1_5b@1', 'stella_1_5b@10', -0.1)"]
+  plan_emb          settings per fold: ['lambda 0.19487', 'lambda 0.37484', 'lambda 0.002', 'lambda 1.0', 'lambda 0.03797']
+    cells bge_bm25_rrf          16 cells x 3  index gpu
+    cells bge_m3                19 cells x 3  index gpu
+    cells bm25                  18 cells x 3  index no dense index
+    cells closed_book            4 cells x 3  index 
+    does not fit next to the reader on this GPU: ['qwen3_reranker_0_6b'] (CUDA out of memory. Tried to allocate 1.43 GiB. GPU 0 has a total capacity of 20.00 GiB of)
+    cells qwen3_reranker_0_6b   16 cells SKIPPED (does not fit next to the reader)
+    cells splade_v3             11 cells x 3  index no dense index
+    does not fit next to the reader on this GPU: ['stella_1_5b'] (CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 20.00 GiB o)
+    cells stella_1_5b           16 cells SKIPPED (does not fit next to the reader)
+    gate_closed_book  setting (-2.3, 'bm25@1')  127 questions  index no dense index
+    gate_closed_book  setting (-1.4, 'bge_bm25_rrf@5')  38 questions  index gpu
+    gate_closed_book  setting (-1.4, 'bge_m3@5')  35 questions  index gpu
+    does not fit next to the reader on this GPU: ['stella_1_5b'] (CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 20.00 GiB o)
+    conf_cascade      setting ('stella_1_5b@1', 'stella_1_5b@10', -0.1)  200 questions SKIPPED (does not fit next to the reader)
+    plan_emb          plans on bge_bm25_rrf         15 questions  index gpu
+    plan_emb          plans on bge_m3               27 questions  index gpu
+    plan_emb          plans on bm25                 3 questions  index no dense index
+    plan_emb          plans on closed_book          2 questions  index 
+    does not fit next to the reader on this GPU: ['qwen3_reranker_0_6b'] (CUDA out of memory. Tried to allocate 2.03 GiB. GPU 0 has a total capacity of 20.00 GiB of)
+    plan_emb          plans on qwen3_reranker_0_6b  10 questions SKIPPED (does not fit next to the reader)
+    plan_emb          plans on splade_v3            8 questions  index no dense index
+    does not fit next to the reader on this GPU: ['stella_1_5b'] (CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 20.00 GiB o)
+    plan_emb          plans on stella_1_5b          135 questions SKIPPED (does not fit next to the reader)
+    retrievers that do not fit next to the reader: ['qwen3_reranker_0_6b', 'stella_1_5b']
+  Part A: 68 cells, median of 3 live runs each
+    mean live 0.488s  mean stored 0.489s  ratio of means 0.998  median cell ratio 1.007  Spearman 0.999
+    generation only: live 0.463s vs stored 0.468s; outside generate() (prompt, tokenise, decode): 4.4 ms per call
+    answers identical to the stored answers: 0.985
+               n   live  stored  ret_live  ret_stored             dev  ratio
+retr                                                                        
+bge_bm25_rrf  16  0.542   0.538     0.029       0.027             gpu  1.007
+bge_m3        19  0.556   0.560     0.027       0.027             gpu  0.993
+bm25          18  0.450   0.451     0.001       0.001  no dense index  0.998
+closed_book    4  0.164   0.164     0.000       0.000                  0.998
+splade_v3     11  0.473   0.475     0.040       0.045  no dense index  0.997
+  Part B: live versus replayed cost per policy (seconds per question)
+    gate_closed_book  n=200  live 0.191  replay (paper) 0.202  stored same choices 0.199  live/replay 0.944  decisions equal to stored 1.000
+    plan_emb          n= 55  live 0.403  replay (paper) 0.409  stored same choices 0.385  live/replay 0.986  decisions equal to stored 1.000
+                      policy overhead (embedding + classifiers) 24.7 ms = 0.060 of the replayed cost; embedding cosine to stored min 1.0000
+
+== 2wikimultihopqa
+  gate_closed_book  settings per fold: ["(-1.6, 'bm25@3')", "(-3.0, 'bge_bm25_rrf@1')", "(-2.0, 'stella_1_5b@20')", "(-1.6, 'bm25@3')", "(-2.0, 'stella_1_5b@20')"]
+  conf_cascade      settings per fold: ["('bm25@5', 'qwen3_reranker_0_6b@10', -0.1)", "('bm25@3', 'bge_bm25_rrf@20', -0.1)", "('bm25@5', 'bge_bm25_rrf@20', -0.1)", "('bm25@5', 'bge_bm25_rrf@20', -0.1)", "('bm25@5', 'bge_bm25_rrf@5', -1.3)"]
+  plan_emb          settings per fold: ['lambda 0.72102', 'lambda 1.0', 'lambda 1.0', 'lambda 1.0', 'lambda 1.0']
+    cells bge_bm25_rrf          16 cells x 3  index cpu
+    cells bge_m3                19 cells x 3  index cpu
+    cells bm25                  18 cells x 3  index no dense index
+    cells closed_book            4 cells x 3  index 
+    does not fit next to the reader on this GPU: ['qwen3_reranker_0_6b'] (CUDA out of memory. Tried to allocate 1.48 GiB. GPU 0 has a total capacity of 20.00 GiB of)
+    cells qwen3_reranker_0_6b   16 cells SKIPPED (does not fit next to the reader)
+    cells splade_v3             11 cells x 3  index no dense index
+    does not fit next to the reader on this GPU: ['stella_1_5b'] (CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 20.00 GiB o)
+    cells stella_1_5b           16 cells SKIPPED (does not fit next to the reader)
+    gate_closed_book  setting (-3.0, 'bge_bm25_rrf@1')  37 questions  index gpu
+    gate_closed_book  setting (-1.6, 'bm25@3')  79 questions  index no dense index
+    does not fit next to the reader on this GPU: ['stella_1_5b'] (CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 20.00 GiB o)
+    gate_closed_book  setting (-2.0, 'stella_1_5b@20')  84 questions SKIPPED (does not fit next to the reader)
+    conf_cascade      setting ('bm25@3', 'bge_bm25_rrf@20', -0.1)  37 questions  index cpu+no dense index
+    conf_cascade      setting ('bm25@5', 'bge_bm25_rrf@20', -0.1)  82 questions  index cpu+no dense index
+    conf_cascade      setting ('bm25@5', 'bge_bm25_rrf@5', -1.3)  46 questions  index cpu+no dense index
+    does not fit next to the reader on this GPU: ['bm25', 'qwen3_reranker_0_6b'] (CUDA out of memory. Tried to allocate 1.41 GiB. GPU 0 has a total capacity of 20.00 GiB of)
+    conf_cascade      setting ('bm25@5', 'qwen3_reranker_0_6b@10', -0.1)  35 questions SKIPPED (does not fit next to the reader)
+    plan_emb          plans on bge_bm25_rrf         1 questions  index cpu
+    plan_emb          plans on bge_m3               1 questions  index cpu
+    plan_emb          plans on bm25                 84 questions  index no dense index
+    plan_emb          plans on closed_book          114 questions  index 
+    retrievers that do not fit next to the reader: ['bm25', 'qwen3_reranker_0_6b', 'stella_1_5b']
+  Part A: 68 cells, median of 3 live runs each
+    mean live 1.016s  mean stored 0.589s  ratio of means 1.725  median cell ratio 1.101  Spearman 0.704
+    generation only: live 0.485s vs stored 0.547s; outside generate() (prompt, tokenise, decode): 6.2 ms per call
+    answers identical to the stored answers: 0.985
+               n   live  stored  ret_live  ret_stored             dev  ratio
+retr                                                                        
+bge_bm25_rrf  16  1.536   0.800     0.980       0.036             cpu  1.919
+bge_m3        19  1.521   0.570     0.979       0.030             cpu  2.668
+bm25          18  0.470   0.481     0.004       0.004  no dense index  0.978
+closed_book    4  0.176   0.185     0.000       0.000                  0.950
+splade_v3     11  0.587   0.638     0.124       0.152  no dense index  0.919
+  Part B: live versus replayed cost per policy (seconds per question)
+    conf_cascade      n=165  live 0.858  replay (paper) 0.717  stored same choices 0.701  live/replay 1.196  decisions equal to stored 1.000
+    gate_closed_book  n=116  live 0.186  replay (paper) 0.197  stored same choices 0.195  live/replay 0.942  decisions equal to stored 1.000
+    plan_emb          n=200  live 0.259  replay (paper) 0.235  stored same choices 0.237  live/replay 1.103  decisions equal to stored 1.000
+                      policy overhead (embedding + classifiers) 24.4 ms = 0.104 of the replayed cost; embedding cosine to stored min 1.0000
+
+== Part C: reader swap on one GPU (unload, load, first answer)
+    qwen2.5-7b -> qwen3-14b: 45.1s
+    qwen3-14b -> qwen2.5-7b: 7.4s
