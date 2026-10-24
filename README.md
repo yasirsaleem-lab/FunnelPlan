@@ -10,23 +10,6 @@ mix of fixed plans at the policy's own mean cost, fitted on training folds only.
 
 All runs are local. No API model is used.
 
-## Main findings
-
-| Result | Value |
-|---|---|
-| Primary policies against the hull (27 tests, Holm) | 0 positive, in both plan sets (with and without two hop plans) |
-| Secondary routers and a METIS style profiler (30 tests) | 0 positive under the decision rule |
-| Stronger learned policies (classifier gate, planner with self knowledge) | 0 of 10 positive |
-| Same tests with token, price weighted token, FLOP and call costs | 0 positive on every cost axis |
-| Gains of 0.03 or more ruled out (one sided 95% bound) | 27 of 27 tests (single step plans), 25 of 27 (with two hop plans) |
-| Adaptive RAG router | significantly worse than the hull for 4 of 5 readers (latency), 5 of 5 (tokens, FLOPs) |
-| Weak protocol (Always RAG baseline, one seed, strict EM) on the same answers | 64 of 100 apparent wins; 0 under our protocol |
-| Held out headroom at matched cost (oracle over 2 plans) | +0.10 over the hull; the best policy closes at most 13% of it |
-| What planners learn (held out AUROC) | 0.62 to 0.65 for "is this question answerable", 0.48 to 0.50 for "which hull plan wins" |
-| IRCoT (multi step) against the single step hull | significantly better on 2WikiMultihopQA for all 3 readers, under all 3 grading rules |
-
-Every number comes from the files in `results_full/`. `results_full/tables_final/verdicts.txt` lists each decision,
-computed from the result files.
 
 ## Benchmark
 
@@ -164,20 +147,6 @@ Scripts run from the repository root (`python scripts/<name>.py`). Each document
 | `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
 | `make_artifact.py` | output | builds the reproducibility package |
 
-Script numbers changed on 17 October 2026, when the pilot and superseded scripts were removed. The run logs in
-`results_full/logs/` use the old numbers:
-
-| Old | New | Old | New | Old | New |
-|---|---|---|---|---|---|
-| 03 | 01 | 14 | 10 | 22 | 16 |
-| 04 | 02 | 10 | 11 | 24 | 17 |
-| 16 | 03 | 13 | 12 | 25 | 18 |
-| 17 | 04 | 23 | 13 | 27 | 19 |
-| 19 | 05 | 15 | 14 | 28 | 20 |
-| 20 | 06 | 21 | 15 | 29 | 21 |
-| 08 | 07 | 12 (`12_tables_final`) | 22 | 26 | 23 |
-| 18 | 08 | 00, 09 | unchanged | | |
-
 ## Answer file format
 
 `data/processed_full/tsr_labels_<reader>_graded.csv` has one row per (question, plan):
@@ -211,10 +180,3 @@ machine independent costs.
   slower. The scripts run one process per block and check free VRAM after loading.
 * **Do not profile latency while labelling.** Running scripts 01 and 02 at the same time corrupts both timings.
 
-## Citation
-
-A citation entry will be added when the paper is public.
-
-## License
-
-Code: MIT. The datasets, corpora and models keep their own licences.

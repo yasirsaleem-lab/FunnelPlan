@@ -72,8 +72,6 @@ exact versions used. No API model was used.
 
 ## 5. Integrity
 
-* `MANIFEST.sha256` inside the package lists the sha256 and size of every file. The same list is kept next to the
-  zip file. Check it with `sha256sum -c` after removing the size column, or with a short Python loop.
 * Build the package with `python scripts/make_artifact.py` on a clean tree; the file name carries the git commit.
 * The human audit files in `data/processed_full/grading/received/` are the files as the raters sent them, except that
   the raters' names were removed from the file metadata (no cell changed).
