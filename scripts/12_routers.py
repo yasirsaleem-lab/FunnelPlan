@@ -1,5 +1,5 @@
 """
-Stronger routers. Answers the reviewer question "is the null result an artifact of a weak router?"
+Stronger routers. Tests whether the null result is an artifact of a weak router.
 
 Same protocol as 10 (imported from it): same queries, plans, mean plan costs, 5 fold held out evaluation
 over the same 5 seeds, the same hull baseline chosen on the training folds, the same tests and Holm family.

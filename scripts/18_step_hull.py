@@ -1,6 +1,6 @@
 """
-Reviewer point: "the fixed plan hull assumes a system randomises between two plans; compare against the best SINGLE
-fixed plan at or below the policy's cost instead".
+Baseline without mixing: the fixed plan hull assumes a system randomises between two plans, so this compares
+against the best SINGLE fixed plan at or below the policy's cost instead.
 
 Runs 11_analysis_full.py with --hull=step (both plan sets) and puts the primary family side by side:
   gain_mix   policy minus the hull (main protocol: best randomised mix of fixed plans at the policy's mean cost)

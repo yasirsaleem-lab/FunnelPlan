@@ -1,34 +1,34 @@
 """
-Checks asked for in the internal review (October 2026). CPU only; no new model calls.
+Robustness checks on the stored answers. CPU only; no new model calls.
 
-  inference  (comment 3) Pooled tests with a bootstrap stratified by dataset, next to the plain bootstrap the paper
+  inference  Pooled tests with a bootstrap stratified by dataset, next to the plain bootstrap the paper
              uses, for the primary family and the secondary routers, in both plan sets. Holm adjusted minimum
              detectable effect per pooled test (from tables/power_mde.csv).
-  refit      (comment 3) Refit bootstrap for the tests closest to a decision: per plan logistic regression on
+  refit      Refit bootstrap for the tests closest to a decision: per plan logistic regression on
              embeddings (plan_emb) for Qwen3 32B in both plan sets, the confidence cascade for Qwen2.5 7B and the
              reader cascade 7B to Qwen3 14B with the two hop plans. Each replicate resamples questions within each
              dataset, then reruns the WHOLE procedure: fold split (copies of a question stay in one fold), policy
              fitting, hull vertices and weights, and scoring. One seed per replicate (seed = replicate number), so the
              interval also carries the variation over fold splits.
-  mechanism  (comment 8) What the planners learn, for the TSR planner, the planner with self knowledge AND plan_emb,
+  mechanism  What the planners learn, for the TSR planner, the planner with self knowledge AND plan_emb,
              over all 5 seeds: AUROC per plan, correlation of predictions across plans, AUROC for which of the two
              hull plans answers when exactly one does, with a bootstrap interval and the number of such questions.
-  headroom   (comment 8) Oracle headroom at the SAME budget as each policy: the best mix of the hull plans and the
+  headroom   Oracle headroom at the SAME budget as each policy: the best mix of the hull plans and the
              oracle (plans chosen on the training folds) at the policy's own mean cost, minus the hull there. The
              fraction of that gap each policy closes.
-  ablation   (comment 9) The weak protocol turned into ours one factor at a time on the same answers: comparator
+  ablation   The weak protocol turned into ours one factor at a time on the same answers: comparator
              (Always and Never RAG, then the best single plan at the same cost, then the hull), seeds, grading, the
              decision rule, and pooling. Runs 11 once for the missing step (strict labels, seed 0, single plan
              comparator) if its output is missing.
-  curve      (comment 5) Learning curve of plan_emb: 20% to 100% of the training folds.
-  overhead   (comment 8) plan_emb with its own cost charged: --overhead_ms X (from 25_latency_e2e.py) is added to the
+  curve      Learning curve of plan_emb: 20% to 100% of the training folds.
+  overhead   plan_emb with its own cost charged: --overhead_ms X (from 25_latency_e2e.py) is added to the
              cost of every plan whose retrieval does not embed the query with BGE-M3 anyway; the router tunes lambda
              with these costs, and the hull is read at the policy's charged cost. Also checks that, with no own cost,
              it reproduces script 12.
-  pooled     (comment 5, exploratory) plan_emb trained on the training folds of all four datasets together (about
+  pooled     (exploratory) plan_emb trained on the training folds of all four datasets together (about
              1,600 questions instead of 400, dataset indicators added), with and without its own cost. Not part of
              the default run: --parts pooled --overhead_ms X.
-  boundary   (comment 1) How often a policy's mean cost falls below the cheapest plan or on the flat part of the hull.
+  boundary   How often a policy's mean cost falls below the cheapest plan or on the flat part of the hull.
 
 Usage:  python scripts/24_review_checks.py                         every part except overhead (about 3 to 5 hours)
         python scripts/24_review_checks.py --parts inference,headroom,boundary

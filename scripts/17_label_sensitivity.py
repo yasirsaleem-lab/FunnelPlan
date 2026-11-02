@@ -1,5 +1,5 @@
 """
-Grading sensitivity (reviewer point: label_final is conservative; the adjudicated human audit gives it 0.80 and
+Grading sensitivity (label_final may be conservative: the adjudicated human audit gives it 0.80 and
 0.84 accuracy, with false negatives far above false positives). Reruns H1 (primary family, both plan sets) and H3
 with other label rules and checks whether any conclusion changes.
 
