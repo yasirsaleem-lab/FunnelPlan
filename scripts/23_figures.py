@@ -38,7 +38,8 @@ OUTD.mkdir(parents=True, exist_ok=True)
 
 DPI = 600                  # PNG resolution; the PDF is vector
 W2, W1 = 7.16, 3.5         # IEEE two column and one column figure widths (inches)
-GRID, BAND = "#E6E8EB", "#F1F2F4"
+GRID, BAND, BAND2 = "#E6E8EB", "#E9EBEE", "#F6F7F8"   # BAND: detectable effect of one test; BAND2: at the strictest Holm step
+MDE1, MDE2 = 0.027, 0.038
 plt.rcParams.update({
     "font.family": "sans-serif", "font.sans-serif": ["Arial", "Liberation Sans", "DejaVu Sans"], "font.size": 8,
     "axes.labelsize": 8, "xtick.labelsize": 8, "ytick.labelsize": 8, "legend.fontsize": 8, "axes.titlesize": 8,
@@ -51,7 +52,7 @@ RN = {"qwen2.5-7b": "Qwen2.5 7B", "llama3.1-8b": "Llama 3.1 8B", "qwen3-14b": "Q
 READERS = list(RN)
 DN = {"nq": "NQ", "hotpotqa": "HotpotQA", "2wikimultihopqa": "2Wiki", "musique": "MuSiQue"}
 PN = {"planner_tsr": "TSR planner", "adaptive_rag": "Adaptive RAG", "adaptive_k": "Adaptive k",
-      "gate_closed_book": "Closed book gate", "conf_cascade": "Confidence cascade", "reader_cascade": "Reader cascade"}
+      "gate_closed_book": "Closed-book gate", "conf_cascade": "Confidence cascade", "reader_cascade": "Reader cascade"}
 
 
 def _save(fig, name, exact=True):
@@ -88,7 +89,8 @@ def f2():
     fig, axes = plt.subplots(2, 3, figsize=(W2, 2.8), sharex=True)
     for ax, (m, keys, labels) in zip(axes.flat, panels):
         n = len(keys); y = np.arange(n)[::-1].astype(float)
-        ax.axvspan(-0.027, 0.027, color=BAND, zorder=0, lw=0)
+        ax.axvspan(-MDE2, MDE2, color=BAND2, zorder=0, lw=0)
+        ax.axvspan(-MDE1, MDE1, color=BAND, zorder=0, lw=0)
         ax.axvline(0, color=SLATE, lw=0.8, zorder=1)
         ci_marks(ax, [get(A, *k) for k in keys], y, 0.16, TEAL, "o")
         ci_marks(ax, [get(B, *k) for k in keys], y, -0.16, AMB, "D")
@@ -97,11 +99,12 @@ def f2():
         ax.set_xlim(-0.10, 0.06); ax.set_xticks([-0.08, -0.04, 0, 0.04])
     for ax in axes[1]:
         ax.set_xlabel("Gain over the hull")
-    h = [plt.Line2D([], [], marker="o", color=TEAL, lw=1.3, ms=4.6, label="single step plans"),
-         plt.Line2D([], [], marker="D", color=AMB, lw=1.3, ms=4.0, label="with fixed two hop plans"),
+    h = [plt.Line2D([], [], marker="o", color=TEAL, lw=1.3, ms=4.6, label="single-step plans"),
+         plt.Line2D([], [], marker="D", color=AMB, lw=1.3, ms=4.0, label="with fixed two-hop plans"),
          plt.Line2D([], [], marker="o", color=MUTED, mfc="white", lw=0, ms=4.6, label="open: Holm p of 0.05 or more"),
-         plt.Rectangle((0, 0), 1, 1, color=BAND, label="smaller than the detectable effect (0.027)")]
-    fig.legend(handles=h, loc="outside upper center", ncol=4, handletextpad=0.4, columnspacing=1.2)
+         plt.Rectangle((0, 0), 1, 1, color=BAND, label=f"below the detectable effect of one test ({MDE1})"),
+         plt.Rectangle((0, 0), 1, 1, color=BAND2, label=f"below it at the strictest Holm step ({MDE2})")]
+    fig.legend(handles=h, loc="outside upper center", ncol=3, handletextpad=0.4, columnspacing=1.2)
     _save(fig, "f2_h1_forest.png")
 
 
@@ -118,8 +121,8 @@ def f3():
             rows.append(dict(reader=rd, closed_book=acc.get("closed_book@0"), best=acc.max(), oracle=Y.max(axis=1).mean()))
     g = pd.DataFrame(rows).groupby("reader")[["closed_book", "best", "oracle"]].mean().loc[READERS]
     fig, ax = plt.subplots(figsize=(W2, 2.6)); x = np.arange(len(READERS)); w = 0.26
-    for i, (c, col, lab) in enumerate((("closed_book", GREY, "closed book"), ("best", TEAL, "best single fixed plan"),
-                                       ("oracle", AMB, "per question oracle over 25 plans"))):
+    for i, (c, col, lab) in enumerate((("closed_book", GREY, "closed-book"), ("best", TEAL, "best single fixed plan"),
+                                       ("oracle", AMB, "per-question oracle over 25 plans"))):
         bars = ax.bar(x + (i - 1) * (w + 0.02), g[c], w, color=col, label=lab, zorder=2)
         for bx, v in zip(bars, g[c]):
             ax.text(bx.get_x() + bx.get_width() / 2, v + 0.012, f"{v:.2f}", ha="center", color=INK)
@@ -183,7 +186,7 @@ def f5():
     ax.set_xticks(range(4)); ax.set_xticklabels([DN[d] for d in P.columns]); ax.set_yticks(range(5)); ax.set_yticklabels([RN[r] for r in P.index])
     for s in ax.spines.values():
         s.set_visible(False)
-    ax.set_title("Best fixed two hop plan minus best single step plan (in sample)", loc="left")
+    ax.set_title("Best fixed two-hop plan minus best single-step plan (in sample)", loc="left")
     cb = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.02); cb.outline.set_visible(False)
     _save(fig, "f5_r3.png", exact=False)
 
@@ -206,12 +209,12 @@ def f6():
         tx.text(0.0, yi, f"{s.ircot_cost_s / s.best_fixed_cost_s:.0f}x", va="center", ha="left", color=INK)
         tx.text(1.0, yi, f"{s.gain:+.3f}".replace("-", "\u2212") + ("*" if sig else ""), va="center", ha="right", color=INK)
     ax.set_yticks(y); ax.set_yticklabels([f"{RN[r]}, {DN[d]}" for r, d in cells])
-    ax.set_xlim(0.18, 0.64); ax.set_xlabel("Success on held out questions (label_final)"); hgrid(ax)
+    ax.set_xlim(0.18, 0.64); ax.set_xlabel("Success on held-out questions (label_final)"); hgrid(ax)
     tx.set_xlim(0, 1); tx.axis("off")
     tx.text(0.0, len(cells) - 0.35, "Latency\nvs best plan", va="bottom", ha="left", color=MUTED)
     tx.text(1.0, len(cells) - 0.35, "Gain", va="bottom", ha="right", color=MUTED)
-    h = [plt.Line2D([], [], marker="o", color=SLATE, lw=0, ms=5, label="single step hull at IRCoT latency"),
-         plt.Line2D([], [], marker="D", color=AMB, lw=0, ms=4.4, label="hull with fixed two hop plans"),
+    h = [plt.Line2D([], [], marker="o", color=SLATE, lw=0, ms=5, label="single-step hull at IRCoT latency"),
+         plt.Line2D([], [], marker="D", color=AMB, lw=0, ms=4.4, label="hull with fixed two-hop plans"),
          plt.Line2D([], [], marker="o", color=TEAL, lw=0, ms=5.6, label="IRCoT (filled: Holm significant, *)")]
     fig.legend(handles=h, loc="outside upper center", ncol=3)
     _save(fig, "f6_h3.png")
@@ -245,7 +248,7 @@ def f8():
     for D in (A, B):
         D["p_holm"] = T12.holm(D.p.values)
     names = {"ak_paper": "Adaptive k (published rule)", "ar_emb": "Adaptive RAG, BGE M3 LR", "ar_t5": "Adaptive RAG, FLAN T5",
-             "plan_emb": "Per plan LR (BGE M3)", "plan_knn": "Per plan kNN", "metis": "METIS port"}
+             "plan_emb": "Per-plan LR (BGE M3)", "plan_knn": "Per-plan kNN", "metis": "METIS style router"}
     order = [(m, r) for m in names for r in READERS]
     def rows(D):
         out = []
@@ -255,12 +258,13 @@ def f8():
         return out
     n = len(order); y = np.arange(n)[::-1].astype(float)
     fig, ax = plt.subplots(figsize=(W2, 6.4))
-    ax.axvspan(-0.027, 0.027, color=BAND, zorder=0, lw=0); ax.axvline(0, color=SLATE, lw=0.8)
+    ax.axvspan(-MDE2, MDE2, color=BAND2, zorder=0, lw=0); ax.axvspan(-MDE1, MDE1, color=BAND, zorder=0, lw=0)
+    ax.axvline(0, color=SLATE, lw=0.8)
     ci_marks(ax, rows(A), y, 0.17, TEAL, "o"); ci_marks(ax, rows(B), y, -0.17, AMB, "D")
     ax.set_yticks(y); ax.set_yticklabels([f"{names[m]}, {RN[r]}" for m, r in order]); ax.set_xlim(-0.10, 0.07)
-    ax.set_xlabel("Gain over the held out fixed plan hull at equal mean latency"); hgrid(ax)
+    ax.set_xlabel("Gain over the held-out fixed plan hull at equal mean latency"); hgrid(ax)
     ax.set_title("Secondary family (30 tests per plan set, Holm within each; filled = Holm p < 0.05)", loc="left")
-    ax.plot([], [], "o", color=TEAL, label="single step plans"); ax.plot([], [], "D", color=AMB, label="with fixed two hop plans")
+    ax.plot([], [], "o", color=TEAL, label="single-step plans"); ax.plot([], [], "D", color=AMB, label="with fixed two-hop plans")
     ax.legend(loc="lower left")
     _save(fig, "f8_secondary.png", exact=False)
 
@@ -312,7 +316,7 @@ def f10():
     bx.axvline(0.5, color=SLATE, lw=0.8, ls="--")
     bx.set_yticks(yb); bx.set_yticklabels([names.get(i, i) for i in M.index]); bx.set_xlim(0.4, 0.76)
     bx.set_xticks([0.4, 0.5, 0.6, 0.7])
-    bx.set_xlabel("Held out AUROC (dashed: chance)"); hgrid(bx); bx.set_ylim(-0.6, len(M) + 0.5)
+    bx.set_xlabel("Held-out AUROC (dashed: chance)"); hgrid(bx); bx.set_ylim(-0.6, len(M) + 0.5)
     bx.legend(loc="upper center", ncol=1, handlelength=1.0, borderaxespad=0.0)
     _save(fig, "f10_headroom_matched.png")
 
@@ -329,7 +333,7 @@ def f11():
     ax.axhline(0, color=SLATE, lw=0.9); ax.text(21, 0.002, "hull", color=SLATE)
     ax.set_xlabel("Share of the training folds used (%)"); ax.set_ylabel("Gain over the hull")
     ax.set_xticks([20, 40, 60, 80, 100]); hgrid(ax, "y")
-    ax.set_title("Planner with self knowledge: more data approaches the hull", loc="left")
+    ax.set_title("Planner with self-knowledge: more data approaches the hull", loc="left")
     ax.legend(ncol=2, loc="lower right")
     _save(fig, "f11_learning_curve.png", exact=False)
 
