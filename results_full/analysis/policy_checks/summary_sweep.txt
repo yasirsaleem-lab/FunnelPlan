@@ -1,0 +1,10 @@
+Policy checks; parts ['sweep']; seeds [0, 1, 2, 3, 4]
+
+== budget sweep (single step plans, seeds [0, 1, 2]): each policy tuned on the training folds to the best training success within the budget, then scored against the held out hull at its realised mean cost
+  mean gain over readers by budget step (1 = cheapest plan, 6 = most successful plan); corrected 95% intervals per test in sweep_tests.csv
+budget_step        1       2      3      4       5       6
+method                                                    
+plan_emb_own -0.0009  0.0025 -0.001 -0.001 -0.0016 -0.0012
+  tests with the corrected interval above 0 (no correction for the 6 budgets; descriptive):
+    none
+  (sweep done, 1318s)

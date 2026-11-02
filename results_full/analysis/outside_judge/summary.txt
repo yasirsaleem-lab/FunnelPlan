@@ -1,0 +1,24 @@
+Ambiguous band: 10636 unique answers; both judges scored 10636.
+Decisions agree on 0.873; Cohen's kappa 0.737; rated correct: Qwen3 14B 0.409, Mistral Small 3.1 0.393.
+
+By reader of the answer (a Qwen3 judge favouring Qwen3 readers would show a larger qwen_minus_mistral for the Qwen3 readers):
+                reader    n  agree  qwen_yes  mistral_yes  qwen_minus_mistral
+control_qwen3-14b-gguf  407  0.867     0.312        0.342              -0.029
+            gemma3-27b 1452  0.896     0.310        0.311              -0.001
+           llama3.1-8b 2068  0.891     0.263        0.289              -0.027
+            qwen2.5-7b 2109  0.884     0.264        0.277              -0.013
+             qwen3-14b 1907  0.874     0.371        0.379              -0.007
+             qwen3-32b 4089  0.864     0.578        0.523               0.055
+         r3_gemma3-27b  372  0.820     0.473        0.465               0.008
+        r3_llama3.1-8b  367  0.875     0.351        0.395              -0.044
+         r3_qwen2.5-7b  413  0.847     0.370        0.387              -0.017
+          r3_qwen3-14b  413  0.855     0.455        0.446               0.010
+          r3_qwen3-32b  681  0.868     0.661        0.614               0.047
+        r4_llama3.1-8b  173  0.861     0.347        0.382              -0.035
+         r4_qwen2.5-7b  203  0.887     0.394        0.389               0.005
+          r4_qwen3-14b  204  0.838     0.436        0.402               0.034
+
+Both judges against the human majority of audits 1 and 2, on the 393 audited answers in the band:
+  judge   n  agreement  sensitivity  specificity     J
+   qwen 393      0.791        0.683        0.930 0.613
+mistral 393      0.768        0.638        0.936 0.574

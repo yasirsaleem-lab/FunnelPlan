@@ -1,0 +1,242 @@
+Mixed workload condition. Readers ['gemma3-27b', 'llama3.1-8b', 'qwen2.5-7b', 'qwen3-14b', 'qwen3-32b']; seeds [0, 1, 2, 3, 4]; 5 folds over the pooled questions; plan sets ['single', 'r3']; ar_t5 off; METIS on.
+
+######## plan set: single step
+== gemma3-27b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.494 at 2.64s
+    plan_emb_own      global +0.0047  label -0.0216  cost 0.524s  (34s)
+    plan_knn_own      global +0.0225  label -0.0057  cost 0.467s  (37s)
+    ds_label          global +0.0313  label -0.0024  cost 0.469s  (52s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0191  label -0.0120  cost 0.494s  (67s)
+      dataset classifier accuracy on held out folds: 0.7902
+== llama3.1-8b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 31 common plans; best pooled plan qwen3_reranker_0_6b@10 0.475 at 2.07s
+    plan_emb_own      global +0.0074  label -0.0130  cost 0.551s  (106s)
+    plan_knn_own      global +0.0180  label -0.0053  cost 0.432s  (109s)
+    ds_label          global +0.0116  label -0.0038  cost 0.595s  (125s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0068  label -0.0008  cost 1.151s  (141s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen2.5-7b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 31 common plans; best pooled plan qwen3_reranker_0_6b@10 0.465 at 1.97s
+    plan_emb_own      global -0.0034  label -0.0176  cost 0.617s  (179s)
+    plan_knn_own      global +0.0010  label -0.0164  cost 0.505s  (182s)
+    ds_label          global +0.0359  label -0.0064  cost 0.253s  (198s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0216  label -0.0007  cost 1.050s  (214s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen3-14b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.509 at 3.55s
+    plan_emb_own      global +0.0124  label -0.0259  cost 1.632s  (246s)
+    plan_knn_own      global +0.0239  label -0.0210  cost 1.525s  (250s)
+    ds_label          global +0.0377  label -0.0117  cost 1.489s  (265s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0029  label -0.0227  cost 1.921s  (279s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen3-32b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.539 at 3.17s
+    plan_emb_own      global +0.0119  label -0.0236  cost 0.652s  (310s)
+    plan_knn_own      global +0.0023  label -0.0259  cost 0.691s  (314s)
+    ds_label          global +0.0297  label -0.0079  cost 0.437s  (328s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0112  label -0.0071  cost 1.678s  (342s)
+      dataset classifier accuracy on held out folds: 0.7902
+
+######## plan set: with two hop
+== gemma3-27b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.494 at 2.64s
+    plan_emb_own      global +0.0422  label -0.0032  cost 1.493s  (35s)
+    plan_knn_own      global +0.0403  label -0.0031  cost 1.367s  (38s)
+    ds_label          global +0.0407  label -0.0003  cost 1.478s  (52s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0422  label -0.0005  cost 1.543s  (67s)
+      dataset classifier accuracy on held out folds: 0.7902
+== llama3.1-8b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 33 common plans; best pooled plan qwen3_reranker_0_6b@10 0.475 at 2.07s
+    plan_emb_own      global +0.0206  label -0.0047  cost 1.037s  (105s)
+    plan_knn_own      global +0.0131  label -0.0107  cost 1.031s  (109s)
+    ds_label          global +0.0258  label +0.0004  cost 1.199s  (123s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0270  label +0.0001  cost 1.255s  (138s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen2.5-7b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 33 common plans; best pooled plan qwen3_reranker_0_6b@10 0.465 at 1.97s
+    plan_emb_own      global +0.0236  label -0.0113  cost 0.811s  (175s)
+    plan_knn_own      global +0.0166  label -0.0141  cost 0.885s  (178s)
+    ds_label          global +0.0359  label -0.0064  cost 0.253s  (193s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0306  label -0.0023  cost 1.040s  (207s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen3-14b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.509 at 3.55s
+    plan_emb_own      global +0.0323  label -0.0087  cost 3.186s  (241s)
+    plan_knn_own      global +0.0280  label -0.0143  cost 2.772s  (244s)
+    ds_label          global +0.0313  label -0.0109  cost 2.111s  (259s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0382  label -0.0023  cost 3.246s  (273s)
+      dataset classifier accuracy on held out folds: 0.7902
+== qwen3-32b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.539 at 3.17s
+    plan_emb_own      global +0.0354  label -0.0057  cost 1.870s  (306s)
+    plan_knn_own      global +0.0307  label -0.0107  cost 1.923s  (309s)
+    ds_label          global +0.0404  label -0.0041  cost 1.878s  (324s)
+      dataset classifier accuracy on held out folds: 0.7902
+    ds_label_own      global +0.0407  label -0.0042  cost 1.924s  (338s)
+      dataset classifier accuracy on held out folds: 0.7902
+
+######## tests (pooled questions, n per test as shown; Holm within plan set, family and comparator)
+
+== single step | own_cost | against the global hull: 10 tests, positive 0, negative 0, upper bound below 0.03: 7
+  qwen3-14b                plan_knn_own      +0.024 [+0.004, +0.044]  Holm p 0.1995  ub 0.041  cost 1.53s  
+  gemma3-27b               plan_knn_own      +0.023 [+0.003, +0.043]  Holm p 0.2029  ub 0.039  cost 0.47s  
+  llama3.1-8b              plan_knn_own      +0.018 [-0.001, +0.039]  Holm p 0.6285  ub 0.035  cost 0.43s  
+  qwen3-14b                plan_emb_own      +0.012 [-0.007, +0.033]  Holm p 1.0000  ub 0.029  cost 1.63s  
+  qwen3-32b                plan_emb_own      +0.012 [-0.007, +0.030]  Holm p 1.0000  ub 0.027  cost 0.65s  
+  llama3.1-8b              plan_emb_own      +0.007 [-0.012, +0.028]  Holm p 1.0000  ub 0.024  cost 0.55s  
+  gemma3-27b               plan_emb_own      +0.005 [-0.014, +0.025]  Holm p 1.0000  ub 0.021  cost 0.52s  
+  qwen3-32b                plan_knn_own      +0.002 [-0.016, +0.021]  Holm p 1.0000  ub 0.018  cost 0.69s  
+  qwen2.5-7b               plan_knn_own      +0.001 [-0.019, +0.021]  Holm p 1.0000  ub 0.017  cost 0.50s  
+  qwen2.5-7b               plan_emb_own      -0.003 [-0.022, +0.016]  Holm p 1.0000  ub 0.013  cost 0.62s  
+
+== single step | own_cost | against the label hull: 10 tests, positive 0, negative 0, upper bound below 0.03: 10
+  llama3.1-8b              plan_knn_own      -0.005 [-0.025, +0.015]  Holm p 1.0000  ub 0.012  cost 0.43s  
+  gemma3-27b               plan_knn_own      -0.006 [-0.025, +0.014]  Holm p 1.0000  ub 0.011  cost 0.47s  
+  llama3.1-8b              plan_emb_own      -0.013 [-0.032, +0.008]  Holm p 0.6005  ub 0.004  cost 0.55s  
+  qwen2.5-7b               plan_knn_own      -0.016 [-0.037, +0.003]  Holm p 0.3784  ub -0.000  cost 0.50s  
+  qwen2.5-7b               plan_emb_own      -0.018 [-0.036, +0.002]  Holm p 0.3541  ub -0.002  cost 0.62s  
+  qwen3-14b                plan_knn_own      -0.021 [-0.041, -0.001]  Holm p 0.2452  ub -0.004  cost 1.53s  
+  gemma3-27b               plan_emb_own      -0.022 [-0.040, -0.002]  Holm p 0.1891  ub -0.006  cost 0.52s  
+  qwen3-32b                plan_emb_own      -0.024 [-0.042, -0.006]  Holm p 0.0960  ub -0.008  cost 0.65s  
+  qwen3-32b                plan_knn_own      -0.026 [-0.044, -0.007]  Holm p 0.0649  ub -0.010  cost 0.69s  
+  qwen3-14b                plan_emb_own      -0.026 [-0.045, -0.006]  Holm p 0.0892  ub -0.009  cost 1.63s  
+
+== single step | ds_label | against the global hull: 5 tests, positive 4, negative 0, upper bound below 0.03: 1
+  qwen3-14b                ds_label          +0.038 [+0.019, +0.057]  Holm p 0.0011  ub 0.054  cost 1.49s  POSITIVE
+  qwen2.5-7b               ds_label          +0.036 [+0.017, +0.055]  Holm p 0.0011  ub 0.052  cost 0.25s  POSITIVE
+  gemma3-27b               ds_label          +0.031 [+0.011, +0.052]  Holm p 0.0096  ub 0.049  cost 0.47s  POSITIVE
+  qwen3-32b                ds_label          +0.030 [+0.010, +0.049]  Holm p 0.0096  ub 0.046  cost 0.44s  POSITIVE
+  llama3.1-8b              ds_label          +0.012 [-0.006, +0.032]  Holm p 0.2385  ub 0.028  cost 0.59s  
+
+== single step | ds_label | against the label hull: 5 tests, positive 0, negative 0, upper bound below 0.03: 5
+  gemma3-27b               ds_label          -0.002 [-0.023, +0.019]  Holm p 1.0000  ub 0.015  cost 0.47s  
+  llama3.1-8b              ds_label          -0.004 [-0.022, +0.016]  Holm p 1.0000  ub 0.012  cost 0.59s  
+  qwen2.5-7b               ds_label          -0.006 [-0.025, +0.013]  Holm p 1.0000  ub 0.010  cost 0.25s  
+  qwen3-32b                ds_label          -0.008 [-0.027, +0.011]  Holm p 1.0000  ub 0.009  cost 0.44s  
+  qwen3-14b                ds_label          -0.012 [-0.030, +0.008]  Holm p 1.0000  ub 0.005  cost 1.49s  
+
+== single step | ds_label_own | against the global hull: 5 tests, positive 0, negative 0, upper bound below 0.03: 3
+  qwen2.5-7b               ds_label_own      +0.022 [+0.001, +0.043]  Holm p 0.2040  ub 0.039  cost 1.05s  
+  gemma3-27b               ds_label_own      +0.019 [-0.001, +0.040]  Holm p 0.2901  ub 0.037  cost 0.49s  
+  qwen3-32b                ds_label_own      +0.011 [-0.008, +0.031]  Holm p 0.8151  ub 0.028  cost 1.68s  
+  llama3.1-8b              ds_label_own      +0.007 [-0.012, +0.028]  Holm p 1.0000  ub 0.024  cost 1.15s  
+  qwen3-14b                ds_label_own      +0.003 [-0.015, +0.021]  Holm p 1.0000  ub 0.019  cost 1.92s  
+
+== single step | ds_label_own | against the label hull: 5 tests, positive 0, negative 0, upper bound below 0.03: 5
+  qwen2.5-7b               ds_label_own      -0.001 [-0.021, +0.021]  Holm p 1.0000  ub 0.017  cost 1.05s  
+  llama3.1-8b              ds_label_own      -0.001 [-0.020, +0.020]  Holm p 1.0000  ub 0.016  cost 1.15s  
+  qwen3-32b                ds_label_own      -0.007 [-0.027, +0.012]  Holm p 1.0000  ub 0.010  cost 1.68s  
+  gemma3-27b               ds_label_own      -0.012 [-0.032, +0.009]  Holm p 1.0000  ub 0.005  cost 0.49s  
+  qwen3-14b                ds_label_own      -0.023 [-0.041, -0.005]  Holm p 0.0838  ub -0.007  cost 1.92s  
+
+== with two hop | own_cost | against the global hull: 10 tests, positive 6, negative 0, upper bound below 0.03: 1
+  gemma3-27b               plan_emb_own      +0.042 [+0.023, +0.062]  Holm p 0.0005  ub 0.059  cost 1.49s  POSITIVE
+  gemma3-27b               plan_knn_own      +0.040 [+0.021, +0.060]  Holm p 0.0007  ub 0.057  cost 1.37s  POSITIVE
+  qwen3-32b                plan_emb_own      +0.035 [+0.016, +0.055]  Holm p 0.0039  ub 0.052  cost 1.87s  POSITIVE
+  qwen3-14b                plan_emb_own      +0.032 [+0.012, +0.052]  Holm p 0.0113  ub 0.049  cost 3.19s  POSITIVE
+  qwen3-32b                plan_knn_own      +0.031 [+0.010, +0.050]  Holm p 0.0155  ub 0.047  cost 1.92s  POSITIVE
+  qwen3-14b                plan_knn_own      +0.028 [+0.009, +0.047]  Holm p 0.0185  ub 0.044  cost 2.77s  POSITIVE
+  qwen2.5-7b               plan_emb_own      +0.024 [+0.004, +0.042]  Holm p 0.0821  ub 0.040  cost 0.81s  
+  llama3.1-8b              plan_emb_own      +0.021 [+0.001, +0.040]  Holm p 0.1196  ub 0.037  cost 1.04s  
+  qwen2.5-7b               plan_knn_own      +0.017 [-0.003, +0.036]  Holm p 0.1958  ub 0.033  cost 0.88s  
+  llama3.1-8b              plan_knn_own      +0.013 [-0.005, +0.032]  Holm p 0.1958  ub 0.029  cost 1.03s  
+
+== with two hop | own_cost | against the label hull: 10 tests, positive 0, negative 0, upper bound below 0.03: 10
+  gemma3-27b               plan_knn_own      -0.003 [-0.023, +0.017]  Holm p 1.0000  ub 0.014  cost 1.37s  
+  gemma3-27b               plan_emb_own      -0.003 [-0.023, +0.017]  Holm p 1.0000  ub 0.014  cost 1.49s  
+  llama3.1-8b              plan_emb_own      -0.005 [-0.024, +0.015]  Holm p 1.0000  ub 0.012  cost 1.04s  
+  qwen3-32b                plan_emb_own      -0.006 [-0.025, +0.014]  Holm p 1.0000  ub 0.011  cost 1.87s  
+  qwen3-14b                plan_emb_own      -0.009 [-0.029, +0.011]  Holm p 1.0000  ub 0.008  cost 3.19s  
+  llama3.1-8b              plan_knn_own      -0.011 [-0.029, +0.008]  Holm p 1.0000  ub 0.005  cost 1.03s  
+  qwen3-32b                plan_knn_own      -0.011 [-0.031, +0.009]  Holm p 1.0000  ub 0.006  cost 1.92s  
+  qwen2.5-7b               plan_emb_own      -0.011 [-0.031, +0.007]  Holm p 1.0000  ub 0.005  cost 0.81s  
+  qwen2.5-7b               plan_knn_own      -0.014 [-0.034, +0.005]  Holm p 1.0000  ub 0.002  cost 0.88s  
+  qwen3-14b                plan_knn_own      -0.014 [-0.034, +0.005]  Holm p 1.0000  ub 0.002  cost 2.77s  
+
+== with two hop | ds_label | against the global hull: 5 tests, positive 5, negative 0, upper bound below 0.03: 0
+  gemma3-27b               ds_label          +0.041 [+0.021, +0.060]  Holm p 0.0004  ub 0.058  cost 1.48s  POSITIVE
+  qwen3-32b                ds_label          +0.040 [+0.020, +0.060]  Holm p 0.0005  ub 0.058  cost 1.88s  POSITIVE
+  qwen2.5-7b               ds_label          +0.036 [+0.017, +0.055]  Holm p 0.0007  ub 0.052  cost 0.25s  POSITIVE
+  qwen3-14b                ds_label          +0.031 [+0.013, +0.049]  Holm p 0.0018  ub 0.047  cost 2.11s  POSITIVE
+  llama3.1-8b              ds_label          +0.026 [+0.006, +0.046]  Holm p 0.0149  ub 0.043  cost 1.20s  POSITIVE
+
+== with two hop | ds_label | against the label hull: 5 tests, positive 0, negative 0, upper bound below 0.03: 5
+  llama3.1-8b              ds_label          +0.000 [-0.019, +0.021]  Holm p 1.0000  ub 0.018  cost 1.20s  
+  gemma3-27b               ds_label          -0.000 [-0.020, +0.019]  Holm p 1.0000  ub 0.017  cost 1.48s  
+  qwen3-32b                ds_label          -0.004 [-0.024, +0.016]  Holm p 1.0000  ub 0.013  cost 1.88s  
+  qwen2.5-7b               ds_label          -0.006 [-0.025, +0.013]  Holm p 1.0000  ub 0.010  cost 0.25s  
+  qwen3-14b                ds_label          -0.011 [-0.029, +0.007]  Holm p 1.0000  ub 0.005  cost 2.11s  
+
+== with two hop | ds_label_own | against the global hull: 5 tests, positive 5, negative 0, upper bound below 0.03: 0
+  gemma3-27b               ds_label_own      +0.042 [+0.023, +0.062]  Holm p 0.0003  ub 0.060  cost 1.54s  POSITIVE
+  qwen3-32b                ds_label_own      +0.041 [+0.021, +0.060]  Holm p 0.0005  ub 0.058  cost 1.92s  POSITIVE
+  qwen3-14b                ds_label_own      +0.038 [+0.017, +0.059]  Holm p 0.0010  ub 0.056  cost 3.25s  POSITIVE
+  qwen2.5-7b               ds_label_own      +0.031 [+0.011, +0.051]  Holm p 0.0079  ub 0.048  cost 1.04s  POSITIVE
+  llama3.1-8b              ds_label_own      +0.027 [+0.007, +0.047]  Holm p 0.0114  ub 0.045  cost 1.26s  POSITIVE
+
+== with two hop | ds_label_own | against the label hull: 5 tests, positive 0, negative 0, upper bound below 0.03: 5
+  llama3.1-8b              ds_label_own      +0.000 [-0.019, +0.021]  Holm p 1.0000  ub 0.018  cost 1.26s  
+  gemma3-27b               ds_label_own      -0.000 [-0.020, +0.020]  Holm p 1.0000  ub 0.017  cost 1.54s  
+  qwen3-14b                ds_label_own      -0.002 [-0.024, +0.018]  Holm p 1.0000  ub 0.015  cost 3.25s  
+  qwen2.5-7b               ds_label_own      -0.002 [-0.022, +0.018]  Holm p 1.0000  ub 0.015  cost 1.04s  
+  qwen3-32b                ds_label_own      -0.004 [-0.024, +0.015]  Holm p 1.0000  ub 0.013  cost 1.92s  
+
+######## decomposition: gain over global hull = workload part + gain over label hull (means over readers)
+comparator                 global  workload_part   label
+plan_set     method                                     
+single step  ds_label      0.0292         0.0357 -0.0064
+             ds_label_own  0.0123         0.0210 -0.0086
+             plan_emb_own  0.0066         0.0269 -0.0203
+             plan_knn_own  0.0136         0.0284 -0.0149
+with two hop ds_label      0.0348         0.0391 -0.0043
+             ds_label_own  0.0358         0.0376 -0.0018
+             plan_emb_own  0.0308         0.0376 -0.0067
+             plan_knn_own  0.0257         0.0363 -0.0106
+
+######## decision rule: positive (Holm p < 0.05, CI above 0) in BOTH plan sets
+  against the global hull: [('ds_label', 'gemma3-27b', 'ds_label'), ('ds_label', 'qwen2.5-7b', 'ds_label'), ('ds_label', 'qwen3-14b', 'ds_label'), ('ds_label', 'qwen3-32b', 'ds_label')]
+  against the label hull: none
+
+######## routers: gain without (main run) and with their own cost
+    plan_set comparator      reader       method  gain_no_own_cost    gain  p_holm
+ single step     global  gemma3-27b plan_emb_own            0.0185  0.0047  1.0000
+ single step      label  gemma3-27b plan_emb_own           -0.0095 -0.0216  0.1891
+ single step     global  gemma3-27b plan_knn_own            0.0359  0.0225  0.2029
+ single step      label  gemma3-27b plan_knn_own            0.0054 -0.0057  1.0000
+ single step     global llama3.1-8b plan_emb_own            0.0251  0.0074  1.0000
+ single step      label llama3.1-8b plan_emb_own            0.0014 -0.0130  0.6005
+ single step     global llama3.1-8b plan_knn_own            0.0213  0.0180  0.6285
+ single step      label llama3.1-8b plan_knn_own           -0.0037 -0.0053  1.0000
+ single step     global  qwen2.5-7b plan_emb_own            0.0206 -0.0034  1.0000
+ single step      label  qwen2.5-7b plan_emb_own           -0.0079 -0.0176  0.3541
+ single step     global  qwen2.5-7b plan_knn_own            0.0199  0.0010  1.0000
+ single step      label  qwen2.5-7b plan_knn_own           -0.0082 -0.0164  0.3784
+ single step     global   qwen3-14b plan_emb_own            0.0445  0.0124  1.0000
+ single step      label   qwen3-14b plan_emb_own           -0.0035 -0.0259  0.0892
+ single step     global   qwen3-14b plan_knn_own            0.0527  0.0239  0.1995
+ single step      label   qwen3-14b plan_knn_own            0.0037 -0.0210  0.2452
+ single step     global   qwen3-32b plan_emb_own            0.0341  0.0119  1.0000
+ single step      label   qwen3-32b plan_emb_own           -0.0023 -0.0236  0.0960
+ single step     global   qwen3-32b plan_knn_own            0.0301  0.0023  1.0000
+ single step      label   qwen3-32b plan_knn_own           -0.0100 -0.0259  0.0649
+with two hop     global  gemma3-27b plan_emb_own            0.0381  0.0422  0.0005
+with two hop      label  gemma3-27b plan_emb_own           -0.0043 -0.0032  1.0000
+with two hop     global  gemma3-27b plan_knn_own            0.0406  0.0403  0.0007
+with two hop      label  gemma3-27b plan_knn_own           -0.0005 -0.0031  1.0000
+with two hop     global llama3.1-8b plan_emb_own            0.0224  0.0206  0.1196
+with two hop      label llama3.1-8b plan_emb_own           -0.0051 -0.0047  1.0000
+with two hop     global llama3.1-8b plan_knn_own            0.0190  0.0131  0.1958
+with two hop      label llama3.1-8b plan_knn_own           -0.0027 -0.0107  1.0000
+with two hop     global  qwen2.5-7b plan_emb_own            0.0206  0.0236  0.0821
+with two hop      label  qwen2.5-7b plan_emb_own           -0.0086 -0.0113  1.0000
+with two hop     global  qwen2.5-7b plan_knn_own            0.0150  0.0166  0.1958
+with two hop      label  qwen2.5-7b plan_knn_own           -0.0137 -0.0141  1.0000
+with two hop     global   qwen3-14b plan_emb_own            0.0415  0.0323  0.0113
+with two hop      label   qwen3-14b plan_emb_own           -0.0034 -0.0087  1.0000
+with two hop     global   qwen3-14b plan_knn_own            0.0527  0.0280  0.0185
+with two hop      label   qwen3-14b plan_knn_own            0.0037 -0.0143  1.0000
+with two hop     global   qwen3-32b plan_emb_own            0.0333  0.0354  0.0039
+with two hop      label   qwen3-32b plan_emb_own           -0.0061 -0.0057  1.0000
+with two hop     global   qwen3-32b plan_knn_own            0.0269  0.0307  0.0155
+with two hop      label   qwen3-32b plan_knn_own           -0.0120 -0.0107  1.0000
+
+Done in 685s. Output: results_full\analysis\mixed

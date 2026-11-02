@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{label\_final against the majority of three human raters, by the reader that wrote the answer. label\_final is the string rules, with the Qwen3 14B judge on the ambiguous band. Each reader was audited in one audit only. The Qwen3 14B row is graded by a judge of the same model.}
+\label{tab:rev2_agreement}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcrrrrr}
+\toprule
+Reader & Audit & Answers & Agreement & Sensitivity & Specificity & J \\
+\midrule
+Gemma 3 27B & 2 & 132 & 0.833 & 0.721 & 0.953 & 0.674 \\
+Llama 3.1 8B & 1 & 94 & 0.798 & 0.714 & 0.921 & 0.635 \\
+Qwen2.5 7B & 1 & 68 & 0.765 & 0.517 & 0.949 & 0.466 \\
+Qwen3 14B & 1 & 38 & 0.868 & 0.750 & 0.955 & 0.705 \\
+Qwen3 32B & 2 & 128 & 0.875 & 0.836 & 0.918 & 0.754 \\
+\bottomrule
+\end{tabular*}
+\end{table}

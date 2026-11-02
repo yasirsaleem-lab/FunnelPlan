@@ -16,7 +16,7 @@
 <text xml:space="preserve" x="480.603125" y="120.6" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="start">• single plan baseline</text>
 <text xml:space="preserve" x="480.603125" y="144.3" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="start">• margin test at 0.03</text>
 <rect x="702.20625" y="16" width="204.603125" height="144" rx="10" fill="#ffffff" stroke="#CFC7B9" stroke-width="1.3" filter="url(#sh)"/>
-<text xml:space="preserve" x="714.20625" y="51.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#0F5E63" text-anchor="start">H3: multi step</text>
+<text xml:space="preserve" x="714.20625" y="51.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#0F5E63" text-anchor="start">H2: multi step</text>
 <text xml:space="preserve" x="714.20625" y="73.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="start">• IRCoT vs the hull</text>
 <text xml:space="preserve" x="714.20625" y="96.8" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="start">• 3 readers x 3 sets</text>
 <rect x="918.8093749999999" y="16" width="219.603125" height="144" rx="10" fill="#ffffff" stroke="#CFC7B9" stroke-width="1.3" filter="url(#sh)"/>

@@ -1,0 +1,603 @@
+item_id,dataset,query_id,norm,answer
+3001,2wikimultihopqa,8687,murdered,murdered
+3002,2wikimultihopqa,12062,1997,1997
+3003,2wikimultihopqa,9380,american,American
+3004,2wikimultihopqa,5859,caucasus,Caucasus
+3005,2wikimultihopqa,7021,edward harley,Edward Harley
+3006,2wikimultihopqa,2791,1376,1376
+3007,2wikimultihopqa,5155,los angeles,Los Angeles
+3008,2wikimultihopqa,5404,paattinte palazhy,Paattinte Palazhy
+3009,2wikimultihopqa,5903,carl von linde,Carl Von Linde
+3010,2wikimultihopqa,3378,taming of fire,Taming Of The Fire
+3011,2wikimultihopqa,5740,travelling north,Travelling North
+3012,2wikimultihopqa,9084,steven okazaki,Steven Okazaki
+3013,2wikimultihopqa,4844,steve tesich,Steve Tesich
+3014,2wikimultihopqa,7127,yuri i of galicia,Yuri I of Galicia
+3015,2wikimultihopqa,4176,edith ewing bouvier beale,Edith Ewing Bouvier Beale
+3016,2wikimultihopqa,5070,constantinople,Constantinople
+3017,2wikimultihopqa,10323,justinian i,Justinian I
+3018,2wikimultihopqa,2952,george hare philipson,George Hare Philipson
+3019,2wikimultihopqa,8670,britain,Britain
+3020,2wikimultihopqa,4029,un taxi pour tobrouk,Un Taxi Pour Tobrouk
+3021,2wikimultihopqa,3963,gustavo alatriste,Gustavo Alatriste
+3022,2wikimultihopqa,9744,united states,United States
+3023,2wikimultihopqa,6625,hong kong,Hong Kong
+3024,2wikimultihopqa,6759,william montagu douglas scott 6th duke of buccleuch,"William Montagu Douglas Scott, 6th Duke of Buccleuch"
+3025,2wikimultihopqa,8116,bolesław elder,Bolesław the Elder
+3026,hotpotqa,93016,kotv dt,KOTV-DT
+3027,hotpotqa,90686,xerospermum,Xerospermum
+3028,hotpotqa,96004,sidney hayers,Sidney Hayers
+3029,hotpotqa,95240,arya mohanlal,"Arya, Mohanlal"
+3030,hotpotqa,96468,actress model,"actress, model"
+3031,hotpotqa,97196,colin kaepernick preferred kap,"Colin Kaepernick, preferred ""Kap""."
+3032,hotpotqa,93889,march 30 1983,"March 30, 1983"
+3033,hotpotqa,93987,sir mark walport,Sir Mark Walport
+3034,hotpotqa,91728,2007,2007
+3035,hotpotqa,95473,cleveland thunderbolts detroit drive,"Cleveland Thunderbolts, Detroit Drive"
+3036,hotpotqa,91544,weezer,Weezer
+3037,hotpotqa,94761,nathan for you,Nathan For You
+3038,hotpotqa,94813,rogue beard beer,Rogue Beard Beer
+3039,hotpotqa,94444,roger capellani died at battle of dunkirk,Roger Capellani died at the Battle of Dunkirk.
+3040,hotpotqa,91575,pareshaanpur,Pareshaanpur
+3041,hotpotqa,93538,film,film
+3042,hotpotqa,97415,humbug,Humbug
+3043,hotpotqa,90526,1865,1865
+3044,hotpotqa,95049,usaf,USAF
+3045,hotpotqa,96137,canterbury,Canterbury
+3046,hotpotqa,94369,iroquois,Iroquois
+3047,hotpotqa,97118,1834,1834
+3048,hotpotqa,94829,winery,winery
+3049,hotpotqa,92040,battle of changsha,Battle of Changsha
+3050,hotpotqa,97119,whitney houston,Whitney Houston
+3051,musique,1311,sea air and land,"Sea, Air, and Land"
+3052,musique,672,season 4,Season 4
+3053,musique,252,zhang xianzhong,Zhang Xianzhong
+3054,musique,1711,1984,1984
+3055,musique,1221,xanana gusmão,Xanana Gusmão
+3056,musique,1896,green bay,Green Bay
+3057,musique,76,caldwell new jersey,"Caldwell, New Jersey"
+3058,musique,2005,they were expelled by somali muslim ajuran empire,They were expelled by the Somali Muslim Ajuran Empire.
+3059,musique,1550,classical latin,Classical Latin
+3060,musique,944,powershare,PowerShare
+3061,musique,1925,barcelona spain vs madrid spain,"Barcelona, Spain vs Madrid, Spain"
+3062,musique,237,mila kunis,Mila Kunis
+3063,musique,1187,xanana gusmão,Xanana Gusmão
+3064,musique,2196,not applicable,Not applicable
+3065,musique,1525,southward and then eastward,southward and then eastward
+3066,musique,1972,puritan movement,Puritan movement
+3067,musique,479,not applicable,Not applicable
+3068,musique,2026,it s complex and involves tectonic activity over millions of years best guess around 30 35 million years ago,It's complex and involves tectonic activity over millions of years. Best guess: Around 30-35 million years ago.
+3069,musique,1379,december 2009,December 2009
+3070,musique,430,digital infrastructures and information networks,digital infrastructures and information networks
+3071,musique,239,not specified in passages,Not specified in the passages.
+3072,musique,1037,minnesota,Minnesota
+3073,musique,2073,will power,Will Power
+3074,musique,2321,second polish republic,Second Polish Republic
+3075,musique,1452,1981,1981
+3076,nq,2768,september 22 2016,"September 22, 2016"
+3077,nq,272,two consecutive four year terms,two consecutive four-year terms
+3078,nq,70,april 13 2018,"April 13, 2018"
+3079,nq,137,1970 chevrolet chevelle ss 454,1970 Chevrolet Chevelle SS 454
+3080,nq,1019,abid ali neemuchwala,Abid Ali Neemuchwala
+3081,nq,1130,north america,North America
+3082,nq,877,paris louvre museum,Paris' Louvre museum
+3083,nq,89,tubers,Tubers
+3084,nq,1340,four,four
+3085,nq,488,richard harris,Richard Harris
+3086,nq,1283,2011,2011
+3087,nq,1990,trace adkins,Trace Adkins
+3088,nq,3157,september 19 1977,"September 19, 1977"
+3089,nq,32,herd maintenance artificial insemination increasing herd quality,"Herd maintenance, artificial insemination, increasing herd quality."
+3090,nq,759,shortly after 1890,Shortly after 1890
+3091,nq,612,they didn t stop aluminum wiring is still used,They didn't stop; aluminum wiring is still used.
+3092,nq,133,guess wyoming seminary vs mansfield state normal,Guess: Wyoming Seminary vs. Mansfield State Normal
+3093,nq,301,american alpha,American Alpha
+3094,nq,3324,terry,Terry
+3095,nq,3079,founders and first settlers of original royal colonies,The founders and first settlers of the original royal colonies.
+3096,nq,665,1765,1765
+3097,nq,1786,gray matter,gray matter
+3098,nq,2882,general martin perfecto de cos,General Martin Perfecto de Cos
+3099,nq,1923,leonard bernstein stephen sondheim,"Leonard Bernstein, Stephen Sondheim"
+3100,nq,464,470,470
+3101,2wikimultihopqa,8201,helsinki,Helsinki
+3102,2wikimultihopqa,6857,adam zdzisław zamoyski władysław zdzisław zamoyski zygmunt zamoyski zofia zamoyska katarzyna zamoyska and wanda zamoyska,"Adam Zdzisław Zamoyski, Władysław Zdzisław Zamoyski, Zygmunt Zamoyski, Zofia Zamoyska, Katarzyna Zamoyska, and Wanda Zamoyska."
+3103,2wikimultihopqa,5859,israel,Israel
+3104,2wikimultihopqa,10289,unknown,Unknown
+3105,2wikimultihopqa,2769,sir wymond carew,Sir Wymond Carew
+3106,2wikimultihopqa,4048,chinnari mutha s director is t s nagabharana however provided passages do not mention his place of birth,"Chinnari Mutha's director is T. S. Nagabharana. However, the provided passages do not mention his place of birth."
+3107,2wikimultihopqa,2848,eric tanenblatt,Eric Tanenblatt
+3108,2wikimultihopqa,1166,university of wisconsin oshkosh,University of Wisconsin – Oshkosh
+3109,2wikimultihopqa,9119,leatherheads,Leatherheads
+3110,2wikimultihopqa,7127,bogislaw iv,Bogislaw IV
+3111,2wikimultihopqa,8913,le droit à la vie,Le Droit À La Vie
+3112,2wikimultihopqa,9663,grammy award,Grammy Award
+3113,2wikimultihopqa,2540,not mentioned,Not mentioned.
+3114,2wikimultihopqa,3411,germany,Germany
+3115,2wikimultihopqa,8289,not mentioned in passage,Not mentioned in the passage.
+3116,2wikimultihopqa,3520,germany,Germany
+3117,2wikimultihopqa,8396,february 22 1720,"February 22, 1720"
+3118,2wikimultihopqa,6877,henry iii margrave of meissen,"Henry III, Margrave of Meissen"
+3119,2wikimultihopqa,5532,1475,1475
+3120,2wikimultihopqa,6282,how to avoid everything,How To Avoid Everything
+3121,2wikimultihopqa,7316,ascension parish burial ground cambridge england,"Ascension Parish Burial Ground, Cambridge, England."
+3122,2wikimultihopqa,3703,stockholm,Stockholm
+3123,2wikimultihopqa,10157,georges prêtre,Georges Prêtre
+3124,2wikimultihopqa,1153,french american,French-American
+3125,hotpotqa,95796,sophie winkleman,Sophie Winkleman
+3126,hotpotqa,96836,alex song,Alex Song
+3127,hotpotqa,90855,not mentioned,Not mentioned.
+3128,hotpotqa,92625,gp250 class sport bike motorcycle,GP250 class sport bike motorcycle.
+3129,hotpotqa,92109,spyker f1,Spyker F1
+3130,hotpotqa,93917,february 21 2011,"February 21, 2011."
+3131,hotpotqa,96556,juliet,Juliet
+3132,hotpotqa,95525,not applicable,Not applicable.
+3133,hotpotqa,90508,michael finnell,Michael Finnell
+3134,hotpotqa,97725,jed hoyer,Jed Hoyer
+3135,hotpotqa,90624,early medieval england,Early medieval England.
+3136,hotpotqa,91153,none of provided passages mention anyone appointed by president franklin roosevelt responsible for transmitting votes of electoral college to congress,None of the provided passages mention anyone appointed by President Franklin Roosevelt responsible for transmitting votes of the Electoral College to Congress.
+3137,hotpotqa,96310,jackson,Jackson
+3138,hotpotqa,96713,phillips 66ers,Phillips 66ers
+3139,hotpotqa,94338,kate millett,Kate Millett
+3140,hotpotqa,97071,five,Five.
+3141,hotpotqa,93061,17 april 1986,17 April 1986
+3142,hotpotqa,93787,inherit wind,Inherit the Wind
+3143,hotpotqa,94256,jeremy padawer,Jeremy Padawer
+3144,hotpotqa,92188,adam s ale,Adam's ale
+3145,hotpotqa,92369,salem new hampshire,"Salem, New Hampshire."
+3146,hotpotqa,97212,1929,1929
+3147,hotpotqa,94424,ryan hanigan,Ryan Hanigan
+3148,hotpotqa,94829,dairy farming winery,"Dairy farming, winery."
+3149,hotpotqa,96068,university of rochester,University of Rochester
+3150,musique,1711,1977,1977
+3151,musique,508,finnish navy,Finnish Navy
+3152,musique,240,74th,74th
+3153,musique,1550,latin,Latin
+3154,musique,2414,question is asking about who sent naval ships to body of water that connects atlantic and sea where rhine ends rhine ends in north sea from provided passages passage 5 mentions french navy abandoning blockade of north german ports due to autumn storms and north sea however it does not explicitly state who sent ships to north sea given context it s likely referring to french navy as they are ones mentioned,"The question is asking about who sent naval ships to a body of water that connects the Atlantic and the sea where the Rhine ends. The Rhine ends in the North Sea. From the provided passages, Passage 5 mentions the French navy abandoning a blockade of the north German ports due to autumn storms and the North Sea. However, it does not explicitly state who sent the ships to the North Sea. Given the context, it's likely referring to the French navy, as they are the ones mentioned"
+3155,musique,1690,mccauley mountain,McCauley Mountain
+3156,musique,978,kobe bryant,Kobe Bryant
+3157,musique,1338,pete rose,Pete Rose
+3158,musique,350,thomas bach,Thomas Bach
+3159,musique,1231,jakazid,JAKAZiD
+3160,musique,1078,dennis quaid,Dennis Quaid
+3161,musique,2084,cristiano da matta,Cristiano da Matta
+3162,musique,605,james meredith,James Meredith
+3163,musique,2194,san diego,San Diego
+3164,musique,1869,bill bergen,Bill Bergen
+3165,musique,856,november 22 1983,"November 22, 1983"
+3166,musique,1829,nanjing was capital until 1421 when yongle emperor moved it to beijing guangling district is part of yangzhou which was not capital therefore answer is not directly provided but time nanjing was capital is from 1368 to 1421,"Nanjing was the capital until 1421, when the Yongle Emperor moved it to Beijing. Guangling District is part of Yangzhou, which was not the capital. Therefore, the answer is not directly provided, but the time Nanjing was the capital is from 1368 to 1421."
+3167,musique,219,1543,1543
+3168,musique,157,question refers to actor who played game maker in hunger games but provided passages do not mention any specific actor in that role therefore i cannot provide specific answer based on given information,"The question refers to the actor who played the game maker in The Hunger Games, but the provided passages do not mention any specific actor in that role. Therefore, I cannot provide a specific answer based on the given information."
+3169,musique,1535,victorian era,Victorian era.
+3170,musique,1592,not applicable,Not applicable.
+3171,musique,821,jennifer parker,Jennifer Parker
+3172,musique,670,pedro leopoldo,Pedro Leopoldo
+3173,musique,49,ginnifer goodwin,Ginnifer Goodwin
+3174,musique,1287,five,five
+3175,nq,315,dobby,Dobby
+3176,nq,3239,immigration act of 1917,Immigration Act of 1917
+3177,nq,2440,happy phirr bhag jayegi,Happy Phirr Bhag Jayegi
+3178,nq,1895,during his return trip to dagobah,During his return trip to Dagobah
+3179,nq,2381,10 years,10 years
+3180,nq,2333,unnamed friend,an unnamed friend
+3181,nq,641,keith thibodeaux,Keith Thibodeaux
+3182,nq,2845,about eight months later van gogh hoped to welcome and to impress gauguin again with sunflowers now part of painted décoration for yellow house that he prepared for guestroom of his home in arles where gauguin was supposed to stay after gauguin s departure van gogh imagined two major versions as wings of berceuse triptych and finally he included them in his les xx in bruxelles exhibit,"About eight months later van Gogh hoped to welcome and to impress Gauguin again with Sunflowers, now part of the painted Décoration for the Yellow House that he prepared for the guestroom of his home in Arles, where Gauguin was supposed to stay. After Gauguin's departure, van Gogh imagined the two major versions as wings of the Berceuse Triptych, and finally he included them in his Les XX in Bruxelles exhibit."
+3183,nq,1582,mapp shon birns edward keeling,"Mapp, Shon Birns, Edward Keeling"
+3184,nq,2182,davos switzerland,"Davos, Switzerland."
+3185,nq,2038,witch of blackbird pond was published in 1958,The Witch of Blackbird Pond was published in 1958.
+3186,nq,2380,spanish explorers,Spanish explorers.
+3187,nq,691,on table generally with bread roll,"On the table, generally with the bread roll."
+3188,nq,510,four seasons hotels and resorts does not own any of its properties including one in las vegas it operates them on behalf of real estate owners and developers,"Four Seasons Hotels and Resorts does not own any of its properties, including the one in Las Vegas; it operates them on behalf of real estate owners and developers."
+3189,nq,3155,serial novels became phenomenon in nineteenth century due to increased literacy printing advancements and economic benefits of distribution they were popular because they allowed authors to engage readers over time often incorporating reader feedback and were successful way to publish long novels in installments,"Serial novels became a phenomenon in the nineteenth century due to increased literacy, printing advancements, and the economic benefits of distribution. They were popular because they allowed authors to engage readers over time, often incorporating reader feedback, and were a successful way to publish long novels in installments."
+3190,nq,165,1910,1910
+3191,nq,3128,wilson pickett,Wilson Pickett
+3192,nq,2856,2008,2008
+3193,nq,798,guarani pyg,guarani (PYG)
+3194,nq,91,lata mangeshkar,Lata Mangeshkar
+3195,nq,2990,roxette,Roxette
+3196,nq,1981,manley,Manley
+3197,nq,3198,march 2016,March 2016
+3198,nq,426,vancouver lower mainland and kananaskis,"Vancouver, Lower Mainland, and Kananaskis."
+3199,nq,2481,around 9 days after ovulation,Around 9 days after ovulation.
+3200,2wikimultihopqa,3254,murray s magazine,Murray's Magazine
+3201,2wikimultihopqa,12296,queen mary queen of scots,"Queen Mary, Queen of Scots."
+3202,2wikimultihopqa,9380,canadian,Canadian.
+3203,2wikimultihopqa,811,1992,1992
+3204,2wikimultihopqa,4417,rome,Rome
+3205,2wikimultihopqa,5770,gabriel elzéar taschereau,Gabriel-Elzéar Taschereau
+3206,2wikimultihopqa,979,nightmare on elm street 4 dream master,A Nightmare On Elm Street 4: The Dream Master
+3207,2wikimultihopqa,8305,thomas cochrane 8th earl of dundonald,"Thomas Cochrane, 8th Earl of Dundonald."
+3208,2wikimultihopqa,10788,no,No.
+3209,2wikimultihopqa,5740,optimists of nine elms,The Optimists of Nine Elms
+3210,2wikimultihopqa,2473,ernst heinrich karl von dechen was born in 1800 and lee kyung hwan was born in 1976 answer lee kyung hwan,"Ernst Heinrich Karl von Dechen was born in 1800, and Lee Kyung-Hwan was born in 1976. 
+
+Answer: Lee Kyung-Hwan."
+3211,2wikimultihopqa,1166,danish film school,Danish Film School
+3212,2wikimultihopqa,5893,emmanuel oduol is younger,Emmanuel Oduol is younger.
+3213,2wikimultihopqa,149,king charles i of sicily,King Charles I of Sicily
+3214,2wikimultihopqa,7966,st louis,St. Louis
+3215,2wikimultihopqa,1142,composer of love is here to stay is george gershwin passages do not mention his place of death best guess new york city,"The composer of ""Love Is Here to Stay"" is George Gershwin. The passages do not mention his place of death. Best guess: New York City."
+3216,2wikimultihopqa,8670,passage does not provide information on place of death of director of duel in jungle,The passage does not provide information on the place of death of the director of *Duel in the Jungle*.
+3217,2wikimultihopqa,6958,last night of barbary coast,The Last Night of the Barbary Coast
+3218,2wikimultihopqa,5820,social celebrity,A Social Celebrity
+3219,2wikimultihopqa,4301,boyd merriman 1st baron merriman died later,"Boyd Merriman, 1st Baron Merriman died later."
+3220,2wikimultihopqa,8802,no,No.
+3221,2wikimultihopqa,5065,no,No.
+3222,2wikimultihopqa,9575,eagle s feather,The Eagle's Feather
+3223,2wikimultihopqa,450,abdul wahab khan tarzi died first,Abdul Wahab Khan Tarzi died first.
+3224,2wikimultihopqa,1351,twilight saga breaking dawn part 2,The Twilight Saga: Breaking Dawn – Part 2
+3225,hotpotqa,96561,westminster system,Westminster system
+3226,hotpotqa,93454,julius caesar,Julius Caesar
+3227,hotpotqa,90686,xanthoceras,Xanthoceras
+3228,hotpotqa,94546,cormac mccarthy,Cormac McCarthy
+3229,hotpotqa,94549,jonathan hay is from new york city,Jonathan Hay is from New York City.
+3230,hotpotqa,96202,138,138
+3231,hotpotqa,91983,voice acting,Voice acting.
+3232,hotpotqa,91001,fashion magazines,Fashion magazines.
+3233,hotpotqa,96893,both are authors,Both are authors.
+3234,hotpotqa,96391,paul manafort,Paul Manafort.
+3235,hotpotqa,94449,johnny edwards,Johnny Edwards
+3236,hotpotqa,95473,passages do not specify which division chad clements played in or teams in that division,The passages do not specify which division Chad Clements played in or the teams in that division.
+3237,hotpotqa,92237,chupacabra,Chupacabra
+3238,hotpotqa,94813,brabant,Brabant
+3239,hotpotqa,94782,lesbian,Lesbian.
+3240,hotpotqa,91619,mirage,The Mirage
+3241,hotpotqa,97051,george clooney brad pitt matt damon julia roberts,"George Clooney, Brad Pitt, Matt Damon, Julia Roberts."
+3242,hotpotqa,94527,john hatzistergos was member of new south wales legislative council passage does not specify total number of members in council however based on general knowledge new south wales legislative council typically has 42 members since passages do not provide this number answer is not specified in passage,"John Hatzistergos was a Member of the New South Wales Legislative Council. The passage does not specify the total number of members in the council. However, based on general knowledge, the New South Wales Legislative Council typically has 42 members. Since the passages do not provide this number, the answer is: **Not specified in the passage.**"
+3243,hotpotqa,93538,film director,film director
+3244,hotpotqa,92676,passages do not specify city where american djs of look at us now are based,"The passages do not specify the city where the American DJs of ""Look At Us Now"" are based."
+3245,hotpotqa,93926,frank fertitta jr founded gaming company which owns and operates red rock resort,"Frank Fertitta, Jr. founded the gaming company which owns and operates the Red Rock Resort."
+3246,hotpotqa,97403,weber s store is located in sanders county montana passage about sanders county is not provided so i ll give my best guess since store was listed on national register of historic places in 1986 and was built around late 1800s it is likely that sanders county was founded in 1800s my best guess is 1872 based on general knowledge,"Weber's Store is located in Sanders County, Montana. The passage about Sanders County is not provided, so I'll give my best guess. Since the store was listed on the National Register of Historic Places in 1986 and was built around the late 1800s, it is likely that Sanders County was founded in the 1800s. My best guess is **1872** (based on general knowledge)."
+3247,hotpotqa,96761,ford pinto,Ford Pinto
+3248,hotpotqa,90542,tysons galleria is located in fairfax county virginia,"Tysons Galleria is located in Fairfax County, Virginia."
+3249,musique,1717,passage does not provide information about who played singer of is she really going out with him in movie based on joe jackson whose concert beyoncé may have attended therefore answer cannot be determined from given information,"The passage does not provide information about who played the singer of ""Is She Really Going Out with Him?"" in a movie based on Joe Jackson, whose concert Beyoncé may have attended. Therefore, the answer cannot be determined from the given information."
+3250,musique,2110,johnson county,Johnson County
+3251,musique,383,father of dahyabhai patel sardar vallabhbhai patel died on 15 december 1950,"The father of Dahyabhai Patel, Sardar Vallabhbhai Patel, died on 15 December 1950."
+3252,musique,2333,passages do not mention actress who plays role of queen of england in 1890 on network that aired dinosaurs answer not specified,"The passages do not mention an actress who plays the role of the Queen of England in 1890 on the network that aired *Dinosaurs!*. 
+
+Answer: Not specified."
+3253,musique,324,actor who played joey on gimme break is joey lawrence according to passage 2 his sibling is joe torry answer joe torry,"The actor who played Joey on *Gimme a Break!* is Joey Lawrence. According to Passage 2, his sibling is Joe Torry. 
+
+Answer: Joe Torry."
+3254,musique,1493,oriole records,Oriole Records
+3255,musique,1660,koh phi phi,Koh Phi Phi
+3256,musique,528,2016,2016
+3257,musique,1933,provided information does not mention gaspar or any specific dates related to him reaching region therefore answer cannot be determined from given passage,"The provided information does not mention Gaspar or any specific dates related to him reaching a region. Therefore, the answer cannot be determined from the given passage."
+3258,musique,636,answer nathan burstein,Answer: Nathan Burstein
+3259,musique,1925,paco godia s birthplace is not in real madrid,Paco Godia's birthplace is not in Real Madrid.
+3260,musique,1189,alberto fujimori,Alberto Fujimori
+3261,musique,1870,opening day is during first week of april,Opening Day is during the first week of April.
+3262,musique,1085,passages do not mention don newman or provide specific information about his employer based on information provided cbc planned to have 15 transmitters updated by august 31 2011 deadline,"The passages do not mention ""Don Newman"" or provide specific information about his employer. Based on the information provided, CBC planned to have 15 transmitters updated by the August 31, 2011 deadline."
+3263,musique,1754,head of catholic region named after same saint as đakovo cathedral st peter is roman catholic archdiocese of đakovo osijek croatia became its own country in 1991 answer 1991,"The head of the Catholic region named after the same saint as Đakovo Cathedral (St. Peter) is the Roman Catholic Archdiocese of Đakovo-Osijek. Croatia became its own country in 1991. 
+
+Answer: 1991."
+3264,musique,416,mascot of oregon state university is beavers,The mascot of Oregon State University is the Beavers.
+3265,musique,1200,answer no independent country has been recognized as declared in context of jenggawah,Answer: No independent country has been recognized as declared in the context of Jenggawah.
+3266,musique,836,passage does not specify how many people work at susan winchester s alma mater university of oklahoma,"The passage does not specify how many people work at Susan Winchester's alma mater, the University of Oklahoma."
+3267,musique,932,george washington had several children including john parke custis and martha washington his stepchildren however question is ambiguous as it does not specify which child is being referred to,"George Washington had several children, including John Parke Custis and Martha Washington (his stepchildren). However, the question is ambiguous as it does not specify which child is being referred to."
+3268,musique,2121,washington county,Washington County
+3269,musique,177,dawn french,Dawn French
+3270,musique,1378,castle goring,Castle Goring
+3271,musique,84,vera barbosa s place of birth vila franca de xira is located in portugal,"Vera Barbosa's place of birth, Vila Franca de Xira, is located in Portugal."
+3272,musique,1222,hindu means large body of water and in arabic dictionary it refers to country of india,"Hindu means a large body of water, and in Arabic dictionary, it refers to the country of India."
+3273,musique,891,luke bryan,Luke Bryan
+3274,nq,2329,about 4 million years ago,About 4 million years ago.
+3275,nq,2381,about 20 years,About 20 years.
+3276,nq,36,edmund is husband of susan banks and stepfather of ej dimera,Edmund is the husband of Susan Banks and the stepfather of EJ DiMera.
+3277,nq,2622,scarlet,Scarlet
+3278,nq,511,mexico earthquake occurred along convergent boundary where cocos plate subducts beneath north american plate,"The Mexico earthquake occurred along a **convergent boundary**, where the **Cocos Plate** subducts beneath the **North American Plate**."
+3279,nq,1109,catherine tramell,Catherine Tramell.
+3280,nq,89,in roots,In the roots.
+3281,nq,1340,four wars,Four wars.
+3282,nq,370,old english mār spear vin friend spear friend,"Old English ""mār"" (spear) + ""vin"" (friend) = ""spear friend."""
+3283,nq,2335,djokovic,Djokovic
+3284,nq,3192,1788,1788
+3285,nq,759,1907,1907
+3286,nq,587,santa monica california,"Santa Monica, California."
+3287,nq,3140,early 20th century,Early 20th century.
+3288,nq,2925,reproductive system,Reproductive system
+3289,nq,2963,nottingham forest,Nottingham Forest
+3290,nq,2022,1955,1955
+3291,nq,525,1970,1970
+3292,nq,701,air canada centre,Air Canada Centre
+3293,nq,42,late 6th century bce,late 6th century BCE
+3294,nq,2773,in living organisms and organic matter,In living organisms and organic matter.
+3295,nq,906,war effort,the war effort.
+3296,nq,614,pyeongchang,Pyeongchang
+3297,nq,2967,1984,1984
+3298,nq,689,france,France
+3299,2wikimultihopqa,8687,not documented,not documented
+3300,2wikimultihopqa,12062,milan,Milan
+3301,2wikimultihopqa,9380,american canadian,American-Canadian
+3302,2wikimultihopqa,5859,croatia,Croatia
+3303,2wikimultihopqa,7021,edward harley 5th earl of oxford and earl mortimer,"Edward Harley, 5th Earl of Oxford and Earl Mortimer"
+3304,2wikimultihopqa,2791,1413,1413
+3305,2wikimultihopqa,5155,not specified,Not specified
+3306,2wikimultihopqa,5404,tsui hark,Tsui Hark
+3307,2wikimultihopqa,5903,mirko höfflin,Mirko Höfflin
+3308,2wikimultihopqa,3378,jack arnold,Jack Arnold
+3309,2wikimultihopqa,9084,japan,Japan
+3310,2wikimultihopqa,4844,elizabeth jane gardner,Elizabeth Jane Gardner
+3311,2wikimultihopqa,4176,phelan beale,Phelan Beale
+3312,2wikimultihopqa,5070,not specified,Not specified
+3313,2wikimultihopqa,10323,justinian ii,Justinian II
+3314,2wikimultihopqa,2952,john gordy,John Gordy
+3315,2wikimultihopqa,8670,not specified,Not specified
+3316,2wikimultihopqa,4029,denys de la patellière,Denys de La Patellière
+3317,2wikimultihopqa,3963,those happy years,Those Happy Years
+3318,2wikimultihopqa,9744,usa,USA
+3319,2wikimultihopqa,6625,not specified,Not specified
+3320,2wikimultihopqa,6759,anton fredrik klaveness 1874 1958,Anton Fredrik Klaveness (1874–1958)
+3321,2wikimultihopqa,8116,henry vi good duke of wrocław,"Henry VI the Good, Duke of Wrocław"
+3322,hotpotqa,93016,kadb lp,KADB-LP
+3323,hotpotqa,90686,ehretia,Ehretia
+3324,hotpotqa,96004,bob kellett,Bob Kellett
+3325,hotpotqa,95240,arya,Arya
+3326,hotpotqa,96468,model,model
+3327,hotpotqa,97196,kap,Kap
+3328,hotpotqa,93889,october 1 1975,"October 1, 1975"
+3329,hotpotqa,93987,sir john beddington,Sir John Beddington
+3330,hotpotqa,91728,2011,2011
+3331,hotpotqa,95473,new york jets,New York Jets
+3332,hotpotqa,91544,weezer blue album,Weezer (The Blue Album)
+3333,hotpotqa,94761,bagboy,Bagboy
+3334,hotpotqa,94813,no,No
+3335,hotpotqa,94444,france and germany,France and Germany
+3336,hotpotqa,91575,rural orissa,Rural Orissa
+3337,hotpotqa,93538,screenwriter,screenwriter
+3338,hotpotqa,97415,kilobaud microcomputing,Kilobaud Microcomputing
+3339,hotpotqa,90526,1895,1895
+3340,hotpotqa,95049,lockheed martin,Lockheed Martin
+3341,hotpotqa,96137,province of canterbury,Province of Canterbury
+3342,hotpotqa,94369,guess none as fenton s studies were on iroquois culture not muslim cultures,"Guess: None, as Fenton's studies were on Iroquois culture, not Muslim cultures."
+3343,hotpotqa,97118,1898,1898
+3344,hotpotqa,94829,dairy farming,Dairy farming
+3345,hotpotqa,92040,not mentioned,Not mentioned
+3346,hotpotqa,97119,keith crouch,Keith Crouch
+3347,musique,1311,seals,SEALs
+3348,musique,672,fourth season,fourth season
+3349,musique,252,chen zheng,Chen Zheng
+3350,musique,1711,1964,1964
+3351,musique,1221,susilo bambang yudhoyono,Susilo Bambang Yudhoyono
+3352,musique,1896,appleton,Appleton
+3353,musique,76,unknown,Unknown
+3354,musique,2005,passages do not mention this,Passages do not mention this.
+3355,musique,1550,old english,Old English
+3356,musique,944,usb sleep and charge,USB Sleep-and-Charge
+3357,musique,1925,no information provided,No information provided.
+3358,musique,237,lacey chabert,Lacey Chabert
+3359,musique,1187,dési bouterse,Dési Bouterse
+3360,musique,2196,san diego california ranks 4th among top five largest urban areas in state,"San Diego, California ranks 4th among the top five largest urban areas in the state."
+3361,musique,1525,not specified,Not specified
+3362,musique,1972,hussite movement,Hussite movement
+3363,musique,479,1858,1858
+3364,musique,2026,around 23 million years ago,Around 23 million years ago.
+3365,musique,1379,may 2010,May 2010
+3366,musique,430,digital infrastructures information networks,"digital infrastructures, information networks"
+3367,musique,239,not enough information,Not enough information
+3368,musique,1037,appleton wisconsin usa,"Appleton, Wisconsin, USA"
+3369,musique,2073,jimmy bryan,Jimmy Bryan
+3370,musique,2321,march constitution of poland,March Constitution of Poland
+3371,musique,1452,early 1980s,early 1980s
+3372,nq,2768,not mentioned,Not mentioned
+3373,nq,272,up to two consecutive terms,Up to two consecutive terms
+3374,nq,70,march 23 2018 limited april 13 2018 wide,"March 23, 2018 (limited), April 13, 2018 (wide)"
+3375,nq,137,etihad towers,Etihad Towers
+3376,nq,1019,abidali z neemuchwala,Abidali Z. Neemuchwala
+3377,nq,1130,politically associated with europe,Politically associated with Europe.
+3378,nq,877,louvre,Louvre
+3379,nq,89,in roots and tubers,In roots and tubers.
+3380,nq,1340,three major wars,three major wars
+3381,nq,488,ian hart,Ian Hart
+3382,nq,1283,super bowl xlvi,Super Bowl XLVI
+3383,nq,1990,not specified,Not specified
+3384,nq,3157,1980,1980
+3385,nq,32,draught oxen,draught oxen
+3386,nq,759,1902,1902
+3387,nq,612,mid 1970s,mid-1970s
+3388,nq,133,kansas city chiefs,Kansas City Chiefs
+3389,nq,301,roman reigns,Roman Reigns
+3390,nq,3324,toto,Toto
+3391,nq,3079,john adams benjamin franklin alexander hamilton john jay thomas jefferson james madison george washington,"John Adams, Benjamin Franklin, Alexander Hamilton, John Jay, Thomas Jefferson, James Madison, George Washington"
+3392,nq,665,april 1775,April 1775
+3393,nq,1786,grey matter,grey matter
+3394,nq,2882,general santa anna,General Santa Anna
+3395,nq,1923,leonard bernstein and stephen sondheim,Leonard Bernstein and Stephen Sondheim
+3396,nq,464,4 622 sq ft,"4,622 sq ft"
+3397,2wikimultihopqa,8201,gustaf molander,Gustaf Molander
+3398,2wikimultihopqa,6857,andrzej przemysław zamoyski,Andrzej Przemysław Zamoyski
+3399,2wikimultihopqa,10289,geoff grant,Geoff Grant
+3400,2wikimultihopqa,2769,john carew,John Carew
+3401,2wikimultihopqa,4048,not specified,Not specified
+3402,2wikimultihopqa,2848,craig l fuller,Craig L. Fuller
+3403,2wikimultihopqa,1166,not mentioned in passages,Not mentioned in the passages.
+3404,2wikimultihopqa,9119,here comes groom,Here Comes the Groom
+3405,2wikimultihopqa,7127,bogislaw iv duke of pomerania,"Bogislaw IV, Duke of Pomerania."
+3406,2wikimultihopqa,8913,yeo kozoloa,Yeo Kozoloa
+3407,2wikimultihopqa,9663,no award information provided,No award information provided.
+3408,2wikimultihopqa,2540,passages do not mention his father s graduation,Passages do not mention his father's graduation.
+3409,2wikimultihopqa,3411,ulm germany,"Ulm, Germany."
+3410,2wikimultihopqa,8289,indra kumar,Indra Kumar
+3411,2wikimultihopqa,3520,not enough information,Not enough information
+3412,2wikimultihopqa,8396,1720,1720
+3413,2wikimultihopqa,6877,archduchess margarethe klementine of austria,Archduchess Margarethe Klementine of Austria.
+3414,2wikimultihopqa,5532,9 september 1473,9 September 1473.
+3415,2wikimultihopqa,6282,thai mozhi,Thai Mozhi
+3416,2wikimultihopqa,7316,high court of justice,High Court of Justice
+3417,2wikimultihopqa,3703,not specified in passages,Not specified in passages.
+3418,2wikimultihopqa,10157,laura riding,Laura Riding
+3419,2wikimultihopqa,1153,france,France
+3420,hotpotqa,95796,sophie winkleman lady frederick windsor,"Sophie Winkleman, Lady Frederick Windsor"
+3421,hotpotqa,96836,wahbi khazri,Wahbi Khazri
+3422,hotpotqa,90855,not specified,Not specified
+3423,hotpotqa,92625,yamaha yzf r6,Yamaha YZF-R6.
+3424,hotpotqa,92109,spyker f1 team,Spyker F1 Team.
+3425,hotpotqa,93917,2001,2001
+3426,hotpotqa,96556,pauline parker,Pauline Parker
+3427,hotpotqa,95525,santiago del estero province,Santiago del Estero Province
+3428,hotpotqa,90508,steven spielberg,Steven Spielberg
+3429,hotpotqa,97725,john william henry ii,John William Henry II
+3430,hotpotqa,90624,old frisian,Old Frisian
+3431,hotpotqa,91153,question cannot be answered based on provided passages,The question cannot be answered based on the provided passages.
+3432,hotpotqa,96310,jackson county,Jackson County
+3433,hotpotqa,96713,oklahoma sooners,Oklahoma Sooners
+3434,hotpotqa,94338,betty friedan,Betty Friedan
+3435,hotpotqa,97071,four studio albums,Four studio albums.
+3436,hotpotqa,93061,not provided in passage,Not provided in the passage.
+3437,hotpotqa,93787,chinese coffee,Chinese Coffee
+3438,hotpotqa,94256,adult swim,Adult Swim
+3439,hotpotqa,92188,la fée verte,la fée verte
+3440,hotpotqa,92369,6 269,"6,269"
+3441,hotpotqa,97212,1903,1903
+3442,hotpotqa,94424,james loney,James Loney
+3443,hotpotqa,96068,ateneo de davao university,Ateneo de Davao University
+3444,musique,508,no war,No war.
+3445,musique,240,not specified,Not specified
+3446,musique,2414,england,England
+3447,musique,1690,cascade range,Cascade Range
+3448,musique,978,markelle fultz,Markelle Fultz
+3449,musique,1338,seattle mariners,Seattle Mariners
+3450,musique,350,international olympic committee ioc,International Olympic Committee (IOC)
+3451,musique,1231,rodney crowell,Rodney Crowell
+3452,musique,1078,dennis quaid s spouse is kimberly williams pauley,Dennis Quaid's spouse is Kimberly Williams-Pauley.
+3453,musique,2084,jimmy bryan,Jimmy Bryan
+3454,musique,605,henry e hayne,Henry E. Hayne
+3455,musique,2194,unknown,Unknown
+3456,musique,1869,adam dunn,Adam Dunn
+3457,musique,856,not available in passages,Not available in passages.
+3458,musique,1829,unknown,Unknown
+3459,musique,219,not applicable,Not applicable.
+3460,musique,157,no information provided,No information provided.
+3461,musique,1535,frankish empire,Frankish Empire
+3462,musique,1592,unknown,Unknown
+3463,musique,821,claudia wells,Claudia Wells
+3464,musique,670,brazil,Brazil.
+3465,musique,49,lake bell was married to owen wilson star of no escape,"Lake Bell was married to Owen Wilson, the star of No Escape."
+3466,musique,1287,five games,Five games.
+3467,nq,315,mad eye moody,Mad-Eye Moody
+3468,nq,3239,page act of 1875,Page Act of 1875
+3469,nq,2440,action jackson,Action Jackson
+3470,nq,1895,return of jedi,Return of the Jedi.
+3471,nq,2381,10 years according to passage 1 and passage 4,10 years (according to Passage 1 and Passage 4)
+3472,nq,2333,unknown recipient,An unknown recipient.
+3473,nq,641,keith thibodeaux billed as richard keith,Keith Thibodeaux (billed as Richard Keith)
+3474,nq,2845,at least five,At least five.
+3475,nq,1582,dollree mapp shon birns edward keeling don king,"Dollree Mapp, Shon Birns, Edward Keeling, Don King"
+3476,nq,2182,not specified,Not specified
+3477,nq,2038,new england,New England
+3478,nq,2380,spanish,Spanish
+3479,nq,691,next to central plate,next to the central plate
+3480,nq,510,four seasons hotels and resorts,Four Seasons Hotels and Resorts
+3481,nq,3155,due to rising literacy printing advancements and economic factors,"Due to rising literacy, printing advancements, and economic factors."
+3482,nq,165,1910s,1910s
+3483,nq,3128,archies,The Archies
+3484,nq,2856,1996,1996
+3485,nq,798,guaraní pyg,guaraní (PYG)
+3486,nq,91,asha bhosle,Asha Bhosle
+3487,nq,2990,not mentioned,Not mentioned
+3488,nq,1981,manley dies in trenches at battle of somme,Manley dies in the trenches at the Battle of the Somme.
+3489,nq,3198,2016,2016
+3490,nq,426,vancouver kananaskis,"Vancouver, Kananaskis"
+3491,nq,2481,around 6 to 12 days after ovulation,Around 6 to 12 days after ovulation
+3492,2wikimultihopqa,3254,progetto babele,Progetto Babele
+3493,2wikimultihopqa,12296,margaret douglas,Margaret Douglas
+3494,2wikimultihopqa,811,1969,1969
+3495,2wikimultihopqa,4417,salerno,Salerno
+3496,2wikimultihopqa,5770,joseph andré taschereau s paternal grandfather is not widely documented in public sources,Joseph-André Taschereau's paternal grandfather is not widely documented in public sources.
+3497,2wikimultihopqa,979,yohan child wanderer,Yohan: The Child Wanderer
+3498,2wikimultihopqa,8305,sir george cochrane 10th baronet,"Sir George Cochrane, 10th Baronet."
+3499,2wikimultihopqa,10788,yes,Yes.
+3500,2wikimultihopqa,2473,lee kyung hwan,Lee Kyung-Hwan
+3501,2wikimultihopqa,1166,director of film border 2018 film is ali abbasi provided information does not mention where he graduated from,The director of the film Border (2018 film) is Ali Abbasi. The provided information does not mention where he graduated from.
+3502,2wikimultihopqa,5893,emmanuel oduol,Emmanuel Oduol
+3503,2wikimultihopqa,149,philip of sicily s father is king charles i of sicily,Philip of Sicily's father is King Charles I of Sicily.
+3504,2wikimultihopqa,7966,new orleans,New Orleans
+3505,2wikimultihopqa,1142,composer of love is here to stay was george gershwin he died in beverly hills california,"The composer of ""Love Is Here to Stay"" was George Gershwin. He died in Beverly Hills, California."
+3506,2wikimultihopqa,8670,passages do not mention place of death of director of duel in jungle,"The passages do not mention the place of death of the director of ""Duel in the Jungle."""
+3507,2wikimultihopqa,6958,hold back night,Hold Back The Night
+3508,2wikimultihopqa,5820,sound of trumpets,A Sound of Trumpets
+3509,2wikimultihopqa,4301,boyd merriman died later,Boyd Merriman died later.
+3510,2wikimultihopqa,8802,yes,Yes.
+3511,2wikimultihopqa,5065,yes,Yes.
+3512,2wikimultihopqa,9575,mutiny 1952 film,Mutiny (1952 film)
+3513,2wikimultihopqa,450,olaf everson died first,Olaf Everson died first.
+3514,2wikimultihopqa,1351,he knows you re alone,He Knows You're Alone
+3515,hotpotqa,96561,canadian electoral system,Canadian electoral system.
+3516,hotpotqa,93454,sulla and caesar,Sulla and Caesar
+3517,hotpotqa,90686,xanthocercis,Xanthocercis
+3518,hotpotqa,94546,j r r tolkien,J.R.R. Tolkien
+3519,hotpotqa,94549,boston,Boston
+3520,hotpotqa,96202,136 episodes,136 episodes
+3521,hotpotqa,91983,karate kicking technique,Karate kicking technique.
+3522,hotpotqa,91001,women s interest magazines,women's interest magazines
+3523,hotpotqa,96893,writer,Writer.
+3524,hotpotqa,96391,roger stone,Roger Stone
+3525,hotpotqa,94449,ian anderson,Ian Anderson
+3526,hotpotqa,95473,chad clements played in afc east division with new england patriots other teams in that division include buffalo bills miami dolphins and new york jets,"Chad Clements played in the AFC East division with the New England Patriots. Other teams in that division include the Buffalo Bills, Miami Dolphins, and New York Jets."
+3527,hotpotqa,92237,passage does not mention creature gaining notoriety in 1964 best guess no specific creature is named,The passage does not mention a creature gaining notoriety in 1964. Best guess: No specific creature is named.
+3528,hotpotqa,94813,lambic,Lambic
+3529,hotpotqa,94782,pansexual,pansexual
+3530,hotpotqa,91619,luxor,The Luxor.
+3531,hotpotqa,97051,george clooney brad pitt and matt damon,"George Clooney, Brad Pitt, and Matt Damon."
+3532,hotpotqa,94527,john hatzistergos was member of new south wales legislative council passages do not specify exact number of members in that council however based on passage 2 which describes legislative council with 15 members it is reasonable to guess that new south wales legislative council also has around 15 members answer 15,"John Hatzistergos was a Member of the New South Wales Legislative Council. The passages do not specify the exact number of members in that council. However, based on Passage 2, which describes a Legislative Council with 15 members, it is reasonable to guess that the New South Wales Legislative Council also has around 15 members. 
+
+Answer: 15."
+3533,hotpotqa,93787,there is no information provided in passages about film adaptation that both jerome bernard and ira lewis have in common,There is no information provided in the passages about a film adaptation that both Jerome Bernard and Ira Lewis have in common.
+3534,hotpotqa,93538,screenwriter television writer producer and film director,"Screenwriter, television writer/producer, and film director."
+3535,hotpotqa,92676,new york,New York
+3536,hotpotqa,93926,frank fertitta jr founded gaming company station casinos which owns and operates red rock resort,"Frank Fertitta, Jr. founded the gaming company, Station Casinos, which owns and operates the Red Rock Resort."
+3537,hotpotqa,97403,county where weber s store is located is sanders county montana passage does not mention founding year of sanders county best guess sanders county montana was established in 1893,"The county where Weber's Store is located is Sanders County, Montana. The passage does not mention the founding year of Sanders County. 
+
+Best guess: Sanders County, Montana was established in 1893."
+3538,hotpotqa,96761,ford escort,Ford Escort
+3539,hotpotqa,90542,mclean,McLean
+3540,musique,1717,passage does not provide information about beyoncé attending concert nor does it connect to song is she really going out with him therefore answer cannot be determined from given information,"The passage does not provide information about Beyoncé attending a concert, nor does it connect to the song ""Is She Really Going Out with Him?"" Therefore, the answer cannot be determined from the given information."
+3541,musique,2110,greenville is in south carolina whose capital is columbia radio station in same state is wrbj fm licensed to brandon mississippi near jackson capital answer is bibb county where brandon is located,"Greenville is in South Carolina, whose capital is Columbia. The radio station in the same state is WRBJ-FM, licensed to Brandon, Mississippi (near Jackson, the capital). The answer is **Bibb County** (where Brandon is located)."
+3542,musique,383,passages do not mention death date of sardar vallabhbhai patel father of dahyabhai patel,"The passages do not mention the death date of Sardar Vallabhbhai Patel, the father of Dahyabhai Patel."
+3543,musique,2333,passages do not contain answer,The passages do not contain the answer.
+3544,musique,324,question cannot be answered based on provided passage passage does not mention siblings of joey lawrence,The question cannot be answered based on the provided passage. The passage does not mention the siblings of Joey Lawrence.
+3545,musique,1493,uk label purchased was polydor,The UK label purchased was **Polydor**.
+3546,musique,1660,thailand,Thailand
+3547,musique,528,march 11 2011,"March 11, 2011."
+3548,musique,1933,april 25 1513,"April 25, 1513"
+3549,musique,636,performer of don t be cruel is bobby brown there is no mention of character or role he plays in song answer not applicable,"The performer of ""Don't Be Cruel"" is Bobby Brown. There is no mention of a character or role he plays in the song. 
+
+Answer: Not applicable."
+3550,musique,1925,paco godia s birthplace is town in spain while real madrid is major city and football club,"Paco Godia's birthplace is a town in Spain, while Real Madrid is a major city and a football club."
+3551,musique,1189,susilo bambang yudhoyono,Susilo Bambang Yudhoyono
+3552,musique,1870,april 5,April 5
+3553,musique,1085,27,27
+3554,musique,1754,saint associated with đakovo cathedral is st peter cathedral is part of roman catholic archdiocese of đakovo osijek region is in croatia croatia became its own country in 1991 answer 1991,"The saint associated with Đakovo Cathedral is St. Peter. The cathedral is part of the Roman Catholic Archdiocese of Đakovo-Osijek. The region is in Croatia. Croatia became its own country in 1991. 
+
+Answer: 1991."
+3555,musique,416,mascot of william j ripple s university oregon state university is not mentioned in provided passages however official mascot of oregon state university is beavers,"The mascot of William J. Ripple's university (Oregon State University) is not mentioned in the provided passages. However, the official mascot of Oregon State University is the Beavers."
+3556,musique,1200,xanana gusmão,Xanana Gusmão
+3557,musique,836,unknown,Unknown.
+3558,musique,932,george washington s child was john parke custis,George Washington's child was John Parke Custis.
+3559,musique,2121,greenville county,Greenville County
+3560,musique,177,creator of absolutely fabulous is jennifer saunders spouse of jennifer saunders is rick jones,The creator of *Absolutely Fabulous* is Jennifer Saunders. The spouse of Jennifer Saunders is Rick Jones.
+3561,musique,1378,predjama castle,Predjama Castle
+3562,musique,84,vera barbosa s place of birth vila franca de xira is located in state of portugal,"Vera Barbosa's place of birth, Vila Franca de Xira, is located in the state of **Portugal**."
+3563,musique,1222,islam,Islam
+3564,musique,891,karen fairchild,Karen Fairchild
+3565,nq,2329,1820s,1820s
+3566,nq,36,edmund is soft hearted pilot who fell in love with susan banks,Edmund is a soft-hearted pilot who fell in love with Susan Banks.
+3567,nq,2622,cress,Cress
+3568,nq,511,subduction zone,subduction zone
+3569,nq,1109,real killer is michael glass,The real killer is Michael Glass.
+3570,nq,89,food is stored in tuber of yam plant,The food is stored in the tuber of the yam plant.
+3571,nq,370,welsh name mervyn,Welsh name Mervyn.
+3572,nq,2335,novak djokovic,Novak Djokovic
+3573,nq,3192,18 to 20 january 1788,18 to 20 January 1788
+3574,nq,587,chicago illinois,"Chicago, Illinois."
+3575,nq,3140,1890s,1890s
+3576,nq,2925,reproductive system differentiates male from female,The reproductive system differentiates a male from a female.
+3577,nq,2963,celtic,Celtic
+3578,nq,2022,1977,1977
+3579,nq,525,november 1961,November 1961
+3580,nq,701,scotiabank arena,Scotiabank Arena
+3581,nq,42,5th century bce,5th century BCE
+3582,nq,2773,carbon can be found in biosphere in hydrocarbons such as coal petroleum and natural gas,"Carbon can be found in the biosphere in hydrocarbons such as coal, petroleum, and natural gas."
+3583,nq,906,victory in war,Victory in war.
+3584,nq,614,pyongyang,Pyongyang
+3585,nq,2967,passages do not specify exact date ibuprofen became available over counter,The passages do not specify the exact date ibuprofen became available over the counter.
+3586,nq,689,french,French

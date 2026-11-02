@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Closed-book accuracy of Llama 3.1 8B under answer contained accuracy, the metric of Moskvoretskii et al.~\cite{moskvoretskii2025adaptive}: their prompt (the few-shot chain-of-thought prompt of Adaptive RAG) against ours, on their 500 test questions per dataset and on ours. Abstain: share of refusals; time per answer. Their stored answers give their Table 1 values on the three multi-hop datasets but not on NQ.}
+\label{tab:rev2_closedbook}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr}
+\toprule
+Run & NQ & HotpotQA & 2Wiki & MuSiQue & Abstain & Time (s) \\
+\midrule
+Their stored answers, their questions & 0.400 & 0.286 & 0.318 & 0.106 & 0.009 &  \\
+Their prompt, our run, their questions & 0.414 & 0.286 & 0.342 & 0.104 & 0.013 & 2.66 \\
+Our prompt, their questions & 0.294 & 0.232 & 0.260 & 0.038 & 0.059 & 0.56 \\
+Our prompt, our questions (paper) & 0.350 & 0.210 & 0.250 & 0.046 & 0.053 & 0.46 \\
+Their prompt, our questions & 0.442 & 0.284 & 0.342 & 0.118 & 0.012 & 2.77 \\
+Their Table 1, Never RAG & 0.446 & 0.286 & 0.318 & 0.106 &  &  \\
+\bottomrule
+\end{tabular*}
+\end{table*}

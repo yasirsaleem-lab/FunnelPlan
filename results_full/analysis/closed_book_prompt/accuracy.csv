@@ -1,0 +1,21 @@
+run,dataset,contains_acc,label_final,abstain,time_s,gen_tokens,n,their_table1_never_rag
+our_prompt_their_q,2wikimultihopqa,0.26,0.166,0.112,0.6694028103990131,11.53,500,0.318
+our_prompt_their_q,hotpotqa,0.232,0.284,0.034,0.46364886599965394,8.138,500,0.286
+our_prompt_their_q,musique,0.038,0.054,0.088,0.7074671481986298,12.624,500,0.106
+our_prompt_their_q,nq,0.294,0.382,0.002,0.40288174239912766,7.044,500,0.446
+their_answers_their_q,2wikimultihopqa,0.318,0.352,0.02,,,500,0.318
+their_answers_their_q,hotpotqa,0.286,0.376,0.004,,,500,0.286
+their_answers_their_q,musique,0.106,0.138,0.008,,,500,0.106
+their_answers_their_q,nq,0.4,0.498,0.006,,,500,0.446
+their_prompt_our_q,2wikimultihopqa,0.342,0.344,0.028,3.500146164999809,55.362,500,0.318
+their_prompt_our_q,hotpotqa,0.284,0.37,0.004,2.732775123200205,40.478,500,0.286
+their_prompt_our_q,musique,0.118,0.148,0.004,2.792766956599604,44.59,500,0.106
+their_prompt_our_q,nq,0.442,0.518,0.012,2.0540816530002046,30.058,500,0.446
+their_prompt_their_q,2wikimultihopqa,0.342,0.344,0.02,3.3853031504005195,54.124,500,0.318
+their_prompt_their_q,hotpotqa,0.286,0.37,0.002,2.633869183199713,41.856,500,0.286
+their_prompt_their_q,musique,0.104,0.132,0.004,2.745696428799187,44.55,500,0.106
+their_prompt_their_q,nq,0.414,0.514,0.024,1.8832256659994018,29.574,500,0.446
+our_prompt_our_q (paper),2wikimultihopqa,0.25,0.154,0.098,0.5498547312009614,12.08,500,0.318
+our_prompt_our_q (paper),hotpotqa,0.21,0.28,0.034,0.37136718759930226,8.28,500,0.286
+our_prompt_our_q (paper),musique,0.046,0.062,0.074,0.5568359404001385,11.982,500,0.106
+our_prompt_our_q (paper),nq,0.35,0.418,0.006,0.34931272180029194,7.63,500,0.446

@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Routers trained on the difference between two plans (BGE M3 features, pair and threshold chosen on the training folds), without and with their own 24.6 ms cost. Pair AUROC: held-out questions where the two chosen plans disagree, against the per-plan router's score on the same questions and pairs.}
+\label{tab:rev2_diff}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrr}
+\toprule
+Router & Plan set & \begin{tabular}[b]{@{}r@{}}Gain, no own \\ cost\end{tabular} & Positive & Gain, own cost & Positive  & Pair AUROC & \begin{tabular}[b]{@{}r@{}}Per-plan LR, \\ same pairs\end{tabular} \\
+\midrule
+Difference classifier & single-step & +0.010 to +0.025 & 4 & +0.002 to +0.016 & 0 & 0.674 & 0.677 \\
+Difference classifier & with two-hop & +0.013 to +0.037 & 5 & +0.010 to +0.027 & 1 & 0.683 & 0.686 \\
+Difference regression & single-step & +0.008 to +0.028 & 4 & +0.001 to +0.016 & 0 & 0.647 & 0.656 \\
+Difference regression & with two-hop & +0.007 to +0.028 & 4 & +0.004 to +0.018 & 0 & 0.657 & 0.665 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

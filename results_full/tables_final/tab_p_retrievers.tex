@@ -1,20 +1,20 @@
 \begin{table}[t]
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Fixed plans at depth 5: success averaged over the five readers (in sample, \texttt{label\_final}), and mean retrieval time per question. Two hop: BM25 with 5 passages per hop.}
+\caption{Fixed plans at depth 5: success averaged over the five readers (in sample, \texttt{label\_final}), and mean retrieval time per question. Two-hop: BM25 with 5 passages per hop.}
 \label{tab:p_retrievers}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
 Plan & NQ & HotpotQA & 2Wiki & MuSiQue & Retr.\ (s) \\
 \midrule
-Closed book & 0.369 & 0.280 & 0.261 & 0.080 & 0.000 \\
+Closed-book & 0.369 & 0.280 & 0.261 & 0.080 & 0.000 \\
 BM25 & 0.490 & 0.453 & 0.372 & 0.172 & 0.017 \\
 SPLADE v3 & 0.688 & 0.487 & 0.360 & 0.225 & 0.610 \\
 BGE M3 (dense) & 0.696 & 0.504 & 0.380 & 0.226 & 0.035 \\
 Stella 1.5B & 0.734 & 0.524 & 0.361 & 0.268 & 0.057 \\
 BGE M3 + BM25 (RRF) & 0.640 & 0.512 & 0.390 & 0.218 & 0.059 \\
 Qwen3 Reranker & 0.703 & 0.577 & 0.402 & 0.275 & 1.378 \\
-BM25, two hop & 0.574 & 0.547 & 0.497 & 0.258 & 0.029 \\
+BM25, two-hop & 0.574 & 0.547 & 0.497 & 0.258 & 0.029 \\
 \bottomrule
 \end{tabular*}
 \end{table}

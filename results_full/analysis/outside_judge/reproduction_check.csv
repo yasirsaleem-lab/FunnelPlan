@@ -1,0 +1,504 @@
+plan_set,reader,dataset,method,max_abs_diff
+single step,gemma3-27b,2wikimultihopqa,planner_tsr,0.9823606264067618
+single step,gemma3-27b,2wikimultihopqa,adaptive_rag,1.0017321018892777
+single step,gemma3-27b,2wikimultihopqa,adaptive_k,1.0031301772293229
+single step,gemma3-27b,2wikimultihopqa,gate_closed_book,0.99814012489873
+single step,gemma3-27b,2wikimultihopqa,conf_cascade,0.9963764136815987
+single step,gemma3-27b,2wikimultihopqa,ak_paper,0.9995053624452053
+single step,gemma3-27b,2wikimultihopqa,ar_emb,1.0012045008352495
+single step,gemma3-27b,2wikimultihopqa,plan_emb,0.992129808719361
+single step,gemma3-27b,2wikimultihopqa,plan_knn,0.9935174546662189
+single step,gemma3-27b,2wikimultihopqa,clf_gate,0.9931337545484709
+single step,gemma3-27b,2wikimultihopqa,planner_sk,0.995108118878305
+single step,gemma3-27b,2wikimultihopqa,metis,0.0078341564691432
+single step,gemma3-27b,hotpotqa,planner_tsr,1.0261026350883418
+single step,gemma3-27b,hotpotqa,adaptive_rag,1.00422590062287
+single step,gemma3-27b,hotpotqa,adaptive_k,1.0011167741234124
+single step,gemma3-27b,hotpotqa,gate_closed_book,0.9964600258462492
+single step,gemma3-27b,hotpotqa,conf_cascade,1.0
+single step,gemma3-27b,hotpotqa,ak_paper,1.009712415109606
+single step,gemma3-27b,hotpotqa,ar_emb,1.0076889517761003
+single step,gemma3-27b,hotpotqa,plan_emb,1.1723539785152455
+single step,gemma3-27b,hotpotqa,plan_knn,1.0271769933671244
+single step,gemma3-27b,hotpotqa,clf_gate,1.0080150358198132
+single step,gemma3-27b,hotpotqa,planner_sk,1.0059237461729809
+single step,gemma3-27b,hotpotqa,metis,0.005938221841807024
+single step,gemma3-27b,musique,planner_tsr,1.046023010161148
+single step,gemma3-27b,musique,adaptive_rag,1.014346484127334
+single step,gemma3-27b,musique,adaptive_k,1.0021746391707298
+single step,gemma3-27b,musique,gate_closed_book,1.0008822232215446
+single step,gemma3-27b,musique,conf_cascade,0.998
+single step,gemma3-27b,musique,ak_paper,1.01244
+single step,gemma3-27b,musique,ar_emb,1.0168166820463995
+single step,gemma3-27b,musique,plan_emb,1.0001071699125443
+single step,gemma3-27b,musique,plan_knn,1.0159799533475962
+single step,gemma3-27b,musique,clf_gate,1.147091200315451
+single step,gemma3-27b,musique,planner_sk,1.053038619177833
+single step,gemma3-27b,musique,metis,0.0018333674381231005
+single step,gemma3-27b,nq,planner_tsr,1.0029506124932377
+single step,gemma3-27b,nq,adaptive_rag,1.0192573838066052
+single step,gemma3-27b,nq,adaptive_k,1.0047799639802077
+single step,gemma3-27b,nq,gate_closed_book,0.996
+single step,gemma3-27b,nq,conf_cascade,1.008
+single step,gemma3-27b,nq,ak_paper,1.00484387892743
+single step,gemma3-27b,nq,ar_emb,1.0061677127355593
+single step,gemma3-27b,nq,plan_emb,1.0045124991870367
+single step,gemma3-27b,nq,plan_knn,1.019368195725571
+single step,gemma3-27b,nq,clf_gate,1.0691248287945814
+single step,gemma3-27b,nq,planner_sk,1.0069015827781658
+single step,gemma3-27b,nq,metis,0.004383604624464134
+single step,llama3.1-8b,2wikimultihopqa,planner_tsr,0.9902619390973244
+single step,llama3.1-8b,2wikimultihopqa,adaptive_rag,0.8005447286054977
+single step,llama3.1-8b,2wikimultihopqa,adaptive_k,1.0036701547123943
+single step,llama3.1-8b,2wikimultihopqa,gate_closed_book,9.194034422677078e-17
+single step,llama3.1-8b,2wikimultihopqa,conf_cascade,0.9992347958183512
+single step,llama3.1-8b,2wikimultihopqa,ak_paper,0.9902954473392731
+single step,llama3.1-8b,2wikimultihopqa,ar_emb,0.9949673269878341
+single step,llama3.1-8b,2wikimultihopqa,ar_t5,0.7996560832093267
+single step,llama3.1-8b,2wikimultihopqa,plan_emb,0.5954130669601148
+single step,llama3.1-8b,2wikimultihopqa,plan_knn,0.6352932502299413
+single step,llama3.1-8b,2wikimultihopqa,clf_gate,1.0
+single step,llama3.1-8b,2wikimultihopqa,planner_sk,0.6067509391419852
+single step,llama3.1-8b,2wikimultihopqa,metis,0.00023689833004314573
+single step,llama3.1-8b,hotpotqa,planner_tsr,0.9998283072174243
+single step,llama3.1-8b,hotpotqa,adaptive_rag,1.0141370859033403
+single step,llama3.1-8b,hotpotqa,adaptive_k,1.011203716715169
+single step,llama3.1-8b,hotpotqa,gate_closed_book,1.006
+single step,llama3.1-8b,hotpotqa,conf_cascade,1.0089873370621487
+single step,llama3.1-8b,hotpotqa,ak_paper,0.9995201930906861
+single step,llama3.1-8b,hotpotqa,ar_emb,1.0120516878260535
+single step,llama3.1-8b,hotpotqa,ar_t5,1.0100210288493876
+single step,llama3.1-8b,hotpotqa,plan_emb,1.010759257467995
+single step,llama3.1-8b,hotpotqa,plan_knn,1.0076211484196365
+single step,llama3.1-8b,hotpotqa,clf_gate,1.006
+single step,llama3.1-8b,hotpotqa,planner_sk,1.0063503752576684
+single step,llama3.1-8b,hotpotqa,metis,0.013133530377139052
+single step,llama3.1-8b,musique,planner_tsr,1.0050739085205291
+single step,llama3.1-8b,musique,adaptive_rag,1.006323699206933
+single step,llama3.1-8b,musique,adaptive_k,1.0026255023871218
+single step,llama3.1-8b,musique,gate_closed_book,1.01
+single step,llama3.1-8b,musique,conf_cascade,1.0106319042528396
+single step,llama3.1-8b,musique,ak_paper,0.9980049379583634
+single step,llama3.1-8b,musique,ar_emb,1.0021158499174818
+single step,llama3.1-8b,musique,plan_emb,0.9996022059047247
+single step,llama3.1-8b,musique,plan_knn,1.0194237308353025
+single step,llama3.1-8b,musique,clf_gate,1.01
+single step,llama3.1-8b,musique,planner_sk,1.0087122479503685
+single step,llama3.1-8b,musique,metis,0.004260831037306598
+single step,llama3.1-8b,nq,planner_tsr,1.0142159496784204
+single step,llama3.1-8b,nq,adaptive_rag,1.0077752761327459
+single step,llama3.1-8b,nq,adaptive_k,1.0164247302041731
+single step,llama3.1-8b,nq,gate_closed_book,1.014
+single step,llama3.1-8b,nq,conf_cascade,1.0086383085486355
+single step,llama3.1-8b,nq,ak_paper,1.014
+single step,llama3.1-8b,nq,ar_emb,1.0038935175865094
+single step,llama3.1-8b,nq,plan_emb,1.0065018137888522
+single step,llama3.1-8b,nq,plan_knn,0.9611376585424708
+single step,llama3.1-8b,nq,clf_gate,1.014
+single step,llama3.1-8b,nq,planner_sk,1.014
+single step,llama3.1-8b,nq,metis,0.006489153261816939
+single step,qwen2.5-7b,2wikimultihopqa,planner_tsr,0.790638510901039
+single step,qwen2.5-7b,2wikimultihopqa,adaptive_rag,0.9921762712803968
+single step,qwen2.5-7b,2wikimultihopqa,adaptive_k,0.9920801752888425
+single step,qwen2.5-7b,2wikimultihopqa,gate_closed_book,0.00042144415228440035
+single step,qwen2.5-7b,2wikimultihopqa,conf_cascade,0.7968145725029392
+single step,qwen2.5-7b,2wikimultihopqa,ak_paper,1.0089199386284284
+single step,qwen2.5-7b,2wikimultihopqa,ar_emb,0.9927016260232094
+single step,qwen2.5-7b,2wikimultihopqa,plan_emb,0.7978607142532564
+single step,qwen2.5-7b,2wikimultihopqa,plan_knn,1.000225900452457
+single step,qwen2.5-7b,2wikimultihopqa,clf_gate,0.392
+single step,qwen2.5-7b,2wikimultihopqa,planner_sk,0.7832582388317755
+single step,qwen2.5-7b,2wikimultihopqa,metis,0.005579446028990774
+single step,qwen2.5-7b,hotpotqa,planner_tsr,1.0230340697768632
+single step,qwen2.5-7b,hotpotqa,adaptive_rag,1.0041077406022727
+single step,qwen2.5-7b,hotpotqa,adaptive_k,1.0045101483104726
+single step,qwen2.5-7b,hotpotqa,gate_closed_book,0.9999999999999999
+single step,qwen2.5-7b,hotpotqa,conf_cascade,1.0121530583096594
+single step,qwen2.5-7b,hotpotqa,ak_paper,1.012209798599922
+single step,qwen2.5-7b,hotpotqa,ar_emb,1.0011173507362918
+single step,qwen2.5-7b,hotpotqa,plan_emb,1.0246240003224942
+single step,qwen2.5-7b,hotpotqa,plan_knn,1.002281339032826
+single step,qwen2.5-7b,hotpotqa,clf_gate,1.0412669112913826
+single step,qwen2.5-7b,hotpotqa,planner_sk,1.0219895357290014
+single step,qwen2.5-7b,hotpotqa,metis,0.0027317737466142425
+single step,qwen2.5-7b,musique,planner_tsr,0.9909902005744935
+single step,qwen2.5-7b,musique,adaptive_rag,1.0119054124535707
+single step,qwen2.5-7b,musique,adaptive_k,1.002563380767758
+single step,qwen2.5-7b,musique,gate_closed_book,0.9936156771024325
+single step,qwen2.5-7b,musique,conf_cascade,1.0142206583226578
+single step,qwen2.5-7b,musique,ak_paper,1.0078947892226138
+single step,qwen2.5-7b,musique,ar_emb,1.0120743641638708
+single step,qwen2.5-7b,musique,plan_emb,1.0060562303539353
+single step,qwen2.5-7b,musique,plan_knn,0.9935709859102515
+single step,qwen2.5-7b,musique,clf_gate,0.994
+single step,qwen2.5-7b,musique,planner_sk,1.014882757223944
+single step,qwen2.5-7b,musique,metis,0.0015196725885216755
+single step,qwen2.5-7b,nq,planner_tsr,0.9958088047588682
+single step,qwen2.5-7b,nq,adaptive_rag,0.9945150934760759
+single step,qwen2.5-7b,nq,adaptive_k,1.0034821094498025
+single step,qwen2.5-7b,nq,gate_closed_book,1.0010536367012626
+single step,qwen2.5-7b,nq,conf_cascade,0.9839999999999999
+single step,qwen2.5-7b,nq,ak_paper,1.0
+single step,qwen2.5-7b,nq,ar_emb,1.0383095969762919
+single step,qwen2.5-7b,nq,plan_emb,1.0188099555976882
+single step,qwen2.5-7b,nq,plan_knn,1.0043522844658797
+single step,qwen2.5-7b,nq,clf_gate,1.072
+single step,qwen2.5-7b,nq,planner_sk,0.998
+single step,qwen2.5-7b,nq,metis,0.0066207843496250175
+single step,qwen3-14b,2wikimultihopqa,planner_tsr,0.987650965943758
+single step,qwen3-14b,2wikimultihopqa,adaptive_rag,0.9979340796255571
+single step,qwen3-14b,2wikimultihopqa,adaptive_k,0.9969676187909418
+single step,qwen3-14b,2wikimultihopqa,gate_closed_book,0.99
+single step,qwen3-14b,2wikimultihopqa,conf_cascade,0.5920000000000001
+single step,qwen3-14b,2wikimultihopqa,ak_paper,0.9948175005688409
+single step,qwen3-14b,2wikimultihopqa,ar_emb,0.9978568957604724
+single step,qwen3-14b,2wikimultihopqa,plan_emb,0.5831876211956062
+single step,qwen3-14b,2wikimultihopqa,plan_knn,0.9959717820467067
+single step,qwen3-14b,2wikimultihopqa,clf_gate,0.99
+single step,qwen3-14b,2wikimultihopqa,planner_sk,0.9964639099254189
+single step,qwen3-14b,2wikimultihopqa,metis,0.0029047916451833277
+single step,qwen3-14b,hotpotqa,planner_tsr,0.9975054213565271
+single step,qwen3-14b,hotpotqa,adaptive_rag,0.9975824424713534
+single step,qwen3-14b,hotpotqa,adaptive_k,1.0075066820783967
+single step,qwen3-14b,hotpotqa,gate_closed_book,0.994
+single step,qwen3-14b,hotpotqa,conf_cascade,1.06
+single step,qwen3-14b,hotpotqa,ak_paper,1.0234912209226539
+single step,qwen3-14b,hotpotqa,ar_emb,1.0193468754770003
+single step,qwen3-14b,hotpotqa,plan_emb,1.0212045100029687
+single step,qwen3-14b,hotpotqa,plan_knn,1.008807521237836
+single step,qwen3-14b,hotpotqa,clf_gate,1.034
+single step,qwen3-14b,hotpotqa,planner_sk,1.024
+single step,qwen3-14b,hotpotqa,metis,0.0022556924097469613
+single step,qwen3-14b,musique,planner_tsr,1.0197864481917907
+single step,qwen3-14b,musique,adaptive_rag,1.0188803764151764
+single step,qwen3-14b,musique,adaptive_k,1.0059951904754114
+single step,qwen3-14b,musique,gate_closed_book,1.016
+single step,qwen3-14b,musique,conf_cascade,1.128966918488546
+single step,qwen3-14b,musique,ak_paper,1.010624732144343
+single step,qwen3-14b,musique,ar_emb,1.0159228376073646
+single step,qwen3-14b,musique,plan_emb,1.0451703487653734
+single step,qwen3-14b,musique,plan_knn,1.0308640073662363
+single step,qwen3-14b,musique,clf_gate,1.016
+single step,qwen3-14b,musique,planner_sk,1.016
+single step,qwen3-14b,musique,metis,0.0009556664885169821
+single step,qwen3-14b,nq,planner_tsr,0.9916188226417313
+single step,qwen3-14b,nq,adaptive_rag,1.0108927592054688
+single step,qwen3-14b,nq,adaptive_k,0.9989719832225483
+single step,qwen3-14b,nq,gate_closed_book,1.004
+single step,qwen3-14b,nq,conf_cascade,0.9882668062569053
+single step,qwen3-14b,nq,ak_paper,1.00734
+single step,qwen3-14b,nq,ar_emb,1.0114787857547727
+single step,qwen3-14b,nq,plan_emb,0.9761511155763842
+single step,qwen3-14b,nq,plan_knn,0.9871917536401595
+single step,qwen3-14b,nq,clf_gate,1.004
+single step,qwen3-14b,nq,planner_sk,1.006
+single step,qwen3-14b,nq,metis,0.0009715316538149333
+single step,qwen3-32b,2wikimultihopqa,planner_tsr,0.990610863627579
+single step,qwen3-32b,2wikimultihopqa,adaptive_rag,0.9849895912729262
+single step,qwen3-32b,2wikimultihopqa,adaptive_k,1.0111906534272792
+single step,qwen3-32b,2wikimultihopqa,gate_closed_book,0.9961645840025767
+single step,qwen3-32b,2wikimultihopqa,conf_cascade,0.686533675493311
+single step,qwen3-32b,2wikimultihopqa,ak_paper,1.002722660165952
+single step,qwen3-32b,2wikimultihopqa,ar_emb,0.9864835363888402
+single step,qwen3-32b,2wikimultihopqa,plan_emb,1.0092913735903317
+single step,qwen3-32b,2wikimultihopqa,plan_knn,0.9937927487864213
+single step,qwen3-32b,2wikimultihopqa,clf_gate,0.996
+single step,qwen3-32b,2wikimultihopqa,planner_sk,0.9873505200031862
+single step,qwen3-32b,2wikimultihopqa,metis,0.007854710885712515
+single step,qwen3-32b,hotpotqa,planner_tsr,1.0342441930523631
+single step,qwen3-32b,hotpotqa,adaptive_rag,1.012409528261695
+single step,qwen3-32b,hotpotqa,adaptive_k,1.0064096741222104
+single step,qwen3-32b,hotpotqa,gate_closed_book,0.9960474018148731
+single step,qwen3-32b,hotpotqa,conf_cascade,1.0123650352440792
+single step,qwen3-32b,hotpotqa,ak_paper,1.0021568435264228
+single step,qwen3-32b,hotpotqa,ar_emb,1.0175770848340586
+single step,qwen3-32b,hotpotqa,plan_emb,1.0330121235649417
+single step,qwen3-32b,hotpotqa,plan_knn,1.0597093505364108
+single step,qwen3-32b,hotpotqa,clf_gate,0.996
+single step,qwen3-32b,hotpotqa,planner_sk,1.0
+single step,qwen3-32b,hotpotqa,metis,0.002002879233931612
+single step,qwen3-32b,musique,planner_tsr,1.027461254793821
+single step,qwen3-32b,musique,adaptive_rag,1.0361441218826806
+single step,qwen3-32b,musique,adaptive_k,1.006429251432151
+single step,qwen3-32b,musique,gate_closed_book,1.000352998847027
+single step,qwen3-32b,musique,conf_cascade,1.048887886051617
+single step,qwen3-32b,musique,ak_paper,1.0189199999999998
+single step,qwen3-32b,musique,ar_emb,1.0289259145900889
+single step,qwen3-32b,musique,plan_emb,1.0149805134270276
+single step,qwen3-32b,musique,plan_knn,1.0343258514377285
+single step,qwen3-32b,musique,clf_gate,1.0133426975142112
+single step,qwen3-32b,musique,planner_sk,1.0368695357494628
+single step,qwen3-32b,musique,metis,0.00017451465918307853
+single step,qwen3-32b,nq,planner_tsr,1.0162943904345485
+single step,qwen3-32b,nq,adaptive_rag,1.0231265011841582
+single step,qwen3-32b,nq,adaptive_k,1.0112689774029386
+single step,qwen3-32b,nq,gate_closed_book,1.0091776759652573
+single step,qwen3-32b,nq,conf_cascade,1.0403740114915219
+single step,qwen3-32b,nq,ak_paper,1.0021951468968917
+single step,qwen3-32b,nq,ar_emb,1.0167641095526538
+single step,qwen3-32b,nq,plan_emb,1.0156730169872425
+single step,qwen3-32b,nq,plan_knn,1.0114819464414655
+single step,qwen3-32b,nq,clf_gate,1.0103494972421219
+single step,qwen3-32b,nq,planner_sk,1.021512873406404
+single step,qwen3-32b,nq,metis,0.001967633919059497
+single step,qwen2.5-7b->qwen3-14b,2wikimultihopqa,reader_cascade,0.7914768763117169
+single step,qwen2.5-7b->qwen3-14b,hotpotqa,reader_cascade,0.9967405594090957
+single step,qwen2.5-7b->qwen3-14b,musique,reader_cascade,1.0145280841120343
+single step,qwen2.5-7b->qwen3-14b,nq,reader_cascade,1.0106825446956773
+single step,qwen2.5-7b->llama3.1-8b,2wikimultihopqa,reader_cascade,0.5959147290761142
+single step,qwen2.5-7b->llama3.1-8b,hotpotqa,reader_cascade,1.0098051854600578
+single step,qwen2.5-7b->llama3.1-8b,musique,reader_cascade,1.0128975428620122
+single step,qwen2.5-7b->llama3.1-8b,nq,reader_cascade,1.016
+with two hop,gemma3-27b,2wikimultihopqa,planner_tsr,0.8376090110781074
+with two hop,gemma3-27b,2wikimultihopqa,adaptive_rag,1.0064268397933738
+with two hop,gemma3-27b,2wikimultihopqa,adaptive_k,1.0031301772293229
+with two hop,gemma3-27b,2wikimultihopqa,gate_closed_book,1.0088051202956492
+with two hop,gemma3-27b,2wikimultihopqa,conf_cascade,0.994
+with two hop,gemma3-27b,2wikimultihopqa,ak_paper,1.0027356610107745
+with two hop,gemma3-27b,2wikimultihopqa,ar_emb,1.006745875928691
+with two hop,gemma3-27b,2wikimultihopqa,plan_emb,1.0220443559125119
+with two hop,gemma3-27b,2wikimultihopqa,plan_knn,1.0006715009597509
+with two hop,gemma3-27b,2wikimultihopqa,clf_gate,0.991854169158138
+with two hop,gemma3-27b,2wikimultihopqa,planner_sk,0.8091056413720269
+with two hop,gemma3-27b,2wikimultihopqa,metis,0.0015810528440735434
+with two hop,gemma3-27b,hotpotqa,planner_tsr,1.039493781497832
+with two hop,gemma3-27b,hotpotqa,adaptive_rag,1.0072421099374038
+with two hop,gemma3-27b,hotpotqa,adaptive_k,1.0011167741234124
+with two hop,gemma3-27b,hotpotqa,gate_closed_book,0.9964600258462492
+with two hop,gemma3-27b,hotpotqa,conf_cascade,1.0134304865462043
+with two hop,gemma3-27b,hotpotqa,ak_paper,1.009712415109606
+with two hop,gemma3-27b,hotpotqa,ar_emb,1.0093006262710493
+with two hop,gemma3-27b,hotpotqa,plan_emb,1.041241123311121
+with two hop,gemma3-27b,hotpotqa,plan_knn,1.0783452110413618
+with two hop,gemma3-27b,hotpotqa,clf_gate,1.0080150358198132
+with two hop,gemma3-27b,hotpotqa,planner_sk,1.0026517558327315
+with two hop,gemma3-27b,hotpotqa,metis,0.004750707446967968
+with two hop,gemma3-27b,musique,planner_tsr,1.0943417213521796
+with two hop,gemma3-27b,musique,adaptive_rag,1.0133586597542386
+with two hop,gemma3-27b,musique,adaptive_k,1.0021746391707298
+with two hop,gemma3-27b,musique,gate_closed_book,1.0008822232215446
+with two hop,gemma3-27b,musique,conf_cascade,0.998
+with two hop,gemma3-27b,musique,ak_paper,1.013391525414079
+with two hop,gemma3-27b,musique,ar_emb,1.0089077350148667
+with two hop,gemma3-27b,musique,plan_emb,0.9925961292616978
+with two hop,gemma3-27b,musique,plan_knn,1.0002674584777922
+with two hop,gemma3-27b,musique,clf_gate,1.1420000000000001
+with two hop,gemma3-27b,musique,planner_sk,1.0590023223370655
+with two hop,gemma3-27b,musique,metis,0.005106172287229181
+with two hop,gemma3-27b,nq,planner_tsr,1.0100491316205529
+with two hop,gemma3-27b,nq,adaptive_rag,1.0162874190266553
+with two hop,gemma3-27b,nq,adaptive_k,1.0047799639802077
+with two hop,gemma3-27b,nq,gate_closed_book,0.996
+with two hop,gemma3-27b,nq,conf_cascade,1.008
+with two hop,gemma3-27b,nq,ak_paper,1.00484387892743
+with two hop,gemma3-27b,nq,ar_emb,1.0098133046731763
+with two hop,gemma3-27b,nq,plan_emb,1.0045124991870367
+with two hop,gemma3-27b,nq,plan_knn,1.019368195725571
+with two hop,gemma3-27b,nq,clf_gate,1.0691248287945814
+with two hop,gemma3-27b,nq,planner_sk,1.0061956289306748
+with two hop,gemma3-27b,nq,metis,0.002317057217786685
+with two hop,llama3.1-8b,2wikimultihopqa,planner_tsr,0.9840678927109481
+with two hop,llama3.1-8b,2wikimultihopqa,adaptive_rag,0.9974952937774478
+with two hop,llama3.1-8b,2wikimultihopqa,adaptive_k,1.0036701547123943
+with two hop,llama3.1-8b,2wikimultihopqa,gate_closed_book,0.992
+with two hop,llama3.1-8b,2wikimultihopqa,conf_cascade,0.9989796424933941
+with two hop,llama3.1-8b,2wikimultihopqa,ak_paper,0.9909805412219999
+with two hop,llama3.1-8b,2wikimultihopqa,ar_emb,0.998133299384026
+with two hop,llama3.1-8b,2wikimultihopqa,ar_t5,0.9937774472733698
+with two hop,llama3.1-8b,2wikimultihopqa,plan_emb,0.6191655287380959
+with two hop,llama3.1-8b,2wikimultihopqa,plan_knn,0.9979604001373383
+with two hop,llama3.1-8b,2wikimultihopqa,clf_gate,0.99
+with two hop,llama3.1-8b,2wikimultihopqa,planner_sk,0.992
+with two hop,llama3.1-8b,2wikimultihopqa,metis,4.138683464500331e-05
+with two hop,llama3.1-8b,hotpotqa,planner_tsr,1.0263204912159283
+with two hop,llama3.1-8b,hotpotqa,adaptive_rag,1.0072849151475682
+with two hop,llama3.1-8b,hotpotqa,adaptive_k,1.011203716715169
+with two hop,llama3.1-8b,hotpotqa,gate_closed_book,1.006
+with two hop,llama3.1-8b,hotpotqa,conf_cascade,1.010536807870241
+with two hop,llama3.1-8b,hotpotqa,ak_paper,0.9995201930906861
+with two hop,llama3.1-8b,hotpotqa,ar_emb,1.0068033352126884
+with two hop,llama3.1-8b,hotpotqa,plan_emb,0.9935175131005698
+with two hop,llama3.1-8b,hotpotqa,plan_knn,0.9986152600882121
+with two hop,llama3.1-8b,hotpotqa,clf_gate,1.006
+with two hop,llama3.1-8b,hotpotqa,planner_sk,1.006
+with two hop,llama3.1-8b,hotpotqa,metis,0.013133530377139052
+with two hop,llama3.1-8b,musique,planner_tsr,1.0222790819142886
+with two hop,llama3.1-8b,musique,adaptive_rag,1.0030039765634857
+with two hop,llama3.1-8b,musique,adaptive_k,1.0026255023871218
+with two hop,llama3.1-8b,musique,gate_closed_book,1.01
+with two hop,llama3.1-8b,musique,conf_cascade,1.0106319042528396
+with two hop,llama3.1-8b,musique,ak_paper,0.9980049379583634
+with two hop,llama3.1-8b,musique,ar_emb,1.0078142798025735
+with two hop,llama3.1-8b,musique,plan_emb,1.0010286241214064
+with two hop,llama3.1-8b,musique,plan_knn,1.0094496089746996
+with two hop,llama3.1-8b,musique,clf_gate,1.01
+with two hop,llama3.1-8b,musique,planner_sk,1.0070271802344841
+with two hop,llama3.1-8b,musique,metis,0.001992626873613331
+with two hop,llama3.1-8b,nq,planner_tsr,1.0112521652272894
+with two hop,llama3.1-8b,nq,adaptive_rag,1.0300862687891623
+with two hop,llama3.1-8b,nq,adaptive_k,1.0164247302041731
+with two hop,llama3.1-8b,nq,gate_closed_book,1.014
+with two hop,llama3.1-8b,nq,conf_cascade,1.0086383085486355
+with two hop,llama3.1-8b,nq,ak_paper,1.014
+with two hop,llama3.1-8b,nq,ar_emb,1.005120229125337
+with two hop,llama3.1-8b,nq,ar_t5,1.0079413180349406
+with two hop,llama3.1-8b,nq,plan_emb,1.0065018137888522
+with two hop,llama3.1-8b,nq,plan_knn,0.9611376585424708
+with two hop,llama3.1-8b,nq,clf_gate,1.014
+with two hop,llama3.1-8b,nq,planner_sk,1.014
+with two hop,llama3.1-8b,nq,metis,0.006856969201756929
+with two hop,qwen2.5-7b,2wikimultihopqa,planner_tsr,0.7998330106021745
+with two hop,qwen2.5-7b,2wikimultihopqa,adaptive_rag,0.604857583697486
+with two hop,qwen2.5-7b,2wikimultihopqa,adaptive_k,0.9920801752888425
+with two hop,qwen2.5-7b,2wikimultihopqa,gate_closed_book,0.00042144415228440035
+with two hop,qwen2.5-7b,2wikimultihopqa,conf_cascade,0.7952323782657342
+with two hop,qwen2.5-7b,2wikimultihopqa,ak_paper,1.0012570579435878
+with two hop,qwen2.5-7b,2wikimultihopqa,ar_emb,0.4052586503582402
+with two hop,qwen2.5-7b,2wikimultihopqa,plan_emb,0.7978607142532564
+with two hop,qwen2.5-7b,2wikimultihopqa,plan_knn,1.000225900452457
+with two hop,qwen2.5-7b,2wikimultihopqa,clf_gate,0.396
+with two hop,qwen2.5-7b,2wikimultihopqa,planner_sk,0.6740094425778692
+with two hop,qwen2.5-7b,2wikimultihopqa,metis,0.0017028984307140048
+with two hop,qwen2.5-7b,hotpotqa,planner_tsr,1.0210799050119623
+with two hop,qwen2.5-7b,hotpotqa,adaptive_rag,1.010405745070589
+with two hop,qwen2.5-7b,hotpotqa,adaptive_k,1.0045101483104726
+with two hop,qwen2.5-7b,hotpotqa,gate_closed_book,0.9999999999999999
+with two hop,qwen2.5-7b,hotpotqa,conf_cascade,1.0121530583096594
+with two hop,qwen2.5-7b,hotpotqa,ak_paper,1.012209798599922
+with two hop,qwen2.5-7b,hotpotqa,ar_emb,1.0104894896482124
+with two hop,qwen2.5-7b,hotpotqa,plan_emb,1.043676405343461
+with two hop,qwen2.5-7b,hotpotqa,plan_knn,1.0065013516443324
+with two hop,qwen2.5-7b,hotpotqa,clf_gate,1.0412669112913826
+with two hop,qwen2.5-7b,hotpotqa,planner_sk,1.0215369196612518
+with two hop,qwen2.5-7b,hotpotqa,metis,0.005572849058559946
+with two hop,qwen2.5-7b,musique,planner_tsr,1.0232217950751854
+with two hop,qwen2.5-7b,musique,adaptive_rag,1.0191476618965243
+with two hop,qwen2.5-7b,musique,adaptive_k,1.002563380767758
+with two hop,qwen2.5-7b,musique,gate_closed_book,0.9936156771024325
+with two hop,qwen2.5-7b,musique,conf_cascade,1.0225115085715883
+with two hop,qwen2.5-7b,musique,ak_paper,1.0083708042195294
+with two hop,qwen2.5-7b,musique,ar_emb,1.0190392812734468
+with two hop,qwen2.5-7b,musique,plan_emb,1.0113988722837224
+with two hop,qwen2.5-7b,musique,plan_knn,1.018631875098158
+with two hop,qwen2.5-7b,musique,clf_gate,1.022
+with two hop,qwen2.5-7b,musique,planner_sk,1.0098265117133762
+with two hop,qwen2.5-7b,musique,metis,0.0007423626799401535
+with two hop,qwen2.5-7b,nq,planner_tsr,0.9952581488861856
+with two hop,qwen2.5-7b,nq,adaptive_rag,1.0222614991809587
+with two hop,qwen2.5-7b,nq,adaptive_k,1.0034821094498025
+with two hop,qwen2.5-7b,nq,gate_closed_book,1.0010536367012626
+with two hop,qwen2.5-7b,nq,conf_cascade,0.9839999999999999
+with two hop,qwen2.5-7b,nq,ak_paper,1.0
+with two hop,qwen2.5-7b,nq,ar_emb,1.0129898043861503
+with two hop,qwen2.5-7b,nq,plan_emb,1.0188099555976882
+with two hop,qwen2.5-7b,nq,plan_knn,1.0043522844658797
+with two hop,qwen2.5-7b,nq,clf_gate,1.072
+with two hop,qwen2.5-7b,nq,planner_sk,0.998
+with two hop,qwen2.5-7b,nq,metis,0.00468402043570281
+with two hop,qwen3-14b,2wikimultihopqa,planner_tsr,0.9930979669249766
+with two hop,qwen3-14b,2wikimultihopqa,adaptive_rag,0.9994848885692902
+with two hop,qwen3-14b,2wikimultihopqa,adaptive_k,0.9969676187909418
+with two hop,qwen3-14b,2wikimultihopqa,gate_closed_book,0.99
+with two hop,qwen3-14b,2wikimultihopqa,conf_cascade,0.9900000000000001
+with two hop,qwen3-14b,2wikimultihopqa,ak_paper,0.996
+with two hop,qwen3-14b,2wikimultihopqa,ar_emb,0.9989994607295901
+with two hop,qwen3-14b,2wikimultihopqa,ar_t5,0.9989985663191031
+with two hop,qwen3-14b,2wikimultihopqa,plan_emb,0.7846230114875719
+with two hop,qwen3-14b,2wikimultihopqa,plan_knn,0.9995486851503588
+with two hop,qwen3-14b,2wikimultihopqa,clf_gate,0.99
+with two hop,qwen3-14b,2wikimultihopqa,planner_sk,1.0112662709338784
+with two hop,qwen3-14b,2wikimultihopqa,metis,0.0031062408704103737
+with two hop,qwen3-14b,hotpotqa,planner_tsr,1.0042699986700903
+with two hop,qwen3-14b,hotpotqa,adaptive_rag,0.9857717258603558
+with two hop,qwen3-14b,hotpotqa,adaptive_k,1.0075066820783967
+with two hop,qwen3-14b,hotpotqa,gate_closed_book,0.994
+with two hop,qwen3-14b,hotpotqa,conf_cascade,1.06
+with two hop,qwen3-14b,hotpotqa,ak_paper,1.0234912209226539
+with two hop,qwen3-14b,hotpotqa,ar_emb,1.0201427183239473
+with two hop,qwen3-14b,hotpotqa,plan_emb,1.0254527360550068
+with two hop,qwen3-14b,hotpotqa,plan_knn,0.9852121870378454
+with two hop,qwen3-14b,hotpotqa,clf_gate,1.034
+with two hop,qwen3-14b,hotpotqa,planner_sk,1.024
+with two hop,qwen3-14b,hotpotqa,metis,0.005120308691635162
+with two hop,qwen3-14b,musique,planner_tsr,1.0301367280464377
+with two hop,qwen3-14b,musique,adaptive_rag,1.016
+with two hop,qwen3-14b,musique,adaptive_k,1.0059951904754114
+with two hop,qwen3-14b,musique,gate_closed_book,1.012
+with two hop,qwen3-14b,musique,conf_cascade,1.128966918488546
+with two hop,qwen3-14b,musique,ak_paper,1.010111943938805
+with two hop,qwen3-14b,musique,ar_emb,1.016
+with two hop,qwen3-14b,musique,plan_emb,1.0639213399299
+with two hop,qwen3-14b,musique,plan_knn,1.0552445906443595
+with two hop,qwen3-14b,musique,clf_gate,1.012
+with two hop,qwen3-14b,musique,planner_sk,1.012
+with two hop,qwen3-14b,musique,metis,0.0008128067727117467
+with two hop,qwen3-14b,nq,planner_tsr,1.040509408699698
+with two hop,qwen3-14b,nq,adaptive_rag,1.0095054016468294
+with two hop,qwen3-14b,nq,adaptive_k,0.9989719832225483
+with two hop,qwen3-14b,nq,gate_closed_book,1.004
+with two hop,qwen3-14b,nq,conf_cascade,0.9882668062569053
+with two hop,qwen3-14b,nq,ak_paper,1.00734
+with two hop,qwen3-14b,nq,ar_emb,1.003232873534675
+with two hop,qwen3-14b,nq,plan_emb,0.9761511155763842
+with two hop,qwen3-14b,nq,plan_knn,0.9871917536401595
+with two hop,qwen3-14b,nq,clf_gate,1.004
+with two hop,qwen3-14b,nq,planner_sk,1.002
+with two hop,qwen3-14b,nq,metis,0.0009715316538149333
+with two hop,qwen3-32b,2wikimultihopqa,planner_tsr,0.9853387404206092
+with two hop,qwen3-32b,2wikimultihopqa,adaptive_rag,0.9910109210719205
+with two hop,qwen3-32b,2wikimultihopqa,adaptive_k,1.0111906534272792
+with two hop,qwen3-32b,2wikimultihopqa,gate_closed_book,1.0045965331702749
+with two hop,qwen3-32b,2wikimultihopqa,conf_cascade,0.7165528050768255
+with two hop,qwen3-32b,2wikimultihopqa,ak_paper,1.0113530206966397
+with two hop,qwen3-32b,2wikimultihopqa,ar_emb,1.01781994895587
+with two hop,qwen3-32b,2wikimultihopqa,plan_emb,1.0014341535046103
+with two hop,qwen3-32b,2wikimultihopqa,plan_knn,0.9963618669345182
+with two hop,qwen3-32b,2wikimultihopqa,clf_gate,0.8440092934165762
+with two hop,qwen3-32b,2wikimultihopqa,planner_sk,1.0222957158071226
+with two hop,qwen3-32b,2wikimultihopqa,metis,0.001765268497973138
+with two hop,qwen3-32b,hotpotqa,planner_tsr,1.016135079738402
+with two hop,qwen3-32b,hotpotqa,adaptive_rag,1.0118259936082221
+with two hop,qwen3-32b,hotpotqa,adaptive_k,1.0064096741222104
+with two hop,qwen3-32b,hotpotqa,gate_closed_book,0.9960474018148731
+with two hop,qwen3-32b,hotpotqa,conf_cascade,1.0078710360827488
+with two hop,qwen3-32b,hotpotqa,ak_paper,1.012689278157035
+with two hop,qwen3-32b,hotpotqa,ar_emb,1.0026789654417592
+with two hop,qwen3-32b,hotpotqa,plan_emb,1.0189854768443283
+with two hop,qwen3-32b,hotpotqa,plan_knn,1.0586748322657307
+with two hop,qwen3-32b,hotpotqa,clf_gate,0.996
+with two hop,qwen3-32b,hotpotqa,planner_sk,1.0086354217130802
+with two hop,qwen3-32b,hotpotqa,metis,0.00913935008616331
+with two hop,qwen3-32b,musique,planner_tsr,1.001674659526711
+with two hop,qwen3-32b,musique,adaptive_rag,1.0518676141661387
+with two hop,qwen3-32b,musique,adaptive_k,1.006429251432151
+with two hop,qwen3-32b,musique,gate_closed_book,1.000352998847027
+with two hop,qwen3-32b,musique,conf_cascade,1.0507172752811447
+with two hop,qwen3-32b,musique,ak_paper,1.0182377625014858
+with two hop,qwen3-32b,musique,ar_emb,1.0404176053957372
+with two hop,qwen3-32b,musique,ar_t5,1.0529552252029246
+with two hop,qwen3-32b,musique,plan_emb,1.0201914041984483
+with two hop,qwen3-32b,musique,plan_knn,1.05119642437624
+with two hop,qwen3-32b,musique,clf_gate,1.0133426975142112
+with two hop,qwen3-32b,musique,planner_sk,1.0139651207615097
+with two hop,qwen3-32b,musique,metis,0.009649464217237287
+with two hop,qwen3-32b,nq,planner_tsr,1.009524320902873
+with two hop,qwen3-32b,nq,adaptive_rag,1.0081484669612397
+with two hop,qwen3-32b,nq,adaptive_k,1.0112689774029386
+with two hop,qwen3-32b,nq,gate_closed_book,1.0091776759652573
+with two hop,qwen3-32b,nq,conf_cascade,1.0403740114915219
+with two hop,qwen3-32b,nq,ak_paper,1.0021951468968917
+with two hop,qwen3-32b,nq,ar_emb,1.0010256759035976
+with two hop,qwen3-32b,nq,ar_t5,1.0036359373880719
+with two hop,qwen3-32b,nq,plan_emb,1.0156730169872425
+with two hop,qwen3-32b,nq,plan_knn,1.0114819464414655
+with two hop,qwen3-32b,nq,clf_gate,1.0103494972421219
+with two hop,qwen3-32b,nq,planner_sk,1.021812873406404
+with two hop,qwen3-32b,nq,metis,0.001967633919059497
+with two hop,qwen2.5-7b->qwen3-14b,2wikimultihopqa,reader_cascade,0.9984022858675561
+with two hop,qwen2.5-7b->qwen3-14b,hotpotqa,reader_cascade,1.0144253546290773
+with two hop,qwen2.5-7b->qwen3-14b,musique,reader_cascade,1.0237499851078464
+with two hop,qwen2.5-7b->qwen3-14b,nq,reader_cascade,1.0106825446956773
+with two hop,qwen2.5-7b->llama3.1-8b,2wikimultihopqa,reader_cascade,0.8065918581755653
+with two hop,qwen2.5-7b->llama3.1-8b,hotpotqa,reader_cascade,1.0098051854600578
+with two hop,qwen2.5-7b->llama3.1-8b,musique,reader_cascade,1.0228488188093465
+with two hop,qwen2.5-7b->llama3.1-8b,nq,reader_cascade,1.016

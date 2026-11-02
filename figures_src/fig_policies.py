@@ -123,7 +123,7 @@ def main():
 
     # 6. IRCoT, the multi step reference
     cx = column(sc, 5, "IRCoT", "reference: retrieve and reason in turns",
-                "compared at its own measured cost (H3)")
+                "compared at its own measured cost (H2)")
     term(sc, cx, Y_Q, "Question")
     arrow(sc, [(cx, Y_Q + 40), (cx, Y_B1)])
     step(sc, cx + 14, Y_B1, "Retrieve (BM25)", w=156)

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Learning curve on the mixed workload: gain over the label hull, which removes the workload part, mean over readers, by the number of pooled training questions.}
+\label{tab:rev2_curve}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrr}
+\toprule
+Plan set & Policy & 320 & 640 & 960 & 1,280 & 1,600 \\
+\midrule
+single-step & Per-plan LR & $-$0.016 & $-$0.010 & $-$0.006 & $-$0.005 & $-$0.004 \\
+single-step & Per-plan LR, own cost & $-$0.023 & $-$0.022 & $-$0.019 & $-$0.020 & $-$0.020 \\
+single-step & Per-plan kNN & $-$0.019 & $-$0.013 & $-$0.007 & $-$0.002 & $-$0.003 \\
+single-step & Per-plan kNN, own cost & $-$0.028 & $-$0.024 & $-$0.019 & $-$0.016 & $-$0.015 \\
+with two-hop & Per-plan LR & $-$0.018 & $-$0.013 & $-$0.008 & $-$0.006 & $-$0.006 \\
+with two-hop & Per-plan LR, own cost & $-$0.024 & $-$0.016 & $-$0.012 & $-$0.009 & $-$0.007 \\
+with two-hop & Per-plan kNN & $-$0.022 & $-$0.016 & $-$0.010 & $-$0.005 & $-$0.005 \\
+with two-hop & Per-plan kNN, own cost & $-$0.027 & $-$0.020 & $-$0.015 & $-$0.012 & $-$0.011 \\
+\bottomrule
+\end{tabular*}
+\end{table}

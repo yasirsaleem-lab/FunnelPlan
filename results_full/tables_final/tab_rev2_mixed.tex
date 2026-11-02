@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Mixed workload: the 2,000 questions of each reader pooled, one hull and each policy fitted on the pooled training folds, no dataset indicator. Global hull: best mix of fixed plans for the pool. Label hull: best mix of fixed plans per dataset under one budget; it knows only each question's dataset. Corrected test, Holm within each family and comparator. Pos. / neg.: tests with the interval above 0 / below 0 after Holm.}
+\label{tab:rev2_mixed}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrr}
+\toprule
+Policies & Plan set & Tests & \begin{tabular}[b]{@{}r@{}}Pos./neg., \\ global hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Gain, global \\ hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Pos./neg., \\ label hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Gain, label \\ hull\end{tabular} \\
+\midrule
+Primary policies & single-step & 27 & 0 / 5 & $-$0.077 to +0.011 & 0 / 8 & $-$0.098 to +0.003 \\
+Primary policies & with two-hop & 27 & 0 / 3 & $-$0.061 to +0.021 & 0 / 10 & $-$0.092 to 0.000 \\
+Adaptive RAG as published & single-step & 5 & 0 / 5 & $-$0.073 to $-$0.027 & 0 / 5 & $-$0.094 to $-$0.038 \\
+Adaptive RAG as published & with two-hop & 5 & 0 / 4 & $-$0.052 to $-$0.004 & 0 / 5 & $-$0.082 to $-$0.041 \\
+Secondary routers, no own cost & single-step & 25 & 6 / 5 & $-$0.083 to +0.053 & 0 / 5 & $-$0.103 to +0.006 \\
+Secondary routers, no own cost & with two-hop & 25 & 5 / 2 & $-$0.048 to +0.053 & 0 / 8 & $-$0.084 to +0.004 \\
+Embedding routers, own cost & single-step & 10 & 1 / 0 & $-$0.003 to +0.024 & 0 / 1 & $-$0.026 to $-$0.005 \\
+Embedding routers, own cost & with two-hop & 10 & 4 / 0 & +0.013 to +0.042 & 0 / 0 & $-$0.014 to $-$0.003 \\
+Dataset guess + label hull, own cost & single-step & 5 & 0 / 0 & +0.003 to +0.022 & 0 / 0 & $-$0.023 to $-$0.001 \\
+Dataset guess + label hull, own cost & with two-hop & 5 & 5 / 0 & +0.027 to +0.042 & 0 / 0 & $-$0.004 to 0.000 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

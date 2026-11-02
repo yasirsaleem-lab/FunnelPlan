@@ -1,11 +1,11 @@
 \begin{table}[t]
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% CI lies above or below zero; Max is the largest pooled gain. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}
+\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% interval lies above or below zero; Max is the largest pooled gain. Rows marked $\ddagger$ use the corrected test, the others the per-question test. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}
 \label{tab:summary}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
- & & \multicolumn{2}{c}{Single step plans} & \multicolumn{2}{c}{With two hop plans} \\
+ & & \multicolumn{2}{c}{Single-step plans} & \multicolumn{2}{c}{With two-hop plans} \\
 \cmidrule(lr){3-4}\cmidrule(l){5-6}
 Test family & Tests & Pos/Neg & Max & Pos/Neg & Max \\
 \midrule
@@ -17,10 +17,14 @@ Primary: calls & 27 & 0/5 & +0.006 & 0/8 & +0.008 \\
 Primary: best single plan$^\dagger$ & 27 & 5/4 & +0.061 & 7/5 & +0.080 \\
 Primary: strict grading & 27 & 0/5 & +0.010 & 0/5 & +0.009 \\
 Primary: lenient grading & 27 & 0/4 & +0.019 & 0/5 & +0.022 \\
-Secondary routers, METIS & 30 & 0/6 & +0.029 & 1/5 & +0.030 \\
+Secondary family & 30 & 0/6 & +0.029 & 1/5 & +0.030 \\
 Stronger policies & 10 & 0/0 & +0.001 & 0/0 & $-$0.002 \\
+Primary: corrected test$^\ddagger$ & 27 & 0/5 & +0.013 & 0/5 & +0.017 \\
+Primary: corrected, $\times$1.64$^\ddagger$ & 27 & 0/2 & +0.013 & 0/1 & +0.017 \\
+Primary: outside judge$^\ddagger$ & 27 & 0/6 & +0.015 & 1/6 & +0.020 \\
+Secondary, charged$^\ddagger$ & 30 & 0/6 & +0.011 & 0/4 & +0.014 \\
 \midrule
-\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single step, 25 of 27 with two hop.} \\
+\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors $\times$1.64: 26 and 25 (single-step and with two-hop).} \\
 \bottomrule
 \end{tabular*}
 \end{table}

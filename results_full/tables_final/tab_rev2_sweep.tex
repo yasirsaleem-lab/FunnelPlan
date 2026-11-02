@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Budget sweep (single-step plans, three seeds): each policy tuned on the training folds to its best success within the budget, scored against the held-out hull at its mean cost. Budgets from the cheapest plan (1) to the most successful plan (6); mean gain over readers. Last column: reader and budget tests with the corrected interval above 0 (no correction for the six budgets). At budget 1, 22 of 26 policy and reader runs have no setting within the budget and cost 1.02 to 2.02 times the budget; they are still scored against the hull at their own cost.}
+\label{tab:rev2_sweep}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrr}
+\toprule
+Policy & 1 & 2 & 3 & 4 & 5 & 6 & \begin{tabular}[b]{@{}r@{}}Intervals \\ above 0\end{tabular} \\
+\midrule
+TSR planner & $-$0.013 & $-$0.002 & 0.000 & $-$0.002 & $-$0.001 & 0.000 & 0 \\
+Closed-book gate & $-$0.034 & $-$0.089 & $-$0.073 & $-$0.061 & $-$0.041 & $-$0.032 & 0 \\
+Confidence cascade & $-$0.034 & $-$0.019 & $-$0.014 & $-$0.006 & $-$0.007 & $-$0.006 & 0 \\
+Reader cascade (7B to Qwen3 14B) & $-$0.159 & $-$0.003 & +0.012 & +0.015 & +0.010 & +0.012 & 1 \\
+Per-plan LR, no own cost & +0.016 & +0.010 & +0.003 & +0.001 & $-$0.001 & $-$0.001 & 5 \\
+Per-plan LR, own cost & $-$0.001 & +0.003 & $-$0.001 & $-$0.001 & $-$0.002 & $-$0.001 & 0 \\
+\bottomrule
+\end{tabular*}
+\end{table}

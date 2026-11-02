@@ -1,0 +1,103 @@
+Inference with refitting; parts ['nb', 'mixed', 'mde']; seeds [0, 1, 2, 3, 4]
+
+== corrected resampled t test for every primary, secondary and stronger test (both plan sets)
+  reproduction check against the stored gains: largest difference 1.11e-16 (0 of 536 cells differ by more than 1e-9)
+
+  single step | primary: 27 tests; corrected/plain SE ratio median 0.65 (range 0.08 to 1.11)
+    corrected/paired SE ratio median 1.47 (range 0.87 to 2.08)
+    plain     positive  0  negative  4  upper bound below 0.03: 27  non superiority at 0.03 after Holm: 27  largest upper bound 0.029 (qwen2.5-7b, conf_cascade)
+    paired    positive  0  negative  8  upper bound below 0.03: 27  non superiority at 0.03 after Holm: 27  largest upper bound 0.020 (qwen2.5-7b, conf_cascade)
+    corrected positive  0  negative  5  upper bound below 0.03: 27  non superiority at 0.03 after Holm: 27  largest upper bound 0.025 (qwen2.5-7b, conf_cascade)
+
+  single step | secondary: 30 tests; corrected/plain SE ratio median 0.75 (range 0.28 to 1.23)
+    corrected/paired SE ratio median 1.47 (range 1.08 to 1.89)
+    plain     positive  0  negative  6  upper bound below 0.03: 25  non superiority at 0.03 after Holm: 21  largest upper bound 0.045 (qwen3-32b, plan_emb)
+    paired    positive  5  negative  7  upper bound below 0.03: 29  non superiority at 0.03 after Holm: 28  largest upper bound 0.038 (qwen3-32b, plan_emb)
+    corrected positive  2  negative  6  upper bound below 0.03: 26  non superiority at 0.03 after Holm: 25  largest upper bound 0.042 (qwen3-32b, plan_emb)
+
+  single step | stronger: 10 tests; corrected/plain SE ratio median 0.42 (range 0.14 to 0.67)
+    corrected/paired SE ratio median 1.82 (range 1.19 to 2.86)
+    plain     positive  0  negative  0  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.017 (qwen3-14b, planner_sk)
+    paired    positive  0  negative  2  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.007 (qwen3-14b, planner_sk)
+    corrected positive  0  negative  0  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.009 (qwen3-14b, planner_sk)
+
+  with two hop | primary: 27 tests; corrected/plain SE ratio median 0.70 (range 0.15 to 1.33)
+    corrected/paired SE ratio median 1.50 (range 0.95 to 4.14)
+    plain     positive  0  negative  4  upper bound below 0.03: 26  non superiority at 0.03 after Holm: 25  largest upper bound 0.032 (qwen2.5-7b->qwen3-14b, reader_cascade)
+    paired    positive  1  negative  6  upper bound below 0.03: 27  non superiority at 0.03 after Holm: 27  largest upper bound 0.025 (qwen2.5-7b->qwen3-14b, reader_cascade)
+    corrected positive  0  negative  5  upper bound below 0.03: 26  non superiority at 0.03 after Holm: 26  largest upper bound 0.031 (qwen2.5-7b->qwen3-14b, reader_cascade)
+
+  with two hop | secondary: 30 tests; corrected/plain SE ratio median 0.87 (range 0.35 to 1.39)
+    corrected/paired SE ratio median 1.49 (range 1.12 to 1.86)
+    plain     positive  1  negative  5  upper bound below 0.03: 23  non superiority at 0.03 after Holm: 20  largest upper bound 0.045 (qwen3-32b, plan_emb)
+    paired    positive  7  negative  8  upper bound below 0.03: 26  non superiority at 0.03 after Holm: 25  largest upper bound 0.038 (qwen3-32b, plan_emb)
+    corrected positive  3  negative  4  upper bound below 0.03: 24  non superiority at 0.03 after Holm: 23  largest upper bound 0.042 (qwen3-32b, plan_emb)
+
+  with two hop | stronger: 10 tests; corrected/plain SE ratio median 0.47 (range 0.31 to 0.77)
+    corrected/paired SE ratio median 2.08 (range 1.29 to 4.68)
+    plain     positive  0  negative  0  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.014 (qwen3-14b, planner_sk)
+    paired    positive  0  negative  4  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.002 (llama3.1-8b, clf_gate)
+    corrected positive  0  negative  0  upper bound below 0.03: 10  non superiority at 0.03 after Holm: 10  largest upper bound 0.006 (qwen3-14b, clf_gate)
+
+  tests whose verdict changes under the corrected test (Holm p < 0.05 with the interval on one side, or upper bound below 0.03):
+    plan_set    family      reader     method    gain  ub95_plain  ub95_nb  p_plain_holm  p_nb_holm
+ single step   primary llama3.1-8b adaptive_k -0.0217     -0.0057  -0.0118        0.5389     0.0111
+ single step secondary   qwen3-14b   plan_emb  0.0218      0.0371   0.0331        0.4147     0.0423
+ single step secondary   qwen3-14b   plan_knn  0.0159      0.0312   0.0274        1.0000     0.4739
+ single step secondary   qwen3-32b   plan_emb  0.0294      0.0454   0.0417        0.0584     0.0040
+with two hop secondary  gemma3-27b   plan_emb  0.0244      0.0395   0.0370        0.1844     0.0416
+with two hop   primary llama3.1-8b adaptive_k -0.0217     -0.0057  -0.0118        0.5646     0.0106
+with two hop secondary llama3.1-8b      ar_t5 -0.0361     -0.0204  -0.0170        0.0041     0.0526
+with two hop secondary  qwen2.5-7b     ar_emb -0.0307     -0.0146  -0.0116        0.0445     0.1867
+with two hop secondary  qwen2.5-7b   plan_emb  0.0155      0.0305   0.0285        1.0000     0.8666
+with two hop secondary   qwen3-14b   ak_paper -0.0233     -0.0067  -0.0131        0.4274     0.0094
+with two hop secondary   qwen3-14b   plan_emb  0.0241      0.0391   0.0351        0.2004     0.0139
+
+  calibration: standard errors against the refit bootstrap SD (24_review_checks.py, 100 refits)
+    plan_set                reader         method  se_plain  se_paired  se_nb  sd_refit  nb_over_refit  paired_over_refit  plain_over_refit
+ single step             qwen3-32b       plan_emb    0.0097     0.0050 0.0074    0.0112         0.6606             0.4461            0.8667
+with two hop             qwen3-32b       plan_emb    0.0094     0.0047 0.0071    0.0117         0.6091             0.4050            0.8048
+with two hop            qwen2.5-7b   conf_cascade    0.0099     0.0049 0.0082    0.0116         0.7053             0.4248            0.8572
+with two hop qwen2.5-7b->qwen3-14b reader_cascade    0.0095     0.0049 0.0083    0.0123         0.6725             0.3959            0.7688
+  (nb done, 3724s)
+
+== corrected resampled t test for the mixed workload (26_mixed_workload.py)
+  single step  primary      vs global hull: 27 tests, positive  0; upper bound below 0.03: 27
+  single step  primary      vs label  hull: 27 tests, positive  0; upper bound below 0.03: 27
+  single step  secondary    vs global hull: 25 tests, positive  6  (gemma3-27b plan_knn +0.036, llama3.1-8b plan_emb +0.025, qwen3-14b plan_emb +0.045, qwen3-14b plan_knn +0.053, qwen3-32b plan_emb +0.034, qwen3-32b plan_knn +0.030); upper bound below 0.03: 15
+  single step  secondary    vs label  hull: 25 tests, positive  0; upper bound below 0.03: 25
+  single step  ar_pub       vs global hull:  5 tests, positive  0; upper bound below 0.03: 5
+  single step  ar_pub       vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  single step  stronger     vs global hull: 10 tests, positive  0; upper bound below 0.03: 10
+  single step  stronger     vs label  hull: 10 tests, positive  0; upper bound below 0.03: 10
+  with two hop primary      vs global hull: 27 tests, positive  0; upper bound below 0.03: 24
+  with two hop primary      vs label  hull: 27 tests, positive  0; upper bound below 0.03: 27
+  with two hop secondary    vs global hull: 25 tests, positive  5  (gemma3-27b plan_emb +0.038, gemma3-27b plan_knn +0.041, qwen3-14b plan_emb +0.041, qwen3-14b plan_knn +0.053, qwen3-32b plan_emb +0.033); upper bound below 0.03: 13
+  with two hop secondary    vs label  hull: 25 tests, positive  0; upper bound below 0.03: 25
+  with two hop ar_pub       vs global hull:  5 tests, positive  0; upper bound below 0.03: 5
+  with two hop ar_pub       vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  with two hop stronger     vs global hull: 10 tests, positive  0; upper bound below 0.03: 10
+  with two hop stronger     vs label  hull: 10 tests, positive  0; upper bound below 0.03: 10
+  single step  ds_label     vs global hull:  5 tests, positive  4  (gemma3-27b ds_label +0.031, qwen2.5-7b ds_label +0.036, qwen3-14b ds_label +0.038, qwen3-32b ds_label +0.030); upper bound below 0.03: 1
+  single step  ds_label     vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  single step  ds_label_own vs global hull:  5 tests, positive  0; upper bound below 0.03: 3
+  single step  ds_label_own vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  single step  own_cost     vs global hull: 10 tests, positive  1  (qwen3-14b plan_knn_own +0.024); upper bound below 0.03: 7
+  single step  own_cost     vs label  hull: 10 tests, positive  0; upper bound below 0.03: 10
+  with two hop ds_label     vs global hull:  5 tests, positive  5  (gemma3-27b ds_label +0.041, llama3.1-8b ds_label +0.026, qwen2.5-7b ds_label +0.036, qwen3-14b ds_label +0.031, qwen3-32b ds_label +0.040); upper bound below 0.03: 0
+  with two hop ds_label     vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  with two hop ds_label_own vs global hull:  5 tests, positive  5  (gemma3-27b ds_label_own +0.042, llama3.1-8b ds_label_own +0.027, qwen2.5-7b ds_label_own +0.031, qwen3-14b ds_label_own +0.038, qwen3-32b ds_label_own +0.041); upper bound below 0.03: 0
+  with two hop ds_label_own vs label  hull:  5 tests, positive  0; upper bound below 0.03: 5
+  with two hop own_cost     vs global hull: 10 tests, positive  4  (gemma3-27b plan_emb_own +0.042, gemma3-27b plan_knn_own +0.040, qwen3-14b plan_knn_own +0.028, qwen3-32b plan_emb_own +0.035); upper bound below 0.03: 0
+  with two hop own_cost     vs label  hull: 10 tests, positive  0; upper bound below 0.03: 10
+  (mixed done, 3724s)
+
+== Table IX: minimum detectable effect (80% power) of each decision rule, and expected wins
+                                                      rule  tests  alpha_per_test  mde_median  mde_min  mde_max  expected_wins_true_0.01  expected_wins_true_0.02  expected_wins_true_0.03
+               per cell, 95% interval above 0 and p < 0.05    100           0.050       0.055    0.029    0.063                    7.663                   18.527                   35.462
+per cell, Holm over 100 (strictest step, Bonferroni bound)    100           0.000       0.085    0.044    0.097                    0.163                    0.843                    3.288
+                            pooled over datasets, p < 0.05     25           0.050       0.027    0.025    0.029                    4.442                   13.589                   21.796
+   pooled, Holm over 25 (strictest step, Bonferroni bound)     25           0.002       0.038    0.034    0.041                    0.500                    3.867                   12.641
+  Expected wins: the number of tests that would reach the rule if every cell had that true gain (normal approximation, plain per question SE; the Holm rows use the strictest step, so they are a lower bound).
+  Under a true gain of 0 in every cell, about half of the point estimates would be above 0 (steps 0 to 4 of Table IX count point estimates, not tests).
+  (mde done, 3724s)

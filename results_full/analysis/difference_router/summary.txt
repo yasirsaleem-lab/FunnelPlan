@@ -1,0 +1,116 @@
+Plan difference routers; own cost 24.6 ms; seeds [0, 1, 2, 3, 4]
+
+== single step | without own cost: 10 tests
+  plain     positive 1 (qwen2.5-7b diff_reg +0.028)  negative 0  upper bound below 0.03: 2
+  corrected positive 8 (gemma3-27b diff_clf +0.018, gemma3-27b diff_reg +0.018, qwen2.5-7b diff_clf +0.023, qwen2.5-7b diff_reg +0.028, qwen3-14b diff_clf +0.025, qwen3-14b diff_reg +0.025, qwen3-32b diff_clf +0.019, qwen3-32b diff_reg +0.022)  negative 0  upper bound below 0.03: 4
+     reader   method   gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+ qwen2.5-7b diff_reg 0.0278  0.0145   0.0412     0.0007     0.0105      0.0452
+  qwen3-14b diff_reg 0.0252  0.0131   0.0374     0.0007     0.0068      0.0437
+  qwen3-14b diff_clf 0.0250  0.0133   0.0366     0.0006     0.0064      0.0435
+ qwen2.5-7b diff_clf 0.0231  0.0104   0.0357     0.0037     0.0049      0.0412
+  qwen3-32b diff_reg 0.0216  0.0064   0.0367     0.0285     0.0033      0.0398
+  qwen3-32b diff_clf 0.0186  0.0044   0.0327     0.0320     0.0003      0.0369
+ gemma3-27b diff_clf 0.0181  0.0058   0.0304     0.0268     0.0002      0.0360
+ gemma3-27b diff_reg 0.0176  0.0053   0.0299     0.0285    -0.0002      0.0353
+llama3.1-8b diff_clf 0.0102  0.0007   0.0198     0.0733    -0.0076      0.0280
+llama3.1-8b diff_reg 0.0084 -0.0047   0.0215     0.2037    -0.0091      0.0259
+
+== single step | with own cost: 10 tests
+  plain     positive 0  negative 0  upper bound below 0.03: 8
+  corrected positive 0  negative 0  upper bound below 0.03: 10
+     reader       method   gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+  qwen3-14b diff_clf_own 0.0157  0.0033   0.0282     0.1362    -0.0029      0.0344
+  qwen3-14b diff_reg_own 0.0156  0.0007   0.0306     0.3614    -0.0028      0.0341
+ qwen2.5-7b diff_clf_own 0.0089 -0.0042   0.0220     1.0000    -0.0093      0.0271
+ gemma3-27b diff_clf_own 0.0073 -0.0042   0.0187     1.0000    -0.0110      0.0255
+ qwen2.5-7b diff_reg_own 0.0055 -0.0087   0.0197     1.0000    -0.0126      0.0237
+  qwen3-32b diff_clf_own 0.0046 -0.0100   0.0191     1.0000    -0.0138      0.0229
+llama3.1-8b diff_reg_own 0.0044 -0.0067   0.0154     1.0000    -0.0141      0.0229
+llama3.1-8b diff_clf_own 0.0015 -0.0054   0.0084     1.0000    -0.0165      0.0196
+  qwen3-32b diff_reg_own 0.0015 -0.0128   0.0158     1.0000    -0.0163      0.0193
+ gemma3-27b diff_reg_own 0.0011 -0.0101   0.0122     1.0000    -0.0164      0.0186
+
+== with two hop | without own cost: 10 tests
+  plain     positive 5 (gemma3-27b diff_clf +0.026, qwen2.5-7b diff_reg +0.028, qwen3-14b diff_clf +0.037, qwen3-14b diff_reg +0.028, qwen3-32b diff_clf +0.028)  negative 0  upper bound below 0.03: 2
+  corrected positive 9 (gemma3-27b diff_clf +0.026, gemma3-27b diff_reg +0.020, llama3.1-8b diff_clf +0.013, qwen2.5-7b diff_clf +0.020, qwen2.5-7b diff_reg +0.028, qwen3-14b diff_clf +0.037, qwen3-14b diff_reg +0.028, qwen3-32b diff_clf +0.028, qwen3-32b diff_reg +0.023)  negative 0  upper bound below 0.03: 3
+     reader   method   gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+  qwen3-14b diff_clf 0.0372  0.0248   0.0495     0.0000     0.0181      0.0562
+  qwen3-14b diff_reg 0.0282  0.0162   0.0403     0.0001     0.0098      0.0467
+ qwen2.5-7b diff_reg 0.0277  0.0143   0.0411     0.0006     0.0103      0.0451
+  qwen3-32b diff_clf 0.0275  0.0134   0.0416     0.0012     0.0088      0.0462
+ gemma3-27b diff_clf 0.0260  0.0135   0.0385     0.0006     0.0077      0.0443
+  qwen3-32b diff_reg 0.0235  0.0087   0.0382     0.0085     0.0053      0.0417
+ gemma3-27b diff_reg 0.0200  0.0062   0.0338     0.0150     0.0023      0.0377
+ qwen2.5-7b diff_clf 0.0199  0.0081   0.0318     0.0066     0.0019      0.0380
+llama3.1-8b diff_clf 0.0129  0.0034   0.0224     0.0163    -0.0054      0.0312
+llama3.1-8b diff_reg 0.0067 -0.0062   0.0197     0.3037    -0.0106      0.0241
+
+== with two hop | with own cost: 10 tests
+  plain     positive 0  negative 0  upper bound below 0.03: 7
+  corrected positive 1 (qwen3-14b diff_clf_own +0.027)  negative 0  upper bound below 0.03: 9
+     reader       method   gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+  qwen3-14b diff_clf_own 0.0275  0.0149   0.0400     0.0004     0.0083      0.0467
+  qwen3-14b diff_reg_own 0.0183  0.0047   0.0319     0.0823    -0.0002      0.0367
+ gemma3-27b diff_clf_own 0.0155  0.0032   0.0277     0.1113    -0.0031      0.0341
+  qwen3-32b diff_clf_own 0.0137 -0.0006   0.0279     0.3574    -0.0052      0.0325
+llama3.1-8b diff_clf_own 0.0106  0.0019   0.0193     0.1255    -0.0080      0.0293
+ qwen2.5-7b diff_clf_own 0.0102 -0.0030   0.0233     0.6390    -0.0083      0.0286
+  qwen3-32b diff_reg_own 0.0066 -0.0072   0.0204     1.0000    -0.0114      0.0246
+llama3.1-8b diff_reg_own 0.0055 -0.0043   0.0154     1.0000    -0.0128      0.0238
+ gemma3-27b diff_reg_own 0.0052 -0.0073   0.0176     1.0000    -0.0125      0.0229
+ qwen2.5-7b diff_reg_own 0.0042 -0.0099   0.0182     1.0000    -0.0139      0.0223
+
+== pair AUROC on held out questions where the two chosen plans disagree (mean over seeds of the AUROC pooled over datasets and folds); the per plan router's score p_b - p_a on the same questions and pair
+    plan_set       method      reader  pair_auroc  pair_auroc_plan_emb  n_discordant_per_seed
+ single step     diff_clf  gemma3-27b       0.666                0.656                  549.4
+ single step     diff_clf llama3.1-8b       0.628                0.648                  456.2
+ single step     diff_clf  qwen2.5-7b       0.721                0.721                  571.8
+ single step     diff_clf   qwen3-14b       0.694                0.698                  570.4
+ single step     diff_clf   qwen3-32b       0.659                0.661                  639.2
+ single step diff_clf_own  gemma3-27b       0.669                0.648                  498.0
+ single step diff_clf_own llama3.1-8b       0.625                0.629                  391.6
+ single step diff_clf_own  qwen2.5-7b       0.706                0.708                  500.6
+ single step diff_clf_own   qwen3-14b       0.718                0.720                  527.2
+ single step diff_clf_own   qwen3-32b       0.671                0.655                  568.0
+ single step     diff_reg  gemma3-27b       0.639                0.648                  558.6
+ single step     diff_reg llama3.1-8b       0.616                0.624                  425.2
+ single step     diff_reg  qwen2.5-7b       0.677                0.683                  606.4
+ single step     diff_reg   qwen3-14b       0.670                0.675                  588.6
+ single step     diff_reg   qwen3-32b       0.632                0.652                  635.2
+ single step diff_reg_own  gemma3-27b       0.618                0.630                  489.0
+ single step diff_reg_own llama3.1-8b       0.621                0.633                  389.6
+ single step diff_reg_own  qwen2.5-7b       0.691                0.705                  503.2
+ single step diff_reg_own   qwen3-14b       0.692                0.707                  538.0
+ single step diff_reg_own   qwen3-32b       0.624                0.648                  534.2
+with two hop     diff_clf  gemma3-27b       0.681                0.675                  570.6
+with two hop     diff_clf llama3.1-8b       0.640                0.650                  481.0
+with two hop     diff_clf  qwen2.5-7b       0.719                0.713                  560.2
+with two hop     diff_clf   qwen3-14b       0.696                0.706                  579.2
+with two hop     diff_clf   qwen3-32b       0.680                0.686                  631.0
+with two hop diff_clf_own  gemma3-27b       0.689                0.677                  530.4
+with two hop diff_clf_own llama3.1-8b       0.649                0.651                  442.4
+with two hop diff_clf_own  qwen2.5-7b       0.696                0.696                  511.0
+with two hop diff_clf_own   qwen3-14b       0.717                0.726                  541.0
+with two hop diff_clf_own   qwen3-32b       0.697                0.689                  566.8
+with two hop     diff_reg  gemma3-27b       0.646                0.652                  583.8
+with two hop     diff_reg llama3.1-8b       0.615                0.625                  424.6
+with two hop     diff_reg  qwen2.5-7b       0.674                0.678                  607.0
+with two hop     diff_reg   qwen3-14b       0.685                0.689                  585.6
+with two hop     diff_reg   qwen3-32b       0.664                0.680                  614.4
+with two hop diff_reg_own  gemma3-27b       0.648                0.660                  527.4
+with two hop diff_reg_own llama3.1-8b       0.597                0.611                  402.8
+with two hop diff_reg_own  qwen2.5-7b       0.683                0.697                  507.6
+with two hop diff_reg_own   qwen3-14b       0.709                0.723                  536.8
+with two hop diff_reg_own   qwen3-32b       0.671                0.690                  524.2
+                           pair_auroc  pair_auroc_plan_emb
+plan_set     method                                       
+single step  diff_clf           0.674                0.677
+             diff_clf_own       0.678                0.672
+             diff_reg           0.647                0.656
+             diff_reg_own       0.649                0.665
+with two hop diff_clf           0.683                0.686
+             diff_clf_own       0.689                0.688
+             diff_reg           0.657                0.665
+             diff_reg_own       0.661                0.676
+
+Done in 555s. Output: results_full\analysis\difference_router

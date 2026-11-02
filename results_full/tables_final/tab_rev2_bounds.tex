@@ -1,0 +1,39 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Every one-sided 95\% upper bound of the primary family, under the per-question test and under the corrected test, single-step plans and with two-hop plans; readers can apply their own margin.}
+\label{tab:rev2_bounds}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrr}
+\toprule
+Policy & Reader & Gain, single & \begin{tabular}[b]{@{}r@{}}Bound, per \\ question\end{tabular} & \begin{tabular}[b]{@{}r@{}}Bound, \\ corrected\end{tabular} & Gain, two-hop & \begin{tabular}[b]{@{}r@{}}Bound, per \\ question \end{tabular} & \begin{tabular}[b]{@{}r@{}}Bound, \\ corrected \end{tabular} \\
+\midrule
+TSR planner & Qwen2.5 7B & +0.004 & 0.019 & 0.016 & +0.002 & 0.017 & 0.013 \\
+TSR planner & Llama 3.1 8B & +0.005 & 0.020 & 0.014 & +0.006 & 0.021 & 0.014 \\
+TSR planner & Qwen3 14B & +0.004 & 0.019 & 0.013 & +0.005 & 0.020 & 0.015 \\
+TSR planner & Gemma 3 27B & $-$0.001 & 0.014 & 0.010 & +0.004 & 0.018 & 0.015 \\
+TSR planner & Qwen3 32B & +0.004 & 0.019 & 0.014 & +0.007 & 0.021 & 0.017 \\
+Adaptive RAG router & Qwen2.5 7B & $-$0.023 & $-$0.007 & $-$0.008 & $-$0.051 & $-$0.035 & $-$0.033 \\
+Adaptive RAG router & Llama 3.1 8B & $-$0.059 & $-$0.043 & $-$0.044 & $-$0.069 & $-$0.053 & $-$0.052 \\
+Adaptive RAG router & Qwen3 14B & $-$0.052 & $-$0.036 & $-$0.034 & $-$0.058 & $-$0.042 & $-$0.039 \\
+Adaptive RAG router & Gemma 3 27B & $-$0.032 & $-$0.016 & $-$0.016 & $-$0.021 & $-$0.005 & $-$0.004 \\
+Adaptive RAG router & Qwen3 32B & $-$0.060 & $-$0.043 & $-$0.042 & $-$0.052 & $-$0.035 & $-$0.029 \\
+Adaptive k (gap) & Qwen2.5 7B & $-$0.016 & 0.001 & $-$0.005 & $-$0.016 & 0.001 & $-$0.005 \\
+Adaptive k (gap) & Llama 3.1 8B & $-$0.022 & $-$0.006 & $-$0.012 & $-$0.022 & $-$0.006 & $-$0.012 \\
+Adaptive k (gap) & Qwen3 14B & $-$0.016 & 0.001 & $-$0.004 & $-$0.016 & 0.001 & $-$0.004 \\
+Adaptive k (gap) & Gemma 3 27B & $-$0.025 & $-$0.008 & $-$0.012 & $-$0.023 & $-$0.006 & $-$0.010 \\
+Adaptive k (gap) & Qwen3 32B & $-$0.012 & 0.006 & $-$0.001 & $-$0.011 & 0.006 & $-$0.001 \\
+Closed-book gate & Qwen2.5 7B & $-$0.002 & 0.013 & 0.000 & $-$0.002 & 0.013 & 0.000 \\
+Closed-book gate & Llama 3.1 8B & $-$0.003 & 0.014 & 0.004 & $-$0.001 & 0.015 & 0.005 \\
+Closed-book gate & Qwen3 14B & 0.000 & 0.017 & 0.002 & $-$0.001 & 0.015 & 0.006 \\
+Closed-book gate & Gemma 3 27B & $-$0.004 & 0.012 & 0.000 & $-$0.004 & 0.012 & 0.000 \\
+Closed-book gate & Qwen3 32B & $-$0.001 & 0.015 & 0.001 & 0.000 & 0.016 & 0.008 \\
+Confidence cascade & Qwen2.5 7B & +0.013 & 0.029 & 0.025 & +0.011 & 0.028 & 0.025 \\
+Confidence cascade & Llama 3.1 8B & +0.002 & 0.019 & 0.014 & 0.000 & 0.016 & 0.011 \\
+Confidence cascade & Qwen3 14B & $-$0.004 & 0.011 & 0.000 & $-$0.007 & 0.009 & $-$0.001 \\
+Confidence cascade & Gemma 3 27B & 0.000 & 0.016 & 0.006 & $-$0.005 & 0.010 & 0.002 \\
+Confidence cascade & Qwen3 32B & $-$0.003 & 0.012 & 0.006 & $-$0.003 & 0.012 & 0.007 \\
+Reader cascade & 7B to Qwen3 14B & +0.006 & 0.021 & 0.017 & +0.017 & 0.032 & 0.031 \\
+Reader cascade & 7B to Llama 3.1 8B & +0.006 & 0.021 & 0.017 & $-$0.001 & 0.015 & 0.013 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

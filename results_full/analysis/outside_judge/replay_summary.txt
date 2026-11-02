@@ -1,0 +1,19 @@
+Label changes when the Mistral judge replaces the Qwen3 judge:
+     reader    r3  rows  in_band_scored  label_changes  mean_before  mean_after
+ gemma3-27b False 50000            6756            957       0.3995      0.4006
+llama3.1-8b False 62000            7749            977       0.3889      0.3949
+ qwen2.5-7b False 62000            9025           1149       0.4031      0.4053
+  qwen3-14b False 50000            7435            999       0.4300      0.4317
+  qwen3-32b False 50000           10144           1262       0.4487      0.4440
+ gemma3-27b  True 54000            7312           1061       0.4045      0.4053
+llama3.1-8b  True 66000            8244           1040       0.3911      0.3971
+ qwen2.5-7b  True 66000            9597           1233       0.4047      0.4068
+  qwen3-14b  True 54000            8029           1090       0.4340      0.4355
+  qwen3-32b  True 54000           10974           1372       0.4535      0.4486
+
+single step  primary   27 tests: gain change median -0.0002 (range -0.0069 to +0.0047); positive 0; upper bound below 0.03: 27
+single step  secondary 26 tests: gain change median +0.0008 (range -0.0226 to +0.0073); positive 0; upper bound below 0.03: 23
+single step  stronger  10 tests: gain change median -0.0002 (range -0.0031 to +0.0031); positive 0; upper bound below 0.03: 10
+with two hop primary   27 tests: gain change median +0.0003 (range -0.0103 to +0.0090); positive 1 (qwen2.5-7b conf_cascade +0.020); upper bound below 0.03: 25
+with two hop secondary 28 tests: gain change median +0.0005 (range -0.0087 to +0.0417); positive 0; upper bound below 0.03: 23
+with two hop stronger  10 tests: gain change median +0.0009 (range -0.0008 to +0.0027); positive 0; upper bound below 0.03: 10

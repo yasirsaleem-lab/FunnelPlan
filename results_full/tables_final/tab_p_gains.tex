@@ -1,7 +1,7 @@
 \begin{table*}[t]
 \centering\footnotesize
 \setlength{\tabcolsep}{4pt}
-\caption{Gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B.}
+\caption{Gain over the held-out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single-step plans. T: with the fixed two-hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B.}
 \label{tab:p_gains}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrrrr@{}}
 \toprule
@@ -12,7 +12,7 @@ Policy & S & T & S & T & S & T & S & T & S & T \\
 TSR planner & +0.004 & +0.002 & +0.005 & +0.006 & +0.004 & +0.005 & $-$0.001 & +0.004 & +0.004 & +0.007 \\
 Adaptive RAG & $-$0.023 & \textbf{$-$0.051} & \textbf{$-$0.059} & \textbf{$-$0.069} & \textbf{$-$0.052} & \textbf{$-$0.058} & \textbf{$-$0.032} & $-$0.021 & \textbf{$-$0.060} & \textbf{$-$0.052} \\
 Adaptive k & $-$0.016 & $-$0.016 & $-$0.022 & $-$0.022 & $-$0.016 & $-$0.016 & $-$0.025 & $-$0.023 & $-$0.012 & $-$0.011 \\
-Closed book gate & $-$0.002 & $-$0.002 & $-$0.003 & $-$0.001 & +0.000 & $-$0.001 & $-$0.004 & $-$0.004 & $-$0.001 & +0.000 \\
+Closed-book gate & $-$0.002 & $-$0.002 & $-$0.003 & $-$0.001 & +0.000 & $-$0.001 & $-$0.004 & $-$0.004 & $-$0.001 & +0.000 \\
 Confidence cascade & +0.013 & +0.011 & +0.002 & +0.000 & $-$0.004 & $-$0.007 & +0.000 & $-$0.005 & $-$0.003 & $-$0.003 \\
 Reader cascade to Llama 3.1 8B & +0.006 & $-$0.001 &  &  &  &  &  &  &  &  \\
 Reader cascade to Qwen3 14B & +0.006 & +0.017 &  &  &  &  &  &  &  &  \\
@@ -20,12 +20,12 @@ Reader cascade to Qwen3 14B & +0.006 & +0.017 &  &  &  &  &  &  &  &  \\
 Adaptive k, published rule & $-$0.003 & $-$0.007 & +0.005 & +0.005 & $-$0.014 & $-$0.023 & +0.008 & $-$0.016 & $-$0.009 & $-$0.018 \\
 Adaptive RAG, BGE M3 classifier & $-$0.020 & \textbf{$-$0.031} & \textbf{$-$0.045} & \textbf{$-$0.057} & \textbf{$-$0.047} & \textbf{$-$0.045} & $-$0.029 & $-$0.009 & \textbf{$-$0.060} & \textbf{$-$0.045} \\
 Adaptive RAG, FLAN-T5 classifier & $-$0.014 & $-$0.015 & \textbf{$-$0.037} & \textbf{$-$0.036} & \textbf{$-$0.037} & $-$0.022 & $-$0.020 & $-$0.001 & \textbf{$-$0.042} & $-$0.018 \\
-Per plan logistic regression & +0.013 & +0.015 & +0.004 & +0.006 & +0.022 & +0.024 & +0.020 & +0.024 & +0.029 & \textbf{+0.030} \\
-Per plan kNN & +0.002 & +0.004 & $-$0.008 & $-$0.005 & +0.016 & +0.019 & +0.010 & +0.017 & +0.017 & +0.023 \\
-METIS port & $-$0.005 & $-$0.003 & +0.001 & +0.003 & $-$0.003 & $-$0.004 & +0.002 & $-$0.006 & $-$0.001 & +0.013 \\
+Per-plan logistic regression & +0.013 & +0.015 & +0.004 & +0.006 & +0.022 & +0.024 & +0.020 & +0.024 & +0.029 & \textbf{+0.030} \\
+Per-plan kNN & +0.002 & +0.004 & $-$0.008 & $-$0.005 & +0.016 & +0.019 & +0.010 & +0.017 & +0.017 & +0.023 \\
+METIS style router & $-$0.005 & $-$0.003 & +0.001 & +0.003 & $-$0.003 & $-$0.004 & +0.002 & $-$0.006 & $-$0.001 & +0.013 \\
 \midrule
 Classifier gate & $-$0.002 & $-$0.003 & $-$0.001 & $-$0.002 & +0.000 & $-$0.003 & $-$0.001 & $-$0.004 & $-$0.001 & $-$0.006 \\
-Planner, self knowledge & $-$0.008 & $-$0.007 & $-$0.005 & $-$0.004 & +0.001 & $-$0.002 & $-$0.007 & $-$0.008 & $-$0.008 & $-$0.014 \\
+Planner, self-knowledge & $-$0.008 & $-$0.007 & $-$0.005 & $-$0.004 & +0.001 & $-$0.002 & $-$0.007 & $-$0.008 & $-$0.008 & $-$0.014 \\
 \bottomrule
 \end{tabular*}
 \end{table*}

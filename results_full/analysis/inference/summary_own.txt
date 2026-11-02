@@ -1,0 +1,36 @@
+Inference with refitting; parts ['own']; seeds [0, 1, 2, 3, 4]
+
+== embedding routers with their own cost (24.6 ms unless the chosen plan embeds the query with BGE-M3 anyway), per dataset; corrected test; secondary family recomputed with these in place of the uncharged ones
+  check against 24_review_checks.py --parts overhead (per plan logistic router): largest difference 9.89e-17 over 40 cells
+
+  single step: secondary family with the embedding routers charged (30 tests)
+    plain     positive 0  negative 6  upper bound below 0.03: 30
+    corrected positive 0  negative 6  upper bound below 0.03: 30
+     reader       method    gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+  qwen3-14b plan_emb_own  0.0115 -0.0028   0.0257        1.0    -0.0070      0.0299
+  qwen3-32b plan_emb_own  0.0075 -0.0054   0.0203        1.0    -0.0107      0.0256
+ gemma3-27b plan_emb_own  0.0055 -0.0076   0.0185        1.0    -0.0121      0.0231
+  qwen3-32b plan_knn_own  0.0048 -0.0122   0.0218        1.0    -0.0133      0.0229
+ qwen2.5-7b plan_emb_own  0.0018 -0.0140   0.0177        1.0    -0.0161      0.0198
+  qwen3-14b plan_knn_own  0.0015 -0.0143   0.0172        1.0    -0.0167      0.0196
+ gemma3-27b plan_knn_own -0.0021 -0.0174   0.0132        1.0    -0.0201      0.0158
+llama3.1-8b plan_emb_own -0.0059 -0.0215   0.0097        1.0    -0.0239      0.0121
+ qwen2.5-7b plan_knn_own -0.0133 -0.0319   0.0053        1.0    -0.0315      0.0049
+llama3.1-8b plan_knn_own -0.0138 -0.0302   0.0025        1.0    -0.0320      0.0043
+
+  with two hop: secondary family with the embedding routers charged (30 tests)
+    plain     positive 0  negative 5  upper bound below 0.03: 30
+    corrected positive 0  negative 4  upper bound below 0.03: 30
+     reader       method    gain  nb_low  nb_high  p_nb_holm  plain_low  plain_high
+ gemma3-27b plan_emb_own  0.0145 -0.0015   0.0305        1.0    -0.0035      0.0325
+  qwen3-32b plan_knn_own  0.0135 -0.0031   0.0301        1.0    -0.0046      0.0316
+  qwen3-14b plan_emb_own  0.0133 -0.0007   0.0272        1.0    -0.0050      0.0315
+  qwen3-32b plan_emb_own  0.0130 -0.0031   0.0291        1.0    -0.0049      0.0308
+  qwen3-14b plan_knn_own  0.0092 -0.0082   0.0266        1.0    -0.0092      0.0276
+ qwen2.5-7b plan_emb_own  0.0072 -0.0102   0.0246        1.0    -0.0107      0.0250
+ gemma3-27b plan_knn_own  0.0067 -0.0099   0.0233        1.0    -0.0113      0.0246
+llama3.1-8b plan_emb_own -0.0022 -0.0168   0.0124        1.0    -0.0200      0.0157
+ qwen2.5-7b plan_knn_own -0.0078 -0.0245   0.0089        1.0    -0.0258      0.0102
+llama3.1-8b plan_knn_own -0.0080 -0.0257   0.0098        1.0    -0.0261      0.0102
+  ar_emb, ar_t5 and ak_paper stay uncharged: charging a decision cost can only lower their gains, and none is positive.
+  (own done, 769s)

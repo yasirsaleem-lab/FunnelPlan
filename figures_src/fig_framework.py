@@ -98,7 +98,7 @@ def main():
     band(sc, y, h, "Analyses")
     cards = [("H1: policy vs hull", ["27 primary tests", "30 secondary tests", "10 stronger policies"]),
              ("Robustness", ["3 grading rules", "5 cost axes", "single plan baseline", "margin test at 0.03"]),
-             ("H3: multi step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
+             ("H2: multi step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
              ("Mechanism", ["oracle headroom", "what planners learn"]),
              ("Weak protocol", ["Always RAG baseline", "one seed, strict EM"])]
     ws = fit_widths(cards)

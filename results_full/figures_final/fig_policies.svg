@@ -146,7 +146,7 @@
 <text xml:space="preserve" x="1269.0" y="71.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">reference: retrieve</text>
 <text xml:space="preserve" x="1269.0" y="93.5" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">and reason in turns</text>
 <text xml:space="preserve" x="1269.0" y="591.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">compared at its own</text>
-<text xml:space="preserve" x="1269.0" y="612.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">measured cost (H3)</text>
+<text xml:space="preserve" x="1269.0" y="612.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">measured cost (H2)</text>
 <rect x="1199.0" y="136" width="140" height="40" rx="20" fill="#0F5E63" stroke="#0F5E63" stroke-width="2.2"/>
 <text xml:space="preserve" x="1269.0" y="161.3" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Question</text>
 <polyline points="1269.0,176 1269.0,206" fill="none" stroke="#3F4756" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#ah3F4756)"/>

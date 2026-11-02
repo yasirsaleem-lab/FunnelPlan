@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Grading exposure of every policy against its hull mix (mean over folds, seeds and datasets): share of answers whose label came from the judge, and share of long contained answers.}
+\label{tab:rev2_exposure}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
+\toprule
+Plan set & Tests & \begin{tabular}[b]{@{}r@{}}Judge share, \\ policy minus \\ hull: median\end{tabular} & Range & \begin{tabular}[b]{@{}r@{}}Long \\ contained, \\ policy minus \\ hull: range\end{tabular} \\
+\midrule
+single-step & 67 & +0.0004 & $-$0.025 to +0.022 & $-$0.029 to +0.009 \\
+with two-hop & 67 & +0.0004 & $-$0.030 to +0.021 & $-$0.036 to +0.007 \\
+\bottomrule
+\end{tabular*}
+\end{table}

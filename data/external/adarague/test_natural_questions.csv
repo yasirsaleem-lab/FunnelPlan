@@ -1,0 +1,507 @@
+dataset,qid,question_text,reference,no_retrieve,rag_one_retrieve
+nq,single_nq_dev_6396,who was president when france gave us the statue of liberty,['President Grover Cleveland'],Grover Cleveland,Jeremy Horn
+nq,single_nq_dev_2238,who wrote the song paint me a birmingham,['Gary Duffy' 'Buck Moore'],John Prine,Jeremy Horn
+nq,single_nq_dev_5964,when did mandela write long walk to freedom,['1994'],1994,one
+nq,single_nq_dev_5833,when did the movie love and basketball come out,"['April 21 , 2000']",2000,Jeremy Horn
+nq,single_nq_dev_6242,who came up with the process of natural selection,['Charles Darwin'],Charles Darwin,Jeremy Horn
+nq,single_nq_dev_4716,when was advance australia fair declared the national anthem,['1984'],19 April 1984,19 April 1984
+nq,single_nq_dev_2282,who presides over the joint session of the indian parliament,['the Speaker'],Speaker of the Lok Sabha,"Speaker of the Lok Sabha or in his absence, the Deputy Speaker of the Lok Sabha or in his absence, the Chairman of the Rajya Sabha"
+nq,single_nq_dev_1183,when was the statue of liberty placed on ellis island,['1965 .'],"June 17, 1885",never
+nq,single_nq_dev_6269,naa peru surya nile india movie release date,['4 May 2018'],27 April 2018,4 May 2018
+nq,single_nq_dev_2295,who wrote love and war by tamar braxton,"['LaShawn Daniels' 'Tamar Braxton' 'Darhyl Camper , Jr .' 'Makeba Riddick']","Tamar Braxton, Darhyl Camper, Jr., and Coleridge \""Troy\"" Taylor","Tamar Braxton, Christopher Wallace, Christian Ward, James Mtume, Jean-Claude Olivier, Kevin Erondu, Sean Combs, and Shaunice Lasha Jones"
+nq,single_nq_dev_274,who did the virginia plan give more power to,['larger states'],the federal government,larger states
+nq,single_nq_dev_1723,who won the first brickyard 400 in 1994,['Jeff Gordon'],Jeff Gordon,Jeff Gordon
+nq,single_nq_dev_3720,who wrote the world is waiting for the sunrise,['Gene Lockhart'],Ernest Seitz and Gene Lockhart,Ernest Seitz with lyrics by Gene Lockhart
+nq,single_nq_dev_3718,where did the monarchs live before buckingham palace,['St James'],St. James's Palace,Palace of Westminster
+nq,single_nq_dev_875,where must all laws dealing with money originate why,['House of Representatives'],House of Representatives,United Kingdom
+nq,single_nq_dev_110,who did the killing in the first friday the 13th movie,['Mrs. Voorhees'],Jason Voorhees,Mrs
+nq,single_nq_dev_5850,when was he last time england won the world cup,['1966'],1966,1966
+nq,single_nq_dev_1059,who played benjamin button as an old man,['Brad Pitt'],Brad Pitt,Brad Pitt
+nq,single_nq_dev_4795,what part of the bay area is san jose,['South Bay'],South Bay,San Francisco Bay Area
+nq,single_nq_dev_5701,name three southeast asian countries that are mainly buddhist today,['Cambodia' 'Thailand' 'Sri Lanka'],"Thailand, Cambodia, and Laos","Myanmar, Thailand, and Laos"
+nq,single_nq_dev_3330,low blood pressure that occurs upon standing up is known,['postural hypotension' 'Orthostatic hypotension'],orthostatic hypotension,orthostatic hypotension
+nq,single_nq_dev_6249,who is playing the beast in beauty and the beast 2017,['Dan Stevens'],Dan Stevens,Dan Stevens
+nq,single_nq_dev_449,who played our girl in the first series,['Lacey Turner'],Lacey Turner,Lacey Turner
+nq,single_nq_dev_6187,when was the epistle to the romans written,['late 56 / early 57' 'early 58' 'Early 55'],between 55 and 58 AD,late 55/early 56 or late 56/early 57
+nq,single_nq_dev_1720,who wrote red roses for a blue lady,['Sid Tepper'],Sid Tepper and Roy C. Bennett,Sid Tepper and Roy C. Bennett (alias Roy Brodsky)
+nq,single_nq_dev_5479,how many teams get into the college world series,['64 teams'],8,8
+nq,single_nq_dev_5540,who wrote on the sunny side of the street,['lyrics by Dorothy Fields' 'music composed by Jimmy McHugh'],Jimmy McHugh and Dorothy Fields,Dorothy Fields
+nq,single_nq_dev_3744,who is the current minister for environment forest and climate change in india,['Dr. Harsh Vardhan'],Dr. Harsh Vardhan,Dr. Harsh Vardhan
+nq,single_nq_dev_601,votes required to pass a bill in the house,['60'],majority of the members present,majority vote
+nq,single_nq_dev_5202,who plays the voice of james in pokemon,['Eric Stuart'],Michael Haigney,James Remar
+nq,single_nq_dev_4415,when did halloween become a holiday in the us,['19th century'],1845,19th century
+nq,single_nq_dev_2733,who plays the genie in return of jafar,['Dan Castellaneta'],Dan Castellaneta,Gilbert Gottfried
+nq,single_nq_dev_1790,how many african american politicians served in the us congress during reconstruction,['Two'],14,not specified
+nq,single_nq_dev_1748,who sang there she was walking down the street,['Manfred Mann'],"The song \""There She Was Walking Down the Street\"" is performed by The Beatles. The song is also known as \""There She Was\"". The song \""There She Was\"" is performed by The Beatles. The song \""There She Was\"" is also known as \""There She Was Walking Down the Street\"". The song \""There She Was\"" is performed by The Beatles. The song \""There She Was\"" is also known as \""There She Was Walking Down the Street\"". The song \""There She Was",Gene Austin
+nq,single_nq_dev_5890,who plays rosa on orange is the new black,['Barbara Rosenblat'],Jackie Cruz,Barbara Rosenblat
+nq,single_nq_dev_2047,who does carl 's voice on family guy,['Benjamin'],Mark Hentemann,Mike Henry
+nq,single_nq_dev_5312,who sings the r&b song look what you made me do,['Taylor Swift'],Taylor Swift,Taylor Swift
+nq,single_nq_dev_948,who used a question and answer method of arriving at important truths,['Socrates'],Socrates,Socrates
+nq,single_nq_dev_1416,who wrote the south carolina ordinance of secession,['An official secession convention'],William Porcher Miles,Christopher Memminger
+nq,single_nq_dev_6364,what is the shape of mandatory traffic signs,['circular'],octagons,circular
+nq,single_nq_dev_1680,who is bath and body works owned by,['L Brands'],L Brands,L Brands
+nq,single_nq_dev_3082,when did the first black player play in the nfl,['Fritz Pollard' 'Bobby Marshall'],1920,1920
+nq,single_nq_dev_322,who made it to the world cup finals 2018,['Croatia' 'France'],France,France and Croatia
+nq,single_nq_dev_2708,when will jurassic world the fallen kingdom come out,"['June 22 , 2018']","June 22, 2018","September 18, 2018"
+nq,single_nq_dev_6007,who plays the mom on rizzoli and isles,['Lorraine Bracco'],Lorraine Bracco,Lorraine Bracco
+nq,single_nq_dev_5487,the base level of maslow 's hierarchy of needs pyramid includes,['friendship and love' 'esteem' 'physical needs' 'security'],physiological needs,physiological needs
+nq,single_nq_dev_1112,what channel is the weather channel on satellite radio,['247'],865,Sirius XM Radio
+nq,single_nq_dev_2041,who invented the first radio and what year,['Marconi' '1897'],1895,Guglielmo Marconi in 1906
+nq,single_nq_dev_1401,where was it came from outer space filmed,"['Mojave Desert' 'Palmdale' 'Victorville' ""Universal 's sound stages""]",United States,"Palmdale, Victorville, and the Mojave Desert, as well as on Universal's sound stages"
+nq,single_nq_dev_615,how many members on the house of representatives,['435'],435,There are 134 members of the Minnesota House of Representatives. There are 151 members of the Maine House of Representatives. There are 127 members of the Australian House of Representatives from 1975 to 1977. There are 150 members of the Australian House of Representatives. There are 151 members of the Bougainville House of Representatives. There are 51 members of the Hawaii House of Representatives. There are 127 members of the Australian House of Representatives. There are 134 members of
+nq,single_nq_dev_4956,who wrote go rest high on that mountain,['Vince Gill'],Vince Gill,Vince Gill
+nq,single_nq_dev_1387,who sings new version of somewhere over the rainbow,['Ariana Grande'],Israel Kamakawiwo'ole,Israel Kamakawiwo\u02bbole
+nq,single_nq_dev_3994,who is the childhood prodigy who mastered the mandolin,['Srinivas'],Andrew Bird,
+nq,single_nq_dev_2563,where did the british army fight in ww1,"['China' 'Italy' 'France' 'Salonika' 'Africa' 'Belgium' 'Mesopotamia'
+ 'Middle East']","France, Belgium, and the Middle East",East Africa Campaign
+nq,single_nq_dev_2894,who won series 5 of the great british bake off,['Nancy Birtwhistle'],Nancy Birtwhistle,Nancy Birtwhistle
+nq,single_nq_dev_6400,what product or market does netflix deal with,['streaming media'],movies and television shows,video on demand
+nq,single_nq_dev_4292,who plays the old man in home alone,['Roberts Scott Blossom'],Roberts Blossom,the old man in Home Alone 3
+nq,single_nq_dev_1809,what is the net atp yield for the anaerobic metabolism of one glucose molecule,['2'],2,2
+nq,single_nq_dev_4631,who 's the lead singer of third eye blind,['Stephan Douglas Jenkins'],Stephan Jenkins,Stephan Jenkins
+nq,single_nq_dev_2782,when was the first airline meal served during a flight,['1919'],1919,1919
+nq,single_nq_dev_1031,when did the yankees move to new stadium,['in 2009'],2009,2009
+nq,single_nq_dev_3931,who was the first english mathematician who first used the modern symbol of quality in 1557,['Robert Recorde'],Robert Recorde,not mentioned in the text
+nq,single_nq_dev_5482,what is the largest provincial park in ontario,['Polar Bear'],Algonquin Provincial Park,Polar Bear Provincial Park
+nq,single_nq_dev_4453,who was the first actor who played james bond,['Barry Nelson'],Sean Connery,Sean Connery
+nq,single_nq_dev_3295,who did the music for the black panther movie,['Ludwig Göransson'],Ludwig G\u00f6ransson,Ludwig G\u00f6ransson
+nq,single_nq_dev_6394,who sang the song it 's just a matter of time,['Brook Benton'],Brook Benton,Brook Benton
+nq,single_nq_dev_881,who is the actor who plays harry bosch,['Titus Welliver'],Titus Welliver,Titus Welliver
+nq,single_nq_dev_4566,when is the new season of total divas coming out,['in fall 2018'],"March 15, 2018","September 19, 2018"
+nq,single_nq_dev_3010,who is known as man of destiny in the world,['Napoleon'],Nelson Mandela,Napoleon
+nq,single_nq_dev_4410,is copper ii nitrate a compound or element,['compound'],compound,compound
+nq,single_nq_dev_5651,where is the show pardon the interruption filmed,"['Washington , D.C.']","Washington, D.C",ABC News Washington bureau
+nq,single_nq_dev_4413,who was the famous indo greek king who embraced buddhism,['Menander I Soter'],Menander I,Menander I
+nq,single_nq_dev_3085,who sings the power rangers ninja storm theme song,['Noam Kaniel'],The Hit Crew,Noam Kaniel
+nq,single_nq_dev_2533,where does peanut butter jelly time come from,['The Buckwheat Boyz'],United States,"The song \""Peanut Butter Jelly Time\"" is a song by the Buckwheat Boyz. The song is a cover of the 1974 song \""Kiss My Love Goodbye\"" by Bettye Swann. The song was released in 2005. The song became a viral hit in 2005. The song is a comedy song that is a parody of the 1974 song \""Kiss My Love Goodbye\"". The song is a humorous song that is a play"
+nq,single_nq_dev_5904,who played finnick odair in the hunger games,['Samuel George Claflin'],Sam Claflin,Sam Claflin
+nq,single_nq_dev_4664,the mass emigration of the irish in the mid-19th century was primarily a result of,['the Great Irish Famine'],Irish Potato Famine,Irish Potato Famine
+nq,single_nq_dev_2442,number of branches of oriental bank of commerce in india,['1092'],"2,163",1092
+nq,single_nq_dev_6436,what part of new york is coney island,['Brooklyn'],Brooklyn,Brooklyn
+nq,single_nq_dev_3346,when did the rolling stones become a band,['1962'],1962,1962
+nq,single_nq_dev_4366,how does mozart die in the movie amadeus,['overwork'],rheumatic fever,rheumatic fever
+nq,single_nq_dev_3269,who does the voice for bob on bobs burgers,['H. Jon Benjamin'],H. Jon Benjamin,H. Jon Benjamin
+nq,single_nq_dev_4061,when was the first mobile cell phone invented,['1908'],1973,1973
+nq,single_nq_dev_1603,highest point from the center of the earth,['Chimborazo'],Mount Everest,"6,378 kilometers"
+nq,single_nq_dev_666,who made the song i put a spell on you,['Jay Hawkins'],Screamin' Jay Hawkins,"Jalacy \""Screamin' Jay\"" Hawkins"
+nq,single_nq_dev_5902,when do the marian reforms happen in rtw,['107 BC'],1570,107 BC
+nq,single_nq_dev_4504,what does the red circle on the japanese flag mean,['the sun'],the sun,the sun
+nq,single_nq_dev_1640,who believed science should be brought to bear in writing history,['Thucydides'],Edward Gibbon,The archeological results from Assyria and Egypt confirmed the radical readings of the Old Testament. Scholarship was also being brought to bear on the New Testament. \u2033No work\u2014not even John William Draper's best-selling History of the Conflict between Religion and Science (1874)\u2014has done more than White's to instill in the public mind a sense of the adversarial relationship between science and religion. His Warfare remains in print to the present. Andrew Dickson White believed science should be brought to
+nq,single_nq_dev_5345,when did the us join world war 2 in europe,['11 December 1941'],"December 11, 1941",1941
+nq,single_nq_dev_5127,when did the chesapeake bay bridge-tunnel officially open for traffic,"['April 15 , 1964']","April 15, 1964",1964
+nq,single_nq_dev_5501,where does what 's eating gilbert grape take place,['sleepy Midwestern town'],"Endora, Texas",Texas
+nq,single_nq_dev_2739,who is hosting the next world cup 2022,['Qatar'],Qatar,Qatar
+nq,single_nq_dev_691,when was the last time lake powell was full,"['July 14 , 1983']",1980,1980
+nq,single_nq_dev_3943,who invented the trigger for the atomic bomb,['Robert Serber'],Ernest Lawrence,Ulam and Teller
+nq,single_nq_dev_4950,who was party in the usa written for,['Jessie J'],Miley Cyrus,Socialist Party USA
+nq,single_nq_dev_2904,when was the stratosphere hotel built in las vegas,['1996'],1996,1996
+nq,single_nq_dev_2789,who plays mrs rogers in and then there were none,['Anna Maxwell Martin'],Maeve Dermody,Hilda Bruce-Potter
+nq,single_nq_dev_4818,what is the demand of naxalites in india,['redistribution of land' 'a written truce' 'release of prisoners'],a separate state for the adivasis,"a written truce, release of prisoners and redistribution of land"
+nq,single_nq_dev_2978,who plays oz in the wizard of oz,['James Franco'],Frank Morgan,The Wizard of Oz
+nq,single_nq_dev_1848,who is the attorney general for the state of new jersey,['Gurbir Grewal'],Gurbir Grewal,Gurbir Grewal
+nq,single_nq_dev_3477,who sings the song say you love me,['Jessie Ware'],Fleetwood Mac,Jessie Ware
+nq,single_nq_dev_810,when did france try to build the panama canal,['1876'],1881 to 1889,"January 1, 1881"
+nq,single_nq_dev_3775,when was thirteen ways of looking at a blackbird written,['October 1917'],1917,October 1917
+nq,single_nq_dev_604,who is uncle drew in the movie uncle drew,['Kyrie Irving'],Kyrie Irving,"Uncle Drew is a 2018 American sports comedy film directed by Charles Stone III and written by Jay Longino. It stars Kyrie Irving as the title character from his Pepsi Max advertisements that began airing in 2012, along with former NBA players Shaquille O'Neal, Chris Webber, Reggie Miller, and Nate Robinson, as well as former WNBA player Lisa Leslie. Lil Rel Howery, Erica Ash, J. B. Smoove, Mike Epps, Tiffany Haddish, and Nick Kroll also star. The film was released in the United States by Lionsgate on June 29, 2018 and received mixed reviews from critics, who praised"
+nq,single_nq_dev_1976,who holds the record for eating the most big macs,['Donald A. Gorske'],Joey Chestnut,There is no answer
+nq,single_nq_dev_807,what are the white things that come out of your tonsils,['tonsil stones' 'Tonsilloliths'],tonsilloliths,tonsilloliths
+nq,single_nq_dev_5055,when were cell phones first introduced to the public,['13 October 1983'],1973,there is no answer
+nq,single_nq_dev_4227,when is a baseball pitched at its fastest,['four - seam fastball'],105.1 mph,105.1 mph
+nq,single_nq_dev_3478,where does the movie monster trucks take place,['North Dakota'],Norville,"Kamloops, British Columbia, Canada"
+nq,single_nq_dev_2660,what kind of fish is in filet o fish,['Alaska pollock'],cod,Alaska pollock
+nq,single_nq_dev_1063,when was pee wee 's big holiday made,['2016'],2016,"March 18, 2016"
+nq,single_nq_dev_942,who played bernie in the movie weekend at bernie 's,['Terry Kiser'],Andrew McCarthy,Terry Kiser
+nq,single_nq_dev_6029,what were two major causes of world war 2,['Italian fascism in the 1920s'],The invasion of Poland by Nazi Germany and the Japanese attack on Pearl Harbor,"The two major causes of world war 2 were Italian fascism in the 1920s, Japanese militarism and invasion of China in the 1930s, and especially the political takeover in 1933 of Germany by Adolf Hitler and his Nazi Party and its aggressive foreign policy. The immediate cause was Germany invading Poland on September 1, 1939, and Britain and France declaring war on Germany on September 3, 1939. Problems arose in Weimar Germany that experienced strong currents"
+nq,single_nq_dev_1058,when did zambia win the african cup of nations,['12 February 2012'],2012,2012
+nq,single_nq_dev_5861,who is the priest on everybody loves raymond,['Durning'],Peter Onorati,Father Mancini
+nq,single_nq_dev_4686,when was the soil and water conservation act passed,['1977'],1935,1977
+nq,single_nq_dev_5729,in ​ economics the creation of capital is referred to as,['Investment or capital accumulation'],capital accumulation,investment
+nq,single_nq_dev_1292,how many times have the lakers won the finals,['16'],17,16
+nq,single_nq_dev_4720,how many indian reservations are in the usa,['326'],326,326
+nq,single_nq_dev_6254,what are the established years of spanish occupancy of the philippines,['1521 to 1898'],1565-1898,1565 to 1821
+nq,single_nq_dev_1015,first english team to play in european cup,['1968'],Wolverhampton Wanderers,Liverpool
+nq,single_nq_dev_4995,who played stacy 's mom in the video,['model Rachel Hunter'],Lisa Loeb,Rachel Hunter
+nq,single_nq_dev_3873,where are the singers of florida georgia line from,"['Monroe , Georgia' 'Ormond Beach , Florida']","Monroe, Georgia and Ormond Beach, Florida","Ormond Beach, Florida and Monroe, Georgia"
+nq,single_nq_dev_116,how many hockey games are in a season,['82'],82,"The number of games in a season is not specified in the text. However, the text does mention that the 2010\u201311 Hockey East women's ice hockey season marked the continuation of the annual tradition of competitive ice hockey among Hockey East members. Throughout the conference regular season, Hockey East offices names a Pure Hockey player of the week each Monday. Throughout the conference regular season, Hockey East offices names a rookie of the week each Monday. Throughout the conference regular season, Hockey East offices names a team"
+nq,single_nq_dev_3026,when do new car year models come out,['late September'],fall of the year before the model year,January 1 of the previous calendar year
+nq,single_nq_dev_4356,which part of the digestive tract runs through the diaphragm,['thoracic diaphragm'],esophagus,esophagus
+nq,single_nq_dev_4603,who played betsy in the white cliffs of dover,['Elizabeth Taylor'],Irene Dunne,There is no answer
+nq,single_nq_dev_2305,how many episodes of judge judy per year,['260'],40,52
+nq,single_nq_dev_3504,who plays the voice of mikey in look whos talking,['Bruce Willis'],Bruce Willis,Bruce Willis
+nq,single_nq_dev_5856,who is the patron saint of canada whos feast day march 19,['Saint Joseph'],Saint Joseph,Saint Joseph
+nq,single_nq_dev_363,when did tv go from analog to digital,"['June 12 , 2009']",2009,2009
+nq,single_nq_dev_1286,who plays kyle wren in star wars 7,['Adam Driver'],John Boyega,nobody
+nq,single_nq_dev_5280,who was responsible for appointing governors in the early american colonies,['King William III'],The British monarch,the British monarch (or the cabinet)
+nq,single_nq_dev_5039,when did the movie forever my girl come out,"['January 19 , 2018']","January 19, 2018","January 19, 2018"
+nq,single_nq_dev_6213,what type of climates are found in southeast asia,['subtropical' 'tropical' 'desert like'],tropical,"Southeast Asia is wet across southeast sections, and dry across much of the interior. Some of the largest daily temperature ranges on Earth occur in western sections of Asia. The monsoon circulation dominates across southern and eastern sections, due to the presence of the Himalayas forcing the formation of a thermal low which draws in moisture during the summer. Southwestern sections of the continent experience low relief as a result of the subtropical high pressure belt; they are hot in the summer, warm to cool in winter, and"
+nq,single_nq_dev_2017,when will the world population hit 8 billion,['2024'],2023,2025
+nq,single_nq_dev_4934,who played ned pepper in the original true grit,['Robert Duvall'],Michael Burns,Robert Duvall
+nq,single_nq_dev_1048,who plays the voice of iago in aladdin,['Gilbert Gottfried'],Gilbert Gottfried,Gilbert Gottfried
+nq,single_nq_dev_5638,who is the owner of dc shoe company,['Quiksilver'],Quiksilver,Quiksilver
+nq,single_nq_dev_3302,who contributes at least half of the funds to medicaid,['states' 'the federal government'],states,States
+nq,single_nq_dev_3107,who plays the dad in daddy 's home,['Mark Wahlberg'],Will Ferrell,Chen Hanwei
+nq,single_nq_dev_5415,who did the bucs play in the super bowl,['Oakland Raiders'],Kansas City Chiefs,Raiders
+nq,single_nq_dev_1754,where does the term windy city come from,"[""the World 's Fair"" 'the rivalry with Cincinnati' 'politics'
+ 'the weather']",Chicago,"The term \""Windy City\"" comes from the city of Chicago. The earliest known reference to the \""Windy City\"" was actually to Green Bay in 1856. The first known repeated effort to label Chicago with this nickname is from 1876 and involves Chicago's rivalry with Cincinnati. The term \""Windy City\"" came into common usage when it was popularized by New York City editor, Charles Dana, in \""The Sun\"" during the bidding for the 1893 Columbian Ex"
+nq,single_nq_dev_3144,who is the singer of main tera boyfriend,['Meet Bros' 'Neha Kakkar .' 'Arijit Singh'],"The singer of \""Main Tera Boyfriend\"" is Sooraj Pancholi and Athiya Shetty. The singer of \""Main Tera Boyfriend\"" is Sooraj Pancholi and Athiya Shetty. The singer of \""Main Tera Boyfriend\"" is Sooraj Pancholi and Athiya Shetty. The singer of \""Main Tera Boyfriend\"" is Sooraj Pancholi and Athiya Shetty. The singer of \""Main Tera Boy",Arijit Singh
+nq,single_nq_dev_5905,what is dorothy from wizard of oz last name,['Gale'],Gale,Gale
+nq,single_nq_dev_1839,where does the house of the spirits take place,['Chile'],Chile,Chile
+nq,single_nq_dev_4993,the feature of earth 's movement that takes about 26000 years is,['Axial precession'],precession of the equinoxes,"precession of the equinoxes. (Note: The precession of the equinoxes is a feature of Earth's movement that takes about 26,000 years to complete. It is the slow wobble of Earth's axis, which causes the position of the North Star to shift over time.)"
+nq,single_nq_dev_2461,who won ncaa womens basketball championship in 2017,['South Carolina'],South Carolina,South Carolina Gamecocks
+nq,single_nq_dev_4109,who plays captain hook in hook the movie,['Dustin Hoffman'],Dustin Hoffman,Dustin Hoffman
+nq,single_nq_dev_5046,what is the first colour film in india,['Kisan Kanya'],Kisan Kanya,Alibabavum 40 Thirudargalum
+nq,single_nq_dev_4813,who sings the song to good at goodbye,['Sam Smith'],Sam Smith,Sam Smith
+nq,single_nq_dev_1222,is cipro good for an upper respiratory infection,['Ciprofloxacin'],yes,No
+nq,single_nq_dev_3735,who plays dr russell on grey 's anatomy,['Dominic Hoffman'],Jason George,"I am unable to verify who plays Dr. Russell on Grey's Anatomy. I can verify that Dr. Russell is a character on Grey's Anatomy, but I do not have information on who plays the role. I can suggest that you check the Grey's Anatomy Wikipedia page or other reliable sources for more information"
+nq,single_nq_dev_3168,who won the battle of fort . sumter,['Confederacy'],Confederate States of America,Confederacy
+nq,single_nq_dev_197,who played draco malfoy in the harry potter movies,['Thomas Andrew Felton'],Tom Felton,Tom Felton
+nq,single_nq_dev_5906,who killed hotchner 's wife in criminal minds,['George Foyet'],George Foyet,George Foyet
+nq,single_nq_dev_3779,who founded missions on the west coast of america,['Spanish'],Junipero Serra,Spain
+nq,single_nq_dev_2408,who is regarded as the founder of the indian national congress,['Dinshaw Wacha' 'Allan Octavian Hume' 'Dadabhai Naoroji'],Allan Octavian Hume,A.O. Hume
+nq,single_nq_dev_1815,what is the name of india 's first arctic research centre,['Himadri Station'],Himadri,Not available
+nq,single_nq_dev_1919,where is lady and the tramp supposed to take place,['Midwestern town'],New York City,United States
+nq,single_nq_dev_1027,when did social security began in the united states,['1935'],1935,1935
+nq,single_nq_dev_5286,who set up montana in blood in blood out,['Paco'],Angel Guzman,Miklo
+nq,single_nq_dev_5248,malcolm in the middle what is their last name,['Wilkerson'],Hurrell,unknown
+nq,single_nq_dev_1331,when does daylight savings time end in colorado,['first Sunday in November'],the first Sunday in November,There is no
+nq,single_nq_dev_3465,who plays captain hook in once apon a time,"[""Colin Arthur O'Donoghue""]",Colin O'Donoghue,Colin O'Donoghue
+nq,single_nq_dev_1958,what are the three types of triangles classified by sides,['isosceles triangle' 'equilateral triangle' 'scalene triangle'],"Equilateral, Isosceles, and Scalene","Equilateral, Isosceles, and Scalene"
+nq,single_nq_dev_3294,what is the fastest horse to win the kentucky derby,['Secretariat'],Secretariat,1:59.4
+nq,single_nq_dev_998,when did miami vice go off the air,['1989'],1990,1989
+nq,single_nq_dev_67,who plays christian grey in 50 shades of grey,['James Dornan'],Jamie Dornan,Jamie Dornan
+nq,single_nq_dev_3490,who won the first soca monarch in trinidad,['Superblue'],Lord Kitchener,Superblue
+nq,single_nq_dev_3413,who were the first family to be recognized as emperors of japan,['Yamato dynasty'],Yamato dynasty,Amaterasu
+nq,single_nq_dev_5032,what are the first four officers in the line of succession to the presidency,['Vice President'],"Vice President, the Speaker of the House of Representatives, the President pro tempore of the Senate, and the Secretary of State","Vice President, Speaker of the House of Representatives, President pro tempore of the Senate, and then the eligible heads of federal executive departments who form the president's Cabinet"
+nq,single_nq_dev_594,what is the drug of choice for pseudomonas,['polymyxins' 'carbapenems' 'tigecycline'],Ciprofloxacin,aminoglycosides
+nq,single_nq_dev_1532,where do we get most of our electricity energy from,['The modern steam turbine'],"coal, natural gas, and nuclear power",coal-fired power plants
+nq,single_nq_dev_5797,why do longer dna molecules move more slowly than shorter ones during electrophoresis,['resistance'],charge-to-mass ratio,because they are larger
+nq,single_nq_dev_33,who won women 's cricket world cup 2016,['England'],England,Not available
+nq,single_nq_dev_1563,what type of horse was the black stallion,['Arabian stallion'],Thoroughbred,Arabian
+nq,single_nq_dev_1930,what is the thing called that you put your head and arms in,['the pillory'],helmet,puppet head
+nq,single_nq_dev_1333,who combined the idea of elements with earlier theories of the atom,['Dalton'],John Dalton,Dalton
+nq,single_nq_dev_44,who sang the original me and bobby mcgee,['Roger Miller'],Janis Joplin,Roger Miller
+nq,single_nq_dev_4178,when did canada get its maple leaf flag,"['February 15 , 1965']","February 15, 1965","February 15, 1965"
+nq,single_nq_dev_2281,the war on poverty was a policy and slogan used in,['Great Society'],United States,the United States
+nq,single_nq_dev_2367,when did the hardy boyz debut in wwe,['1998'],1998,1998
+nq,single_nq_dev_2534,when does the new independence day come out,"['June 20 , 2016']","June 24, 2016","March 22, 2002"
+nq,single_nq_dev_4295,who wrote the lyrics to mary did you know,['Mark Lowry'],Mark Lowry,Mark Lowry
+nq,single_nq_dev_298,how many players on the field for football,['two teams of eleven players'],22,"In football, the number of players on the field varies by sport. In association football, there are 11 players on the field for each team. In American football, there are 11 players on the field for each team. In Australian rules football, there are 18 players on the field for each team. In rugby league, there are 13 players on the field for each team. In rugby union, there are 15 players on the field for each team. So the answer is:"
+nq,single_nq_dev_5779,name of bird in secret life of pets,['Sweet Pea'],Snowball,Snowball
+nq,single_nq_dev_3152,when did social security begin in the us,"['August 14 , 1935']",1935,1935
+nq,single_nq_dev_6134,who wins rupaul 's drag race allstars 2,['Alaska'],Alaska Thunderfuck,Alaska
+nq,single_nq_dev_3713,who did abby on er have an affair with,['ER Chief Kevin Moretti'],Dr. Luka Kova\u010d,Luka
+nq,single_nq_dev_79,who sang the song i love to love,['Tina Charles'],Tina Charles,"There is no information about a song called \""i love to love\"" in the provided text. However, there are many songs with similar titles, such as \""I Love\"", \""I Love Trash\"", \""I Love L.A.\"", \""I Love You\"", \""I Love Songs\"", \""I Love Trash\"", \""I Love Love\"", \""I Love You\"", \""I Love You\"", \""I Love You\"", \""I Love You\"", \""I Love You\"", \""I Love You\"", \""I Love You"
+nq,single_nq_dev_5846,who made the song i 'll be good to you,['The Brothers Johnson'],Quincy Jones and Ray Charles,Quincy Jones and Raphael Wiggins and Larry Williams of the group The Brothers Johnson
+nq,single_nq_dev_2338,where was the movie going in style filmed,"['Astoria , Queens' 'Brooklyn , New York City']",New York City,"Brooklyn, New York City and Astoria, Queens"
+nq,single_nq_dev_1612,what do you call the owner of a restaurant,['A restaurateur'],restaurateur,proprietor
+nq,single_nq_dev_3171,how many episodes in the unforgotten season 2,['6'],6,6
+nq,single_nq_dev_5473,who has held the office of chief minister of the longest time,['Pawan Chamling'],Pawan Kumar Chamling,Siddaramaiah
+nq,single_nq_dev_4805,when did call of duty world at war come out,"['November 12 , 2008' 'November 11 , 2008' 'November 14 , 2008']","November 11, 2008",November 2008
+nq,single_nq_dev_5999,when does the getaway diary of a wimpy kid come out,"['November 7 , 2017']","November 7, 2017","November 7, 2017"
+nq,single_nq_dev_1881,who is king alpha in rivers of babylon,['Selassie'],King Nebuchadnezzar,there is no answer
+nq,single_nq_dev_5352,when was the last time daytona beach was hit by a hurricane,['1960'],2004,1960
+nq,single_nq_dev_692,who does eminem not mention in toy soldiers,['Suge Knight'],his mother,Suge Knight
+nq,single_nq_dev_4717,what sea is between new zealand and australia,['Tasman Sea'],Tasman Sea,Tasman Sea
+nq,single_nq_dev_6203,when are you issued a social security number,['soon after birth'],when you are born,when you are born
+nq,single_nq_dev_5326,what is the first cell of a human called,['zygote'],zygote,zygote
+nq,single_nq_dev_4069,what is the origin of the story beauty and the beast,['Cupid and Psyche' 'The Pig King'],French,Jeanne-Marie Leprince de Beaumont
+nq,single_nq_dev_4528,what is the population of flushing new york,"['72,008']","67,900",not specified
+nq,single_nq_dev_5221,when is house of cards season 6 released,"['November 2 , 2018']","March 2, 2018","November 2, 2018"
+nq,single_nq_dev_2571,who did the patriots lose to in 2011,['New York Giants'],New York Giants,New York Giants
+nq,single_nq_dev_1349,what battle took place at breeds hill near boston,['The Battle of Bunker Hill'],Battle of Bunker Hill,Battle of Bunker Hill
+nq,single_nq_dev_1338,where did the battle between rama and ravana take place,['Lanka'],Lanka,Lanka
+nq,single_nq_dev_6293,who has the most world series rings as a player,['Yogi Berra'],10,Yogi Berra
+nq,single_nq_dev_791,who sang the original you 're gon na love me,['Jennifer Holliday'],The Isley Brothers,There is no answer to this question
+nq,single_nq_dev_4287,who made the universal declaration of human rights,['the United Nations General Assembly'],Eleanor Roosevelt,John Peters Humphrey and Eleanor Roosevelt
+nq,single_nq_dev_5978,drugs that are similar to the male hormone testosterone are called,['Anabolic steroids'],anabolic steroids,anabolic steroids
+nq,single_nq_dev_1206,what is the pig called in charlotte 's web,['Wilbur'],Wilbur,Wilbur
+nq,single_nq_dev_6441,who came up with the law of conservation of mass,['Antoine Lavoisier'],Antoine Lavoisier,Mikhail Lomonosov and Antoine Lavoisier
+nq,single_nq_dev_3604,who played the role of indian jones in the movie series,['Harrison Ford'],Harrison Ford,Harrison Ford
+nq,single_nq_dev_5320,who owns flying j and pilot truck stops,['Pilot Corporation'],Pilot Flying J,"Pilot Corporation, FJ Management, and Berkshire Hathaway"
+nq,single_nq_dev_5041,when did croatia last qualify for world cup,['2018'],2018,2018
+nq,single_nq_dev_3668,who sang i do n 't know what to do with myself,['Dusty Springfield'],Dusty Springfield,"Tommy Hunt, Dionne Warwick, Marcia Hines, The White Stripes"
+nq,single_nq_dev_3582,who won season 4 of america 's got talent,['Kevin Skinner'],Neal E. Boyd,Kevin Skinner
+nq,single_nq_dev_4237,when did season 5 of bates motel start,"['February 20 , 2017']","February 23, 2017","February 20, 2017"
+nq,single_nq_dev_2652,when was the first winnie the pooh book written,['1926'],1926,1926
+nq,single_nq_dev_3962,what is the first book in the hive series,['Higher Institute of Villainous Education'],The Hive,Aliens: Earth Hive
+nq,single_nq_dev_620,who was the us at war with in ww2,['Japan' 'Italy' 'Germany'],"Germany, Italy, and Japan","Japan, Germany, and Italy"
+nq,single_nq_dev_6020,where was the movie book of eli filmed,['New Mexico'],New Mexico,New Mexico
+nq,single_nq_dev_3333,how old do you need to be to drink alcohol in france,['18'],18,18
+nq,single_nq_dev_5094,where does the movie while you were sleeping take place,['Chicago'],Chicago,Chicago
+nq,single_nq_dev_4634,who won the season 11 of the voice,['Sundance Head'],Jordan Smith,Sundance Head
+nq,single_nq_dev_4951,who does the voice for maui in moana,['Dwayne Johnson'],Dwayne Johnson,Dwayne Johnson
+nq,single_nq_dev_2043,the compromise of 1877 signaled an end to,['the Reconstruction Era'],the Reconstruction Era,the Reconstruction Era
+nq,single_nq_dev_4743,who wrote the song call me by aretha franklin,['Aretha Franklin'],"David Foster, Jeff Porcaro, and Steve Porcaro",Aretha Franklin
+nq,single_nq_dev_2109,the largest waterfall in the world victoria falls is located in this country,['between Zambia and Zimbabwe'],Zimbabwe,Zambia and Zimbabwe
+nq,single_nq_dev_5161,how many episodes are in rick and morty season 2,['ten'],10,10
+nq,single_nq_dev_6416,what does c v s pharmacy stand for,['Consumer Value Store'],Consumer Value Stores,CVS Pharmacy
+nq,single_nq_dev_420,what was the name of bangladesh before independence,['East Pakistan'],East Pakistan,East Pakistan
+nq,single_nq_dev_4028,in the raven what is the name of the narrator 's lost love,['Lenore'],Lenore,Lenore
+nq,single_nq_dev_4282,what is the tallest mountain in argentina and south america,['Aconcagua'],Aconcagua,Aconcagua
+nq,single_nq_dev_5534,who sings youre the best thing about me,['Jim Weatherly'],U2,U2
+nq,single_nq_dev_1545,the transition from preindustrial society to industrial society was brought about by,['Industrial Revolution'],Industrial Revolution,the advent of the Industrial Revolution
+nq,single_nq_dev_1332,who wrote just you and me by chicago,['James Pankow'],James Pankow,James Pankow
+nq,single_nq_dev_5998,who makes call of duty black ops 4,['Treyarch'],Treyarch,Treyarch and Activision
+nq,single_nq_dev_3801,who is the actress that plays summer on the young and the restless,['Hunter Haley King'],Hunter King,Hunter King
+nq,single_nq_dev_6352,when does christmas start in the catholic church,['the evening of December 24'],December 24,24 December
+nq,single_nq_dev_2985,who wrote i can see clearly now song,['Johnny Nash'],Johnny Nash,Johnny Nash
+nq,single_nq_dev_1709,who won the first women 's fifa world cup,['United States'],United States,Norway
+nq,single_nq_dev_816,when did they stop making paint with lead,['1978'],1978,1977
+nq,single_nq_dev_1307,where is three billboards outside of ebbing missouri filmed,"['Black Mountain , North Carolina' 'Sylva , North Carolina']","Sikeston, Missouri","Black Mountain, North Carolina"
+nq,single_nq_dev_3599,when do live shows start on america 's got talent,"['May 30 , 2017']",the semifinals,"August 14, 2018"
+nq,single_nq_dev_4926,when was the statue of liberty given to the usa,['1886'],"October 28, 1886",1886
+nq,single_nq_dev_4189,who played little eponine in les miserables movie,['Samantha Barks'],Isabelle Allen,Ella Ballentine
+nq,single_nq_dev_3313,what episode is bag of weed family guy,['420'],Petarded,420
+nq,single_nq_dev_752,when was the wildlife protection act implemented in india,['1972'],1972,1972
+nq,single_nq_dev_324,who pays for the building of the presidential libraries,['private and non-federal public sources'],the federal government,private and non-federal public sources
+nq,single_nq_dev_5923,what is the biggest casino in the united states,['WinStar World Casino and Resort'],WinStar World Casino and Resort,MGM Grand Hotel and Casino
+nq,single_nq_dev_1744,when 's the last time golden state won a championship,['2017'],2018,2018
+nq,single_nq_dev_1351,who did idris elba play in the wire,['Stringer Bell'],Stringer Bell,"Russell \""Stringer\"" Bell"
+nq,single_nq_dev_55,where are the fruits of the spirit found in the bible,['Epistle to the Galatians'],Galatians 5:22-23,Galatians 5:22-23
+nq,single_nq_dev_1077,who wrote where the mind is without fear,['Rabindranath Tagore'],Rabindranath Tagore,"not in the provided text. However, the phrase \""Where the mind is without fear\"" is a quote from the poem \""Chandni Chowk\"" by Rabindranath Tagore. The full quote is: \""Where the mind is without fear and the head is held high; Where knowledge is free; Where the world has not been broken up into fragments by narrow domestic walls; Where words come out from the depth of truth; Where tireless striving stretches its arms towards perfection"
+nq,single_nq_dev_4456,who played father role in munna bhai mbbs,['Sunil Dutt'],Boman Irani,Sunil Dutt
+nq,single_nq_dev_6503,when does 13 reasoms why season 2 come out,"['May 18 , 2018']","May 18, 2018","July 6, 2010"
+nq,single_nq_dev_3040,who conducted the little albert study on conditioned fear,['John B. Watson'],John Watson,John B. Watson and Rosalie Rayner
+nq,single_nq_dev_3569,where will the world cup be hosted in 2022,['Qatar'],Qatar,Qatar
+nq,single_nq_dev_5800,who rescued the flag at the battle of sullivan 's island,['General Nathanael Greene'],William Moultrie,Sergeant William Jasper
+nq,single_nq_dev_1070,what came first mean machine or the longest yard,['The Longest Yard'],Mean Machine,The Longest Yard
+nq,single_nq_dev_72,the story idea for the yellow wallpaper was based on a civil war treatment called,['rest cure'],The Yellow Wallpaper,the rest cure
+nq,single_nq_dev_4658,who does scar 's voice in the lion king,['Jeremy Irons'],Jeremy Irons,Jeremy Irons
+nq,single_nq_dev_2604,who said the power of the pen is mightier than the sword,['Edward Bulwer - Lytton'],Edward Bulwer-Lytton,Edward Bulwer-Lytton
+nq,single_nq_dev_945,who played the superbowl halftime show last year,['Bruno Mars' 'Coldplay' 'Beyoncé'],Not available,The Superbowl LII halftime show
+nq,single_nq_dev_4703,which type of cell forms the blood brain barrier,['endothelial cells'],astrocyte,"endothelial cells of the capillary wall, astrocyte end-feet ensheathing the capillary, and pericytes embedded in the capillary basement membrane"
+nq,single_nq_dev_3088,what does the eagle in the nigerian coat of arm represents,['strength'],strength and courage,strength
+nq,single_nq_dev_5293,man of the tournament in 2011 world cup,"[""India 's Yuvraj Singh""]",MS Dhoni,Yuvraj Singh
+nq,single_nq_dev_4314,who plays caleb in seven brides for seven brothers,['Matt Mattox'],Howard Keel,"Benjamin, Caleb, Daniel, Ephraim, Frank and Gideon. (Note: The question is asking for the names of the brothers, not the actor who plays them.)"
+nq,single_nq_dev_5967,who does the voice for tulip in storks,['Katie Crown'],Katie Crown,Katie Crown
+nq,single_nq_dev_5808,when was the vaccine for chicken pox invented,['1984'],1995,early 1960s
+nq,single_nq_dev_2318,who did viswanathan anand defeat in 2012 to retain the world chess champion title,['Boris Gelfand'],Boris Gelfand,Boris Gelfand
+nq,single_nq_dev_6175,where did the girl get her arm bitten off,"['Tunnels Beach , Kauai']",New York,California
+nq,single_nq_dev_2576,what was the treatment in a beautiful mind,['insulin treatment'],Lithium,manicure and pedicure
+nq,single_nq_dev_3261,when was the last time germany went out in the group stage of the world cup,['2018'],1938,1938
+nq,single_nq_dev_2354,when did they start filming guardians of the galaxy,"['July 6 , 2013']","April 14, 2014",2013
+nq,single_nq_dev_2481,where is the danube river located in europe,['Central and Eastern Europe .'],Europe,Central and Eastern Europe
+nq,single_nq_dev_2420,who played aang in the last airbender movie,['Noah Ringer'],Noah Ringer,Noah Ringer
+nq,single_nq_dev_6331,when were pass laws abolished in south africa,['1986'],1986,1986
+nq,single_nq_dev_2857,who sings you are just too good to be true,['Frankie Valli'],Modern English,"Sonny and Cher, Jermaine Jackson, Michael Peterson, Skeeter Davis, and Dum Dum Girls"
+nq,single_nq_dev_6432,who did the voice of ariel in little mermaid,['Jodi Marie Marzorati Benson'],Jodi Benson,Jodi Benson
+nq,single_nq_dev_2815,when was the last time chiefs won a superbowl,"['January 11 , 1970']",2020,"there is no information about chiefs winning a superbowl. However, Exeter Chiefs won the English Premiership for the first time in their history by beating Wasps in the final 23 - 20"
+nq,single_nq_dev_5143,how many sampath bank branches in sri lanka,['229'],183,229
+nq,single_nq_dev_1841,what is the typical term for a mortgage loan,['mortgage'],30 years,a certain term
+nq,single_nq_dev_6350,who is the protagonist in to kill a mocking bird,['Atticus Finch'],Scout Finch,Scout Finch
+nq,single_nq_dev_1343,who plays the devil in tenacious d tribute,['Dave Grohl'],"The devil in Tenacious D's tribute to the song \""The Devil Went Down to Georgia\"" is played by the actor, and musician, and comedian, and writer, and director, and producer, and actor, and musician, and comedian, and writer, and director, and producer, and actor, and musician, and comedian, and writer, and director, and producer, and actor, and musician, and comedian, and writer, and director, and producer, and actor, and musician,",a demon
+nq,single_nq_dev_839,when is the second series of this is us,"['September 26 , 2017']","September 26, 2017","September 26, 2017"
+nq,single_nq_dev_3062,sediments produced by plants and animals in the sea called,['Diatoms'],organic sediments,Hemipelagic deposits
+nq,single_nq_dev_195,where was the movie how to be a latin lover filmed,['Santa Monica'],Mexico,Mexico
+nq,single_nq_dev_1823,when did the first apple ipod touch come out,"['October 23 , 2001']","September 5, 2007","April 29, 2007"
+nq,single_nq_dev_4635,who portrayed dorothy in the 1925 wizard of oz,['Dorothy Dwan'],Dorothy Dwan,Dorothy Dwan
+nq,single_nq_dev_1154,who did the original cats in the cradle,['Harry Chapin'],Harry Chapin,"Sandra \""Sandy\"" Gaston"
+nq,single_nq_dev_1291,who plays dr damprey on jane the virgin,['Megan Park'],Jaime Camil,Brett Dier
+nq,single_nq_dev_2273,a polygon with all sides the same length is said to be,['equilateral'],equilateral,equilateral
+nq,single_nq_dev_2146,where does the sun set in the evening,['west'],west,west
+nq,single_nq_dev_1653,when is the new mamma mia film coming out,"['July 20 , 2018']","July 20, 2018",2018
+nq,single_nq_dev_1404,who sang i ca n 't let maggie go,['Honeybus'],Honeybus,"The song \""I Can't Let Maggie Go\"" was originally recorded by blue-eyed soul singer Evie Sands' on George Goldner's Blue Cat label, which was popular in New York City in 1965. The song became popular in 1966 for the group The Hollies, who charted at number two in the UK Singles Chart with their version. Linda Ronstadt covered the song in 1980 and had a number 31 hit on the US \""Billboard\"" Hot 100"
+nq,single_nq_dev_1747,who is pretending to be a in pretty little liars,['Shana'],CeCe Drake,"not unique, as there are many other people who have pretended to be A in the show.)"
+nq,single_nq_dev_328,who does billy russo become in the punisher comics,['Jigsaw'],Jigsaw,Jigsaw
+nq,single_nq_dev_3676,who got hit by a train on er,['surgical intern Dennis Gant'],Dr. Doug Ross,
+nq,single_nq_dev_761,who put in god we trust on the dollar bill,['President Dwight Eisenhower'],Dwight D. Eisenhower,1957
+nq,single_nq_dev_5047,when did cavity wall insulation become part of building regulations,['1990s'],1995,during the 1990s
+nq,single_nq_dev_6078,what does mc mean on a biker vest,['motorcycle club'],Motorcycle Club,Motorcycle Club
+nq,single_nq_dev_2371,who sang silver bells with blake shelton on the voice,['Xenia'],Gwen Stefani,not mentioned
+nq,single_nq_dev_1757,what beatles album is 8 days a week on,['Beatles for Sale'],Beatles for Sale,Beatles for Sale
+nq,single_nq_dev_4846,how many american troops died in the korean war,"['2,830 non-battle deaths' '33,686 battle deaths']","36,516","36,000"
+nq,single_nq_dev_2692,who wrote the song i dont know my name,['VanderWaal'],3 Doors Down,There is no answer to this question
+nq,single_nq_dev_5763,when did dodge start making the challenger again,['2008'],2008,2008
+nq,single_nq_dev_2049,who played floyd on the andy griffith show,['Howard Terbell McNear'],Howard Morris,Howard Morris
+nq,single_nq_dev_1152,when did dolly write i will always love you,['1973'],1973,1973
+nq,single_nq_dev_5605,who is the youngest person to ever win a grammy,['The Peasall Sisters'],LeAnn Rimes,20
+nq,single_nq_dev_314,who banned all public meetings and procession in amritsar,['Colonel Reginald Dyer'],Michael O'Dwyer,Colonel Reginald Dyer
+nq,single_nq_dev_2218,who had no heart in wizard of oz,['the Tin Woodman'],The Tin Man,The Tin Woodman
+nq,single_nq_dev_2977,who loves helena in a midsummer night 's dream,['Lysander'],Demetrius,both Demetrius and Lysander
+nq,single_nq_dev_478,when did the welsh language became a core subject in the national curriculum in wales,['1990'],2002,2000
+nq,single_nq_dev_4247,the flag of indonesia is red and what other color,['white'],white,white
+nq,single_nq_dev_6239,who sings for eric in happy feet two,['E.G. Daily'],Brad Pitt,E.G. Daily
+nq,single_nq_dev_1910,when did harry potter and the philosopher 's stone movie come out,['16 November 2001'],16 November 2001,2001
+nq,single_nq_dev_6430,when did the olympic flame was lighted first time,['the 1928 Summer Olympics'],1936,1928
+nq,single_nq_dev_4599,what was one of the weapon technologies that emerged during the crusades,['counterweight trebuchets'],crossbow,sling
+nq,single_nq_dev_2677,for whom was the battle of king 's mountain a victory,['Patriots'],General Daniel Morgan,Patriots
+nq,single_nq_dev_223,what are the names of the counties in wales,"['Gwent' 'Mid Glamorgan' 'South Glamorgan' 'West Glamorgan' 'Gwynedd'
+ 'Clwyd' 'Powys' 'Dyfed']","The counties in Wales are: Anglesey, Blaenau Gwent, Bridgend, Caerphilly, Cardiff, Carmarthenshire, Ceredigion, Conwy, Denbighshire, Flintshire, Gwynedd, Merthyr Tydfil, Monmouthshire, Neath Port Talbot, Newport, Pembrokeshire, Powys, Rhondda Cynon Taf, Swansea, Torfaen, Vale of Glamorgan, Wrexham",The counties in Wales are:
+nq,single_nq_dev_4842,most of the united states is a part of which tectonic plate,['North American Plate'],North American Plate,North American Plate
+nq,single_nq_dev_3755,when did jk rowling released the first harry potter,['1997'],"June 26, 1997",26 June 1997
+nq,single_nq_dev_4655,when did descendants of the sun start filming,"['June 12 , 2015']",2015,2015
+nq,single_nq_dev_3854,what is the most commonly used adjective in the english language,['one'],good,There is no answer
+nq,single_nq_dev_3872,when did the plane land in the hudson river,"['January 15 , 2009']","January 15, 2009",There is no answer
+nq,single_nq_dev_5111,who owns ringling brothers and barnum & bailey circus,['Feld Entertainment'],Feld Entertainment,The Ringling brothers
+nq,single_nq_dev_1021,who sang in the arms of an angel first,['Sarah McLachlan'],Sarah McLachlan,Hot
+nq,single_nq_dev_934,who plays the alien bounty hunter in x files,['Brian Earl Thompson'],William B. Davis,Brian Thompson
+nq,single_nq_dev_536,who played the black widow in the avengers,['Scarlett Johansson'],Scarlett Johansson,Scarlett Johansson
+nq,single_nq_dev_3056,when was the last time england got to a world cup quarter final,['2006'],2006,2006
+nq,single_nq_dev_3920,where was o brother where art thou filmed,"['Canton , Mississippi' 'Florence , South Carolina']","North Carolina, South Carolina, Georgia, and Tennessee","Canton, Mississippi and Florence, South Carolina"
+nq,single_nq_dev_4418,who played jeremy on here comes the brides,['Bobby Sherman'],"The character Jeremy on the TV series \""Here Comes the Bride\"" was played by actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor, actor,",David Soul
+nq,single_nq_dev_2721,who is the second person to reach moon,['Buzz Aldrin'],"Edwin \""Buzz\"" Aldrin","Edwin \""Buzz\"" Aldrin"
+nq,single_nq_dev_2404,when do they stop selling beer in wisconsin,['midnight'],Sundays,There is no answer
+nq,single_nq_dev_3310,when did the dallas stars come to texas,['1993'],1993,1993
+nq,single_nq_dev_4213,this african nation is located south of sudan and west of kenya,['South Sudan'],"The African nation that is located south of Sudan and west of Kenya is South Sudan. However, South Sudan is not an independent nation. It is a part of Sudan. The African nation that is located south of Sudan and west of Kenya is South Sudan. However, South Sudan is not an independent nation. It is a part of Sudan. The African nation that is located south of Sudan and west of Kenya is South Sudan. However, South Sudan is not an independent nation. It is a part of",South Sudan
+nq,single_nq_dev_1671,what kind of car is a toyota matrix,['compact hatchback'],compact hatchback car,compact hatchback
+nq,single_nq_dev_2503,where is the rogers cup held in montreal,['the IGA Stadium'],Uniprix Stadium,Uniprix Stadium
+nq,single_nq_dev_2640,when was the first film made in america,['1894'],1888 or 1903,not specified
+nq,single_nq_dev_69,in what year did japan attack pearl harbor,['1941'],1941,1941
+nq,single_nq_dev_977,who was the first president that lived in the white house,['John Adams'],George Washington,John Adams
+nq,single_nq_dev_4518,when did wales last win the 6 nations,['2013'],2013,2008
+nq,single_nq_dev_2918,who won the first super bowl in 1967,['Green Bay Packers'],Green Bay Packers,Green Bay Packers
+nq,single_nq_dev_2558,who voiced optimus prime in the transformers movie,['Peter Claver Cullen'],Peter Cullen,Peter Cullen
+nq,single_nq_dev_818,how many episodes does the ancient magus bride have,['24'],13,24
+nq,single_nq_dev_6481,what is the top selling beer in ireland,['Lager'],Smithwick's,Guinness
+nq,single_nq_dev_2004,who killed michael 's brother on burn notice,['Tyler Gray'],Anson Fullerton,Tyler Gray
+nq,single_nq_dev_4886,who is captain miller in saving private ryan,['Tom Hanks'],Tom Hanks,Tom Hanks
+nq,single_nq_dev_3511,how many artificial elements are in the periodic table,['24'],4,111
+nq,single_nq_dev_566,who is the actor in canadian tire commercials,['Ted Simonett'],Rick Mercer,Ted Simonett
+nq,single_nq_dev_5090,where is pepsin secreted in the digestive system,['stomach'],stomach,stomach
+nq,single_nq_dev_4054,when did the radio became a household item,['mid-1922'],1920s,1921
+nq,single_nq_dev_4222,when did kobe bryant win his first ring,['2000'],2000,2000
+nq,single_nq_dev_1258,who died in the movie fast and furious 7,['Han'],Paul Walker,Paul Walker
+nq,single_nq_dev_1565,who moved my cheese what does the maze represent,"[""one 's environment""]",life,one's environment
+nq,single_nq_dev_1354,in riverdale who does betty end up with,['Jughead Jones'],Archie Andrews,Archie
+nq,single_nq_dev_2822,when did the song unchained melody come out,['1955'],1955,1955
+nq,single_nq_dev_3934,what 's the largest cemetery in the united states,['Calvary Cemetery'],Arlington National Cemetery,Calverton National Cemetery
+nq,single_nq_dev_6064,who sang the song the first cut is the deepest,"['Keith Hampshire' 'Dawn Penn' 'Sheryl Crow' 'Rod Stewart' 'Papa Dee'
+ 'P.P. Arnold']",Cat Stevens,P. P. Arnold
+nq,single_nq_dev_1114,when did california became part of the union,"['September 9 , 1850']","September 9, 1850","September 9, 1850"
+nq,single_nq_dev_3011,who played the baby in baby 's day out,['Jacob Joseph Worton' 'Adam Robert'],Jacob and Joseph Rosenberg,Jacob and Joseph Bertino
+nq,single_nq_dev_5689,where does pakistan stand in the icc test ranking,['7th'],7th,not available
+nq,single_nq_dev_4464,which is britains oldest sunday newspaper published for the first time in 1791,['The Observer'],The Observer,The Observer
+nq,single_nq_dev_3392,two possible satellite galaxies of the milky way galaxy are the,['Sagittarius Dwarf' 'Large Magellanic Cloud'],Sagittarius Dwarf Spheroidal Galaxy and the Canis Major Dwarf Galaxy,Large Magellanic Cloud and the Small Magellanic Cloud
+nq,single_nq_dev_2940,who was killed in i know what you did last summer,['a pedestrian'],Ben Willis,a young boy
+nq,single_nq_dev_1329,who acted as harley quinn in suicide squad,['Margot Robbie'],Margot Robbie,Margot Robbie
+nq,single_nq_dev_2905,who played wildor in masters of the universe,['Billy Barty'],John Alderton,There is no information about a character named Wildor in the Masters of the Universe
+nq,single_nq_dev_6423,who plays the clown in freak show ahs,['John Carroll Lynch'],Sarah Paulson,The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is a 2014 American television series. The freak show is
+nq,single_nq_dev_1816,two countries connected by the channel tunnel under the sea,['France' 'United Kingdom'],United Kingdom and France,United Kingdom and France
+nq,single_nq_dev_1000,who wrote you cant always get what you want,['Keith Richards' 'Mick Jagger'],Mick Jagger and Keith Richards,Mick Jagger and Keith Richards
+nq,single_nq_dev_4363,which term means the amount of energy in a body or stream of water,['power'],kinetic energy,stream load
+nq,single_nq_dev_3702,who wrote the song like a bridge over troubled water,['Paul Simon'],Paul Simon,Paul Simon
+nq,single_nq_dev_2824,who is the winner of 2018 royal rumble,['Asuka' 'Shinsuke Nakamura'],Shinsuke Nakamura,Asuka
+nq,single_nq_dev_1458,when does the new super troopers movie come out,"['April 20 , 2018']","March 31, 2018","April 20, 2018"
+nq,single_nq_dev_4501,nilgiri himalayan and arabian are species of which animal,['Asian artiodactyl ungulates'],Nilgai,tahr
+nq,single_nq_dev_6026,harry potter and the philosiphers stone release date,['16 November 2001'],26 June 1997,"November 14, 2001"
+nq,single_nq_dev_4346,name of dog in smokey and the bandit,['Fred'],Snowball,"not mentioned in the movie. However, the dog is a black dog"
+nq,single_nq_dev_3929,who did the eagles play last time they were in the superbowl,['New England Patriots'],New England Patriots,New England Patriots
+nq,single_nq_dev_1543,when did the samsung gear s come out,"['November 7 , 2014']","September 3, 2014","November 7, 2014"
+nq,single_nq_dev_3536,what is the language spoken in czech republic,['Czech'],Czech,Czech
+nq,single_nq_dev_5798,where do i find the url of a website,['address bar'],address bar of a web browser,the address bar of your web browser
+nq,single_nq_dev_1789,when did the european convention on human rights come into force,['3 September 1953'],3 September 1953,3 September 1953
+nq,single_nq_dev_4882,who sings the song till i see you again,['American rapper Wiz Khalifa' 'featuring American singer Charlie Puth'],Cody Simpson,"The song \""If Ever I See You Again\"" is sung by Roberta Flack. The song \""Till I See You Again\"" is sung by Pl\u00e1cido Domingo and Dionne Warwick. The song \""When Can I See You Again?\"" is sung by Owl City. The song \""When Will I See You Again\"" is sung by The Three Degrees. The song \""If Ever I See You Again\"" is also sung by Debby Boone. The song \""Till I Waltz"
+nq,single_nq_dev_5348,right to family is ensured in the udhr under,['Article 16'],Article 16,Article 16
+nq,single_nq_dev_3423,who voiced the pink alien in american dad,['Kim Kardashian'],Dee Bradley Baker,Seth MacFarlane
+nq,single_nq_dev_4955,when will the book of dust be released,['October 2017'],2017,after October 2017
+nq,single_nq_dev_1965,who founded the royal academy of music answers.com,['Edward Fisher'],King George III,a group of aristocrats
+nq,single_nq_dev_2232,a systolic bp value is the pressure when,['the ventricles are contracting'],the heart is contracting,contracting
+nq,single_nq_dev_269,who raps in the gorillaz song clint eastwood,['Del the Funky Homosapien'],Del tha Funkee Homosapien,Del the Funky Homosapien
+nq,single_nq_dev_5266,where is tata iron and steel company located,"['Mumbai , Maharashtra , India']",Jamshedpur,Kulti
+nq,single_nq_dev_455,when did the packard plant close in detroit,['1958'],1958,1956
+nq,single_nq_dev_5836,when did the day of worship changed from saturday to sunday,['By the 2nd century AD'],1st century AD,4th century
+nq,single_nq_dev_4172,what city is the next winter olympics in,['Beijing'],Beijing,Beijing
+nq,single_nq_dev_6070,who was involved in the croatian war of independence,"['Republic of Bosnia and Herzegovina' 'Republic of Serbian Krajina'
+ 'Republika Srpska' 'SFR Yugoslavia' 'Croatia']",Franjo Tu\u0111man,"The Croatian War of Independence was fought between Croat forces loyal to the government of Croatia and the Serb-controlled Yugoslav People's Army (JNA) and local Serb forces. The war was also fought between the Croatian Defence Council and Croatian volunteer troops on one side and the Army of the Republic of Bosnia and Herzegovina (ARBiH) on the other. The war also involved foreign fighters, including Croats from Bosnia and Herzegovina, and also the diaspora, who joined the"
+nq,single_nq_dev_3523,who plays ricky bobby 's dad in talladega nights,['Gary Cole'],Gary Cole,Gary Cole
+nq,single_nq_dev_961,who is the girl who dances in sia chandelier,['Madison Nicole Ziegler'],Maddie Ziegler,Maddie Ziegler
+nq,single_nq_dev_4637,who plays hans solo 's son in the force awakens,['Adam Driver'],Adam Driver,Adam Driver
+nq,single_nq_dev_1283,the type of reproduction that requires the union of sperm and egg,['Human fertilization'],sexual reproduction,sexual reproduction
+nq,single_nq_dev_2171,who tried to prevent the march on washington,['President Roosevelt'],George Wallace,James Baldwin
+nq,single_nq_dev_2120,who is the founder of what 's up,['Jan Koum' 'Brian Acton'],Brian Acton and Jan Koum,not mentioned
+nq,single_nq_dev_230,when was the not too young to run bill signed into law,"['May 31 , 2018']","May 31, 2017","May 31, 2018"
+nq,single_nq_dev_4376,when did the drinking age change to 21 in wisconsin,"['September 1 , 1986']",1986,1986
+nq,single_nq_dev_3685,what is the benefit of a fluted barrel,['to reduce weight'],heat dissipation,"reduce weight, and to a lesser extent increase rigidity for a given total weight or increase surface area to make the barrels less susceptible for overheating for a given total weight"
+nq,single_nq_dev_5648,the author of the book david copperfield is,['Charles Dickens'],Charles Dickens,Charles Dickens
+nq,single_nq_dev_4444,who sang do n 't be tardy for the party,['Kim Zolciak'],Kim Zolciak,Kim Zolciak
+nq,single_nq_dev_3201,what is the releasing date of love yatri,['5 October 2018'],5 October 2018,Not available
+nq,single_nq_dev_1963,when did branson mo become a tourist town,['1983'],1950s,1907
+nq,single_nq_dev_2402,who 's won the most world series in baseball,['New York Yankees'],New York Yankees,Yogi Berra
+nq,single_nq_dev_825,what language do they speak in puerto rico,['Spanish'],Spanish,Spanish
+nq,single_nq_dev_86,when did the second amendment go into effect,"['December 15 , 1791']","December 15, 1791",1791
+nq,single_nq_dev_6499,who set up the first stockyard for texas cattle in abilene kansas,['Joseph G. McCoy'],Philip D. Armour,Joseph G. McCoy
+nq,single_nq_dev_5282,what is one of the greatest structural achievements of the bronze age,['the corbelled arch'],Mycenaean megaron,the Great Pyramid of Giza
+nq,single_nq_dev_2215,the dna directed synthesis of an rna molecule is called,['Transcription'],transcription,transcription
+nq,single_nq_dev_2928,when does the tour de france finish 2018,['on 29 July'],29 July 2018,29 July
+nq,single_nq_dev_2615,who lived to be the oldest person in the world,['Jeanne Calment'],Jeanne Calment,Jeanne Calment
+nq,single_nq_dev_2645,who is in charge of the hollywood walk of fame,['the Hollywood Chamber of Commerce'],The Hollywood Chamber of Commerce,The Hollywood Chamber of Commerce and the Hollywood Historic Trust
+nq,single_nq_dev_315,in 1893 new zealand became the first country in the world to grant voting rights to,['women'],women,women
+nq,single_nq_dev_5060,spirit stallion of the cimarron girl horse name,['Spirit'],Rain,Rain
+nq,single_nq_dev_6319,what was japan foreign policy in the tokugawa era,['isolationist'],isolationism,sakoku
+nq,single_nq_dev_2647,who won season 7 rupaul 's drag race,['Violet Chachki'],Violet Chachki,Violet Chachki
+nq,single_nq_dev_3250,where did kate and prince william get engaged,['Kenya'],St. James's Palace,St. James's Palace
+nq,single_nq_dev_857,who do the cubs play in the world series last year,['Cleveland Indians'],Cleveland Indians,Cleveland Indians
+nq,single_nq_dev_4302,what is one of the main causes for famine in the world today,['a decline in food availability'],drought,government policies
+nq,single_nq_dev_555,who owns the las vegas golden knights hockey team,['Black Knight Sports & Entertainment'],Bill Foley,Bill Foley
+nq,single_nq_dev_152,when was tasmania cut off from the mainland,"['10,000 years ago']","10,000 years ago","10,000 years ago"
+nq,single_nq_dev_4812,who is rudolph the red nosed reindeer 's dad 's name,['Blitzen'],Donner,not mentioned
+nq,single_nq_dev_580,who sang the original always on my mind,['Gwen McCrae' 'Brenda Lee'],Gwen Guthrie,B.J. Thomas
+nq,single_nq_dev_6461,what did king john do to kenilworth castle,['rebuilding and enhancing'],besiege,"building the outer bailey wall in stone and improving the other defences, including creating Mortimer's and Lunn's Towers and the water defences"
+nq,single_nq_dev_780,when did scotland become part of united kingdom,['1707'],1707,1707
+nq,single_nq_dev_5951,what is the name of the new wonder woman,['Gal Gadot'],Gal Gadot,Artemis
+nq,single_nq_dev_337,who plays james nesbitt 's son in cold feet,['Ceallach Spellman'],John Thomson,Matthew
+nq,single_nq_dev_5139,when is season 3 of scream coming out on netflix,['2018'],I do not have access to a search engine to verify when season 3 of Scream is coming out on Netflix. I recommend checking the official Netflix website or other reliable sources for the most up-to-date information,"May 13, 2016"
+nq,single_nq_dev_1990,which country is called land of morning calm,['Korea'],South Korea,South Korea
+nq,single_nq_dev_4897,who invented the solar system model for atoms,['Ernest Rutherford' 'Niels Bohr'],Ernest Rutherford,"The invention of the periodic system of elements by Mendeleev was another great step forward. The true beginning of atomic physics is marked by the discovery of spectral lines and attempts to describe the phenomenon, most notably by Joseph von Fraunhofer. The study of these lines led to the Bohr atom model and to the birth of quantum mechanics. In seeking to explain atomic spectra an entirely new mathematical model of matter was revealed. As far as atoms and their electron shells were concerned, not only did this"
+nq,single_nq_dev_3249,the source of heating in the thermosphere is the absorption of,['highly energetic solar radiation'],ultraviolet radiation,solar XUV radiation
+nq,single_nq_dev_245,who played the role of gemini ganeshan in mahanati,['Dulquer Salmaan'],Dulquer Salmaan,Dulquer Salmaan
+nq,single_nq_dev_2837,who stars in hallmark 's coming home for christmas,['Danica McKellar' 'Neal Bledsoe'],Andrew Walker,Danica McKellar and Neal Bledsoe
+nq,single_nq_dev_731,what is the setting of the story of robin hood,['Sherwood Forest'],Sherwood Forest,Barnsdale
+nq,single_nq_dev_5896,in langlands piers the plowman piers appears finally as,['ploughman'],a saint,a saint
+nq,single_nq_dev_1166,who won the oscar for best picture in 1939,['Gone with the Wind'],You Can't Take It With You,Gone with the Wind
+nq,single_nq_dev_4288,a language that used symbols to represent objects,['pictograms'],hieroglyphics,"A language that used symbols to represent objects is Object Lisp. Object Lisp was a computer programming language, a dialect of the Lisp language. It was an object-oriented extension for the Lisp dialect Lisp Machine Lisp, designed by Lisp Machines, Inc. Object Lisp was also an early example of prototype-based programming. It was seen as a competitor to other object-oriented extensions to Lisp at around the same time such as Flavors, in use by Symbolics, Common Objects developed by Hewlett-Packard, and Common"
+nq,single_nq_dev_5871,which organization sets monetary policy for the united states,['the Federal Reserve'],Federal Reserve,Federal Reserve
+nq,single_nq_dev_2374,how old do you have to be to get a tattoo in washington,['18'],18,there is no answer
+nq,single_nq_dev_9,what is the name of wonder womans mother,['Queen Hippolyta'],Queen Hippolyta,Hippolyta
+nq,single_nq_dev_5331,when is the story set in horizon zero dawn,['the 31st century'],"1,000 years before the events of the game","The story of Horizon Zero Dawn is set in a post-apocalyptic world. The game's director Mathijs de Jonge considered the game's concept as the riskiest idea pitched at the time. The game engine, Decima, was developed for \""Killzone Shadow Fall\"" and altered for \""Horizon Zero Dawn\"". The game is set in a world overrun by machines. The game's story follows Aloy, a hunter in a world overrun by machines, who sets out to uncover her past"
+nq,single_nq_dev_5368,who won american idol adam lambert 's season,['Kris Allen'],season 8,Kris Allen
+nq,single_nq_dev_6509,big boss 2 telugu set location in hyderabad,"['Annapurna Studios , Hyderabad']",Annapurna Studios,"Annapurna Studios 7 Acres, Jubilee Hills, Hyderabad"
+nq,single_nq_dev_5922,who loads the program from disc to the memory,['loader'],program loader,the operating system
+nq,single_nq_dev_2324,who sings with nickelback in she keeps me up,['Ali Tamposi'],Chad Kroeger,Ali Tamposi
+nq,single_nq_dev_3753,how many seasons of friday night lights is there,['5'],5,5
+nq,single_nq_dev_2703,who sang does he love you with reba mcintire,['Linda Davis'],Linda Davis,Linda Davis
+nq,single_nq_dev_2280,what is the name of the oven used to fire clay objects so that they become ceramics,['kiln'],kiln,kiln
+nq,single_nq_dev_2380,you can ring my bell who sang it,['Anita Ward'],Anita Ward,Anita Ward
+nq,single_nq_dev_5950,who plays the voice of vicky in fairly odd parents,['Grey DeLisle'],Grey DeLisle,Daniella Monet
+nq,single_nq_dev_501,who wrote the passion of ss perpetua and felicitas,"['Saturus , another Christian martyred' 'An editor']",Tertullian,Perpetua
+nq,single_nq_dev_4443,who played pontius pilate in jesus christ superstar,['Barry Dennen'],Carl Anderson,Brent Carver
+nq,single_nq_dev_1288,when does water stop flowing from hypotonic to hypertonic solution,['full turgor'],when the concentration of solutes in the two solutions is equal,"In a hypotonic solution, water moves into the cell, down its concentration gradient (from higher to lower water concentrations). That can cause the cell to swell. Cells that don't have a cell wall, such as animal cells, could burst in this solution. A hypertonic solution is when the solute concentration is higher (think of hyper - as high) than the concentration inside the cell. In hypertonic solution, the water will move out, causing the cell to shrink. When the cell"
+nq,single_nq_dev_4377,who won the battle of somme on the first day,['The Anglo - French armies'],none,German Second Army lost
+nq,single_nq_dev_2418,who presented gardeners world from 2008 to 2010,['Toby Buckland'],Joe Swift,"Carol Klein, Toby Buckland, Alys Fowler, Chris Baines, Diarmuid Gavin, Anne Swithinbank, Pippa Greenwood, Rachel de Thame, Bob"
+nq,single_nq_dev_2198,who does the voice of bob 's burgers,['H. Jon Benjamin'],H. Jon Benjamin,H. Jon Benjamin
+nq,single_nq_dev_3698,who does the song say something i 'm giving up on you,['A Great Big World'],A Great Big World and Christina Aguilera,A Great Big World and Christina Aguilera
+nq,single_nq_dev_3394,who plays riggs on lethal weapon the tv show,['Clayne Crawford'],Clayne Crawford,Seann William Scott
+nq,single_nq_dev_785,who plays male lead in far from the madding crowd,['Carey Mulligan'],Matthias Schoenaerts,Matthias Schoenaerts
+nq,single_nq_dev_4392,what is the thing with the nozzle in sausage party,['douche'],toilet,There is no answer
+nq,single_nq_dev_1693,who plays finn in my big fat diary,['Nico Cristian Mirallegro'],"The character Finn in the movie My Big Fat Greek Wedding is played by actor Louis Mandylor. However, the character Finn in the movie My Big Fat Greek Wedding is not the same as the character Finn in the movie My Big Fat Greek Wedding 2. The character Finn in the movie My Big Fat Greek Wedding 2 is played by actor John Stamos. However, the character Finn in the movie My Big Fat Greek Wedding 2 is not the same as the character Finn in the movie My",not mentioned
+nq,single_nq_dev_624,when did the first willy wonka movie come out,"['June 30 , 1971']",1971,1971
+nq,single_nq_dev_3618,who has won the most champions league games,['Real Madrid'],Real Madrid,Not in the text
+nq,single_nq_dev_518,what is the meaning of apres moi le deluge,['is a French expression'],"after me, the flood","After me, the flood"
+nq,single_nq_dev_869,a type of variation such that as one variable increases the other decreases,['inverse proportionality'],inverse variation,balancing loop
+nq,single_nq_dev_332,who has the most trophies in the premier league,['Manchester United'],Manchester United,the reigning champions
+nq,single_nq_dev_4563,when was star wars episode 4 re released,['1978' '1979' '1982' '1981' '1997'],1978,1981
+nq,single_nq_dev_2793,who made the song when i see you again,['Andrew Cedar' 'Charlie Puth' 'DJ Frank E' 'Wiz Khalifa'],Wiz Khalifa,Joe Brooks
+nq,single_nq_dev_2821,what was the vei of mt . st. helens,['5'],"8,363",5
+nq,single_nq_dev_3900,who plays alice 's mom in home again,['Candice Bergen'],Candice Bergen,Reese Witherspoon
+nq,single_nq_dev_1128,which had more power over taxation under the articles of confederation,['The states'],states,the states
+nq,single_nq_dev_5170,when did they build the empire state building,['1931'],1931,1931
+nq,single_nq_dev_3844,name the agent of erosion that produce hanging valley,['glacier'],Glaciers,glaciers
+nq,single_nq_dev_3081,when does the diary of a wimpy kid the getaway come out,"['November 7 , 2017']","November 7, 2017","November 7, 2017"
+nq,single_nq_dev_3363,when does the new 2017 star wars movie come out,"['December 15 , 2017']","December 15, 2017",There is no answer
+nq,single_nq_dev_5417,when does the next season of ink master come out,"['August 28 , 2018']",2019,"August 28, 2018"
+nq,single_nq_dev_5520,when did the first episode of this is us air,"['September 20 , 2016']","September 20, 2016","I am unable to verify the first episode of this is us. However, I can verify the first episode of the following shows: What Kate Did (Lost) aired on November 30, 2005, on ABC. Did I Stutter? (The Office) first aired in the United States on May 1, 2008 on NBC. Whoever Did This (The Sopranos) originally aired on November 10, 2002. Simpsons Already Did It (South Park)"
+nq,single_nq_dev_2401,the movement of food in food pipe is called,['swallowed'],peristalsis,there is no answer
+nq,single_nq_dev_3336,how many seasons of being maryjane are there,['4'],2,1
+nq,single_nq_dev_1743,who wrote he ai n 't heavy he 's my brother,['Bobby Scott' 'Bob Russell'],Bobby Scott and Bob Russell,Bobby Scott and Bob Russell
+nq,single_nq_dev_3893,when did the white star line go out of business,['1934'],1934,1934
+nq,single_nq_dev_2826,how many movies does the twilight series have,['five'],5,"The Twilight Saga is a series of five romance fantasy films from Summit Entertainment based on the four novels by American author Stephenie Meyer. The films star Kristen Stewart, Robert Pattinson, and Taylor Lautner. The series has grossed over $3.3 billion in worldwide receipts. The first installment, \""Twilight\"", was released in 2008. The second installment, \""The Twilight Saga: New Moon\"", was released in 2009. The third installment, \""The Twilight Saga:"
+nq,single_nq_dev_2427,who plays the asian girl in deadpool 2,['Shioli Kutsuna'],Shioli Kutsuna,Zazie Beetz
+nq,single_nq_dev_2639,finance commission is appointed for a period of,['five years'],5 years,5 years
+nq,single_nq_dev_6068,who is in charge of the premier league,['by the 20 member clubs'],Richard Scudamore,the clubs
+nq,single_nq_dev_3521,who is the bad guy in silent hill,['Pyramid Head'],Pyramid Head,"The bad guy in Silent Hill is not explicitly stated. However, the main antagonist of the series is often considered to be the cult that is behind the events of the game. The cult is led by a figure known as the \""Incubus\"" or \""Pyramid Head\"", who is a manifestation of Alessa's guilt and trauma. However, the true identity of the Incubus is not explicitly stated in the game. In Silent Hill 2, the main antagonist is James Sunderland, who"
+nq,single_nq_dev_6510,when was civil peace by chinua achebe published,['1971'],1988,1971
+nq,single_nq_dev_1996,what is the hottest pepper in the usa,['Carolina Reaper'],Carolina Reaper,Pepper X
+nq,single_nq_dev_1309,why is ancient greece often labeled the start of western civilization,['first democratic system of government'],"because it is the birthplace of democracy, philosophy, theater, and the Olympic Games","because it is considered the seminal culture which provided the foundation of modern Western culture, democracy, theatre, historiography, philosophy, mathematics and science"
+nq,single_nq_dev_6463,when do the rams move to las vegas,['2020'],2020,2020
+nq,single_nq_dev_4645,what rank is higher than captain in the army,"['major' 'general' 'lieutenant colonel' 'major general' 'colonel'
+ 'lieutenant general' 'brigadier general']",major,major

@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Where the gain on mixed traffic comes from (mean over readers): gain over the global hull = workload part (label hull minus global hull at the policy's cost) + gain over the label hull.}
+\label{tab:rev2_decomp}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr}
+\toprule
+Policy & Global, single & \begin{tabular}[b]{@{}r@{}}Workload, \\ single\end{tabular} & Label, single & \begin{tabular}[b]{@{}r@{}}Global, two \\ hop\end{tabular} & \begin{tabular}[b]{@{}r@{}}Workload, two \\ hop\end{tabular} & Label, two-hop \\
+\midrule
+TSR planner & +0.006 & +0.026 & $-$0.020 & +0.007 & +0.030 & $-$0.024 \\
+Reader cascade & +0.006 & +0.019 & $-$0.012 & +0.020 & +0.033 & $-$0.013 \\
+Per-plan LR & +0.029 & +0.033 & $-$0.004 & +0.031 & +0.037 & $-$0.006 \\
+Per-plan kNN & +0.032 & +0.035 & $-$0.003 & +0.031 & +0.036 & $-$0.005 \\
+Per-plan LR, own cost & +0.007 & +0.027 & $-$0.020 & +0.031 & +0.038 & $-$0.007 \\
+Per-plan kNN, own cost & +0.014 & +0.028 & $-$0.015 & +0.026 & +0.036 & $-$0.011 \\
+Dataset guess + label hull & +0.029 & +0.036 & $-$0.006 & +0.035 & +0.039 & $-$0.004 \\
+Dataset guess, own cost & +0.012 & +0.021 & $-$0.009 & +0.036 & +0.038 & $-$0.002 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

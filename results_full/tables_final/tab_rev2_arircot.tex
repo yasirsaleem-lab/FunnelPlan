@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Adaptive RAG with the published ladder (closed-book, single-step plan, IRCoT) on the three multi-hop datasets, pooled per reader (Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B). Fixed hull: mix of fixed plans. Hull with IRCoT: IRCoT added as one more plan. Corrected test. Pooled: Holm over the three readers. Cells: the nine reader and dataset tests, Holm over nine.}
+\label{tab:rev2_arircot}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrrr}
+\toprule
+Classifier & Plan set & IRCoT share & \begin{tabular}[b]{@{}r@{}}Gain, fixed \\ hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Pooled \\ pos./neg.\end{tabular} & \begin{tabular}[b]{@{}r@{}}Cells \\ pos./neg.\end{tabular} & \begin{tabular}[b]{@{}r@{}}Gain, hull \\ with IRCoT\end{tabular} & \begin{tabular}[b]{@{}r@{}}Pooled \\ pos./neg. \end{tabular} & \begin{tabular}[b]{@{}r@{}}Cells \\ pos./neg. \end{tabular} \\
+\midrule
+TF IDF LR & single-step & 0.53 to 0.60 & $-$0.030 to +0.029 & 0 / 0 & 1 / 1 & $-$0.049 to +0.005 & 0 / 1 & 0 / 1 \\
+TF IDF LR & with two-hop & 0.53 to 0.60 & $-$0.049 to +0.016 & 0 / 1 & 0 / 1 & $-$0.059 to 0.000 & 0 / 2 & 0 / 2 \\
+BGE M3 LR & single-step & 0.51 to 0.56 & $-$0.025 to +0.017 & 0 / 0 & 1 / 1 & $-$0.043 to $-$0.007 & 0 / 1 & 0 / 1 \\
+BGE M3 LR & with two-hop & 0.51 to 0.56 & $-$0.043 to +0.004 & 0 / 1 & 0 / 1 & $-$0.053 to $-$0.012 & 0 / 2 & 0 / 1 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

@@ -72,11 +72,11 @@ Secondary analysis, added after the main results were seen.
 | Per plan kNN | Qwen3 14B | +0.016 [-0.004, +0.034] | 1.000 | +0.019 [+0.001, +0.037] | 0.704 |
 | Per plan kNN | Gemma 3 27B | +0.010 [-0.009, +0.027] | 1.000 | +0.017 [-0.002, +0.034] | 1.000 |
 | Per plan kNN | Qwen3 32B | +0.017 [-0.002, +0.035] | 1.000 | +0.023 [+0.003, +0.040] | 0.326 |
-| METIS port | Qwen2.5 7B | -0.005 [-0.024, +0.013] | 1.000 | -0.003 [-0.021, +0.016] | 1.000 |
-| METIS port | Llama 3.1 8B | +0.001 [-0.018, +0.020] | 1.000 | +0.003 [-0.016, +0.023] | 1.000 |
-| METIS port | Qwen3 14B | -0.003 [-0.022, +0.016] | 1.000 | -0.004 [-0.023, +0.015] | 1.000 |
-| METIS port | Gemma 3 27B | +0.002 [-0.017, +0.022] | 1.000 | -0.006 [-0.026, +0.013] | 1.000 |
-| METIS port | Qwen3 32B | -0.001 [-0.021, +0.018] | 1.000 | +0.013 [-0.006, +0.032] | 1.000 |
+| METIS style router | Qwen2.5 7B | -0.005 [-0.024, +0.013] | 1.000 | -0.003 [-0.021, +0.016] | 1.000 |
+| METIS style router | Llama 3.1 8B | +0.001 [-0.018, +0.020] | 1.000 | +0.003 [-0.016, +0.023] | 1.000 |
+| METIS style router | Qwen3 14B | -0.003 [-0.022, +0.016] | 1.000 | -0.004 [-0.023, +0.015] | 1.000 |
+| METIS style router | Gemma 3 27B | +0.002 [-0.017, +0.022] | 1.000 | -0.006 [-0.026, +0.013] | 1.000 |
+| METIS style router | Qwen3 32B | -0.001 [-0.021, +0.018] | 1.000 | +0.013 [-0.006, +0.032] | 1.000 |
 
 Decision rule: significant only if Holm p < 0.05 and CI above 0 in BOTH plan sets.
 
@@ -302,10 +302,14 @@ Observed differences equal J times true differences when grading error is the sa
 | Primary: best single plan† | 27 | 5/4 | +0.061 | 7/5 | +0.080 |
 | Primary: strict grading | 27 | 0/5 | +0.010 | 0/5 | +0.009 |
 | Primary: lenient grading | 27 | 0/4 | +0.019 | 0/5 | +0.022 |
-| Secondary routers, METIS | 30 | 0/6 | +0.029 | 1/5 | +0.030 |
+| Secondary family | 30 | 0/6 | +0.029 | 1/5 | +0.030 |
 | Stronger policies | 10 | 0/0 | +0.001 | 0/0 | -0.002 |
+| Primary: corrected test‡ | 27 | 0/5 | +0.013 | 0/5 | +0.017 |
+| Primary: corrected, x1.64‡ | 27 | 0/2 | +0.013 | 0/1 | +0.017 |
+| Primary: outside judge‡ | 27 | 0/6 | +0.015 | 1/6 | +0.020 |
+| Secondary, charged‡ | 30 | 0/6 | +0.011 | 0/4 | +0.014 |
 
-Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single step, 25 of 27 with two hop.
+Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x1.64: 26 and 25 (single step and with two hop).
 
 ## Fixed plans at depth 5, mean success over readers
 
@@ -316,7 +320,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | 2wikimultihopqa | bm25_2hop |
 | musique | qwen3_reranker_0_6b |
 
-## Review: plain against dataset stratified bootstrap
+## Checks: plain against dataset stratified bootstrap
 
 | Plan set | Family | Tests | Width ratio (median, range) | Interval above 0, plain / stratified | Upper bound below 0.03, plain / stratified |
 |---|---|---|---|---|---|
@@ -325,7 +329,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | with two hop | primary | 27 | 1.00 (0.93 to 1.05) | 0 / 0 | 25 / 25 |
 | with two hop | secondary routers | 30 | 0.98 (0.96 to 1.04) | 5 / 5 | 23 / 23 |
 
-## Review: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)
+## Checks: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)
 
 | Policy | Reader | Plan set | Gain | Plain 95% CI | Gain +/- 1.96 refit SD | p, refit SD | Refit mean shift |
 |---|---|---|---|---|---|---|---|
@@ -334,7 +338,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | Confidence cascade | Qwen2.5 7B | with two hop | +0.011 | [-0.008, +0.030] | [-0.011, +0.034] | 0.326 | +0.001 |
 | Reader cascade | 7B to Qwen3 14B | with two hop | +0.017 | [-0.001, +0.036] | [-0.007, +0.041] | 0.172 | -0.002 |
 
-## Review: what the policies learn (all 5 seeds; pair AUROC is the mean over reader and dataset blocks)
+## Checks: what the policies learn (all 5 seeds; pair AUROC is the mean over reader and dataset blocks)
 
 | Policy | Plan AUROC | Cross plan corr. | Pair AUROC | Seed range | Seed 0 95% CI | Pair questions per seed | Top plan share |
 |---|---|---|---|---|---|---|---|
@@ -342,7 +346,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | Planner, self knowledge | 0.654 | 0.993 | 0.481 | 0.473 to 0.490 | [0.450, 0.508] | 1,595 | 0.60 |
 | Per plan LR | 0.647 | 0.735 | 0.596 | 0.582 to 0.609 | [0.573, 0.629] | 2,397 | 0.43 |
 
-## Review: oracle headroom at each policy's own cost (gap / fraction closed)
+## Checks: oracle headroom at each policy's own cost (gap / fraction closed)
 
 | Policy | Qwen2.5 7B | Llama 3.1 8B | Qwen3 14B | Gemma 3 27B | Qwen3 32B |
 |---|---|---|---|---|---|
@@ -353,7 +357,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | Confidence cascade | 0.098 / +0.13 | 0.069 / +0.04 | 0.080 / -0.05 | 0.095 / +0.00 | 0.090 / -0.04 |
 | Per plan LR | 0.120 / +0.11 | 0.080 / +0.05 | 0.143 / +0.15 | 0.138 / +0.14 | 0.160 / +0.18 |
 
-## Review: per plan LR without and with its own cost (24.6 ms when the plan does not embed with BGE-M3), trained per dataset and on all four datasets
+## Checks: per plan LR without and with its own cost (24.6 ms when the plan does not embed with BGE-M3), trained per dataset and on all four datasets
 
 | Reader | Plan set | Per dataset, replay [95% CI] | Holm p | Per dataset, own cost [95% CI] | p | Pooled, replay | p  | Pooled, own cost | p   |
 |---|---|---|---|---|---|---|---|---|---|
@@ -368,7 +372,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | Gemma 3 27B | with two hop | +0.024 [+0.007, +0.042] | 0.184 | +0.014 [-0.003, +0.032] | 0.114 | +0.018 | 0.046 | +0.016 | 0.088 |
 | Qwen3 32B | with two hop | +0.030 [+0.011, +0.048] | 0.042 | +0.013 [-0.006, +0.030] | 0.154 | +0.012 | 0.177 | -0.002 | 0.788 |
 
-## Review: learning curve of per plan LR (gain over the hull, single step plans, no embedding cost)
+## Checks: learning curve of per plan LR (gain over the hull, single step plans, no embedding cost)
 
 | Reader | 20% | 40% | 60% | 80% | 100% |
 |---|---|---|---|---|---|
@@ -379,7 +383,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | Qwen3 32B | 0.000 | +0.006 | +0.011 | +0.023 | +0.029 |
 | Pooled | -0.002 | +0.003 | +0.006 | +0.012 | +0.018 |
 
-## Review: live end to end latency against the replay, Qwen2.5 7B (cells: median of 3 live runs)
+## Checks: live end to end latency against the replay, Qwen2.5 7B (cells: median of 3 live runs)
 
 | Data | Retriever | Cells | Live s | Stored s | Live / stored | Retrieval live / stored s | Index |
 |---|---|---|---|---|---|---|---|
@@ -394,7 +398,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | 2Wiki | closed book | 4 | 0.176 | 0.185 | 0.950 | 0.000 / 0.000 |  |
 | 2Wiki | splade v3 | 11 | 0.587 | 0.638 | 0.919 | 0.124 / 0.152 | no dense index |
 
-## Review: live end to end policy cost against the replayed cost, Qwen2.5 7B
+## Checks: live end to end policy cost against the replayed cost, Qwen2.5 7B
 
 | Data | Policy | Questions | Live s | Replay s | Live / replay | Same decision |
 |---|---|---|---|---|---|---|
@@ -404,7 +408,7 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | 2Wiki | Closed book gate | 116 | 0.186 | 0.197 | 0.942 | 1.00 |
 | 2Wiki | Per plan LR | 200 | 0.259 | 0.235 | 1.103 | 1.00 |
 
-## Review: the weak protocol turned into ours one factor at a time
+## Checks: the weak protocol turned into ours one factor at a time
 
 | Step | Wins |
 |---|---|
@@ -417,3 +421,193 @@ Margin test at 0.03 (upper bound below the margin after Holm): 27 of 27 single s
 | decision: Holm over the 100 cells | 0 of 100 |
 | pooled, gain above 0 | 8 of 25 |
 | pooled, Holm | 0 of 25 |
+
+## Checks: inference with refitting (corrected resampled t test; x1.64 = corrected SE times the largest refit ratio)
+
+| Family | Plan set | Tests | Positive: per question / corrected / x1.64 | Bound below 0.03: per question / corrected / x1.64 | Largest bound, corrected |
+|---|---|---|---|---|---|
+| Primary | single step | 27 | 0 / 0 / 0 | 27 / 27 / 26 | 0.025 |
+| Primary | with two hop | 27 | 0 / 0 / 0 | 26 / 26 / 25 | 0.031 |
+| Secondary, routers uncharged | single step | 30 | 0 / 2 / 0 | 25 / 26 / 23 | 0.042 |
+| Secondary, routers uncharged | with two hop | 30 | 1 / 3 / 0 | 23 / 24 / 22 | 0.042 |
+| Secondary, routers charged | single step | 30 | 0 / 0 / 0 | 30 / 30 / 29 | 0.023 |
+| Secondary, routers charged | with two hop | 30 | 0 / 0 / 0 | 30 / 30 / 23 | 0.028 |
+| Stronger | single step | 10 | 0 / 0 / 0 | 10 / 10 / 10 | 0.009 |
+| Stronger | with two hop | 10 | 0 / 0 / 0 | 10 / 10 / 10 | 0.006 |
+
+## Checks: every one sided 95% upper bound of the primary family
+
+| Policy | Reader | Gain, single | Bound, per question | Bound, corrected | Gain, two hop | Bound, per question  | Bound, corrected  |
+|---|---|---|---|---|---|---|---|
+| TSR planner | Qwen2.5 7B | +0.004 | 0.019 | 0.016 | +0.002 | 0.017 | 0.013 |
+| TSR planner | Llama 3.1 8B | +0.005 | 0.020 | 0.014 | +0.006 | 0.021 | 0.014 |
+| TSR planner | Qwen3 14B | +0.004 | 0.019 | 0.013 | +0.005 | 0.020 | 0.015 |
+| TSR planner | Gemma 3 27B | -0.001 | 0.014 | 0.010 | +0.004 | 0.018 | 0.015 |
+| TSR planner | Qwen3 32B | +0.004 | 0.019 | 0.014 | +0.007 | 0.021 | 0.017 |
+| Adaptive RAG router | Qwen2.5 7B | -0.023 | -0.007 | -0.008 | -0.051 | -0.035 | -0.033 |
+| Adaptive RAG router | Llama 3.1 8B | -0.059 | -0.043 | -0.044 | -0.069 | -0.053 | -0.052 |
+| Adaptive RAG router | Qwen3 14B | -0.052 | -0.036 | -0.034 | -0.058 | -0.042 | -0.039 |
+| Adaptive RAG router | Gemma 3 27B | -0.032 | -0.016 | -0.016 | -0.021 | -0.005 | -0.004 |
+| Adaptive RAG router | Qwen3 32B | -0.060 | -0.043 | -0.042 | -0.052 | -0.035 | -0.029 |
+| Adaptive k (gap) | Qwen2.5 7B | -0.016 | 0.001 | -0.005 | -0.016 | 0.001 | -0.005 |
+| Adaptive k (gap) | Llama 3.1 8B | -0.022 | -0.006 | -0.012 | -0.022 | -0.006 | -0.012 |
+| Adaptive k (gap) | Qwen3 14B | -0.016 | 0.001 | -0.004 | -0.016 | 0.001 | -0.004 |
+| Adaptive k (gap) | Gemma 3 27B | -0.025 | -0.008 | -0.012 | -0.023 | -0.006 | -0.010 |
+| Adaptive k (gap) | Qwen3 32B | -0.012 | 0.006 | -0.001 | -0.011 | 0.006 | -0.001 |
+| Closed book gate | Qwen2.5 7B | -0.002 | 0.013 | 0.000 | -0.002 | 0.013 | 0.000 |
+| Closed book gate | Llama 3.1 8B | -0.003 | 0.014 | 0.004 | -0.001 | 0.015 | 0.005 |
+| Closed book gate | Qwen3 14B | 0.000 | 0.017 | 0.002 | -0.001 | 0.015 | 0.006 |
+| Closed book gate | Gemma 3 27B | -0.004 | 0.012 | 0.000 | -0.004 | 0.012 | 0.000 |
+| Closed book gate | Qwen3 32B | -0.001 | 0.015 | 0.001 | 0.000 | 0.016 | 0.008 |
+| Confidence cascade | Qwen2.5 7B | +0.013 | 0.029 | 0.025 | +0.011 | 0.028 | 0.025 |
+| Confidence cascade | Llama 3.1 8B | +0.002 | 0.019 | 0.014 | 0.000 | 0.016 | 0.011 |
+| Confidence cascade | Qwen3 14B | -0.004 | 0.011 | 0.000 | -0.007 | 0.009 | -0.001 |
+| Confidence cascade | Gemma 3 27B | 0.000 | 0.016 | 0.006 | -0.005 | 0.010 | 0.002 |
+| Confidence cascade | Qwen3 32B | -0.003 | 0.012 | 0.006 | -0.003 | 0.012 | 0.007 |
+| Reader cascade | 7B to Qwen3 14B | +0.006 | 0.021 | 0.017 | +0.017 | 0.032 | 0.031 |
+| Reader cascade | 7B to Llama 3.1 8B | +0.006 | 0.021 | 0.017 | -0.001 | 0.015 | 0.013 |
+
+## Checks: mixed workload (2,000 pooled questions per reader; corrected test, Holm within family)
+
+| Policies | Plan set | Tests | Pos./neg., global hull | Gain, global hull | Pos./neg., label hull | Gain, label hull |
+|---|---|---|---|---|---|---|
+| Primary policies | single step | 27 | 0 / 5 | -0.077 to +0.011 | 0 / 8 | -0.098 to +0.003 |
+| Primary policies | with two hop | 27 | 0 / 3 | -0.061 to +0.021 | 0 / 10 | -0.092 to 0.000 |
+| Adaptive RAG as published | single step | 5 | 0 / 5 | -0.073 to -0.027 | 0 / 5 | -0.094 to -0.038 |
+| Adaptive RAG as published | with two hop | 5 | 0 / 4 | -0.052 to -0.004 | 0 / 5 | -0.082 to -0.041 |
+| Secondary routers, no own cost | single step | 25 | 6 / 5 | -0.083 to +0.053 | 0 / 5 | -0.103 to +0.006 |
+| Secondary routers, no own cost | with two hop | 25 | 5 / 2 | -0.048 to +0.053 | 0 / 8 | -0.084 to +0.004 |
+| Embedding routers, own cost | single step | 10 | 1 / 0 | -0.003 to +0.024 | 0 / 1 | -0.026 to -0.005 |
+| Embedding routers, own cost | with two hop | 10 | 4 / 0 | +0.013 to +0.042 | 0 / 0 | -0.014 to -0.003 |
+| Dataset guess + label hull, own cost | single step | 5 | 0 / 0 | +0.003 to +0.022 | 0 / 0 | -0.023 to -0.001 |
+| Dataset guess + label hull, own cost | with two hop | 5 | 5 / 0 | +0.027 to +0.042 | 0 / 0 | -0.004 to 0.000 |
+
+## Checks: mixed workload decomposition (mean over readers): gain over global hull = workload part + gain over label hull
+
+| Policy | Global, single | Workload, single | Label, single | Global, two hop | Workload, two hop | Label, two hop |
+|---|---|---|---|---|---|---|
+| TSR planner | +0.006 | +0.026 | -0.020 | +0.007 | +0.030 | -0.024 |
+| Reader cascade | +0.006 | +0.019 | -0.012 | +0.020 | +0.033 | -0.013 |
+| Per plan LR | +0.029 | +0.033 | -0.004 | +0.031 | +0.037 | -0.006 |
+| Per plan kNN | +0.032 | +0.035 | -0.003 | +0.031 | +0.036 | -0.005 |
+| Per plan LR, own cost | +0.007 | +0.027 | -0.020 | +0.031 | +0.038 | -0.007 |
+| Per plan kNN, own cost | +0.014 | +0.028 | -0.015 | +0.026 | +0.036 | -0.011 |
+| Dataset guess + label hull | +0.029 | +0.036 | -0.006 | +0.035 | +0.039 | -0.004 |
+| Dataset guess, own cost | +0.012 | +0.021 | -0.009 | +0.036 | +0.038 | -0.002 |
+
+## Checks: learning curve on the mixed workload, gain over the label hull (per question skill), mean over readers, by training questions
+
+| Plan set | Policy | 320 | 640 | 960 | 1,280 | 1,600 |
+|---|---|---|---|---|---|---|
+| single step | Per plan LR | -0.016 | -0.010 | -0.006 | -0.005 | -0.004 |
+| single step | Per plan LR, own cost | -0.023 | -0.022 | -0.019 | -0.020 | -0.020 |
+| single step | Per plan kNN | -0.019 | -0.013 | -0.007 | -0.002 | -0.003 |
+| single step | Per plan kNN, own cost | -0.028 | -0.024 | -0.019 | -0.016 | -0.015 |
+| with two hop | Per plan LR | -0.018 | -0.013 | -0.008 | -0.006 | -0.006 |
+| with two hop | Per plan LR, own cost | -0.024 | -0.016 | -0.012 | -0.009 | -0.007 |
+| with two hop | Per plan kNN | -0.022 | -0.016 | -0.010 | -0.005 | -0.005 |
+| with two hop | Per plan kNN, own cost | -0.027 | -0.020 | -0.015 | -0.012 | -0.011 |
+
+## Checks: routers trained on the plan difference (corrected test, Holm over 10 per plan set and cost)
+
+| Router | Plan set | Gain, no own cost | Positive | Gain, own cost | Positive  | Pair AUROC | Per plan LR, same pairs |
+|---|---|---|---|---|---|---|---|
+| Difference classifier | single step | +0.010 to +0.025 | 4 | +0.002 to +0.016 | 0 | 0.674 | 0.677 |
+| Difference classifier | with two hop | +0.013 to +0.037 | 5 | +0.010 to +0.027 | 1 | 0.683 | 0.686 |
+| Difference regression | single step | +0.008 to +0.028 | 4 | +0.001 to +0.016 | 0 | 0.647 | 0.656 |
+| Difference regression | with two hop | +0.007 to +0.028 | 4 | +0.004 to +0.018 | 0 | 0.657 | 0.665 |
+
+## Checks: the primary verdict under each check (corrected test, Holm within plan set)
+
+| Check (primary family) | Positive, single step | Largest gain, single step | Positive, with two hop | Largest gain, with two hop |
+|---|---|---|---|---|
+| Paper protocol, corrected test | 0 of 27 | +0.013 | 0 of 27 | +0.017 |
+| Realized per question costs | 0 of 27 | +0.013 | 0 of 27 | +0.016 |
+| Plan costs from training folds only | 0 of 27 | +0.012 | 0 of 27 | +0.017 |
+| Closed book prompt of~\cite{moskvoretskii2025adaptive}, measured time (Llama, 7 policies) | 0 of 7 | +0.005 | 0 of 7 | +0.005 |
+| Closed book prompt of~\cite{moskvoretskii2025adaptive}, old time (Llama, 7 policies) | 0 of 7 | +0.004 | 0 of 7 | +0.005 |
+| Labels from the outside judge | 0 of 27 | +0.015 | 1 of 27 | +0.020 |
+
+## Checks: grading exposure, policy against hull mix
+
+| Plan set | Tests | Judge share, policy minus hull: median | Range | Long contained, policy minus hull: range |
+|---|---|---|---|---|
+| single step | 67 | +0.0004 | -0.025 to +0.022 | -0.029 to +0.009 |
+| with two hop | 67 | +0.0004 | -0.030 to +0.021 | -0.036 to +0.007 |
+
+## Checks: label_final against the human majority, by reader (audits 1 and 2)
+
+| Reader | Audit | Answers | Agreement | Sensitivity | Specificity | J |
+|---|---|---|---|---|---|---|
+| Gemma 3 27B | 2 | 132 | 0.833 | 0.721 | 0.953 | 0.674 |
+| Llama 3.1 8B | 1 | 94 | 0.798 | 0.714 | 0.921 | 0.635 |
+| Qwen2.5 7B | 1 | 68 | 0.765 | 0.517 | 0.949 | 0.466 |
+| Qwen3 14B | 1 | 38 | 0.868 | 0.750 | 0.955 | 0.705 |
+| Qwen3 32B | 2 | 128 | 0.875 | 0.836 | 0.918 | 0.754 |
+
+## Checks: 95th percentile latency, policy over its hull (median over readers)
+
+| Policy | p95 ratio, single step | p95 ratio, with two hop |
+|---|---|---|
+| TSR planner | 1.02 | 1.02 |
+| Adaptive RAG router | 1.11 | 1.07 |
+| Adaptive k (gap) | 1.09 | 1.09 |
+| Closed book gate | 1.01 | 1.05 |
+| Confidence cascade | 1.29 | 1.32 |
+| Reader cascade | 1.36 | 1.42 |
+| Per plan LR | 1.14 | 1.09 |
+
+## Checks: budget sweep, mean gain over readers by budget (1 = cheapest plan, 6 = most successful plan)
+
+| Policy | 1 | 2 | 3 | 4 | 5 | 6 | Intervals above 0 |
+|---|---|---|---|---|---|---|---|
+| TSR planner | -0.013 | -0.002 | 0.000 | -0.002 | -0.001 | 0.000 | 0 |
+| Closed book gate | -0.034 | -0.089 | -0.073 | -0.061 | -0.041 | -0.032 | 0 |
+| Confidence cascade | -0.034 | -0.019 | -0.014 | -0.006 | -0.007 | -0.006 | 0 |
+| Reader cascade (7B to Qwen3 14B) | -0.159 | -0.003 | +0.012 | +0.015 | +0.010 | +0.012 | 1 |
+| Per plan LR, no own cost | +0.016 | +0.010 | +0.003 | +0.001 | -0.001 | -0.001 | 5 |
+| Per plan LR, own cost | -0.001 | +0.003 | -0.001 | -0.001 | -0.002 | -0.001 | 0 |
+
+## Checks: closed book accuracy of Llama 3.1 8B (answer contained, the metric of [10])
+
+| Run | NQ | HotpotQA | 2Wiki | MuSiQue | Abstain | Time (s) |
+|---|---|---|---|---|---|---|
+| Their stored answers, their questions | 0.400 | 0.286 | 0.318 | 0.106 | 0.009 |  |
+| Their prompt, our run, their questions | 0.414 | 0.286 | 0.342 | 0.104 | 0.013 | 2.66 |
+| Our prompt, their questions | 0.294 | 0.232 | 0.260 | 0.038 | 0.059 | 0.56 |
+| Our prompt, our questions (paper) | 0.350 | 0.210 | 0.250 | 0.046 | 0.053 | 0.46 |
+| Their prompt, our questions | 0.442 | 0.284 | 0.342 | 0.118 | 0.012 | 2.77 |
+| Their Table 1, Never RAG | 0.446 | 0.286 | 0.318 | 0.106 |  |  |
+
+## Checks: Adaptive RAG with IRCoT as its top rung (pooled per reader, 3 readers)
+
+| Classifier | Plan set | IRCoT share | Gain, fixed hull | Pooled pos./neg. | Cells pos./neg. | Gain, hull with IRCoT | Pooled pos./neg.  | Cells pos./neg.  |
+|---|---|---|---|---|---|---|---|---|
+| TF IDF LR | single step | 0.53 to 0.60 | -0.030 to +0.029 | 0 / 0 | 1 / 1 | -0.049 to +0.005 | 0 / 1 | 0 / 1 |
+| TF IDF LR | with two hop | 0.53 to 0.60 | -0.049 to +0.016 | 0 / 1 | 0 / 1 | -0.059 to 0.000 | 0 / 2 | 0 / 2 |
+| BGE M3 LR | single step | 0.51 to 0.56 | -0.025 to +0.017 | 0 / 0 | 1 / 1 | -0.043 to -0.007 | 0 / 1 | 0 / 1 |
+| BGE M3 LR | with two hop | 0.51 to 0.56 | -0.043 to +0.004 | 0 / 1 | 0 / 1 | -0.053 to -0.012 | 0 / 2 | 0 / 1 |
+
+## Checks: power of the Table IX decision rules (80% power)
+
+| Decision rule | Tests | MDE (median) | Expected wins at 0.02 | Expected wins at 0.03 |
+|---|---|---|---|---|
+| per cell, 95% interval above 0 and p < 0.05 | 100 | 0.055 | 18.5 | 35.5 |
+| per cell, Holm over 100 (strictest step, Bonferroni bound) | 100 | 0.085 | 0.8 | 3.3 |
+| pooled over datasets, p < 0.05 | 25 | 0.027 | 13.6 | 21.8 |
+| pooled, Holm over 25 (strictest step, Bonferroni bound) | 25 | 0.038 | 3.9 | 12.6 |
+
+## Checks: both judges against the human majority on the audited answers in the ambiguous band
+
+| Judge | Answers | Agreement | Sensitivity | Specificity | J |
+|---|---|---|---|---|---|
+| Qwen3 14B | 393 | 0.791 | 0.683 | 0.930 | 0.613 |
+| Mistral Small 3.1 24B | 393 | 0.768 | 0.638 | 0.936 | 0.574 |
+
+## Checks: audit of the answers where the policy and the hull disagree
+
+| Test | Questions | Discordant share | label_final error, policy | label_final error, hull | Bias on the gain [95% CI] |
+|---|---|---|---|---|---|
+| Confidence cascade, Qwen2.5 7B, single step | 100 | 0.27 | 0.060 | 0.040 | -0.011 [-0.024, 0.000] |
+| Per plan LR, Qwen3 32B, single step | 100 | 0.40 | 0.040 | 0.040 | -0.008 [-0.032, +0.012] |
+| Reader cascade, 7B to Qwen3 14B, with two hop | 100 | 0.37 | 0.070 | 0.050 | 0.000 [-0.019, +0.022] |

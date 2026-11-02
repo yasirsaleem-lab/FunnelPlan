@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{The judge in our pipeline (Qwen3 14B) and a judge from outside every reader family (Mistral Small 3.1 24B, about 4 bits) against the human majority, on the audited answers of the ambiguous band.}
+\label{tab:rev2_judges}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr}
+\toprule
+Judge & Answers & Agreement & Sensitivity & Specificity & J \\
+\midrule
+Qwen3 14B & 393 & 0.791 & 0.683 & 0.930 & 0.613 \\
+Mistral Small 3.1 24B & 393 & 0.768 & 0.638 & 0.936 & 0.574 \\
+\bottomrule
+\end{tabular*}
+\end{table}

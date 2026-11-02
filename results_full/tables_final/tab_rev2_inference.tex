@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Inference that accounts for refitting. Per question: $t$ test on the 2,000 pooled gains, with the fitted policies and hulls fixed. Corrected: resampled t test on the 25 fold gains per reader and dataset (Nadeau and Bengio). $\times$1.64: corrected standard errors inflated by the largest ratio of the refit bootstrap spread to the corrected error. Positive: Holm p below 0.05 and interval above 0. Bound: one-sided 95\% upper bound.}
+\label{tab:rev2_inference}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrr}
+\toprule
+Family & Plan set & Tests & \begin{tabular}[b]{@{}r@{}}Positive: per \\ question / \\ corrected / \\ $\times$1.64\end{tabular} & \begin{tabular}[b]{@{}r@{}}Bound below \\ 0.03: per \\ question / \\ corrected / \\ $\times$1.64\end{tabular} & \begin{tabular}[b]{@{}r@{}}Largest bound, \\ corrected\end{tabular} \\
+\midrule
+Primary & single-step & 27 & 0 / 0 / 0 & 27 / 27 / 26 & 0.025 \\
+Primary & with two-hop & 27 & 0 / 0 / 0 & 26 / 26 / 25 & 0.031 \\
+Secondary, routers uncharged & single-step & 30 & 0 / 2 / 0 & 25 / 26 / 23 & 0.042 \\
+Secondary, routers uncharged & with two-hop & 30 & 1 / 3 / 0 & 23 / 24 / 22 & 0.042 \\
+Secondary, routers charged & single-step & 30 & 0 / 0 / 0 & 30 / 30 / 29 & 0.023 \\
+Secondary, routers charged & with two-hop & 30 & 0 / 0 / 0 & 30 / 30 / 23 & 0.028 \\
+Stronger & single-step & 10 & 0 / 0 / 0 & 10 / 10 / 10 & 0.009 \\
+Stronger & with two-hop & 10 & 0 / 0 / 0 & 10 / 10 / 10 & 0.006 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

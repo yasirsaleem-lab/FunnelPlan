@@ -1,0 +1,16 @@
+Audit 3: answers on which the policy and its hull disagree. Items 586; labelled by both raters 586; raters agree on 0.940, kappa 0.862; 35 adjudicated (35 disagreements, 0 left blank by one rater).
+
+== conf_cascade|qwen2.5-7b|single step: 100 discordant questions sampled; 0.267 of all held out questions are discordant
+  policy human correct 0.370; label_final error 0.060 (false positive 0.000, false negative 0.060); strict error 0.100
+  hull   human correct 0.290; label_final error 0.040 (false positive 0.010, false negative 0.030); strict error 0.080
+  bias of label_final on the gain: -0.0107 [-0.0240, +0.0000] (positive: label_final overstates the policy's gain); strict rule -0.0107
+
+== plan_emb|qwen3-32b|single step: 100 discordant questions sampled; 0.397 of all held out questions are discordant
+  policy human correct 0.370; label_final error 0.040 (false positive 0.000, false negative 0.040); strict error 0.120
+  hull   human correct 0.330; label_final error 0.040 (false positive 0.010, false negative 0.030); strict error 0.080
+  bias of label_final on the gain: -0.0079 [-0.0318, +0.0119] (positive: label_final overstates the policy's gain); strict rule -0.0159
+
+== reader_cascade|qwen2.5-7b->qwen3-14b|with two hop: 100 discordant questions sampled; 0.372 of all held out questions are discordant
+  policy human correct 0.290; label_final error 0.070 (false positive 0.010, false negative 0.060); strict error 0.090
+  hull   human correct 0.330; label_final error 0.050 (false positive 0.000, false negative 0.050); strict error 0.050
+  bias of label_final on the gain: +0.0000 [-0.0186, +0.0223] (positive: label_final overstates the policy's gain); strict rule +0.0000

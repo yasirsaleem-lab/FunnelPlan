@@ -1,0 +1,39 @@
+Closed book prompt check, Llama 3.1 8B. contains_acc = answer contained accuracy (the metric of [10]);
+their Table 1 Never RAG values for reference. Abstain = refusal or 'unknown' style answer (regular expression).
+
+dataset                   2wikimultihopqa  hotpotqa  musique     nq
+run                                                                
+our_prompt_our_q (paper)            0.250     0.210    0.046  0.350
+our_prompt_their_q                  0.260     0.232    0.038  0.294
+their_answers_their_q               0.318     0.286    0.106  0.400
+their_prompt_our_q                  0.342     0.284    0.118  0.442
+their_prompt_their_q                0.342     0.286    0.104  0.414
+
+label_final accuracy:
+dataset                   2wikimultihopqa  hotpotqa  musique     nq
+run                                                                
+our_prompt_our_q (paper)            0.154     0.280    0.062  0.418
+our_prompt_their_q                  0.166     0.284    0.054  0.382
+their_answers_their_q               0.352     0.376    0.138  0.498
+their_prompt_our_q                  0.344     0.370    0.148  0.518
+their_prompt_their_q                0.344     0.370    0.132  0.514
+
+abstention share:
+dataset                   2wikimultihopqa  hotpotqa  musique     nq
+run                                                                
+our_prompt_our_q (paper)            0.098     0.034    0.074  0.006
+our_prompt_their_q                  0.112     0.034    0.088  0.002
+their_answers_their_q               0.020     0.004    0.008  0.006
+their_prompt_our_q                  0.028     0.004    0.004  0.012
+their_prompt_their_q                0.020     0.002    0.004  0.024
+
+mean time per answer (s) and generated tokens:
+                          time_s  gen_tokens
+run                                         
+our_prompt_our_q (paper)   0.457       9.993
+our_prompt_their_q         0.561       9.834
+their_answers_their_q        NaN         NaN
+their_prompt_our_q         2.770      42.622
+their_prompt_their_q       2.662      42.526
+
+our run of their prompt reproduces their stored answer exactly (normalised) for 0.663 of their questions; correctness agrees for 0.925

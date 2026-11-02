@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Power of the decision rules of the protocol ablation: minimum detectable effect at 80\% power (median over tests), and the number of tests expected to win if every cell had a true gain of 0.02 or 0.03 (normal approximation; Holm rows use the strictest step).}
+\label{tab:rev2_mde}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
+\toprule
+Decision rule & Tests & MDE (median) & \begin{tabular}[b]{@{}r@{}}Expected wins \\ at 0.02\end{tabular} & \begin{tabular}[b]{@{}r@{}}Expected wins \\ at 0.03\end{tabular} \\
+\midrule
+per cell, 95\% interval above 0 and p $<$ 0.05 & 100 & 0.055 & 18.5 & 35.5 \\
+per cell, Holm over 100 (strictest step, Bonferroni bound) & 100 & 0.085 & 0.8 & 3.3 \\
+pooled over datasets, p $<$ 0.05 & 25 & 0.027 & 13.6 & 21.8 \\
+pooled, Holm over 25 (strictest step, Bonferroni bound) & 25 & 0.038 & 3.9 & 12.6 \\
+\bottomrule
+\end{tabular*}
+\end{table}

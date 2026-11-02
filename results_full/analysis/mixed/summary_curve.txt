@@ -1,0 +1,217 @@
+Mixed workload condition. Readers ['gemma3-27b', 'llama3.1-8b', 'qwen2.5-7b', 'qwen3-14b', 'qwen3-32b']; seeds [0, 1, 2, 3, 4]; 5 folds over the pooled questions; plan sets ['single', 'r3']; ar_t5 off; METIS on.
+
+######## plan set: single step
+== gemma3-27b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.494 at 2.64s
+    plan_emb@0.2      global +0.0037  label -0.0181  cost 0.661s  (20s)
+    plan_emb_own@0.2  global -0.0025  label -0.0158  cost 1.076s  (38s)
+    plan_knn@0.2      global +0.0076  label -0.0123  cost 0.530s  (39s)
+    plan_knn_own@0.2  global -0.0035  label -0.0213  cost 0.816s  (40s)
+    plan_emb@0.4      global +0.0130  label -0.0130  cost 0.527s  (62s)
+    plan_emb_own@0.4  global +0.0008  label -0.0240  cost 0.663s  (84s)
+    plan_knn@0.4      global +0.0170  label -0.0080  cost 0.479s  (86s)
+    plan_knn_own@0.4  global +0.0101  label -0.0150  cost 0.590s  (87s)
+    plan_emb@0.6      global +0.0220  label -0.0043  cost 0.409s  (114s)
+    plan_emb_own@0.6  global +0.0080  label -0.0160  cost 0.580s  (140s)
+    plan_knn@0.6      global +0.0316  label +0.0018  cost 0.397s  (142s)
+    plan_knn_own@0.6  global +0.0154  label -0.0123  cost 0.466s  (144s)
+    plan_emb@0.8      global +0.0249  label -0.0018  cost 0.401s  (172s)
+    plan_emb_own@0.8  global +0.0094  label -0.0185  cost 0.425s  (200s)
+    plan_knn@0.8      global +0.0363  label +0.0078  cost 0.382s  (203s)
+    plan_knn_own@0.8  global +0.0234  label -0.0034  cost 0.447s  (205s)
+== llama3.1-8b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 31 common plans; best pooled plan qwen3_reranker_0_6b@10 0.475 at 2.07s
+    plan_emb@0.2      global +0.0036  label -0.0124  cost 0.691s  (226s)
+    plan_emb_own@0.2  global -0.0065  label -0.0189  cost 0.852s  (246s)
+    plan_knn@0.2      global -0.0041  label -0.0183  cost 0.670s  (247s)
+    plan_knn_own@0.2  global -0.0081  label -0.0172  cost 0.840s  (248s)
+    plan_emb@0.4      global +0.0184  label -0.0032  cost 0.481s  (272s)
+    plan_emb_own@0.4  global +0.0015  label -0.0155  cost 0.626s  (296s)
+    plan_knn@0.4      global +0.0079  label -0.0107  cost 0.548s  (297s)
+    plan_knn_own@0.4  global -0.0001  label -0.0173  cost 0.659s  (299s)
+    plan_emb@0.6      global +0.0252  label +0.0022  cost 0.439s  (327s)
+    plan_emb_own@0.6  global +0.0115  label -0.0092  cost 0.472s  (356s)
+    plan_knn@0.6      global +0.0140  label -0.0059  cost 0.484s  (358s)
+    plan_knn_own@0.6  global +0.0058  label -0.0113  cost 0.664s  (359s)
+    plan_emb@0.8      global +0.0247  label +0.0004  cost 0.436s  (392s)
+    plan_emb_own@0.8  global +0.0090  label -0.0121  cost 0.555s  (424s)
+    plan_knn@0.8      global +0.0195  label -0.0022  cost 0.458s  (427s)
+    plan_knn_own@0.8  global +0.0095  label -0.0100  cost 0.577s  (429s)
+== qwen2.5-7b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 31 common plans; best pooled plan qwen3_reranker_0_6b@10 0.465 at 1.97s
+    plan_emb@0.2      global +0.0002  label -0.0160  cost 0.619s  (449s)
+    plan_emb_own@0.2  global -0.0073  label -0.0223  cost 0.704s  (468s)
+    plan_knn@0.2      global -0.0047  label -0.0241  cost 0.547s  (469s)
+    plan_knn_own@0.2  global -0.0119  label -0.0304  cost 0.691s  (470s)
+    plan_emb@0.4      global +0.0000  label -0.0185  cost 0.456s  (493s)
+    plan_emb_own@0.4  global -0.0075  label -0.0213  cost 0.657s  (515s)
+    plan_knn@0.4      global +0.0014  label -0.0206  cost 0.442s  (517s)
+    plan_knn_own@0.4  global -0.0103  label -0.0267  cost 0.754s  (518s)
+    plan_emb@0.6      global +0.0106  label -0.0133  cost 0.372s  (546s)
+    plan_emb_own@0.6  global -0.0084  label -0.0225  cost 0.565s  (573s)
+    plan_knn@0.6      global +0.0124  label -0.0169  cost 0.328s  (575s)
+    plan_knn_own@0.6  global +0.0005  label -0.0171  cost 0.795s  (577s)
+    plan_emb@0.8      global +0.0169  label -0.0108  cost 0.353s  (608s)
+    plan_emb_own@0.8  global -0.0040  label -0.0231  cost 0.674s  (639s)
+    plan_knn@0.8      global +0.0206  label -0.0086  cost 0.308s  (641s)
+    plan_knn_own@0.8  global -0.0012  label -0.0197  cost 0.741s  (644s)
+== qwen3-14b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.509 at 3.55s
+    plan_emb@0.2      global +0.0239  label -0.0181  cost 1.611s  (661s)
+    plan_emb_own@0.2  global -0.0031  label -0.0279  cost 1.908s  (678s)
+    plan_knn@0.2      global +0.0254  label -0.0226  cost 1.501s  (679s)
+    plan_knn_own@0.2  global -0.0094  label -0.0349  cost 1.746s  (680s)
+    plan_emb@0.4      global +0.0381  label -0.0096  cost 1.500s  (700s)
+    plan_emb_own@0.4  global +0.0017  label -0.0235  cost 1.745s  (720s)
+    plan_knn@0.4      global +0.0348  label -0.0131  cost 1.502s  (721s)
+    plan_knn_own@0.4  global +0.0047  label -0.0315  cost 1.669s  (722s)
+    plan_emb@0.6      global +0.0417  label -0.0062  cost 1.497s  (747s)
+    plan_emb_own@0.6  global +0.0107  label -0.0193  cost 1.691s  (771s)
+    plan_knn@0.6      global +0.0462  label -0.0025  cost 1.494s  (773s)
+    plan_knn_own@0.6  global +0.0151  label -0.0269  cost 1.535s  (775s)
+    plan_emb@0.8      global +0.0461  label -0.0017  cost 1.498s  (803s)
+    plan_emb_own@0.8  global +0.0080  label -0.0235  cost 1.723s  (832s)
+    plan_knn@0.8      global +0.0463  label -0.0019  cost 1.495s  (835s)
+    plan_knn_own@0.8  global +0.0177  label -0.0233  cost 1.645s  (837s)
+== qwen3-32b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 25 common plans; best pooled plan qwen3_reranker_0_6b@10 0.539 at 3.17s
+    plan_emb@0.2      global +0.0135  label -0.0168  cost 0.550s  (856s)
+    plan_emb_own@0.2  global -0.0064  label -0.0315  cost 0.974s  (873s)
+    plan_knn@0.2      global +0.0085  label -0.0200  cost 0.605s  (874s)
+    plan_knn_own@0.2  global -0.0110  label -0.0368  cost 0.860s  (874s)
+    plan_emb@0.4      global +0.0246  label -0.0079  cost 0.486s  (894s)
+    plan_emb_own@0.4  global +0.0055  label -0.0253  cost 1.032s  (914s)
+    plan_knn@0.4      global +0.0248  label -0.0127  cost 0.541s  (916s)
+    plan_knn_own@0.4  global +0.0010  label -0.0319  cost 1.005s  (917s)
+    plan_emb@0.6      global +0.0297  label -0.0095  cost 0.417s  (941s)
+    plan_emb_own@0.6  global +0.0035  label -0.0261  cost 1.021s  (966s)
+    plan_knn@0.6      global +0.0318  label -0.0104  cost 0.435s  (968s)
+    plan_knn_own@0.6  global +0.0105  label -0.0259  cost 0.877s  (970s)
+    plan_emb@0.8      global +0.0320  label -0.0088  cost 0.431s  (999s)
+    plan_emb_own@0.8  global +0.0161  label -0.0207  cost 0.708s  (1027s)
+    plan_knn@0.8      global +0.0333  label -0.0063  cost 0.424s  (1030s)
+    plan_knn_own@0.8  global +0.0140  label -0.0231  cost 0.666s  (1032s)
+
+######## plan set: with two hop
+== gemma3-27b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.494 at 2.64s
+    plan_emb@0.2      global +0.0154  label -0.0192  cost 1.007s  (20s)
+    plan_emb_own@0.2  global +0.0189  label -0.0202  cost 1.350s  (38s)
+    plan_knn@0.2      global +0.0104  label -0.0241  cost 1.000s  (39s)
+    plan_knn_own@0.2  global +0.0073  label -0.0281  cost 1.163s  (40s)
+    plan_emb@0.4      global +0.0255  label -0.0144  cost 1.250s  (63s)
+    plan_emb_own@0.4  global +0.0288  label -0.0159  cost 1.546s  (87s)
+    plan_knn@0.4      global +0.0250  label -0.0087  cost 1.013s  (89s)
+    plan_knn_own@0.4  global +0.0271  label -0.0117  cost 1.333s  (90s)
+    plan_emb@0.6      global +0.0290  label -0.0134  cost 1.222s  (120s)
+    plan_emb_own@0.6  global +0.0320  label -0.0104  cost 1.468s  (153s)
+    plan_knn@0.6      global +0.0284  label -0.0060  cost 0.862s  (156s)
+    plan_knn_own@0.6  global +0.0318  label -0.0102  cost 1.351s  (158s)
+    plan_emb@0.8      global +0.0328  label -0.0060  cost 1.246s  (191s)
+    plan_emb_own@0.8  global +0.0382  label -0.0069  cost 1.505s  (223s)
+    plan_knn@0.8      global +0.0360  label -0.0008  cost 1.082s  (226s)
+    plan_knn_own@0.8  global +0.0365  label -0.0031  cost 1.281s  (229s)
+== llama3.1-8b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 33 common plans; best pooled plan qwen3_reranker_0_6b@10 0.475 at 2.07s
+    plan_emb@0.2      global +0.0075  label -0.0165  cost 0.773s  (253s)
+    plan_emb_own@0.2  global +0.0011  label -0.0225  cost 0.916s  (276s)
+    plan_knn@0.2      global +0.0026  label -0.0195  cost 0.864s  (277s)
+    plan_knn_own@0.2  global -0.0010  label -0.0235  cost 1.040s  (278s)
+    plan_emb@0.4      global +0.0195  label -0.0067  cost 0.615s  (305s)
+    plan_emb_own@0.4  global +0.0096  label -0.0115  cost 0.814s  (332s)
+    plan_knn@0.4      global +0.0107  label -0.0161  cost 0.758s  (334s)
+    plan_knn_own@0.4  global +0.0072  label -0.0200  cost 0.977s  (335s)
+    plan_emb@0.6      global +0.0207  label -0.0026  cost 0.630s  (368s)
+    plan_emb_own@0.6  global +0.0126  label -0.0121  cost 0.900s  (401s)
+    plan_knn@0.6      global +0.0165  label -0.0086  cost 0.845s  (403s)
+    plan_knn_own@0.6  global +0.0146  label -0.0130  cost 1.133s  (405s)
+    plan_emb@0.8      global +0.0188  label -0.0024  cost 0.816s  (441s)
+    plan_emb_own@0.8  global +0.0177  label -0.0069  cost 1.092s  (476s)
+    plan_knn@0.8      global +0.0173  label -0.0093  cost 0.891s  (479s)
+    plan_knn_own@0.8  global +0.0155  label -0.0113  cost 1.115s  (481s)
+== qwen2.5-7b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 33 common plans; best pooled plan qwen3_reranker_0_6b@10 0.465 at 1.97s
+    plan_emb@0.2      global +0.0059  label -0.0176  cost 0.606s  (504s)
+    plan_emb_own@0.2  global +0.0037  label -0.0256  cost 0.780s  (526s)
+    plan_knn@0.2      global -0.0001  label -0.0227  cost 0.639s  (527s)
+    plan_knn_own@0.2  global -0.0020  label -0.0289  cost 0.769s  (528s)
+    plan_emb@0.4      global +0.0066  label -0.0195  cost 0.540s  (553s)
+    plan_emb_own@0.4  global +0.0066  label -0.0224  cost 0.852s  (579s)
+    plan_knn@0.4      global +0.0014  label -0.0218  cost 0.556s  (580s)
+    plan_knn_own@0.4  global +0.0011  label -0.0269  cost 0.852s  (582s)
+    plan_emb@0.6      global +0.0170  label -0.0116  cost 0.599s  (612s)
+    plan_emb_own@0.6  global +0.0137  label -0.0188  cost 0.859s  (643s)
+    plan_knn@0.6      global +0.0148  label -0.0160  cost 0.451s  (645s)
+    plan_knn_own@0.6  global +0.0116  label -0.0153  cost 0.852s  (648s)
+    plan_emb@0.8      global +0.0171  label -0.0086  cost 0.486s  (682s)
+    plan_emb_own@0.8  global +0.0166  label -0.0146  cost 0.924s  (716s)
+    plan_knn@0.8      global +0.0208  label -0.0073  cost 0.395s  (719s)
+    plan_knn_own@0.8  global +0.0118  label -0.0171  cost 0.874s  (722s)
+== qwen3-14b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.509 at 3.55s
+    plan_emb@0.2      global +0.0215  label -0.0217  cost 1.963s  (742s)
+    plan_emb_own@0.2  global +0.0069  label -0.0288  cost 2.485s  (761s)
+    plan_knn@0.2      global +0.0207  label -0.0223  cost 2.082s  (762s)
+    plan_knn_own@0.2  global +0.0012  label -0.0285  cost 2.511s  (763s)
+    plan_emb@0.4      global +0.0347  label -0.0108  cost 1.784s  (785s)
+    plan_emb_own@0.4  global +0.0168  label -0.0181  cost 2.675s  (808s)
+    plan_knn@0.4      global +0.0322  label -0.0160  cost 1.775s  (810s)
+    plan_knn_own@0.4  global +0.0191  label -0.0196  cost 2.774s  (811s)
+    plan_emb@0.6      global +0.0407  label -0.0046  cost 1.762s  (838s)
+    plan_emb_own@0.6  global +0.0312  label -0.0090  cost 3.126s  (866s)
+    plan_knn@0.6      global +0.0462  label -0.0025  cost 1.494s  (868s)
+    plan_knn_own@0.6  global +0.0144  label -0.0252  cost 2.857s  (870s)
+    plan_emb@0.8      global +0.0382  label -0.0055  cost 1.904s  (900s)
+    plan_emb_own@0.8  global +0.0301  label -0.0093  cost 3.221s  (931s)
+    plan_knn@0.8      global +0.0463  label -0.0019  cost 1.495s  (934s)
+    plan_knn_own@0.8  global +0.0211  label -0.0209  cost 2.871s  (936s)
+== qwen3-32b: 2000 questions from ['2wikimultihopqa', 'hotpotqa', 'musique', 'nq'], 27 common plans; best pooled plan qwen3_reranker_0_6b@10 0.539 at 3.17s
+    plan_emb@0.2      global +0.0160  label -0.0170  cost 1.050s  (955s)
+    plan_emb_own@0.2  global +0.0136  label -0.0239  cost 1.395s  (973s)
+    plan_knn@0.2      global +0.0135  label -0.0208  cost 1.099s  (974s)
+    plan_knn_own@0.2  global +0.0136  label -0.0268  cost 1.483s  (975s)
+    plan_emb@0.4      global +0.0278  label -0.0137  cost 1.185s  (997s)
+    plan_emb_own@0.4  global +0.0301  label -0.0138  cost 1.849s  (1018s)
+    plan_knn@0.4      global +0.0228  label -0.0179  cost 1.364s  (1020s)
+    plan_knn_own@0.4  global +0.0206  label -0.0211  cost 1.663s  (1021s)
+    plan_emb@0.6      global +0.0326  label -0.0071  cost 1.691s  (1048s)
+    plan_emb_own@0.6  global +0.0330  label -0.0091  cost 2.001s  (1073s)
+    plan_knn@0.6      global +0.0241  label -0.0172  cost 1.367s  (1075s)
+    plan_knn_own@0.6  global +0.0301  label -0.0119  cost 1.910s  (1077s)
+    plan_emb@0.8      global +0.0316  label -0.0081  cost 1.518s  (1107s)
+    plan_emb_own@0.8  global +0.0352  label -0.0095  cost 2.003s  (1136s)
+    plan_knn@0.8      global +0.0347  label -0.0050  cost 1.411s  (1139s)
+    plan_knn_own@0.8  global +0.0345  label -0.0067  cost 1.848s  (1141s)
+
+######## learning curve on the mixed workload: mean gain over readers by training size (pooled training folds of about 1600 questions; the hulls always use the full training folds)
+
+== against the label hull (per question skill: the workload part is removed)
+n_train                      320     640     960     1280    1600
+plan_set     method                                              
+single step  plan_emb     -0.0163 -0.0105 -0.0062 -0.0046 -0.0044
+             plan_emb_own -0.0233 -0.0219 -0.0186 -0.0196 -0.0203
+             plan_knn     -0.0195 -0.0130 -0.0068 -0.0023 -0.0025
+             plan_knn_own -0.0281 -0.0245 -0.0187 -0.0159 -0.0149
+with two hop plan_emb     -0.0184 -0.0130 -0.0079 -0.0061 -0.0055
+             plan_emb_own -0.0242 -0.0163 -0.0119 -0.0094 -0.0067
+             plan_knn     -0.0219 -0.0161 -0.0101 -0.0049 -0.0050
+             plan_knn_own -0.0272 -0.0198 -0.0151 -0.0118 -0.0106
+
+== against the global hull
+n_train                      320     640     960     1280    1600
+plan_set     method                                              
+single step  plan_emb      0.0090  0.0188  0.0258  0.0289  0.0286
+             plan_emb_own -0.0052  0.0004  0.0051  0.0077  0.0066
+             plan_knn      0.0065  0.0172  0.0272  0.0312  0.0320
+             plan_knn_own -0.0088  0.0011  0.0094  0.0127  0.0136
+with two hop plan_emb      0.0132  0.0228  0.0280  0.0277  0.0312
+             plan_emb_own  0.0088  0.0184  0.0245  0.0275  0.0308
+             plan_knn      0.0094  0.0184  0.0260  0.0310  0.0308
+             plan_knn_own  0.0038  0.0150  0.0205  0.0239  0.0257
+
+== against the label hull, per reader (plan_emb, no own cost)
+n_train                     320     640     960     1280    1600
+plan_set     reader                                             
+single step  gemma3-27b  -0.0181 -0.0130 -0.0043 -0.0018 -0.0095
+             llama3.1-8b -0.0124 -0.0032  0.0022  0.0004  0.0014
+             qwen2.5-7b  -0.0160 -0.0185 -0.0133 -0.0108 -0.0079
+             qwen3-14b   -0.0181 -0.0096 -0.0062 -0.0017 -0.0035
+             qwen3-32b   -0.0168 -0.0079 -0.0095 -0.0088 -0.0023
+with two hop gemma3-27b  -0.0192 -0.0144 -0.0134 -0.0060 -0.0043
+             llama3.1-8b -0.0165 -0.0067 -0.0026 -0.0024 -0.0051
+             qwen2.5-7b  -0.0176 -0.0195 -0.0116 -0.0086 -0.0086
+             qwen3-14b   -0.0217 -0.0108 -0.0046 -0.0055 -0.0034
+             qwen3-32b   -0.0170 -0.0137 -0.0071 -0.0081 -0.0061
+
+Done in 2188s. Output: results_full\analysis\mixed
