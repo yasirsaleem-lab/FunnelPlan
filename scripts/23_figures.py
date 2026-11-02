@@ -38,7 +38,7 @@ OUTD.mkdir(parents=True, exist_ok=True)
 
 DPI = 600                  # PNG resolution; the PDF is vector
 W2, W1 = 7.16, 3.5         # IEEE two column and one column figure widths (inches)
-GRID, BAND, BAND2 = "#E6E8EB", "#E9EBEE", "#F6F7F8"   # BAND: detectable effect of one test; BAND2: at the strictest Holm step
+GRID, BAND, BAND2 = "#E6E8EB", "#DCE0E5", "#EDF0F3"   # BAND: detectable effect of one test; BAND2: at the strictest Holm step
 MDE1, MDE2 = 0.027, 0.038
 plt.rcParams.update({
     "font.family": "sans-serif", "font.sans-serif": ["Arial", "Liberation Sans", "DejaVu Sans"], "font.size": 8,
@@ -102,8 +102,8 @@ def f2():
     h = [plt.Line2D([], [], marker="o", color=TEAL, lw=1.3, ms=4.6, label="single-step plans"),
          plt.Line2D([], [], marker="D", color=AMB, lw=1.3, ms=4.0, label="with fixed two-hop plans"),
          plt.Line2D([], [], marker="o", color=MUTED, mfc="white", lw=0, ms=4.6, label="open: Holm p of 0.05 or more"),
-         plt.Rectangle((0, 0), 1, 1, color=BAND, label=f"below the detectable effect of one test ({MDE1})"),
-         plt.Rectangle((0, 0), 1, 1, color=BAND2, label=f"below it at the strictest Holm step ({MDE2})")]
+         plt.Rectangle((0, 0), 1, 1, color=BAND, label=f"below the detectable effect, one test ({MDE1})"),
+         plt.Rectangle((0, 0), 1, 1, color=BAND2, label=f"below the detectable effect, strictest Holm step ({MDE2})")]
     fig.legend(handles=h, loc="outside upper center", ncol=3, handletextpad=0.4, columnspacing=1.2)
     _save(fig, "f2_h1_forest.png")
 
