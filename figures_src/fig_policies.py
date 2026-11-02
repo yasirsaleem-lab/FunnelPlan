@@ -98,14 +98,14 @@ def main():
     term(sc, cx, Y_A, "Answer")
 
     # 2 to 3, 5: gates and cascades
-    gate_column(sc, 1, "Closed book gate", "retrieve only when the reader is unsure", "Reader, no passages",
-                "Retrieval plan, then reader", "Closed book gate (primary); classifier gate (stronger)")
+    gate_column(sc, 1, "Closed-book gate", "retrieve only when the reader is unsure", "Reader, no passages",
+                "Retrieval plan, then reader", "Closed-book gate (primary); classifier gate (stronger)")
     gate_column(sc, 2, "Confidence cascade", "stronger plan when unsure", "Cheap plan, then reader",
                 "Strong plan, then reader", "Confidence cascade (primary)")
 
     # 4. router or planner
     cx = column(sc, 3, "Router or planner", "predict one plan for each question",
-                "TSR planner, Adaptive RAG, Adaptive k, per plan LR and kNN, METIS port")
+                "TSR planner, Adaptive RAG, Adaptive k, per-plan LR and kNN, METIS style router")
     term(sc, cx, Y_Q, "Question")
     arrow(sc, [(cx, Y_Q + 40), (cx, Y_D - 44)])
     decision(sc, cx, Y_D - 44, "pick a plan", h=74)

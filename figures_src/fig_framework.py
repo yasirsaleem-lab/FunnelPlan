@@ -98,7 +98,7 @@ def main():
     band(sc, y, h, "Analyses")
     cards = [("H1: policy vs hull", ["27 primary tests", "30 secondary tests", "10 stronger policies"]),
              ("Robustness", ["3 grading rules", "5 cost axes", "single plan baseline", "margin test at 0.03"]),
-             ("H2: multi step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
+             ("H2: multi-step", ["IRCoT vs the hull", "3 readers x 3 sets"]),
              ("Mechanism", ["oracle headroom", "what planners learn"]),
              ("Weak protocol", ["Always RAG baseline", "one seed, strict EM"])]
     ws = fit_widths(cards)
@@ -117,13 +117,13 @@ def main():
     band(sc, y, h, "Policies", ["chosen per", "question"])
     ws = [404, 352, 206, 164]
     xs = row(ws)
-    card(sc, xs[0], y + 8, ws[0], h - 16, "Primary", ["TSR planner", "Adaptive RAG", "Adaptive k", "Closed book gate",
+    card(sc, xs[0], y + 8, ws[0], h - 16, "Primary", ["TSR planner", "Adaptive RAG", "Adaptive k", "Closed-book gate",
                                                       "Confidence cascade", "Reader cascades"], cols=2)
     card(sc, xs[1], y + 8, ws[1], h - 16, "Secondary", ["Adaptive k, rule", "AR, BGE M3", "AR, FLAN T5",
-                                                        "Per plan LR", "Per plan kNN", "METIS port"], cols=2,
-         robots={"METIS port"})
+                                                        "Per-plan LR", "Per-plan kNN", "METIS style"], cols=2,
+         robots={"METIS style"})
     card(sc, xs[2], y + 8, ws[2], h - 16, "Stronger", ["Classifier gate", "Planner with", "~confidence"])
-    card(sc, xs[3], y + 8, ws[3], h - 16, "Reference", ["IRCoT", "~multi step"], robots={"IRCoT"})
+    card(sc, xs[3], y + 8, ws[3], h - 16, "Reference", ["IRCoT", "~multi-step"], robots={"IRCoT"})
     y += h + GAP
     # ---- measurement
     h = 104
@@ -143,7 +143,7 @@ def main():
     xs = row(ws)
     card(sc, xs[0], y + 8, ws[0], h - 16, "6 retrievers x depth 0 to 20",
          ["BM25", "SPLADE v3", "BGE M3", "Stella 1.5B", "BM25 + BGE M3 (RRF)", "Qwen3 Reranker 0.6B"], cols=2)
-    card(sc, xs[1], y + 8, ws[1], h - 16, "Two hop plans", ["BM25, 3 or 5 per hop", "reader writes the", "~second query"],
+    card(sc, xs[1], y + 8, ws[1], h - 16, "Two-hop plans", ["BM25, 3 or 5 per hop", "reader writes the", "~second query"],
          tag=None)
     card(sc, xs[2], y + 8, ws[2], h - 16, "5 readers, greedy",
          ["Qwen2.5 7B, bf16", "Llama 3.1 8B, bf16", "Qwen3 14B, int8", "Gemma 3 27B, 4 bit", "Qwen3 32B, 4 bit"],
@@ -155,7 +155,7 @@ def main():
     ws = [600, 526]
     xs = row(ws)
     card(sc, xs[0], y + 8, ws[0], h - 16, "4 QA datasets, 500 questions each",
-         ["Natural Questions, HotpotQA (one and two hop)", "2WikiMultihopQA, MuSiQue (multi hop)"])
+         ["Natural Questions, HotpotQA (one or two hops)", "2WikiMultihopQA, MuSiQue (multi-hop)"])
     card(sc, xs[1], y + 8, ws[1], h - 16, "Corpora",
          ["BEIR Wikipedia for NQ (2.7M) and HotpotQA (5.2M)", "pooled paragraphs for 2Wiki and MuSiQue"])
     y += h + 8

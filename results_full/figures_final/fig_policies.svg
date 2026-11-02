@@ -31,10 +31,10 @@
 <text xml:space="preserve" x="117.0" y="537.3" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Answer</text>
 <rect x="238.4" y="52" width="218" height="624" rx="16" fill="#DDF0EC" stroke="#8FC3BC" stroke-width="1.5"/>
 <rect x="248.4" y="8" width="198" height="112" rx="8" fill="#ffffff" stroke="#8FC3BC" stroke-width="1.5"/>
-<text xml:space="preserve" x="347.4" y="47.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#0F5E63" text-anchor="middle">Closed book gate</text>
+<text xml:space="preserve" x="347.4" y="47.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="22" font-weight="bold" fill="#0F5E63" text-anchor="middle">Closed-book gate</text>
 <text xml:space="preserve" x="347.4" y="71.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">retrieve only when</text>
 <text xml:space="preserve" x="347.4" y="93.5" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">the reader is unsure</text>
-<text xml:space="preserve" x="347.4" y="591.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">Closed book gate</text>
+<text xml:space="preserve" x="347.4" y="591.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">Closed-book gate</text>
 <text xml:space="preserve" x="347.4" y="612.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">(primary); classifier gate</text>
 <text xml:space="preserve" x="347.4" y="634.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">(stronger)</text>
 <rect x="277.4" y="136" width="140" height="40" rx="20" fill="#0F5E63" stroke="#0F5E63" stroke-width="2.2"/>
@@ -89,9 +89,9 @@
 <text xml:space="preserve" x="808.2" y="71.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">predict one plan for</text>
 <text xml:space="preserve" x="808.2" y="93.5" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="normal" fill="#22262E" text-anchor="middle">each question</text>
 <text xml:space="preserve" x="808.2" y="591.7" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">TSR planner, Adaptive</text>
-<text xml:space="preserve" x="808.2" y="612.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">RAG, Adaptive k, per</text>
-<text xml:space="preserve" x="808.2" y="634.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">plan LR and kNN,</text>
-<text xml:space="preserve" x="808.2" y="655.4" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">METIS port</text>
+<text xml:space="preserve" x="808.2" y="612.9" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">RAG, Adaptive k,</text>
+<text xml:space="preserve" x="808.2" y="634.1" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">per-plan LR and kNN,</text>
+<text xml:space="preserve" x="808.2" y="655.4" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" fill="#5B6170" text-anchor="middle">METIS style router</text>
 <rect x="738.2" y="136" width="140" height="40" rx="20" fill="#0F5E63" stroke="#0F5E63" stroke-width="2.2"/>
 <text xml:space="preserve" x="808.2" y="161.3" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" fill="#ffffff" text-anchor="middle">Question</text>
 <polyline points="808.2,176 808.2,226" fill="none" stroke="#3F4756" stroke-width="2.2" stroke-linejoin="round" marker-end="url(#ah3F4756)"/>
