@@ -205,6 +205,8 @@ def f6():
         ax.plot(s.hull_at_ircot_cost, yi, "o", color=SLATE, ms=5, zorder=3)
         ax.plot(t.hull_at_ircot_cost, yi, "D", color=AMB, ms=4.4, zorder=3)
         sig = s.p_holm < 0.05 and s.ci_low > 0
+        if "p_refit_holm" in s:                   # a win must also pass the refit bootstrap (15_h3_ircot.py)
+            sig = sig and s.p_refit_holm < 0.05 and s.refit_low > 0
         ax.plot(s.ircot_success, yi, "o", color=TEAL if sig else "white", mec=TEAL, mew=1.2, ms=5.6, zorder=4)
         tx.text(0.0, yi, f"{s.ircot_cost_s / s.best_fixed_cost_s:.0f}x", va="center", ha="left", color=INK)
         tx.text(1.0, yi, f"{s.gain:+.3f}".replace("-", "\u2212") + ("*" if sig else ""), va="center", ha="right", color=INK)
@@ -215,7 +217,7 @@ def f6():
     tx.text(1.0, len(cells) - 0.35, "Gain", va="bottom", ha="right", color=MUTED)
     h = [plt.Line2D([], [], marker="o", color=SLATE, lw=0, ms=5, label="single-step hull at IRCoT latency"),
          plt.Line2D([], [], marker="D", color=AMB, lw=0, ms=4.4, label="hull with fixed two-hop plans"),
-         plt.Line2D([], [], marker="o", color=TEAL, lw=0, ms=5.6, label="IRCoT (filled: Holm significant, *)")]
+         plt.Line2D([], [], marker="o", color=TEAL, lw=0, ms=5.6, label="IRCoT (filled: Holm significant under both tests, *)")]
     fig.legend(handles=h, loc="outside upper center", ncol=3)
     _save(fig, "f6_h3.png")
 

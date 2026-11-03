@@ -207,16 +207,25 @@ def t_h3():
     F = H["final"]
     for _, a in F[F.hull == "single_step"].iterrows():
         b = F[(F.hull == "with_r3") & (F.reader == a.reader) & (F.dataset == a.dataset)].iloc[0]
-        sig = lambda lab, hull: (lambda x: "yes" if len(x) and x.p_holm.iloc[0] < 0.05 and x.ci_low.iloc[0] > 0 else "no")(
+        sig = lambda lab, hull: (lambda x: "y" if len(x) and x.p_holm.iloc[0] < 0.05 and x.ci_low.iloc[0] > 0 else "n")(
             H[lab][(H[lab].hull == hull) & (H[lab].reader == a.reader) & (H[lab].dataset == a.dataset)]) if lab in H else ""
         rows.append({"Reader": RN[a.reader], "Dataset": DN[a.dataset], "IRCoT success": f"{a.ircot_success:.3f}",
                      "Latency vs best plan": f"{a.ircot_cost_s / a.best_fixed_cost_s:.0f}x",
-                     "Gain, single step hull": f"{sg(a.gain)} [{sg(a.ci_low)}, {sg(a.ci_high)}]", "Holm p": pv(a.p_holm),
+                     "Gain, single step hull": sg(a.gain), "Holm p": pv(a.p_holm),
+                     "Holm p, refit": pv(a.p_refit_holm) if "p_refit_holm" in a else "",
                      "Gain, with two hop": sg(b.gain), "Holm p ": pv(b.p_holm),
-                     "Sig. final/lenient/strict": "/".join(sig(l, "single_step") for l in ("final", "lenient", "strict"))})
+                     "Holm p, refit ": pv(b.p_refit_holm) if "p_refit_holm" in b else "",
+                     "Sig. final/len./strict (y/n)": "/".join(sig(l, "single_step") for l in ("final", "lenient", "strict"))})
     T = pd.DataFrame(rows)
     md_table("H2, IRCoT against the hull at IRCoT's own latency (9 tests)", T)
-    tex_table("h3", T, "H2: IRCoT against the held out fixed plan hull at IRCoT's own mean latency.", "llrrrrrrl")
+    tex_table("h3", T, "H2: IRCoT against the held out fixed plan hull at IRCoT's own mean latency. Holm p: per question test. Holm p, refit: refit bootstrap (100 resamples of the questions, hull refitted each time).", "llrrrrrrrrl")
+    TEX["h3"] = TEX["h3"].replace("\\setlength{\\tabcolsep}{4pt}", "\\setlength{\\tabcolsep}{2pt}")   # 11 columns
+    if "p_refit_holm" in F:
+        for hull, g in F.groupby("hull"):
+            k = g[(g.p_holm < 0.05) & (g.ci_low > 0) & (g.p_refit_holm < 0.05) & (g.refit_low > 0)]
+            VERD.append(f"H2 [final, {hull}] wins that also pass the refit bootstrap: {len(k)} of {len(g)}: "
+                        + ", ".join(f"{RN[r.reader]} {DN[r.dataset]} {r.gain:+.3f}" for r in k.itertuples())
+                        + f" (spread / per question SE {(g.sd_refit / g.se_plain).min():.2f} to {(g.sd_refit / g.se_plain).max():.2f})")
     for lab, D in H.items():
         for hull, g in D.groupby("hull"):
             k = g[(g.p_holm < 0.05) & (g.ci_low > 0)]
@@ -1066,9 +1075,22 @@ def t_review2():
     MX = AN / "mixed"
     if (I / "tests_mixed_nb.csv").exists():
         X = pd.read_csv(I / "tests_mixed_nb.csv")
-        groups = [("Primary policies", "primary"), ("Adaptive RAG as published", "ar_pub"),
+        key = ["plan_set", "family", "comparator", "reader", "method"]
+        pqf = [MX / f for f in ("tests.csv", "tests_extra.csv") if (MX / f).exists()]
+        if pqf:                                   # per question test of 26_mixed_workload.py
+            PQ = pd.concat([pd.read_csv(f) for f in pqf])[key + ["positive"]].rename(columns={"positive": "pos_pq"})
+            X = X.merge(PQ, on=key, how="left")
+        else:
+            X["pos_pq"] = False
+        parts = []
+        for _, g in X.groupby(["family", "comparator", "plan_set"]):
+            lo_i, ub_i, ph_i = inflated(g)
+            parts.append(g.assign(pos_i=((ph_i < 0.05) & (lo_i > 0)).to_numpy()))
+        X = pd.concat(parts)
+        X["win_all"] = X.pos_pq.fillna(False).astype(bool) & (X.p_nb_holm < 0.05) & (X.nb_low > 0) & X.pos_i
+        groups = [("Primary policies", "primary"), ("Adaptive RAG, silver labels", "ar_pub"),
                   ("Secondary routers, no own cost", "secondary"), ("Embedding routers, own cost", "own_cost"),
-                  ("Dataset guess + label hull, own cost", "ds_label_own")]
+                  ("Dataset guess, own cost", "ds_label_own")]
         rows = []
         for name, fam in groups:
             for ps in PSN:
@@ -1077,12 +1099,22 @@ def t_review2():
                     continue
                 gg, gl = g[g.comparator == "global"], g[g.comparator == "label"]
                 rows.append({"Policies": name, "Plan set": ps, "Tests": len(gg),
-                             "Pos./neg., global hull": f"{_pos(gg)} / {_neg(gg)}", "Gain, global hull": _rng(gg.gain),
+                             f"Pos., global: per q. / corr. / x{infl:.2f}": f"{int(gg.pos_pq.fillna(False).astype(bool).sum())} / {_pos(gg)} / {int(gg.pos_i.sum())}",
+                             "Neg., global": _neg(gg), "Gain, global hull": _rng(gg.gain),
                              "Pos./neg., label hull": f"{_pos(gl)} / {_neg(gl)}", "Gain, label hull": _rng(gl.gain)})
         M = pd.DataFrame(rows)
-        md_table("Checks: mixed workload (2,000 pooled questions per reader; corrected test, Holm within family)", M)
-        tex_table("rev2_mixed", M, "Mixed workload: the 2,000 questions of each reader pooled, one hull and each policy fitted on the pooled training folds, no dataset indicator. Global hull: best mix of fixed plans for the pool. Label hull: best mix of fixed plans per dataset under one budget; it knows only each question's dataset. Corrected test, Holm within each family and comparator. Pos. / neg.: tests with the interval above 0 / below 0 after Holm.", "llrrrrr", star=True)
-        VERD.append("Check: mixed workload (pos/neg): " + "; ".join(f"{r['Policies']} {r['Plan set']}: {r['Pos./neg., global hull']} global, {r['Pos./neg., label hull']} label"
+        both = []
+        for (fam, comp), g in X.groupby(["family", "comparator"]):
+            w = g[g.win_all].groupby(["reader", "method"]).plan_set.nunique()
+            for (rd, m) in w[w == 2].index:
+                both.append(f"{fam} vs {comp}: {RN.get(rd, rd)} {m}")
+        md_table("Checks: mixed workload (2,000 pooled questions per reader; Holm within family; "
+                 f"Pos. = per question / corrected / corrected x{infl:.2f})", M,
+                 "Positive in both plan sets under all three tests: " + ("; ".join(both) if both else "none"))
+        xt = f"$\\times${infl:.2f}"
+        tex_table("rev2_mixed", M.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), "Mixed workload: the 2,000 questions of each reader pooled, one hull and each policy fitted on the pooled training folds, no dataset indicator. Global hull: best mix of fixed plans for the pool; this is the baseline a deployed system can use. Label hull: best mix of fixed plans per dataset under one budget; it knows each question's dataset and serves as a reference. Holm within each family and comparator. Pos.: tests with the interval above 0 after Holm under the per question test, the corrected test, and the corrected test with errors " + xt + ". Neg. and the label hull columns use the corrected test.", "llrrrrrr", star=True)
+        VERD.append("Check: mixed workload, positive in both plan sets under all three tests: " + ("; ".join(both) if both else "none"))
+        VERD.append("Check: mixed workload (pos/neg): " + "; ".join(f"{r['Policies']} {r['Plan set']}: {r[f'Pos., global: per q. / corr. / x{infl:.2f}']} pos and {r['Neg., global']} neg global, {r['Pos./neg., label hull']} label"
                                                           for _, r in M.iterrows()))
     if (MX / "tests.csv").exists():
         W = pd.concat([pd.read_csv(MX / f) for f in ("tests.csv", "tests_extra.csv") if (MX / f).exists()])

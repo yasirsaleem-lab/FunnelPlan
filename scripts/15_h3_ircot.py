@@ -5,6 +5,8 @@ Per (reader, dataset) for Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B on HotpotQA, 2Wiki
   the hull's plans are chosen on the training folds (5 folds x 5 seeds, exactly as in 11_analysis_full.py) and
   measured on the test fold at c = IRCoT's mean cost on that test fold. Per query gain = IRCoT success minus the
   hull value, averaged over seeds. One sample t test on the per query gains, 95% bootstrap CI, Holm over the 9.
+  Also the corrected resampled t test on the 25 fold gains (as in 27_inference_refit.py) and the same test with its
+  standard error times the largest refit ratio of calibration.csv (wins must pass this check too).
 Primary hull: single step plans (H3 as written). Secondary: single step plus the fixed two hop plans (R3).
 
 Labels: label_final everywhere (IRCoT answers graded by 08 regrade, judge, finalize, like every other answer).
@@ -28,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import numpy as np
 import pandas as pd
+from scipy import stats
 
 from config import settings
 
@@ -79,6 +82,70 @@ def h3_block(B, ir, seeds, k):
     return d, np.array(seed_means), pd.DataFrame(rows), q_all
 
 
+def _infl():
+    """Largest ratio of the refit bootstrap spread to the corrected standard error (27_inference_refit.py)."""
+    f = settings.RESULTS_ROOT / "analysis" / "inference" / "calibration.csv"
+    if not f.exists():
+        return float("nan")
+    c = pd.read_csv(f)
+    return float((c.sd_refit / c.se_nb).max())
+
+
+INFL = _infl()
+REFIT_REPS = 100
+
+
+def corrected(folds, gain, k):
+    """Corrected resampled t test (Nadeau and Bengio 2003) on the J fold gains of one cell, var = (1/J + 1/(k-1)) S^2,
+    and the same test with the standard error times INFL."""
+    from scipy import stats
+    fg = (folds.ircot - folds.hull).to_numpy(float)
+    J = len(fg)
+    se = float(np.sqrt((1.0 / J + 1.0 / (k - 1)) * fg.var(ddof=1)))
+    df = J - 1
+    out = {"se_nb": se, "nb_low": gain - stats.t.ppf(0.975, df) * se, "nb_high": gain + stats.t.ppf(0.975, df) * se,
+           "p_nb": float(2 * stats.t.sf(abs(gain / se), df)), "infl": INFL}
+    si = se * INFL
+    out.update({"infl_low": gain - stats.t.ppf(0.975, df) * si, "infl_high": gain + stats.t.ppf(0.975, df) * si,
+                "p_infl": float(2 * stats.t.sf(abs(gain / si), df)) if np.isfinite(si) else float("nan")})
+    return out
+
+
+def h3_refit(B, ir, d_ds, k, reps):
+    """Refit bootstrap for one IRCoT test: resample the questions with replacement, recompute the plan costs as
+    Block does, split into k folds that keep the copies of a question together, choose the hull on the training
+    folds and score IRCoT and the hull on the test fold (one fold split per replicate, as in 24_review_checks.py).
+    IRCoT has nothing to fit, so only the hull is refitted. Returns the replicate gains."""
+    ir = ir.set_index("query_id")
+    q0 = np.array([q for q in B.q if q in ir.index])
+    rc, ac = ("retrieval_time_s", "agent_time_s") if A.CONFIG["cost_axis"] == "latency" else ("ret_x", "agent_x")
+    rt = d_ds.pivot_table(index="query_id", columns="plan", values=rc).reindex(index=B.q, columns=B.plans)
+    at = d_ds.pivot_table(index="query_id", columns="plan", values=ac).reindex(index=B.q, columns=B.plans)
+    out = []
+    for b in range(reps):
+        rng = np.random.default_rng(20_000 + b)
+        take = rng.choice(q0, len(q0), replace=True)
+        new = np.array([f"{q}#{j}" for j, q in enumerate(take)])
+        Y = B.Y.loc[take].set_axis(new)
+        ret = rt.loc[take].mean()
+        for r_, v_ in A.CONFIG["retrieval_cost_override"].items():
+            ret[[p for p in B.plans if p.split("@")[0] == r_]] = float(v_)
+        cost = ret + at.loc[take].mean()
+        y_ir = pd.Series(ir.loc[take, "y"].to_numpy(float), index=new)
+        c_ir = pd.Series(ir.loc[take, "cost"].to_numpy(float), index=new)
+        uniq = np.unique(take)
+        rng.shuffle(uniq)
+        fold_of = {u: i % k for i, u in enumerate(uniq)}
+        fid = np.array([fold_of[q] for q in take])
+        g = []
+        for i in range(k):
+            test, sel = new[fid == i], new[fid != i]
+            h = A.hull_at(Y, cost, sel, float(c_ir[test].mean()), eval_idx=test)
+            g.append(y_ir[test].to_numpy() - h)
+        out.append(float(np.concatenate(g).mean()))
+    return np.array(out)
+
+
 def main():
     partial = "--partial" in sys.argv
     lab = next((a_.split("=", 1)[1] for a_ in sys.argv if a_.startswith("--label=")), None)
@@ -106,6 +173,11 @@ def main():
                     continue
                 B = A.Block(df, ds)
                 d, sm, folds, qs = h3_block(B, ir, A.CONFIG["seeds"], A.CONFIG["k_folds"])
+                nb = corrected(folds, d.mean(), A.CONFIG["k_folds"])
+                reps = h3_refit(B, ir, df[df.dataset == ds], A.CONFIG["k_folds"], REFIT_REPS)
+                sd = float(reps.std(ddof=1))
+                nb.update({"sd_refit": sd, "refit_low": d.mean() - 1.96 * sd, "refit_high": d.mean() + 1.96 * sd,
+                           "p_refit": float(2 * stats.norm.sf(abs(d.mean()) / sd)), "se_plain": float(d.std(ddof=1) / np.sqrt(len(d)))})
                 lo, hi = A.boot_ci(d, A.CONFIG["n_boot"], A.CONFIG["seed"])
                 acc = B.Y.loc[qs].mean()
                 best = acc.idxmax()
@@ -115,7 +187,7 @@ def main():
                      "hull_at_ircot_cost": float(folds.hull.mean()), "gain": d.mean(), "ci_low": lo, "ci_high": hi,
                      "p": A.p_two_sided(d), "seed_min": sm.min(), "seed_max": sm.max(),
                      "best_fixed_plan": best, "best_fixed_success": float(acc[best]), "best_fixed_cost_s": float(B.cost[best]),
-                     "lm_calls": float(ir.lm_calls.mean()), "retrieval_calls": float(ir.retrieval_calls.mean())}
+                     "lm_calls": float(ir.lm_calls.mean()), "retrieval_calls": float(ir.retrieval_calls.mean()), **nb}
                 res.append(r)
                 say(f"  {rd:12s} {ds:16s} n={len(qs)}  IRCoT {r['ircot_success']:.3f} at {r['ircot_cost_s']:.2f}s "
                     f"({r['ircot_cost_s'] / r['best_fixed_cost_s']:.1f}x the best plan's cost)  hull {r['hull_at_ircot_cost']:.3f}  "
@@ -125,11 +197,27 @@ def main():
     if len(R):
         for h, g in R.groupby("hull"):
             R.loc[g.index, "p_holm"] = A.holm(g["p"].to_numpy())
+            R.loc[g.index, "p_nb_holm"] = A.holm(g["p_nb"].to_numpy())
+            R.loc[g.index, "p_refit_holm"] = A.holm(g["p_refit"].to_numpy())
+            if g["p_infl"].notna().all():
+                R.loc[g.index, "p_infl_holm"] = A.holm(g["p_infl"].to_numpy())
         say("")
         say("Holm over the tests of each hull (family: 9 tests, single step hull):")
         for _, r in R.iterrows():
             sig = "SIGNIFICANT" if (r["p_holm"] < 0.05 and r["ci_low"] > 0) else ("significantly BELOW" if (r["p_holm"] < 0.05 and r["ci_high"] < 0) else "n.s.")
             say(f"  {r['hull']:12s} {r['reader']:12s} {r['dataset']:16s} gain {r['gain']:+.3f}  p {r['p']:.4f}  Holm p {r['p_holm']:.4f}  {sig}")
+        say(f"\nRefit bootstrap ({REFIT_REPS} replicates; normal interval from the replicate spread; Holm over the tests of each hull):")
+        for _, r in R.iterrows():
+            ok = r["p_refit_holm"] < 0.05 and r["refit_low"] > 0
+            say(f"  {r['hull']:12s} {r['reader']:12s} {r['dataset']:16s} gain {r['gain']:+.3f}  "
+                f"[{r['refit_low']:+.3f}, {r['refit_high']:+.3f}]  spread / per question SE {r['sd_refit'] / r['se_plain']:.2f}  "
+                f"Holm p {r['p_refit_holm']:.4f}  {'SIGNIFICANT' if ok else 'n.s.'}")
+        if "p_infl_holm" in R:
+            say(f"\nCorrected test with errors x{INFL:.2f} (Holm over the tests of each hull):")
+            for _, r in R.iterrows():
+                ok = r["p_infl_holm"] < 0.05 and r["infl_low"] > 0
+                say(f"  {r['hull']:12s} {r['reader']:12s} {r['dataset']:16s} gain {r['gain']:+.3f}  "
+                    f"[{r['infl_low']:+.3f}, {r['infl_high']:+.3f}]  Holm p {r['p_infl_holm']:.4f}  {'SIGNIFICANT' if ok else 'n.s.'}")
         if partial and (R["n"] < 500).any():
             say("PARTIAL: some cells have fewer than 500 questions. Interim look only; do not report.")
         R.to_csv(out / "h3.csv", index=False)
