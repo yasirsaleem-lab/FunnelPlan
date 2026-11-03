@@ -82,17 +82,17 @@ Decision rule: significant only if Holm p < 0.05 and CI above 0 in BOTH plan set
 
 ## H2, IRCoT against the hull at IRCoT's own latency (9 tests)
 
-| Reader | Dataset | IRCoT success | Latency vs best plan | Gain, single step hull | Holm p | Gain, with two hop | Holm p  | Sig. final/lenient/strict |
-|---|---|---|---|---|---|---|---|---|
-| Qwen2.5 7B | HotpotQA | 0.522 | 15x | +0.008 [-0.038, +0.053] | 1.000 | +0.008 | 1.000 | no/no/no |
-| Qwen2.5 7B | 2Wiki | 0.532 | 18x | +0.140 [+0.097, +0.184] | <0.001 | +0.102 | <0.001 | yes/yes/yes |
-| Qwen2.5 7B | MuSiQue | 0.270 | 39x | +0.030 [-0.008, +0.068] | 0.627 | +0.030 | 0.878 | no/no/no |
-| Llama 3.1 8B | HotpotQA | 0.554 | 11x | -0.034 [-0.077, +0.010] | 0.627 | -0.034 | 0.878 | no/no/no |
-| Llama 3.1 8B | 2Wiki | 0.494 | 11x | +0.088 [+0.043, +0.132] | <0.001 | +0.032 | 0.878 | yes/yes/yes |
-| Llama 3.1 8B | MuSiQue | 0.242 | 11x | +0.021 [-0.017, +0.060] | 0.807 | +0.021 | 1.000 | no/no/yes |
-| Qwen3 14B | HotpotQA | 0.604 | 26x | +0.014 [-0.027, +0.058] | 1.000 | +0.014 | 1.000 | no/no/no |
-| Qwen3 14B | 2Wiki | 0.568 | 22x | +0.156 [+0.111, +0.198] | <0.001 | +0.014 | 1.000 | yes/yes/yes |
-| Qwen3 14B | MuSiQue | 0.336 | 20x | +0.074 [+0.032, +0.117] | 0.003 | +0.080 | 0.001 | yes/no/yes |
+| Reader | Dataset | IRCoT success | Latency vs best plan | Gain, single step hull | Holm p | Holm p, refit | Gain, with two hop | Holm p  | Holm p, refit  | Sig. final/len./strict (y/n) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Qwen2.5 7B | HotpotQA | 0.522 | 15x | +0.008 | 1.000 | 1.000 | +0.008 | 1.000 | 1.000 | n/n/n |
+| Qwen2.5 7B | 2Wiki | 0.532 | 18x | +0.140 | <0.001 | <0.001 | +0.102 | <0.001 | <0.001 | y/y/y |
+| Qwen2.5 7B | MuSiQue | 0.270 | 39x | +0.030 | 0.627 | 1.000 | +0.030 | 0.878 | 1.000 | n/n/n |
+| Llama 3.1 8B | HotpotQA | 0.554 | 11x | -0.034 | 0.627 | 1.000 | -0.034 | 0.878 | 1.000 | n/n/n |
+| Llama 3.1 8B | 2Wiki | 0.494 | 11x | +0.088 | <0.001 | 0.073 | +0.032 | 0.878 | 1.000 | y/y/y |
+| Llama 3.1 8B | MuSiQue | 0.242 | 11x | +0.021 | 0.807 | 1.000 | +0.021 | 1.000 | 1.000 | n/n/y |
+| Qwen3 14B | HotpotQA | 0.604 | 26x | +0.014 | 1.000 | 1.000 | +0.014 | 1.000 | 1.000 | n/n/n |
+| Qwen3 14B | 2Wiki | 0.568 | 22x | +0.156 | <0.001 | <0.001 | +0.014 | 1.000 | 1.000 | y/y/y |
+| Qwen3 14B | MuSiQue | 0.336 | 20x | +0.074 | 0.003 | 0.019 | +0.080 | 0.001 | 0.023 | y/n/y |
 
 ## Grading sensitivity: H1 primary family under three label rules
 
@@ -467,20 +467,22 @@ Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 
 | Reader cascade | 7B to Qwen3 14B | +0.006 | 0.021 | 0.017 | +0.017 | 0.032 | 0.031 |
 | Reader cascade | 7B to Llama 3.1 8B | +0.006 | 0.021 | 0.017 | -0.001 | 0.015 | 0.013 |
 
-## Checks: mixed workload (2,000 pooled questions per reader; corrected test, Holm within family)
+## Checks: mixed workload (2,000 pooled questions per reader; Holm within family; Pos. = per question / corrected / corrected x1.64)
 
-| Policies | Plan set | Tests | Pos./neg., global hull | Gain, global hull | Pos./neg., label hull | Gain, label hull |
-|---|---|---|---|---|---|---|
-| Primary policies | single step | 27 | 0 / 5 | -0.077 to +0.011 | 0 / 8 | -0.098 to +0.003 |
-| Primary policies | with two hop | 27 | 0 / 3 | -0.061 to +0.021 | 0 / 10 | -0.092 to 0.000 |
-| Adaptive RAG as published | single step | 5 | 0 / 5 | -0.073 to -0.027 | 0 / 5 | -0.094 to -0.038 |
-| Adaptive RAG as published | with two hop | 5 | 0 / 4 | -0.052 to -0.004 | 0 / 5 | -0.082 to -0.041 |
-| Secondary routers, no own cost | single step | 25 | 6 / 5 | -0.083 to +0.053 | 0 / 5 | -0.103 to +0.006 |
-| Secondary routers, no own cost | with two hop | 25 | 5 / 2 | -0.048 to +0.053 | 0 / 8 | -0.084 to +0.004 |
-| Embedding routers, own cost | single step | 10 | 1 / 0 | -0.003 to +0.024 | 0 / 1 | -0.026 to -0.005 |
-| Embedding routers, own cost | with two hop | 10 | 4 / 0 | +0.013 to +0.042 | 0 / 0 | -0.014 to -0.003 |
-| Dataset guess + label hull, own cost | single step | 5 | 0 / 0 | +0.003 to +0.022 | 0 / 0 | -0.023 to -0.001 |
-| Dataset guess + label hull, own cost | with two hop | 5 | 5 / 0 | +0.027 to +0.042 | 0 / 0 | -0.004 to 0.000 |
+| Policies | Plan set | Tests | Pos., global: per q. / corr. / x1.64 | Neg., global | Gain, global hull | Pos./neg., label hull | Gain, label hull |
+|---|---|---|---|---|---|---|---|
+| Primary policies | single step | 27 | 0 / 0 / 0 | 5 | -0.077 to +0.011 | 0 / 8 | -0.098 to +0.003 |
+| Primary policies | with two hop | 27 | 0 / 0 / 0 | 3 | -0.061 to +0.021 | 0 / 10 | -0.092 to 0.000 |
+| Adaptive RAG, silver labels | single step | 5 | 0 / 0 / 0 | 5 | -0.073 to -0.027 | 0 / 5 | -0.094 to -0.038 |
+| Adaptive RAG, silver labels | with two hop | 5 | 0 / 0 / 0 | 4 | -0.052 to -0.004 | 0 / 5 | -0.082 to -0.041 |
+| Secondary routers, no own cost | single step | 25 | 5 / 6 / 2 | 5 | -0.083 to +0.053 | 0 / 5 | -0.103 to +0.006 |
+| Secondary routers, no own cost | with two hop | 25 | 5 / 5 / 1 | 2 | -0.048 to +0.053 | 0 / 8 | -0.084 to +0.004 |
+| Embedding routers, own cost | single step | 10 | 0 / 1 / 0 | 0 | -0.003 to +0.024 | 0 / 1 | -0.026 to -0.005 |
+| Embedding routers, own cost | with two hop | 10 | 6 / 4 / 1 | 0 | +0.013 to +0.042 | 0 / 0 | -0.014 to -0.003 |
+| Dataset guess, own cost | single step | 5 | 0 / 0 / 0 | 0 | +0.003 to +0.022 | 0 / 0 | -0.023 to -0.001 |
+| Dataset guess, own cost | with two hop | 5 | 5 / 5 / 2 | 0 | +0.027 to +0.042 | 0 / 0 | -0.004 to 0.000 |
+
+Positive in both plan sets under all three tests: ds_label vs global: Gemma 3 27B ds_label; ds_label vs global: Qwen2.5 7B ds_label; ds_label vs global: Qwen3 32B ds_label; secondary vs global: Qwen3 14B plan_knn
 
 ## Checks: mixed workload decomposition (mean over readers): gain over global hull = workload part + gain over label hull
 

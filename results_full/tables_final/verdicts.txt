@@ -5,6 +5,8 @@ Non superiority at 0.03, with two hop: 25 of 27 after Holm; largest bound 0.032 
 Secondary family complete in both plan sets: True (30 and 30 tests)
 Secondary: positive in single step set []; in two hop set [('qwen3-32b', 'plan_emb')]; in BOTH (counts) []
 Secondary: negative survivors single step 6, two hop 5
+H2 [final, single_step] wins that also pass the refit bootstrap: 3 of 9: Qwen2.5 7B 2Wiki +0.140, Qwen3 14B 2Wiki +0.156, Qwen3 14B MuSiQue +0.074 (spread / per question SE 1.17 to 1.57)
+H2 [final, with_r3] wins that also pass the refit bootstrap: 2 of 9: Qwen2.5 7B 2Wiki +0.102, Qwen3 14B MuSiQue +0.080 (spread / per question SE 0.95 to 1.50)
 H2 [final, single_step]: 4 of 9 significant: Qwen2.5 7B 2Wiki +0.140, Llama 3.1 8B 2Wiki +0.088, Qwen3 14B 2Wiki +0.156, Qwen3 14B MuSiQue +0.074
 H2 [final, with_r3]: 2 of 9 significant: Qwen2.5 7B 2Wiki +0.102, Qwen3 14B MuSiQue +0.080
 H2 [lenient, single_step]: 3 of 9 significant: Qwen2.5 7B 2Wiki +0.119, Llama 3.1 8B 2Wiki +0.109, Qwen3 14B 2Wiki +0.127
@@ -23,6 +25,7 @@ Rater reference, Audit 2 (Gemma, Qwen3 32B): label_final accuracy vs majority 0.
 Summary: rows against the hull with positive survivors in both plan sets: 0 of 13
 Against the best single plan (no mixing): positive 5 single step, 7 with two hop; largest gain +0.061 and +0.080. These wins vanish against the hull, so they come from mixing, not from question features.
 Check: inference: primary positives (per question/corrected/x1.64) single step: 0 / 0 / 0; with two hop: 0 / 0 / 0
-Check: mixed workload (pos/neg): Primary policies single step: 0 / 5 global, 0 / 8 label; Primary policies with two hop: 0 / 3 global, 0 / 10 label; Adaptive RAG as published single step: 0 / 5 global, 0 / 5 label; Adaptive RAG as published with two hop: 0 / 4 global, 0 / 5 label; Secondary routers, no own cost single step: 6 / 5 global, 0 / 5 label; Secondary routers, no own cost with two hop: 5 / 2 global, 0 / 8 label; Embedding routers, own cost single step: 1 / 0 global, 0 / 1 label; Embedding routers, own cost with two hop: 4 / 0 global, 0 / 0 label; Dataset guess + label hull, own cost single step: 0 / 0 global, 0 / 0 label; Dataset guess + label hull, own cost with two hop: 5 / 0 global, 0 / 0 label
+Check: mixed workload, positive in both plan sets under all three tests: ds_label vs global: Gemma 3 27B ds_label; ds_label vs global: Qwen2.5 7B ds_label; ds_label vs global: Qwen3 32B ds_label; secondary vs global: Qwen3 14B plan_knn
+Check: mixed workload (pos/neg): Primary policies single step: 0 / 0 / 0 pos and 5 neg global, 0 / 8 label; Primary policies with two hop: 0 / 0 / 0 pos and 3 neg global, 0 / 10 label; Adaptive RAG, silver labels single step: 0 / 0 / 0 pos and 5 neg global, 0 / 5 label; Adaptive RAG, silver labels with two hop: 0 / 0 / 0 pos and 4 neg global, 0 / 5 label; Secondary routers, no own cost single step: 5 / 6 / 2 pos and 5 neg global, 0 / 5 label; Secondary routers, no own cost with two hop: 5 / 5 / 1 pos and 2 neg global, 0 / 8 label; Embedding routers, own cost single step: 0 / 1 / 0 pos and 0 neg global, 0 / 1 label; Embedding routers, own cost with two hop: 6 / 4 / 1 pos and 0 neg global, 0 / 0 label; Dataset guess, own cost single step: 0 / 0 / 0 pos and 0 neg global, 0 / 0 label; Dataset guess, own cost with two hop: 5 / 5 / 2 pos and 0 neg global, 0 / 0 label
 Check: label hull minus global hull (held out, best budget): single step: +0.009 to +0.027; with two hop: +0.027 to +0.048
 Check: p95 ratio (policy/hull): single step median 1.09, two hop 1.07; max 1.68
