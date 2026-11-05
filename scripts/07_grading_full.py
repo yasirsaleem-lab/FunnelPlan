@@ -97,12 +97,13 @@ def label_files(main_only=False):
         return main
     extra = sorted(f for f in (PROC / "r3_2hop").glob("labels_*.csv") if not f.stem.endswith("_graded"))
     extra += sorted(f for f in (PROC / "r4_ircot").glob("labels_*.csv") if not f.stem.endswith("_graded"))
+    extra += sorted(f for f in (PROC / "r5_cotfixed").glob("labels_*.csv") if not f.stem.endswith("_graded"))
     extra += sorted(f for f in PROC.glob("control_labels_*.csv") if not f.stem.endswith("_graded"))
     return main + extra
 
 
 def reader_name(f):
-    if f.parent.name in ("r3_2hop", "r4_ircot"):
+    if f.parent.name in ("r3_2hop", "r4_ircot", "r5_cotfixed"):
         return f.parent.name[:2] + "_" + f.stem.replace("labels_", "", 1)
     if f.stem.startswith("control_labels_"):
         return "control_" + f.stem.replace("control_labels_", "", 1)

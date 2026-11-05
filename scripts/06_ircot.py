@@ -18,13 +18,18 @@ IRCoT (Trivedi et al., ACL 2023) as published, with the choices our setting forc
             retrieval_time_s = first BM25 (cache latency, as plan bm25@k) + every later BM25 call (timed here).
 
 Readers: qwen2.5-7b, llama3.1-8b, qwen3-14b (transformers, H3); qwen3-32b, gemma3-27b (llama.cpp, optional).
-Datasets: hotpotqa, 2wikimultihopqa, musique (the same 500 queries).
+Datasets: hotpotqa, 2wikimultihopqa, musique (the same 500 queries), and nq for the Adaptive RAG ladder as published.
+          IRCoT has no NQ demonstrations; Adaptive RAG runs IRCoT on NQ with the HotpotQA demonstrations (its
+          prompts/nq/*_context_cot_qa_flan_t5.txt files are byte identical to the HotpotQA ones), and so do we.
 
 Usage (resumable; one line per question in data/processed_full/r4_ircot/<reader>/<dataset>.jsonl):
   python scripts/06_ircot.py run llama3.1-8b --datasets hotpotqa          (gate G3 first)
   python scripts/06_ircot.py run qwen2.5-7b
   python scripts/06_ircot.py merge llama3.1-8b                            -> r4_ircot/labels_<reader>.csv
   python scripts/06_ircot.py status
+  NQ for the Adaptive RAG ladder:
+  python scripts/06_ircot.py run qwen2.5-7b --datasets nq
+  python scripts/06_ircot.py merge qwen2.5-7b --datasets nq                -> r4_ircot/labels_<reader>_nq.csv
 """
 
 import argparse
@@ -56,7 +61,9 @@ REASON_MAX_TOKENS = 64
 ANSWER_MAX_TOKENS = 100
 DEMO_CHARS = 24000        # about 6,000 tokens of demonstrations (see the note in demos())
 DEMO_SEP = "\n\n\n"       # IRCoT's demonstration delimiter
-DATASETS = ["hotpotqa", "2wikimultihopqa", "musique"]
+DATASETS = ["hotpotqa", "2wikimultihopqa", "musique", "nq"]
+DEMO_SOURCE = {"nq": "hotpotqa"}   # as in Adaptive RAG (see the header)
+MAIN = ["hotpotqa", "2wikimultihopqa", "musique"]   # the H2 datasets; merged into labels_<reader>.csv
 PROMPTS = Path(__file__).parent.parent / "data" / "ircot_prompts"
 OUT = settings.PROCESSED_DATA_ROOT / "r4_ircot"
 INSTR = "Q: Answer the following question by reasoning step-by-step.\n"
@@ -74,7 +81,7 @@ def demos(ds):
     # tokens for Flan-T5, by dropping demonstrations. Our readers have 32k or more context, so the demonstrations are
     # packed up to DEMO_CHARS and the prompt is not capped at 6,000; reason_call() applies IRCoT's dropping rule only
     # when the prompt does not fit in GPU memory. This is a deviation from the published method.
-    f = PROMPTS / f"{ds}_gold_with_1_distractors_cot_flan_t5.txt"
+    f = PROMPTS / f"{DEMO_SOURCE.get(ds, ds)}_gold_with_1_distractors_cot_flan_t5.txt"
     text = f.read_text(encoding="utf-8")
     blocks = []
     for b in text.split("# METADATA:"):
@@ -310,7 +317,11 @@ def stage_run(reader, url, datasets):
 
 
 def stage_merge(reader, datasets):
-    order, data = T.setup([d for d in DATASETS if d in (datasets or DATASETS)])
+    """Merge the H2 datasets into labels_<reader>.csv (unchanged), or other datasets (nq) into
+    labels_<reader>_<datasets>.csv, so that the H2 analyses never pick them up by accident."""
+    datasets = datasets or MAIN
+    suffix = "" if set(datasets) == set(MAIN) else "_" + "_".join(sorted(datasets))
+    order, data = T.setup([d for d in DATASETS if d in datasets])
     rows = []
     for ds in order:
         got = {x["query_id"]: x for x in T.read_jsonl(OUT / reader / f"{ds}.jsonl")}
@@ -332,7 +343,7 @@ def stage_merge(reader, datasets):
                          "cot": " ".join(x["cot"]), "reader": reader,
                          "demos_dropped_max": max(x.get("demos_dropped") or [0])})
     df = pd.DataFrame(rows)
-    p = OUT / f"labels_{reader}.csv"
+    p = OUT / f"labels_{reader}{suffix}.csv"
     df.to_csv(p, index=False)
     print(f"Wrote {p.name}: {len(df)} rows")
     print(df.groupby("dataset").agg(strict_or_contains=("label", "mean"), lm_calls=("lm_calls", "mean"),

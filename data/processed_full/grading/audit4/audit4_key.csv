@@ -1,0 +1,279 @@
+item_id,dataset,query_id,norm,answer
+4001,2wikimultihopqa,6757,seattle washington,"Seattle, Washington"
+4002,2wikimultihopqa,12296,elizabeth cavendish,Elizabeth Cavendish
+4003,2wikimultihopqa,10381,university of bergen,University of Bergen
+4004,2wikimultihopqa,4417,passage 2 does not specify birthplace of peter of salerno only that he was original ruler of salerno therefore based on information provided we cannot determine where his father was born,"Passage 2 does not specify the birthplace of Peter of Salerno, only that he was the original ruler of Salerno. Therefore, based on the information provided, we cannot determine where his father was born."
+4005,2wikimultihopqa,3881,passage does not provide birthplace of any member of brand new immortals,The passage does not provide the birthplace of any member of Brand New Immortals.
+4006,2wikimultihopqa,1496,million dollar babies,Million Dollar Babies
+4007,2wikimultihopqa,3425,tsar feodor ii of russia,Tsar Feodor II of Russia
+4008,2wikimultihopqa,4617,when mother and daughter,When The Mother and the Daughter
+4009,2wikimultihopqa,7983,king alfonso xiii of spain,King Alfonso XIII of Spain
+4010,2wikimultihopqa,2473,park kyung hwan,Park Kyung-hwan
+4011,2wikimultihopqa,4706,giuseppe piccioni,Giuseppe Piccioni
+4012,2wikimultihopqa,5893,kodardas kalidas shah,Kodardas Kalidas Shah
+4013,2wikimultihopqa,8672,ne jouez pas avec les martiens,Ne Jouez Pas Avec Les Martiens
+4014,2wikimultihopqa,2954,chicago illinois,"Chicago, Illinois"
+4015,2wikimultihopqa,11011,italian,Italian
+4016,2wikimultihopqa,2540,trinity college cambridge,"Trinity College, Cambridge"
+4017,2wikimultihopqa,9573,margaret hamilton,Margaret Hamilton
+4018,2wikimultihopqa,9334,puławy,Puławy
+4019,2wikimultihopqa,3576,daphne and diplomat,Daphne And The Diplomat
+4020,2wikimultihopqa,11131,sam newfield,Sam Newfield
+4021,2wikimultihopqa,3520,passages do not specify birthplace of director of endless road 1943,Passages do not specify the birthplace of the director of The Endless Road (1943).
+4022,2wikimultihopqa,12403,yaroslav wise,Yaroslav the Wise
+4023,2wikimultihopqa,1989,atlanta,Atlanta
+4024,2wikimultihopqa,8166,austin texas,"Austin, Texas"
+4025,2wikimultihopqa,2984,not specified,Not specified
+4026,hotpotqa,96632,seattle supersonics,Seattle SuperSonics
+4027,hotpotqa,96037,1941,1941
+4028,hotpotqa,91762,1991,1991
+4029,hotpotqa,94549,tromsø,Tromsø
+4030,hotpotqa,96805,february 20 1988,"February 20, 1988"
+4031,hotpotqa,91799,rochester hills,Rochester Hills
+4032,hotpotqa,95444,dan bilzerian,Dan Bilzerian
+4033,hotpotqa,92836,german opera,German opera
+4034,hotpotqa,94861,may 22,May 22
+4035,hotpotqa,92715,space shuttle challenger,Space Shuttle Challenger
+4036,hotpotqa,97333,screenwriter,Screenwriter
+4037,hotpotqa,95211,september 12 1947,"September 12, 1947"
+4038,hotpotqa,92628,julian assange,Julian Assange
+4039,hotpotqa,91644,people s republic of china,People's Republic of China
+4040,hotpotqa,92344,roman republic,Roman Republic
+4041,hotpotqa,95468,sedan,sedan
+4042,hotpotqa,92099,cordillera blanca,Cordillera Blanca
+4043,hotpotqa,93328,æthelstan,Æthelstan
+4044,hotpotqa,97426,taha carım,Taha Carım
+4045,hotpotqa,95283,1967,1967
+4046,hotpotqa,97438,2009,2009
+4047,hotpotqa,92604,syracuse university,Syracuse University
+4048,hotpotqa,92541,somerville,Somerville
+4049,hotpotqa,94424,justin prinstein,Justin Prinstein
+4050,musique,903,norah jones,Norah Jones
+4051,musique,1211,hindu,Hindu
+4052,musique,2376,prussia,Prussia
+4053,musique,246,1937,1937
+4054,musique,463,indigo planet records,Indigo Planet Records
+4055,musique,1061,not specified,Not specified
+4056,musique,422,oregon state beavers,Oregon State Beavers
+4057,musique,44,aroostook county,Aroostook County
+4058,musique,1018,12 179,"12,179"
+4059,musique,353,international olympic committee ioc,International Olympic Committee (IOC)
+4060,musique,1263,1976,1976
+4061,musique,2322,10 000 bc,"10,000 BC"
+4062,musique,1084,cfjc,CFJC
+4063,musique,2266,john pell,John Pell
+4064,musique,1537,classical latin,Classical Latin
+4065,musique,1223,al hind,Al-Hind
+4066,musique,2231,god parted sea,God parted the sea.
+4067,musique,819,youthsat,Youthsat
+4068,musique,1592,not specified,not specified
+4069,musique,1675,1941,1941
+4070,musique,2239,2011,2011
+4071,musique,1750,1929,1929
+4072,musique,1451,1981,1981
+4073,musique,2284,23 556,"£23,556"
+4074,nq,1137,mestizos,Mestizos
+4075,nq,2528,canada,Canada
+4076,nq,1783,originally released independently via online distribution exact date not specified,Originally released independently via online distribution. Exact date not specified.
+4077,nq,1836,lutheran faith,Lutheran faith
+4078,nq,1636,immediate family or household members are ineligible,immediate family or household members are ineligible
+4079,nq,1886,clarence darrow,Clarence Darrow
+4080,nq,182,queen marie antoinette attributed but not confirmed,"Queen Marie Antoinette (attributed, but not confirmed)"
+4081,nq,1227,not mentioned,Not mentioned
+4082,nq,313,france,France
+4083,nq,501,not mentioned,Not mentioned
+4084,nq,15,5,5
+4085,nq,1947,june 13 to 22 2012,"June 13 to 22, 2012"
+4086,nq,1174,reads question,reads a question
+4087,nq,280,subtropical westerlies,subtropical westerlies
+4088,nq,998,not specified,Not specified
+4089,nq,2278,not mentioned,Not mentioned
+4090,nq,763,not applicable,Not applicable
+4091,nq,1484,not mentioned,not mentioned
+4092,nq,156,b f skinner,B.F. Skinner
+4093,nq,2407,jurchen aisin gioro clan,Jurchen Aisin Gioro clan
+4094,nq,2391,twice,twice
+4095,2wikimultihopqa,9611,stein erik hagen,Stein Erik Hagen
+4096,2wikimultihopqa,12062,north london,North London
+4097,2wikimultihopqa,218,national film school in łódź,National Film School in Łódź
+4098,2wikimultihopqa,8537,yes,Yes.
+4099,2wikimultihopqa,10662,not specified in passages,Not specified in the passages.
+4100,2wikimultihopqa,10235,director of dragonheart 3 sorcerer s curse colin teague graduated from london international film school,"The director of Dragonheart 3: The Sorcerer's Curse, Colin Teague, graduated from the London International Film School."
+4101,2wikimultihopqa,4929,aksi fort north fergana,"Aksi fort, North Fergana."
+4102,2wikimultihopqa,2536,tripp county south dakota,"Tripp County, South Dakota."
+4103,2wikimultihopqa,4099,2012,2012
+4104,2wikimultihopqa,9520,vienna,Vienna
+4105,2wikimultihopqa,5964,unknown,Unknown
+4106,2wikimultihopqa,7983,prince alfonso of two sicilies count of caserta,"Prince Alfonso of the Two Sicilies, Count of Caserta."
+4107,2wikimultihopqa,10062,fitzgerald family christmas,The Fitzgerald Family Christmas
+4108,2wikimultihopqa,10839,palos verdes estates california usa,"Palos Verdes Estates, California, USA."
+4109,2wikimultihopqa,11355,university of california berkeley,"University of California, Berkeley."
+4110,2wikimultihopqa,6005,trip to marrakesh,The Trip To Marrakesh
+4111,2wikimultihopqa,1692,6 january 1975,6 January 1975
+4112,2wikimultihopqa,1402,company film,The Company (Film)
+4113,2wikimultihopqa,3578,yes,Yes.
+4114,2wikimultihopqa,4464,irish,Irish
+4115,2wikimultihopqa,429,unknown,Unknown.
+4116,2wikimultihopqa,4860,beauport quebec,"Beauport, Quebec"
+4117,2wikimultihopqa,11108,mangalia,Mangalia
+4118,2wikimultihopqa,4687,berlin,Berlin
+4119,2wikimultihopqa,12331,scipio africanus,Scipio Africanus.
+4120,2wikimultihopqa,937,volker schlöndorff,Volker Schlöndorff
+4121,2wikimultihopqa,828,grünwald germany,"Grünwald, Germany."
+4122,2wikimultihopqa,4718,he ain t heavy he s my father,"He Ain't Heavy, He's My Father"
+4123,2wikimultihopqa,7841,yes,Yes.
+4124,2wikimultihopqa,8251,academy of performing arts in bratislava,Academy of Performing Arts in Bratislava.
+4125,2wikimultihopqa,3955,who s your brother,Who's Your Brother?
+4126,2wikimultihopqa,2380,james audley 2nd baron audley,"James Audley, 2nd Baron Audley"
+4127,2wikimultihopqa,6759,not provided in passages,Not provided in the passages.
+4128,2wikimultihopqa,2435,princess alexandra of saxe coburg and gotha,Princess Alexandra of Saxe-Coburg and Gotha.
+4129,2wikimultihopqa,8290,alkohol,Alkohol
+4130,2wikimultihopqa,9148,renée saint cyr,Renée Saint-Cyr.
+4131,2wikimultihopqa,2901,honeymoons,Honeymoons
+4132,2wikimultihopqa,7301,no,No.
+4133,2wikimultihopqa,12222,george spencer 4th duke of marlborough,"George Spencer, 4th Duke of Marlborough."
+4134,2wikimultihopqa,6526,21 october 1514,21 October 1514
+4135,2wikimultihopqa,5610,passage does not provide information about where composer of film before sunset studied,"The passage does not provide information about where the composer of the film ""Before Sunset"" studied."
+4136,2wikimultihopqa,7912,hong kong,Hong Kong
+4137,2wikimultihopqa,4480,władysław i of płock s father siemowit iv duke of masovia,"Władysław I of Płock's father, Siemowit IV, Duke of Masovia."
+4138,2wikimultihopqa,2167,sir mountstuart grant duff s father m e grant duff,"Sir Mountstuart Grant Duff's father, M. E. Grant Duff."
+4139,2wikimultihopqa,12534,bibi,Bibi
+4140,2wikimultihopqa,8720,lavras do sul rio grande do sul,"Lavras do Sul, Rio Grande do Sul."
+4141,2wikimultihopqa,6757,not specified,Not specified
+4142,2wikimultihopqa,10381,not mentioned,Not mentioned
+4143,2wikimultihopqa,3881,not specified,Not specified
+4144,2wikimultihopqa,1496,ammayi kosam,Ammayi Kosam
+4145,2wikimultihopqa,3425,prince archil of imereti,Prince Archil of Imereti
+4146,2wikimultihopqa,4617,paigham,Paigham
+4147,2wikimultihopqa,7983,king robert of naples,King Robert of Naples
+4148,2wikimultihopqa,4706,condannato nozze,Condannato A Nozze
+4149,2wikimultihopqa,8672,murder by numbers,Murder By Numbers
+4150,2wikimultihopqa,2954,passages do not provide this information,Passages do not provide this information.
+4151,2wikimultihopqa,11011,american,American
+4152,2wikimultihopqa,9573,joan fitzgerald,Joan FitzGerald
+4153,2wikimultihopqa,9334,stuttgart,Stuttgart
+4154,2wikimultihopqa,3576,gaucho war,The Gaucho War
+4155,2wikimultihopqa,11131,black feathers,Black Feathers
+4156,2wikimultihopqa,3520,passages do not provide this information,Passages do not provide this information.
+4157,2wikimultihopqa,12403,iziaslav i of kiev,Iziaslav I of Kiev
+4158,2wikimultihopqa,1989,dallas texas,"Dallas, Texas"
+4159,2wikimultihopqa,8166,texas,Texas
+4160,2wikimultihopqa,2984,unknown,Unknown
+4161,hotpotqa,96632,philadelphia,Philadelphia
+4162,hotpotqa,96037,1817,1817
+4163,hotpotqa,91762,1993,1993
+4164,hotpotqa,94549,new york city,New York City
+4165,hotpotqa,96805,passages don t provide birth date,Passages don't provide birth date.
+4166,hotpotqa,91799,rochester hills michigan,"Rochester Hills, Michigan"
+4167,hotpotqa,95444,kellan lutz,Kellan Lutz
+4168,hotpotqa,92836,mannheim school,Mannheim school
+4169,hotpotqa,94861,2015,2015
+4170,hotpotqa,92715,sts 51 l,STS-51-L
+4171,hotpotqa,97333,film director,film director
+4172,hotpotqa,95211,february 12 1931,"February 12, 1931"
+4173,hotpotqa,92628,jeremy hammond,Jeremy Hammond
+4174,hotpotqa,91644,china,China
+4175,hotpotqa,92344,etruscans,Etruscans
+4176,hotpotqa,95468,saloon,saloon
+4177,hotpotqa,92099,vilcanota,Vilcanota
+4178,hotpotqa,93328,eric victorious,Eric the Victorious
+4179,hotpotqa,97426,indira gandhi,Indira Gandhi
+4180,hotpotqa,95283,1972,1972
+4181,hotpotqa,97438,1976,1976
+4182,hotpotqa,92604,university of california berkeley,"University of California, Berkeley"
+4183,hotpotqa,92541,playdead developed limbo,Playdead developed Limbo.
+4184,musique,903,john d loudermilk,John D. Loudermilk
+4185,musique,1211,hinduism,Hinduism
+4186,musique,2376,second polish republic,Second Polish Republic
+4187,musique,246,1938,1938
+4188,musique,463,warner music group,Warner Music Group
+4189,musique,1061,not mentioned,Not mentioned
+4190,musique,422,smokey x,Smokey X
+4191,musique,44,aroostook,Aroostook
+4192,musique,1018,not specified,Not specified
+4193,musique,353,international olympic committee,International Olympic Committee
+4194,musique,1263,passages do not provide this information,Passages do not provide this information.
+4195,musique,2322,dutch,Dutch
+4196,musique,1084,cfjc tv,CFJC-TV
+4197,musique,2266,swiss settlers,Swiss settlers
+4198,musique,1537,latin,Latin
+4199,musique,1223,islam,Islam
+4200,musique,2231,parted sea,Parted the sea
+4201,musique,819,ats 6,ATS-6
+4202,musique,1592,twice,Twice
+4203,musique,1675,1940,1940
+4204,musique,2239,guess paris,Guess: Paris
+4205,musique,1750,not enough information to determine,Not enough information to determine.
+4206,musique,1451,early 1980s,early 1980s
+4207,musique,2284,59 039,"$59,039"
+4208,nq,1137,not specified,Not specified
+4209,nq,2845,four,four
+4210,nq,2528,africa,Africa
+4211,nq,1783,8 september 2010,8 September 2010
+4212,nq,1836,christianity,Christianity
+4213,nq,1636,john carpenter,John Carpenter
+4214,nq,1886,hugh s johnson,Hugh S. Johnson
+4215,nq,182,alphonse karr,Alphonse Karr
+4216,nq,1227,aaron harrison and andrew harrison,Aaron Harrison and Andrew Harrison
+4217,nq,313,montcalm,Montcalm
+4218,nq,501,lauren tom,Lauren Tom
+4219,nq,15,five,Five
+4220,nq,1947,2012,2012
+4221,nq,1174,from ipod,From an iPod
+4222,nq,280,cold desert climate winds,cold desert climate winds
+4223,nq,998,doll,Doll
+4224,nq,2278,tandi,Tandi
+4225,nq,763,16 00 pst utc 8,16:00 PST (UTC+8)
+4226,nq,1484,south atlantic ocean,south Atlantic Ocean
+4227,nq,156,john b watson,John B. Watson
+4228,nq,2407,jurchen,Jurchen
+4229,nq,2391,0,0
+4230,2wikimultihopqa,9611,kiplangat sang,Kiplangat Sang
+4231,2wikimultihopqa,12062,not specified in passages,Not specified in the passages.
+4232,2wikimultihopqa,5859,unknown,Unknown.
+4233,2wikimultihopqa,218,łódź,Łódź
+4234,2wikimultihopqa,8537,no,No.
+4235,2wikimultihopqa,10381,passages do not contain information about rune ottosen s father s graduation,The passages do not contain information about Rune Ottosen's father's graduation.
+4236,2wikimultihopqa,10662,not mentioned in passages,Not mentioned in the passages.
+4237,2wikimultihopqa,10235,not mentioned in passages,Not mentioned in the passages.
+4238,2wikimultihopqa,4929,ferghana,Ferghana.
+4239,2wikimultihopqa,2536,unknown,Unknown.
+4240,2wikimultihopqa,4099,not available in passages,Not available in passages.
+4241,2wikimultihopqa,9520,germany,Germany
+4242,2wikimultihopqa,5964,not specified,Not specified.
+4243,2wikimultihopqa,7983,prince carlos of bourbon two sicilies,Prince Carlos of Bourbon-Two Sicilies.
+4244,2wikimultihopqa,10062,death for sale,Death for Sale
+4245,2wikimultihopqa,10839,unknown,Unknown
+4246,2wikimultihopqa,11355,not mentioned,Not mentioned.
+4247,2wikimultihopqa,6005,abdication,The Abdication
+4248,2wikimultihopqa,1692,not mentioned in passages,Not mentioned in the passages.
+4249,2wikimultihopqa,1402,company of wolves,The Company of Wolves
+4250,2wikimultihopqa,3578,no,No.
+4251,2wikimultihopqa,4464,anglo irish,Anglo-Irish
+4252,2wikimultihopqa,429,harald kesja s wife not named,Harald Kesja's wife (not named)
+4253,2wikimultihopqa,4860,director of film route 132 is louis bélanger however provided passages do not mention where louis bélanger was born therefore i cannot provide answer based on given information,"The director of the film Route 132 is Louis Bélanger. However, the provided passages do not mention where Louis Bélanger was born. Therefore, I cannot provide the answer based on the given information."
+4254,2wikimultihopqa,11108,romania,Romania
+4255,2wikimultihopqa,4687,germany,Germany
+4256,2wikimultihopqa,12331,lucius aemilius paullus,Lucius Aemilius Paullus
+4257,2wikimultihopqa,937,margarethe von trotta s spouse is not mentioned in provided passages,Margarethe von Trotta's spouse is not mentioned in the provided passages.
+4258,2wikimultihopqa,828,not specified in passage,Not specified in the passage.
+4259,2wikimultihopqa,4718,l zombie,L.A. Zombie
+4260,2wikimultihopqa,7841,no,No.
+4261,2wikimultihopqa,8251,unknown,Unknown
+4262,2wikimultihopqa,3955,last outpost 1951 film,The Last Outpost (1951 Film)
+4263,2wikimultihopqa,2380,sir john tuchet 1327 1371,Sir John Tuchet (1327–1371)
+4264,2wikimultihopqa,6759,torvald klaveness,Torvald Klaveness
+4265,2wikimultihopqa,2435,princess marie melita of hohenlohe langenburg,Princess Marie Melita of Hohenlohe-Langenburg.
+4266,2wikimultihopqa,5532,sophie of saxe lauenburg s death date is not provided in passages,Sophie of Saxe-Lauenburg's death date is not provided in the passages.
+4267,2wikimultihopqa,8290,night of dark shadows,Night of Dark Shadows
+4268,2wikimultihopqa,9148,unknown,Unknown.
+4269,2wikimultihopqa,2901,stranger s return,The Stranger's Return
+4270,2wikimultihopqa,7301,yes,Yes.
+4271,2wikimultihopqa,12222,anthony ashley cooper 7th earl of shaftesbury,"Anthony Ashley-Cooper, 7th Earl of Shaftesbury."
+4272,2wikimultihopqa,6526,1514,1514
+4273,2wikimultihopqa,5610,passage does not mention where composer of before sunset studied,"The passage does not mention where the composer of ""Before Sunset"" studied."
+4274,2wikimultihopqa,7912,unknown,Unknown.
+4275,2wikimultihopqa,4480,władysław i of płock s father is siemowit vi of płock s paternal grandfather however according to passage siemowit vi of płock s father is władysław i of płock therefore answer is not directly provided in passage however based on passage władysław i of płock s father is siemowit iv duke of masovia therefore si,"Władysław I of Płock's father is Siemowit VI of Płock's paternal grandfather. However, according to the passage, Siemowit VI of Płock's father is Władysław I of Płock. Therefore, the answer is not directly provided in the passage. However, based on the passage, Władysław I of Płock's father is Siemowit IV, Duke of Masovia. Therefore, Si"
+4276,2wikimultihopqa,2167,sir mountstuart grant duff s father james grant duff,"Sir Mountstuart Grant Duff's father, James Grant Duff."
+4277,2wikimultihopqa,12534,nils tavernier,Nils Tavernier.
+4278,2wikimultihopqa,8720,brazil,Brazil.
