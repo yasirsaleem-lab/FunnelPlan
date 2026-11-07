@@ -1,0 +1,16 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Fixed step chains $F_T$ (IRCoT's reasoning for exactly $T$ retrievals, stopping off) against IRCoT: success and mean latency in seconds, mean over the three IRCoT readers. Last column: IRCoT minus $F_4$ on the same questions, range over readers.}
+\label{tab:multistep}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrr}
+\toprule
+Dataset & F1 & F2 & F3 & F4 & IRCoT & IRCoT minus F4 \\
+\midrule
+NQ & 0.470 (0.9) & 0.550 (10.2) & 0.575 (19.4) & 0.574 (28.5) & 0.570 (38.5) & $-$0.006 to $-$0.002 \\
+HotpotQA & 0.433 (0.8) & 0.512 (9.7) & 0.555 (18.6) & 0.560 (27.4) & 0.560 (36.0) & $-$0.002 to +0.004 \\
+2Wiki & 0.349 (0.7) & 0.485 (9.9) & 0.531 (19.1) & 0.530 (28.3) & 0.531 (42.8) & $-$0.002 to +0.004 \\
+MuSiQue & 0.150 (0.9) & 0.206 (9.9) & 0.255 (18.7) & 0.276 (27.7) & 0.283 (40.5) & +0.002 to +0.010 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

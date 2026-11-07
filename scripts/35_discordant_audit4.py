@@ -147,12 +147,105 @@ def stage_make():
           f"{A29.SHEETS['A'].name}, {A29.SHEETS['B'].name}. Never send {A29.KEY.name} or {A29.QUESTIONS.name}.")
 
 
+def _bias(g, share, rng):
+    """Shift of an automatic rule on the gain: mean over discordant questions of (rule gain minus human gain),
+    times the share of discordant questions; bootstrap interval over questions."""
+    r = {"questions": len(g), "discordant_share": share}
+    for arm in ("policy", "hull"):
+        for rule in ("label_final", "label_strict"):
+            x, h = g[f"{arm}_{rule}"].to_numpy(float), g[f"{arm}_human"].to_numpy(float)
+            r[f"{arm}_{rule}_false_pos"] = float(np.mean((x == 1) & (h == 0)))
+            r[f"{arm}_{rule}_false_neg"] = float(np.mean((x == 0) & (h == 1)))
+            r[f"{arm}_{rule}_error"] = float(np.mean(x != h))
+        r[f"{arm}_human_correct"] = float(g[f"{arm}_human"].mean())
+    for rule in ("label_final", "label_strict"):
+        d = ((g[f"policy_{rule}"] - g[f"hull_{rule}"]) - (g["policy_human"] - g["hull_human"])).to_numpy(float)
+        bs = [d[rng.integers(0, len(d), len(d))].mean() for _ in range(2000)]
+        lo, hi = np.percentile(bs, [2.5, 97.5])
+        r[f"bias_{rule}_on_gain"], r[f"bias_{rule}_on_gain_low"], r[f"bias_{rule}_on_gain_high"] = (
+            d.mean() * share, lo * share, hi * share)
+    return r
+
+
+def stage_finalize():
+    OUT.mkdir(parents=True, exist_ok=True)
+    a, b = A29.read_labels(A29.RECEIVED["A"]), A29.read_labels(A29.RECEIVED["B"])
+    b = b.reindex(a.index)
+    C = A29.LABEL_COL
+    human = a[C].where(a[C] == b[C])
+    dis = human.index[human.isna()]
+    n_blank = int((a[C].isna() | b[C].isna()).sum())
+    if len(dis):
+        if not A29.ADJ_RECEIVED.exists():
+            sys.exit(f"{len(dis)} disagreements; run 'adjudicate' and return {A29.ADJ_RECEIVED.name}")
+        human.loc[dis] = A29.read_labels(A29.ADJ_RECEIVED)[C].reindex(dis)
+        if human.isna().any():
+            sys.exit(f"{int(human.isna().sum())} adjudication items unlabelled")
+    key = pd.read_csv(A29.KEY, dtype={"query_id": str}, keep_default_na=False)
+    key["human"] = human.reindex(key.item_id).to_numpy()
+    # audit 3 labels for answers already rated there
+    S3 = pd.read_csv(settings.RESULTS_ROOT / "analysis" / "audit3" / "audit3_questions_labelled.csv",
+                     dtype={"query_id": str}, keep_default_na=False)
+    h3 = pd.concat([S3[["dataset", "query_id", f"{arm}_norm", f"{arm}_human"]].set_axis(
+        ["dataset", "query_id", "norm", "human"], axis=1) for arm in ("policy", "hull")])
+    hmap = pd.concat([h3, key[["dataset", "query_id", "norm", "human"]]]).drop_duplicates(
+        ["dataset", "query_id", "norm"]).set_index(["dataset", "query_id", "norm"]).human
+    hmap = pd.to_numeric(hmap)
+    Qs = pd.read_csv(A29.QUESTIONS, dtype={"query_id": str}, keep_default_na=False)
+    for c in ("sampled", "discordant", "sampled_audit3"):
+        Qs[c] = Qs[c].astype(str) == "True"
+    for arm in ("policy", "hull"):
+        for rule in ("label_final", "label_strict"):
+            Qs[f"{arm}_{rule}"] = pd.to_numeric(Qs[f"{arm}_{rule}"])
+        Qs[f"{arm}_human"] = hmap.reindex(list(zip(Qs.dataset, Qs.query_id, Qs[f"{arm}_norm"].astype(str)))).to_numpy()
+    rng = np.random.default_rng(0)
+    x, y = A29.both(a, b)
+    L = [f"Audit 4: items {len(key)}; labelled by both raters {len(x)}; raters agree on {(x == y).mean():.3f}, "
+         f"kappa {A29.kappa(x, y):.3f}; {len(dis)} adjudicated ({len(dis) - n_blank} disagreements, {n_blank} blank)."]
+    cc, ir = Qs[Qs.test == CC], Qs[Qs.test == IR]
+    sets = {"conf_cascade audit 4 only": (cc[cc.sampled], cc.discordant.mean()),
+            "conf_cascade audits 3 and 4 (pooled)": (cc[cc.sampled | cc.sampled_audit3], cc.discordant.mean()),
+            "ircot qwen3-14b 2wiki": (ir[ir.sampled], ir.discordant.mean())}
+    T = pd.read_csv(settings.RESULTS_ROOT / "analysis" / "inference" / "tests_nb.csv")
+    t = T[(T.family == "primary") & (T.plan_set == "single step") & (T.reader == "qwen2.5-7b") & (T.method == "conf_cascade")].iloc[0]
+    H = pd.read_csv(settings.RESULTS_ROOT / "analysis" / "h3_ircot" / "h3.csv")
+    h = H[(H.hull == "single_step") & (H.reader == "qwen3-14b") & (H.dataset == "2wikimultihopqa")].iloc[0]
+    base = {"conf_cascade": (t.gain, t.ub95_plain, t.ub95_nb), "ircot": (h.gain, h.ci_high, h.refit_high)}
+    rows = []
+    for name, (g, share) in sets.items():
+        miss = int(g[["policy_human", "hull_human"]].isna().any(axis=1).sum())
+        if miss:
+            sys.exit(f"{name}: {miss} sampled questions have no human label")
+        r = {"set": name, **_bias(g, share, rng)}
+        gain, ub1, ub2 = base[name.split()[0]]
+        bshift = r["bias_label_final_on_gain"]
+        r.update(gain=gain, gain_adjusted=gain - bshift, ub_plain=ub1, ub_plain_adjusted=ub1 - bshift,
+                 ub_second=ub2, ub_second_adjusted=ub2 - bshift,
+                 ub_plain_adjusted_worst=ub1 - r["bias_label_final_on_gain_low"])
+        rows.append(r)
+        L.append(f"\n== {name}: {len(g)} discordant questions; {share:.3f} of held out questions are discordant")
+        for arm in ("policy", "hull"):
+            L.append(f"  {arm:6s} human correct {r[f'{arm}_human_correct']:.3f}; label_final error "
+                     f"{r[f'{arm}_label_final_error']:.3f} (false pos {r[f'{arm}_label_final_false_pos']:.3f}, "
+                     f"false neg {r[f'{arm}_label_final_false_neg']:.3f}); strict error {r[f'{arm}_label_strict_error']:.3f}")
+        L.append(f"  shift of label_final on the gain {bshift:+.4f} [{r['bias_label_final_on_gain_low']:+.4f}, "
+                 f"{r['bias_label_final_on_gain_high']:+.4f}] (positive: label_final overstates the policy); strict "
+                 f"{r['bias_label_strict_on_gain']:+.4f}")
+        L.append(f"  gain {gain:+.4f} -> {gain - bshift:+.4f} without the shift; upper bound (per question) {ub1:.4f} -> "
+                 f"{ub1 - bshift:.4f} (end of the shift interval: {r['ub_plain_adjusted_worst']:.4f}); "
+                 f"{'corrected' if name.startswith('conf') else 'refit'} bound {ub2:.4f} -> {ub2 - bshift:.4f}")
+    pd.DataFrame(rows).to_csv(OUT / "audit4_results.csv", index=False)
+    Qs.to_csv(OUT / "audit4_questions_labelled.csv", index=False)
+    (OUT / "summary.txt").write_text("\n".join(L), encoding="utf-8")
+    print("\n".join(L))
+
+
 if __name__ == "__main__":
     if STAGE == "make":
         stage_make()
     elif STAGE == "adjudicate":
         A29.stage_adjudicate()
     elif STAGE == "finalize":
-        sys.exit("finalize is written when the sheets are back (it pools audits 3 and 4 for the confidence cascade)")
+        stage_finalize()
     else:
         sys.exit("usage: python scripts/35_discordant_audit4.py make | adjudicate | finalize")

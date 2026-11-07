@@ -29,3 +29,11 @@ Check: mixed workload, positive in both plan sets under all three tests: none
 Check: mixed workload (pos/neg): Primary policies single step: 0 / 0 / 0 pos and 5 neg global, 0 / 8 label; Primary policies with two hop: 0 / 0 / 0 pos and 3 neg global, 0 / 10 label; Adaptive RAG, silver labels single step: 0 / 0 / 0 pos and 5 neg global, 0 / 5 label; Adaptive RAG, silver labels with two hop: 0 / 0 / 0 pos and 4 neg global, 0 / 5 label; Secondary routers, no own cost single step: 5 / 6 / 0 pos and 5 neg global, 0 / 5 label; Secondary routers, no own cost with two hop: 5 / 5 / 0 pos and 2 neg global, 0 / 8 label; Embedding routers, own cost single step: 0 / 1 / 0 pos and 0 neg global, 0 / 1 label; Embedding routers, own cost with two hop: 6 / 4 / 0 pos and 0 neg global, 0 / 0 label; Dataset guess, own cost single step: 0 / 0 / 0 pos and 0 neg global, 0 / 0 label; Dataset guess, own cost with two hop: 5 / 5 / 0 pos and 0 neg global, 0 / 0 label
 Check: label hull minus global hull (held out, best budget): single step: +0.009 to +0.027; with two hop: +0.027 to +0.048
 Check: p95 ratio (policy/hull): single step median 1.09, two hop 1.07; max 1.68
+IRCoT against the hull with F_T [single step + F_T]: 0 of 12 wins
+IRCoT against the hull with F_T [single step + two hop + F_T]: 0 of 12 wins
+IRCoT minus F4: success -0.006 to +0.010; intervals containing 0: 12 of 12; latency saved 1.3 to 25.0 s
+Adaptive RAG as published vs always_rag: gain +0.070 to +0.091; positive under all three in both plan sets: 0; negative (corrected) 0 of 6
+Adaptive RAG as published vs hull_fixed: gain -0.061 to -0.023; positive under all three in both plan sets: 0; negative (corrected) 4 of 6
+Adaptive RAG as published vs hull_label: gain -0.069 to -0.029; positive under all three in both plan sets: 0; negative (corrected) 6 of 6
+Adaptive RAG as published vs hull_with_ircot: gain -0.061 to -0.033; positive under all three in both plan sets: 0; negative (corrected) 6 of 6
+Adaptive RAG as published vs never_rag: gain +0.184 to +0.236; positive under all three in both plan sets: 3; negative (corrected) 0 of 6

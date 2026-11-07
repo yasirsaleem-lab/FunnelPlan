@@ -613,3 +613,20 @@ Positive in both plan sets under all three tests: none
 | Confidence cascade, Qwen2.5 7B, single step | 100 | 0.27 | 0.060 | 0.040 | -0.011 [-0.024, 0.000] |
 | Per plan LR, Qwen3 32B, single step | 100 | 0.40 | 0.040 | 0.040 | -0.008 [-0.032, +0.012] |
 | Reader cascade, 7B to Qwen3 14B, with two hop | 100 | 0.37 | 0.070 | 0.050 | 0.000 [-0.019, +0.022] |
+
+## Fixed step chains against IRCoT (success, mean latency in s; mean over three readers)
+
+| Dataset | F1 | F2 | F3 | F4 | IRCoT | IRCoT minus F4 |
+|---|---|---|---|---|---|---|
+| NQ | 0.470 (0.9) | 0.550 (10.2) | 0.575 (19.4) | 0.574 (28.5) | 0.570 (38.5) | -0.006 to -0.002 |
+| HotpotQA | 0.433 (0.8) | 0.512 (9.7) | 0.555 (18.6) | 0.560 (27.4) | 0.560 (36.0) | -0.002 to +0.004 |
+| 2Wiki | 0.349 (0.7) | 0.485 (9.9) | 0.531 (19.1) | 0.530 (28.3) | 0.531 (42.8) | -0.002 to +0.004 |
+| MuSiQue | 0.150 (0.9) | 0.206 (9.9) | 0.255 (18.7) | 0.276 (27.7) | 0.283 (40.5) | +0.002 to +0.010 |
+
+## Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)
+
+| Reader | vs Always RAG | vs hull | vs label hull | vs hull with IRCoT | Latency (s) | Always RAG (s) | Share to IRCoT |
+|---|---|---|---|---|---|---|---|
+| Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | 14.2 | 0.38 | 0.58 |
+| Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | 12.1 | 0.48 | 0.59 |
+| Qwen3 14B | +0.091 | -0.023 | -0.029 | -0.037 | 40.5 | 1.78 | 0.53 |
