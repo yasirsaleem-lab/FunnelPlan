@@ -1,0 +1,16 @@
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Datasets and corpora. Each dataset contributes 500 questions drawn with a fixed seed.}
+\label{tab:data}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrl@{}}
+\toprule
+Dataset & Questions & Passages & Corpus \\
+\midrule
+NQ~\cite{kwiatkowski2019nq,lee2019orqa} & single hop & 2.68M & BEIR Wikipedia~\cite{thakur2021beir} \\
+HotpotQA~\cite{yang2018hotpotqa} & one or two hops & 5.23M & BEIR Wikipedia~\cite{thakur2021beir} \\
+2Wiki~\cite{ho2020twowiki} & multi-hop & 413,024 & pooled paragraphs \\
+MuSiQue~\cite{trivedi2022musique} & multi-hop & 101,958 & pooled paragraphs \\
+\bottomrule
+\end{tabular*}
+\end{table}

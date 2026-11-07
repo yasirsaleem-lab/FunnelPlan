@@ -1,0 +1,26 @@
+% Table I. Evidence for each mark (checked 14 Oct 2026 against the papers; re-check before submission):
+% Adaptive-RAG: readers FLAN-T5 XL, XXL, GPT-3.5 (3); time per query relative to one step, absolute only per label group;
+%   EM/F1/Acc, no judge, no human audit; no seeds or tests reported.
+% Moskvoretskii et al.: one reader (Llama 3.1 8B); LM calls and retriever calls, no latency; bootstrap SD and
+%   Friedman/Nemenyi tests; In-Accuracy/EM/F1, no human audit.
+% FlashRAG: Llama 3 8B and Qwen 1.5 14B as main generators (2); generation tokens, no latency; no tests.
+% RAGPerf: no adaptive policy; latency, throughput, TTFT; 5 generators in the results; Ragas LLM judge; no tests seen.
+% XRAG: no adaptive policy; GPT-4o mini, Llama 3.1 8B, DeepSeek R1 7B (3); no per query latency; no tests seen.
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\caption{RAG benchmarks compared on design features. Pol.: adaptive retrieval policies compared. Hull: compared with a mix of fixed plans at equal cost. Rd.: readers in the main results. Lat.: measured latency per question (rel.: only relative to a one-step plan). Stat.: intervals or significance tests. Hum.: human audit of answer grading.}
+\label{tab:compare}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
+\toprule
+Benchmark & Pol. & Hull & Rd. & Lat. & Stat. & Hum. \\
+\midrule
+Adaptive RAG~\cite{jeong2024adaptiverag} & \checkmark & & 3 & rel. & & \\
+Moskvoretskii et al.~\cite{moskvoretskii2025adaptive} & \checkmark & & 1 & & \checkmark & \\
+FlashRAG~\cite{jin2025flashrag} & \checkmark & & 2 & & & \\
+RAGPerf~\cite{li2026ragperf} & & & 5 & \checkmark & & \\
+XRAG~\cite{zhang2026xrag} & & & 3 & & & \\
+FunnelPlan (ours) & \checkmark & \checkmark & 5 & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular*}
+\end{table}
