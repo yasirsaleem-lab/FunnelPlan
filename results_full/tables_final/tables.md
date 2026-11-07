@@ -616,7 +616,7 @@ Positive in both plan sets under all three tests: none
 
 ## Fixed step chains against IRCoT (success, mean latency in s; mean over three readers)
 
-| Dataset | F1 | F2 | F3 | F4 | IRCoT | IRCoT minus F4 |
+| Dataset | $F_1$ | $F_2$ | $F_3$ | $F_4$ | IRCoT | IRCoT minus $F_4$ |
 |---|---|---|---|---|---|---|
 | NQ | 0.470 (0.9) | 0.550 (10.2) | 0.575 (19.4) | 0.574 (28.5) | 0.570 (38.5) | -0.006 to -0.002 |
 | HotpotQA | 0.433 (0.8) | 0.512 (9.7) | 0.555 (18.6) | 0.560 (27.4) | 0.560 (36.0) | -0.002 to +0.004 |
@@ -625,7 +625,7 @@ Positive in both plan sets under all three tests: none
 
 ## Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)
 
-| Reader | vs Always RAG | vs hull | vs label hull | vs hull with IRCoT | Latency (s) | Always RAG (s) | Share to IRCoT |
+| Reader | vs Always RAG | vs global hull | vs label hull | vs hull with IRCoT | Latency (s) | Always RAG (s) | Share to IRCoT |
 |---|---|---|---|---|---|---|---|
 | Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | 14.2 | 0.38 | 0.58 |
 | Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | 12.1 | 0.48 | 0.59 |

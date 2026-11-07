@@ -1375,11 +1375,11 @@ def t_multistep():
         r = {"Dataset": DN[ds]}
         for t in (1, 2, 3, 4):
             x = F.loc[(ds, f"cotfixed{t}@4")]
-            r[f"F{t}"] = f"{x.success:.3f} ({x.latency_s:.1f})"
+            r[f"$F_{t}$"] = f"{x.success:.3f} ({x.latency_s:.1f})"
         x = F.loc[(ds, "ircot")]
         r["IRCoT"] = f"{x.success:.3f} ({x.latency_s:.1f})"
         g = ST[ST.dataset == ds]
-        r["IRCoT minus F4"] = f"{sg(g.ircot_minus_f4_success.min())} to {sg(g.ircot_minus_f4_success.max())}"
+        r["IRCoT minus $F_4$"] = f"{sg(g.ircot_minus_f4_success.min())} to {sg(g.ircot_minus_f4_success.max())}"
         rows.append(r)
     M = pd.DataFrame(rows)
     md_table("Fixed step chains against IRCoT (success, mean latency in s; mean over three readers)", M)
@@ -1405,14 +1405,15 @@ def t_arpub():
         g = T[T.reader == rd].set_index("comparator")
         u = U[(U.reader == rd) & (U.plan_set == "single step")]
         rows.append({"Reader": RN[rd], "vs Always RAG": sg(g.loc["always_rag", "gain"]),
-                     "vs hull": sg(g.loc["hull_fixed", "gain"]), "vs label hull": sg(g.loc["hull_label", "gain"]),
+                     "vs global hull": sg(g.loc["hull_fixed", "gain"]), "vs label hull": sg(g.loc["hull_label", "gain"]),
                      "vs hull with IRCoT": sg(g.loc["hull_with_ircot", "gain"]),
                      "Latency (s)": f"{u.cost.mean():.1f}", "Always RAG (s)": f"{u.always_cost.mean():.2f}",
                      "Share to IRCoT": f"{u['share_ircot@0'].mean():.2f}"})
     M = pd.DataFrame(rows)
     md_table("Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)", M)
-    tex_table("arpub", M, "Adaptive RAG as published: t5-large classifier trained on the four dataset mix, ladder of no "
-              "retrieval, BM25 with 5 passages and IRCoT; gains on held-out folds, single-step plan set.", "lrrrrrrr", star=True)
+    tex_table("arpub", M, "Adaptive RAG as published: one T5 Large classifier per reader trained on the four pooled datasets, with "
+              "the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost "
+              "matching) and over three hulls at its own cost; single-step plan set; latency includes the classifier.", "lrrrrrrr", star=True)
     A_ = pd.read_csv(D / "tests.csv")
     for comp, g in A_.groupby("comparator"):
         VERD.append(f"Adaptive RAG as published vs {comp}: gain {g.gain.min():+.3f} to {g.gain.max():+.3f}; "
