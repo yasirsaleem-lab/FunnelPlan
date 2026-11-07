@@ -2,750 +2,900 @@ plan_set,reader,comparator,seed,fold,gain,n_test,n_train
 single step,qwen2.5-7b,hull_fixed,0,0,-0.03250000000000003,400,1600
 single step,qwen2.5-7b,hull_label,0,0,-0.02250000000000002,400,1600
 single step,qwen2.5-7b,hull_with_ircot,0,0,-0.03250000000000003,400,1600
+single step,qwen2.5-7b,hull_rungs,0,0,0.027427522822367878,400,1600
 single step,qwen2.5-7b,always_rag,0,0,0.11249999999999999,400,1600
 single step,qwen2.5-7b,never_rag,0,0,0.21,400,1600
 single step,qwen2.5-7b,hull_fixed,0,1,-0.010000000000000009,400,1600
 single step,qwen2.5-7b,hull_label,0,1,-0.025000000000000022,400,1600
 single step,qwen2.5-7b,hull_with_ircot,0,1,-0.014377987684127957,400,1600
+single step,qwen2.5-7b,hull_rungs,0,1,0.020363827467817175,400,1600
 single step,qwen2.5-7b,always_rag,0,1,0.08000000000000002,400,1600
 single step,qwen2.5-7b,never_rag,0,1,0.215,400,1600
 single step,qwen2.5-7b,hull_fixed,0,2,-0.06,400,1600
 single step,qwen2.5-7b,hull_label,0,2,-0.065,400,1600
 single step,qwen2.5-7b,hull_with_ircot,0,2,-0.05367643987323695,400,1600
+single step,qwen2.5-7b,hull_rungs,0,2,-0.006012500260861919,400,1600
 single step,qwen2.5-7b,always_rag,0,2,0.04249999999999998,400,1600
 single step,qwen2.5-7b,never_rag,0,2,0.19499999999999998,400,1600
 single step,qwen2.5-7b,hull_fixed,0,3,-0.02999999999999997,400,1600
 single step,qwen2.5-7b,hull_label,0,3,-0.017500000000000016,400,1600
 single step,qwen2.5-7b,hull_with_ircot,0,3,-0.03652454099765906,400,1600
+single step,qwen2.5-7b,hull_rungs,0,3,-0.001247569712552521,400,1600
 single step,qwen2.5-7b,always_rag,0,3,0.04999999999999999,400,1600
 single step,qwen2.5-7b,never_rag,0,3,0.25,400,1600
 single step,qwen2.5-7b,hull_fixed,0,4,-0.019999999999999962,400,1600
 single step,qwen2.5-7b,hull_label,0,4,-0.019999999999999962,400,1600
 single step,qwen2.5-7b,hull_with_ircot,0,4,-0.032162349163705584,400,1600
+single step,qwen2.5-7b,hull_rungs,0,4,0.012150743449340584,400,1600
 single step,qwen2.5-7b,always_rag,0,4,0.08500000000000002,400,1600
 single step,qwen2.5-7b,never_rag,0,4,0.2725,400,1600
 single step,qwen2.5-7b,hull_fixed,1,0,-0.04749999999999999,400,1600
 single step,qwen2.5-7b,hull_label,1,0,-0.057499999999999996,400,1600
 single step,qwen2.5-7b,hull_with_ircot,1,0,-0.04328337248828695,400,1600
+single step,qwen2.5-7b,hull_rungs,1,0,0.009010223813576579,400,1600
 single step,qwen2.5-7b,always_rag,1,0,0.08000000000000002,400,1600
 single step,qwen2.5-7b,never_rag,1,0,0.25,400,1600
 single step,qwen2.5-7b,hull_fixed,1,1,-0.0050000000000000044,400,1600
 single step,qwen2.5-7b,hull_label,1,1,-0.0050000000000000044,400,1600
 single step,qwen2.5-7b,hull_with_ircot,1,1,-0.0050000000000000044,400,1600
+single step,qwen2.5-7b,hull_rungs,1,1,0.022486110705325912,400,1600
 single step,qwen2.5-7b,always_rag,1,1,0.10250000000000004,400,1600
 single step,qwen2.5-7b,never_rag,1,1,0.225,400,1600
 single step,qwen2.5-7b,hull_fixed,1,2,-0.010000000000000009,400,1600
 single step,qwen2.5-7b,hull_label,1,2,-0.0625,400,1600
 single step,qwen2.5-7b,hull_with_ircot,1,2,-0.010000000000000009,400,1600
+single step,qwen2.5-7b,hull_rungs,1,2,-0.008623998622534434,400,1600
 single step,qwen2.5-7b,always_rag,1,2,0.065,400,1600
 single step,qwen2.5-7b,never_rag,1,2,0.235,400,1600
 single step,qwen2.5-7b,hull_fixed,1,3,-0.04250000000000004,400,1600
 single step,qwen2.5-7b,hull_label,1,3,-0.07,400,1600
 single step,qwen2.5-7b,hull_with_ircot,1,3,-0.033319754149206626,400,1600
+single step,qwen2.5-7b,hull_rungs,1,3,0.009373257782247402,400,1600
 single step,qwen2.5-7b,always_rag,1,3,0.05249999999999999,400,1600
 single step,qwen2.5-7b,never_rag,1,3,0.21749999999999997,400,1600
 single step,qwen2.5-7b,hull_fixed,1,4,-0.02250000000000002,400,1600
 single step,qwen2.5-7b,hull_label,1,4,-0.0050000000000000044,400,1600
 single step,qwen2.5-7b,hull_with_ircot,1,4,-0.02250000000000002,400,1600
+single step,qwen2.5-7b,hull_rungs,1,4,0.013123004102271019,400,1600
 single step,qwen2.5-7b,always_rag,1,4,0.0675,400,1600
 single step,qwen2.5-7b,never_rag,1,4,0.2125,400,1600
 single step,qwen2.5-7b,hull_fixed,2,0,-0.05499999999999999,400,1600
 single step,qwen2.5-7b,hull_label,2,0,-0.065,400,1600
 single step,qwen2.5-7b,hull_with_ircot,2,0,-0.05499999999999999,400,1600
+single step,qwen2.5-7b,hull_rungs,2,0,-0.03425555891158644,400,1600
 single step,qwen2.5-7b,always_rag,2,0,0.027500000000000024,400,1600
 single step,qwen2.5-7b,never_rag,2,0,0.2425,400,1600
 single step,qwen2.5-7b,hull_fixed,2,1,-0.044999999999999984,400,1600
 single step,qwen2.5-7b,hull_label,2,1,-0.065,400,1600
 single step,qwen2.5-7b,hull_with_ircot,2,1,-0.04224538726958754,400,1600
+single step,qwen2.5-7b,hull_rungs,2,1,0.001895540721932376,400,1600
 single step,qwen2.5-7b,always_rag,2,1,0.06,400,1600
 single step,qwen2.5-7b,never_rag,2,1,0.215,400,1600
 single step,qwen2.5-7b,hull_fixed,2,2,-0.057499999999999996,400,1600
 single step,qwen2.5-7b,hull_label,2,2,-0.0675,400,1600
 single step,qwen2.5-7b,hull_with_ircot,2,2,-0.04653322572492852,400,1600
+single step,qwen2.5-7b,hull_rungs,2,2,0.01833098545727102,400,1600
 single step,qwen2.5-7b,always_rag,2,2,0.09500000000000003,400,1600
 single step,qwen2.5-7b,never_rag,2,2,0.17750000000000002,400,1600
 single step,qwen2.5-7b,hull_fixed,2,3,-0.03250000000000003,400,1600
 single step,qwen2.5-7b,hull_label,2,3,-0.040000000000000036,400,1600
 single step,qwen2.5-7b,hull_with_ircot,2,3,-0.036837359903175215,400,1600
+single step,qwen2.5-7b,hull_rungs,2,3,0.0091750794914775,400,1600
 single step,qwen2.5-7b,always_rag,2,3,0.08499999999999996,400,1600
 single step,qwen2.5-7b,never_rag,2,3,0.22499999999999998,400,1600
 single step,qwen2.5-7b,hull_fixed,2,4,0.0025000000000000022,400,1600
 single step,qwen2.5-7b,hull_label,2,4,0.0025000000000000022,400,1600
 single step,qwen2.5-7b,hull_with_ircot,2,4,-0.0070520532015602155,400,1600
+single step,qwen2.5-7b,hull_rungs,2,4,0.019955651391172724,400,1600
 single step,qwen2.5-7b,always_rag,2,4,0.0675,400,1600
 single step,qwen2.5-7b,never_rag,2,4,0.24750000000000003,400,1600
 single step,qwen2.5-7b,hull_fixed,3,0,-0.057499999999999996,400,1600
 single step,qwen2.5-7b,hull_label,3,0,-0.05499999999999999,400,1600
 single step,qwen2.5-7b,hull_with_ircot,3,0,-0.054944162150307396,400,1600
+single step,qwen2.5-7b,hull_rungs,3,0,-0.009175838742009224,400,1600
 single step,qwen2.5-7b,always_rag,3,0,0.04249999999999998,400,1600
 single step,qwen2.5-7b,never_rag,3,0,0.22499999999999998,400,1600
 single step,qwen2.5-7b,hull_fixed,3,1,-0.057499999999999996,400,1600
 single step,qwen2.5-7b,hull_label,3,1,-0.07,400,1600
 single step,qwen2.5-7b,hull_with_ircot,3,1,-0.05455329723044927,400,1600
+single step,qwen2.5-7b,hull_rungs,3,1,-0.01706192703132292,400,1600
 single step,qwen2.5-7b,always_rag,3,1,0.03999999999999998,400,1600
 single step,qwen2.5-7b,never_rag,3,1,0.22999999999999998,400,1600
 single step,qwen2.5-7b,hull_fixed,3,2,-0.0050000000000000044,400,1600
 single step,qwen2.5-7b,hull_label,3,2,-0.007500000000000007,400,1600
 single step,qwen2.5-7b,hull_with_ircot,3,2,-0.01651269817622819,400,1600
+single step,qwen2.5-7b,hull_rungs,3,2,0.012610560413522931,400,1600
 single step,qwen2.5-7b,always_rag,3,2,0.07,400,1600
 single step,qwen2.5-7b,never_rag,3,2,0.22249999999999998,400,1600
 single step,qwen2.5-7b,hull_fixed,3,3,-0.04749999999999999,400,1600
 single step,qwen2.5-7b,hull_label,3,3,-0.06,400,1600
 single step,qwen2.5-7b,hull_with_ircot,3,3,-0.040826593762012975,400,1600
+single step,qwen2.5-7b,hull_rungs,3,3,0.0165120747219889,400,1600
 single step,qwen2.5-7b,always_rag,3,3,0.08250000000000002,400,1600
 single step,qwen2.5-7b,never_rag,3,3,0.1775,400,1600
 single step,qwen2.5-7b,hull_fixed,3,4,0.0025000000000000022,400,1600
 single step,qwen2.5-7b,hull_label,3,4,-0.020000000000000018,400,1600
 single step,qwen2.5-7b,hull_with_ircot,3,4,0.0025000000000000022,400,1600
+single step,qwen2.5-7b,hull_rungs,3,4,0.00427749196550109,400,1600
 single step,qwen2.5-7b,always_rag,3,4,0.09749999999999998,400,1600
 single step,qwen2.5-7b,never_rag,3,4,0.25,400,1600
 single step,qwen2.5-7b,hull_fixed,4,0,-0.010000000000000009,400,1600
 single step,qwen2.5-7b,hull_label,4,0,-0.03250000000000003,400,1600
 single step,qwen2.5-7b,hull_with_ircot,4,0,-0.037624400430643745,400,1600
+single step,qwen2.5-7b,hull_rungs,4,0,-0.0004361486062246511,400,1600
 single step,qwen2.5-7b,always_rag,4,0,0.08749999999999997,400,1600
 single step,qwen2.5-7b,never_rag,4,0,0.24,400,1600
 single step,qwen2.5-7b,hull_fixed,4,1,0.007500000000000007,400,1600
 single step,qwen2.5-7b,hull_label,4,1,-0.0025000000000000022,400,1600
 single step,qwen2.5-7b,hull_with_ircot,4,1,0.002444221102312849,400,1600
+single step,qwen2.5-7b,hull_rungs,4,1,0.033247537849091235,400,1600
 single step,qwen2.5-7b,always_rag,4,1,0.07499999999999996,400,1600
 single step,qwen2.5-7b,never_rag,4,1,0.265,400,1600
 single step,qwen2.5-7b,hull_fixed,4,2,-0.03750000000000003,400,1600
 single step,qwen2.5-7b,hull_label,4,2,-0.04500000000000004,400,1600
 single step,qwen2.5-7b,hull_with_ircot,4,2,-0.03603401936590234,400,1600
+single step,qwen2.5-7b,hull_rungs,4,2,0.0026218223129955698,400,1600
 single step,qwen2.5-7b,always_rag,4,2,0.0625,400,1600
 single step,qwen2.5-7b,never_rag,4,2,0.20749999999999996,400,1600
 single step,qwen2.5-7b,hull_fixed,4,3,-0.07499999999999996,400,1600
 single step,qwen2.5-7b,hull_label,4,3,-0.08249999999999996,400,1600
 single step,qwen2.5-7b,hull_with_ircot,4,3,-0.0691096636646219,400,1600
+single step,qwen2.5-7b,hull_rungs,4,3,-0.020908926867840627,400,1600
 single step,qwen2.5-7b,always_rag,4,3,0.050000000000000044,400,1600
 single step,qwen2.5-7b,never_rag,4,3,0.18750000000000003,400,1600
 single step,qwen2.5-7b,hull_fixed,4,4,-0.03249999999999997,400,1600
 single step,qwen2.5-7b,hull_label,4,4,-0.044999999999999984,400,1600
 single step,qwen2.5-7b,hull_with_ircot,4,4,-0.04405823641536011,400,1600
+single step,qwen2.5-7b,hull_rungs,4,4,-0.00623126727311063,400,1600
 single step,qwen2.5-7b,always_rag,4,4,0.065,400,1600
 single step,qwen2.5-7b,never_rag,4,4,0.2125,400,1600
 with two hop,qwen2.5-7b,hull_fixed,0,0,-0.03250000000000003,400,1600
 with two hop,qwen2.5-7b,hull_label,0,0,-0.030000000000000027,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,0,0,-0.03250000000000003,400,1600
+with two hop,qwen2.5-7b,hull_rungs,0,0,0.027427522822367878,400,1600
 with two hop,qwen2.5-7b,always_rag,0,0,0.11249999999999999,400,1600
 with two hop,qwen2.5-7b,never_rag,0,0,0.21,400,1600
 with two hop,qwen2.5-7b,hull_fixed,0,1,-0.010000000000000009,400,1600
 with two hop,qwen2.5-7b,hull_label,0,1,-0.030000000000000027,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,0,1,-0.014377987684127957,400,1600
+with two hop,qwen2.5-7b,hull_rungs,0,1,0.020363827467817175,400,1600
 with two hop,qwen2.5-7b,always_rag,0,1,0.08000000000000002,400,1600
 with two hop,qwen2.5-7b,never_rag,0,1,0.215,400,1600
 with two hop,qwen2.5-7b,hull_fixed,0,2,-0.06,400,1600
 with two hop,qwen2.5-7b,hull_label,0,2,-0.0675,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,0,2,-0.05367643987323695,400,1600
+with two hop,qwen2.5-7b,hull_rungs,0,2,-0.006012500260861919,400,1600
 with two hop,qwen2.5-7b,always_rag,0,2,0.04249999999999998,400,1600
 with two hop,qwen2.5-7b,never_rag,0,2,0.19499999999999998,400,1600
 with two hop,qwen2.5-7b,hull_fixed,0,3,-0.02999999999999997,400,1600
 with two hop,qwen2.5-7b,hull_label,0,3,-0.03749999999999998,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,0,3,-0.03652454099765906,400,1600
+with two hop,qwen2.5-7b,hull_rungs,0,3,-0.001247569712552521,400,1600
 with two hop,qwen2.5-7b,always_rag,0,3,0.04999999999999999,400,1600
 with two hop,qwen2.5-7b,never_rag,0,3,0.25,400,1600
 with two hop,qwen2.5-7b,hull_fixed,0,4,-0.019999999999999962,400,1600
 with two hop,qwen2.5-7b,hull_label,0,4,-0.034999999999999976,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,0,4,-0.032162349163705584,400,1600
+with two hop,qwen2.5-7b,hull_rungs,0,4,0.012150743449340584,400,1600
 with two hop,qwen2.5-7b,always_rag,0,4,0.08500000000000002,400,1600
 with two hop,qwen2.5-7b,never_rag,0,4,0.2725,400,1600
 with two hop,qwen2.5-7b,hull_fixed,1,0,-0.04749999999999999,400,1600
 with two hop,qwen2.5-7b,hull_label,1,0,-0.05499999999999999,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,1,0,-0.04328337248828695,400,1600
+with two hop,qwen2.5-7b,hull_rungs,1,0,0.009010223813576579,400,1600
 with two hop,qwen2.5-7b,always_rag,1,0,0.08000000000000002,400,1600
 with two hop,qwen2.5-7b,never_rag,1,0,0.25,400,1600
 with two hop,qwen2.5-7b,hull_fixed,1,1,-0.0050000000000000044,400,1600
 with two hop,qwen2.5-7b,hull_label,1,1,-0.010000000000000009,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,1,1,-0.0050000000000000044,400,1600
+with two hop,qwen2.5-7b,hull_rungs,1,1,0.022486110705325912,400,1600
 with two hop,qwen2.5-7b,always_rag,1,1,0.10250000000000004,400,1600
 with two hop,qwen2.5-7b,never_rag,1,1,0.225,400,1600
 with two hop,qwen2.5-7b,hull_fixed,1,2,-0.010000000000000009,400,1600
 with two hop,qwen2.5-7b,hull_label,1,2,-0.07,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,1,2,-0.010000000000000009,400,1600
+with two hop,qwen2.5-7b,hull_rungs,1,2,-0.008623998622534434,400,1600
 with two hop,qwen2.5-7b,always_rag,1,2,0.065,400,1600
 with two hop,qwen2.5-7b,never_rag,1,2,0.235,400,1600
 with two hop,qwen2.5-7b,hull_fixed,1,3,-0.04250000000000004,400,1600
 with two hop,qwen2.5-7b,hull_label,1,3,-0.04750000000000004,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,1,3,-0.033319754149206626,400,1600
+with two hop,qwen2.5-7b,hull_rungs,1,3,0.009373257782247402,400,1600
 with two hop,qwen2.5-7b,always_rag,1,3,0.05249999999999999,400,1600
 with two hop,qwen2.5-7b,never_rag,1,3,0.21749999999999997,400,1600
 with two hop,qwen2.5-7b,hull_fixed,1,4,-0.02250000000000002,400,1600
 with two hop,qwen2.5-7b,hull_label,1,4,-0.03749999999999998,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,1,4,-0.02250000000000002,400,1600
+with two hop,qwen2.5-7b,hull_rungs,1,4,0.013123004102271019,400,1600
 with two hop,qwen2.5-7b,always_rag,1,4,0.0675,400,1600
 with two hop,qwen2.5-7b,never_rag,1,4,0.2125,400,1600
 with two hop,qwen2.5-7b,hull_fixed,2,0,-0.05499999999999999,400,1600
 with two hop,qwen2.5-7b,hull_label,2,0,-0.065,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,2,0,-0.05499999999999999,400,1600
+with two hop,qwen2.5-7b,hull_rungs,2,0,-0.03425555891158644,400,1600
 with two hop,qwen2.5-7b,always_rag,2,0,0.027500000000000024,400,1600
 with two hop,qwen2.5-7b,never_rag,2,0,0.2425,400,1600
 with two hop,qwen2.5-7b,hull_fixed,2,1,-0.044999999999999984,400,1600
 with two hop,qwen2.5-7b,hull_label,2,1,-0.065,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,2,1,-0.04224538726958754,400,1600
+with two hop,qwen2.5-7b,hull_rungs,2,1,0.001895540721932376,400,1600
 with two hop,qwen2.5-7b,always_rag,2,1,0.06,400,1600
 with two hop,qwen2.5-7b,never_rag,2,1,0.215,400,1600
 with two hop,qwen2.5-7b,hull_fixed,2,2,-0.057499999999999996,400,1600
 with two hop,qwen2.5-7b,hull_label,2,2,-0.0625,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,2,2,-0.04653322572492852,400,1600
+with two hop,qwen2.5-7b,hull_rungs,2,2,0.01833098545727102,400,1600
 with two hop,qwen2.5-7b,always_rag,2,2,0.09500000000000003,400,1600
 with two hop,qwen2.5-7b,never_rag,2,2,0.17750000000000002,400,1600
 with two hop,qwen2.5-7b,hull_fixed,2,3,-0.03250000000000003,400,1600
 with two hop,qwen2.5-7b,hull_label,2,3,-0.06,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,2,3,-0.036837359903175215,400,1600
+with two hop,qwen2.5-7b,hull_rungs,2,3,0.0091750794914775,400,1600
 with two hop,qwen2.5-7b,always_rag,2,3,0.08499999999999996,400,1600
 with two hop,qwen2.5-7b,never_rag,2,3,0.22499999999999998,400,1600
 with two hop,qwen2.5-7b,hull_fixed,2,4,0.0025000000000000022,400,1600
 with two hop,qwen2.5-7b,hull_label,2,4,-0.010000000000000009,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,2,4,-0.0070520532015602155,400,1600
+with two hop,qwen2.5-7b,hull_rungs,2,4,0.019955651391172724,400,1600
 with two hop,qwen2.5-7b,always_rag,2,4,0.0675,400,1600
 with two hop,qwen2.5-7b,never_rag,2,4,0.24750000000000003,400,1600
 with two hop,qwen2.5-7b,hull_fixed,3,0,-0.057499999999999996,400,1600
 with two hop,qwen2.5-7b,hull_label,3,0,-0.057499999999999996,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,3,0,-0.054944162150307396,400,1600
+with two hop,qwen2.5-7b,hull_rungs,3,0,-0.009175838742009224,400,1600
 with two hop,qwen2.5-7b,always_rag,3,0,0.04249999999999998,400,1600
 with two hop,qwen2.5-7b,never_rag,3,0,0.22499999999999998,400,1600
 with two hop,qwen2.5-7b,hull_fixed,3,1,-0.057499999999999996,400,1600
 with two hop,qwen2.5-7b,hull_label,3,1,-0.0675,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,3,1,-0.05455329723044927,400,1600
+with two hop,qwen2.5-7b,hull_rungs,3,1,-0.01706192703132292,400,1600
 with two hop,qwen2.5-7b,always_rag,3,1,0.03999999999999998,400,1600
 with two hop,qwen2.5-7b,never_rag,3,1,0.22999999999999998,400,1600
 with two hop,qwen2.5-7b,hull_fixed,3,2,-0.0050000000000000044,400,1600
 with two hop,qwen2.5-7b,hull_label,3,2,-0.017500000000000016,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,3,2,-0.01651269817622819,400,1600
+with two hop,qwen2.5-7b,hull_rungs,3,2,0.012610560413522931,400,1600
 with two hop,qwen2.5-7b,always_rag,3,2,0.07,400,1600
 with two hop,qwen2.5-7b,never_rag,3,2,0.22249999999999998,400,1600
 with two hop,qwen2.5-7b,hull_fixed,3,3,-0.04749999999999999,400,1600
 with two hop,qwen2.5-7b,hull_label,3,3,-0.07750000000000001,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,3,3,-0.040826593762012975,400,1600
+with two hop,qwen2.5-7b,hull_rungs,3,3,0.0165120747219889,400,1600
 with two hop,qwen2.5-7b,always_rag,3,3,0.08250000000000002,400,1600
 with two hop,qwen2.5-7b,never_rag,3,3,0.1775,400,1600
 with two hop,qwen2.5-7b,hull_fixed,3,4,0.0025000000000000022,400,1600
 with two hop,qwen2.5-7b,hull_label,3,4,-0.03749999999999998,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,3,4,0.0025000000000000022,400,1600
+with two hop,qwen2.5-7b,hull_rungs,3,4,0.00427749196550109,400,1600
 with two hop,qwen2.5-7b,always_rag,3,4,0.09749999999999998,400,1600
 with two hop,qwen2.5-7b,never_rag,3,4,0.25,400,1600
 with two hop,qwen2.5-7b,hull_fixed,4,0,-0.010000000000000009,400,1600
 with two hop,qwen2.5-7b,hull_label,4,0,-0.05499999999999999,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,4,0,-0.037624400430643745,400,1600
+with two hop,qwen2.5-7b,hull_rungs,4,0,-0.0004361486062246511,400,1600
 with two hop,qwen2.5-7b,always_rag,4,0,0.08749999999999997,400,1600
 with two hop,qwen2.5-7b,never_rag,4,0,0.24,400,1600
 with two hop,qwen2.5-7b,hull_fixed,4,1,0.007500000000000007,400,1600
 with two hop,qwen2.5-7b,hull_label,4,1,0.0,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,4,1,0.002444221102312849,400,1600
+with two hop,qwen2.5-7b,hull_rungs,4,1,0.033247537849091235,400,1600
 with two hop,qwen2.5-7b,always_rag,4,1,0.07499999999999996,400,1600
 with two hop,qwen2.5-7b,never_rag,4,1,0.265,400,1600
 with two hop,qwen2.5-7b,hull_fixed,4,2,-0.03750000000000003,400,1600
 with two hop,qwen2.5-7b,hull_label,4,2,-0.04750000000000004,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,4,2,-0.03603401936590234,400,1600
+with two hop,qwen2.5-7b,hull_rungs,4,2,0.0026218223129955698,400,1600
 with two hop,qwen2.5-7b,always_rag,4,2,0.0625,400,1600
 with two hop,qwen2.5-7b,never_rag,4,2,0.20749999999999996,400,1600
 with two hop,qwen2.5-7b,hull_fixed,4,3,-0.07499999999999996,400,1600
 with two hop,qwen2.5-7b,hull_label,4,3,-0.08999999999999997,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,4,3,-0.0691096636646219,400,1600
+with two hop,qwen2.5-7b,hull_rungs,4,3,-0.020908926867840627,400,1600
 with two hop,qwen2.5-7b,always_rag,4,3,0.050000000000000044,400,1600
 with two hop,qwen2.5-7b,never_rag,4,3,0.18750000000000003,400,1600
 with two hop,qwen2.5-7b,hull_fixed,4,4,-0.03249999999999997,400,1600
 with two hop,qwen2.5-7b,hull_label,4,4,-0.027500000000000024,400,1600
 with two hop,qwen2.5-7b,hull_with_ircot,4,4,-0.04405823641536011,400,1600
+with two hop,qwen2.5-7b,hull_rungs,4,4,-0.00623126727311063,400,1600
 with two hop,qwen2.5-7b,always_rag,4,4,0.065,400,1600
 with two hop,qwen2.5-7b,never_rag,4,4,0.2125,400,1600
 single step,llama3.1-8b,hull_fixed,0,0,-0.015000000000000013,400,1600
 single step,llama3.1-8b,hull_label,0,0,-0.025000000000000022,400,1600
 single step,llama3.1-8b,hull_with_ircot,0,0,-0.015000000000000013,400,1600
+single step,llama3.1-8b,hull_rungs,0,0,0.012683461201790591,400,1600
 single step,llama3.1-8b,always_rag,0,0,0.09000000000000002,400,1600
 single step,llama3.1-8b,never_rag,0,0,0.2075,400,1600
 single step,llama3.1-8b,hull_fixed,0,1,-0.05249999999999999,400,1600
 single step,llama3.1-8b,hull_label,0,1,-0.06,400,1600
 single step,llama3.1-8b,hull_with_ircot,0,1,-0.05249999999999999,400,1600
+single step,llama3.1-8b,hull_rungs,0,1,0.01291785425015185,400,1600
 single step,llama3.1-8b,always_rag,0,1,0.08750000000000002,400,1600
 single step,llama3.1-8b,never_rag,0,1,0.18250000000000002,400,1600
 single step,llama3.1-8b,hull_fixed,0,2,-0.04999999999999999,400,1600
 single step,llama3.1-8b,hull_label,0,2,-0.044999999999999984,400,1600
 single step,llama3.1-8b,hull_with_ircot,0,2,-0.04999999999999999,400,1600
+single step,llama3.1-8b,hull_rungs,0,2,0.002208183923808782,400,1600
 single step,llama3.1-8b,always_rag,0,2,0.0675,400,1600
 single step,llama3.1-8b,never_rag,0,2,0.1725,400,1600
 single step,llama3.1-8b,hull_fixed,0,3,-0.0675,400,1600
 single step,llama3.1-8b,hull_label,0,3,-0.07750000000000001,400,1600
 single step,llama3.1-8b,hull_with_ircot,0,3,-0.0675,400,1600
+single step,llama3.1-8b,hull_rungs,0,3,0.00797004988849187,400,1600
 single step,llama3.1-8b,always_rag,0,3,0.057499999999999996,400,1600
 single step,llama3.1-8b,never_rag,0,3,0.18000000000000002,400,1600
 single step,llama3.1-8b,hull_fixed,0,4,-0.034999999999999976,400,1600
 single step,llama3.1-8b,hull_label,0,4,-0.02999999999999997,400,1600
 single step,llama3.1-8b,hull_with_ircot,0,4,-0.034999999999999976,400,1600
+single step,llama3.1-8b,hull_rungs,0,4,0.011487322543186462,400,1600
 single step,llama3.1-8b,always_rag,0,4,0.09500000000000003,400,1600
 single step,llama3.1-8b,never_rag,0,4,0.2175,400,1600
 single step,llama3.1-8b,hull_fixed,1,0,-0.10499999999999998,400,1600
 single step,llama3.1-8b,hull_label,1,0,-0.10499999999999998,400,1600
 single step,llama3.1-8b,hull_with_ircot,1,0,-0.10499999999999998,400,1600
+single step,llama3.1-8b,hull_rungs,1,0,-0.017110393766658516,400,1600
 single step,llama3.1-8b,always_rag,1,0,0.04750000000000004,400,1600
 single step,llama3.1-8b,never_rag,1,0,0.17250000000000001,400,1600
 single step,llama3.1-8b,hull_fixed,1,1,-0.044999999999999984,400,1600
 single step,llama3.1-8b,hull_label,1,1,-0.027500000000000024,400,1600
 single step,llama3.1-8b,hull_with_ircot,1,1,-0.044999999999999984,400,1600
+single step,llama3.1-8b,hull_rungs,1,1,0.014591109722602913,400,1600
 single step,llama3.1-8b,always_rag,1,1,0.10999999999999999,400,1600
 single step,llama3.1-8b,never_rag,1,1,0.19,400,1600
 single step,llama3.1-8b,hull_fixed,1,2,-0.030000000000000027,400,1600
 single step,llama3.1-8b,hull_label,1,2,-0.03750000000000003,400,1600
 single step,llama3.1-8b,hull_with_ircot,1,2,-0.030000000000000027,400,1600
+single step,llama3.1-8b,hull_rungs,1,2,0.015109694509130966,400,1600
 single step,llama3.1-8b,always_rag,1,2,0.08249999999999996,400,1600
 single step,llama3.1-8b,never_rag,1,2,0.21,400,1600
 single step,llama3.1-8b,hull_fixed,1,3,-0.05499999999999999,400,1600
 single step,llama3.1-8b,hull_label,1,3,-0.04249999999999998,400,1600
 single step,llama3.1-8b,hull_with_ircot,1,3,-0.05499999999999999,400,1600
+single step,llama3.1-8b,hull_rungs,1,3,0.019045566433440686,400,1600
 single step,llama3.1-8b,always_rag,1,3,0.08500000000000002,400,1600
 single step,llama3.1-8b,never_rag,1,3,0.225,400,1600
 single step,llama3.1-8b,hull_fixed,1,4,-0.04500000000000004,400,1600
 single step,llama3.1-8b,hull_label,1,4,-0.03750000000000003,400,1600
 single step,llama3.1-8b,hull_with_ircot,1,4,-0.04500000000000004,400,1600
+single step,llama3.1-8b,hull_rungs,1,4,-0.0006056572702950458,400,1600
 single step,llama3.1-8b,always_rag,1,4,0.06499999999999995,400,1600
 single step,llama3.1-8b,never_rag,1,4,0.15499999999999997,400,1600
 single step,llama3.1-8b,hull_fixed,2,0,-0.07500000000000001,400,1600
 single step,llama3.1-8b,hull_label,2,0,-0.07749999999999996,400,1600
 single step,llama3.1-8b,hull_with_ircot,2,0,-0.07500000000000001,400,1600
+single step,llama3.1-8b,hull_rungs,2,0,-0.01943905379786004,400,1600
 single step,llama3.1-8b,always_rag,2,0,0.03999999999999998,400,1600
 single step,llama3.1-8b,never_rag,2,0,0.20500000000000002,400,1600
 single step,llama3.1-8b,hull_fixed,2,1,-0.012500000000000011,400,1600
 single step,llama3.1-8b,hull_label,2,1,-0.007500000000000007,400,1600
 single step,llama3.1-8b,hull_with_ircot,2,1,-0.012500000000000011,400,1600
+single step,llama3.1-8b,hull_rungs,2,1,0.01954946389868012,400,1600
 single step,llama3.1-8b,always_rag,2,1,0.09500000000000003,400,1600
 single step,llama3.1-8b,never_rag,2,1,0.2225,400,1600
 single step,llama3.1-8b,hull_fixed,2,2,-0.10250000000000004,400,1600
 single step,llama3.1-8b,hull_label,2,2,-0.09750000000000003,400,1600
 single step,llama3.1-8b,hull_with_ircot,2,2,-0.10250000000000004,400,1600
+single step,llama3.1-8b,hull_rungs,2,2,0.008265098738474308,400,1600
 single step,llama3.1-8b,always_rag,2,2,0.08250000000000002,400,1600
 single step,llama3.1-8b,never_rag,2,2,0.13,400,1600
 single step,llama3.1-8b,hull_fixed,2,3,-0.06999999999999995,400,1600
 single step,llama3.1-8b,hull_label,2,3,-0.07499999999999996,400,1600
 single step,llama3.1-8b,hull_with_ircot,2,3,-0.06999999999999995,400,1600
+single step,llama3.1-8b,hull_rungs,2,3,-0.0009486750060615501,400,1600
 single step,llama3.1-8b,always_rag,2,3,0.08250000000000002,400,1600
 single step,llama3.1-8b,never_rag,2,3,0.19500000000000003,400,1600
 single step,llama3.1-8b,hull_fixed,2,4,-0.040000000000000036,400,1600
 single step,llama3.1-8b,hull_label,2,4,-0.025000000000000022,400,1600
 single step,llama3.1-8b,hull_with_ircot,2,4,-0.040000000000000036,400,1600
+single step,llama3.1-8b,hull_rungs,2,4,0.020407577311634728,400,1600
 single step,llama3.1-8b,always_rag,2,4,0.07,400,1600
 single step,llama3.1-8b,never_rag,2,4,0.18,400,1600
 single step,llama3.1-8b,hull_fixed,3,0,-0.10999999999999999,400,1600
 single step,llama3.1-8b,hull_label,3,0,-0.10999999999999999,400,1600
 single step,llama3.1-8b,hull_with_ircot,3,0,-0.10999999999999999,400,1600
+single step,llama3.1-8b,hull_rungs,3,0,-0.02453440259035722,400,1600
 single step,llama3.1-8b,always_rag,3,0,0.03250000000000003,400,1600
 single step,llama3.1-8b,never_rag,3,0,0.14250000000000002,400,1600
 single step,llama3.1-8b,hull_fixed,3,1,-0.07500000000000001,400,1600
 single step,llama3.1-8b,hull_label,3,1,-0.06,400,1600
 single step,llama3.1-8b,hull_with_ircot,3,1,-0.07500000000000001,400,1600
+single step,llama3.1-8b,hull_rungs,3,1,-0.017936823450468764,400,1600
 single step,llama3.1-8b,always_rag,3,1,0.05249999999999999,400,1600
 single step,llama3.1-8b,never_rag,3,1,0.19749999999999998,400,1600
 single step,llama3.1-8b,hull_fixed,3,2,-0.02999999999999997,400,1600
 single step,llama3.1-8b,hull_label,3,2,-0.02999999999999997,400,1600
 single step,llama3.1-8b,hull_with_ircot,3,2,-0.02999999999999997,400,1600
+single step,llama3.1-8b,hull_rungs,3,2,-0.0006119683639796425,400,1600
 single step,llama3.1-8b,always_rag,3,2,0.0675,400,1600
 single step,llama3.1-8b,never_rag,3,2,0.18250000000000002,400,1600
 single step,llama3.1-8b,hull_fixed,3,3,-0.10000000000000003,400,1600
 single step,llama3.1-8b,hull_label,3,3,-0.09000000000000002,400,1600
 single step,llama3.1-8b,hull_with_ircot,3,3,-0.10000000000000003,400,1600
+single step,llama3.1-8b,hull_rungs,3,3,0.01970783439813989,400,1600
 single step,llama3.1-8b,always_rag,3,3,0.08249999999999996,400,1600
 single step,llama3.1-8b,never_rag,3,3,0.14249999999999996,400,1600
 single step,llama3.1-8b,hull_fixed,3,4,-0.030000000000000027,400,1600
 single step,llama3.1-8b,hull_label,3,4,-0.020000000000000018,400,1600
 single step,llama3.1-8b,hull_with_ircot,3,4,-0.030000000000000027,400,1600
+single step,llama3.1-8b,hull_rungs,3,4,0.0017673151417878508,400,1600
 single step,llama3.1-8b,always_rag,3,4,0.08999999999999997,400,1600
 single step,llama3.1-8b,never_rag,3,4,0.22249999999999998,400,1600
 single step,llama3.1-8b,hull_fixed,4,0,-0.050000000000000044,400,1600
 single step,llama3.1-8b,hull_label,4,0,-0.06,400,1600
 single step,llama3.1-8b,hull_with_ircot,4,0,-0.050000000000000044,400,1600
+single step,llama3.1-8b,hull_rungs,4,0,0.022089344348717233,400,1600
 single step,llama3.1-8b,always_rag,4,0,0.09999999999999998,400,1600
 single step,llama3.1-8b,never_rag,4,0,0.19499999999999998,400,1600
 single step,llama3.1-8b,hull_fixed,4,1,-0.09749999999999998,400,1600
 single step,llama3.1-8b,hull_label,4,1,-0.09749999999999998,400,1600
 single step,llama3.1-8b,hull_with_ircot,4,1,-0.09749999999999998,400,1600
+single step,llama3.1-8b,hull_rungs,4,1,-0.023669536549410286,400,1600
 single step,llama3.1-8b,always_rag,4,1,0.040000000000000036,400,1600
 single step,llama3.1-8b,never_rag,4,1,0.17,400,1600
 single step,llama3.1-8b,hull_fixed,4,2,-0.09499999999999997,400,1600
 single step,llama3.1-8b,hull_label,4,2,-0.08999999999999997,400,1600
 single step,llama3.1-8b,hull_with_ircot,4,2,-0.09499999999999997,400,1600
+single step,llama3.1-8b,hull_rungs,4,2,-0.030638589828376306,400,1600
 single step,llama3.1-8b,always_rag,4,2,0.03500000000000003,400,1600
 single step,llama3.1-8b,never_rag,4,2,0.17250000000000001,400,1600
 single step,llama3.1-8b,hull_fixed,4,3,-0.04250000000000004,400,1600
 single step,llama3.1-8b,hull_label,4,3,-0.03500000000000003,400,1600
 single step,llama3.1-8b,hull_with_ircot,4,3,-0.04250000000000004,400,1600
+single step,llama3.1-8b,hull_rungs,4,3,0.018211661631102438,400,1600
 single step,llama3.1-8b,always_rag,4,3,0.10499999999999998,400,1600
 single step,llama3.1-8b,never_rag,4,3,0.16749999999999998,400,1600
 single step,llama3.1-8b,hull_fixed,4,4,-0.08750000000000002,400,1600
 single step,llama3.1-8b,hull_label,4,4,-0.09500000000000003,400,1600
 single step,llama3.1-8b,hull_with_ircot,4,4,-0.08750000000000002,400,1600
+single step,llama3.1-8b,hull_rungs,4,4,-0.026723555225118267,400,1600
 single step,llama3.1-8b,always_rag,4,4,0.017500000000000016,400,1600
 single step,llama3.1-8b,never_rag,4,4,0.155,400,1600
 with two hop,llama3.1-8b,hull_fixed,0,0,-0.015000000000000013,400,1600
 with two hop,llama3.1-8b,hull_label,0,0,-0.03250000000000003,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,0,0,-0.015000000000000013,400,1600
+with two hop,llama3.1-8b,hull_rungs,0,0,0.012683461201790591,400,1600
 with two hop,llama3.1-8b,always_rag,0,0,0.09000000000000002,400,1600
 with two hop,llama3.1-8b,never_rag,0,0,0.2075,400,1600
 with two hop,llama3.1-8b,hull_fixed,0,1,-0.05249999999999999,400,1600
 with two hop,llama3.1-8b,hull_label,0,1,-0.07,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,0,1,-0.05249999999999999,400,1600
+with two hop,llama3.1-8b,hull_rungs,0,1,0.01291785425015185,400,1600
 with two hop,llama3.1-8b,always_rag,0,1,0.08750000000000002,400,1600
 with two hop,llama3.1-8b,never_rag,0,1,0.18250000000000002,400,1600
 with two hop,llama3.1-8b,hull_fixed,0,2,-0.04999999999999999,400,1600
 with two hop,llama3.1-8b,hull_label,0,2,-0.044999999999999984,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,0,2,-0.04999999999999999,400,1600
+with two hop,llama3.1-8b,hull_rungs,0,2,0.002208183923808782,400,1600
 with two hop,llama3.1-8b,always_rag,0,2,0.0675,400,1600
 with two hop,llama3.1-8b,never_rag,0,2,0.1725,400,1600
 with two hop,llama3.1-8b,hull_fixed,0,3,-0.0675,400,1600
 with two hop,llama3.1-8b,hull_label,0,3,-0.08999999999999997,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,0,3,-0.0675,400,1600
+with two hop,llama3.1-8b,hull_rungs,0,3,0.00797004988849187,400,1600
 with two hop,llama3.1-8b,always_rag,0,3,0.057499999999999996,400,1600
 with two hop,llama3.1-8b,never_rag,0,3,0.18000000000000002,400,1600
 with two hop,llama3.1-8b,hull_fixed,0,4,-0.034999999999999976,400,1600
 with two hop,llama3.1-8b,hull_label,0,4,-0.04999999999999999,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,0,4,-0.034999999999999976,400,1600
+with two hop,llama3.1-8b,hull_rungs,0,4,0.011487322543186462,400,1600
 with two hop,llama3.1-8b,always_rag,0,4,0.09500000000000003,400,1600
 with two hop,llama3.1-8b,never_rag,0,4,0.2175,400,1600
 with two hop,llama3.1-8b,hull_fixed,1,0,-0.10499999999999998,400,1600
 with two hop,llama3.1-8b,hull_label,1,0,-0.09999999999999998,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,1,0,-0.10499999999999998,400,1600
+with two hop,llama3.1-8b,hull_rungs,1,0,-0.017110393766658516,400,1600
 with two hop,llama3.1-8b,always_rag,1,0,0.04750000000000004,400,1600
 with two hop,llama3.1-8b,never_rag,1,0,0.17250000000000001,400,1600
 with two hop,llama3.1-8b,hull_fixed,1,1,-0.044999999999999984,400,1600
 with two hop,llama3.1-8b,hull_label,1,1,-0.027500000000000024,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,1,1,-0.044999999999999984,400,1600
+with two hop,llama3.1-8b,hull_rungs,1,1,0.014591109722602913,400,1600
 with two hop,llama3.1-8b,always_rag,1,1,0.10999999999999999,400,1600
 with two hop,llama3.1-8b,never_rag,1,1,0.19,400,1600
 with two hop,llama3.1-8b,hull_fixed,1,2,-0.030000000000000027,400,1600
 with two hop,llama3.1-8b,hull_label,1,2,-0.07250000000000001,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,1,2,-0.030000000000000027,400,1600
+with two hop,llama3.1-8b,hull_rungs,1,2,0.015109694509130966,400,1600
 with two hop,llama3.1-8b,always_rag,1,2,0.08249999999999996,400,1600
 with two hop,llama3.1-8b,never_rag,1,2,0.21,400,1600
 with two hop,llama3.1-8b,hull_fixed,1,3,-0.05499999999999999,400,1600
 with two hop,llama3.1-8b,hull_label,1,3,-0.05249999999999999,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,1,3,-0.05499999999999999,400,1600
+with two hop,llama3.1-8b,hull_rungs,1,3,0.019045566433440686,400,1600
 with two hop,llama3.1-8b,always_rag,1,3,0.08500000000000002,400,1600
 with two hop,llama3.1-8b,never_rag,1,3,0.225,400,1600
 with two hop,llama3.1-8b,hull_fixed,1,4,-0.04500000000000004,400,1600
 with two hop,llama3.1-8b,hull_label,1,4,-0.0675,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,1,4,-0.04500000000000004,400,1600
+with two hop,llama3.1-8b,hull_rungs,1,4,-0.0006056572702950458,400,1600
 with two hop,llama3.1-8b,always_rag,1,4,0.06499999999999995,400,1600
 with two hop,llama3.1-8b,never_rag,1,4,0.15499999999999997,400,1600
 with two hop,llama3.1-8b,hull_fixed,2,0,-0.07500000000000001,400,1600
 with two hop,llama3.1-8b,hull_label,2,0,-0.09000000000000002,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,2,0,-0.07500000000000001,400,1600
+with two hop,llama3.1-8b,hull_rungs,2,0,-0.01943905379786004,400,1600
 with two hop,llama3.1-8b,always_rag,2,0,0.03999999999999998,400,1600
 with two hop,llama3.1-8b,never_rag,2,0,0.20500000000000002,400,1600
 with two hop,llama3.1-8b,hull_fixed,2,1,-0.012500000000000011,400,1600
 with two hop,llama3.1-8b,hull_label,2,1,-0.034999999999999976,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,2,1,-0.012500000000000011,400,1600
+with two hop,llama3.1-8b,hull_rungs,2,1,0.01954946389868012,400,1600
 with two hop,llama3.1-8b,always_rag,2,1,0.09500000000000003,400,1600
 with two hop,llama3.1-8b,never_rag,2,1,0.2225,400,1600
 with two hop,llama3.1-8b,hull_fixed,2,2,-0.10250000000000004,400,1600
 with two hop,llama3.1-8b,hull_label,2,2,-0.09250000000000003,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,2,2,-0.10250000000000004,400,1600
+with two hop,llama3.1-8b,hull_rungs,2,2,0.008265098738474308,400,1600
 with two hop,llama3.1-8b,always_rag,2,2,0.08250000000000002,400,1600
 with two hop,llama3.1-8b,never_rag,2,2,0.13,400,1600
 with two hop,llama3.1-8b,hull_fixed,2,3,-0.06999999999999995,400,1600
 with two hop,llama3.1-8b,hull_label,2,3,-0.07749999999999996,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,2,3,-0.06999999999999995,400,1600
+with two hop,llama3.1-8b,hull_rungs,2,3,-0.0009486750060615501,400,1600
 with two hop,llama3.1-8b,always_rag,2,3,0.08250000000000002,400,1600
 with two hop,llama3.1-8b,never_rag,2,3,0.19500000000000003,400,1600
 with two hop,llama3.1-8b,hull_fixed,2,4,-0.040000000000000036,400,1600
 with two hop,llama3.1-8b,hull_label,2,4,-0.03750000000000003,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,2,4,-0.040000000000000036,400,1600
+with two hop,llama3.1-8b,hull_rungs,2,4,0.020407577311634728,400,1600
 with two hop,llama3.1-8b,always_rag,2,4,0.07,400,1600
 with two hop,llama3.1-8b,never_rag,2,4,0.18,400,1600
 with two hop,llama3.1-8b,hull_fixed,3,0,-0.10999999999999999,400,1600
 with two hop,llama3.1-8b,hull_label,3,0,-0.1275,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,3,0,-0.10999999999999999,400,1600
+with two hop,llama3.1-8b,hull_rungs,3,0,-0.02453440259035722,400,1600
 with two hop,llama3.1-8b,always_rag,3,0,0.03250000000000003,400,1600
 with two hop,llama3.1-8b,never_rag,3,0,0.14250000000000002,400,1600
 with two hop,llama3.1-8b,hull_fixed,3,1,-0.07500000000000001,400,1600
 with two hop,llama3.1-8b,hull_label,3,1,-0.0675,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,3,1,-0.07500000000000001,400,1600
+with two hop,llama3.1-8b,hull_rungs,3,1,-0.017936823450468764,400,1600
 with two hop,llama3.1-8b,always_rag,3,1,0.05249999999999999,400,1600
 with two hop,llama3.1-8b,never_rag,3,1,0.19749999999999998,400,1600
 with two hop,llama3.1-8b,hull_fixed,3,2,-0.02999999999999997,400,1600
 with two hop,llama3.1-8b,hull_label,3,2,-0.044999999999999984,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,3,2,-0.02999999999999997,400,1600
+with two hop,llama3.1-8b,hull_rungs,3,2,-0.0006119683639796425,400,1600
 with two hop,llama3.1-8b,always_rag,3,2,0.0675,400,1600
 with two hop,llama3.1-8b,never_rag,3,2,0.18250000000000002,400,1600
 with two hop,llama3.1-8b,hull_fixed,3,3,-0.10000000000000003,400,1600
 with two hop,llama3.1-8b,hull_label,3,3,-0.08749999999999997,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,3,3,-0.10000000000000003,400,1600
+with two hop,llama3.1-8b,hull_rungs,3,3,0.01970783439813989,400,1600
 with two hop,llama3.1-8b,always_rag,3,3,0.08249999999999996,400,1600
 with two hop,llama3.1-8b,never_rag,3,3,0.14249999999999996,400,1600
 with two hop,llama3.1-8b,hull_fixed,3,4,-0.030000000000000027,400,1600
 with two hop,llama3.1-8b,hull_label,3,4,-0.03250000000000003,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,3,4,-0.030000000000000027,400,1600
+with two hop,llama3.1-8b,hull_rungs,3,4,0.0017673151417878508,400,1600
 with two hop,llama3.1-8b,always_rag,3,4,0.08999999999999997,400,1600
 with two hop,llama3.1-8b,never_rag,3,4,0.22249999999999998,400,1600
 with two hop,llama3.1-8b,hull_fixed,4,0,-0.050000000000000044,400,1600
 with two hop,llama3.1-8b,hull_label,4,0,-0.08000000000000002,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,4,0,-0.050000000000000044,400,1600
+with two hop,llama3.1-8b,hull_rungs,4,0,0.022089344348717233,400,1600
 with two hop,llama3.1-8b,always_rag,4,0,0.09999999999999998,400,1600
 with two hop,llama3.1-8b,never_rag,4,0,0.19499999999999998,400,1600
 with two hop,llama3.1-8b,hull_fixed,4,1,-0.09749999999999998,400,1600
 with two hop,llama3.1-8b,hull_label,4,1,-0.08999999999999997,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,4,1,-0.09749999999999998,400,1600
+with two hop,llama3.1-8b,hull_rungs,4,1,-0.023669536549410286,400,1600
 with two hop,llama3.1-8b,always_rag,4,1,0.040000000000000036,400,1600
 with two hop,llama3.1-8b,never_rag,4,1,0.17,400,1600
 with two hop,llama3.1-8b,hull_fixed,4,2,-0.09499999999999997,400,1600
 with two hop,llama3.1-8b,hull_label,4,2,-0.11249999999999993,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,4,2,-0.09499999999999997,400,1600
+with two hop,llama3.1-8b,hull_rungs,4,2,-0.030638589828376306,400,1600
 with two hop,llama3.1-8b,always_rag,4,2,0.03500000000000003,400,1600
 with two hop,llama3.1-8b,never_rag,4,2,0.17250000000000001,400,1600
 with two hop,llama3.1-8b,hull_fixed,4,3,-0.04250000000000004,400,1600
 with two hop,llama3.1-8b,hull_label,4,3,-0.04749999999999999,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,4,3,-0.04250000000000004,400,1600
+with two hop,llama3.1-8b,hull_rungs,4,3,0.018211661631102438,400,1600
 with two hop,llama3.1-8b,always_rag,4,3,0.10499999999999998,400,1600
 with two hop,llama3.1-8b,never_rag,4,3,0.16749999999999998,400,1600
 with two hop,llama3.1-8b,hull_fixed,4,4,-0.08750000000000002,400,1600
 with two hop,llama3.1-8b,hull_label,4,4,-0.09749999999999998,400,1600
 with two hop,llama3.1-8b,hull_with_ircot,4,4,-0.08750000000000002,400,1600
+with two hop,llama3.1-8b,hull_rungs,4,4,-0.026723555225118267,400,1600
 with two hop,llama3.1-8b,always_rag,4,4,0.017500000000000016,400,1600
 with two hop,llama3.1-8b,never_rag,4,4,0.155,400,1600
 single step,qwen3-14b,hull_fixed,0,0,0.0024999999999999467,400,1600
 single step,qwen3-14b,hull_label,0,0,-0.010000000000000009,400,1600
 single step,qwen3-14b,hull_with_ircot,0,0,-0.02361841520673269,400,1600
+single step,qwen3-14b,hull_rungs,0,0,0.029657338558576274,400,1600
 single step,qwen3-14b,always_rag,0,0,0.12499999999999994,400,1600
 single step,qwen3-14b,never_rag,0,0,0.24749999999999994,400,1600
 single step,qwen3-14b,hull_fixed,0,1,-0.034999999999999976,400,1600
 single step,qwen3-14b,hull_label,0,1,-0.034999999999999976,400,1600
 single step,qwen3-14b,hull_with_ircot,0,1,-0.042935741622255996,400,1600
+single step,qwen3-14b,hull_rungs,0,1,0.017771115931784875,400,1600
 single step,qwen3-14b,always_rag,0,1,0.09750000000000003,400,1600
 single step,qwen3-14b,never_rag,0,1,0.1925,400,1600
 single step,qwen3-14b,hull_fixed,0,2,-0.03250000000000003,400,1600
 single step,qwen3-14b,hull_label,0,2,-0.044999999999999984,400,1600
 single step,qwen3-14b,hull_with_ircot,0,2,-0.0431189667478829,400,1600
+single step,qwen3-14b,hull_rungs,0,2,0.004922051990816745,400,1600
 single step,qwen3-14b,always_rag,0,2,0.07250000000000001,400,1600
 single step,qwen3-14b,never_rag,0,2,0.24,400,1600
 single step,qwen3-14b,hull_fixed,0,3,-0.062499999999999944,400,1600
 single step,qwen3-14b,hull_label,0,3,-0.07,400,1600
 single step,qwen3-14b,hull_with_ircot,0,3,-0.062499999999999944,400,1600
+single step,qwen3-14b,hull_rungs,0,3,-0.011311317474612725,400,1600
 single step,qwen3-14b,always_rag,0,3,0.040000000000000036,400,1600
 single step,qwen3-14b,never_rag,0,3,0.2225,400,1600
 single step,qwen3-14b,hull_fixed,0,4,-0.0024999999999999467,400,1600
 single step,qwen3-14b,hull_label,0,4,-0.020000000000000018,400,1600
 single step,qwen3-14b,hull_with_ircot,0,4,-0.02640083337871757,400,1600
+single step,qwen3-14b,hull_rungs,0,4,0.022527826495240988,400,1600
 single step,qwen3-14b,always_rag,0,4,0.10499999999999998,400,1600
 single step,qwen3-14b,never_rag,0,4,0.2625,400,1600
 single step,qwen3-14b,hull_fixed,1,0,-0.03500000000000003,400,1600
 single step,qwen3-14b,hull_label,1,0,-0.02749999999999997,400,1600
 single step,qwen3-14b,hull_with_ircot,1,0,-0.03366342648058174,400,1600
+single step,qwen3-14b,hull_rungs,1,0,0.020847503760642982,400,1600
 single step,qwen3-14b,always_rag,1,0,0.08499999999999996,400,1600
 single step,qwen3-14b,never_rag,1,0,0.2425,400,1600
 single step,qwen3-14b,hull_fixed,1,1,-0.02250000000000002,400,1600
 single step,qwen3-14b,hull_label,1,1,-0.020000000000000018,400,1600
 single step,qwen3-14b,hull_with_ircot,1,1,-0.04066981089585903,400,1600
+single step,qwen3-14b,hull_rungs,1,1,0.010524640285017095,400,1600
 single step,qwen3-14b,always_rag,1,1,0.08749999999999997,400,1600
 single step,qwen3-14b,never_rag,1,1,0.21749999999999997,400,1600
 single step,qwen3-14b,hull_fixed,1,2,-0.01749999999999996,400,1600
 single step,qwen3-14b,hull_label,1,2,-0.03499999999999992,400,1600
 single step,qwen3-14b,hull_with_ircot,1,2,-0.037723605548268924,400,1600
+single step,qwen3-14b,hull_rungs,1,2,0.012710673976910947,400,1600
 single step,qwen3-14b,always_rag,1,2,0.08750000000000002,400,1600
 single step,qwen3-14b,never_rag,1,2,0.265,400,1600
 single step,qwen3-14b,hull_fixed,1,3,-0.03249999999999997,400,1600
 single step,qwen3-14b,hull_label,1,3,-0.03249999999999997,400,1600
 single step,qwen3-14b,hull_with_ircot,1,3,-0.03617676523529523,400,1600
+single step,qwen3-14b,hull_rungs,1,3,0.02739869490404001,400,1600
 single step,qwen3-14b,always_rag,1,3,0.09499999999999997,400,1600
 single step,qwen3-14b,never_rag,1,3,0.22999999999999998,400,1600
 single step,qwen3-14b,hull_fixed,1,4,-0.0050000000000000044,400,1600
 single step,qwen3-14b,hull_label,1,4,-0.020000000000000018,400,1600
 single step,qwen3-14b,hull_with_ircot,1,4,-0.02996496135206972,400,1600
+single step,qwen3-14b,hull_rungs,1,4,0.021811357878206983,400,1600
 single step,qwen3-14b,always_rag,1,4,0.09749999999999998,400,1600
 single step,qwen3-14b,never_rag,1,4,0.22249999999999998,400,1600
 single step,qwen3-14b,hull_fixed,2,0,-0.030000000000000027,400,1600
 single step,qwen3-14b,hull_label,2,0,-0.04749999999999999,400,1600
 single step,qwen3-14b,hull_with_ircot,2,0,-0.0411578855283532,400,1600
+single step,qwen3-14b,hull_rungs,2,0,0.00036853456121566097,400,1600
 single step,qwen3-14b,always_rag,2,0,0.05499999999999994,400,1600
 single step,qwen3-14b,never_rag,2,0,0.26249999999999996,400,1600
 single step,qwen3-14b,hull_fixed,2,1,-0.010000000000000009,400,1600
 single step,qwen3-14b,hull_label,2,1,-0.03500000000000003,400,1600
 single step,qwen3-14b,hull_with_ircot,2,1,-0.034342829293638855,400,1600
+single step,qwen3-14b,hull_rungs,2,1,0.0045692618077540215,400,1600
 single step,qwen3-14b,always_rag,2,1,0.07750000000000001,400,1600
 single step,qwen3-14b,never_rag,2,1,0.25,400,1600
 single step,qwen3-14b,hull_fixed,2,2,-0.044999999999999984,400,1600
 single step,qwen3-14b,hull_label,2,2,-0.04249999999999998,400,1600
 single step,qwen3-14b,hull_with_ircot,2,2,-0.04371542381023141,400,1600
+single step,qwen3-14b,hull_rungs,2,2,0.0405047756832273,400,1600
 single step,qwen3-14b,always_rag,2,2,0.1325,400,1600
 single step,qwen3-14b,never_rag,2,2,0.15500000000000003,400,1600
 single step,qwen3-14b,hull_fixed,2,3,-0.017500000000000016,400,1600
 single step,qwen3-14b,hull_label,2,3,-0.03249999999999997,400,1600
 single step,qwen3-14b,hull_with_ircot,2,3,-0.03715837907959485,400,1600
+single step,qwen3-14b,hull_rungs,2,3,0.02623036205461171,400,1600
 single step,qwen3-14b,always_rag,2,3,0.12,400,1600
 single step,qwen3-14b,never_rag,2,3,0.26249999999999996,400,1600
 single step,qwen3-14b,hull_fixed,2,4,-0.015000000000000013,400,1600
 single step,qwen3-14b,hull_label,2,4,-0.017500000000000016,400,1600
 single step,qwen3-14b,hull_with_ircot,2,4,-0.03277683955720334,400,1600
+single step,qwen3-14b,hull_rungs,2,4,0.001808531504507993,400,1600
 single step,qwen3-14b,always_rag,2,4,0.057499999999999996,400,1600
 single step,qwen3-14b,never_rag,2,4,0.23749999999999996,400,1600
 single step,qwen3-14b,hull_fixed,3,0,-0.025000000000000022,400,1600
 single step,qwen3-14b,hull_label,3,0,-0.012499999999999956,400,1600
 single step,qwen3-14b,hull_with_ircot,3,0,-0.04616264915175716,400,1600
+single step,qwen3-14b,hull_rungs,3,0,0.008812049028701308,400,1600
 single step,qwen3-14b,always_rag,3,0,0.08250000000000002,400,1600
 single step,qwen3-14b,never_rag,3,0,0.235,400,1600
 single step,qwen3-14b,hull_fixed,3,1,-0.04249999999999998,400,1600
 single step,qwen3-14b,hull_label,3,1,-0.05499999999999994,400,1600
 single step,qwen3-14b,hull_with_ircot,3,1,-0.04119132083021504,400,1600
+single step,qwen3-14b,hull_rungs,3,1,0.0020028976037488877,400,1600
 single step,qwen3-14b,always_rag,3,1,0.050000000000000044,400,1600
 single step,qwen3-14b,never_rag,3,1,0.23500000000000001,400,1600
 single step,qwen3-14b,hull_fixed,3,2,0.015000000000000013,400,1600
 single step,qwen3-14b,hull_label,3,2,0.015000000000000013,400,1600
 single step,qwen3-14b,hull_with_ircot,3,2,-0.020395190680437658,400,1600
+single step,qwen3-14b,hull_rungs,3,2,0.017763535295431454,400,1600
 single step,qwen3-14b,always_rag,3,2,0.10250000000000004,400,1600
 single step,qwen3-14b,never_rag,3,2,0.21250000000000002,400,1600
 single step,qwen3-14b,hull_fixed,3,3,-0.065,400,1600
 single step,qwen3-14b,hull_label,3,3,-0.065,400,1600
 single step,qwen3-14b,hull_with_ircot,3,3,-0.06151269414499022,400,1600
+single step,qwen3-14b,hull_rungs,3,3,0.014271957834821547,400,1600
 single step,qwen3-14b,always_rag,3,3,0.07999999999999996,400,1600
 single step,qwen3-14b,never_rag,3,3,0.20249999999999996,400,1600
 single step,qwen3-14b,hull_fixed,3,4,0.0050000000000000044,400,1600
 single step,qwen3-14b,hull_label,3,4,-0.004999999999999949,400,1600
 single step,qwen3-14b,hull_with_ircot,3,4,-0.011359946298325097,400,1600
+single step,qwen3-14b,hull_rungs,3,4,0.042961590063754884,400,1600
 single step,qwen3-14b,always_rag,3,4,0.14250000000000002,400,1600
 single step,qwen3-14b,never_rag,3,4,0.2975,400,1600
 single step,qwen3-14b,hull_fixed,4,0,-0.019999999999999962,400,1600
 single step,qwen3-14b,hull_label,4,0,-0.004999999999999949,400,1600
 single step,qwen3-14b,hull_with_ircot,4,0,-0.038621713779210365,400,1600
+single step,qwen3-14b,hull_rungs,4,0,0.020406764950695544,400,1600
 single step,qwen3-14b,always_rag,4,0,0.1225,400,1600
 single step,qwen3-14b,never_rag,4,0,0.2375,400,1600
 single step,qwen3-14b,hull_fixed,4,1,0.007499999999999951,400,1600
 single step,qwen3-14b,hull_label,4,1,0.007499999999999951,400,1600
 single step,qwen3-14b,hull_with_ircot,4,1,-0.010572843955955369,400,1600
+single step,qwen3-14b,hull_rungs,4,1,0.030300200167355573,400,1600
 single step,qwen3-14b,always_rag,4,1,0.09499999999999997,400,1600
 single step,qwen3-14b,never_rag,4,1,0.2849999999999999,400,1600
 single step,qwen3-14b,hull_fixed,4,2,-0.05249999999999999,400,1600
 single step,qwen3-14b,hull_label,4,2,-0.05249999999999999,400,1600
 single step,qwen3-14b,hull_with_ircot,4,2,-0.06790377696333161,400,1600
+single step,qwen3-14b,hull_rungs,4,2,-0.015629682463775385,400,1600
 single step,qwen3-14b,always_rag,4,2,0.07,400,1600
 single step,qwen3-14b,never_rag,4,2,0.23,400,1600
 single step,qwen3-14b,hull_fixed,4,3,-0.03249999999999997,400,1600
 single step,qwen3-14b,hull_label,4,3,-0.02749999999999997,400,1600
 single step,qwen3-14b,hull_with_ircot,4,3,-0.04498807053939902,400,1600
+single step,qwen3-14b,hull_rungs,4,3,0.013374335934331016,400,1600
 single step,qwen3-14b,always_rag,4,3,0.10250000000000004,400,1600
 single step,qwen3-14b,never_rag,4,3,0.21750000000000003,400,1600
 single step,qwen3-14b,hull_fixed,4,4,-0.012499999999999956,400,1600
 single step,qwen3-14b,hull_label,4,4,-0.02749999999999997,400,1600
 single step,qwen3-14b,hull_with_ircot,4,4,-0.011166215147117575,400,1600
+single step,qwen3-14b,hull_rungs,4,4,0.032259895350790435,400,1600
 single step,qwen3-14b,always_rag,4,4,0.08250000000000002,400,1600
 single step,qwen3-14b,never_rag,4,4,0.22749999999999998,400,1600
 with two hop,qwen3-14b,hull_fixed,0,0,0.0024999999999999467,400,1600
 with two hop,qwen3-14b,hull_label,0,0,-0.03750000000000009,400,1600
 with two hop,qwen3-14b,hull_with_ircot,0,0,-0.02361841520673269,400,1600
+with two hop,qwen3-14b,hull_rungs,0,0,0.029657338558576274,400,1600
 with two hop,qwen3-14b,always_rag,0,0,0.12499999999999994,400,1600
 with two hop,qwen3-14b,never_rag,0,0,0.24749999999999994,400,1600
 with two hop,qwen3-14b,hull_fixed,0,1,-0.034999999999999976,400,1600
 with two hop,qwen3-14b,hull_label,0,1,-0.06999999999999995,400,1600
 with two hop,qwen3-14b,hull_with_ircot,0,1,-0.042935741622255996,400,1600
+with two hop,qwen3-14b,hull_rungs,0,1,0.017771115931784875,400,1600
 with two hop,qwen3-14b,always_rag,0,1,0.09750000000000003,400,1600
 with two hop,qwen3-14b,never_rag,0,1,0.1925,400,1600
 with two hop,qwen3-14b,hull_fixed,0,2,-0.03250000000000003,400,1600
 with two hop,qwen3-14b,hull_label,0,2,-0.07,400,1600
 with two hop,qwen3-14b,hull_with_ircot,0,2,-0.0431189667478829,400,1600
+with two hop,qwen3-14b,hull_rungs,0,2,0.004922051990816745,400,1600
 with two hop,qwen3-14b,always_rag,0,2,0.07250000000000001,400,1600
 with two hop,qwen3-14b,never_rag,0,2,0.24,400,1600
 with two hop,qwen3-14b,hull_fixed,0,3,-0.062499999999999944,400,1600
 with two hop,qwen3-14b,hull_label,0,3,-0.11499999999999994,400,1600
 with two hop,qwen3-14b,hull_with_ircot,0,3,-0.062499999999999944,400,1600
+with two hop,qwen3-14b,hull_rungs,0,3,-0.011311317474612725,400,1600
 with two hop,qwen3-14b,always_rag,0,3,0.040000000000000036,400,1600
 with two hop,qwen3-14b,never_rag,0,3,0.2225,400,1600
 with two hop,qwen3-14b,hull_fixed,0,4,-0.0024999999999999467,400,1600
 with two hop,qwen3-14b,hull_label,0,4,-0.03749999999999998,400,1600
 with two hop,qwen3-14b,hull_with_ircot,0,4,-0.02640083337871757,400,1600
+with two hop,qwen3-14b,hull_rungs,0,4,0.022527826495240988,400,1600
 with two hop,qwen3-14b,always_rag,0,4,0.10499999999999998,400,1600
 with two hop,qwen3-14b,never_rag,0,4,0.2625,400,1600
 with two hop,qwen3-14b,hull_fixed,1,0,-0.03500000000000003,400,1600
 with two hop,qwen3-14b,hull_label,1,0,-0.04749999999999999,400,1600
 with two hop,qwen3-14b,hull_with_ircot,1,0,-0.03366342648058174,400,1600
+with two hop,qwen3-14b,hull_rungs,1,0,0.020847503760642982,400,1600
 with two hop,qwen3-14b,always_rag,1,0,0.08499999999999996,400,1600
 with two hop,qwen3-14b,never_rag,1,0,0.2425,400,1600
 with two hop,qwen3-14b,hull_fixed,1,1,-0.02250000000000002,400,1600
 with two hop,qwen3-14b,hull_label,1,1,-0.065,400,1600
 with two hop,qwen3-14b,hull_with_ircot,1,1,-0.04066981089585903,400,1600
+with two hop,qwen3-14b,hull_rungs,1,1,0.010524640285017095,400,1600
 with two hop,qwen3-14b,always_rag,1,1,0.08749999999999997,400,1600
 with two hop,qwen3-14b,never_rag,1,1,0.21749999999999997,400,1600
 with two hop,qwen3-14b,hull_fixed,1,2,-0.01749999999999996,400,1600
 with two hop,qwen3-14b,hull_label,1,2,-0.06499999999999995,400,1600
 with two hop,qwen3-14b,hull_with_ircot,1,2,-0.037723605548268924,400,1600
+with two hop,qwen3-14b,hull_rungs,1,2,0.012710673976910947,400,1600
 with two hop,qwen3-14b,always_rag,1,2,0.08750000000000002,400,1600
 with two hop,qwen3-14b,never_rag,1,2,0.265,400,1600
 with two hop,qwen3-14b,hull_fixed,1,3,-0.03249999999999997,400,1600
 with two hop,qwen3-14b,hull_label,1,3,-0.06000000000000005,400,1600
 with two hop,qwen3-14b,hull_with_ircot,1,3,-0.03617676523529523,400,1600
+with two hop,qwen3-14b,hull_rungs,1,3,0.02739869490404001,400,1600
 with two hop,qwen3-14b,always_rag,1,3,0.09499999999999997,400,1600
 with two hop,qwen3-14b,never_rag,1,3,0.22999999999999998,400,1600
 with two hop,qwen3-14b,hull_fixed,1,4,-0.0050000000000000044,400,1600
 with two hop,qwen3-14b,hull_label,1,4,-0.06500000000000006,400,1600
 with two hop,qwen3-14b,hull_with_ircot,1,4,-0.02996496135206972,400,1600
+with two hop,qwen3-14b,hull_rungs,1,4,0.021811357878206983,400,1600
 with two hop,qwen3-14b,always_rag,1,4,0.09749999999999998,400,1600
 with two hop,qwen3-14b,never_rag,1,4,0.22249999999999998,400,1600
 with two hop,qwen3-14b,hull_fixed,2,0,-0.030000000000000027,400,1600
 with two hop,qwen3-14b,hull_label,2,0,-0.08000000000000007,400,1600
 with two hop,qwen3-14b,hull_with_ircot,2,0,-0.0411578855283532,400,1600
+with two hop,qwen3-14b,hull_rungs,2,0,0.00036853456121566097,400,1600
 with two hop,qwen3-14b,always_rag,2,0,0.05499999999999994,400,1600
 with two hop,qwen3-14b,never_rag,2,0,0.26249999999999996,400,1600
 with two hop,qwen3-14b,hull_fixed,2,1,-0.010000000000000009,400,1600
 with two hop,qwen3-14b,hull_label,2,1,-0.07000000000000006,400,1600
 with two hop,qwen3-14b,hull_with_ircot,2,1,-0.034342829293638855,400,1600
+with two hop,qwen3-14b,hull_rungs,2,1,0.0045692618077540215,400,1600
 with two hop,qwen3-14b,always_rag,2,1,0.07750000000000001,400,1600
 with two hop,qwen3-14b,never_rag,2,1,0.25,400,1600
 with two hop,qwen3-14b,hull_fixed,2,2,-0.044999999999999984,400,1600
 with two hop,qwen3-14b,hull_label,2,2,-0.0625,400,1600
 with two hop,qwen3-14b,hull_with_ircot,2,2,-0.04371542381023141,400,1600
+with two hop,qwen3-14b,hull_rungs,2,2,0.0405047756832273,400,1600
 with two hop,qwen3-14b,always_rag,2,2,0.1325,400,1600
 with two hop,qwen3-14b,never_rag,2,2,0.15500000000000003,400,1600
 with two hop,qwen3-14b,hull_fixed,2,3,-0.017500000000000016,400,1600
 with two hop,qwen3-14b,hull_label,2,3,-0.06500000000000006,400,1600
 with two hop,qwen3-14b,hull_with_ircot,2,3,-0.03715837907959485,400,1600
+with two hop,qwen3-14b,hull_rungs,2,3,0.02623036205461171,400,1600
 with two hop,qwen3-14b,always_rag,2,3,0.12,400,1600
 with two hop,qwen3-14b,never_rag,2,3,0.26249999999999996,400,1600
 with two hop,qwen3-14b,hull_fixed,2,4,-0.015000000000000013,400,1600
 with two hop,qwen3-14b,hull_label,2,4,-0.04749999999999999,400,1600
 with two hop,qwen3-14b,hull_with_ircot,2,4,-0.03277683955720334,400,1600
+with two hop,qwen3-14b,hull_rungs,2,4,0.001808531504507993,400,1600
 with two hop,qwen3-14b,always_rag,2,4,0.057499999999999996,400,1600
 with two hop,qwen3-14b,never_rag,2,4,0.23749999999999996,400,1600
 with two hop,qwen3-14b,hull_fixed,3,0,-0.025000000000000022,400,1600
 with two hop,qwen3-14b,hull_label,3,0,-0.04749999999999999,400,1600
 with two hop,qwen3-14b,hull_with_ircot,3,0,-0.04616264915175716,400,1600
+with two hop,qwen3-14b,hull_rungs,3,0,0.008812049028701308,400,1600
 with two hop,qwen3-14b,always_rag,3,0,0.08250000000000002,400,1600
 with two hop,qwen3-14b,never_rag,3,0,0.235,400,1600
 with two hop,qwen3-14b,hull_fixed,3,1,-0.04249999999999998,400,1600
 with two hop,qwen3-14b,hull_label,3,1,-0.09749999999999992,400,1600
 with two hop,qwen3-14b,hull_with_ircot,3,1,-0.04119132083021504,400,1600
+with two hop,qwen3-14b,hull_rungs,3,1,0.0020028976037488877,400,1600
 with two hop,qwen3-14b,always_rag,3,1,0.050000000000000044,400,1600
 with two hop,qwen3-14b,never_rag,3,1,0.23500000000000001,400,1600
 with two hop,qwen3-14b,hull_fixed,3,2,0.015000000000000013,400,1600
 with two hop,qwen3-14b,hull_label,3,2,-0.019999999999999962,400,1600
 with two hop,qwen3-14b,hull_with_ircot,3,2,-0.020395190680437658,400,1600
+with two hop,qwen3-14b,hull_rungs,3,2,0.017763535295431454,400,1600
 with two hop,qwen3-14b,always_rag,3,2,0.10250000000000004,400,1600
 with two hop,qwen3-14b,never_rag,3,2,0.21250000000000002,400,1600
 with two hop,qwen3-14b,hull_fixed,3,3,-0.065,400,1600
 with two hop,qwen3-14b,hull_label,3,3,-0.08250000000000007,400,1600
 with two hop,qwen3-14b,hull_with_ircot,3,3,-0.06151269414499022,400,1600
+with two hop,qwen3-14b,hull_rungs,3,3,0.014271957834821547,400,1600
 with two hop,qwen3-14b,always_rag,3,3,0.07999999999999996,400,1600
 with two hop,qwen3-14b,never_rag,3,3,0.20249999999999996,400,1600
 with two hop,qwen3-14b,hull_fixed,3,4,0.0050000000000000044,400,1600
 with two hop,qwen3-14b,hull_label,3,4,-0.04250000000000004,400,1600
 with two hop,qwen3-14b,hull_with_ircot,3,4,-0.011359946298325097,400,1600
+with two hop,qwen3-14b,hull_rungs,3,4,0.042961590063754884,400,1600
 with two hop,qwen3-14b,always_rag,3,4,0.14250000000000002,400,1600
 with two hop,qwen3-14b,never_rag,3,4,0.2975,400,1600
 with two hop,qwen3-14b,hull_fixed,4,0,-0.019999999999999962,400,1600
 with two hop,qwen3-14b,hull_label,4,0,-0.065,400,1600
 with two hop,qwen3-14b,hull_with_ircot,4,0,-0.038621713779210365,400,1600
+with two hop,qwen3-14b,hull_rungs,4,0,0.020406764950695544,400,1600
 with two hop,qwen3-14b,always_rag,4,0,0.1225,400,1600
 with two hop,qwen3-14b,never_rag,4,0,0.2375,400,1600
 with two hop,qwen3-14b,hull_fixed,4,1,0.007499999999999951,400,1600
 with two hop,qwen3-14b,hull_label,4,1,-0.01750000000000007,400,1600
 with two hop,qwen3-14b,hull_with_ircot,4,1,-0.010572843955955369,400,1600
+with two hop,qwen3-14b,hull_rungs,4,1,0.030300200167355573,400,1600
 with two hop,qwen3-14b,always_rag,4,1,0.09499999999999997,400,1600
 with two hop,qwen3-14b,never_rag,4,1,0.2849999999999999,400,1600
 with two hop,qwen3-14b,hull_fixed,4,2,-0.05249999999999999,400,1600
 with two hop,qwen3-14b,hull_label,4,2,-0.07499999999999996,400,1600
 with two hop,qwen3-14b,hull_with_ircot,4,2,-0.06790377696333161,400,1600
+with two hop,qwen3-14b,hull_rungs,4,2,-0.015629682463775385,400,1600
 with two hop,qwen3-14b,always_rag,4,2,0.07,400,1600
 with two hop,qwen3-14b,never_rag,4,2,0.23,400,1600
 with two hop,qwen3-14b,hull_fixed,4,3,-0.03249999999999997,400,1600
 with two hop,qwen3-14b,hull_label,4,3,-0.0675,400,1600
 with two hop,qwen3-14b,hull_with_ircot,4,3,-0.04498807053939902,400,1600
+with two hop,qwen3-14b,hull_rungs,4,3,0.013374335934331016,400,1600
 with two hop,qwen3-14b,always_rag,4,3,0.10250000000000004,400,1600
 with two hop,qwen3-14b,never_rag,4,3,0.21750000000000003,400,1600
 with two hop,qwen3-14b,hull_fixed,4,4,-0.012499999999999956,400,1600
 with two hop,qwen3-14b,hull_label,4,4,-0.050000000000000044,400,1600
 with two hop,qwen3-14b,hull_with_ircot,4,4,-0.011166215147117575,400,1600
+with two hop,qwen3-14b,hull_rungs,4,4,0.032259895350790435,400,1600
 with two hop,qwen3-14b,always_rag,4,4,0.08250000000000002,400,1600
 with two hop,qwen3-14b,never_rag,4,4,0.22749999999999998,400,1600

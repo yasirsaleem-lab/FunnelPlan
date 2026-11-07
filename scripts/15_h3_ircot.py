@@ -14,6 +14,7 @@ Costs are compared only within a reader (each reader's own runtime).
 
 Usage
   python scripts/15_h3_ircot.py                 all readers and datasets with a graded IRCoT file
+  python scripts/15_h3_ircot.py --with-nq       NQ added: Holm over 12 tests per hull (output h3_ircot_nq/)
   python scripts/15_h3_ircot.py --partial       also run on readers/datasets with fewer than 500 IRCoT answers
                                                 (interim look only; never reported)
 Output: results_full/analysis/h3_ircot/h3.csv, summary.txt
@@ -40,6 +41,9 @@ _s.loader.exec_module(A)
 
 READERS = ["qwen2.5-7b", "llama3.1-8b", "qwen3-14b"]
 DATASETS = ["hotpotqa", "2wikimultihopqa", "musique"]
+WITH_NQ = "--with-nq" in sys.argv                       # family of 12: NQ added (IRCoT on NQ uses the HotpotQA demos)
+if WITH_NQ:
+    DATASETS = DATASETS + ["nq"]
 PROC = settings.PROCESSED_DATA_ROOT
 
 
@@ -48,6 +52,9 @@ def load_ircot(reader, col):
     if not f.exists():
         return None
     d = pd.read_csv(f, dtype={"query_id": str}, keep_default_na=False)
+    fn = PROC / "r4_ircot" / f"labels_{reader}_nq_graded.csv"
+    if WITH_NQ and fn.exists():
+        d = pd.concat([d, pd.read_csv(fn, dtype={"query_id": str}, keep_default_na=False)], ignore_index=True)
     if col not in d.columns:
         sys.exit(f"{f.name} has no {col}; run 08 judge and finalize first.")
     d["y"] = d[col].astype(int)
@@ -153,7 +160,7 @@ def main():
     lab = next((a_.split("=", 1)[1] for a_ in sys.argv if a_.startswith("--label=")), None)
     if lab:
         A.CONFIG["label"] = lab                   # sensitivity run; the main run (label_final) is untouched
-    out = settings.RESULTS_ROOT / "analysis" / ("h3_ircot" + (f"_{lab}" if lab else ""))
+    out = settings.RESULTS_ROOT / "analysis" / ("h3_ircot" + (f"_{lab}" if lab else "") + ("_nq" if WITH_NQ else ""))
     out.mkdir(parents=True, exist_ok=True)
     L, res = [], []
     say = lambda s: (print(s, flush=True), L.append(s))
@@ -204,7 +211,7 @@ def main():
             if g["p_infl"].notna().all():
                 R.loc[g.index, "p_infl_holm"] = A.holm(g["p_infl"].to_numpy())
         say("")
-        say("Holm over the tests of each hull (family: 9 tests, single step hull):")
+        say(f"Holm over the tests of each hull (family: {len(DATASETS) * len(READERS)} tests per hull):")
         for _, r in R.iterrows():
             sig = "SIGNIFICANT" if (r["p_holm"] < 0.05 and r["ci_low"] > 0) else ("significantly BELOW" if (r["p_holm"] < 0.05 and r["ci_high"] < 0) else "n.s.")
             say(f"  {r['hull']:12s} {r['reader']:12s} {r['dataset']:16s} gain {r['gain']:+.3f}  p {r['p']:.4f}  Holm p {r['p_holm']:.4f}  {sig}")

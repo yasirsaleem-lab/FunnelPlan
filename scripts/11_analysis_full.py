@@ -279,6 +279,19 @@ def _hull_vertices(Y, cost, idx):
     return H
 
 
+def eval_comparator(B, sel, c, test):
+    """Comparator for the held out score. Default: the hull at the policy's cost. --eval=always / --eval=never
+    replace it ONLY at scoring time (the policy is still tuned against the hull, so it is the same policy) by the
+    mean success of Always RAG (BM25, depth 5) or Never RAG (closed book) on the test fold, with no cost matching:
+    the weak comparator of the protocol common in prior work, scored with the same pooled test."""
+    mode = CONFIG.get("eval_comparator", "hull")
+    if mode == "hull":
+        return hull_at(B.Y, B.cost, sel, c, eval_idx=test)
+    plan = {"always": "bm25@5", "never": "closed_book@0"}[mode]
+    col = plan if plan in B.Y.columns else next(x for x in B.Y.columns if x.endswith("|" + plan))   # cascades: reader A
+    return float(_means(B.Y, test)[col])
+
+
 def hull_at(Y, cost, idx, c, eval_idx=None):
     """Success of the best randomised mix of fixed plans at mean cost c.
 
@@ -502,7 +515,7 @@ def heldout(B, method, seed):
         sel = np.concatenate([folds[j] for j in range(k) if j != i])
         cfg = fit(sel)
         s, c = apply_(cfg, test)
-        h = hull_at(B.Y, B.cost, sel, c, eval_idx=test)
+        h = eval_comparator(B, sel, c, test)
         s_sel, c_sel = apply_(cfg, sel)
         rows.append({"success": s.mean(), "cost": c, "hull": h, "gain": s.mean() - h,
                      "gain_selection_half": s_sel.mean() - hull_at(B.Y, B.cost, sel, c_sel)})
@@ -615,6 +628,9 @@ def main():
         if a_ == "--hull=step":                    # robustness: best single fixed plan at or below the cost
             CONFIG["hull_mode"] = "step"
             CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_stephull"
+        if a_ in ("--eval=always", "--eval=never"):   # weak comparator at scoring time only (Table V column)
+            CONFIG["eval_comparator"] = a_.split("=", 1)[1]
+            CONFIG["out_suffix"] = CONFIG["out_suffix"] + "_eval" + CONFIG["eval_comparator"]
         if a_.startswith("--cost="):               # robustness: another cost axis
             CONFIG["cost_axis"] = a_.split("=", 1)[1]
             if CONFIG["cost_axis"] != "latency":

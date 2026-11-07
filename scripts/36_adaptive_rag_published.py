@@ -12,7 +12,9 @@ Training and scoring: the 2,000 questions of a reader pooled over the four datas
 the mix), 5 folds x 5 seeds across the pool (as 26_mixed_workload.py); costs as there (a plan's cost is its mean over
 the pooled questions; IRCoT's likewise), plus the classifier's measured inference time per question.
 Comparators on the same held out questions: Always RAG (BM25, 5 passages) and Never RAG (the published comparison,
-accuracy only); the global hull of the fixed plans; the label hull; the global hull with IRCoT as one more plan.
+accuracy only); the global hull of the fixed plans; the label hull; the global hull with IRCoT as one more plan;
+and a hull over Adaptive RAG's own three rungs only (a random mix of its rungs at its cost: does the classifier add
+value over a coin flip between the same rungs?). usage.csv records which plans each hull mixes at that cost.
 Plan sets: single step, and with the fixed two hop plans (the comparators change; the ladder does not).
 Tests: per question test, corrected test, corrected test with errors x the largest refit ratio; Holm over the three
 readers within each comparator and plan set.
@@ -244,8 +246,21 @@ class Classifier:
 
 
 # ====================================================================== protocol
+def hull_info(name, Y, cost, sel, c):
+    """Which plans the hull mixes at cost c (chosen on the training folds), and whether it is flat there (one plan)."""
+    H = A._hull_vertices(Y, cost, sel)
+    xs = [h[0] for h in H]
+    if c >= xs[-1]:
+        return {f"{name}_plans": H[-1][2], f"{name}_flat": True, f"{name}_cost": float(xs[-1])}
+    if c <= xs[0]:
+        return {f"{name}_plans": H[0][2], f"{name}_flat": True, f"{name}_cost": float(xs[0])}
+    j = max(int(np.searchsorted(xs, c, side="right")) - 1, 0)
+    return {f"{name}_plans": f"{H[j][2]} + {H[j + 1][2]}", f"{name}_flat": False, f"{name}_cost": float(c)}
+
+
 def run_reader(reader, r3, clf, overhead):
     P, Y_all, cost_all, dss = build(reader, r3)
+    Y_r, cost_r = Y_all[RUNGS], cost_all[RUNGS]          # hull over Adaptive RAG's own rungs only
     tag = "with two hop" if r3 else "single step"
     k = A.CONFIG["k_folds"]
     per_q, folds, usage = {}, [], []
@@ -271,6 +286,7 @@ def run_reader(reader, r3, clf, overhead):
             comp = {"hull_fixed": A.hull_at(P.Y, P.cost, sel, c, eval_idx=test),
                     "hull_label": M26.label_hull(P.Y, P.cost, sel, c, test)[0],
                     "hull_with_ircot": A.hull_at(Y_all, cost_all, sel, c, eval_idx=test),
+                    "hull_rungs": A.hull_at(Y_r, cost_r, sel, c, eval_idx=test),
                     "always_rag": float(Y_all.loc[test, "bm25@5"].mean()),
                     "never_rag": float(Y_all.loc[test, "closed_book@0"].mean())}
             for name, v in comp.items():
@@ -280,7 +296,9 @@ def run_reader(reader, r3, clf, overhead):
             usage.append({"plan_set": tag, "reader": reader, "seed": sd, "fold": i, "success": s.mean(), "cost": c,
                           "always_cost": float(cost_all["bm25@5"]), "never_cost": float(cost_all["closed_book@0"]),
                           **{f"share_{r}": float(np.mean(chosen == r)) for r in RUNGS},
-                          "silver_accuracy": float(np.mean(pred == silver(Y_all, test)))})
+                          "silver_accuracy": float(np.mean(pred == silver(Y_all, test))),
+                          **hull_info("hull_fixed", P.Y, P.cost, sel, c), **hull_info("hull_with_ircot", Y_all, cost_all, sel, c),
+                          **hull_info("hull_rungs", Y_r, cost_r, sel, c)})
     rows, PQ = [], []
     for name, L in per_q.items():
         g = pd.concat(L).groupby(level=0).mean()          # mean over seeds per question
@@ -337,6 +355,8 @@ def main():
     T["positive_all_three"] = ((T.p_plain_holm < 0.05) & (T.plain_low > 0) & (T.p_nb_holm < 0.05) & (T.nb_low > 0)
                                & (T.p_infl_holm < 0.05) & (T.infl_low > 0))
     T["negative_corrected"] = (T.p_nb_holm < 0.05) & (T.nb_high < 0)
+    T["negative_all_three"] = ((T.p_plain_holm < 0.05) & (T.plain_high < 0) & (T.p_nb_holm < 0.05) & (T.nb_high < 0)
+                               & (T.p_infl_holm < 0.05) & (T.infl_high < 0))
     T.to_csv(OUT / "tests.csv", index=False)
     pd.concat(PQ).to_csv(OUT / "per_query.csv", index=False)
     pd.DataFrame(FO).to_csv(OUT / "folds.csv", index=False)
@@ -345,7 +365,14 @@ def main():
     for comp, g in T.groupby("comparator"):
         w = g[g.positive_all_three].groupby("reader").plan_set.nunique()
         say(f"  {comp:15s} wins in both plan sets: {sorted(w[w == 2].index)}; negative (corrected): "
-            f"{int(g.negative_corrected.sum())} of {len(g)}")
+            f"{int(g.negative_corrected.sum())} of {len(g)}; negative under all three: {int(g.negative_all_three.sum())}")
+    U = pd.DataFrame(US)
+    say("\nHull composition at Adaptive RAG's cost (training folds; share of folds where the hull is one plan):")
+    for (ps, rd), g in U.groupby(["plan_set", "reader"]):
+        for h in ("hull_fixed", "hull_with_ircot", "hull_rungs"):
+            top = g[f"{h}_plans"].value_counts()
+            say(f"  {ps:12s} {rd:12s} {h:16s} flat in {g[f'{h}_flat'].mean():.0%} of folds; most common: "
+                f"{top.index[0]} ({top.iloc[0]} of {len(g)}); its cost {g[f'{h}_cost'].mean():.2f}s")
     say(f"({time.time() - t0:.0f}s)")
     (OUT / "summary.txt").write_text("\n".join(LINES), encoding="utf-8")
 

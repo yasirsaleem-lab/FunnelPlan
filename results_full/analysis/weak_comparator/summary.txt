@@ -1,0 +1,18 @@
+Primary family (27 pooled tests per plan set), label_final, per question test, Holm over the 27.
+Same policies in every column (tuned against the hull); only the held out comparator changes.
+
+== single step: positive (Holm p < 0.05, interval above 0) against
+   vs hull                  0 of 27
+   vs best single plan      5 of 27
+   vs Always RAG            23 of 27
+   vs Never RAG             24 of 27
+   vs Always and Never RAG  23 of 27
+   gain over Always RAG -0.152 to +0.131; over Never RAG +0.002 to +0.286
+
+== with two hop: positive (Holm p < 0.05, interval above 0) against
+   vs hull                  0 of 27
+   vs best single plan      7 of 27
+   vs Always RAG            23 of 27
+   vs Never RAG             24 of 27
+   vs Always and Never RAG  23 of 27
+   gain over Always RAG -0.152 to +0.162; over Never RAG +0.003 to +0.316

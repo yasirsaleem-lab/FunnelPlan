@@ -1,0 +1,3 @@
+plan_set,tests,vs hull,vs best single plan,vs Always RAG,vs Never RAG,vs Always and Never RAG
+single step,27,0,5,23,24,23
+with two hop,27,0,7,23,24,23
