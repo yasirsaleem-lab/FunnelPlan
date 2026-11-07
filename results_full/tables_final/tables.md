@@ -305,11 +305,11 @@ Observed differences equal J times true differences when grading error is the sa
 | Secondary family | 30 | 0/6 | +0.029 | 1/5 | +0.030 |
 | Stronger policies | 10 | 0/0 | +0.001 | 0/0 | -0.002 |
 | Primary: corrected test‡ | 27 | 0/5 | +0.013 | 0/5 | +0.017 |
-| Primary: corrected, x1.64‡ | 27 | 0/2 | +0.013 | 0/1 | +0.017 |
+| Primary: corrected, x2.61‡ | 27 | 0/0 | +0.013 | 0/0 | +0.017 |
 | Primary: outside judge‡ | 27 | 0/6 | +0.015 | 1/6 | +0.020 |
 | Secondary, charged‡ | 30 | 0/6 | +0.011 | 0/4 | +0.014 |
 
-Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x1.64: 26 and 25 (single step and with two hop).
+Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x2.61: 22 and 20 (single step and with two hop).
 
 ## Fixed plans at depth 5, mean success over readers
 
@@ -422,16 +422,16 @@ Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 
 | pooled, gain above 0 | 8 of 25 |
 | pooled, Holm | 0 of 25 |
 
-## Checks: inference with refitting (corrected resampled t test; x1.64 = corrected SE times the largest refit ratio)
+## Checks: inference with refitting (corrected resampled t test; xF = corrected SE times the largest refit ratio F)
 
-| Family | Plan set | Tests | Positive: per question / corrected / x1.64 | Bound below 0.03: per question / corrected / x1.64 | Largest bound, corrected |
+| Family | Plan set | Tests | Positive: per question / corrected / x2.61 | Bound below 0.03: per question / corrected / x2.61 | Largest bound, corrected |
 |---|---|---|---|---|---|
-| Primary | single step | 27 | 0 / 0 / 0 | 27 / 27 / 26 | 0.025 |
-| Primary | with two hop | 27 | 0 / 0 / 0 | 26 / 26 / 25 | 0.031 |
-| Secondary, routers uncharged | single step | 30 | 0 / 2 / 0 | 25 / 26 / 23 | 0.042 |
-| Secondary, routers uncharged | with two hop | 30 | 1 / 3 / 0 | 23 / 24 / 22 | 0.042 |
-| Secondary, routers charged | single step | 30 | 0 / 0 / 0 | 30 / 30 / 29 | 0.023 |
-| Secondary, routers charged | with two hop | 30 | 0 / 0 / 0 | 30 / 30 / 23 | 0.028 |
+| Primary | single step | 27 | 0 / 0 / 0 | 27 / 27 / 22 | 0.025 |
+| Primary | with two hop | 27 | 0 / 0 / 0 | 26 / 26 / 20 | 0.031 |
+| Secondary, routers uncharged | single step | 30 | 0 / 2 / 0 | 25 / 26 / 20 | 0.042 |
+| Secondary, routers uncharged | with two hop | 30 | 1 / 3 / 0 | 23 / 24 / 15 | 0.042 |
+| Secondary, routers charged | single step | 30 | 0 / 0 / 0 | 30 / 30 / 22 | 0.023 |
+| Secondary, routers charged | with two hop | 30 | 0 / 0 / 0 | 30 / 30 / 17 | 0.028 |
 | Stronger | single step | 10 | 0 / 0 / 0 | 10 / 10 / 10 | 0.009 |
 | Stronger | with two hop | 10 | 0 / 0 / 0 | 10 / 10 / 10 | 0.006 |
 
@@ -467,22 +467,22 @@ Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 
 | Reader cascade | 7B to Qwen3 14B | +0.006 | 0.021 | 0.017 | +0.017 | 0.032 | 0.031 |
 | Reader cascade | 7B to Llama 3.1 8B | +0.006 | 0.021 | 0.017 | -0.001 | 0.015 | 0.013 |
 
-## Checks: mixed workload (2,000 pooled questions per reader; Holm within family; Pos. = per question / corrected / corrected x1.64)
+## Checks: mixed workload (2,000 pooled questions per reader; Holm within family; Pos. = per question / corrected / corrected x2.61)
 
-| Policies | Plan set | Tests | Pos., global: per q. / corr. / x1.64 | Neg., global | Gain, global hull | Pos./neg., label hull | Gain, label hull |
+| Policies | Plan set | Tests | Pos., global: per q. / corr. / x2.61 | Neg., global | Gain, global hull | Pos./neg., label hull | Gain, label hull |
 |---|---|---|---|---|---|---|---|
 | Primary policies | single step | 27 | 0 / 0 / 0 | 5 | -0.077 to +0.011 | 0 / 8 | -0.098 to +0.003 |
 | Primary policies | with two hop | 27 | 0 / 0 / 0 | 3 | -0.061 to +0.021 | 0 / 10 | -0.092 to 0.000 |
 | Adaptive RAG, silver labels | single step | 5 | 0 / 0 / 0 | 5 | -0.073 to -0.027 | 0 / 5 | -0.094 to -0.038 |
 | Adaptive RAG, silver labels | with two hop | 5 | 0 / 0 / 0 | 4 | -0.052 to -0.004 | 0 / 5 | -0.082 to -0.041 |
-| Secondary routers, no own cost | single step | 25 | 5 / 6 / 2 | 5 | -0.083 to +0.053 | 0 / 5 | -0.103 to +0.006 |
-| Secondary routers, no own cost | with two hop | 25 | 5 / 5 / 1 | 2 | -0.048 to +0.053 | 0 / 8 | -0.084 to +0.004 |
+| Secondary routers, no own cost | single step | 25 | 5 / 6 / 0 | 5 | -0.083 to +0.053 | 0 / 5 | -0.103 to +0.006 |
+| Secondary routers, no own cost | with two hop | 25 | 5 / 5 / 0 | 2 | -0.048 to +0.053 | 0 / 8 | -0.084 to +0.004 |
 | Embedding routers, own cost | single step | 10 | 0 / 1 / 0 | 0 | -0.003 to +0.024 | 0 / 1 | -0.026 to -0.005 |
-| Embedding routers, own cost | with two hop | 10 | 6 / 4 / 1 | 0 | +0.013 to +0.042 | 0 / 0 | -0.014 to -0.003 |
+| Embedding routers, own cost | with two hop | 10 | 6 / 4 / 0 | 0 | +0.013 to +0.042 | 0 / 0 | -0.014 to -0.003 |
 | Dataset guess, own cost | single step | 5 | 0 / 0 / 0 | 0 | +0.003 to +0.022 | 0 / 0 | -0.023 to -0.001 |
-| Dataset guess, own cost | with two hop | 5 | 5 / 5 / 2 | 0 | +0.027 to +0.042 | 0 / 0 | -0.004 to 0.000 |
+| Dataset guess, own cost | with two hop | 5 | 5 / 5 / 0 | 0 | +0.027 to +0.042 | 0 / 0 | -0.004 to 0.000 |
 
-Positive in both plan sets under all three tests: ds_label vs global: Gemma 3 27B ds_label; ds_label vs global: Qwen2.5 7B ds_label; ds_label vs global: Qwen3 32B ds_label; secondary vs global: Qwen3 14B plan_knn
+Positive in both plan sets under all three tests: none
 
 ## Checks: mixed workload decomposition (mean over readers): gain over global hull = workload part + gain over label hull
 

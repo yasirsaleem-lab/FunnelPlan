@@ -4,4 +4,4 @@ with two hop, P95 matched hull: 27 tests; positive under all three 0; negative (
 with two hop, P99 matched hull: 27 tests; positive under all three 0; negative (corrected) 5; gain -0.069 to +0.063 (mean matched hull: -0.069 to +0.017); upper bound below 0.03: 22
 P95: positive in both plan sets under all three tests: none
 P99: positive in both plan sets under all three tests: none
-(1345s)
+(1253s)

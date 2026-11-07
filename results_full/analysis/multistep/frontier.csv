@@ -1,0 +1,409 @@
+reader,dataset,plan,kind,success,latency_s
+qwen2.5-7b,hotpotqa,bge_bm25_rrf@1,single step,0.4,0.3295513237995328
+qwen2.5-7b,hotpotqa,bge_bm25_rrf@10,single step,0.49,0.5428498550006771
+qwen2.5-7b,hotpotqa,bge_bm25_rrf@20,single step,0.502,0.8026080769993714
+qwen2.5-7b,hotpotqa,bge_bm25_rrf@3,single step,0.448,0.37885794159956265
+qwen2.5-7b,hotpotqa,bge_bm25_rrf@5,single step,0.474,0.4298750087994849
+qwen2.5-7b,hotpotqa,bge_m3@1,single step,0.396,0.29221740240103095
+qwen2.5-7b,hotpotqa,bge_m3@10,single step,0.486,0.5738585569993593
+qwen2.5-7b,hotpotqa,bge_m3@20,single step,0.47,0.9203143375995568
+qwen2.5-7b,hotpotqa,bge_m3@3,single step,0.456,0.3558267565993592
+qwen2.5-7b,hotpotqa,bge_m3@5,single step,0.472,0.4141801047993358
+qwen2.5-7b,hotpotqa,bm25@1,single step,0.362,0.28409599979995975
+qwen2.5-7b,hotpotqa,bm25@10,single step,0.428,0.465297873600095
+qwen2.5-7b,hotpotqa,bm25@20,single step,0.442,0.6697512888000928
+qwen2.5-7b,hotpotqa,bm25@3,single step,0.41,0.33266029899951527
+qwen2.5-7b,hotpotqa,bm25@5,single step,0.418,0.36185059300018474
+qwen2.5-7b,hotpotqa,closed_book@0,single step,0.226,0.23000800260051615
+qwen2.5-7b,hotpotqa,cotfixed1@4,F_T,0.414,0.3220651118010864
+qwen2.5-7b,hotpotqa,cotfixed2@4,F_T,0.502,4.672790952738708
+qwen2.5-7b,hotpotqa,cotfixed3@4,F_T,0.528,8.993761530277553
+qwen2.5-7b,hotpotqa,cotfixed4@4,F_T,0.524,13.266129237965027
+qwen2.5-7b,hotpotqa,qwen3_reranker_0_6b@1,single step,0.434,1.3570850445991964
+qwen2.5-7b,hotpotqa,qwen3_reranker_0_6b@10,single step,0.528,1.5904587592002937
+qwen2.5-7b,hotpotqa,qwen3_reranker_0_6b@20,single step,0.502,1.8583449164002668
+qwen2.5-7b,hotpotqa,qwen3_reranker_0_6b@3,single step,0.53,1.4097293011986767
+qwen2.5-7b,hotpotqa,qwen3_reranker_0_6b@5,single step,0.518,1.4733884397995425
+qwen2.5-7b,hotpotqa,splade_v3@1,single step,0.398,1.5415100964004522
+qwen2.5-7b,hotpotqa,splade_v3@10,single step,0.468,1.7782219468018738
+qwen2.5-7b,hotpotqa,splade_v3@20,single step,0.474,2.0567953796021756
+qwen2.5-7b,hotpotqa,splade_v3@3,single step,0.446,1.5941919408006942
+qwen2.5-7b,hotpotqa,splade_v3@5,single step,0.444,1.6344797352012246
+qwen2.5-7b,hotpotqa,stella_1_5b@1,single step,0.446,0.2919763301999773
+qwen2.5-7b,hotpotqa,stella_1_5b@10,single step,0.492,0.5363146220006164
+qwen2.5-7b,hotpotqa,stella_1_5b@20,single step,0.504,0.8033459867999773
+qwen2.5-7b,hotpotqa,stella_1_5b@3,single step,0.484,0.34502845480141686
+qwen2.5-7b,hotpotqa,stella_1_5b@5,single step,0.48,0.40256715800025267
+qwen2.5-7b,hotpotqa,ircot,IRCoT,0.522,21.221545926800637
+qwen2.5-7b,2wikimultihopqa,bge_bm25_rrf@1,single step,0.3,0.3302914774003437
+qwen2.5-7b,2wikimultihopqa,bge_bm25_rrf@10,single step,0.388,0.7809436749998713
+qwen2.5-7b,2wikimultihopqa,bge_bm25_rrf@20,single step,0.406,1.367341840601468
+qwen2.5-7b,2wikimultihopqa,bge_bm25_rrf@3,single step,0.386,0.4338427952007623
+qwen2.5-7b,2wikimultihopqa,bge_bm25_rrf@5,single step,0.39,0.549087854001089
+qwen2.5-7b,2wikimultihopqa,bge_m3@1,single step,0.268,0.28788802699971705
+qwen2.5-7b,2wikimultihopqa,bge_m3@10,single step,0.356,0.7462805134002118
+qwen2.5-7b,2wikimultihopqa,bge_m3@20,single step,0.356,1.2997269900006359
+qwen2.5-7b,2wikimultihopqa,bge_m3@3,single step,0.366,0.3870903725994867
+qwen2.5-7b,2wikimultihopqa,bge_m3@5,single step,0.35,0.5063859668005024
+qwen2.5-7b,2wikimultihopqa,bm25@1,single step,0.3,0.25334470080031307
+qwen2.5-7b,2wikimultihopqa,bm25@10,single step,0.372,0.5113284728010767
+qwen2.5-7b,2wikimultihopqa,bm25@20,single step,0.362,0.8021301440011012
+qwen2.5-7b,2wikimultihopqa,bm25@3,single step,0.344,0.3164635428005131
+qwen2.5-7b,2wikimultihopqa,bm25@5,single step,0.368,0.3739395808005356
+qwen2.5-7b,2wikimultihopqa,closed_book@0,single step,0.258,0.1942653989999089
+qwen2.5-7b,2wikimultihopqa,cotfixed1@4,F_T,0.37,0.3328301284009358
+qwen2.5-7b,2wikimultihopqa,cotfixed2@4,F_T,0.496,4.7568237832781755
+qwen2.5-7b,2wikimultihopqa,cotfixed3@4,F_T,0.522,9.193331511086818
+qwen2.5-7b,2wikimultihopqa,cotfixed4@4,F_T,0.534,13.576970687462794
+qwen2.5-7b,2wikimultihopqa,qwen3_reranker_0_6b@1,single step,0.27,1.7148685144000337
+qwen2.5-7b,2wikimultihopqa,qwen3_reranker_0_6b@10,single step,0.392,2.1332621517996304
+qwen2.5-7b,2wikimultihopqa,qwen3_reranker_0_6b@20,single step,0.372,2.5563216429988387
+qwen2.5-7b,2wikimultihopqa,qwen3_reranker_0_6b@3,single step,0.38,1.801907558599196
+qwen2.5-7b,2wikimultihopqa,qwen3_reranker_0_6b@5,single step,0.376,1.8927061753997114
+qwen2.5-7b,2wikimultihopqa,splade_v3@1,single step,0.254,0.40412110419914815
+qwen2.5-7b,2wikimultihopqa,splade_v3@10,single step,0.362,0.8160326566006406
+qwen2.5-7b,2wikimultihopqa,splade_v3@20,single step,0.362,1.3015435327995217
+qwen2.5-7b,2wikimultihopqa,splade_v3@3,single step,0.334,0.4997054683999158
+qwen2.5-7b,2wikimultihopqa,splade_v3@5,single step,0.354,0.593152954999532
+qwen2.5-7b,2wikimultihopqa,stella_1_5b@1,single step,0.262,0.34173838019918173
+qwen2.5-7b,2wikimultihopqa,stella_1_5b@10,single step,0.35,0.7712403302011079
+qwen2.5-7b,2wikimultihopqa,stella_1_5b@20,single step,0.374,1.2776539021994102
+qwen2.5-7b,2wikimultihopqa,stella_1_5b@3,single step,0.34,0.4465516351999249
+qwen2.5-7b,2wikimultihopqa,stella_1_5b@5,single step,0.33,0.5476368141998537
+qwen2.5-7b,2wikimultihopqa,ircot,IRCoT,0.532,24.674990903599245
+qwen2.5-7b,musique,bge_bm25_rrf@1,single step,0.132,0.27736209060007233
+qwen2.5-7b,musique,bge_bm25_rrf@10,single step,0.208,0.6246236527995789
+qwen2.5-7b,musique,bge_bm25_rrf@20,single step,0.218,1.0218857511998503
+qwen2.5-7b,musique,bge_bm25_rrf@3,single step,0.196,0.3482760963999316
+qwen2.5-7b,musique,bge_bm25_rrf@5,single step,0.208,0.4315258895994629
+qwen2.5-7b,musique,bge_m3@1,single step,0.168,0.27757819559960617
+qwen2.5-7b,musique,bge_m3@10,single step,0.222,0.6805945305999485
+qwen2.5-7b,musique,bge_m3@20,single step,0.228,1.133515396199422
+qwen2.5-7b,musique,bge_m3@3,single step,0.21,0.35786722619924694
+qwen2.5-7b,musique,bge_m3@5,single step,0.222,0.46398379579995525
+qwen2.5-7b,musique,bm25@1,single step,0.1,0.2483610448014223
+qwen2.5-7b,musique,bm25@10,single step,0.174,0.5522088010005537
+qwen2.5-7b,musique,bm25@20,single step,0.18,0.8882455708008492
+qwen2.5-7b,musique,bm25@3,single step,0.14,0.31067395860009117
+qwen2.5-7b,musique,bm25@5,single step,0.164,0.37832860100065585
+qwen2.5-7b,musique,closed_book@0,single step,0.056,0.19376749380066755
+qwen2.5-7b,musique,cotfixed1@4,F_T,0.162,0.3402794826025492
+qwen2.5-7b,musique,cotfixed2@4,F_T,0.22,4.7506885392809295
+qwen2.5-7b,musique,cotfixed3@4,F_T,0.248,9.138079147758273
+qwen2.5-7b,musique,cotfixed4@4,F_T,0.268,13.489863372640162
+qwen2.5-7b,musique,qwen3_reranker_0_6b@1,single step,0.176,1.5545784037991541
+qwen2.5-7b,musique,qwen3_reranker_0_6b@10,single step,0.252,1.9169894079992664
+qwen2.5-7b,musique,qwen3_reranker_0_6b@20,single step,0.22,2.3150663677995906
+qwen2.5-7b,musique,qwen3_reranker_0_6b@3,single step,0.246,1.6354606505989795
+qwen2.5-7b,musique,qwen3_reranker_0_6b@5,single step,0.26,1.7311026151996338
+qwen2.5-7b,musique,splade_v3@1,single step,0.14,0.2848797583993873
+qwen2.5-7b,musique,splade_v3@10,single step,0.218,0.6503448495997581
+qwen2.5-7b,musique,splade_v3@20,single step,0.202,1.0613821671990444
+qwen2.5-7b,musique,splade_v3@3,single step,0.188,0.3676949449992971
+qwen2.5-7b,musique,splade_v3@5,single step,0.21,0.47082571959792396
+qwen2.5-7b,musique,stella_1_5b@1,single step,0.222,0.31456265359953967
+qwen2.5-7b,musique,stella_1_5b@10,single step,0.262,0.6616350724001531
+qwen2.5-7b,musique,stella_1_5b@20,single step,0.248,1.0646086184003507
+qwen2.5-7b,musique,stella_1_5b@3,single step,0.252,0.3999358916006749
+qwen2.5-7b,musique,stella_1_5b@5,single step,0.256,0.4696709694009041
+qwen2.5-7b,musique,ircot,IRCoT,0.27,26.06313621520187
+qwen2.5-7b,nq,bge_bm25_rrf@1,single step,0.486,0.3483081753986188
+qwen2.5-7b,nq,bge_bm25_rrf@10,single step,0.65,0.6603318868016358
+qwen2.5-7b,nq,bge_bm25_rrf@20,single step,0.676,1.0256607971999327
+qwen2.5-7b,nq,bge_bm25_rrf@3,single step,0.606,0.4286655597983626
+qwen2.5-7b,nq,bge_bm25_rrf@5,single step,0.624,0.49827810299699193
+qwen2.5-7b,nq,bge_m3@1,single step,0.592,0.3363466320005245
+qwen2.5-7b,nq,bge_m3@10,single step,0.698,0.7428428384003928
+qwen2.5-7b,nq,bge_m3@20,single step,0.684,1.1917814210001378
+qwen2.5-7b,nq,bge_m3@3,single step,0.686,0.4203427330002887
+qwen2.5-7b,nq,bge_m3@5,single step,0.692,0.5234223611990455
+qwen2.5-7b,nq,bm25@1,single step,0.358,0.2714672366008162
+qwen2.5-7b,nq,bm25@10,single step,0.552,0.545692071201338
+qwen2.5-7b,nq,bm25@20,single step,0.576,0.8471577738003688
+qwen2.5-7b,nq,bm25@3,single step,0.442,0.32510493780183597
+qwen2.5-7b,nq,bm25@5,single step,0.492,0.39056054040021254
+qwen2.5-7b,nq,closed_book@0,single step,0.284,0.20711004680022593
+qwen2.5-7b,nq,cotfixed1@4,F_T,0.468,0.34834797560080183
+qwen2.5-7b,nq,cotfixed2@4,F_T,0.552,4.952922175600709
+qwen2.5-7b,nq,cotfixed3@4,F_T,0.566,9.531439291602103
+qwen2.5-7b,nq,cotfixed4@4,F_T,0.564,13.992980186402454
+qwen2.5-7b,nq,qwen3_reranker_0_6b@1,single step,0.568,1.9033309143994703
+qwen2.5-7b,nq,qwen3_reranker_0_6b@10,single step,0.688,2.231316424798337
+qwen2.5-7b,nq,qwen3_reranker_0_6b@20,single step,0.666,2.60804461599933
+qwen2.5-7b,nq,qwen3_reranker_0_6b@3,single step,0.66,1.9895762410021853
+qwen2.5-7b,nq,qwen3_reranker_0_6b@5,single step,0.69,2.054138507999131
+qwen2.5-7b,nq,splade_v3@1,single step,0.592,1.2672439086008818
+qwen2.5-7b,nq,splade_v3@10,single step,0.69,1.6885870090008248
+qwen2.5-7b,nq,splade_v3@20,single step,0.682,2.1774932279997157
+qwen2.5-7b,nq,splade_v3@3,single step,0.658,1.3605258119999781
+qwen2.5-7b,nq,splade_v3@5,single step,0.678,1.4471806788004469
+qwen2.5-7b,nq,stella_1_5b@1,single step,0.63,0.356548788000131
+qwen2.5-7b,nq,stella_1_5b@10,single step,0.686,0.7099787942002294
+qwen2.5-7b,nq,stella_1_5b@20,single step,0.676,1.1050170586009043
+qwen2.5-7b,nq,stella_1_5b@3,single step,0.704,0.44534589639992916
+qwen2.5-7b,nq,stella_1_5b@5,single step,0.73,0.5146214281992287
+qwen2.5-7b,nq,ircot,IRCoT,0.56,24.473222804602177
+llama3.1-8b,hotpotqa,bge_bm25_rrf@1,single step,0.42,0.4086219049995997
+llama3.1-8b,hotpotqa,bge_bm25_rrf@10,single step,0.54,0.642363405201002
+llama3.1-8b,hotpotqa,bge_bm25_rrf@20,single step,0.542,0.8836053034027572
+llama3.1-8b,hotpotqa,bge_bm25_rrf@3,single step,0.464,0.4505789439991348
+llama3.1-8b,hotpotqa,bge_bm25_rrf@5,single step,0.502,0.5019019454012159
+llama3.1-8b,hotpotqa,bge_m3@1,single step,0.42,0.3503212886003311
+llama3.1-8b,hotpotqa,bge_m3@10,single step,0.502,0.6516947565990266
+llama3.1-8b,hotpotqa,bge_m3@20,single step,0.498,0.9687362108004745
+llama3.1-8b,hotpotqa,bge_m3@3,single step,0.488,0.41855243419972243
+llama3.1-8b,hotpotqa,bge_m3@5,single step,0.504,0.4923841483991127
+llama3.1-8b,hotpotqa,bm25@1,single step,0.378,0.36855205660039786
+llama3.1-8b,hotpotqa,bm25@10,single step,0.454,0.5498413616007309
+llama3.1-8b,hotpotqa,bm25@20,single step,0.482,0.7337100672009982
+llama3.1-8b,hotpotqa,bm25@3,single step,0.398,0.4126589910005568
+llama3.1-8b,hotpotqa,bm25@5,single step,0.444,0.4380161879995721
+llama3.1-8b,hotpotqa,closed_book@0,single step,0.28,0.37136718759930226
+llama3.1-8b,hotpotqa,cotfixed1@4,F_T,0.422,0.40366480760130796
+llama3.1-8b,hotpotqa,cotfixed2@4,F_T,0.5,5.615257375890442
+llama3.1-8b,hotpotqa,cotfixed3@4,F_T,0.546,10.830302637031037
+llama3.1-8b,hotpotqa,cotfixed4@4,F_T,0.556,15.801231362470824
+llama3.1-8b,hotpotqa,qwen3_reranker_0_6b@1,single step,0.45,1.4420368100007763
+llama3.1-8b,hotpotqa,qwen3_reranker_0_6b@10,single step,0.588,1.705670148600824
+llama3.1-8b,hotpotqa,qwen3_reranker_0_6b@20,single step,0.546,1.977285016000038
+llama3.1-8b,hotpotqa,qwen3_reranker_0_6b@3,single step,0.554,1.4978664426009636
+llama3.1-8b,hotpotqa,qwen3_reranker_0_6b@5,single step,0.572,1.5575907831982476
+llama3.1-8b,hotpotqa,splade_v3@1,single step,0.416,1.6352807782005403
+llama3.1-8b,hotpotqa,splade_v3@10,single step,0.524,1.907760724201158
+llama3.1-8b,hotpotqa,splade_v3@20,single step,0.518,2.1757008760014434
+llama3.1-8b,hotpotqa,splade_v3@3,single step,0.448,1.6883275432010996
+llama3.1-8b,hotpotqa,splade_v3@5,single step,0.482,1.752365071401291
+llama3.1-8b,hotpotqa,stella_1_5b@1,single step,0.458,0.3694431904006051
+llama3.1-8b,hotpotqa,stella_1_5b@10,single step,0.552,0.627013311800314
+llama3.1-8b,hotpotqa,stella_1_5b@20,single step,0.562,0.9002386102002347
+llama3.1-8b,hotpotqa,stella_1_5b@3,single step,0.518,0.4191497373993043
+llama3.1-8b,hotpotqa,stella_1_5b@5,single step,0.526,0.48213580060063393
+llama3.1-8b,hotpotqa,ircot,IRCoT,0.554,18.62015254420077
+llama3.1-8b,2wikimultihopqa,bge_bm25_rrf@1,single step,0.172,0.38275895279989336
+llama3.1-8b,2wikimultihopqa,bge_bm25_rrf@10,single step,0.36,0.7564918156031636
+llama3.1-8b,2wikimultihopqa,bge_bm25_rrf@20,single step,0.356,1.236556767000875
+llama3.1-8b,2wikimultihopqa,bge_bm25_rrf@3,single step,0.346,0.43714613380149236
+llama3.1-8b,2wikimultihopqa,bge_bm25_rrf@5,single step,0.352,0.5305519788014352
+llama3.1-8b,2wikimultihopqa,bge_m3@1,single step,0.158,0.36223466300236756
+llama3.1-8b,2wikimultihopqa,bge_m3@10,single step,0.354,0.8381692530018626
+llama3.1-8b,2wikimultihopqa,bge_m3@20,single step,0.344,1.4469711447994342
+llama3.1-8b,2wikimultihopqa,bge_m3@3,single step,0.33,0.4480494118002825
+llama3.1-8b,2wikimultihopqa,bge_m3@5,single step,0.378,0.5600839687988045
+llama3.1-8b,2wikimultihopqa,bm25@1,single step,0.176,0.3346416868001688
+llama3.1-8b,2wikimultihopqa,bm25@10,single step,0.332,0.6130727419994073
+llama3.1-8b,2wikimultihopqa,bm25@20,single step,0.312,0.9221482931976206
+llama3.1-8b,2wikimultihopqa,bm25@3,single step,0.282,0.38475408879900347
+llama3.1-8b,2wikimultihopqa,bm25@5,single step,0.318,0.44988642019906544
+llama3.1-8b,2wikimultihopqa,closed_book@0,single step,0.154,0.5498547312009614
+llama3.1-8b,2wikimultihopqa,cotfixed1@4,F_T,0.3,0.4103680948014371
+llama3.1-8b,2wikimultihopqa,cotfixed2@4,F_T,0.412,5.795583458544532
+llama3.1-8b,2wikimultihopqa,cotfixed3@4,F_T,0.492,11.164918360691354
+llama3.1-8b,2wikimultihopqa,cotfixed4@4,F_T,0.49,16.50767489523646
+llama3.1-8b,2wikimultihopqa,qwen3_reranker_0_6b@1,single step,0.164,1.8120075039995718
+llama3.1-8b,2wikimultihopqa,qwen3_reranker_0_6b@10,single step,0.406,2.204957971200638
+llama3.1-8b,2wikimultihopqa,qwen3_reranker_0_6b@20,single step,0.372,2.6674130618000054
+llama3.1-8b,2wikimultihopqa,qwen3_reranker_0_6b@3,single step,0.364,1.8492896667989553
+llama3.1-8b,2wikimultihopqa,qwen3_reranker_0_6b@5,single step,0.382,1.9469886623987114
+llama3.1-8b,2wikimultihopqa,splade_v3@1,single step,0.16,0.4862015746008255
+llama3.1-8b,2wikimultihopqa,splade_v3@10,single step,0.368,0.8902770865997882
+llama3.1-8b,2wikimultihopqa,splade_v3@20,single step,0.362,1.40087116000097
+llama3.1-8b,2wikimultihopqa,splade_v3@3,single step,0.29,0.5639487318011815
+llama3.1-8b,2wikimultihopqa,splade_v3@5,single step,0.338,0.6583699500008369
+llama3.1-8b,2wikimultihopqa,stella_1_5b@1,single step,0.152,0.40449017660121894
+llama3.1-8b,2wikimultihopqa,stella_1_5b@10,single step,0.328,0.7619819260007934
+llama3.1-8b,2wikimultihopqa,stella_1_5b@20,single step,0.33,1.1535079186008077
+llama3.1-8b,2wikimultihopqa,stella_1_5b@3,single step,0.31,0.4646286471998319
+llama3.1-8b,2wikimultihopqa,stella_1_5b@5,single step,0.326,0.5362274099987698
+llama3.1-8b,2wikimultihopqa,ircot,IRCoT,0.494,24.055856471801324
+llama3.1-8b,musique,bge_bm25_rrf@1,single step,0.108,0.45093385739944636
+llama3.1-8b,musique,bge_bm25_rrf@10,single step,0.168,0.7848236620007665
+llama3.1-8b,musique,bge_bm25_rrf@20,single step,0.18,1.2393483583999914
+llama3.1-8b,musique,bge_bm25_rrf@3,single step,0.136,0.522691837198974
+llama3.1-8b,musique,bge_bm25_rrf@5,single step,0.16,0.599580272200692
+llama3.1-8b,musique,bge_m3@1,single step,0.134,0.45368390119948887
+llama3.1-8b,musique,bge_m3@10,single step,0.178,0.8663128135999432
+llama3.1-8b,musique,bge_m3@20,single step,0.188,1.3499771669979672
+llama3.1-8b,musique,bge_m3@3,single step,0.162,0.5455710217994637
+llama3.1-8b,musique,bge_m3@5,single step,0.174,0.65797275620047
+llama3.1-8b,musique,bm25@1,single step,0.072,0.4289188024006434
+llama3.1-8b,musique,bm25@10,single step,0.148,0.7525260852001957
+llama3.1-8b,musique,bm25@20,single step,0.142,1.0871623847996235
+llama3.1-8b,musique,bm25@3,single step,0.106,0.473992460800393
+llama3.1-8b,musique,bm25@5,single step,0.142,0.5688767750005355
+llama3.1-8b,musique,closed_book@0,single step,0.062,0.5568359404001385
+llama3.1-8b,musique,cotfixed1@4,F_T,0.122,0.49947670120111426
+llama3.1-8b,musique,cotfixed2@4,F_T,0.178,5.7038841314063395
+llama3.1-8b,musique,cotfixed3@4,F_T,0.226,10.846114292013853
+llama3.1-8b,musique,cotfixed4@4,F_T,0.234,15.989425090219587
+llama3.1-8b,musique,qwen3_reranker_0_6b@1,single step,0.14,1.7293969498005461
+llama3.1-8b,musique,qwen3_reranker_0_6b@10,single step,0.222,2.051081113001332
+llama3.1-8b,musique,qwen3_reranker_0_6b@20,single step,0.206,2.503480187000008
+llama3.1-8b,musique,qwen3_reranker_0_6b@3,single step,0.214,1.777415041999775
+llama3.1-8b,musique,qwen3_reranker_0_6b@5,single step,0.228,1.8698630770011804
+llama3.1-8b,musique,splade_v3@1,single step,0.108,0.47385872999712586
+llama3.1-8b,musique,splade_v3@10,single step,0.186,0.8197839071992202
+llama3.1-8b,musique,splade_v3@20,single step,0.184,1.275370970400341
+llama3.1-8b,musique,splade_v3@3,single step,0.168,0.5454273729996639
+llama3.1-8b,musique,splade_v3@5,single step,0.162,0.6547552321997354
+llama3.1-8b,musique,stella_1_5b@1,single step,0.156,0.4609955111999297
+llama3.1-8b,musique,stella_1_5b@10,single step,0.21,0.8232103099980158
+llama3.1-8b,musique,stella_1_5b@20,single step,0.188,1.2128595702016027
+llama3.1-8b,musique,stella_1_5b@3,single step,0.192,0.5615942331998376
+llama3.1-8b,musique,stella_1_5b@5,single step,0.204,0.6492573169997194
+llama3.1-8b,musique,ircot,IRCoT,0.242,19.666978584202965
+llama3.1-8b,nq,bge_bm25_rrf@1,single step,0.452,0.375774773799465
+llama3.1-8b,nq,bge_bm25_rrf@10,single step,0.656,0.744288113801158
+llama3.1-8b,nq,bge_bm25_rrf@20,single step,0.672,1.1093190697985702
+llama3.1-8b,nq,bge_bm25_rrf@3,single step,0.558,0.47234655340015885
+llama3.1-8b,nq,bge_bm25_rrf@5,single step,0.602,0.5529886494005332
+llama3.1-8b,nq,bge_m3@1,single step,0.588,0.3708268843995756
+llama3.1-8b,nq,bge_m3@10,single step,0.68,0.7682372270004707
+llama3.1-8b,nq,bge_m3@20,single step,0.678,1.188290266800497
+llama3.1-8b,nq,bge_m3@3,single step,0.654,0.47385643660073395
+llama3.1-8b,nq,bge_m3@5,single step,0.652,0.5673369138010893
+llama3.1-8b,nq,bm25@1,single step,0.346,0.31923610660078694
+llama3.1-8b,nq,bm25@10,single step,0.534,0.6344570044015417
+llama3.1-8b,nq,bm25@20,single step,0.582,0.9377415282009751
+llama3.1-8b,nq,bm25@3,single step,0.414,0.3982881283999304
+llama3.1-8b,nq,bm25@5,single step,0.46,0.4546407180023961
+llama3.1-8b,nq,closed_book@0,single step,0.418,0.34931272180029194
+llama3.1-8b,nq,cotfixed1@4,F_T,0.444,0.419601591802726
+llama3.1-8b,nq,cotfixed2@4,F_T,0.5,5.7878226473828285
+llama3.1-8b,nq,cotfixed3@4,F_T,0.542,11.128741972365015
+llama3.1-8b,nq,cotfixed4@4,F_T,0.544,16.245988288046775
+llama3.1-8b,nq,qwen3_reranker_0_6b@1,single step,0.58,1.9545382514001104
+llama3.1-8b,nq,qwen3_reranker_0_6b@10,single step,0.684,2.33416662399855
+llama3.1-8b,nq,qwen3_reranker_0_6b@20,single step,0.648,2.758737843799754
+llama3.1-8b,nq,qwen3_reranker_0_6b@3,single step,0.638,2.0481202855973972
+llama3.1-8b,nq,qwen3_reranker_0_6b@5,single step,0.678,2.129203506999067
+llama3.1-8b,nq,splade_v3@1,single step,0.582,1.272569289999141
+llama3.1-8b,nq,splade_v3@10,single step,0.682,1.666972154801886
+llama3.1-8b,nq,splade_v3@20,single step,0.678,2.089598833600001
+llama3.1-8b,nq,splade_v3@3,single step,0.64,1.3813866434003577
+llama3.1-8b,nq,splade_v3@5,single step,0.658,1.4717734178002575
+llama3.1-8b,nq,stella_1_5b@1,single step,0.616,0.39111393019941165
+llama3.1-8b,nq,stella_1_5b@10,single step,0.696,0.7529632940011797
+llama3.1-8b,nq,stella_1_5b@20,single step,0.676,1.131631158599048
+llama3.1-8b,nq,stella_1_5b@3,single step,0.694,0.4767685022000223
+llama3.1-8b,nq,stella_1_5b@5,single step,0.698,0.566990948200575
+llama3.1-8b,nq,ircot,IRCoT,0.538,17.51293314740079
+qwen3-14b,hotpotqa,bge_bm25_rrf@1,single step,0.442,1.4687891871980392
+qwen3-14b,hotpotqa,bge_bm25_rrf@10,single step,0.568,1.8952383243992226
+qwen3-14b,hotpotqa,bge_bm25_rrf@3,single step,0.492,1.6857966022019972
+qwen3-14b,hotpotqa,bge_bm25_rrf@5,single step,0.538,1.8496105714008444
+qwen3-14b,hotpotqa,bge_m3@1,single step,0.434,1.5340489505990407
+qwen3-14b,hotpotqa,bge_m3@10,single step,0.532,1.824018814998446
+qwen3-14b,hotpotqa,bge_m3@3,single step,0.514,1.5931583460003602
+qwen3-14b,hotpotqa,bge_m3@5,single step,0.514,1.6808433946007861
+qwen3-14b,hotpotqa,bm25@1,single step,0.404,1.407439083200239
+qwen3-14b,hotpotqa,bm25@10,single step,0.498,1.7593334622004184
+qwen3-14b,hotpotqa,bm25@3,single step,0.474,1.5835974932015524
+qwen3-14b,hotpotqa,bm25@5,single step,0.476,1.5851548105994588
+qwen3-14b,hotpotqa,closed_book@0,single step,0.266,1.3603278160021872
+qwen3-14b,hotpotqa,cotfixed1@4,F_T,0.464,1.541006232599553
+qwen3-14b,hotpotqa,cotfixed2@4,F_T,0.534,18.79818206591731
+qwen3-14b,hotpotqa,cotfixed3@4,F_T,0.592,35.95221239833601
+qwen3-14b,hotpotqa,cotfixed4@4,F_T,0.6,53.257453318805965
+qwen3-14b,hotpotqa,qwen3_reranker_0_6b@1,single step,0.478,2.433194519800949
+qwen3-14b,hotpotqa,qwen3_reranker_0_6b@10,single step,0.588,2.961642014399171
+qwen3-14b,hotpotqa,qwen3_reranker_0_6b@3,single step,0.596,2.6228834994006904
+qwen3-14b,hotpotqa,qwen3_reranker_0_6b@5,single step,0.592,2.7936451208002397
+qwen3-14b,hotpotqa,splade_v3@1,single step,0.446,2.6497806700001822
+qwen3-14b,hotpotqa,splade_v3@10,single step,0.52,3.2046105344016684
+qwen3-14b,hotpotqa,splade_v3@3,single step,0.512,2.83605397280067
+qwen3-14b,hotpotqa,splade_v3@5,single step,0.51,2.940774841401086
+qwen3-14b,hotpotqa,stella_1_5b@1,single step,0.478,1.4660220365995773
+qwen3-14b,hotpotqa,stella_1_5b@10,single step,0.554,1.85690527339885
+qwen3-14b,hotpotqa,stella_1_5b@3,single step,0.534,1.668034906400484
+qwen3-14b,hotpotqa,stella_1_5b@5,single step,0.534,1.7864034276001621
+qwen3-14b,hotpotqa,ircot,IRCoT,0.604,68.26377858020103
+qwen3-14b,2wikimultihopqa,bge_bm25_rrf@1,single step,0.296,1.3454912897999747
+qwen3-14b,2wikimultihopqa,bge_bm25_rrf@10,single step,0.422,2.1505890858001657
+qwen3-14b,2wikimultihopqa,bge_bm25_rrf@3,single step,0.42,1.5516111404019757
+qwen3-14b,2wikimultihopqa,bge_bm25_rrf@5,single step,0.41,1.736192175600154
+qwen3-14b,2wikimultihopqa,bge_m3@1,single step,0.262,1.3366778721992743
+qwen3-14b,2wikimultihopqa,bge_m3@10,single step,0.396,2.5855423277996596
+qwen3-14b,2wikimultihopqa,bge_m3@3,single step,0.396,1.5573366614007973
+qwen3-14b,2wikimultihopqa,bge_m3@5,single step,0.396,1.953298592400679
+qwen3-14b,2wikimultihopqa,bm25@1,single step,0.31,1.2883329555995295
+qwen3-14b,2wikimultihopqa,bm25@10,single step,0.394,1.8113615008016348
+qwen3-14b,2wikimultihopqa,bm25@3,single step,0.37,1.422852191202226
+qwen3-14b,2wikimultihopqa,bm25@5,single step,0.38,1.583498268000665
+qwen3-14b,2wikimultihopqa,closed_book@0,single step,0.306,1.190536285799113
+qwen3-14b,2wikimultihopqa,cotfixed1@4,F_T,0.376,1.488645281400648
+qwen3-14b,2wikimultihopqa,cotfixed2@4,F_T,0.546,19.259236170058347
+qwen3-14b,2wikimultihopqa,cotfixed3@4,F_T,0.58,37.06088669831955
+qwen3-14b,2wikimultihopqa,cotfixed4@4,F_T,0.566,54.797452523577796
+qwen3-14b,2wikimultihopqa,qwen3_reranker_0_6b@1,single step,0.286,2.7894151347993756
+qwen3-14b,2wikimultihopqa,qwen3_reranker_0_6b@10,single step,0.434,3.6997332607997233
+qwen3-14b,2wikimultihopqa,qwen3_reranker_0_6b@3,single step,0.412,2.850150579797628
+qwen3-14b,2wikimultihopqa,qwen3_reranker_0_6b@5,single step,0.424,3.1940785776019913
+qwen3-14b,2wikimultihopqa,splade_v3@1,single step,0.288,1.4837796915991348
+qwen3-14b,2wikimultihopqa,splade_v3@10,single step,0.398,2.4159113126005396
+qwen3-14b,2wikimultihopqa,splade_v3@3,single step,0.374,1.7512789023988298
+qwen3-14b,2wikimultihopqa,splade_v3@5,single step,0.37,1.9109501388008356
+qwen3-14b,2wikimultihopqa,stella_1_5b@1,single step,0.282,1.3738342172000555
+qwen3-14b,2wikimultihopqa,stella_1_5b@10,single step,0.396,2.2249511954006738
+qwen3-14b,2wikimultihopqa,stella_1_5b@3,single step,0.378,1.586219678201014
+qwen3-14b,2wikimultihopqa,stella_1_5b@5,single step,0.38,2.001267079399666
+qwen3-14b,2wikimultihopqa,ircot,IRCoT,0.568,79.75852398000137
+qwen3-14b,musique,bge_bm25_rrf@1,single step,0.138,1.690044473798538
+qwen3-14b,musique,bge_bm25_rrf@10,single step,0.228,2.393405329998757
+qwen3-14b,musique,bge_bm25_rrf@3,single step,0.206,2.1654238192004267
+qwen3-14b,musique,bge_bm25_rrf@5,single step,0.224,1.966888508800941
+qwen3-14b,musique,bge_m3@1,single step,0.168,1.675998386799474
+qwen3-14b,musique,bge_m3@10,single step,0.236,2.4177021505981684
+qwen3-14b,musique,bge_m3@3,single step,0.224,1.898878087199293
+qwen3-14b,musique,bge_m3@5,single step,0.244,2.0558542236004724
+qwen3-14b,musique,bm25@1,single step,0.116,1.4384889291996952
+qwen3-14b,musique,bm25@10,single step,0.17,2.178719887401268
+qwen3-14b,musique,bm25@3,single step,0.15,1.7147040573997074
+qwen3-14b,musique,bm25@5,single step,0.18,1.9522738746015238
+qwen3-14b,musique,closed_book@0,single step,0.076,1.5329962968019535
+qwen3-14b,musique,cotfixed1@4,F_T,0.166,1.8794965564007289
+qwen3-14b,musique,cotfixed2@4,F_T,0.22,19.103960739694028
+qwen3-14b,musique,cotfixed3@4,F_T,0.292,36.261357267790444
+qwen3-14b,musique,cotfixed4@4,F_T,0.326,53.73954328248357
+qwen3-14b,musique,qwen3_reranker_0_6b@1,single step,0.19,2.935117133199703
+qwen3-14b,musique,qwen3_reranker_0_6b@10,single step,0.286,3.7141284711998885
+qwen3-14b,musique,qwen3_reranker_0_6b@3,single step,0.27,3.430780720599345
+qwen3-14b,musique,qwen3_reranker_0_6b@5,single step,0.286,3.586013761600596
+qwen3-14b,musique,splade_v3@1,single step,0.15,1.6676603986009142
+qwen3-14b,musique,splade_v3@10,single step,0.238,2.4555607692014307
+qwen3-14b,musique,splade_v3@3,single step,0.21,1.820218115798256
+qwen3-14b,musique,splade_v3@5,single step,0.23,1.9700848723995148
+qwen3-14b,musique,stella_1_5b@1,single step,0.22,1.6179372610014398
+qwen3-14b,musique,stella_1_5b@10,single step,0.282,2.5183722047993213
+qwen3-14b,musique,stella_1_5b@3,single step,0.254,2.0943558002003697
+qwen3-14b,musique,stella_1_5b@5,single step,0.282,2.2095968658009078
+qwen3-14b,musique,ircot,IRCoT,0.336,75.8768714706027
+qwen3-14b,nq,bge_bm25_rrf@1,single step,0.51,1.904244484199444
+qwen3-14b,nq,bge_bm25_rrf@10,single step,0.702,2.234782816199702
+qwen3-14b,nq,bge_bm25_rrf@3,single step,0.616,2.078788662200095
+qwen3-14b,nq,bge_bm25_rrf@5,single step,0.672,2.0148963487978326
+qwen3-14b,nq,bge_m3@1,single step,0.604,1.8760405559992068
+qwen3-14b,nq,bge_m3@10,single step,0.738,2.265963342002884
+qwen3-14b,nq,bge_m3@3,single step,0.712,1.8583812663986463
+qwen3-14b,nq,bge_m3@5,single step,0.728,1.9856828413986949
+qwen3-14b,nq,bm25@1,single step,0.396,1.8280666160002
+qwen3-14b,nq,bm25@10,single step,0.58,2.194271065800276
+qwen3-14b,nq,bm25@3,single step,0.486,1.8382622862017597
+qwen3-14b,nq,bm25@5,single step,0.526,2.003394531401864
+qwen3-14b,nq,closed_book@0,single step,0.334,1.5685501219994622
+qwen3-14b,nq,cotfixed1@4,F_T,0.498,2.008628868601227
+qwen3-14b,nq,cotfixed2@4,F_T,0.598,19.727020167121058
+qwen3-14b,nq,cotfixed3@4,F_T,0.618,37.47267146464008
+qwen3-14b,nq,cotfixed4@4,F_T,0.614,55.38447982045824
+qwen3-14b,nq,qwen3_reranker_0_6b@1,single step,0.61,3.44181579660275
+qwen3-14b,nq,qwen3_reranker_0_6b@10,single step,0.728,3.8248444376004627
+qwen3-14b,nq,qwen3_reranker_0_6b@3,single step,0.712,3.5125720157991163
+qwen3-14b,nq,qwen3_reranker_0_6b@5,single step,0.726,3.5355449034012856
+qwen3-14b,nq,splade_v3@1,single step,0.62,2.6975292712023364
+qwen3-14b,nq,splade_v3@10,single step,0.722,3.195238120600523
+qwen3-14b,nq,splade_v3@3,single step,0.692,2.8527123766004223
+qwen3-14b,nq,splade_v3@5,single step,0.7,2.9324490843995594
+qwen3-14b,nq,stella_1_5b@1,single step,0.658,1.8142951018003513
+qwen3-14b,nq,stella_1_5b@10,single step,0.776,2.3612287946012804
+qwen3-14b,nq,stella_1_5b@3,single step,0.746,1.9833797988003352
+qwen3-14b,nq,stella_1_5b@5,single step,0.77,2.0823368858011673
+qwen3-14b,nq,ircot,IRCoT,0.612,73.3733931654009

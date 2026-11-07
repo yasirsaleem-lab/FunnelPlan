@@ -1,4 +1,4 @@
-Judge scores: 10209 answers; low yes/no mass (<0.5) on 0
+Judge scores: 10452 answers; low yes/no mass (<0.5) on 0
 rater 1: human (audit_rater1.xlsx). rater 2: human (audit_rater2.xlsx)
 rater 1: 200 of 200 labelled
 rater 2: 200 of 200 labelled
@@ -116,18 +116,51 @@ dataset
 2wikimultihopqa         0.498        0.506          0.546        0.494
 hotpotqa                0.480        0.520          0.584        0.554
 musique                 0.214        0.234          0.314        0.242
+== r4_llama3.1-8b_nq: label_final written (0 ambiguous rows without a judge score -> strict)
+         label_strict  label_f1_07  label_lenient  label_final
+dataset                                                       
+nq              0.488        0.514          0.588        0.538
 == r4_qwen2.5-7b: label_final written (0 ambiguous rows without a judge score -> strict)
                  label_strict  label_f1_07  label_lenient  label_final
 dataset                                                               
 2wikimultihopqa         0.518        0.524          0.578        0.532
 hotpotqa                0.442        0.494          0.552        0.522
 musique                 0.220        0.236          0.338        0.270
+== r4_qwen2.5-7b_nq: label_final written (0 ambiguous rows without a judge score -> strict)
+         label_strict  label_f1_07  label_lenient  label_final
+dataset                                                       
+nq              0.502        0.532           0.61         0.56
 == r4_qwen3-14b: label_final written (0 ambiguous rows without a judge score -> strict)
                  label_strict  label_f1_07  label_lenient  label_final
 dataset                                                               
 2wikimultihopqa         0.562        0.566          0.612        0.568
 hotpotqa                0.528        0.564          0.618        0.604
 musique                 0.284        0.296          0.402        0.336
+== r4_qwen3-14b_nq: label_final written (0 ambiguous rows without a judge score -> strict)
+         label_strict  label_f1_07  label_lenient  label_final
+dataset                                                       
+nq              0.542        0.568          0.634        0.612
+== r5_llama3.1-8b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.437        0.447          0.488        0.424
+hotpotqa                0.440        0.475          0.534        0.506
+musique                 0.167        0.178          0.250        0.190
+nq                      0.462        0.488          0.554        0.507
+== r5_qwen2.5-7b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.467        0.474          0.531        0.480
+hotpotqa                0.416        0.458          0.526        0.492
+musique                 0.180        0.192          0.297        0.224
+nq                      0.474        0.501          0.577        0.538
+== r5_qwen3-14b: label_final written (0 ambiguous rows without a judge score -> strict)
+                 label_strict  label_f1_07  label_lenient  label_final
+dataset                                                               
+2wikimultihopqa         0.510        0.518          0.560        0.517
+hotpotqa                0.478        0.511          0.574        0.548
+musique                 0.212        0.226          0.326        0.251
+nq                      0.509        0.536          0.610        0.582
 == control_qwen3-14b-gguf: label_final written (0 ambiguous rows without a judge score -> strict)
           label_strict  label_f1_07  label_lenient  label_final
 dataset                                                        

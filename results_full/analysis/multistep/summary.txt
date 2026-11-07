@@ -1,0 +1,67 @@
+  single step + F_T            qwen2.5-7b   hotpotqa         gain +0.020 [-0.025, +0.065]  refit sd 0.027  (2s)
+  single step + F_T            qwen2.5-7b   2wikimultihopqa  gain +0.000 [-0.041, +0.045]  refit sd 0.013  (3s)
+  single step + F_T            qwen2.5-7b   musique          gain +0.034 [-0.003, +0.072]  refit sd 0.024  (4s)
+  single step + F_T            qwen2.5-7b   nq               gain -0.170 [-0.214, -0.128]  refit sd 0.031  (6s)
+  single step + F_T            llama3.1-8b  hotpotqa         gain -0.034 [-0.077, +0.010]  refit sd 0.029  (7s)
+  single step + F_T            llama3.1-8b  2wikimultihopqa  gain +0.007 [-0.037, +0.051]  refit sd 0.014  (9s)
+  single step + F_T            llama3.1-8b  musique          gain +0.030 [-0.007, +0.068]  refit sd 0.021  (10s)
+  single step + F_T            llama3.1-8b  nq               gain -0.144 [-0.188, -0.102]  refit sd 0.030  (12s)
+  single step + F_T            qwen3-14b    hotpotqa         gain +0.028 [-0.013, +0.072]  refit sd 0.020  (13s)
+  single step + F_T            qwen3-14b    2wikimultihopqa  gain -0.012 [-0.057, +0.030]  refit sd 0.017  (14s)
+  single step + F_T            qwen3-14b    musique          gain +0.010 [-0.032, +0.052]  refit sd 0.018  (16s)
+  single step + F_T            qwen3-14b    nq               gain -0.153 [-0.197, -0.111]  refit sd 0.026  (17s)
+  single step + two hop + F_T  qwen2.5-7b   hotpotqa         gain +0.020 [-0.025, +0.065]  refit sd 0.027  (19s)
+  single step + two hop + F_T  qwen2.5-7b   2wikimultihopqa  gain +0.000 [-0.041, +0.045]  refit sd 0.013  (20s)
+  single step + two hop + F_T  qwen2.5-7b   musique          gain +0.034 [-0.003, +0.072]  refit sd 0.025  (21s)
+  single step + two hop + F_T  qwen2.5-7b   nq               gain -0.170 [-0.214, -0.128]  refit sd 0.031  (23s)
+  single step + two hop + F_T  llama3.1-8b  hotpotqa         gain -0.034 [-0.077, +0.010]  refit sd 0.029  (25s)
+  single step + two hop + F_T  llama3.1-8b  2wikimultihopqa  gain +0.007 [-0.037, +0.051]  refit sd 0.018  (26s)
+  single step + two hop + F_T  llama3.1-8b  musique          gain +0.030 [-0.007, +0.068]  refit sd 0.021  (27s)
+  single step + two hop + F_T  llama3.1-8b  nq               gain -0.144 [-0.188, -0.102]  refit sd 0.030  (29s)
+  single step + two hop + F_T  qwen3-14b    hotpotqa         gain +0.028 [-0.013, +0.072]  refit sd 0.021  (30s)
+  single step + two hop + F_T  qwen3-14b    2wikimultihopqa  gain -0.012 [-0.057, +0.030]  refit sd 0.018  (32s)
+  single step + two hop + F_T  qwen3-14b    musique          gain +0.010 [-0.032, +0.052]  refit sd 0.018  (33s)
+  single step + two hop + F_T  qwen3-14b    nq               gain -0.153 [-0.197, -0.111]  refit sd 0.026  (34s)
+
+IRCoT minus F_4 on the same questions (value of adaptive stopping):
+     reader         dataset  ircot_minus_f4_success    low  high  ircot_minus_f4_latency_s  f4_success  ircot_success
+ qwen2.5-7b        hotpotqa                  -0.002 -0.006 0.000                     7.955       0.524          0.522
+ qwen2.5-7b 2wikimultihopqa                  -0.002 -0.008 0.004                    11.098       0.534          0.532
+ qwen2.5-7b         musique                   0.002 -0.004 0.008                    12.573       0.268          0.270
+ qwen2.5-7b              nq                  -0.004 -0.012 0.004                    10.480       0.564          0.560
+llama3.1-8b        hotpotqa                  -0.002 -0.014 0.010                     2.819       0.556          0.554
+llama3.1-8b 2wikimultihopqa                   0.004 -0.010 0.018                     7.548       0.490          0.494
+llama3.1-8b         musique                   0.008 -0.010 0.026                     3.678       0.234          0.242
+llama3.1-8b              nq                  -0.006 -0.024 0.012                     1.267       0.544          0.538
+  qwen3-14b        hotpotqa                   0.004 -0.006 0.014                    15.006       0.600          0.604
+  qwen3-14b 2wikimultihopqa                   0.002 -0.008 0.012                    24.961       0.566          0.568
+  qwen3-14b         musique                   0.010  0.000 0.022                    22.137       0.326          0.336
+  qwen3-14b              nq                  -0.002 -0.014 0.010                    17.989       0.614          0.612
+
+F_T against IRCoT, success and latency (mean over readers):
+                             success  latency_s
+dataset         plan                           
+2wikimultihopqa cotfixed1@4    0.349      0.744
+                cotfixed2@4    0.485      9.937
+                cotfixed3@4    0.531     19.140
+                cotfixed4@4    0.530     28.294
+                ircot          0.531     42.830
+hotpotqa        cotfixed1@4    0.433      0.756
+                cotfixed2@4    0.512      9.695
+                cotfixed3@4    0.555     18.592
+                cotfixed4@4    0.560     27.442
+                ircot          0.560     36.035
+musique         cotfixed1@4    0.150      0.906
+                cotfixed2@4    0.206      9.853
+                cotfixed3@4    0.255     18.749
+                cotfixed4@4    0.276     27.740
+                ircot          0.283     40.536
+nq              cotfixed1@4    0.470      0.926
+                cotfixed2@4    0.550     10.156
+                cotfixed3@4    0.575     19.378
+                cotfixed4@4    0.574     28.541
+                ircot          0.570     38.453
+
+single step + F_T: IRCoT wins 0 of 12: 
+
+single step + two hop + F_T: IRCoT wins 0 of 12: 
