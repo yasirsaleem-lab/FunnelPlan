@@ -1,86 +1,51 @@
-# FunnelPlan: reproducibility package
+# FunnelPlan: reproducibility guide
 
-This package reproduces every number, table and figure of the FunnelPlan study of adaptive retrieval policies
-against the fixed plan hull. It has three levels. Level 1 needs nothing but a text
-editor. Level 2 needs a CPU and a few hours. Level 3 regenerates the answers and needs a GPU for several days.
+There are three levels. Level 1 needs no software. Level 2 needs a CPU. Level 3 needs a GPU for several days.
 
-## 1. Check the results without running anything
+## Level 1: read the results
 
 | What | Where |
 |---|---|
-| The decision of every test family, computed from the result files | `results_full/tables_final/verdicts.txt` |
-| Every table in readable form | `results_full/tables_final/tables.md` |
-| LaTeX tables used in the paper | `results_full/tables_final/tab_*.tex` |
-| Figures | `results_full/figures_final/f2` to `f11`, `fig_framework`, `fig_policies` (`.pdf` vector, `.png` at 600 dpi) |
-| Per query gains of every test | `results_full/analysis/*/per_query_gains.csv` |
-| Human raters and how the audits were run | `docs/RATERS.md` |
+| Verdict of every test family | `results_full/tables_final/verdicts.txt` |
+| Every table | `results_full/tables_final/tables.md` and `tab_*.tex` |
+| Figures | `results_full/figures_final/` |
+| Per question gains and test outputs | `results_full/analysis/` |
+| Human audits and how they were run | `data/processed_full/grading/`, `docs/RATERS.md` |
 
-## 2. Rerun every analysis on a CPU (level 2)
+## Level 2: rerun the analyses (CPU)
 
-All answers, labels and costs are in the package, so no model is needed.
-
-```
-pip install -e .                      # Python 3.10 or later; a CPU build of torch is enough for this level
-python scripts/run_all_analysis.py    # 19 steps; see --list. Resume after an error with --from <step>
+```bash
+pip install -e .
+python scripts/run_all_analysis.py
 ```
 
-The run rewrites `results_full/analysis/`, `results_full/tables/`, `results_full/tables_final/` and
-`results_full/figures_final/`. Compare the new `verdicts.txt` with the paper. The analyses are deterministic
-(fixed fold seeds 0 to 4, fixed XGBoost and bootstrap seeds), so the numbers should match on the library versions
-in `docs/environment.txt`; other versions can move the third decimal. The full run takes about 7 hours on the author's machine (Ryzen 7 5700X, 8 cores): 3.7 hours for steps 11 to 21 and 3.4 hours for the review checks (step 24).
+This rebuilds the core analyses, the tables and the figures from the stored answers. The later analyses are scripts
+26 to 40; run their CPU stages one by one as each script's header says. Seeds are fixed, so results match on the
+versions in `docs/environment.txt`.
 
-Inputs used at this level:
+Main inputs: the graded answers (`data/processed_full/tsr_labels_<reader>_graded.csv`), the two hop plans
+(`r3_2hop/`), IRCoT (`r4_ircot/`), the fixed step chains (`r5_cotfixed/`), the cached retrievals
+(`data/cache_full/retrievals_v3/`) and the judge scores and audits (`grading/`).
 
-| Input | Path |
+## Level 3: regenerate the answers (GPU)
+
+| Step | Script |
 |---|---|
-| Graded answers of every (query, plan, reader) | `data/processed_full/tsr_labels_<reader>_graded.csv` |
-| Fixed two hop plans (R3) | `data/processed_full/r3_2hop/labels_<reader>_graded.csv` |
-| IRCoT runs (R4) | `data/processed_full/r4_ircot/labels_<reader>_graded.csv` |
-| Query text and ranked lists with scores | `data/cache_full/retrievals_v3/*.pkl` (in the repository; pandas and Python objects written by `02_generate_tsr_labels.py`) |
-| Router embeddings and FLAN T5 predictions | `data/processed_full/routers/emb_*.npz`, `t5_cache_*.json` |
-| METIS style profiles (Qwen3 32B) | `data/processed_full/metis/profiles.jsonl` |
-| LLM judge scores | `data/processed_full/grading/judge_scores.csv` |
-| Human audits | `data/processed_full/grading/` (`received/` holds the rater files as received; only the raters' names were removed from the file metadata) |
-| Measured latency per answer | columns `agent_time_s`, `retrieval_time_s` of the graded files |
+| Corpora | `00_prepare_full_corpora.py` |
+| Retrieval and transformers readers | `02_generate_tsr_labels.py` |
+| llama.cpp readers | `03_reader_probe.py`, `04_llamacpp_labels.py` |
+| Two hop plans, IRCoT, fixed step chains | `05_two_hop_plans.py`, `06_ircot.py`, `34_fixed_step_controllers.py` |
+| Grading | `07_grading_full.py` |
+| Adaptive RAG as published (T5 fine tunes) | `36_adaptive_rag_published.py` |
 
-## 3. Regenerate the answers (level 3, GPU)
+Latency depends on the hardware, so a new machine gives different absolute costs.
 
-This repeats the measurement itself. It needs the corpora, the indexes and the model weights, none of which are in
-the package because of size (about 45 GB of indexes and embeddings, plus the models).
+## Not included
 
-| Step | Command | Notes |
-|---|---|---|
-| Corpora | `python scripts/00_prepare_full_corpora.py` | NQ and HotpotQA from BEIR; 2Wiki and MuSiQue built from train and dev paragraphs, as in IRCoT |
-| Retrieval caches | `python scripts/02_generate_tsr_labels.py` (writes `retrievals_v3/*.pkl` before answering) | BM25 (bm25s), SPLADE v3, BGE M3, Stella 1.5B v5, BGE M3 plus BM25 with RRF, Qwen3 Reranker 0.6B over the RRF list |
-| Answers, transformers readers | `python scripts/02_generate_tsr_labels.py` | Qwen2.5 7B Instruct, Llama 3.1 8B Instruct (bf16), Qwen3 14B (int8, LLM.int8()); greedy decoding |
-| Answers, llama.cpp readers | `python scripts/04_llamacpp_labels.py run <reader>` | Gemma 3 27B and Qwen3 32B, GGUF IQ4_XS (bartowski), llama.cpp build b11491; see `03_reader_probe.py help` |
-| Two hop plans (R3) | `python scripts/05_two_hop_plans.py query/hop2/answer/merge <reader>` | |
-| IRCoT (R4) | `python scripts/06_ircot.py run <reader>`, then `merge` | |
-| Grading | `python scripts/07_grading_full.py regrade`, `judge`, `finalize` | strict rule plus a Qwen3 14B judge on ambiguous answers |
-| Latency profiles | `python scripts/01_profile_latency.py` | |
+Corpora (3 GB), indexes and embeddings (about 41 GB) and model weights (licences and size). The scripts above rebuild
+them; model ids are in `config.py`.
 
-Time on one RTX 3080 20 GB: several GPU days per large reader (gate G1 allowed up to 3 GPU days for the Qwen3 32B
-grid). Latency is hardware dependent, so a different machine gives different absolute costs; the paper therefore
-also reports the results under token, FLOP and call costs (`scripts/19_cost_axes.py`), which do not depend on the
-machine.
+## Integrity
 
-## 4. Hardware and software used
-
-One desktop: RTX 3080 with 20 GB (modified card), Ryzen 7 5700X, 64 GB RAM, Windows, Anaconda environment
-"FunnelPlan". `pyproject.toml` gives the version ranges; `docs/environment.txt` (output of `pip freeze`) gives the
-exact versions used. No API model was used.
-
-## 5. Integrity
-
-* Build the package with `python scripts/make_artifact.py` on a clean tree; the file name carries the git commit.
-* The human audit files in `data/processed_full/grading/received/` are the files as the raters sent them, except that
-  the raters' names were removed from the file metadata (no cell changed).
-
-## 6. What is not included, and why
-
-| Item | Reason | How to rebuild |
-|---|---|---|
-| Corpora (`corpus.jsonl`) | 3 GB; public datasets | `scripts/00_prepare_full_corpora.py` |
-| BM25, SPLADE and dense indexes, passage embeddings | about 41 GB | retrievers in `retrievers/`, run by `scripts/02_generate_tsr_labels.py` |
-| Model weights | licences and size | Hugging Face ids in `config.py` and `scripts/03_reader_probe.py` |
-| Per call progress logs (`labels_*_parts/*.jsonl`) | superseded by the merged label files | not needed |
+The rater files are kept as returned, with only the raters' names removed from the file metadata. Rater names are not
+in this repository.

@@ -2,181 +2,65 @@
 
 **Do adaptive retrieval policies beat fixed retrieval plans at the same cost?**
 
-FunnelPlan is an experimental benchmark for retrieval augmented generation (RAG). A *plan* is a choice of retriever
-and retrieval depth (how many passages the reader LLM receives), or no retrieval at all. We run every plan on every
-question for five open readers, grade every answer, and record its measured cost. On this complete plan matrix we test
-whether adaptive policies, which pick a plan per question, do better than the **fixed plan hull**: the best randomised
-mix of fixed plans at the policy's own mean cost, fitted on training folds only.
+FunnelPlan is a benchmark for retrieval augmented generation (RAG). A *plan* is a retriever and a depth (how many
+passages the reader gets), or no retrieval. We ran every plan on every question for five open readers, graded every
+answer and measured its cost. Each adaptive policy is then compared with the **fixed plan hull**: the best random mix
+of two fixed plans at the policy's own mean cost, chosen on training folds.
 
 All runs are local. No API model is used.
 
+## Main findings
+
+* Under the protocol common in prior work, five primary policies win 64 of 100 comparisons. Against the hull they win none.
+* Adaptive RAG as published beats Always RAG by 0.070 to 0.091 but loses to the hull by 0.023 to 0.061.
+* IRCoT beats the hull on 2Wiki, but fixed chains that run its reasoning for a set number of steps match it.
 
 ## Benchmark
 
-| Component | Setting |
+| Part | Setting |
 |---|---|
-| Datasets | Natural Questions, HotpotQA, 2WikiMultihopQA, MuSiQue; 500 questions each, seeded sample |
-| Corpora | BEIR corpora for NQ (2.68M passages) and HotpotQA (5.23M); pooled train and dev paragraphs for 2WikiMultihopQA (413k) and MuSiQue (102k); smaller than the IRCoT corpora (430k and 139k), so not directly comparable |
-| Retrievers | BM25, SPLADE v3, BGE M3, Stella 1.5B v5, BGE M3 plus BM25 fused by reciprocal rank fusion (k = 60), Qwen3 Reranker 0.6B over the fused top 100 |
-| Depths | 0 (closed book), 1, 3, 5, 10, 20 |
-| Fixed two hop plans | BM25, 3 or 5 passages per hop; the reader writes the second query |
-| Readers | Qwen2.5 7B Instruct and Llama 3.1 8B Instruct (bf16, 31 plans); Qwen3 14B (int8, 25 plans, depth up to 10); Gemma 3 27B and Qwen3 32B (GGUF IQ4_XS on llama.cpp, 25 plans). Greedy decoding |
-| Multi step reference | IRCoT with BM25, for the three smaller readers on the multi hop datasets |
-| Cost | mean measured latency per question (retrieval plus reader); also tokens, price weighted tokens, FLOPs and calls |
-| Grading | `label_final`: a strict string rule, plus a Qwen3 14B judge on ambiguous answers; checked against two human audits of 200 answers each, adjudicated by a third rater |
+| Datasets | NQ, HotpotQA, 2WikiMultihopQA, MuSiQue; 500 questions each |
+| Retrievers | BM25, SPLADE v3, BGE M3, Stella 1.5B, BGE M3 + BM25 (RRF), Qwen3 Reranker 0.6B |
+| Depths | 0 (closed book), 1, 3, 5, 10, 20; plus fixed two hop plans |
+| Readers | Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B, Gemma 3 27B, Qwen3 32B; greedy decoding |
+| Multi step | IRCoT, and fixed step chains F1 to F4 |
+| Cost | measured latency; also tokens, FLOPs and calls |
+| Grading | strict rule plus a local judge, checked by four human audits |
 
-**Policies tested.** Primary: TSR planner (predicts the success of every plan and trades it against cost), Adaptive
-RAG router (query complexity classifier), Adaptive k (largest gap in similarity scores), closed book confidence gate,
-confidence cascade, and two reader cascades (a small reader escalates to a larger one). Secondary: Adaptive k with the
-published rule, Adaptive RAG routers on BGE M3 embeddings and on FLAN T5, per plan logistic regression and kNN, and a
-port of the METIS profiler. Stronger policies: a gradient boosted classifier gate on closed book confidence signals,
-and the TSR planner with those signals added.
+## Reproduce
 
-**Protocol.** 5 folds x 5 seeds. Every policy and the hull choose their settings on four folds and are scored on the
-fifth, so each question is scored once per seed. Gains are averaged per question over seeds and tested with a one
-sample t test on 2,000 questions per test, with bootstrap 95% intervals and Holm correction within each family. A
-result counts only if it survives Holm with its interval above zero in both plan sets.
-
-## Reproduce the results
-
-All answers, grades and costs are included, so the analyses need only a CPU.
+All answers, grades and costs are in the repository, so the analyses need only a CPU.
 
 ```bash
 conda create -n FunnelPlan python=3.10 -y
 conda activate FunnelPlan
-pip install -e .                       # a CPU build of torch is enough for the analyses
-python scripts/run_all_analysis.py     # 19 steps, about 7 hours on an 8 core desktop CPU
+pip install -e .
+python scripts/run_all_analysis.py     # core analyses, tables and figures (about 7 hours)
 ```
 
-This rebuilds `results_full/analysis/`, `results_full/tables_final/` (tables and `verdicts.txt`) and
-`results_full/figures_final/`. A full rerun on the reference machine reproduced every verdict exactly.
-[ARTIFACT.md](ARTIFACT.md) lists every input file, what is not included, and how to regenerate the answers on a GPU.
+Scripts 26 to 40 add the later analyses (mixed workload, refit bootstrap, audits 3 and 4, Adaptive RAG as published,
+fixed step chains, tail latency, split halves). Their outputs are in `results_full/analysis/`; each script states how
+to run it at the top. The plan for these analyses is in `docs/ANALYSIS_PLAN_2026-11-05.md`.
+[ARTIFACT.md](ARTIFACT.md) explains the inputs and how to regenerate the answers on a GPU.
 
-## Regenerate the answers (GPU)
-
-| Step | Script |
-|---|---|
-| Build corpora | `scripts/00_prepare_full_corpora.py` |
-| Retrieve, then answer with transformers readers | `scripts/02_generate_tsr_labels.py` |
-| Answer with llama.cpp readers | `scripts/03_reader_probe.py` (setup), `scripts/04_llamacpp_labels.py` |
-| Fixed two hop plans | `scripts/05_two_hop_plans.py` |
-| IRCoT | `scripts/06_ircot.py` |
-| Grade (strict rule, judge, final label) | `scripts/07_grading_full.py` |
-| Human audit sheets and reports | `scripts/07_grading_full.py`, `scripts/08_audit_new_readers.py` |
-| Latency profiles | `scripts/01_profile_latency.py` |
-
-The analysis scripts are listed under [Repository layout](#repository-layout).
-
-## Repository layout
+## Layout
 
 ```
-FunnelPlan/
-├── README.md, ARTIFACT.md      overview; reproduction guide and file inventory
-├── config.py                   paths, models, corpus mode, offline mode
-├── logutil.py                  run logs for the long GPU scripts (results_full/logs/)
-├── pyproject.toml              package metadata and version ranges
-├── docs/
-│   ├── RATERS.md               human audit procedure and raters
-│   └── environment.txt         exact package versions (pip freeze)
-├── data/
-│   ├── data_loader.py, corpus_utils.py
-│   ├── ircot_prompts/          IRCoT demonstrations from the authors' release, with their licence
-│   ├── cache_full/retrievals_v3/   cached ranked lists per dataset and retriever (inputs to every plan)
-│   └── processed_full/
-│       ├── <dataset>/                         queries.jsonl, qrels.tsv, answers.json (corpus.jsonl is not tracked)
-│       ├── tsr_labels_<reader>[_graded].csv   every (question, plan) answer: grade, cost, confidence
-│       ├── labels_<reader>_parts/             per dataset and retriever parts of the answer files
-│       ├── control_labels_qwen3-14b-gguf*.csv quantization control (Qwen3 14B in GGUF)
-│       ├── r3_2hop/, r4_ircot/                fixed two hop plans and IRCoT runs
-│       ├── grading/                           judge scores, audit keys, rater files as received, adjudication
-│       ├── routers/, metis/                   router embeddings and caches, METIS profiles
-│       ├── ablation_prompt/                   prompt ablation answers (script 09)
-│       ├── retrieval_quality/                 retrieval hit rates and reader use of the context (script 10)
-│       ├── probe/                             probe items for the llama.cpp readers (script 03)
-│       └── latency_*.json, cost_model_params.json, cpu_fallback_hotpotqa.json   latency profiles and cost model inputs
-├── retrievers/                 BM25, SPLADE v3, BGE M3, Stella 1.5B, fusion, Qwen3 rerankers
-│                               (GTE Qwen2 7B and Qwen3 Reranker 4B are kept from the pilot, not used in the paper runs)
-├── tsr/                        readers and prompts, grading rules, question and score features
-├── cost_model/                 plan cost model and latency profiler
-├── figures_src/                diagram sources for Fig. 1 and Fig. 2 (palette.py is shared with the data figures)
-├── tests/                      unit tests (retrievers, reranker padding, cost model)
-├── scripts/                    every pipeline step (table below)
-└── results_full/
-    ├── analysis/               one folder per analysis, with per question gains
-    ├── tables_final/           tables.md, verdicts.txt, LaTeX tables (22_tables_final.py)
-    ├── figures_final/          figures, PDF and PNG at 600 dpi (23_figures.py, figures_src/)
-    ├── tables/                 power, held out oracles, label stability, retrieval quality (scripts 10, 14)
-    ├── analysis/review/        review checks (24_review_checks.py)
-    ├── latency_e2e/            live latency check (25_latency_e2e.py)
-    ├── probe/                  llama.cpp reader probes and the quantization control report (script 03)
-    └── run_all_log.txt         log of the last full analysis run
+config.py          paths and models
+data/              questions, cached retrievals, graded answers, audits (data/processed_full/)
+retrievers/, tsr/  retrievers, readers, prompts and grading rules
+cost_model/        plan cost model and latency profiler
+scripts/           every step, numbered in run order
+results_full/      analysis outputs, tables (tables_final/) and figures (figures_final/)
+docs/              analysis plan, rater procedure, exact package versions
 ```
 
-### Scripts
+## Answer files
 
-Scripts run from the repository root (`python scripts/<name>.py`). Each documents its usage at the top.
-
-| Script | Stage | What it does |
-|---|---|---|
-| `00_prepare_full_corpora.py` | data | builds the four corpora, queries, qrels and answers |
-| `01_profile_latency.py` | GPU | profiles retrieval latency per retriever and depth |
-| `02_generate_tsr_labels.py` | GPU | retrieves once per retriever, answers every plan with the transformers readers |
-| `03_reader_probe.py` | GPU | timing and quality probe for the llama.cpp readers (gate G1) |
-| `04_llamacpp_labels.py` | GPU | answers every plan with the llama.cpp readers (R1) and the quantization control (R2) |
-| `05_two_hop_plans.py` | GPU | fixed two hop plans (R3) |
-| `06_ircot.py` | GPU | IRCoT runs (R4) |
-| `07_grading_full.py` | grading | strict rule, local judge, final label, human audit sheets and reports |
-| `08_audit_new_readers.py` | grading | second human audit, for Gemma 3 27B and Qwen3 32B |
-| `09_prompt_ablation.py` | GPU | prompt ablation: the effect of the "use only the passages" instruction |
-| `10_retrieval_quality.py` | analysis | retrieval hit rates per retriever and depth, and how readers use the context |
-| `11_analysis_full.py` | analysis | H1 primary family: the fixed plan hull against every primary policy |
-| `12_routers.py` | analysis | secondary routers (published Adaptive k rule, Adaptive RAG on embeddings and FLAN T5, per plan LR and kNN) |
-| `13_metis_profiler.py` | GPU, analysis | R5: METIS style profiler (profiles with Qwen3 32B, then evaluation) |
-| `14_power_headroom.py` | analysis | minimum detectable effect, held out oracles, label stability |
-| `15_h3_ircot.py` | analysis | H2 in the paper (file names keep the older label h3): IRCoT against the hull at its own latency |
-| `16_weak_baselines.py` | analysis | R6: the same answers under the weak protocol |
-| `17_label_sensitivity.py` | analysis | H1 and H2 (IRCoT) under the strict and lenient grading rules |
-| `18_step_hull.py` | analysis | baseline without mixing: the best single plan at the policy's cost |
-| `19_cost_axes.py` | analysis | H1 under tokens, price weighted tokens, FLOPs and calls |
-| `20_stronger_policies.py` | analysis | classifier gate and planner with closed book confidence features, learning curve |
-| `21_checks.py` | analysis | sanity check against published numbers, grading error, matched cost headroom, mechanism |
-| `22_tables_final.py` | output | final tables, `tables.md` and `verdicts.txt` |
-| `24_review_checks.py` | analysis | review checks: stratified and refit bootstrap, mechanism of the strongest router, headroom at the same budget, protocol ablation, router learning curve, overhead charged, cost boundaries |
-| `25_latency_e2e.py` | GPU | live end to end run of cells and policies against the replayed cost; reader swap time |
-| `23_figures.py` | output | final data figures |
-| `run_all_analysis.py` | output | runs every analysis step above in order (CPU only) |
-| `make_artifact.py` | output | builds the reproducibility package |
-
-## Answer file format
-
-`data/processed_full/tsr_labels_<reader>_graded.csv` has one row per (question, plan):
-
-| Column | Meaning |
-|---|---|
-| `dataset`, `query_id`, `retriever`, `depth` | the question and the plan (`closed_book` with depth 0 is no retrieval) |
-| `answer` | raw reader output |
-| `label_final` | final grade (1 correct, 0 wrong); `label_final_source` says whether the strict rule or the judge decided |
-| `label_strict`, `label_lenient`, `label_f1_07` | alternative grading rules used in the sensitivity analysis |
-| `em`, `contains`, `f1` | exact match, answer contained, token F1 against the gold answers |
-| `prompt_tokens`, `gen_tokens` | prompt and output length |
-| `agent_time_s`, `retrieval_time_s` | measured reader and retrieval time in seconds |
-| `mean_logprob`, `min_logprob`, `first_token_prob` | reader confidence signals |
+`data/processed_full/tsr_labels_<reader>_graded.csv` has one row per question and plan: the answer, `label_final`
+(1 correct, 0 wrong), the alternative grades, token counts, and the measured reader and retrieval time.
 
 ## Hardware
 
-One desktop: NVIDIA RTX 3080 with 20 GB, AMD Ryzen 7 5700X, 64 GB RAM, Windows. Generating all answers takes several
-GPU days per large reader. Latency depends on the machine, which is why the results are also reported under
-machine independent costs.
-
-## Notes
-
-* **NQ corpus.** The BEIR NQ corpus is a 2.68M passage slice of Wikipedia, not the 21M passage DPR dump used in much
-  open domain QA work. Absolute accuracies are not comparable to results on the DPR corpus.
-* **Models without peer reviewed papers.** SPLADE v3, Stella 1.5B v5 and Qwen3 Reranker 0.6B are cited by their
-  model cards and technical reports.
-* **Offline mode.** `config.py` loads models from the local cache only. Set `FUNNELPLAN_HF_OFFLINE=0` once to
-  download a model.
-* **Windows GPU memory.** When VRAM runs out, the driver silently spills into system RAM and runs about 20 times
-  slower. The scripts run one process per block and check free VRAM after loading.
-* **Do not profile latency while labelling.** Running scripts 01 and 02 at the same time corrupts both timings.
-
+One desktop: RTX 3080 (20 GB), Ryzen 7 5700X, 64 GB RAM, Windows. Latency depends on the machine, so the results are
+also reported under machine independent costs.
