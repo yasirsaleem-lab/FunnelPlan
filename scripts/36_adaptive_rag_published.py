@@ -70,8 +70,9 @@ def _load(name, file):
 
 M26 = _load("mixed26", "26_mixed_workload.py")
 A, R = M26.A, M26.R
-INFL = float((pd.read_csv(settings.RESULTS_ROOT / "analysis" / "inference" / "calibration.csv")
-              .eval("sd_refit / se_nb")).max())
+_I = settings.RESULTS_ROOT / "analysis" / "inference"
+INFL = max(float((pd.read_csv(_I / "calibration.csv").eval("sd_refit / se_nb")).max()),
+           float(pd.read_csv(_I / "calibration_random.csv").factor.iloc[0]) if (_I / "calibration_random.csv").exists() else 0.0)
 
 
 # ====================================================================== data

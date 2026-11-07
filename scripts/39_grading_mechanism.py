@@ -125,7 +125,8 @@ def part_grading():
     I = AN / "inference"
     T = pd.read_csv(I / "tests_nb.csv")
     C = pd.read_csv(I / "calibration.csv")
-    infl = float((C.sd_refit / C.se_nb).max())
+    _r = I / "calibration_random.csv"
+    infl = max(float((C.sd_refit / C.se_nb).max()), float(pd.read_csv(_r).factor.iloc[0]) if _r.exists() else 0.0)
     T = T[T.family == "primary"].copy()
     T["ub_infl"] = T.gain + stats.t.ppf(0.95, T.df_nb) * T.se_nb * infl
     au3 = pd.read_csv(AN / "audit3" / "audit3_results.csv")

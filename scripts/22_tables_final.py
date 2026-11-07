@@ -126,6 +126,16 @@ _HYPH = [(r"\bheld out\b(?=\s+[a-zA-Z$\\])", "held-out"), (r"\bHeld out\b(?=\s+[
          (r"\bin sample\b(?=\s+(oracle|headroom))", "in-sample"), (r"\bgradient boosted\b", "gradient-boosted")]
 
 
+
+def refit_factor(I):
+    """Largest ratio of the refit bootstrap spread to the corrected standard error: the four calibration tests
+    (27/24) and, once run, the 12 randomly drawn tests (37), as the analysis plan requires."""
+    import pandas as _pd
+    f = float((_pd.read_csv(I / "calibration.csv").eval("sd_refit / se_nb")).max())
+    r = I / "calibration_random.csv"
+    return max(f, float(_pd.read_csv(r).factor.iloc[0])) if r.exists() else f
+
+
 def ieee_hyphens(t):
     keep = []
     t = re.sub(r"\\(label|ref|cite)\{[^}]*\}", lambda m: keep.append(m.group(0)) or f"\x00{len(keep) - 1}\x00", t)
@@ -553,7 +563,7 @@ def t_summary():
     if (I / "tests_nb.csv").exists():
         from scipy import stats
         Tn = pd.read_csv(I / "tests_nb.csv")
-        infl = float((pd.read_csv(I / "calibration.csv").eval("sd_refit / se_nb")).max())
+        infl = refit_factor(I)
         nb = dict(gain="gain", lo="nb_low", hi="nb_high", p="p_nb_holm")
         pr = Tn[Tn.family == "primary"]
         A_, B_ = pr[pr.plan_set == "single step"], pr[pr.plan_set == "with two hop"]
@@ -1022,7 +1032,7 @@ def t_review2():
     # ---------------------------------------------------------------- corrected inference, all families
     T = pd.read_csv(I / "tests_nb.csv")
     C = pd.read_csv(I / "calibration.csv")
-    infl = float((C.sd_refit / C.se_nb).max())
+    infl = refit_factor(I)
     own = pd.read_csv(I / "tests_secondary_own_cost.csv") if (I / "tests_secondary_own_cost.csv").exists() else None
 
     def inflated(g):
@@ -1048,7 +1058,7 @@ def t_review2():
                          f"Bound below 0.03: per question / corrected / x{infl:.2f}": f"{int((g.ub95_plain < 0.03).sum())} / {int((g.ub95_nb < 0.03).sum())} / {int((ub_i < 0.03).sum())}",
                          "Largest bound, corrected": f"{g.ub95_nb.max():.3f}"})
     R = pd.DataFrame(rows)
-    md_table("Checks: inference with refitting (corrected resampled t test; x1.64 = corrected SE times the largest refit ratio)", R)
+    md_table("Checks: inference with refitting (corrected resampled t test; xF = corrected SE times the largest refit ratio F)", R)
     xt = f"$\\times${infl:.2f}"
     tex_table("rev2_inference", R.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), f"Inference that accounts for refitting. Per question: $t$ test on the 2,000 pooled gains, with the fitted policies and hulls fixed. Corrected: resampled t test on the 25 fold gains per reader and dataset (Nadeau and Bengio). {xt}: corrected standard errors inflated by the largest ratio of the refit bootstrap spread to the corrected error. Positive: Holm p below 0.05 and interval above 0. Bound: one sided 95\\% upper bound.", "llrrrr", star=True)
     VERD.append(f"Check: inference: primary positives (per question/corrected/x{infl:.2f}) " +

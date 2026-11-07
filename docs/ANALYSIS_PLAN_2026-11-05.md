@@ -83,3 +83,9 @@ together. Reported as for audit 3: the shift of label_final on the gain, with a 
   bound by the largest audited shift of label_final against the policy (and by the end of its interval).
 - CPU 6: the split half replication covers the five single reader primary policies (not the two reader cascades).
 - Timed GPU runs (E0, E2, E3) run alone; the CPU analyses run after them, never at the same time.
+
+## Note (7 November 2026, after CPU analysis 2 ran)
+The 12 randomly drawn tests gave ratios of the refit spread to the corrected error of 1.03 to 2.61 (largest: the
+confidence cascade of Qwen3 14B with two hop plans). As fixed above, 2.61 replaces 1.64 everywhere the inflated
+corrected test is used. Ratios to the per question error were 0.96 to 1.47. Scripts 15, 22, 36, 38 and 39 now read
+the factor from calibration.csv and calibration_random.csv together.

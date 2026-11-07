@@ -1,0 +1,45 @@
+
+== grading: label_final against the human majority of audits 1 and 2, by region
+  audit1: 200 items, 160 in the ambiguous band (80%; all answers 15.0%); accuracy in band 0.769, outside 0.925, on the audited sample 0.800; weighted to all answers 0.902 [0.824, 0.963]
+  audit2: 200 items, 125 in the ambiguous band (62%; all answers 15.0%); accuracy in band 0.768, outside 0.960, on the audited sample 0.840; weighted to all answers 0.931 [0.887, 0.964]
+  both: 400 items, 285 in the ambiguous band (71%; all answers 15.0%); accuracy in band 0.768, outside 0.948, on the audited sample 0.820; weighted to all answers 0.921 [0.883, 0.951]
+     by           value  items  accuracy   low  high
+dataset 2wikimultihopqa     96     0.812 0.729 0.885
+dataset        hotpotqa     99     0.828 0.747 0.899
+dataset         musique    101     0.851 0.782 0.911
+dataset              nq    104     0.788 0.702 0.865
+ reader      gemma3-27b    132     0.833 0.765 0.894
+ reader     llama3.1-8b     94     0.798 0.713 0.872
+ reader      qwen2.5-7b     68     0.765 0.662 0.853
+ reader       qwen3-14b     38     0.868 0.763 0.974
+ reader       qwen3-32b     68     0.853 0.765 0.941
+
+-- the margin claim under the largest audited grading shift
+              shift  shift_value  margin  below_ub95_plain  below_ub95_nb  below_ub_infl
+               none      0.00000    0.02                46             51             41
+               none      0.00000    0.03                53             53             51
+               none      0.00000    0.04                54             54             54
+               none      0.00000    0.05                54             54             54
+largest point shift      0.01068    0.02                21             36             31
+largest point shift      0.01068    0.03                44             51             40
+largest point shift      0.01068    0.04                53             53             51
+largest point shift      0.01068    0.05                54             54             53
+end of its interval      0.03176    0.02                 8             10              7
+end of its interval      0.03176    0.03                14             18             11
+end of its interval      0.03176    0.04                20             35             30
+end of its interval      0.03176    0.05                40             51             37
+
+== mechanism: how often two plans disagree (exactly one answers)
+                                              mean    min    max
+what                                                            
+hull pair of plan_emb                        0.240  0.128  0.472
+hull pair of planner_sk                      0.160  0.096  0.304
+hull pair of planner_tsr                     0.184  0.102  0.304
+two retrievers at depth 5 (mean over pairs)  0.180  0.143  0.223
+
+== split half: the primary family on two disjoint halves of every dataset
+  single step, half 0: 25 tests; positive per question 0, corrected 0; largest gain +0.018; bounds below 0.03 / 0.05: 22 / 25
+  single step, half 1: 25 tests; positive per question 0, corrected 0; largest gain +0.008; bounds below 0.03 / 0.05: 24 / 25
+  with two hop, half 0: 25 tests; positive per question 0, corrected 0; largest gain +0.010; bounds below 0.03 / 0.05: 22 / 25
+  with two hop, half 1: 25 tests; positive per question 0, corrected 0; largest gain +0.014; bounds below 0.03 / 0.05: 24 / 25
+(1208s)

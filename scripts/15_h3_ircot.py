@@ -87,8 +87,10 @@ def _infl():
     f = settings.RESULTS_ROOT / "analysis" / "inference" / "calibration.csv"
     if not f.exists():
         return float("nan")
+    r = f.parent / "calibration_random.csv"
     c = pd.read_csv(f)
-    return float((c.sd_refit / c.se_nb).max())
+    v = float((c.sd_refit / c.se_nb).max())
+    return max(v, float(pd.read_csv(r).factor.iloc[0])) if r.exists() else v
 
 
 INFL = _infl()

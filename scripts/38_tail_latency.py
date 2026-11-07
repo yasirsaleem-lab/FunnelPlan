@@ -63,8 +63,9 @@ def _load(name, file):
 
 P30 = _load("checks30", "30_policy_checks.py")
 K, A = P30.K, P30.A
-INFL = float((pd.read_csv(settings.RESULTS_ROOT / "analysis" / "inference" / "calibration.csv")
-              .eval("sd_refit / se_nb")).max())
+_I = settings.RESULTS_ROOT / "analysis" / "inference"
+INFL = max(float((pd.read_csv(_I / "calibration.csv").eval("sd_refit / se_nb")).max()),
+           float(pd.read_csv(_I / "calibration_random.csv").factor.iloc[0]) if (_I / "calibration_random.csv").exists() else 0.0)
 
 
 def mix_quantile(La, Lb, lam, q):

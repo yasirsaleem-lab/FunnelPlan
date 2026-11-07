@@ -1,0 +1,17 @@
+Refit bootstrap on 12 randomly drawn tests (100 replicates each; 2197s)
+        plan_set       reader        method   gain  sd_refit  ratio_plain  ratio_nb
+0    single step   gemma3-27b    adaptive_k -0.025     0.012        1.194     1.513
+1    single step    qwen3-14b    adaptive_k -0.016     0.013        1.244     1.766
+2    single step    qwen3-14b  adaptive_rag -0.052     0.011        1.148     1.035
+3   with two hop   gemma3-27b    adaptive_k -0.023     0.012        1.167     1.497
+4   with two hop   gemma3-27b  adaptive_rag -0.021     0.012        1.226     1.192
+5   with two hop  llama3.1-8b  adaptive_rag -0.069     0.012        1.263     1.171
+6   with two hop    qwen3-14b    adaptive_k -0.016     0.013        1.245     1.767
+7   with two hop    qwen3-14b  conf_cascade -0.007     0.009        0.956     2.614
+8   with two hop  llama3.1-8b      plan_emb  0.006     0.010        1.085     1.369
+9   with two hop  llama3.1-8b      plan_knn -0.005     0.011        1.184     1.306
+10  with two hop   qwen2.5-7b      ak_paper -0.007     0.012        1.173     1.801
+11  with two hop   qwen2.5-7b        ar_emb -0.031     0.014        1.467     1.253
+ratio to the corrected error: 1.03 to 2.61 (calibrated factor 1.64)
+ratio to the per question error: 0.96 to 1.47
+factor to use: 2.61 (REPLACES the old factor)

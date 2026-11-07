@@ -1,0 +1,13 @@
+shift,shift_value,margin,below_ub95_plain,below_ub95_nb,below_ub_infl
+none,0.0,0.02,46,51,41
+none,0.0,0.03,53,53,51
+none,0.0,0.04,54,54,54
+none,0.0,0.05,54,54,54
+largest point shift,0.01068,0.02,21,36,31
+largest point shift,0.01068,0.03,44,51,40
+largest point shift,0.01068,0.04,53,53,51
+largest point shift,0.01068,0.05,54,54,53
+end of its interval,0.03176,0.02,8,10,7
+end of its interval,0.03176,0.03,14,18,11
+end of its interval,0.03176,0.04,20,35,30
+end of its interval,0.03176,0.05,40,51,37

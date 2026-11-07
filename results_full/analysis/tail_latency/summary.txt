@@ -1,0 +1,7 @@
+single step, P95 matched hull: 27 tests; positive under all three 0; negative (corrected) 4; gain -0.073 to +0.041 (mean matched hull: -0.060 to +0.013); upper bound below 0.03: 23
+single step, P99 matched hull: 27 tests; positive under all three 0; negative (corrected) 5; gain -0.068 to +0.058 (mean matched hull: -0.060 to +0.013); upper bound below 0.03: 20
+with two hop, P95 matched hull: 27 tests; positive under all three 0; negative (corrected) 5; gain -0.074 to +0.047 (mean matched hull: -0.069 to +0.017); upper bound below 0.03: 24
+with two hop, P99 matched hull: 27 tests; positive under all three 0; negative (corrected) 5; gain -0.069 to +0.063 (mean matched hull: -0.069 to +0.017); upper bound below 0.03: 22
+P95: positive in both plan sets under all three tests: none
+P99: positive in both plan sets under all three tests: none
+(1345s)

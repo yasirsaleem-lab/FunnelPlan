@@ -1,0 +1,81 @@
+what,reader,dataset,share
+hull pair of plan_emb,gemma3-27b,2wikimultihopqa,0.286
+hull pair of plan_emb,gemma3-27b,hotpotqa,0.238
+hull pair of plan_emb,gemma3-27b,musique,0.216
+hull pair of plan_emb,gemma3-27b,nq,0.384
+hull pair of planner_sk,gemma3-27b,2wikimultihopqa,0.214
+hull pair of planner_sk,gemma3-27b,hotpotqa,0.102
+hull pair of planner_sk,gemma3-27b,musique,0.158
+hull pair of planner_sk,gemma3-27b,nq,0.096
+hull pair of planner_tsr,gemma3-27b,2wikimultihopqa,0.286
+hull pair of planner_tsr,gemma3-27b,hotpotqa,0.188
+hull pair of planner_tsr,gemma3-27b,musique,0.176
+hull pair of planner_tsr,gemma3-27b,nq,0.102
+two retrievers at depth 5 (mean over pairs),gemma3-27b,2wikimultihopqa,0.17413333333333333
+two retrievers at depth 5 (mean over pairs),gemma3-27b,hotpotqa,0.16733333333333336
+two retrievers at depth 5 (mean over pairs),gemma3-27b,musique,0.15546666666666667
+two retrievers at depth 5 (mean over pairs),gemma3-27b,nq,0.21519999999999997
+hull pair of plan_emb,llama3.1-8b,2wikimultihopqa,0.128
+hull pair of plan_emb,llama3.1-8b,hotpotqa,0.162
+hull pair of plan_emb,llama3.1-8b,musique,0.128
+hull pair of plan_emb,llama3.1-8b,nq,0.228
+hull pair of planner_sk,llama3.1-8b,2wikimultihopqa,0.164
+hull pair of planner_sk,llama3.1-8b,hotpotqa,0.176
+hull pair of planner_sk,llama3.1-8b,musique,0.138
+hull pair of planner_sk,llama3.1-8b,nq,0.15
+hull pair of planner_tsr,llama3.1-8b,2wikimultihopqa,0.128
+hull pair of planner_tsr,llama3.1-8b,hotpotqa,0.15
+hull pair of planner_tsr,llama3.1-8b,musique,0.14
+hull pair of planner_tsr,llama3.1-8b,nq,0.15
+two retrievers at depth 5 (mean over pairs),llama3.1-8b,2wikimultihopqa,0.17293333333333336
+two retrievers at depth 5 (mean over pairs),llama3.1-8b,hotpotqa,0.1716
+two retrievers at depth 5 (mean over pairs),llama3.1-8b,musique,0.14306666666666665
+two retrievers at depth 5 (mean over pairs),llama3.1-8b,nq,0.2170666666666667
+hull pair of plan_emb,qwen2.5-7b,2wikimultihopqa,0.244
+hull pair of plan_emb,qwen2.5-7b,hotpotqa,0.18
+hull pair of plan_emb,qwen2.5-7b,musique,0.128
+hull pair of plan_emb,qwen2.5-7b,nq,0.166
+hull pair of planner_sk,qwen2.5-7b,2wikimultihopqa,0.164
+hull pair of planner_sk,qwen2.5-7b,hotpotqa,0.186
+hull pair of planner_sk,qwen2.5-7b,musique,0.166
+hull pair of planner_sk,qwen2.5-7b,nq,0.128
+hull pair of planner_tsr,qwen2.5-7b,2wikimultihopqa,0.206
+hull pair of planner_tsr,qwen2.5-7b,hotpotqa,0.2
+hull pair of planner_tsr,qwen2.5-7b,musique,0.18
+hull pair of planner_tsr,qwen2.5-7b,nq,0.15
+two retrievers at depth 5 (mean over pairs),qwen2.5-7b,2wikimultihopqa,0.16586666666666666
+two retrievers at depth 5 (mean over pairs),qwen2.5-7b,hotpotqa,0.17773333333333333
+two retrievers at depth 5 (mean over pairs),qwen2.5-7b,musique,0.164
+two retrievers at depth 5 (mean over pairs),qwen2.5-7b,nq,0.2182666666666667
+hull pair of plan_emb,qwen3-14b,2wikimultihopqa,0.28
+hull pair of plan_emb,qwen3-14b,hotpotqa,0.144
+hull pair of plan_emb,qwen3-14b,musique,0.168
+hull pair of plan_emb,qwen3-14b,nq,0.472
+hull pair of planner_sk,qwen3-14b,2wikimultihopqa,0.154
+hull pair of planner_sk,qwen3-14b,hotpotqa,0.164
+hull pair of planner_sk,qwen3-14b,musique,0.136
+hull pair of planner_sk,qwen3-14b,nq,0.108
+hull pair of planner_tsr,qwen3-14b,2wikimultihopqa,0.28
+hull pair of planner_tsr,qwen3-14b,hotpotqa,0.16
+hull pair of planner_tsr,qwen3-14b,musique,0.168
+hull pair of planner_tsr,qwen3-14b,nq,0.134
+two retrievers at depth 5 (mean over pairs),qwen3-14b,2wikimultihopqa,0.15546666666666667
+two retrievers at depth 5 (mean over pairs),qwen3-14b,hotpotqa,0.16826666666666668
+two retrievers at depth 5 (mean over pairs),qwen3-14b,musique,0.16306666666666667
+two retrievers at depth 5 (mean over pairs),qwen3-14b,nq,0.20706666666666665
+hull pair of plan_emb,qwen3-32b,2wikimultihopqa,0.276
+hull pair of plan_emb,qwen3-32b,hotpotqa,0.28
+hull pair of plan_emb,qwen3-32b,musique,0.228
+hull pair of plan_emb,qwen3-32b,nq,0.458
+hull pair of planner_sk,qwen3-32b,2wikimultihopqa,0.304
+hull pair of planner_sk,qwen3-32b,hotpotqa,0.132
+hull pair of planner_sk,qwen3-32b,musique,0.248
+hull pair of planner_sk,qwen3-32b,nq,0.102
+hull pair of planner_tsr,qwen3-32b,2wikimultihopqa,0.304
+hull pair of planner_tsr,qwen3-32b,hotpotqa,0.222
+hull pair of planner_tsr,qwen3-32b,musique,0.248
+hull pair of planner_tsr,qwen3-32b,nq,0.112
+two retrievers at depth 5 (mean over pairs),qwen3-32b,2wikimultihopqa,0.17479999999999998
+two retrievers at depth 5 (mean over pairs),qwen3-32b,hotpotqa,0.1852
+two retrievers at depth 5 (mean over pairs),qwen3-32b,musique,0.18426666666666666
+two retrievers at depth 5 (mean over pairs),qwen3-32b,nq,0.22346666666666665
