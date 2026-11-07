@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled datasets): gain over Always RAG (no cost matching; 0.4 to 1.8 s per question) and over the global hull at its own cost, on held-out folds with single-step plans.}
+\label{tab:arpub_col}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
+\toprule
+Reader & vs Always & vs hull & Latency (s) & To IRCoT \\
+\midrule
+Qwen2.5 7B & +0.070 & $-$0.031 & 14.2 & 0.58 \\
+Llama 3.1 8B & +0.071 & $-$0.061 & 12.1 & 0.59 \\
+Qwen3 14B & +0.091 & $-$0.023 & 40.5 & 0.53 \\
+\bottomrule
+\end{tabular*}
+\end{table}

@@ -1386,6 +1386,18 @@ def t_multistep():
     tex_table("multistep", M, "Fixed step chains $F_T$ (IRCoT's reasoning for exactly $T$ retrievals, stopping off) "
               "against IRCoT: success and mean latency in seconds, mean over the three IRCoT readers. Last column: "
               "IRCoT minus $F_4$ on the same questions, range over readers.", "lrrrrrr", star=True)
+    rows = []
+    for ds in ["nq", "hotpotqa", "2wikimultihopqa", "musique"]:
+        if ds not in F.index.get_level_values(0):
+            continue
+        r = {"Dataset": DN[ds]}
+        for p_, lab in (("cotfixed3@4", "$F_3$"), ("cotfixed4@4", "$F_4$"), ("ircot", "IRCoT")):
+            x = F.loc[(ds, p_)]
+            r[lab] = f"{x.success:.3f} / {x.latency_s:.1f}"
+        rows.append(r)
+    tex_table("multistep_col", pd.DataFrame(rows), "Fixed step chains $F_T$ (IRCoT's reasoning for exactly $T$ "
+              "retrievals, stopping off) against IRCoT: success / mean latency in seconds, mean over the three IRCoT "
+              "readers.", "lrrr")
     for h, g in T.groupby("hull"):
         k = g[(g.p_holm < 0.05) & (g.ci_low > 0) & (g.p_refit_holm < 0.05) & (g.refit_low > 0)]
         VERD.append(f"IRCoT against the hull with F_T [{h}]: {len(k)} of {len(g)} wins")
@@ -1414,6 +1426,11 @@ def t_arpub():
     tex_table("arpub", M, "Adaptive RAG as published: one T5 Large classifier per reader trained on the four pooled datasets, with "
               "the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost "
               "matching) and over three hulls at its own cost; single-step plan set; latency includes the classifier.", "lrrrrrrr", star=True)
+    C = M[["Reader", "vs Always RAG", "vs global hull", "Latency (s)", "Share to IRCoT"]].rename(
+        columns={"vs Always RAG": "vs Always", "vs global hull": "vs hull", "Share to IRCoT": "To IRCoT"})
+    tex_table("arpub_col", C, "Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled "
+              "datasets): gain over Always RAG (no cost matching; 0.4 to 1.8 s per question) and over the global hull at "
+              "its own cost, on held-out folds with single-step plans.", "lrrrr")
     A_ = pd.read_csv(D / "tests.csv")
     for comp, g in A_.groupby("comparator"):
         VERD.append(f"Adaptive RAG as published vs {comp}: gain {g.gain.min():+.3f} to {g.gain.max():+.3f}; "
