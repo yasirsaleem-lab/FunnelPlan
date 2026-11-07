@@ -1,0 +1,19 @@
+Audit 4: items 278; labelled by both raters 278; raters agree on 0.971, kappa 0.929; 8 adjudicated (8 disagreements, 0 blank).
+
+== conf_cascade audit 4 only: 97 discordant questions; 0.267 of held out questions are discordant
+  policy human correct 0.216; label_final error 0.062 (false pos 0.021, false neg 0.041); strict error 0.062
+  hull   human correct 0.330; label_final error 0.021 (false pos 0.000, false neg 0.021); strict error 0.052
+  shift of label_final on the gain +0.0000 [-0.0165, +0.0165] (positive: label_final overstates the policy); strict -0.0028
+  gain +0.0126 -> +0.0126 without the shift; upper bound (per question) 0.0290 -> 0.0290 (end of the shift interval: 0.0455); corrected bound 0.0251 -> 0.0251
+
+== conf_cascade audits 3 and 4 (pooled): 197 discordant questions; 0.267 of held out questions are discordant
+  policy human correct 0.294; label_final error 0.061 (false pos 0.010, false neg 0.051); strict error 0.081
+  hull   human correct 0.310; label_final error 0.030 (false pos 0.005, false neg 0.025); strict error 0.066
+  shift of label_final on the gain -0.0054 [-0.0149, +0.0041] (positive: label_final overstates the policy); strict -0.0068
+  gain +0.0126 -> +0.0181 without the shift; upper bound (per question) 0.0290 -> 0.0345 (end of the shift interval: 0.0439); corrected bound 0.0251 -> 0.0305
+
+== ircot qwen3-14b 2wiki: 50 discordant questions; 0.436 of held out questions are discordant
+  policy human correct 0.560; label_final error 0.020 (false pos 0.020, false neg 0.000); strict error 0.000
+  hull   human correct 0.140; label_final error 0.060 (false pos 0.020, false neg 0.040); strict error 0.060
+  shift of label_final on the gain +0.0174 [-0.0174, +0.0523] (positive: label_final overstates the policy); strict -0.0087
+  gain +0.1560 -> +0.1386 without the shift; upper bound (per question) 0.1977 -> 0.1803 (end of the shift interval: 0.2152); refit bound 0.2203 -> 0.2029
