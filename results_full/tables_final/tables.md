@@ -107,10 +107,10 @@ Decision rule: significant only if Holm p < 0.05 and CI above 0 in BOTH plan set
 
 ## Baseline without randomised mixing (step baseline, 27 primary tests)
 
-| Plan set | Positive vs hull | Positive vs best single plan | Mean value of non adaptive mixing | Largest gain vs best single plan |
+| Plan set | Positive vs Always and Never RAG | Positive vs best single plan | Positive vs hull | Mean value of non adaptive mixing |
 |---|---|---|---|---|
-| single step | 0 | 5 | +0.017 | +0.061 |
-| with two hop | 0 | 7 | +0.023 | +0.080 |
+| single step | 23 | 5 | 0 | +0.017 |
+| with two hop | 23 | 7 | 0 | +0.023 |
 
 Value of non adaptive mixing = what a coin flip between two fixed plans gains over the best single plan at the same cost.
 
@@ -625,8 +625,8 @@ Positive in both plan sets under all three tests: none
 
 ## Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)
 
-| Reader | vs Always RAG | vs global hull | vs label hull | vs hull with IRCoT | Latency (s) | Always RAG (s) | Share to IRCoT |
-|---|---|---|---|---|---|---|---|
-| Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | 14.2 | 0.38 | 0.58 |
-| Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | 12.1 | 0.48 | 0.59 |
-| Qwen3 14B | +0.091 | -0.023 | -0.029 | -0.037 | 40.5 | 1.78 | 0.53 |
+| Reader | vs Always RAG | vs global hull | vs label hull | vs hull with IRCoT | vs rungs hull | Latency (s) | Always RAG (s) | Share to IRCoT |
+|---|---|---|---|---|---|---|---|---|
+| Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | +0.005 | 14.2 | 0.38 | 0.58 |
+| Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | +0.002 | 12.1 | 0.48 | 0.59 |
+| Qwen3 14B | +0.091 | -0.023 | -0.029 | -0.037 | +0.016 | 40.5 | 1.78 | 0.53 |

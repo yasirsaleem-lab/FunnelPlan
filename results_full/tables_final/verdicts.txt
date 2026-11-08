@@ -35,5 +35,6 @@ IRCoT minus F4: success -0.006 to +0.010; intervals containing 0: 12 of 12; late
 Adaptive RAG as published vs always_rag: gain +0.070 to +0.091; positive under all three in both plan sets: 0; negative (corrected) 0 of 6
 Adaptive RAG as published vs hull_fixed: gain -0.061 to -0.023; positive under all three in both plan sets: 0; negative (corrected) 4 of 6
 Adaptive RAG as published vs hull_label: gain -0.069 to -0.029; positive under all three in both plan sets: 0; negative (corrected) 6 of 6
+Adaptive RAG as published vs hull_rungs: gain +0.002 to +0.016; positive under all three in both plan sets: 0; negative (corrected) 0 of 6
 Adaptive RAG as published vs hull_with_ircot: gain -0.061 to -0.033; positive under all three in both plan sets: 0; negative (corrected) 6 of 6
 Adaptive RAG as published vs never_rag: gain +0.184 to +0.236; positive under all three in both plan sets: 3; negative (corrected) 0 of 6

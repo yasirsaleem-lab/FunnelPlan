@@ -1,15 +1,15 @@
 \begin{table*}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
-\caption{Adaptive RAG as published: one T5 Large classifier per reader trained on the four pooled datasets, with the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost matching) and over three hulls at its own cost; single-step plan set; latency includes the classifier.}
+\caption{Adaptive RAG as published: one T5 Large classifier per reader trained on the four pooled datasets, with the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost matching) and over four hulls at its own cost: the global hull (here one plan, the reranker at depth 10), the label hull, the global hull with IRCoT as one more plan, and a random mix of its own three rungs. Single-step plan set (the two-hop set changes only the label hull); latency includes the classifier.}
 \label{tab:arpub}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrr}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrrrrr}
 \toprule
-Reader & vs Always RAG & vs global hull & vs label hull & \begin{tabular}[b]{@{}r@{}}vs hull with \\ IRCoT\end{tabular} & Latency (s) & Always RAG (s) & Share to IRCoT \\
+Reader & vs Always RAG & vs global hull & vs label hull & \begin{tabular}[b]{@{}r@{}}vs hull with \\ IRCoT\end{tabular} & vs rungs hull & Latency (s) & Always RAG (s) & Share to IRCoT \\
 \midrule
-Qwen2.5 7B & +0.070 & $-$0.031 & $-$0.040 & $-$0.033 & 14.2 & 0.38 & 0.58 \\
-Llama 3.1 8B & +0.071 & $-$0.061 & $-$0.058 & $-$0.061 & 12.1 & 0.48 & 0.59 \\
-Qwen3 14B & +0.091 & $-$0.023 & $-$0.029 & $-$0.037 & 40.5 & 1.78 & 0.53 \\
+Qwen2.5 7B & +0.070 & $-$0.031 & $-$0.040 & $-$0.033 & +0.005 & 14.2 & 0.38 & 0.58 \\
+Llama 3.1 8B & +0.071 & $-$0.061 & $-$0.058 & $-$0.061 & +0.002 & 12.1 & 0.48 & 0.59 \\
+Qwen3 14B & +0.091 & $-$0.023 & $-$0.029 & $-$0.037 & +0.016 & 40.5 & 1.78 & 0.53 \\
 \bottomrule
 \end{tabular*}
 \end{table*}

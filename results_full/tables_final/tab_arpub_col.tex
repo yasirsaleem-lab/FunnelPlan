@@ -1,15 +1,15 @@
 \begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
-\caption{Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled datasets): gain over Always RAG (no cost matching; 0.4 to 1.8 s per question) and over the global hull at its own cost, on held-out folds with single-step plans.}
+\caption{Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled datasets), on held-out folds: gain over Always RAG (no cost matching; 0.4 to 1.8 s per question), over the global hull at its cost, which is one plan there (the reranker at depth 10, 2.0 to 3.5 s), and over a random mix of its own rungs (BM25 at depth 5 and IRCoT) at its cost. The two-hop plan set gives the same values.}
 \label{tab:arpub_col}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
 \toprule
-Reader & vs Always & vs hull & Latency (s) & To IRCoT \\
+Reader & vs Always & vs best plan & vs rungs & Latency (s) \\
 \midrule
-Qwen2.5 7B & +0.070 & $-$0.031 & 14.2 & 0.58 \\
-Llama 3.1 8B & +0.071 & $-$0.061 & 12.1 & 0.59 \\
-Qwen3 14B & +0.091 & $-$0.023 & 40.5 & 0.53 \\
+Qwen2.5 7B & +0.070 & $-$0.031 & +0.005 & 14.2 \\
+Llama 3.1 8B & +0.071 & $-$0.061 & +0.002 & 12.1 \\
+Qwen3 14B & +0.091 & $-$0.023 & +0.016 & 40.5 \\
 \bottomrule
 \end{tabular*}
 \end{table}

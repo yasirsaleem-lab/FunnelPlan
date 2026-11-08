@@ -43,8 +43,9 @@ def main():
         ft = read(PROC / "r5_cotfixed" / f"labels_{rd}_graded.csv")
         ft["plan"] = ft.retriever.str.replace("cotfixed", "F", regex=False)
         for d in (ir, ft):
-            # reader calls after the last retrieval, beyond the one answer call
-            d["calls_after_last_retrieval"] = (d.lm_calls - d.retrieval_calls - 1).clip(lower=0)
+            # reasoning calls after the last retrieval (the answer call excluded): a chain with r retrievals makes
+            # r - 1 reasoning calls between them and one answer call, so lm_calls - retrieval_calls is what is left
+            d["calls_after_last_retrieval"] = (d.lm_calls - d.retrieval_calls).clip(lower=0)
             for (ds, plan), g in d.groupby(["dataset", "plan"]):
                 rows.append({"reader": rd, "dataset": ds, "plan": plan, "n": len(g),
                              **{c: g[c].mean() for c in NUM + ["calls_after_last_retrieval"]},
@@ -54,8 +55,8 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     T.to_csv(OUT / "calls.csv", index=False)
     L = ["Calls, tokens and time per question (mean over questions), IRCoT and fixed step chains F_T.",
-         "lm_calls counts every reader call; calls_after_last_retrieval = reader calls after the last retrieval, beyond",
-         "the answer call. Mean over the three readers:"]
+         "lm_calls counts every reader call, the answer call included; calls_after_last_retrieval = reasoning calls",
+         "after the last retrieval (F_T makes none). F_T tokens cover only its new calls. Mean over the three readers:"]
     cols = ["retrieval_calls", "lm_calls", "calls_after_last_retrieval", "share_with_calls_after_last_retrieval",
             "n_paragraphs", "gen_tokens", "seconds"]
     L.append(T.groupby(["dataset", "plan"])[cols].mean().round(2).to_string())

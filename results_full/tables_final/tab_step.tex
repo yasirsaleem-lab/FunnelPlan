@@ -1,14 +1,14 @@
 \begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{4pt}
-\caption{Primary family against the best single fixed plan at or below the policy's cost.}
+\caption{The same 27 primary tests per plan set, the same policies and one test (pooled per-question test, Holm over 27), against three comparators: Always RAG and Never RAG (accuracy only, no cost matching), the best single fixed plan at or below the policy's cost, and the hull.}
 \label{tab:step}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrr}
 \toprule
-Plan set & \begin{tabular}[b]{@{}r@{}}Positive vs \\ hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Positive vs \\ best single \\ plan\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean value of \\ non adaptive \\ mixing\end{tabular} & \begin{tabular}[b]{@{}r@{}}Largest gain \\ vs best single \\ plan\end{tabular} \\
+Plan set & \begin{tabular}[b]{@{}r@{}}Positive vs \\ Always and \\ Never RAG\end{tabular} & \begin{tabular}[b]{@{}r@{}}Positive vs \\ best single \\ plan\end{tabular} & \begin{tabular}[b]{@{}r@{}}Positive vs \\ hull\end{tabular} & \begin{tabular}[b]{@{}r@{}}Mean value of \\ non adaptive \\ mixing\end{tabular} \\
 \midrule
-single-step & 0 & 5 & +0.017 & +0.061 \\
-with two-hop & 0 & 7 & +0.023 & +0.080 \\
+single-step & 23 & 5 & 0 & +0.017 \\
+with two-hop & 23 & 7 & 0 & +0.023 \\
 \bottomrule
 \end{tabular*}
 \end{table}

@@ -273,15 +273,22 @@ def t_step():
         if not f.exists():
             continue
         J = pd.read_csv(f)
-        rows.append({"Plan set": nm, "Positive vs hull": int(((J.p_holm_mix < 0.05) & (J.gain_mix > 0)).sum()),
-                     "Positive vs best single plan": int(((J.p_holm_step < 0.05) & (J.ci_low_step > 0)).sum()),
-                     "Mean value of non adaptive mixing": sg(J.mix_value.mean()),
-                     "Largest gain vs best single plan": sg(J.gain_step.max())})
+        W = AN / "weak_comparator" / "counts.csv"
+        weak = pd.read_csv(W).set_index("plan_set").loc[nm, "vs Always and Never RAG"] if W.exists() else None
+        r = {"Plan set": nm}
+        if weak is not None:
+            r["Positive vs Always and Never RAG"] = int(weak)
+        r.update({"Positive vs best single plan": int(((J.p_holm_step < 0.05) & (J.ci_low_step > 0)).sum()),
+                  "Positive vs hull": int(((J.p_holm_mix < 0.05) & (J.gain_mix > 0)).sum()),
+                  "Mean value of non adaptive mixing": sg(J.mix_value.mean())})
+        rows.append(r)
     if rows:
         T = pd.DataFrame(rows)
         md_table("Baseline without randomised mixing (step baseline, 27 primary tests)", T,
                  "Value of non adaptive mixing = what a coin flip between two fixed plans gains over the best single plan at the same cost.")
-        tex_table("step", T, "Primary family against the best single fixed plan at or below the policy's cost.", "lrrrr")
+        tex_table("step", T, "The same 27 primary tests per plan set, the same policies and one test (pooled per question test, "
+                  "Holm over 27), against three comparators: Always RAG and Never RAG (accuracy only, no cost matching), "
+                  "the best single fixed plan at or below the policy's cost, and the hull.", "l" + "r" * (len(T.columns) - 1))
     else:
         VERD.append("Step baseline: not run yet (scripts/18_step_hull.py)")
 
@@ -688,7 +695,7 @@ def t_p_plans():
          "@{}l" + "rrrr" * 4 + "@{}", head, body, star=True, sep="2.6pt")
 
 
-def t_p_gains():
+def t_p_gains(name="p_gains", families=("Primary", "Secondary", "Stronger")):
     """Gain over the held out hull for every policy and reader in both plan sets; bold = Holm survivor."""
     P = (primary_family(AN / "final"), primary_family(AN / "final_r3"))
     Sx = (secondary("final", "metis"), secondary("final_r3", "metis_r3"))
@@ -703,6 +710,7 @@ def t_p_gains():
             ("Secondary", Sx, "ar_t5", "Adaptive RAG, FLAN-T5 classifier"), ("Secondary", Sx, "plan_emb", "Per plan logistic regression"),
             ("Secondary", Sx, "plan_knn", "Per plan kNN"), ("Secondary", Sx, "metis", "METIS style router"),
             ("Stronger", St, "clf_gate", "Classifier gate"), ("Stronger", St, "planner_sk", "Planner, self knowledge")]
+    rows = [r for r in rows if r[0] in families]
     body, last = [], None
     for fam, D, key, nm in rows:
         if last and fam != last:
@@ -723,8 +731,15 @@ def t_p_gains():
     head = [" & " + " & ".join(rf"\multicolumn{{2}}{{c}}{{{RN[r]}}}" for r in READERS) + r" \\",
             r"\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}\cmidrule(l){10-11}",
             r"Policy" + r" & S & T" * 5 + r" \\"]
-    _tex("p_gains", r"Gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B.",
+    cap = (r"Gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions, for every policy and reader. S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (27, 30 or 10 tests per plan set) with the 95\% CI above or below zero. Reader cascades start from Qwen2.5 7B."
+           if "Primary" in families else
+           r"Secondary and stronger policies: gain over the held out fixed plan hull at equal mean latency, pooled over 2,000 questions (Fig.~\ref{fig:forest} shows the primary family). S: single step plans. T: with the fixed two hop plans. Bold: Holm survivor within its family (30 or 10 tests per plan set) with the 95\% CI above or below zero; the per question test.")
+    _tex(name, cap,
          "@{}l" + "rr" * 5 + "@{}", head, body, star=True, sep="4pt")
+
+
+def t_p_gains_rest():
+    t_p_gains("p_gains_rest", ("Secondary", "Stronger"))
 
 
 def t_p_ircot():
@@ -1419,18 +1434,22 @@ def t_arpub():
         rows.append({"Reader": RN[rd], "vs Always RAG": sg(g.loc["always_rag", "gain"]),
                      "vs global hull": sg(g.loc["hull_fixed", "gain"]), "vs label hull": sg(g.loc["hull_label", "gain"]),
                      "vs hull with IRCoT": sg(g.loc["hull_with_ircot", "gain"]),
+                     "vs rungs hull": sg(g.loc["hull_rungs", "gain"]) if "hull_rungs" in g.index else "",
                      "Latency (s)": f"{u.cost.mean():.1f}", "Always RAG (s)": f"{u.always_cost.mean():.2f}",
                      "Share to IRCoT": f"{u['share_ircot@0'].mean():.2f}"})
     M = pd.DataFrame(rows)
     md_table("Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)", M)
     tex_table("arpub", M, "Adaptive RAG as published: one T5 Large classifier per reader trained on the four pooled datasets, with "
               "the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost "
-              "matching) and over three hulls at its own cost; single-step plan set; latency includes the classifier.", "lrrrrrrr", star=True)
-    C = M[["Reader", "vs Always RAG", "vs global hull", "Latency (s)", "Share to IRCoT"]].rename(
-        columns={"vs Always RAG": "vs Always", "vs global hull": "vs hull", "Share to IRCoT": "To IRCoT"})
+              "matching) and over four hulls at its own cost: the global hull (here one plan, the reranker at depth 10), "
+              "the label hull, the global hull with IRCoT as one more plan, and a random mix of its own three rungs. "
+              "Single-step plan set (the two-hop set changes only the label hull); latency includes the classifier.", "lrrrrrrrr", star=True)
+    C = M[["Reader", "vs Always RAG", "vs global hull", "vs rungs hull", "Latency (s)"]].rename(
+        columns={"vs Always RAG": "vs Always", "vs global hull": "vs best plan", "vs rungs hull": "vs rungs"})
     tex_table("arpub_col", C, "Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled "
-              "datasets): gain over Always RAG (no cost matching; 0.4 to 1.8 s per question) and over the global hull at "
-              "its own cost, on held-out folds with single-step plans.", "lrrrr")
+              "datasets), on held-out folds: gain over Always RAG (no cost matching; 0.4 to 1.8 s per question), over the "
+              "global hull at its cost, which is one plan there (the reranker at depth 10, 2.0 to 3.5 s), and over a random "
+              "mix of its own rungs (BM25 at depth 5 and IRCoT) at its cost. The two-hop plan set gives the same values.", "lrrrr")
     A_ = pd.read_csv(D / "tests.csv")
     for comp, g in A_.groupby("comparator"):
         VERD.append(f"Adaptive RAG as published vs {comp}: gain {g.gain.min():+.3f} to {g.gain.max():+.3f}; "
@@ -1443,7 +1462,7 @@ def main():
     MD.append("# FunnelPlan final tables\n\nGenerated by scripts/22_tables_final.py from the result files. Gains are differences in the share of questions answered correctly.")
     for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
                t_ircot, t_headroom, t_checks, t_audit, t_rater, t_summary,
-               t_p_retrievers, t_p_plans, t_p_gains, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
+               t_p_retrievers, t_p_plans, t_p_gains, t_p_gains_rest, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
                t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_review, t_review2, t_multistep, t_arpub):
         try:
             fn()
