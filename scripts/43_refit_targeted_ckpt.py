@@ -50,7 +50,9 @@ REPS = 2 if QUICK else int(arg("--reps", "100"))
 WORKERS = int(arg("--workers", "4"))
 NSEEDS = 1 if QUICK else int(arg("--seeds", "5"))
 PARTS = arg("--parts", "bounds,tail").split(",")
-ONLY_METHODS = [m for m in arg("--methods", "").split(",") if m]       # e.g. --methods planner_tsr,conf_cascade
+ONLY_METHODS = [m for m in arg("--methods", "").split(",") if m]
+TAIL_TARGET_TRAIN = "--tail-target=train" in ARGS     # as 38_tail_latency.py --target=train
+TAIL_SOURCE = "tail_latency_train" if TAIL_TARGET_TRAIN else "tail_latency"       # e.g. --methods planner_tsr,conf_cascade
 AN = settings.RESULTS_ROOT / "analysis"
 OUT = Path(arg("--out", str(AN / "refit_targeted")))
 INFL = 2.614042
@@ -151,6 +153,8 @@ def one_tail(row):
     """All replicates of one tail matched test. Returns a list of (gain at P95, gain at P99)."""
     R37 = _load("refit37", "37_refit_random.py")
     T38 = _load("tail38", "38_tail_latency.py")
+    if TAIL_TARGET_TRAIN:
+        T38.LAMS = np.round(np.arange(0.0, 1.0001, 0.01), 2)
     P30, K, A = T38.P30, T38.K, T38.A
     method, rd, ps = row["method"], row["reader"], row["plan_set"]
     A.CONFIG["include_r3"] = ps == "with two hop"
@@ -188,6 +192,9 @@ def one_tail(row):
                     sv = np.asarray(sv, float)
                     pick = P30.chosen_index([(B, 0)], method, apply_, cfg, test)
                     cr = P30.realized_cost(method, cfg, cols, pick, test, M, B)
+                    if TAIL_TARGET_TRAIN:
+                        pick_s = P30.chosen_index([(B, 0)], method, apply_, cfg, sel)
+                        cr = P30.realized_cost(method, cfg, cols, pick_s, sel, M, B)
                     for q in (95, 99):
                         target = float(np.percentile(cr, q))
                         h, _, _, _ = T38.tail_hull(M["c"], B.Y, sel, test, target, q)
@@ -275,10 +282,16 @@ def main():
             f"to the per question error: {O.ratio_plain.min():.2f} to {O.ratio_plain.max():.2f}")
         say(f"   refit bounds below 0.03: {int((O.ub95_refit < 0.03).sum())} of {len(O)}; below 0.04: "
             f"{int((O.ub95_refit < 0.04).sum())}; largest {O.ub95_refit.max():.4f}")
-    if "tail" in PARTS:
-        T38t = pd.read_csv(AN / "tail_latency" / "tests.csv")
-        D = pd.DataFrame([{"method": m, "reader": r, "plan_set": p} for m, r, p in (TAIL_TESTS[:1] if QUICK else TAIL_TESTS)])
-        res = run_part("tail", one_tail, D.to_dict("records"))
+    if "tail" in PARTS and not (TAIL_TARGET_TRAIN and not (AN / TAIL_SOURCE / "tests.csv").exists()):
+        T38t = pd.read_csv(AN / TAIL_SOURCE / "tests.csv")
+        tests = TAIL_TESTS
+        if TAIL_TARGET_TRAIN:      # the tests positive under the per question test in this version
+            pos = T38t[(T38t.p_plain_holm < 0.05) & (T38t.plain_low > 0)]
+            tests = sorted({(m, r, p) for m, r, p in zip(pos.method, pos.reader, pos.plan_set)})
+            if not tests:
+                print("  tail (target on training questions): no test is positive under the per question test")
+        D = pd.DataFrame([{"method": m, "reader": r, "plan_set": p} for m, r, p in (tests[:1] if QUICK else tests)])
+        res = run_part("tail", one_tail, D.to_dict("records")) if len(D) else []
         rows = []
         for r, g in zip(D.to_dict("records"), res):
             g = np.array(g)
@@ -295,6 +308,9 @@ def main():
                 REP += [{"part": "tail", "plan_set": r["plan_set"], "reader": r["reader"], "method": r["method"],
                          "q": q, "rep": i, "gain": v} for i, v in enumerate(g[:, j])]
         O = pd.DataFrame(rows)
+        if O.empty:
+            (OUT / "summary.txt").write_text("\n".join(L) + "\nno tail test to refit\n", encoding="utf-8")
+            return
         # Holm over the 27 primary tests of each plan set and percentile: the other tests keep their per question p
         for (ps, q), idx in O.groupby(["plan_set", "q"]).groups.items():
             fam = T38t[(T38t.plan_set == ps) & (T38t.q == q)].copy()

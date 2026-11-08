@@ -17,7 +17,8 @@ Tests: per question test on the 2,000 pooled gains (mean over seeds), corrected 
 corrected test with errors x the largest refit ratio; Holm over the 27 primary tests of each plan set; a policy beats
 this hull only if it is positive in both plan sets under all three.
 
-Usage:  python scripts/38_tail_latency.py [--quick]
+Usage:  python scripts/38_tail_latency.py [--quick] [--target=train]   (--target=train: see TARGET_TRAIN below; the
+        reader cascades are left out there, since their chosen plans span two readers)
 Output: results_full/analysis/tail_latency/  tests.csv, folds.csv, per_query.csv, summary.txt
 """
 import importlib.util
@@ -37,11 +38,15 @@ from scipy import stats
 from config import settings
 
 QUICK = "--quick" in sys.argv
-OUT = settings.RESULTS_ROOT / "analysis" / ("tail_latency_quick" if QUICK else "tail_latency")
+# --target=train: the policy's percentile is measured on the TRAINING questions, the same questions on which the hull's
+# percentile is measured (a 99th percentile of the 100 test questions is close to their maximum and very noisy; when it
+# falls below every retrieval plan's training percentile, the hull falls back to closed book). Weights in steps of 0.01.
+TARGET_TRAIN = "--target=train" in sys.argv
+OUT = settings.RESULTS_ROOT / "analysis" / ("tail_latency_quick" if QUICK else ("tail_latency_train" if TARGET_TRAIN else "tail_latency"))
 OUT.mkdir(parents=True, exist_ok=True)
 PRIMARY = ["planner_tsr", "adaptive_rag", "adaptive_k", "gate_closed_book", "conf_cascade"]
 QS = (95, 99)
-LAMS = np.round(np.arange(0.0, 1.0001, 0.05), 2)
+LAMS = np.round(np.arange(0.0, 1.0001, 0.01 if TARGET_TRAIN else 0.05), 2)
 LINES = []
 
 
@@ -141,11 +146,16 @@ def run_cell(tag, rd, ds, name, B, mk, M, swap_blocks, cols, rows, perq):
             else:
                 cr = P30.realized_cost(name, cfg, cols, pick, test, M, B)
             hm = A.hull_at(B.Y, B.cost, sel, c, eval_idx=test)
+            if TARGET_TRAIN:
+                if name == "reader_cascade":
+                    raise SystemExit("--target=train is not implemented for the reader cascades")
+                pick_s = P30.chosen_index(swap_blocks, name, apply_, cfg, sel)
+                cr_t = P30.realized_cost(name, cfg, cols, pick_s, sel, M, B)
             for q in QS:
-                target = float(np.percentile(cr, q))
+                target = float(np.percentile(cr_t if TARGET_TRAIN else cr, q))
                 h, a, b, lam = tail_hull(M["c"], B.Y, sel, test, target, q)
                 rows.append({"plan_set": tag, "reader": rd, "dataset": ds, "method": name, "seed": sd, "fold": i,
-                             "q": q, "target_s": target, "gain": s.mean() - h, "gain_mean_hull": s.mean() - hm,
+                             "q": q, "target_s": target, "policy_test_pct": float(np.percentile(cr, q)), "gain": s.mean() - h, "gain_mean_hull": s.mean() - hm,
                              "mix_a": a, "mix_b": b, "lam": lam, "n_test": len(test), "n_train": len(sel)})
                 G[q].append(pd.Series(s - h, index=test, name=sd))
     for q in QS:
@@ -174,7 +184,7 @@ def main():
                 for name in PRIMARY:
                     run_cell(tag, rd, ds, name, B, mk[name], M, [(B, 0)], list(B.Y.columns), rows, perq)
                 print(f"    {tag} {rd} {ds} done ({time.time() - t0:.0f}s)", flush=True)
-        for a_, b_ in A.CONFIG["reader_pairs"]:
+        for a_, b_ in ([] if TARGET_TRAIN else A.CONFIG["reader_pairs"]):
             for ds in sorted({d for (r, d) in blocks if r == a_} & {d for (r, d) in blocks if r == b_}):
                 res0 = A.reader_cascade(blocks, a_, b_, ds)
                 if res0 is None:
