@@ -1,0 +1,2 @@
+Refit bootstrap where the tests disagree: 50 replicates, 5 seeds per replicate; the refit interval is the observed gain +/- z x the replicate SD.
+no tail test to refit
