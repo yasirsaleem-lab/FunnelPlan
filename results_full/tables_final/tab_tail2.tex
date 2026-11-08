@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{Primary family against a hull matched at the policy's 95th or 99th percentile latency. The policy's percentile is measured either on the 100 test questions of each fold or on the training questions, where the hull's percentile is also measured (weights in steps of 0.05 and 0.01; the reader cascades are left out of the second version). Holm survivors with the interval above (Pos) or below (Neg) zero.}
+\label{tab:tail2}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrrr}
+\toprule
+\begin{tabular}[b]{@{}l@{}}Policy \\ percentile on\end{tabular} & Plan set & Percentile & Tests & \begin{tabular}[b]{@{}r@{}}Pos/Neg, per \\ q.\end{tabular} & Pos/Neg, corr. & Max gain \\
+\midrule
+test questions & single-step & P95 & 27 & 1/7 & 0/4 & +0.041 \\
+test questions & single-step & P99 & 27 & 4/7 & 0/5 & +0.058 \\
+test questions & with two-hop & P95 & 27 & 1/7 & 0/5 & +0.047 \\
+test questions & with two-hop & P99 & 27 & 3/8 & 0/5 & +0.063 \\
+training questions & single-step & P95 & 25 & 0/8 & 0/9 & +0.019 \\
+training questions & single-step & P99 & 25 & 0/9 & 0/4 & +0.020 \\
+training questions & with two-hop & P95 & 25 & 0/7 & 0/8 & +0.017 \\
+training questions & with two-hop & P99 & 25 & 0/9 & 0/6 & +0.018 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

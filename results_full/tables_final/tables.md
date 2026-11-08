@@ -299,6 +299,8 @@ Observed differences equal J times true differences when grading error is the sa
 | Primary: tokens, output x4 | 27 | 0/5 | +0.012 | 0/5 | +0.014 |
 | Primary: FLOPs | 27 | 0/5 | +0.016 | 0/5 | +0.011 |
 | Primary: calls | 27 | 0/5 | +0.006 | 0/8 | +0.008 |
+| Primary: P95 latency hull§ | 25 | 0/8 | +0.019 | 0/7 | +0.017 |
+| Primary: P99 latency hull§ | 25 | 0/9 | +0.020 | 0/9 | +0.018 |
 | Primary: best single plan† | 27 | 5/4 | +0.061 | 7/5 | +0.080 |
 | Primary: strict grading | 27 | 0/5 | +0.010 | 0/5 | +0.009 |
 | Primary: lenient grading | 27 | 0/4 | +0.019 | 0/5 | +0.022 |
@@ -309,7 +311,7 @@ Observed differences equal J times true differences when grading error is the sa
 | Primary: outside judge‡ | 27 | 0/6 | +0.015 | 1/6 | +0.020 |
 | Secondary, charged‡ | 30 | 0/6 | +0.011 | 0/4 | +0.014 |
 
-Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x2.61: 22 and 20 (single step and with two hop).
+Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x2.61: 22 and 20 (single step and with two hop); the 12 tests above 0.03 there refitted with five seeds per resample: 27 and 26 (largest refit bound 0.032).
 
 ## Fixed plans at depth 5, mean success over readers
 
@@ -625,8 +627,38 @@ Positive in both plan sets under all three tests: none
 
 ## Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)
 
-| Reader | vs Always RAG | vs global hull | vs label hull | vs hull with IRCoT | vs rungs hull | Latency (s) | Always RAG (s) | Share to IRCoT |
+| Reader | vs Always RAG | vs global hull | vs label hull | vs hull with IRCoT | vs rungs hull | Latency (s) | Share to IRCoT |
+|---|---|---|---|---|---|---|---|
+| Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | +0.005 | 14.2 | 0.58 |
+| Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | +0.002 | 12.1 | 0.59 |
+| Qwen3 14B | +0.091 | -0.023 | -0.029 | -0.037 | +0.016 | 40.5 | 0.53 |
+
+## Five seed refit bootstrap on the primary tests whose x2.61 bound exceeds 0.03
+
+| Plan set | Policy | Reader | Gain | Bound, per q. | Bound, corr. | Bound, x2.61 | Bound, refit | Refit / corr. SE |
 |---|---|---|---|---|---|---|---|---|
-| Qwen2.5 7B | +0.070 | -0.031 | -0.040 | -0.033 | +0.005 | 14.2 | 0.38 | 0.58 |
-| Llama 3.1 8B | +0.071 | -0.061 | -0.058 | -0.061 | +0.002 | 12.1 | 0.48 | 0.59 |
-| Qwen3 14B | +0.091 | -0.023 | -0.029 | -0.037 | +0.016 | 40.5 | 1.78 | 0.53 |
+| single step | Conf. cascade | Llama 3.1 8B | +0.002 | 0.019 | 0.014 | 0.032 | 0.021 | 1.64 |
+| single step | Conf. cascade | Qwen2.5 7B | +0.013 | 0.029 | 0.025 | 0.045 | 0.029 | 1.36 |
+| single step | TSR planner | Qwen2.5 7B | +0.004 | 0.019 | 0.016 | 0.036 | 0.012 | 0.68 |
+| single step | Reader cascade | 7B to Llama 3.1 8B | +0.006 | 0.021 | 0.017 | 0.035 | 0.024 | 1.63 |
+| single step | Reader cascade | 7B to Qwen3 14B | +0.006 | 0.021 | 0.017 | 0.035 | 0.022 | 1.48 |
+| with two hop | TSR planner | Gemma 3 27B | +0.004 | 0.018 | 0.015 | 0.033 | 0.012 | 0.76 |
+| with two hop | Conf. cascade | Qwen2.5 7B | +0.011 | 0.028 | 0.025 | 0.047 | 0.027 | 1.19 |
+| with two hop | TSR planner | Qwen2.5 7B | +0.002 | 0.017 | 0.013 | 0.031 | 0.010 | 0.75 |
+| with two hop | Reader cascade | 7B to Llama 3.1 8B | -0.001 | 0.015 | 0.013 | 0.034 | 0.018 | 1.40 |
+| with two hop | Reader cascade | 7B to Qwen3 14B | +0.017 | 0.032 | 0.031 | 0.053 | 0.032 | 1.11 |
+| with two hop | TSR planner | Qwen3 14B | +0.005 | 0.020 | 0.015 | 0.031 | 0.013 | 0.88 |
+| with two hop | TSR planner | Qwen3 32B | +0.007 | 0.021 | 0.017 | 0.035 | 0.015 | 0.79 |
+
+## Hull matched at the 95th or 99th percentile latency, two versions
+
+| Policy percentile on | Plan set | Percentile | Tests | Pos/Neg, per q. | Pos/Neg, corr. | Max gain |
+|---|---|---|---|---|---|---|
+| test questions | single step | P95 | 27 | 1/7 | 0/4 | +0.041 |
+| test questions | single step | P99 | 27 | 4/7 | 0/5 | +0.058 |
+| test questions | with two hop | P95 | 27 | 1/7 | 0/5 | +0.047 |
+| test questions | with two hop | P99 | 27 | 3/8 | 0/5 | +0.063 |
+| training questions | single step | P95 | 25 | 0/8 | 0/9 | +0.019 |
+| training questions | single step | P99 | 25 | 0/9 | 0/4 | +0.020 |
+| training questions | with two hop | P95 | 25 | 0/7 | 0/8 | +0.017 |
+| training questions | with two hop | P99 | 25 | 0/9 | 0/6 | +0.018 |

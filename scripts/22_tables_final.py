@@ -558,6 +558,13 @@ def t_summary():
     for ax, nm in (("tokens", "Primary: tokens"), ("tokens_w4", "Primary: tokens, output x4"),
                    ("flops", "Primary: FLOPs"), ("calls", "Primary: calls")):
         add(nm, C[(C.axis == ax) & (C.plan_set == "single_step")], C[(C.axis == ax) & (C.plan_set == "two_hop")])
+    TL = AN / "tail_latency_train" / "tests.csv"
+    if TL.exists():
+        tl = pd.read_csv(TL)
+        tl_kw = dict(gain="gain", lo="plain_low", hi="plain_high", p="p_plain_holm")
+        for q in (95, 99):
+            g = tl[tl.q == q]
+            add(f"Primary: P{q} latency hull\u00a7", g[g.plan_set == "single step"], g[g.plan_set == "with two hop"], **tl_kw)
     add("Primary: best single plan\u2020", pd.read_csv(AN / "step_hull_primary.csv"), pd.read_csv(AN / "step_hull_primary_r3.csv"),
         gain="gain_step", lo="ci_low_step", hi="ci_high_step", p="p_holm_step")
     for lab in ("strict", "lenient"):
@@ -593,16 +600,25 @@ def t_summary():
         note = (f"Primary upper bounds below 0.03: per question {int((A_.ub95_plain < 0.03).sum())} and "
                 f"{int((B_.ub95_plain < 0.03).sum())} of 27; corrected {int((A_.ub95_nb < 0.03).sum())} and {int((B_.ub95_nb < 0.03).sum())}; "
                 f"corrected, errors x{infl:.2f}: {int((Ai.ub_i < 0.03).sum())} and {int((Bi.ub_i < 0.03).sum())} (single step and with two hop).")
+        RB = AN / "refit_targeted" / "bounds.csv"
+        if RB.exists():
+            rb = pd.read_csv(RB)
+            cnts = []
+            for g, ps in ((Ai, "single step"), (Bi, "with two hop")):
+                r_ = rb[rb.plan_set == ps]
+                cnts.append(int((g.ub_i < 0.03).sum()) + int((r_.ub95_refit < 0.03).sum()))
+            note = note[:-1] + (f"; the {len(rb)} tests above 0.03 there refitted with five seeds per resample: "
+                                f"{cnts[0]} and {cnts[1]} (largest refit bound {rb.ub95_refit.max():.3f}).")
     T = pd.DataFrame(rows)
     md_table("Verdict summary: every family and robustness check (Pos/Neg = Holm survivors with CI above/below 0)", T, note)
     esc = tex_esc
     L = [r"\begin{table}[t]", r"\centering\footnotesize", r"\setlength{\tabcolsep}{3pt}",
-         r"\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% interval lies above or below zero; Max is the largest pooled gain. Rows marked $\ddagger$ use the corrected test, the others the per question test. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}",
+         r"\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% interval lies above or below zero; Max is the largest pooled gain. Rows marked $\ddagger$ use the corrected test, the others the per question test. Every row compares with the fixed plan hull at the policy's mean cost except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing), and the rows marked \S, which match the hull to the policy's 95th or 99th percentile latency on the training questions (reader cascades left out).}",
          r"\label{tab:summary}", r"\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}", r"\toprule",
          r" & & \multicolumn{2}{c}{Single step plans} & \multicolumn{2}{c}{With two hop plans} \\",
          r"\cmidrule(lr){3-4}\cmidrule(l){5-6}", r"Test family & Tests & Pos/Neg & Max & Pos/Neg & Max \\", r"\midrule"]
     for r in rows:
-        L.append(" & ".join(esc(v).replace(" x1.", " $\\times$1.") for v in r.values()) + r" \\")
+        L.append(" & ".join(esc(v).replace(" x1.", " $\\times$1.").replace("\u00a7", "$^\\S$") for v in r.values()) + r" \\")
     if note:
         L += [r"\midrule", r"\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{" + note.replace(" x1.", " $\\times$1.") + "}" + r" \\"]
     L += [r"\bottomrule", r"\end{tabular*}", r"\end{table}"]
@@ -1435,7 +1451,7 @@ def t_arpub():
                      "vs global hull": sg(g.loc["hull_fixed", "gain"]), "vs label hull": sg(g.loc["hull_label", "gain"]),
                      "vs hull with IRCoT": sg(g.loc["hull_with_ircot", "gain"]),
                      "vs rungs hull": sg(g.loc["hull_rungs", "gain"]) if "hull_rungs" in g.index else "",
-                     "Latency (s)": f"{u.cost.mean():.1f}", "Always RAG (s)": f"{u.always_cost.mean():.2f}",
+                     "Latency (s)": f"{u.cost.mean():.1f}",
                      "Share to IRCoT": f"{u['share_ircot@0'].mean():.2f}"})
     M = pd.DataFrame(rows)
     md_table("Adaptive RAG as published (t5-large classifier, ladder up to IRCoT, four dataset mix)", M)
@@ -1443,7 +1459,7 @@ def t_arpub():
               "the ladder no retrieval, BM25 with 5 passages and IRCoT. Gains on held-out folds over Always RAG (no cost "
               "matching) and over four hulls at its own cost: the global hull (here one plan, the reranker at depth 10), "
               "the label hull, the global hull with IRCoT as one more plan, and a random mix of its own three rungs. "
-              "Single-step plan set (the two-hop set changes only the label hull); latency includes the classifier.", "lrrrrrrrr", star=True)
+              "Single-step plan set (the two-hop set changes only the label hull); latency includes the classifier; Always RAG takes 0.4 to 1.8 s.", "lrrrrrrr", star=True)
     C = M[["Reader", "vs Always RAG", "vs global hull", "vs rungs hull", "Latency (s)"]].rename(
         columns={"vs Always RAG": "vs Always", "vs global hull": "vs best plan", "vs rungs hull": "vs rungs"})
     tex_table("arpub_col", C, "Adaptive RAG as published (T5 Large classifier, ladder up to IRCoT, four pooled "
@@ -1457,13 +1473,54 @@ def t_arpub():
                     f"negative (corrected) {int(g.negative_corrected.sum())} of {len(g)}")
 
 
+def t_review3():
+    """Five seed refit on the 12 borderline primary tests (43_refit_targeted.py) and the tail matched hull in both
+    versions (38_tail_latency.py, with and without --target=train; refit of the test question version)."""
+    RB = AN / "refit_targeted" / "bounds.csv"
+    if RB.exists():
+        b = pd.read_csv(RB)
+        nm = {"conf_cascade": "Conf. cascade", "planner_tsr": "TSR planner", "reader_cascade": "Reader cascade"}
+        M = pd.DataFrame([{"Plan set": r.plan_set, "Policy": nm.get(r.method, r.method),
+                           "Reader": r.reader.replace("qwen2.5-7b->", "7B to ").replace("qwen", "Qwen").replace("llama3.1-8b", "Llama 3.1 8B")
+                           .replace("gemma3-27b", "Gemma 3 27B").replace("Qwen2.5-7b", "Qwen2.5 7B").replace("Qwen3-14b", "Qwen3 14B")
+                           .replace("Qwen3-32b", "Qwen3 32B"),
+                           "Gain": sg(r.gain), "Bound, per q.": f"{r.ub95_plain:.3f}", "Bound, corr.": f"{r.ub95_nb:.3f}",
+                           "Bound, x2.61": f"{r.ub_infl:.3f}", "Bound, refit": f"{r.ub95_refit:.3f}",
+                           "Refit / corr. SE": f"{r.ratio_nb:.2f}"} for r in b.itertuples()])
+        md_table("Five seed refit bootstrap on the primary tests whose x2.61 bound exceeds 0.03", M)
+        tex_table("refit_bounds", M, "The 12 primary tests whose bound under the corrected test with errors x2.61 exceeds 0.03, "
+                  "refitted with a bootstrap of 100 resamples and five seeds per resample: one-sided 95% upper bounds under each "
+                  "variance estimate, and the refit spread over the corrected standard error.", "lllrrrrrr", star=True)
+        VERD.append(f"Five seed refit on {len(b)} borderline primary tests: refit bound below 0.03 in {int((b.ub95_refit < 0.03).sum())}, "
+                    f"largest {b.ub95_refit.max():.3f}; spread / corrected SE {b.ratio_nb.min():.2f} to {b.ratio_nb.max():.2f}")
+    rows = []
+    for folder, lab in (("tail_latency", "test questions"), ("tail_latency_train", "training questions")):
+        f = AN / folder / "tests.csv"
+        if not f.exists():
+            continue
+        t = pd.read_csv(f)
+        for (ps, q), g in t.groupby(["plan_set", "q"]):
+            pq = g[(g.p_plain_holm < 0.05) & (g.plain_low > 0)]
+            rows.append({"Policy percentile on": lab, "Plan set": ps, "Percentile": f"P{q}", "Tests": len(g),
+                         "Pos/Neg, per q.": f"{len(pq)}/{int(((g.p_plain_holm < 0.05) & (g.plain_high < 0)).sum())}",
+                         "Pos/Neg, corr.": f"{int(((g.p_nb_holm < 0.05) & (g.nb_low > 0)).sum())}/{int(((g.p_nb_holm < 0.05) & (g.nb_high < 0)).sum())}",
+                         "Max gain": sg(g.gain.max())})
+    if rows:
+        M = pd.DataFrame(rows)
+        md_table("Hull matched at the 95th or 99th percentile latency, two versions", M)
+        tex_table("tail2", M, "Primary family against a hull matched at the policy's 95th or 99th percentile latency. The policy's "
+                  "percentile is measured either on the 100 test questions of each fold or on the training questions, where the "
+                  "hull's percentile is also measured (weights in steps of 0.05 and 0.01; the reader cascades are left out of the "
+                  "second version). Holm survivors with the interval above (Pos) or below (Neg) zero.", "lllrrrr", star=True)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     MD.append("# FunnelPlan final tables\n\nGenerated by scripts/22_tables_final.py from the result files. Gains are differences in the share of questions answered correctly.")
     for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
                t_ircot, t_headroom, t_checks, t_audit, t_rater, t_summary,
                t_p_retrievers, t_p_plans, t_p_gains, t_p_gains_rest, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
-               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_review, t_review2, t_multistep, t_arpub):
+               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_review, t_review2, t_multistep, t_arpub, t_review3):
         try:
             fn()
         except FileNotFoundError as e:

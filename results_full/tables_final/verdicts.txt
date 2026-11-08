@@ -22,7 +22,7 @@ Headroom at matched cost: 2 plan oracle gap +0.098; best policy closes at most 0
 Mechanism: pair AUROC planner_sk 0.480, planner_tsr 0.499
 Rater reference, Audit 1 (7B, Llama, Qwen3 14B): label_final accuracy vs majority 0.800, vs rater 2 alone 0.685, vs rater 1 alone 0.870
 Rater reference, Audit 2 (Gemma, Qwen3 32B): label_final accuracy vs majority 0.840, vs rater 2 alone 0.805, vs rater 1 alone 0.900
-Summary: rows against the hull with positive survivors in both plan sets: 0 of 13
+Summary: rows against the hull with positive survivors in both plan sets: 0 of 15
 Against the best single plan (no mixing): positive 5 single step, 7 with two hop; largest gain +0.061 and +0.080. These wins vanish against the hull, so they come from mixing, not from question features.
 Check: inference: primary positives (per question/corrected/x2.61) single step: 0 / 0 / 0; with two hop: 0 / 0 / 0
 Check: mixed workload, positive in both plan sets under all three tests: none
@@ -38,3 +38,4 @@ Adaptive RAG as published vs hull_label: gain -0.069 to -0.029; positive under a
 Adaptive RAG as published vs hull_rungs: gain +0.002 to +0.016; positive under all three in both plan sets: 0; negative (corrected) 0 of 6
 Adaptive RAG as published vs hull_with_ircot: gain -0.061 to -0.033; positive under all three in both plan sets: 0; negative (corrected) 6 of 6
 Adaptive RAG as published vs never_rag: gain +0.184 to +0.236; positive under all three in both plan sets: 3; negative (corrected) 0 of 6
+Five seed refit on 12 borderline primary tests: refit bound below 0.03 in 11, largest 0.032; spread / corrected SE 0.68 to 1.64

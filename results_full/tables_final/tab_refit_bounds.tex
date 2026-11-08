@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\caption{The 12 primary tests whose bound under the corrected test with errors x2.61 exceeds 0.03, refitted with a bootstrap of 100 resamples and five seeds per resample: one-sided 95\% upper bounds under each variance estimate, and the refit spread over the corrected standard error.}
+\label{tab:refit_bounds}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrrrrr}
+\toprule
+Plan set & Policy & Reader & Gain & Bound, per q. & Bound, corr. & Bound, x2.61 & Bound, refit & \begin{tabular}[b]{@{}r@{}}Refit /corr. \\ SE\end{tabular} \\
+\midrule
+single-step & Conf. cascade & Llama 3.1 8B & +0.002 & 0.019 & 0.014 & 0.032 & 0.021 & 1.64 \\
+single-step & Conf. cascade & Qwen2.5 7B & +0.013 & 0.029 & 0.025 & 0.045 & 0.029 & 1.36 \\
+single-step & TSR planner & Qwen2.5 7B & +0.004 & 0.019 & 0.016 & 0.036 & 0.012 & 0.68 \\
+single-step & Reader cascade & 7B to Llama 3.1 8B & +0.006 & 0.021 & 0.017 & 0.035 & 0.024 & 1.63 \\
+single-step & Reader cascade & 7B to Qwen3 14B & +0.006 & 0.021 & 0.017 & 0.035 & 0.022 & 1.48 \\
+with two-hop & TSR planner & Gemma 3 27B & +0.004 & 0.018 & 0.015 & 0.033 & 0.012 & 0.76 \\
+with two-hop & Conf. cascade & Qwen2.5 7B & +0.011 & 0.028 & 0.025 & 0.047 & 0.027 & 1.19 \\
+with two-hop & TSR planner & Qwen2.5 7B & +0.002 & 0.017 & 0.013 & 0.031 & 0.010 & 0.75 \\
+with two-hop & Reader cascade & 7B to Llama 3.1 8B & $-$0.001 & 0.015 & 0.013 & 0.034 & 0.018 & 1.40 \\
+with two-hop & Reader cascade & 7B to Qwen3 14B & +0.017 & 0.032 & 0.031 & 0.053 & 0.032 & 1.11 \\
+with two-hop & TSR planner & Qwen3 14B & +0.005 & 0.020 & 0.015 & 0.031 & 0.013 & 0.88 \\
+with two-hop & TSR planner & Qwen3 32B & +0.007 & 0.021 & 0.017 & 0.035 & 0.015 & 0.79 \\
+\bottomrule
+\end{tabular*}
+\end{table*}

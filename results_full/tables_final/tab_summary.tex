@@ -1,7 +1,7 @@
 \begin{table}[t]
 \centering\footnotesize
 \setlength{\tabcolsep}{3pt}
-\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% interval lies above or below zero; Max is the largest pooled gain. Rows marked $\ddagger$ use the corrected test, the others the per-question test. Every row compares with the fixed plan hull except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing).}
+\caption{Every test family and robustness check. Pos and Neg count Holm survivors whose 95\% interval lies above or below zero; Max is the largest pooled gain. Rows marked $\ddagger$ use the corrected test, the others the per-question test. Every row compares with the fixed plan hull at the policy's mean cost except the row marked $\dagger$, which compares with the best single fixed plan at the same cost (no mixing), and the rows marked \S, which match the hull to the policy's 95th or 99th percentile latency on the training questions (reader cascades left out).}
 \label{tab:summary}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrrrr@{}}
 \toprule
@@ -14,6 +14,8 @@ Primary: tokens & 27 & 0/5 & +0.012 & 0/5 & +0.013 \\
 Primary: tokens, output x4 & 27 & 0/5 & +0.012 & 0/5 & +0.014 \\
 Primary: FLOPs & 27 & 0/5 & +0.016 & 0/5 & +0.011 \\
 Primary: calls & 27 & 0/5 & +0.006 & 0/8 & +0.008 \\
+Primary: P95 latency hull$^\S$ & 25 & 0/8 & +0.019 & 0/7 & +0.017 \\
+Primary: P99 latency hull$^\S$ & 25 & 0/9 & +0.020 & 0/9 & +0.018 \\
 Primary: best single plan$^\dagger$ & 27 & 5/4 & +0.061 & 7/5 & +0.080 \\
 Primary: strict grading & 27 & 0/5 & +0.010 & 0/5 & +0.009 \\
 Primary: lenient grading & 27 & 0/4 & +0.019 & 0/5 & +0.022 \\
@@ -24,7 +26,7 @@ Primary: corrected, x2.61$^\ddagger$ & 27 & 0/0 & +0.013 & 0/0 & +0.017 \\
 Primary: outside judge$^\ddagger$ & 27 & 0/6 & +0.015 & 1/6 & +0.020 \\
 Secondary, charged$^\ddagger$ & 30 & 0/6 & +0.011 & 0/4 & +0.014 \\
 \midrule
-\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x2.61: 22 and 20 (single-step and with two-hop).} \\
+\multicolumn{6}{@{}p{0.95\columnwidth}@{}}{Primary upper bounds below 0.03: per question 27 and 26 of 27; corrected 27 and 26; corrected, errors x2.61: 22 and 20 (single-step and with two-hop); the 12 tests above 0.03 there refitted with five seeds per resample: 27 and 26 (largest refit bound 0.032).} \\
 \bottomrule
 \end{tabular*}
 \end{table}
