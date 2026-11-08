@@ -16,7 +16,8 @@ Rater names are not given in this repository.
 Adjudication: the 88 items where rater 1 and rater 2 disagree (57 in audit 1, 31 in audit 2) were labelled by a third
 independent rater (rater 3, not an author), returned 2026-10-13 14:42 (`grading/received/adjudication_rater3_BLANK.xlsx`), on a blank
 sheet in random order without rater labels, audit or reader names, and without AI. The human reference is the majority
-of the three labels (`grading/audit_adjudicated.csv`).
+of the three labels (`grading/audit_adjudicated.csv`). So every reference label is that of a rater who is not an author:
+rater 2 on the 312 items the two raters agree on, rater 3 on the 88 they do not.
 
 Audits 3 and 4: raters A and B worked blind to the test, the arm, the reader and every automatic label, with written
 guidelines and without AI. They settled their disagreements together (35 items in audit 3, 8 in audit 4). Files are in

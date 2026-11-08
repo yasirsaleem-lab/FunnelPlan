@@ -1,6 +1,7 @@
 # FunnelPlan
 
-**Do adaptive retrieval policies beat fixed retrieval plans at the same cost?**
+Code, answers and analyses for the paper **Adaptive Retrieval Versus a Coin Flip: Cost-Matched Baselines Change the
+Verdict** (ICDE 2027, Experiment, Analysis, and Benchmark track).
 
 FunnelPlan is a benchmark for retrieval augmented generation (RAG). A *plan* is a retriever and a depth (how many
 passages the reader gets), or no retrieval. We ran every plan on every question for five open readers, graded every
@@ -11,9 +12,13 @@ All runs are local. No API model is used.
 
 ## Main findings
 
-* Under the protocol common in prior work, five primary policies win 64 of 100 comparisons. Against the hull they win none.
-* Adaptive RAG as published beats Always RAG by 0.070 to 0.091 but loses to the hull by 0.023 to 0.061.
-* IRCoT beats the hull on 2Wiki, but fixed chains that run its reasoning for a set number of steps match it.
+* The baseline decides the verdict. Under one test, five primary policies beat Always RAG and Never RAG in 23 of 27
+  pooled tests, the best single plan at the same cost in 5 to 7, and the hull in none.
+* Adaptive RAG as published beats Always RAG by 0.070 to 0.091, but a random mix of its own rungs at its cost does as well.
+* No primary policy beats the hull. 53 of 54 upper bounds exclude a gain of 0.03 under the per question test, the
+  corrected test and a refit bootstrap.
+* IRCoT beats the hull on 2Wiki, but fixed chains that run its reasoning for a set number of steps match it, so its
+  stopping rule adds nothing.
 
 ## Benchmark
 
@@ -38,8 +43,8 @@ pip install -e .
 python scripts/run_all_analysis.py     # core analyses, tables and figures (about 7 hours)
 ```
 
-Scripts 26 to 40 add the later analyses (mixed workload, refit bootstrap, audits 3 and 4, Adaptive RAG as published,
-fixed step chains, tail latency, split halves). Their outputs are in `results_full/analysis/`; each script states how
+Scripts 26 to 43 add the later analyses (mixed workload, refit bootstrap, audits 3 and 4, Adaptive RAG as published,
+fixed step chains, tail latency, split halves, the comparator at a fixed test, IRCoT call counts). Their outputs are in `results_full/analysis/`; each script states how
 to run it at the top. The plan for these analyses is in `docs/ANALYSIS_PLAN_2026-11-05.md`.
 [ARTIFACT.md](ARTIFACT.md) explains the inputs and how to regenerate the answers on a GPU.
 

@@ -20,7 +20,7 @@ python scripts/run_all_analysis.py
 ```
 
 This rebuilds the core analyses, the tables and the figures from the stored answers. The later analyses are scripts
-26 to 40; run their CPU stages one by one as each script's header says. Seeds are fixed, so results match on the
+26 to 43; run their CPU stages one by one as each script's header says. Seeds are fixed, so results match on the
 versions in `docs/environment.txt`.
 
 Main inputs: the graded answers (`data/processed_full/tsr_labels_<reader>_graded.csv`), the two hop plans
@@ -45,7 +45,3 @@ Latency depends on the hardware, so a new machine gives different absolute costs
 Corpora (3 GB), indexes and embeddings (about 41 GB) and model weights (licences and size). The scripts above rebuild
 them; model ids are in `config.py`.
 
-## Integrity
-
-The rater files are kept as returned, with only the raters' names removed from the file metadata. Rater names are not
-in this repository.
