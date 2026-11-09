@@ -1,4 +1,4 @@
-Review checks; parts ['inference', 'refit', 'mechanism', 'headroom', 'ablation', 'curve', 'boundary', 'overhead']; label final; seeds [0, 1, 2, 3, 4]
+Robustness checks; parts ['inference', 'refit', 'mechanism', 'headroom', 'ablation', 'curve', 'boundary', 'overhead']; label final; seeds [0, 1, 2, 3, 4]
 
 == inference: plain versus dataset stratified bootstrap of pooled gains (95% intervals; one sided 95% upper bound)
   single step  primary           tests 27  stratified/plain width: median 1.000 range 0.955..1.047  interval above 0: plain 0, stratified 0  upper bound below 0.03: plain 26, stratified 26  tests that change: 0

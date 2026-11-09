@@ -2,7 +2,7 @@
 Adaptive RAG with IRCoT as its top rung. CPU only; uses the
 stored IRCoT answers (06_ircot.py, graded by 08: Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B on HotpotQA, 2Wiki, MuSiQue).
 
-Concern: in the paper's single step plan set, Adaptive RAG's top rung is a single step plan, and in the two hop set
+Motivation: in the paper's single step plan set, Adaptive RAG's top rung is a single step plan, and in the two hop set
 it is the fixed two hop plan. The published Adaptive RAG (Jeong et al., NAACL 2024) routes among no retrieval, single
 step retrieval and multi step retrieval, its multi step strategy being IRCoT. Here it gets that ladder:
   rung 0  closed book

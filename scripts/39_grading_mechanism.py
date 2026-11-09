@@ -145,7 +145,7 @@ def part_grading():
 # ====================================================================== mechanism
 def part_mechanism():
     say("\n== mechanism: how often two plans disagree (exactly one answers)")
-    M = pd.read_csv(AN / "review" / "mechanism_pairs.csv", dtype={"query_id": str})
+    M = pd.read_csv(AN / "robustness" / "mechanism_pairs.csv", dtype={"query_id": str})
     M = M[M.seed == 0]
     A = _load("analysis11", "11_analysis_full.py")
     rows = []

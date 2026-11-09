@@ -1,7 +1,7 @@
 """
 Regrade of the ambiguous band with a judge from outside the reader pool. GPU (llama.cpp) for stage judge; CPU for report and replay.
 
-Concern: the judge, Qwen3 14B, is also one of the five readers, and Qwen3 32B is from the same family. LLM judges can
+Motivation: the judge, Qwen3 14B, is also one of the five readers, and Qwen3 32B is from the same family. LLM judges can
 favour their own outputs (Panickssery et al., NeurIPS 2024). Every answer of the ambiguous band (grading/judge_queue.csv,
 written by 07_grading_full.py: the main labels, the fixed two hop plans, IRCoT and the quantisation control) is judged
 again by Mistral Small 3.1 24B Instruct, a model from no reader family, with the same instruction, the same yes/no

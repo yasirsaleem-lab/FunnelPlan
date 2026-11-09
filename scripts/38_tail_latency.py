@@ -1,7 +1,7 @@
 """
 The primary family against a hull matched on tail latency. CPU only. Plan: docs/ANALYSIS_PLAN_2026-11-05.md, CPU 3.
 
-Concern: the hull matches the policy's MEAN latency. A random mix of a cheap and an expensive plan can have the same
+Motivation: the hull matches the policy's MEAN latency. A random mix of a cheap and an expensive plan can have the same
 mean as a policy and a different tail, so a service level on the 95th (or 99th) percentile may change the verdict.
 
 For every primary test (the paper's folds, seeds and settings; 30_policy_checks.py recovers each question's plan and

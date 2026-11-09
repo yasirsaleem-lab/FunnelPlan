@@ -8,8 +8,8 @@ Writes results_full/tables_final/:
   tab_summary.tex    every family and robustness check in one table (the paper's verdict table)
   tab_rater.tex      grading rules against each human reference (majority of three, each rater alone)
   tab_p_*.tex        compact tables for the paper body (retrievers, plans, gains, IRCoT, weak protocol, mechanism, raters)
-  tab_review_*.tex   review checks (scripts 24 and 25): inference, refit, mechanism, headroom, overhead, curve, latency, ablation
-  tab_rev2_*.tex     further checks (scripts 26 to 33): inference, bounds, mixed workload, decomposition, curve,
+  tab_robust_*.tex   robustness checks (scripts 24 and 25): inference, refit, mechanism, headroom, overhead, curve, latency, ablation
+  tab_extra_*.tex    further checks (scripts 26 to 33): inference, bounds, mixed workload, decomposition, curve,
                      difference routers, checks, exposure, agreement, p95, sweep, closed book prompt, Adaptive RAG with
                      IRCoT, MDE, and (when run) outside judge and audit 3
 
@@ -884,10 +884,10 @@ def t_p_h3rules():
                           r"Reader & Data & Final & Lenient & Strict & Final \\"], body)
 
 
-# ====================================================================== review checks (scripts 24 and 25)
-def t_review():
-    """Tables from the review checks: refit bootstrap, mechanism, same budget headroom, overhead, curve, latency, ablation."""
-    R = AN / "review"
+# ====================================================================== robustness checks (scripts 24 and 25)
+def t_robust():
+    """Tables from the robustness checks: refit bootstrap, mechanism, same budget headroom, overhead, curve, latency, ablation."""
+    R = AN / "robustness"
     if not R.exists():
         raise FileNotFoundError(str(R))
     from sklearn.metrics import roc_auc_score
@@ -903,7 +903,7 @@ def t_review():
                      "Upper bound below 0.03, plain / stratified": f"{int((g.plain_high < 0.03).sum())} / {int((g.strat_high < 0.03).sum())}"})
     T = pd.DataFrame(rows)
     md_table("Checks: plain against dataset stratified bootstrap", T)
-    tex_table("review_inference", T, "Pooled tests under the plain bootstrap and a bootstrap stratified by dataset. Width ratio: stratified interval width over plain width.", "llrrrr")
+    tex_table("robust_inference", T, "Pooled tests under the plain bootstrap and a bootstrap stratified by dataset. Width ratio: stratified interval width over plain width.", "llrrrr")
     # --- refit bootstrap
     F = pd.read_csv(R / "refit_bootstrap.csv")
     plain = {}
@@ -924,7 +924,7 @@ def t_review():
                      "p, refit SD": pv(2 * stats.norm.sf(abs(g / r.sd))), "Refit mean shift": sg(r.mean - g)})
     T = pd.DataFrame(rows)
     md_table("Checks: refit bootstrap (100 resamples; folds, policy, hull and weights refitted)", T)
-    tex_table("review_refit", T, "Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). The interval and p value use the refit spread (standard deviation) around the observed gain. Each resample holds only about 63% distinct questions, so a learned policy trains on less information and its refit mean shifts down (last column); the cascades, which learn little, do not shift.", "lllrrrrr")
+    tex_table("robust_refit", T, "Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). The interval and p value use the refit spread (standard deviation) around the observed gain. Each resample holds only about 63% distinct questions, so a learned policy trains on less information and its refit mean shifts down (last column); the cascades, which learn little, do not shift.", "lllrrrrr")
     # --- mechanism
     M = pd.read_csv(R / "mechanism_all_seeds.csv")
     P = pd.read_csv(R / "mechanism_pairs.csv")
@@ -949,7 +949,7 @@ def t_review():
                      "Pair questions per seed": f"{len(p0):,}", "Top plan share": f"{g.modal_plan_share.mean():.2f}"})
     T = pd.DataFrame(rows)
     md_table("Checks: what the policies learn (all 5 seeds; pair AUROC is the mean over reader and dataset blocks)", T)
-    tex_table("review_mechanism", T, "What the policies learn, over all five seeds (single step plans, held out). Pair AUROC: for questions that exactly one of the two hull plans answers, AUROC for which one, averaged over the 20 reader and dataset blocks; interval: bootstrap over questions within blocks, seed 0.", "lrrrrrrr")
+    tex_table("robust_mechanism", T, "What the policies learn, over all five seeds (single step plans, held out). Pair AUROC: for questions that exactly one of the two hull plans answers, AUROC for which one, averaged over the 20 reader and dataset blocks; interval: bootstrap over questions within blocks, seed 0.", "lrrrrrrr")
     # --- headroom at the policy's own budget
     H = pd.read_csv(R / "headroom_same_budget_pooled.csv")
     rows = []
@@ -961,7 +961,7 @@ def t_review():
         rows.append(row)
     T = pd.DataFrame(rows)
     md_table("Checks: oracle headroom at each policy's own cost (gap / fraction closed)", T)
-    tex_table("review_headroom", T, "Oracle headroom at each policy's own mean cost: gap of the pair oracle frontier over the hull (pairs chosen on the training folds), and the fraction of that gap the policy closes (pooled gain over gap), mean over datasets. Per plan LR without its embedding cost.", "lrrrrr")
+    tex_table("robust_headroom", T, "Oracle headroom at each policy's own mean cost: gap of the pair oracle frontier over the hull (pairs chosen on the training folds), and the fraction of that gap the policy closes (pooled gain over gap), mean over datasets. Per plan LR without its embedding cost.", "lrrrrr")
     # --- plan_emb with its own cost charged, and trained on all four datasets (exploratory)
     O = pd.read_csv(R / "plan_emb_with_overhead.csv")
     ms = O.delta_ms.max()
@@ -985,9 +985,9 @@ def t_review():
     T = pd.DataFrame(rows)
     md_table(f"Checks: per plan LR without and with its own cost ({ms:.1f} ms when the plan does not embed with BGE-M3), "
              "trained per dataset and on all four datasets", T)
-    tex_table("review_overhead", T, f"Per plan logistic regression without and with its own cost: {ms:.1f} ms for the query embedding and classifiers, charged when the chosen plan does not embed the query with BGE-M3 anyway; lambda is tuned with these costs. Per dataset: trained on 400 questions per dataset (Holm p: secondary family of 30 tests). Pooled training (exploratory): one model on the training folds of all four datasets. p: unadjusted.",
+    tex_table("robust_overhead", T, f"Per plan logistic regression without and with its own cost: {ms:.1f} ms for the query embedding and classifiers, charged when the chosen plan does not embed the query with BGE-M3 anyway; lambda is tuned with these costs. Per dataset: trained on 400 questions per dataset (Holm p: secondary family of 30 tests). Pooled training (exploratory): one model on the training folds of all four datasets. p: unadjusted.",
               "ll" + "rr" * ((len(T.columns) - 2) // 2))
-    TEX["review_overhead"] = TEX["review_overhead"].replace(r"\centering\small", r"\centering\footnotesize").replace(
+    TEX["robust_overhead"] = TEX["robust_overhead"].replace(r"\centering\small", r"\centering\footnotesize").replace(
         r"\setlength{\tabcolsep}{4pt}", r"\setlength{\tabcolsep}{2pt}")     # ten columns: smaller type to fit the width
     # --- learning curve of plan_emb
     LC = pd.read_csv(R / "learning_curve_plan_emb.csv")
@@ -998,7 +998,7 @@ def t_review():
     rows.append({"Reader": "Pooled", **{f"{int(f * 100)}%": sg(allr.loc[f, "sum_gain"] / allr.loc[f, "n"]) for f in allr.index}})
     T = pd.DataFrame(rows)
     md_table("Checks: learning curve of per plan LR (gain over the hull, single step plans, no embedding cost)", T)
-    tex_table("review_curve", T, "Learning curve of per plan logistic regression: pooled gain over the hull when trained on a share of the training folds (single step plans, without its embedding cost).", "lrrrrr")
+    tex_table("robust_curve", T, "Learning curve of per plan logistic regression: pooled gain over the hull when trained on a share of the training folds (single step plans, without its embedding cost).", "lrrrrr")
     # --- live latency check
     L = AN.parent / "latency_e2e"
     rows, prow = [], []
@@ -1026,15 +1026,15 @@ def t_review():
     if rows:
         T = pd.DataFrame(rows)
         md_table("Checks: live end to end latency against the replay, Qwen2.5 7B (cells: median of 3 live runs)", T)
-        tex_table("review_latency", T, "Live end to end time against the stored time of the same cells, Qwen2.5 7B (median of three live runs per cell). Index: where the dense index sat with the reader loaded. Stella and the reranker did not fit next to the reader.", "llrrrrrl")
+        tex_table("robust_latency", T, "Live end to end time against the stored time of the same cells, Qwen2.5 7B (median of three live runs per cell). Index: where the dense index sat with the reader loaded. Stella and the reranker did not fit next to the reader.", "llrrrrrl")
         T = pd.DataFrame(prow)
         md_table("Checks: live end to end policy cost against the replayed cost, Qwen2.5 7B", T)
-        tex_table("review_latency_policies", T, "Policies run live end to end against their replayed cost, Qwen2.5 7B (questions whose retrievers fit next to the reader). Per plan LR includes its 24.6 ms embedding in the live time only.", "llrrrrr")
+        tex_table("robust_latency_policies", T, "Policies run live end to end against their replayed cost, Qwen2.5 7B (questions whose retrievers fit next to the reader). Per plan LR includes its 24.6 ms embedding in the live time only.", "llrrrrr")
     # --- protocol ablation
     A = pd.read_csv(R / "protocol_ablation.csv")
     T = pd.DataFrame({"Step": A.step, "Wins": [f"{w} of {o}" for w, o in zip(A.wins, A.of)]})
     md_table("Checks: the weak protocol turned into ours one factor at a time", T)
-    tex_table("review_ablation", T, "The weak protocol turned into ours one factor at a time on the same 100 cells (5 primary policies, 5 readers, 4 datasets); the last two rows pool over datasets (25 tests).", "lr")
+    tex_table("robust_ablation", T, "The weak protocol turned into ours one factor at a time on the same 100 cells (5 primary policies, 5 readers, 4 datasets); the last two rows pool over datasets (25 tests).", "lr")
 
 
 # ====================================================================== further checks (scripts 26 to 33)
@@ -1050,7 +1050,7 @@ def _rng(x):
     return f"{sg(x.min())} to {sg(x.max())}" if len(x) else ""
 
 
-def t_review2():
+def t_extra():
     """Tables for the further checks: mixed workload (26), corrected inference (27), difference routers (28),
     policy checks (30), closed book prompt (31), outside judge (32, if run), Adaptive RAG with IRCoT (33), audit 3 (29,
     if finalised). Every number is read from the result files."""
@@ -1091,7 +1091,7 @@ def t_review2():
     R = pd.DataFrame(rows)
     md_table("Checks: inference with refitting (corrected resampled t test; xF = corrected SE times the largest refit ratio F)", R)
     xt = f"$\\times${infl:.2f}"
-    tex_table("rev2_inference", R.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), f"Inference that accounts for refitting. Per question: $t$ test on the 2,000 pooled gains, with the fitted policies and hulls fixed. Corrected: resampled t test on the 25 fold gains per reader and dataset (Nadeau and Bengio). {xt}: corrected standard errors inflated by the largest ratio of the refit bootstrap spread to the corrected error. Positive: Holm p below 0.05 and interval above 0. Bound: one sided 95\\% upper bound.", "llrrrr", star=True)
+    tex_table("extra_inference", R.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), f"Inference that accounts for refitting. Per question: $t$ test on the 2,000 pooled gains, with the fitted policies and hulls fixed. Corrected: resampled t test on the 25 fold gains per reader and dataset (Nadeau and Bengio). {xt}: corrected standard errors inflated by the largest ratio of the refit bootstrap spread to the corrected error. Positive: Holm p below 0.05 and interval above 0. Bound: one sided 95\\% upper bound.", "llrrrr", star=True)
     VERD.append(f"Check: inference: primary positives (per question/corrected/x{infl:.2f}) " +
                 "; ".join(f"{r['Plan set']}: {r[f'Positive: per question / corrected / x{infl:.2f}']}" for _, r in R[R.Family == "Primary"].iterrows()))
 
@@ -1110,7 +1110,7 @@ def t_review2():
                          "Gain, two hop": sg(b.gain), "Bound, per question ": f"{b.ub95_plain:.3f}", "Bound, corrected ": f"{b.ub95_nb:.3f}"})
     B = pd.DataFrame(rows)
     md_table("Checks: every one sided 95% upper bound of the primary family", B)
-    tex_table("rev2_bounds", B, "Every one sided 95% upper bound of the primary family, under the per question test and under the corrected test, single step plans and with two hop plans; readers can apply their own margin.", "llrrrrrr", star=True)
+    tex_table("extra_bounds", B, "Every one sided 95% upper bound of the primary family, under the per question test and under the corrected test, single step plans and with two hop plans; readers can apply their own margin.", "llrrrrrr", star=True)
 
     # ---------------------------------------------------------------- mixed workload
     MX = AN / "mixed"
@@ -1153,7 +1153,7 @@ def t_review2():
                  f"Pos. = per question / corrected / corrected x{infl:.2f})", M,
                  "Positive in both plan sets under all three tests: " + ("; ".join(both) if both else "none"))
         xt = f"$\\times${infl:.2f}"
-        tex_table("rev2_mixed", M.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), "Mixed workload: the 2,000 questions of each reader pooled, one hull and each policy fitted on the pooled training folds, no dataset indicator. Global hull: best mix of fixed plans for the pool; this is the baseline a deployed system can use. Label hull: best mix of fixed plans per dataset under one budget; it knows each question's dataset and is a reference only. Holm within each family and comparator. Pos.: tests with the interval above 0 after Holm under the per question test, the corrected test, and the corrected test with errors " + xt + ". Neg. and the label hull columns use the corrected test.", "llrrrrrr", star=True)
+        tex_table("extra_mixed", M.rename(columns=lambda c: c.replace(f"x{infl:.2f}", xt)), "Mixed workload: the 2,000 questions of each reader pooled, one hull and each policy fitted on the pooled training folds, no dataset indicator. Global hull: best mix of fixed plans for the pool; this is the baseline a deployed system can use. Label hull: best mix of fixed plans per dataset under one budget; it knows each question's dataset and is a reference only. Holm within each family and comparator. Pos.: tests with the interval above 0 after Holm under the per question test, the corrected test, and the corrected test with errors " + xt + ". Neg. and the label hull columns use the corrected test.", "llrrrrrr", star=True)
         VERD.append("Check: mixed workload, positive in both plan sets under all three tests: " + ("; ".join(both) if both else "none"))
         VERD.append("Check: mixed workload (pos/neg): " + "; ".join(f"{r['Policies']} {r['Plan set']}: {r[f'Pos., global: per q. / corr. / x{infl:.2f}']} pos and {r['Neg., global']} neg global, {r['Pos./neg., label hull']} label"
                                                           for _, r in M.iterrows()))
@@ -1176,7 +1176,7 @@ def t_review2():
             rows.append(row)
         D = pd.DataFrame(rows)
         md_table("Checks: mixed workload decomposition (mean over readers): gain over global hull = workload part + gain over label hull", D)
-        tex_table("rev2_decomp", D, "Where the gain on mixed traffic comes from (mean over readers): gain over the global hull = workload part (label hull minus global hull at the policy's cost) + gain over the label hull.", "lrrrrrr", star=True)
+        tex_table("extra_decomp", D, "Where the gain on mixed traffic comes from (mean over readers): gain over the global hull = workload part (label hull minus global hull at the policy's cost) + gain over the label hull.", "lrrrrrr", star=True)
     if (MX / "headroom.csv").exists():
         Hm = pd.read_csv(MX / "headroom.csv")
         h = Hm.groupby(["plan_set", "reader"]).label_minus_global.max().reset_index()
@@ -1193,7 +1193,7 @@ def t_review2():
             rows.append(row)
         Cv = pd.DataFrame(rows)
         md_table("Checks: learning curve on the mixed workload, gain over the label hull (per question skill), mean over readers, by training questions", Cv)
-        tex_table("rev2_curve", Cv, "Learning curve on the mixed workload: gain over the label hull, which removes the workload part, mean over readers, by the number of pooled training questions.", "ll" + "r" * (len(Cv.columns) - 2))
+        tex_table("extra_curve", Cv, "Learning curve on the mixed workload: gain over the label hull, which removes the workload part, mean over readers, by the number of pooled training questions.", "ll" + "r" * (len(Cv.columns) - 2))
 
     # ---------------------------------------------------------------- difference routers
     DR = AN / "difference_router"
@@ -1210,7 +1210,7 @@ def t_review2():
                              "Pair AUROC": f"{au.pair_auroc.mean():.3f}", "Per plan LR, same pairs": f"{au.pair_auroc_plan_emb.mean():.3f}"})
         Dd = pd.DataFrame(rows)
         md_table("Checks: routers trained on the plan difference (corrected test, Holm over 10 per plan set and cost)", Dd)
-        tex_table("rev2_diff", Dd, "Routers trained on the difference between two plans (BGE M3 features, pair and threshold chosen on the training folds), without and with their own 24.6 ms cost. Pair AUROC: held out questions where the two chosen plans disagree, against the per plan router's score on the same questions and pairs.", "llrrrrrr", star=True)
+        tex_table("extra_diff", Dd, "Routers trained on the difference between two plans (BGE M3 features, pair and threshold chosen on the training folds), without and with their own 24.6 ms cost. Pair AUROC: held out questions where the two chosen plans disagree, against the per plan router's score on the same questions and pairs.", "llrrrrrr", star=True)
 
     # ---------------------------------------------------------------- policy checks (exposure, realized, train only, p95, sweep, agreement)
     PC = AN / "policy_checks"
@@ -1257,7 +1257,7 @@ def t_review2():
             rp_note = (f" The closed book rows replay {len(ms)} policies: {sum(m in PRIMARY for m in ms)} primary and "
                        f"{sum(m not in PRIMARY for m in ms)} secondary.")
         md_table("Checks: the primary verdict under each check (corrected test, Holm within plan set)", Q)
-        tex_table("rev2_checks", Q, "The primary family under each check (corrected test; Holm within each plan set). Closed book prompt: Llama 3.1 8B rerun with the closed book answers of the few shot chain of thought prompt that Moskvoretskii et al.~\\cite{moskvoretskii2025adaptive} use, at their measured time and at the old time (Holm over the policies replayed)." + rp_note, "lrrrr", star=True)
+        tex_table("extra_checks", Q, "The primary family under each check (corrected test; Holm within each plan set). Closed book prompt: Llama 3.1 8B rerun with the closed book answers of the few shot chain of thought prompt that Moskvoretskii et al.~\\cite{moskvoretskii2025adaptive} use, at their measured time and at the old time (Holm over the policies replayed)." + rp_note, "lrrrr", star=True)
     if (PC / "exposure.csv").exists():
         Ex = pd.read_csv(PC / "exposure.csv")
         rows = []
@@ -1266,7 +1266,7 @@ def t_review2():
             rows.append({"Plan set": ps, "Tests": len(g), "Judge share, policy minus hull: median": sg(g.judge_diff.median(), 4),
                          "Range": _rng(g.judge_diff), "Long contained, policy minus hull: range": _rng(g.clong_diff)})
         md_table("Checks: grading exposure, policy against hull mix", pd.DataFrame(rows))
-        tex_table("rev2_exposure", pd.DataFrame(rows), "Grading exposure of every policy against its hull mix (mean over folds, seeds and datasets): share of answers whose label came from the judge, and share of long contained answers.", "lrrrr")
+        tex_table("extra_exposure", pd.DataFrame(rows), "Grading exposure of every policy against its hull mix (mean over folds, seeds and datasets): share of answers whose label came from the judge, and share of long contained answers.", "lrrrr")
     if (PC / "agreement_by_reader.csv").exists():
         Ag = pd.read_csv(PC / "agreement_by_reader.csv")
         Ag = Ag.assign(Reader=Ag.reader.map(RN), Audit=Ag.audit.astype(str).str.replace("audit", "", regex=False))
@@ -1275,7 +1275,7 @@ def t_review2():
         for c in ("Agreement", "Sensitivity", "Specificity", "J"):
             Ag[c] = Ag[c].map(lambda x: f"{x:.3f}")
         md_table("Checks: label_final against the human majority, by reader (audits 1 and 2)", Ag)
-        tex_table("rev2_agreement", Ag, "label_final against the majority of three human raters, by the reader that wrote the answer. label_final is the string rules, with the Qwen3 14B judge on the ambiguous band. Each reader was audited in one audit only. The Qwen3 14B row is graded by a judge of the same model.", "lcrrrrr")
+        tex_table("extra_agreement", Ag, "label_final against the majority of three human raters, by the reader that wrote the answer. label_final is the string rules, with the Qwen3 14B judge on the ambiguous band. Each reader was audited in one audit only. The Qwen3 14B row is graded by a judge of the same model.", "lcrrrrr")
     if (PC / "p95.csv").exists():
         P9 = pd.read_csv(PC / "p95.csv")
         rows = []
@@ -1287,7 +1287,7 @@ def t_review2():
             rows.append(row)
         P95 = pd.DataFrame(rows)
         md_table("Checks: 95th percentile latency, policy over its hull (median over readers)", P95)
-        tex_table("rev2_p95", P95, "Tail latency at matched mean cost: 95th percentile of the per question latency of each policy over that of its hull (the hull's plan drawn per question with its weight), median over readers, seed 0.", "lrr")
+        tex_table("extra_p95", P95, "Tail latency at matched mean cost: 95th percentile of the per question latency of each policy over that of its hull (the hull's plan drawn per question with its weight), median over readers, seed 0.", "lrr")
         VERD.append(f"Check: p95 ratio (policy/hull): single step median {P9[P9.plan_set == 'single step'].p95_ratio.median():.2f}, "
                     f"two hop {P9[P9.plan_set == 'with two hop'].p95_ratio.median():.2f}; max {P9.p95_ratio.max():.2f}")
     if (PC / "sweep_tests.csv").exists():
@@ -1313,7 +1313,7 @@ def t_review2():
         sw_note = (f" At budget 1, {len(ov)} of {len(b1)} policy and reader runs have no setting within the budget and cost "
                    f"{ov.min():.2f} to {ov.max():.2f} times the budget; they are still scored against the hull at their own cost.") if len(ov) else ""
         md_table("Checks: budget sweep, mean gain over readers by budget (1 = cheapest plan, 6 = most successful plan)", SW)
-        tex_table("rev2_sweep", SW, "Budget sweep (single step plans, three seeds): each policy tuned on the training folds to its best success within the budget, scored against the held out hull at its mean cost. Budgets from the cheapest plan (1) to the most successful plan (6); mean gain over readers. Last column: reader and budget tests with the corrected interval above 0 (no correction for the six budgets)." + sw_note, "l" + "r" * (len(SW.columns) - 1))
+        tex_table("extra_sweep", SW, "Budget sweep (single step plans, three seeds): each policy tuned on the training folds to its best success within the budget, scored against the held out hull at its mean cost. Budgets from the cheapest plan (1) to the most successful plan (6); mean gain over readers. Last column: reader and budget tests with the corrected interval above 0 (no correction for the six budgets)." + sw_note, "l" + "r" * (len(SW.columns) - 1))
 
     # ---------------------------------------------------------------- closed book prompt of [10]
     CB = AN / "closed_book_prompt"
@@ -1336,7 +1336,7 @@ def t_review2():
                      "Abstain": "", "Time (s)": ""})
         AcT = pd.DataFrame(rows)[["Run", "NQ", "HotpotQA", "2Wiki", "MuSiQue", "Abstain", "Time (s)"]]
         md_table("Checks: closed book accuracy of Llama 3.1 8B (answer contained, the metric of [10])", AcT)
-        tex_table("rev2_closedbook", AcT, "Closed book accuracy of Llama 3.1 8B under answer contained accuracy, the metric of Moskvoretskii et al.~\\cite{moskvoretskii2025adaptive}: their prompt (the few shot chain of thought prompt of Adaptive RAG) against ours, on their 500 test questions per dataset and on ours. Abstain: share of refusals; time per answer. Their stored answers give their Table 1 values on the three multi hop datasets but not on NQ.", "lrrrrrr", star=True)
+        tex_table("extra_closedbook", AcT, "Closed book accuracy of Llama 3.1 8B under answer contained accuracy, the metric of Moskvoretskii et al.~\\cite{moskvoretskii2025adaptive}: their prompt (the few shot chain of thought prompt of Adaptive RAG) against ours, on their 500 test questions per dataset and on ours. Abstain: share of refusals; time per answer. Their stored answers give their Table 1 values on the three multi hop datasets but not on NQ.", "lrrrrrr", star=True)
 
     # ---------------------------------------------------------------- Adaptive RAG with IRCoT on top
     AI = AN / "adaptive_rag_ircot"
@@ -1358,7 +1358,7 @@ def t_review2():
                              "Cells pos./neg. ": f"{_pos(cw)} / {_neg(cw)}"})
         AT = pd.DataFrame(rows)
         md_table("Checks: Adaptive RAG with IRCoT as its top rung (pooled per reader, 3 readers)", AT)
-        tex_table("rev2_arircot", AT, "Adaptive RAG with the published ladder (closed book, single step plan, IRCoT) on the three multi hop datasets, pooled per reader (Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B). Fixed hull: mix of fixed plans. Hull with IRCoT: IRCoT added as one more plan. Corrected test. Pooled: Holm over the three readers. Cells: the nine reader and dataset tests, Holm over nine.", "llrrrrrrr", star=True)
+        tex_table("extra_arircot", AT, "Adaptive RAG with the published ladder (closed book, single step plan, IRCoT) on the three multi hop datasets, pooled per reader (Qwen2.5 7B, Llama 3.1 8B, Qwen3 14B). Fixed hull: mix of fixed plans. Hull with IRCoT: IRCoT added as one more plan. Corrected test. Pooled: Holm over the three readers. Cells: the nine reader and dataset tests, Holm over nine.", "llrrrrrrr", star=True)
 
     # ---------------------------------------------------------------- MDE for Table IX
     if (I / "mde_ablation.csv").exists():
@@ -1367,7 +1367,7 @@ def t_review2():
                            "Expected wins at 0.02": Md["expected_wins_true_0.02"].map(lambda x: f"{x:.1f}"),
                            "Expected wins at 0.03": Md["expected_wins_true_0.03"].map(lambda x: f"{x:.1f}")})
         md_table("Checks: power of the Table IX decision rules (80% power)", Md)
-        tex_table("rev2_mde", Md, "Power of the decision rules of the protocol ablation: minimum detectable effect at 80% power (median over tests), and the number of tests expected to win if every cell had a true gain of 0.02 or 0.03 (normal approximation; Holm rows use the strictest step).", "lrrrr")
+        tex_table("extra_mde", Md, "Power of the decision rules of the protocol ablation: minimum detectable effect at 80% power (median over tests), and the number of tests expected to win if every cell had a true gain of 0.02 or 0.03 (normal approximation; Holm rows use the strictest step).", "lrrrr")
 
     # ---------------------------------------------------------------- outside judge and audit 3 (when run)
     OJ = AN / "outside_judge"
@@ -1377,7 +1377,7 @@ def t_review2():
                            "Agreement": Jh.agreement.map(lambda x: f"{x:.3f}"), "Sensitivity": Jh.sensitivity.map(lambda x: f"{x:.3f}"),
                            "Specificity": Jh.specificity.map(lambda x: f"{x:.3f}"), "J": Jh.J.map(lambda x: f"{x:.3f}")})
         md_table("Checks: both judges against the human majority on the audited answers in the ambiguous band", Jh)
-        tex_table("rev2_judges", Jh, "The judge in our pipeline (Qwen3 14B) and a judge from outside every reader family (Mistral Small 3.1 24B, about 4 bits) against the human majority, on the audited answers of the ambiguous band.", "lrrrrr")
+        tex_table("extra_judges", Jh, "The judge in our pipeline (Qwen3 14B) and a judge from outside every reader family (Mistral Small 3.1 24B, about 4 bits) against the human majority, on the audited answers of the ambiguous band.", "lrrrrr")
     A3 = AN / "audit3" / "audit3_results.csv"
     if A3.exists():
         Au = pd.read_csv(A3)
@@ -1388,7 +1388,7 @@ def t_review2():
                            "Bias on the gain [95% CI]": [f"{sg(a)} [{sg(b)}, {sg(c)}]" for a, b, c in
                                                          zip(Au.bias_label_final_on_gain, Au.bias_label_final_on_gain_low, Au.bias_label_final_on_gain_high)]})
         md_table("Checks: audit of the answers where the policy and the hull disagree", Au)
-        tex_table("rev2_audit3", Au, "Human audit of the answers on which a policy and its hull disagree (two raters who are not authors, adjudicated): error of label_final in each arm and the bias it puts on the gain.", "lrrrrr")
+        tex_table("extra_audit3", Au, "Human audit of the answers on which a policy and its hull disagree (two raters who are not authors, adjudicated): error of label_final in each arm and the bias it puts on the gain.", "lrrrrr")
 
 
 def t_multistep():
@@ -1473,7 +1473,7 @@ def t_arpub():
                     f"negative (corrected) {int(g.negative_corrected.sum())} of {len(g)}")
 
 
-def t_review3():
+def t_refit_tail():
     """Five seed refit on the 12 borderline primary tests (43_refit_targeted.py) and the tail matched hull in both
     versions (38_tail_latency.py, with and without --target=train; refit of the test question version)."""
     RB = AN / "refit_targeted" / "bounds.csv"
@@ -1520,7 +1520,7 @@ def main():
     for fn in (t_h1, t_noninf, t_secondary, t_h3, t_sensitivity, t_step, t_cost_axes, t_stronger, t_r3, t_r6,
                t_ircot, t_headroom, t_checks, t_audit, t_rater, t_summary,
                t_p_retrievers, t_p_plans, t_p_gains, t_p_gains_rest, t_p_ircot, t_p_weak, t_p_mechanism, t_p_rater,
-               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_review, t_review2, t_multistep, t_arpub, t_review3):
+               t_p_datasets, t_p_curve, t_p_sanity, t_p_headroom, t_p_h3rules, t_robust, t_extra, t_multistep, t_arpub, t_refit_tail):
         try:
             fn()
         except FileNotFoundError as e:

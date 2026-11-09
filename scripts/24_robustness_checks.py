@@ -30,11 +30,11 @@ Robustness checks on the stored answers. CPU only; no new model calls.
              the default run: --parts pooled --overhead_ms X.
   boundary   How often a policy's mean cost falls below the cheapest plan or on the flat part of the hull.
 
-Usage:  python scripts/24_review_checks.py                         every part except overhead (about 3 to 5 hours)
-        python scripts/24_review_checks.py --parts inference,headroom,boundary
-        python scripts/24_review_checks.py --parts overhead --overhead_ms 25
-        python scripts/24_review_checks.py --quick                 small run to test the code
-Output: results_full/analysis/review/*.csv and summary_<parts>.txt
+Usage:  python scripts/24_robustness_checks.py                         every part except overhead (about 3 to 5 hours)
+        python scripts/24_robustness_checks.py --parts inference,headroom,boundary
+        python scripts/24_robustness_checks.py --parts overhead --overhead_ms 25
+        python scripts/24_robustness_checks.py --quick                 small run to test the code
+Output: results_full/analysis/robustness/*.csv and summary_<parts>.txt
 """
 
 import importlib.util
@@ -69,7 +69,7 @@ CONFIG = {
     "margin": 0.03,
 }
 AN = settings.RESULTS_ROOT / "analysis"
-OUT = AN / "review"
+OUT = AN / "robustness"
 OUT.mkdir(parents=True, exist_ok=True)
 
 
@@ -765,7 +765,7 @@ def part_boundary():
 
 def main():
     t0 = time.time()
-    say(f"Review checks; parts {PARTS}; label {A.CONFIG['label']}; seeds {A.CONFIG['seeds']}"
+    say(f"Robustness checks; parts {PARTS}; label {A.CONFIG['label']}; seeds {A.CONFIG['seeds']}"
         + ("; QUICK TEST RUN, numbers not for the paper" if QUICK else ""))
     for p in PARTS:
         {"inference": part_inference, "refit": part_refit, "mechanism": part_mechanism, "headroom": part_headroom,

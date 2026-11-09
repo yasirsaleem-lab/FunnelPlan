@@ -2,7 +2,7 @@
 \centering\small
 \setlength{\tabcolsep}{4pt}
 \caption{Refit bootstrap for the tests closest to a decision: 100 resamples of the questions within each dataset, each rerunning folds, policy fitting, hull and weights (one seed per resample). The interval and p value use the refit spread (standard deviation) around the observed gain. Each resample holds only about 63\% distinct questions, so a learned policy trains on less information and its refit mean shifts down (last column); the cascades, which learn little, do not shift.}
-\label{tab:review_refit}
+\label{tab:robust_refit}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lllrrrrr}
 \toprule
 Policy & Reader & Plan set & Gain & Plain 95\% CI & \begin{tabular}[b]{@{}r@{}}Gain +/- 1.96 \\ refit SD\end{tabular} & p, refit SD & \begin{tabular}[b]{@{}r@{}}Refit mean \\ shift\end{tabular} \\

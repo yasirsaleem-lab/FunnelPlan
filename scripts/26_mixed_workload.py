@@ -1,7 +1,7 @@
 """
 Mixed workload condition. CPU only; no new model calls.
 
-Concern: every hull and every policy in the main protocol is fitted per reader and dataset, so the baseline knows
+Motivation: every hull and every policy in the main protocol is fitted per reader and dataset, so the baseline knows
 which dataset each question comes from. On mixed traffic a policy must make that choice from the question itself.
 Here the 2,000 questions of each reader are pooled. Every question keeps its own corpus and its stored answers.
 Folds are split across the pool, and ONE hull and each policy are fitted on the pooled training folds, with no
@@ -38,7 +38,7 @@ Curve part (--parts curve), after the main and extra runs: plan_emb and plan_knn
 Extra part (--parts extra), after the main run:
   own_cost      plan_emb and plan_knn with their own cost: --overhead_ms (default 24.6 ms, 25_latency_e2e.py) per
                 question, except when the chosen plan embeds the query with BGE-M3 anyway; lambda tuned with these
-                costs (as 24_review_checks.py --parts overhead). Holm over 10.
+                costs (as 24_robustness_checks.py --parts overhead). Holm over 10.
   ds_label      a dataset classifier plus the label hull: the question's dataset is PREDICTED from its BGE-M3
                 embedding, and the question runs the label hull's mix for that dataset. It knows nothing else about
                 the question. Without (ds_label) and with (ds_label_own) the embedding cost. Holm over 5 each.
@@ -231,12 +231,12 @@ def label_hull(Y, cost, sel, c, test):
 
 
 # ====================================================================== extra part: own cost, dataset classifier
-BGE_RETRIEVERS = {"bge_m3", "bge_bm25_rrf", "qwen3_reranker_0_6b"}   # as 24_review_checks.py
+BGE_RETRIEVERS = {"bge_m3", "bge_bm25_rrf", "qwen3_reranker_0_6b"}   # as 24_robustness_checks.py
 
 
 def eff_cost(B, plans, delta):
     """Plan costs as an embedding policy pays them: + delta unless the plan's own retrieval embeds the query with
-    BGE-M3 anyway (as 24_review_checks.py). The hulls keep the plain plan costs."""
+    BGE-M3 anyway (as 24_robustness_checks.py). The hulls keep the plain plan costs."""
     c = B.cost[plans].to_numpy().astype(float)
     return c + delta * np.array([0.0 if p.split("@")[0] in BGE_RETRIEVERS else 1.0 for p in plans])
 
@@ -551,7 +551,7 @@ def reference_gains():
 
 def frac_method(method, frac):
     """Learning curve: the policy trains (and tunes) on a seeded subset of the training folds; the hulls keep the
-    full training folds, as in 24_review_checks.py --parts curve."""
+    full training folds, as in 24_robustness_checks.py --parts curve."""
     fit, apply_ = method
 
     def fit2(sel):

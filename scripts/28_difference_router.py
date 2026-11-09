@@ -1,7 +1,7 @@
 """
 Routers trained on the difference between two plans. CPU only.
 
-Concern: the planners and per plan routers predict each plan's success and then compare the predictions (S or T
+Motivation: the planners and per plan routers predict each plan's success and then compare the predictions (S or T
 learners in treatment effect terms). Their predictions across plans correlate at 0.99 and their pair AUROC is at
 chance (Table X). Learners that target the difference directly can do better when the difference is simpler than
 the outcomes (Kuenzel et al., PNAS 2019). The plan matrix observes every plan on every training question, so the

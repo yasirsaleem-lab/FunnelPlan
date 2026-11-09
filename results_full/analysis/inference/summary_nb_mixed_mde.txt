@@ -53,7 +53,7 @@ with two hop secondary  qwen2.5-7b   plan_emb  0.0155      0.0305   0.0285      
 with two hop secondary   qwen3-14b   ak_paper -0.0233     -0.0067  -0.0131        0.4274     0.0094
 with two hop secondary   qwen3-14b   plan_emb  0.0241      0.0391   0.0351        0.2004     0.0139
 
-  calibration: standard errors against the refit bootstrap SD (24_review_checks.py, 100 refits)
+  calibration: standard errors against the refit bootstrap SD (24_robustness_checks.py, 100 refits)
     plan_set                reader         method  se_plain  se_paired  se_nb  sd_refit  nb_over_refit  paired_over_refit  plain_over_refit
  single step             qwen3-32b       plan_emb    0.0097     0.0050 0.0074    0.0112         0.6606             0.4461            0.8667
 with two hop             qwen3-32b       plan_emb    0.0094     0.0047 0.0071    0.0117         0.6091             0.4050            0.8048

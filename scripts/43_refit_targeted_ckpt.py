@@ -1,7 +1,7 @@
 """
 Refit bootstrap where the variance estimates disagree. CPU only.
 
-Concern (review of 7 November, M2 and M3): the per question test and the corrected test can be too narrow, and the
+Motivation: the per question test and the corrected test can be too narrow, and the
 inflation factor 2.61 (the largest single seed refit ratio over 16 tests) may be too wide. Where a verdict depends on
 which of them is right, measure the spread directly, with the estimator the paper uses (five seeds per replicate).
 
@@ -16,7 +16,7 @@ fold), plan costs are recomputed on the resample, and for each of five seeds the
 and its weights are refitted (the tail hull is chosen on the training folds as in script 38). The replicate's gain
 is the pooled gain averaged over the five seeds, as in the paper. The refit standard error is the SD over replicates.
 It is read around the observed gain (a resample holds about 63% distinct questions, which shifts a learned policy's
-mean down; see 24_review_checks.py).
+mean down; see 24_robustness_checks.py).
 
 Usage:  python scripts/43_refit_targeted.py [--parts bounds,tail] [--reps 100] [--workers 4] [--seeds 5]
                                            [--methods planner_tsr,conf_cascade]  (bounds part: only these methods)

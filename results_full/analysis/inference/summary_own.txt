@@ -1,7 +1,7 @@
 Inference with refitting; parts ['own']; seeds [0, 1, 2, 3, 4]
 
 == embedding routers with their own cost (24.6 ms unless the chosen plan embeds the query with BGE-M3 anyway), per dataset; corrected test; secondary family recomputed with these in place of the uncharged ones
-  check against 24_review_checks.py --parts overhead (per plan logistic router): largest difference 9.89e-17 over 40 cells
+  check against 24_robustness_checks.py --parts overhead (per plan logistic router): largest difference 9.89e-17 over 40 cells
 
   single step: secondary family with the embedding routers charged (30 tests)
     plain     positive 0  negative 6  upper bound below 0.03: 30

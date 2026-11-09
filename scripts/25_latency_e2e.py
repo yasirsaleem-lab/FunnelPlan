@@ -1,5 +1,5 @@
 """
-Live end to end latency check (review comment 6). GPU; run on the machine that made the labels.
+Live end to end latency check. GPU; run on the machine that made the labels.
 
 The paper scores policies by replay: a policy's cost is the mean of the stored plan costs it chooses. This script
 checks that replay against a live run, for one reader on the datasets given (default MuSiQue and 2Wiki).

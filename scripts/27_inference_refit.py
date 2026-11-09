@@ -1,9 +1,9 @@
 """
 Inference that accounts for refitting. CPU only; no new model calls.
 
-Concern: the paper's t test and bootstrap treat the fitted policies and hulls as fixed. Gains in one fold share one
+Motivation: the paper's t test and bootstrap treat the fitted policies and hulls as fixed. Gains in one fold share one
 fitted model, so they are correlated, and intervals that ignore this are too narrow (Nadeau and Bengio, Machine
-Learning 52, 2003; Bates, Hastie and Tibshirani, JASA 2024). The refit bootstrap of 24_review_checks.py covers four
+Learning 52, 2003; Bates, Hastie and Tibshirani, JASA 2024). The refit bootstrap of 24_robustness_checks.py covers four
 tests only.
 
 Parts:
@@ -336,7 +336,7 @@ def part_nb():
         .round(4).to_string(index=False) if len(ch) else "    none")
 
     # calibration against the refit bootstrap
-    rb = AN / "review" / "refit_bootstrap.csv"
+    rb = AN / "robustness" / "refit_bootstrap.csv"
     if rb.exists() and not QUICK:
         Rb = pd.read_csv(rb)
         cal = []
@@ -351,7 +351,7 @@ def part_nb():
                             "plain_over_refit": t.se_plain / r.sd})
         C = pd.DataFrame(cal)
         C.to_csv(OUT / "calibration.csv", index=False)
-        say("\n  calibration: standard errors against the refit bootstrap SD (24_review_checks.py, 100 refits)")
+        say("\n  calibration: standard errors against the refit bootstrap SD (24_robustness_checks.py, 100 refits)")
         say(C.round(4).to_string(index=False))
 
 
@@ -363,7 +363,7 @@ def part_own():
         f"anyway), per dataset; corrected test; secondary family recomputed with these in place of the uncharged ones")
     M26 = _load("mixed26", "26_mixed_workload.py")
     mods = MODS + [M26.A]
-    ref_f = AN / "review" / "plan_emb_with_overhead_per_query.csv"
+    ref_f = AN / "robustness" / "plan_emb_with_overhead_per_query.csv"
     REF = pd.read_csv(ref_f, dtype={"query_id": str}) if ref_f.exists() else None
     folds, perq, checks = [], [], []
     t0 = time.time()
@@ -401,7 +401,7 @@ def part_own():
     FO, PQ = pd.DataFrame(folds), pd.concat(perq, ignore_index=True)
     FO.to_csv(OUT / "folds_own.csv", index=False)
     if checks:
-        say(f"  check against 24_review_checks.py --parts overhead (per plan logistic router): largest difference "
+        say(f"  check against 24_robustness_checks.py --parts overhead (per plan logistic router): largest difference "
             f"{max(checks):.2e} over {len(checks)} cells")
     rows = []
     for (tag, rd, m), g in PQ.groupby(["plan_set", "reader", "method"]):

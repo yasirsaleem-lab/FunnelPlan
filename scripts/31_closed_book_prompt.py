@@ -1,7 +1,7 @@
 """
 Closed book prompt check. GPU for stages generate and judge.
 
-Concern: our closed book accuracy for Llama 3.1 8B is 0.06 to 0.10 below the Never RAG values of Moskvoretskii et al.
+Motivation: our closed book accuracy for Llama 3.1 8B is 0.06 to 0.10 below the Never RAG values of Moskvoretskii et al.
 (ACL 2025, [10]), while Always RAG at depth 10 is within 0.03. The paper blamed corpus and prompt differences, but a
 corpus cannot affect a closed book answer. A weaker closed book reader shrinks what the closed book gate and the no
 retrieval rung of Adaptive RAG can save. This script matches the closed book prompt of [10] for Llama 3.1 8B,

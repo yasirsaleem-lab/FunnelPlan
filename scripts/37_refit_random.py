@@ -1,7 +1,7 @@
 """
 Refit bootstrap on randomly drawn tests. CPU only. Plan: docs/ANALYSIS_PLAN_2026-11-05.md, CPU analysis 2.
 
-Concern: the inflation factor 1.64 is the largest ratio of the refit bootstrap spread to the corrected standard error
+Motivation: the inflation factor 1.64 is the largest ratio of the refit bootstrap spread to the corrected standard error
 over four tests chosen because they were near a decision. Does it cover other tests?
 
 Draw: 12 tests (method, reader, plan set) with numpy seed 20261105 from the primary and secondary families, both
@@ -10,7 +10,7 @@ are outside the draw, stated before the run: the reader cascades (two reader blo
 classifier (a GPU fine tune per replicate) and the METIS style router (profiles stored per question).
 Each test: 100 replicates; in each, the 500 questions of every dataset are resampled with replacement, copies of a
 question stay in one fold, plan costs are recomputed on the resample, and policy, hull and weights are refitted
-(one fold split per replicate, as 24_review_checks.py). The spread (SD over replicates of the pooled gain) is
+(one fold split per replicate, as 24_robustness_checks.py). The spread (SD over replicates of the pooled gain) is
 compared with the per question and the corrected standard errors of tests_nb.csv.
 If the largest ratio to the corrected error exceeds 1.64, the larger ratio replaces 1.64 (written to calibration_random.csv).
 
@@ -98,7 +98,7 @@ def resample_full(B, d_ds, take):
 def one_test(row):
     """Runs in a worker: all replicates of one test. Returns the replicate gains."""
     K = _load("inference27", "27_inference_refit.py")
-    C24 = _load("review24", "24_review_checks.py")
+    C24 = _load("robust24", "24_robustness_checks.py")
     A, R = K.A, K.R
     method, rd, ps = row["method"], row["reader"], row["plan_set"]
     A.CONFIG["include_r3"] = ps == "with two hop"

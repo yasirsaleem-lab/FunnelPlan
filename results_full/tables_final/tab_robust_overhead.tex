@@ -2,7 +2,7 @@
 \centering\footnotesize
 \setlength{\tabcolsep}{2pt}
 \caption{Per-plan logistic regression without and with its own cost: 24.6 ms for the query embedding and classifiers, charged when the chosen plan does not embed the query with BGE-M3 anyway; lambda is tuned with these costs. Per dataset: trained on 400 questions per dataset (Holm p: secondary family of 30 tests). Pooled training (exploratory): one model on the training folds of all four datasets. p: unadjusted.}
-\label{tab:review_overhead}
+\label{tab:robust_overhead}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrrrrrrr}
 \toprule
 Reader & Plan set & \begin{tabular}[b]{@{}r@{}}Per dataset, \\ replay [95\% \\ CI]\end{tabular} & Holm p & \begin{tabular}[b]{@{}r@{}}Per dataset, \\ own cost [95\% \\ CI]\end{tabular} & p & Pooled, replay & p  & \begin{tabular}[b]{@{}r@{}}Pooled, own \\ cost\end{tabular} & p   \\

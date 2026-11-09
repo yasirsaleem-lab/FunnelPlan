@@ -40,7 +40,7 @@ STEPS = [
     (19, ["scripts/19_cost_axes.py"], "cost axes: tokens, tokens x4, FLOPs, calls"),
     (20, ["scripts/20_stronger_policies.py"], "classifier gate and planner with self knowledge"),
     (21, ["scripts/21_checks.py"], "sanity table, grading factor, matched cost headroom, mechanism"),
-    (24, ["scripts/24_review_checks.py"], "review checks -> analysis/review/"),
+    (24, ["scripts/24_robustness_checks.py"], "robustness checks -> analysis/robustness/"),
     (22, ["scripts/22_tables_final.py"], "final tables and verdicts -> tables_final/"),
     (23, ["scripts/23_figures.py"], "final figures -> figures_final/"),
     ("F1", ["figures_src/fig_framework.py"], "Figure 1, benchmark layers -> figures_final/fig_framework"),

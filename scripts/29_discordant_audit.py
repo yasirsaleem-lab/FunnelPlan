@@ -1,7 +1,7 @@
 """
 Human audit of the answers on which a policy and its hull disagree.
 
-Concern: the grading audits so far sampled answers in general. A difference in grading error between the two arms
+Motivation: the grading audits so far sampled answers in general. A difference in grading error between the two arms
 acts only where the policy and the hull give different answers. This script audits those answers
 for the tests nearest a decision, by at least two raters who are not authors, with written guidelines and
 adjudication, and error rates per arm.

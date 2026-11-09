@@ -123,7 +123,7 @@ def corrected(folds, gain, k):
 def h3_refit(B, ir, d_ds, k, reps):
     """Refit bootstrap for one IRCoT test: resample the questions with replacement, recompute the plan costs as
     Block does, split into k folds that keep the copies of a question together, choose the hull on the training
-    folds and score IRCoT and the hull on the test fold (one fold split per replicate, as in 24_review_checks.py).
+    folds and score IRCoT and the hull on the test fold (one fold split per replicate, as in 24_robustness_checks.py).
     IRCoT has nothing to fit, so only the hull is refitted. Returns the replicate gains."""
     ir = ir.set_index("query_id")
     q0 = np.array([q for q in B.q if q in ir.index])

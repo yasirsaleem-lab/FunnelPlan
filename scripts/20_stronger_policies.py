@@ -1,5 +1,5 @@
 """
-Stronger learned policies. Concern: the routers may be weak, and the ACL 2025
+Stronger learned policies. Motivation: the routers may be weak, and the ACL 2025
 uncertainty baselines were missing. Two policies, same protocol as 10 (imported from it: same queries, plans, mean plan
 costs, 5 folds x 5 seeds, settings chosen on the training folds, gain against the hull fitted on the training folds):
 

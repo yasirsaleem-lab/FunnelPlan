@@ -1,5 +1,5 @@
 """
-Cost axes. Concern: latency comes from one GPU, so the verdict may be
+Cost axes. Motivation: latency comes from one GPU, so the verdict may be
 an artifact of that machine. Refits the hull and retests the primary family (27 pooled tests, Holm) with four costs
 in place of latency, in both plan sets:
   tokens     reader prompt plus generated tokens, per 1,000

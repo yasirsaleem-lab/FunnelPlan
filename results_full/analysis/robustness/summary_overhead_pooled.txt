@@ -1,4 +1,4 @@
-Review checks; parts ['overhead', 'pooled']; label final; seeds [0, 1, 2, 3, 4]
+Robustness checks; parts ['overhead', 'pooled']; label final; seeds [0, 1, 2, 3, 4]
 
 == per plan router (per dataset training) with its own cost: +24.6 ms per question, except when the chosen plan embeds the query with BGE-M3 anyway (['bge_bm25_rrf', 'bge_m3', 'qwen3_reranker_0_6b']); lambda tuned with these costs
   dataset   single step  gemma3-27b   own cost  0.0 ms: gain +0.0196 [+0.0019, +0.0375]  p 0.0305
