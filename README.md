@@ -2,6 +2,8 @@
 
 Code, answers and analyses for the paper **Adaptive Retrieval Versus a Coin Flip: Cost-Matched Baselines Change the
 Verdict** (ICDE 2027, Experiment, Analysis, and Benchmark track).
+The extended version of the paper, with every table and figure, is
+[docs/extended/FunnelPlan_ICDE2027_extended.pdf](docs/extended/FunnelPlan_ICDE2027_extended.pdf).
 
 FunnelPlan is a benchmark for retrieval augmented generation (RAG). A *plan* is a retriever and a depth (how many
 passages the reader gets), or no retrieval. We ran every plan on every question for five open readers, graded every
